@@ -92,10 +92,11 @@
 
     var url1=`https://api.subscriberwars.space/yt/subscriberwars`;
     var url2=`https://api1.subscriberwars.space/yt/jaymburton`;
-    var url3=`https://mixerno.space/api/twitter/user/JayMBurton`;
-    var url4=`https://api.nextcounts.com/api/tiktok/user/stats/subscriberwars`
-    var url5=`https://swc.subscriberwars.space/subscribers`
-    var url6=``
+    var url3=`https://swc.subscriberwars.space/subscribers`
+    var url4=`https://mixerno.space/api/twitter/user/JayMBurton`;
+    var url5=`https://api.nextcounts.com/api/tiktok/user/stats/subscriberwars`
+    var url6=`https://api.nextcounts.com/api/instagram/user/data/jayburton135`
+    
     
     $(document).ready(function(){
         $.getJSON(url1, function(data) {
@@ -104,14 +105,17 @@
         $.getJSON(url2,function(data){
             sw2.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
                });
-        $.getJSON(url7,function(data){
+        $.getJSON(url3,function(data){
             swc.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
                });
         $.getJSON(url4,function(data){
                    twitter.innerHTML=data.followers
                });
-        $.getJSON(url6,function(data){
+        $.getJSON(url5,function(data){
                    tiktok.innerHTML=data.followers
+               });
+        $.getJSON(url6,function(data){
+                   instagram.innerHTML=data.followers
                });
     })
         
