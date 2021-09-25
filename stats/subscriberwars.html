@@ -75,25 +75,25 @@
 
 <script type="text/javascript">
 var url1=`https://api.subscriberwars.space/yt/subscriberwars`;
-var url2=`https://mixerno.space/api/youtube-subscriber-counter/channel/UCdKLd9f_8ZyDSKxMm16oRww`
+var url2=`https://mixerno.space/api/youtube-channel-counter/user/UCdKLd9f_8ZyDSKxMm16oRww`
     $(document).ready(function(){
         $.getJSON(url1, function(data) {
             sw.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
         });
-    $.getJSON(url2, function(data1) {
-        swapi.innerHTML=data1.userList[0].stats.subscriberCountAPI
-        views.innerHTML=data1.userList[0].stats.viewCount
-        videos.innerHTML=data1.userList[0].stats.videoCount
+    $.getJSON(url2, function(data) {
+        swapi.innerHTML=data.counts[2].count
+        views.innerHTML=data.counts[3].count
+        videos.innerHTML=data.counts[5].count
         });
     })
     setInterval(function() {
         $.getJSON(url1, function(data) {
             sw.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
         });
-        $.getJSON(url2, function(data1) {
-            swapi.innerHTML=data1.userList[0].stats.subscriberCountAPI
-            views.innerHTML=data1.userList[0].stats.viewCount
-            videos.innerHTML=data1.userList[0].stats.videoCount
+        $.getJSON(url2, function(data) {
+            swapi.innerHTML=data.counts[2].count
+            views.innerHTML=data.counts[3].count
+            videos.innerHTML=data.counts[5].count
         });
     }, 10000);   
 </script>
