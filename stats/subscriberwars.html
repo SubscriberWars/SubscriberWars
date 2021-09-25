@@ -75,7 +75,7 @@
 
 <script type="text/javascript">
 var url1=`https://api.subscriberwars.space/yt/subscriberwars`;
-var url2=`https://beta.mixerno.space/api/youtube-subscriber-counter/channel/UCdKLd9f_8ZyDSKxMm16oRww`
+var url2=`https://mixerno.space/api/youtube-subscriber-counter/channel/UCdKLd9f_8ZyDSKxMm16oRww`
     $(document).ready(function(){
         $.getJSON(url1, function(data) {
             sw.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
