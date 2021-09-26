@@ -133,8 +133,11 @@
         $.getJSON(url4,function(data){
                    twitter.innerHTML=data.followers
                });
-        $.getJSON(url6,function(data){
+        $.getJSON(url5,function(data){
                    tiktok.innerHTML=data.followers
+               });
+        $.getJSON(url6,function(data){
+                   instagram.innerHTML=data.followers
                });
     }, 10000);   
     </script>
