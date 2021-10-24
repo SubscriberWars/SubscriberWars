@@ -29,20 +29,20 @@ div{
     font-size:50px;
 }
 .text-black{
-    font-weight:900;
+    font-weight:900!important;
 }
 .text-bold{
-    font-weight:700px;
+    font-weight:700px!important;
 }
 .text-medium{
-    font-weight:500px;
+    font-weight:500px!important;
 }
 .text-regular{
-    font-weight:400px;
+    font-weight:400px!important;
 }
 .text-light{
-    font-weight:300px;
+    font-weight:300px!important;
 }
 .text-thin{
-    font-weight:100px;
+    font-weight:100px!important;
 }
