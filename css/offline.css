@@ -16,6 +16,14 @@ div{
     text-align: center;
     color: #fff;
 }
+.text-xxl{
+    height:350px;
+    font-size:250px;
+}
+.text-xl{
+    height:300px;
+    font-size:200px;
+}
 .text-l{
     height:250px;
     font-size:150px;
