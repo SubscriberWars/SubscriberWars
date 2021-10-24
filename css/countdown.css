@@ -1,4 +1,4 @@
-:root {
+t:root {
     --deep-waters: #022B49;
     --teamseas-blue: #0058A5;
     --bahamas: #00AACC;
@@ -24,7 +24,7 @@
 }
 
 
-html,body{width:100%; height:100%; font-family: 'Montserrat', sans-serif; font-size: 19px; background: #E5E5E5; color: var(--deep-waters);}
+html,body{width:100%; height:100%; font-family: 'Montserrat', sans-serif; font-size: 19px; background: transparent; color: var(--deep-waters);}
 
 .font-xxxl {font-size: 3.5em;}
 .font-xxl {font-size: 2.4em;}
