@@ -1,0 +1,83 @@
+:root {
+    --deep-waters: #022B49;
+    --teamseas-blue: #0058A5;
+    --bahamas: #00AACC;
+    --seafoam: #A8DFE2;
+    --dolphin-grey: #48545B;
+    --clownfish: #EF7517;
+    --orca: #191D21;
+    --shark-grey: #EBEBEB;
+    --sunset: #6C0146;
+    --sea-moss-pink: #D22E98;
+    --coral: #E13A06;
+    --sunshine: #FFB72B;
+
+    --grey-light: #ECECEC;
+    --grey-lighter: #F6F6F4;
+    --counter-xl:2.75rem;
+    --counter-lg:2.25rem;
+    --counter-md:1.75rem;
+    --counter-sm:1.25rem;
+    --counter-xs:1.15rem;
+    --counter-xxs:1rem;
+
+}
+
+
+html,body{width:100%; height:100%; font-family: 'Montserrat', sans-serif; font-size: 19px; background: transparent; color: var(--deep-waters);}
+
+.font-xxxl {font-size: 3.5em!important;}
+.font-xxl {font-size: 2.4em!important;}
+.font-xl {font-size: 1.6em!important;}
+.font-lg {font-size: 1.4rem!important;}
+.font-md {font-size: .9em!important;}
+.font-sm {font-size: .8em!important;}
+.font-xs {font-size: .7em!important;}
+.font-xxs{font-size: .5em!important;}
+
+.font-weight-800 {font-weight: 800!important;}
+.font-weight-700 {font-weight: 700!important;}
+.font-weight-600 {font-weight: 600!important;}
+.font-weight-500 {font-weight: 500!important;}
+.font-weight-400 {font-weight: 400!important;}
+
+.text-blue { color: var(--teamseas-blue)!important;}
+.text-blue-dark {color: var(--deep-waters)!important;}
+.text-blue-light { color: var(--bahamas)!important;}
+.text-blue-lighter { color: var(--seafoam)!important;}
+.text-orange { color: var(--clownfish)!important;}
+.text-orange-light {color: var(--sunshine)!important;}
+.text-orange-gradient {background:linear-gradient(45deg,var(--sunshine), var(--clownfish)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+.text-orange-gradient-reverse {background:linear-gradient(45deg,var(--clownfish), var(--sunshine)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+.text-grey { color: #999!important;}
+
+.bg-grey {background-color: #999!important;}
+.bg-grey-light { background-color: var(--grey-light)!important;}
+.bg-grey-lighter{ background-color: var(--grey-lighter)!important;}
+
+.bg-blue { background-color: var(--teamseas-blue)!important;}
+.bg-orange { background-color: var(--clownfish)!important;}
+.bg-orange-light { background-color: var(--sunshine)!important;}
+
+.btn {padding: .5rem 2rem; border-radius: 2rem;}
+.btn-lg {padding: .75rem 3rem; border-radius: 3rem;}
+.btn-orange { background-color: var(--clownfish); color: #fff;}
+.btn-orange:hover,.btn-orange:focus,.btn-orange:active {background-color: var(--sunshine); color: #fff;}
+.btn-outline-orange { border-color: var(--clownfish); color: #000; background: #fff;}
+.section-inner:before,.section-inner:after{content:''; display: table; clear: both;}
+
+#header { background: #A8DFE2; position: relative;}
+#header .section-inner {position: relative; z-index: 2;padding-top: 1rem; padding-bottom: 1rem;}
+#header .navbar {position: fixed; z-index: 999999; top: 0; left: 0; right: 0;}
+#main {background: linear-gradient(#00AACD, #0077B4 30%, #014E90 50%, #02335A); position: relative; overflow-x: hidden;}
+#sectionTop {position: relative;  z-index: 2;}
+#sectionTop .section-inner {padding-top: 0rem; padding-bottom: 1rem;}
+#section1 {position: relative; z-index: 4;}
+#section1 .section-inner {padding-top: 2rem; padding-bottom: 0rem; position: relative;}
+#section2 {position: relative; z-index: 3;}
+#section2 .section-inner {padding-top: 10rem; padding-bottom: 0rem; position: relative; top: -4rem; background: url('/assets/images/fish-shadow-1.png') no-repeat center top / 80% auto,url('/assets/images/coral-shadow-1.png') no-repeat left bottom / auto 90%,url('/assets/images/coral-shadow-2.png') no-repeat right bottom / auto 90%,url('/assets/images/fish-shadow-2.png') no-repeat center bottom / 50% auto;}
+#section2 .container-outer {background: url('/assets/images/diver-bag-2.png') no-repeat left 15% top / 17% auto,url('/assets/images/diver-tire-1.png') no-repeat right bottom / 17% auto;}
+.timer-container {text-align:center; margin-top: 1rem;}
+.timer-container .timer-display .timer-time {display:block; font-size: 2em; font-weight: 800; width: 115px; padding: 1.5rem 0; margin: 0 auto; border-radius: .5rem; border: 2px solid var(--teamseas-blue); background-color: #BEE7E9;}
+.timer-container .timer-display .timer-type {display:block; font-size: 1em; margin: .7rem 0;}
+

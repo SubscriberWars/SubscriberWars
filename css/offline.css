@@ -1,0 +1,56 @@
+body, html{
+    margin:0px;
+    padding:0px;
+    background:transparent;
+    font-size:11pt;
+    font-family:roboto;
+    display:block;
+}
+div{
+    display:block;
+}
+.count{
+    width:1500px;
+    background:transparent;
+    margin-bottom:20px;
+    text-align: center;
+    color: #fff;
+}
+.text-xxl{
+    height:350px;
+    font-size:250px;
+}
+.text-xl{
+    height:300px;
+    font-size:200px;
+}
+.text-l{
+    height:250px;
+    font-size:150px;
+}
+.text-m{
+    height:200px;
+    font-size:100px;
+}
+.text-s{
+    height:150px;
+    font-size:50px;
+}
+.text-black{
+    font-weight:900!important;
+}
+.text-bold{
+    font-weight:700!important;
+}
+.text-medium{
+    font-weight:500!important;
+}
+.text-regular{
+    font-weight:400!important;
+}
+.text-light{
+    font-weight:300!important;
+}
+.text-thin{
+    font-weight:100!important;
+}

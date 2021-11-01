@@ -1,0 +1,70 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+    color: #232323;
+    font-size: 11pt;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+}
+div {
+    display: block;
+}
+#top-header {
+    height:210px;
+    width: 1260px;
+    margin: 0px auto;
+    background: #e6e6e6;
+    overflow: hidden;
+    position: relative;
+}
+
+#user-menu {
+    width: 1260px;
+    margin: 0px auto;
+    background: #000;
+    line-height: 50px;
+    height: 50px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+#user-menu a {
+    display: block;
+    float: left;
+    height: 50px;
+    padding: 0px 15px;
+    color: #fff;
+    text-decoration: none; 
+}
+#user-menu a:hover {
+    background: rgb(20, 20, 20);
+}
+#container {
+    width: 1260px;
+    margin: 20px auto;
+}
+#sidebar {
+    width: 340px;
+    float: right;
+}
+.video-embed {
+    width: 340px;
+    height: 191px;
+    background: rgb(20, 20, 20);
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+#user-content {
+    width: 900px;
+    float: left;
+}
+#lower-header {
+    width: 860px;
+    height: 30px;
+    line-height: 30px;
+    background: rgb(20, 20, 20);
+    padding: 0px 20px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 10pt;
+}
