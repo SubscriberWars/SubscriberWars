@@ -75,26 +75,26 @@
 
 
 <script type="text/javascript">
-var url1=`https://api1.subscriberwars.space/yt/jaymburton`;
-var url2=`https://mixerno.space/api/youtube-channel-counter/user/UCMCcezu9B4776VzmPhaTThw`
+var url1=`https://api.subscriberwars.space/subscriberwars2`;
+var url2=`https://api.subscriberwars.space/subscriberwars2/api`
     $(document).ready(function(){
-        $.getJSON(url1, function(data) {
-            sw.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
+    $.getJSON(url1, function(data) {
+            sw.innerHTML=data.subscriberCount
         });
     $.getJSON(url2, function(data) {
-        swapi.innerHTML=data.counts[2].count
-        views.innerHTML=data.counts[3].count
-        videos.innerHTML=data.counts[5].count
+        swapi.innerHTML=data.subscriberCount
+        views.innerHTML=data.viewCount
+        videos.innerHTML=data.videoCount
         });
     })
     setInterval(function() {
         $.getJSON(url1, function(data) {
-            sw.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
+            sw.innerHTML=data.subscriberCount
         });
-        $.getJSON(url2, function(data) {
-            swapi.innerHTML=data.counts[2].count
-            views.innerHTML=data.counts[3].count
-            videos.innerHTML=data.counts[5].count
+    $.getJSON(url2, function(data) {
+        swapi.innerHTML=data.subscriberCount
+        views.innerHTML=data.viewCount
+        videos.innerHTML=data.videoCount
         });
     }, 10000);   
 </script>
