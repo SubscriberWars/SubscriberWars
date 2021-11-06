@@ -90,9 +90,9 @@
     
     const youtubeKey ='';
 
-    var url1=`https://api.subscriberwars.space/yt/subscriberwars`;
-    var url2=`https://api1.subscriberwars.space/yt/jaymburton`;
-    var url3=`https://swc.subscriberwars.space/subscribers`
+    var url1=`https://api.subscriberwars.space/subscriberwars`;
+    var url2=`https://api.subscriberwars.space/subscriberwars2`;
+    var url3=`https://api.subscriberwars.space/subscriberwarsclips`
     var url4=`https://api.nextcounts.com/api/twitter/user/JayMBurton`;
     var url5=`https://api.nextcounts.com/api/tiktok/user/stats/subscriberwars`
     var url6=`https://api.nextcounts.com/api/instagram/user/data/jayburton135`
@@ -100,13 +100,13 @@
     
     $(document).ready(function(){
         $.getJSON(url1, function(data) {
-            sw.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
+            sw.innerHTML=data.subscriberCount
         });
         $.getJSON(url2,function(data){
-            sw2.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
+            sw2.innerHTML=data.subscriberCount
                });
         $.getJSON(url3,function(data){
-            swc.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
+            swc.innerHTML=data.subscriberCount
                });
         $.getJSON(url4,function(data){
                    twitter.innerHTML=data.followers
@@ -122,13 +122,13 @@
     
     setInterval(function() {
         $.getJSON(url1, function(data) {
-            sw.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
+            sw.innerHTML=data.subscriberCount
         });
         $.getJSON(url2,function(data){
-            sw2.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
+            sw2.innerHTML=data.subscriberCount
                });
         $.getJSON(url3,function(data){
-            swc.innerHTML=data.results[0].value.resultTable.metricColumns[0].counts.values[0]
+            swc.innerHTML=data.subscriberCount
                });
         $.getJSON(url4,function(data){
                    twitter.innerHTML=data.followers
