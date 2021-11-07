@@ -15,91 +15,529 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
-<body style="background: #2b2b2b;">
-    <div style="clear:both;"></div>
-    <br>
-    <div id="top-header">
+<body>
+    <div id='top-header'>
         <img id="top-header-background" src="https://www.banner.yt/UCdKLd9f_8ZyDSKxMm16oRww?width=1280" alt="Subscriber Wars" title="Subscriber Wars">
     </div>
     
-    <div id="user-menu">
-        <a href="https://subscriberwars.space/">Home</a>
-        <a href="/stats/subscriberwars">Subscriber Wars</a>
-        <a href="/stats/subscriberwars2">Subscriber Wars 2</a>
-        <a href="/stats/subscriberwarsclips">Subscriber Wars Clips</a>
-        <a href="/stats/tiktok">TikTok</a>
+    <div id='UserTopInfoWrap'>
+        <img id='UserTopInfoAvatar' src='https://subscriberwars.space/logo/Subscriber%20Wars.png'>
+        <div id='UserTopInfoBlockTop'>
+            <div>
+                <h1 style='float: left; font-size: 1.4em; font-weight: 500; color:rgb(255, 255, 255); margin: 0px; padding: 0px; margin-right: 5px;' title='Absolute Legend'>Subscriber Wars</h1>
+            </div>
+            <br><br>
+            <div style='clear:both'></div>
+            <div id="UserTopInfoBlock">
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Subscribers API</span><br>
+                    <span id='subscribercountapi' class='odometer odometer-auto-theme' style="font-weight: 500;">0</span>
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Subscribers</span><br>
+                    <span id='uhhm' class='odometer odometer-auto-theme' style="font-weight: 500;">0</span>
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Video Views API</span><br>
+                    <span id='viewcountapi' class='odometer odometer-auto-theme' style="font-weight: 500;">0</span> 
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Video Views</span><br>
+                    <span style="font-weight: 500;">11,175,476</span> 
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Videos</span><br>
+                    <span id='videocount' class='odometer odometer-auto-theme' style="font-weight: bold;">0</span>
+                </div>	   
+            </div>
+        </div>
     </div>
+    <div id="user-menu">
+        <a href="/index.html">Home</a>
+        <a href="/stats/subscriberwars.html">Subscriber Wars</a>
+        <a href="/stats/subscriberwars2.html">Subscriber Wars 2</a>
+        <a href="/stats/subscriberwarsclips.html">Subscriber Wars Clips</a>
+        <a href="/stats/tiktok.html">TikTok</a>
+    </div>
+    <div style='width: 1260px; margin: 0px auto'>
+        <div id='UserContainer'>
+            <div id='UserContent'>
+                <div style='width: 860px; float: left; font-size: 8pt;'>
+                    <div style='clear: both;'></div>
+                    <div style='width: 860px; background:rgb(15,15,15); padding: 10px 20px; text-transform: uppercase; color: rgb(255, 255, 255);'>
+                        <h2 style='font-size: 10pt; font-weight: 500;'>YouTube Monthly Statistics for Subscriber Wars</h2>
+                    </div>
+                    <div style='width: 860px; height: 30px; line-height: 30px; background: rgb(26,26,26); padding: 0px 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 10pt;'>
+                        <div style='width: 80px; float: left;' title='Last Day of Every Month'>date</div>
+                        <div style='width: 180px; float: left;'>subscribers</div>
+                        <div style='width: 180px; float: left;' title='Subscribers from the official YT Data API'>subscribers api</div>
+                        <div style='width: 200px; float: left;'>views</div>
+                        <div style='width: 200px; float: left;' title='Views from public videos only'>views api</div>
+                    </div>
+                    <div style='clear: both;'></div>
+                    <!--chart entries here-->
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>02-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+502</div>
+                        <div style='float: left; width: 120px;'>502</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+502</div>
+                        <div style='float: left; width: 120px;'>502</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+11,267</div>
+                        <div style='float: left; width: 120px;'>11,267</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+11,335</div>
+                        <div style='float: left; width: 120px;'>11,335</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>03-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+946</div>
+                        <div style='float: left; width: 120px;'>1,448</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+946</div>
+                        <div style='float: left; width: 120px;'>1,448</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+50,683</div>
+                        <div style='float: left; width: 120px;'>61,950</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+47,897</div>
+                        <div style='float: left; width: 120px;'>59,232</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>04-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+2,016</div>
+                        <div style='float: left; width: 120px;'>3,464</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+2,016</div>
+                        <div style='float: left; width: 120px;'>3,464</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+252,034</div>
+                        <div style='float: left; width: 120px;'>313,984</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>245,845</div>
+                        <div style='float: left; width: 120px;'>305,077</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>05-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+1,345</div>
+                        <div style='float: left; width: 120px;'>4,813</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+1,345</div>
+                        <div style='float: left; width: 120px;'>4,813</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+165,905</div>
+                        <div style='float: left; width: 120px;'>479,889</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+168,604</div>
+                        <div style='float: left; width: 120px;'>473,681</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>06-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+6,215</div>
+                        <div style='float: left; width: 120px;'>11,028</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+6,215</div>
+                        <div style='float: left; width: 120px;'>11,028</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+231,341</div>
+                        <div style='float: left; width: 120px;'>711,230</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+232,824</div>
+                        <div style='float: left; width: 120px;'>706,505</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>07-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+6,215</div>
+                        <div style='float: left; width: 120px;'>12,249</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+6,215</div>
+                        <div style='float: left; width: 120px;'>12,249</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+265,062</div>
+                        <div style='float: left; width: 120px;'>976,292</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+262,178</div>
+                        <div style='float: left; width: 120px;'>968,683</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>08-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+2,444</div>
+                        <div style='float: left; width: 120px;'>14,693</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+2,444</div>
+                        <div style='float: left; width: 120px;'>14,693</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+522,187</div>
+                        <div style='float: left; width: 120px;'>1,498,479</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+450,135</div>
+                        <div style='float: left; width: 120px;'>1,418,818</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>09-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+561</div>
+                        <div style='float: left; width: 120px;'>15,254</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+507</div>
+                        <div style='float: left; width: 120px; text-decoration: underline;' title='Sub Counts Are Abbreviated in September 2019'>15.2K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+321,482</div>
+                        <div style='float: left; width: 120px;'>1,819,961</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+262,645</div>
+                        <div style='float: left; width: 120px;'>1,681,463</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>10-2019</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-240</div>
+                        <div style='float: left; width: 120px;'>15,014</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-200</div>
+                        <div style='float: left; width: 120px;'>15K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+110,752</div>
+                        <div style='float: left; width: 120px;'>1,930,713</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+111,088</div>
+                        <div style='float: left; width: 120px;'>1,792,551</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>11-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+404</div>
+                        <div style='float: left; width: 120px;'>15,418</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+400</div>
+                        <div style='float: left; width: 120px;'>15.4K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+60,184</div>
+                        <div style='float: left; width: 120px;'>1,990,897</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+58,896</div>
+                        <div style='float: left; width: 120px;'>1,851,447</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>12-2019</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+3,989</div>
+                        <div style='float: left; width: 120px;'>19,407</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+4K</div>
+                        <div style='float: left; width: 120px;'>19.4K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+159,269</div>
+                        <div style='float: left; width: 120px;'>2,150,166</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+158,891</div>
+                        <div style='float: left; width: 120px;'>2,010,338</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>01-2020</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+277</div>
+                        <div style='float: left; width: 120px;'>19,684</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+200</div>
+                        <div style='float: left; width: 120px;'>19.6K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+145,520</div>
+                        <div style='float: left; width: 120px;'>2,295,686</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+120,555</div>
+                        <div style='float: left; width: 120px;'>2,130,893</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>02-2020</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-2</div>
+                        <div style='float: left; width: 120px;'>19,682</div>
+                        <div style='float: left; width: 60px; color:#3f3f3f;'>--</div>
+                        <div style='float: left; width: 120px;'>19.6k</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+102,838</div>
+                        <div style='float: left; width: 120px;'>2,398,524</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+101,899</div>
+                        <div style='float: left; width: 120px;'>2,232,790</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>03-2020</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+2,069</div>
+                        <div style='float: left; width: 120px;'>21,751</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+2.1K</div>
+                        <div style='float: left; width: 120px;'>21.7K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+145,565</div>
+                        <div style='float: left; width: 120px;'>2,544,089</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+142,499</div>
+                        <div style='float: left; width: 120px;'>2,375,289</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>04-2020</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+6,603</div>
+                        <div style='float: left; width: 120px;'>28,354</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+6.6K</div>
+                        <div style='float: left; width: 120px;'>28.3K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+171,745</div>
+                        <div style='float: left; width: 120px;'>2,715,834</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+179,625</div>
+                        <div style='float: left; width: 120px;'>2,554,914</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>05-2020</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+1,249</div>
+                        <div style='float: left; width: 120px;'>29,603</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+1.3K</div>
+                        <div style='float: left; width: 120px;'>29.6K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+349,158</div>
+                        <div style='float: left; width: 120px;'>3,064,992</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+338,698</div>
+                        <div style='float: left; width: 120px;'>2,893,612</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>06-2020</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+2,333</div>
+                        <div style='float: left; width: 120px;'>31,936</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+2.3K</div>
+                        <div style='float: left; width: 120px;'>31.9K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+813,175</div>
+                        <div style='float: left; width: 120px;'>3,878,167</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+707,335</div>
+                        <div style='float: left; width: 120px;'>3,600,947</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>07-2020</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-215</div>
+                        <div style='float: left; width: 120px;'>31,721</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-200</div>
+                        <div style='float: left; width: 120px;'>31.7K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+96,759</div>
+                        <div style='float: left; width: 120px;'>3,974,926</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+58,490</div>
+                        <div style='float: left; width: 120px;'>3,659,437</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>08-2020</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+179</div>
+                        <div style='float: left; width: 120px;'>31,900</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+200</div>
+                        <div style='float: left; width: 120px;'>31.9K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+113,173</div>
+                        <div style='float: left; width: 120px;'>4,088,099</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+102,743</div>
+                        <div style='float: left; width: 120px;'>3,762,180</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>09-2020</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+976</div>
+                        <div style='float: left; width: 120px;'>32,876</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+900</div>
+                        <div style='float: left; width: 120px;'>32.8K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+115,743</div>
+                        <div style='float: left; width: 120px;'>4,203,842</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+87,916</div>
+                        <div style='float: left; width: 120px;'>3,850,096</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>10-2020</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-15</div>
+                        <div style='float: left; width: 120px;'>32,861</div>
+                        <div style='float: left; width: 60px; color:#3f3f3f;'>--</div>
+                        <div style='float: left; width: 120px;'>32.8K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+73,840</div>
+                        <div style='float: left; width: 120px;'>4,277,682</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+142,711</div>
+                        <div style='float: left; width: 120px;'>3,922,807</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>11-2020</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+9</div>
+                        <div style='float: left; width: 120px;'>32,870</div>
+                        <div style='float: left; width: 60px; color:#3f3f3f;'>--</div>
+                        <div style='float: left; width: 120px;'>32.8K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+93,414</div>
+                        <div style='float: left; width: 120px;'>4,371,096</div>
+                        <div style='float: left; width: 80px; color:#ff0000;'>-3,165,060</div>
+                        <div style='float: left; width: 120px;'>757,747</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>12-2020</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-551</div>
+                        <div style='float: left; width: 120px;'>32,319</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-500</div>
+                        <div style='float: left; width: 120px;'>32.3K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+81,846</div>
+                        <div style='float: left; width: 120px;'>4,452,946</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+71,202</div>
+                        <div style='float: left; width: 120px;'>828,949</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>01-2021</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+1,227</div>
+                        <div style='float: left; width: 120px;'>33,546</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+1.2K</div>
+                        <div style='float: left; width: 120px;'>33.5k</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+280,796</div>
+                        <div style='float: left; width: 120px;'>4,733,742</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+269,407</div>
+                        <div style='float: left; width: 120px;'>1,098,356</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>02-2021</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-91</div>
+                        <div style='float: left; width: 120px;'>33,455</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-100</div>
+                        <div style='float: left; width: 120px;'>33.4K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+65,096</div>
+                        <div style='float: left; width: 120px;'>4,798,838</div>
+                        <div style='float: left; width: 80px; color:#ff0000;'>-13,783</div>
+                        <div style='float: left; width: 120px;'>1,084,573</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>03-2021</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+145</div>
+                        <div style='float: left; width: 120px;'>33,600</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+200</div>
+                        <div style='float: left; width: 120px;'>33.6K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+96,656</div>
+                        <div style='float: left; width: 120px;'>4,895,494</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+152,365</div>
+                        <div style='float: left; width: 120px;'>1,236,938</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>04-2021</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+1,723</div>
+                        <div style='float: left; width: 120px;'>35,323</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+1.7K</div>
+                        <div style='float: left; width: 120px;'>35.3K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+410,376</div>
+                        <div style='float: left; width: 120px;'>5,305,870</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+397,370</div>
+                        <div style='float: left; width: 120px;'>1,634,308</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>05-2021</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+35,634</div>
+                        <div style='float: left; width: 120px;'>70,957</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+35.6K</div>
+                        <div style='float: left; width: 120px;'>70.9K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+5,121,219</div>
+                        <div style='float: left; width: 120px;'>10,427,089</div>
+                        <div style='float: left; width: 80px; color:#ff0000;'>-587,537</div>
+                        <div style='float: left; width: 120px;'>1,046,771</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>06-2021</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-1,543</div>
+                        <div style='float: left; width: 120px;'>69,414</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-1.5K</div>
+                        <div style='float: left; width: 120px;'>69.4K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+147,678</div>
+                        <div style='float: left; width: 120px;'>10,574,767</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+4,830,781</div>
+                        <div style='float: left; width: 120px;'>5,877,552</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>07-2021</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+244</div>
+                        <div style='float: left; width: 120px;'>69,638</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+200</div>
+                        <div style='float: left; width: 120px;'>69.6K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+253,844</div>
+                        <div style='float: left; width: 120px;'>10,828,611</div>
+                        <div style='float: left; width: 80px; color:#ff0000;'>-4,824,735</div>
+                        <div style='float: left; width: 120px;'>1,052,817</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>08-2021</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+349</div>
+                        <div style='float: left; width: 120px;'>69,987</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+300</div>
+                        <div style='float: left; width: 120px;'>69.9K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+168,176</div>
+                        <div style='float: left; width: 120px;'>10,996,787</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+3,742,803</div>
+                        <div style='float: left; width: 120px;'>4,795,620</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>09-2021</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-282</div>
+                        <div style='float: left; width: 120px;'>69,705</div>
+                        <div style='float: left; width: 60px; color:#ff0000;'>-200</div>
+                        <div style='float: left; width: 120px;'>69.7K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+96,988</div>
+                        <div style='float: left; width: 120px;'>11,093,775</div>
+                        <div style='float: left; width: 80px; color:#ff0000;'>-3,698,880</div>
+                        <div style='float: left; width: 120px;'>1,096,740</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 860px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 80px;'>10-2021</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+134</div>
+                        <div style='float: left; width: 120px;'>69,839</div>
+                        <div style='float: left; width: 60px; color:#41a200;'>+100</div>
+                        <div style='float: left; width: 120px;'>69.8K</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+81,701</div>
+                        <div style='float: left; width: 120px;'>11,175,476</div>
+                        <div style='float: left; width: 80px; color:#41a200;'>+34,939</div>
+                        <div style='float: left; width: 120px;'>1,131,679</div>
+                    </div>
+                    <!--Averages-->
+                    <div style='background: rgb(26, 26, 26); width: 860px; height: 64px; line-height: 64px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt;'>
+                        <div style='float: left; width: 80px;'>Daily Avg</div>
+                        <div style='float: left; width: 180px; color:#41a200;'>+71</div>
+                        <div style='float: left; width: 180px; color:#41a200;'>+71</div>
+                        <div style='float: left; width: 200px; color:#41a200;'>+11,288</div>
+                        <div style='float: left; width: 200px; color:#41a200;'>+1,143</div>
+                    </div>
+                    <div style='background: rgb(26, 26, 26); width: 860px; height: 64px; line-height: 64px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt;'>
+                        <div style='float: left; width: 80px;'>Monthly Avg</div>
+                        <div style='float: left; width: 180px; color:#41a200;'>+2,116</div>
+                        <div style='float: left; width: 180px; color:#41a200;'>+2.1K</div>
+                        <div style='float: left; width: 200px; color:#41a200;'>+338,650</div>
+                        <div style='float: left; width: 200px; color:#41a200;'>+34,293</div>
+                    </div>
+                    <div style='background: rgb(26, 26, 26); width: 860px; height: 64px; line-height: 64px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(33, 33, 33);'>
+                        <div style='float: left; width: 80px;'>Yearly Avg</div>
+                        <div style='float: left; width: 180px; color:#41a200;'>+25,392</div>
+                        <div style='float: left; width: 180px; color:#41a200;'>+25.2K</div>
+                        <div style='float: left; width: 200px; color:#41a200;'>+4,063,800</div>
+                        <div style='float: left; width: 200px; color:#41a200;'>+411,516</div>
+                    </div>
+                    <div style='background: rgb(26, 26, 26); width: 860px; height: 64px; line-height: 64px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(33, 33, 33);'>
+                        <div style='float: left; width: 80px;'>100K Est</div>
+                        <div style='float: left; width: 206px;' title='maybe even sooner?'>Friday 30 December 2022</div>
+                        <div style='float: left; width: 80px;'>1M Est</div>
+                        <div style='float: left; width: 206px;' title='34 Year old me would be quite happy with that'>Monday 20 June 2033</div>
+                        <div style='float: left; width: 80px;'>10M Est</div>
+                        <div style='float: left; width: 206px;' title='I will be 138 years old in other words been dead for probably a good 50 years'>Wednesday 12 March 2138</div>
+                    </div>
 
-    <div style="width: 1260px; margin: 0px auto;">
-        <div id="container">
-            <div id="sidebar">
-                <div style="width:340px; float:left">
-                    <div style="width:300px; background:rgb(0, 0, 0); padding:20px; text-transform:uppercase; color:rgb(255, 255, 255)" title="YT Studio">live sub count</div>
-                    <div id="sw" class="odometer odometer-auto-theme" style="width: 300px; height: 120px; background: rgb(20, 20, 20); margin-bottom: 20px; font-size: 60pt; font-weight: 500; text-align: center; color: #fff; padding: 0px 20px;">0</div>
-                </div>
-                <div style="width:340px; float:left">
-                    <div style="width:300px; background:rgb(0, 0, 0); padding:20px; text-transform:uppercase; color:rgb(255, 255, 255)" title="Mixerno.space">public sub count</div>
-                    <div id="swapi" class="odometer odometer-auto-theme" style="width: 300px; height: 120px; background: rgb(20, 20, 20); margin-bottom: 20px; font-size: 60pt; font-weight: 500; text-align: center; color: #fff; padding: 0px 20px;">0</div>
-                </div>
-
-                <div style="width:340px; float:left">
-                    <div style="width:300px; background:rgb(0, 0, 0); padding:20px; text-transform:uppercase; color:rgb(255, 255, 255)" title="Mixerno.space">public view count</div>
-                    <div id="views" class="odometer odometer-auto-theme" style="width: 300px; height: 100px; background: rgb(20, 20, 20); margin-bottom: 20px; font-size: 45pt; font-weight: 500; text-align: center; color: #fff; padding: 20px 20px;">0</div>
-                </div>
-                <div style="width:340px; float:left">
-                    <div style="width:300px; background:rgb(0, 0, 0); padding:20px; text-transform:uppercase; color:rgb(255, 255, 255)" title="Mixerno.space">videos</div>
-                    <div id="videos" class="odometer odometer-auto-theme" style="width: 300px; height: 120px; background: rgb(20, 20, 20); margin-bottom: 20px; font-size: 60pt; font-weight: 500; text-align: center; color: #fff; padding: 0px 20px;">0</div>
+                    <div style="width: 860px; background: rgb(15,15,15); padding: 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 10pt; margin-top: 20px; font-weight: 500;">Monthly Subscriber Data</div>
+                    <div id="month-subs" style="width: 860px; height: 200px; background: rgb(26, 26, 26); padding: 20px;"></div>
+                    <div id="month-subs-gain" style="width: 860px; height: 200px; background: rgb(26, 26, 26); margin-bottom: 0px; padding: 20px;"></div>
+                    <div style="width: 860px; background: rgb(15,15,15); padding: 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 10pt; margin-top: 20px; font-weight: 500;">Monthly Views Data</div>
+                    <div id="month-views" style="width: 860px; height: 200px; background: rgb(26, 26, 26); padding: 20px;"></div>
+                    <div id="month-views-gain" style="width: 860px; height: 200px; background: rgb(26, 26, 26); margin-bottom: 20px; padding: 20px;"></div>
                 </div>
             </div>
-            
-            <div id="user-content"> <!--graphs-->
-                <div style="width: 860px; float: left; font-size: 8pt"> 
-                    <div style="width: 860px; background: rgb(0, 0, 0); padding: 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 11pt">Total Subscribers, Views & Videos (Monthly)</div>
-                    <div id="month-subs" style="width: 860px; height: 200px; background: rgb(20, 20, 20); margin-bottom: 0px; padding: 20px;"></div>
-                    <div id="month-views" style="width: 860px; height: 200px; background: rgb(20, 20, 20); margin-bottom: 20px; padding: 20px;"></div>
-                    <div style="width: 860px; background: rgb(0, 0, 0); padding: 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 11pt">Gained Subscribers, Views & Videos (Monthly)</div>
-                    <div id="month-subs-gain" style="width: 860px; height: 200px; background: rgb(20, 20, 20); margin-bottom: 0px; padding: 20px;"></div>
-                    <div id="month-views-gain" style="width: 860px; height: 200px; background: rgb(20, 20, 20); margin-bottom: 20px; padding: 20px;"></div>
-                    <div style="width: 860px; background: rgb(0, 0, 0); padding: 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 11pt">Total Subscribers, Views & Videos (Daily)</div>
-                    <div id="day-subs" style="width: 860px; height: 200px; background: rgb(20, 20, 20); margin-bottom: 0px; padding: 20px;"></div>
-                    <div id="day-views" style="width: 860px; height: 200px; background: rgb(20, 20, 20); margin-bottom: 20px; padding: 20px;"></div>
-                    <div style="width: 860px; background: rgb(0, 0, 0); padding: 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 11pt">Gained Subscribers, Views & Videos (Daily)</div>
-                    <div id="day-subs-gain" style="width: 860px; height: 200px; background: rgb(20, 20, 20); margin-bottom: 0px; padding: 20px;"></div>
-                    <div id="day-views-gain" style="width: 860px; height: 200px; background: rgb(20, 20, 20); margin-bottom: 20px; padding: 20px;"></div>
+            <div id='UserSidebar'>
+                <div style='width: 340px; float: left;'>
+                    <div style='width: 300px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Most Recent Video</div>
+                    <div style='width: 340px; height: 191px; position: relative; background: rgb(26, 26, 26); cursor: pointer; margin-bottom: 20px;'>
+                        <iframe width='340px' height='191px' frameborder='0' allowfullscreen src=""></iframe>
+                        <script>
+                            function getID(){
+                                fetch('https://api.subscriberwars.space/subscriberwars/latest')
+                                .then(res=>res.json()).then(data=>{
+                                    document.querySelector("iframe").src=`https://youtube.com/embed/${data.latestId}?autoplay=0&rel=0`
+                                })
+                            }
+                            getID()
+                        </script>
+                    </div>
+                    <div style='width: 300px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Live Subscriber Count</div>
+                    <div style='width: 340px; height: 100px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'>
+                        <div id='mainsubcount' class='odometer odometer-auto-theme' style='font-weight: 500; text-align: center; font-size: 70px; width: 340px;'></div>
+                    </div>
                 </div>
             </div>
-
+        </div>
+    </div>
+</body>	
 
 <script type="text/javascript">
-var url1=`https://api.subscriberwars.space/subscriberwars`;
-var url2=`https://api.subscriberwars.space/subscriberwars/api`
-    $(document).ready(function(){
-        $.getJSON(url1, function(data) {
-            sw.innerHTML=data.subscriberCount
-        });
-        $.getJSON(url2, function(data) {
-        swapi.innerHTML=data.subscriberCount
-        views.innerHTML=data.viewCount
-        videos.innerHTML=data.videoCount
-        });
-    })
-    setInterval(function() {
-        $.getJSON(url1, function(data) {
-            sw.innerHTML=data.subscriberCount
-        });
-        $.getJSON(url2, function(data) {
-        swapi.innerHTML=data.subscriberCount
-        views.innerHTML=data.viewCount
-        videos.innerHTML=data.videoCount
-        });
-    }, 10000);   
-</script>
+    var url1=`https://api.subscriberwars.space/subscriberwars`;
+    var url2=`https://api.subscriberwars.space/subscriberwars/api`
+        $(document).ready(function(){
+            $.getJSON(url1, function(data) {
+                mainsubcount.innerHTML=data.subscriberCount
+                uhhm.innerHTML=data.subscriberCount
+            });
+            $.getJSON(url2, function(data) {
+            subscribercountapi.innerHTML=data.subscriberCount
+            viewcountapi.innerHTML=data.viewCount
+            videocount.innerHTML=data.videoCount
+            });
+            setInterval(() => {
+                $.getJSON(url1, function(data) {
+                mainsubcount.innerHTML=data.subscriberCount
+                uhhm.innerHTML=data.subscriberCount
+            });
+            }, 10000);
+
+            setInterval(() => {
+                $.getJSON(url2, function(data) {
+            subscribercountapi.innerHTML=data.subscriberCount
+            viewcountapi.innerHTML=data.viewCount
+            videocount.innerHTML=data.videoCount
+            });
+            }, 60000);
+        })
+    </script>
 
 <script> //Monthly Subs
     Highcharts.chart('month-subs', {
     chart: {
-        type: 'areaspline',
-        backgroundColor: 'rgb(20,20,20)',
+        type: 'spline',
+        backgroundColor: 'rgb(26,26,26)',
         zoomType: 'xy',
         style: {
             fontFamily: 'roboto',
@@ -112,34 +550,38 @@ var url2=`https://api.subscriberwars.space/subscriberwars/api`
     title: {
         text: 'Total Subscribers',
         style:{
-            color:"#fff"
+            color:'#fff',
+            fontWeight:'500'
         }
     },
     
     xAxis: {
-        tickInterval: 2,
+        tickInterval: 6,
         labels: {
-    style: {
-        color: '#fff'
+        style: {
+        color: '#fff',
+        fontWeight:'500'
     }
 },
         categories: [
-            'Feb 19','Mar 19','Apr 19','May 19','Jun 19','Jul 19','Aug 19','Sep 19','Oct 19','Nov 19','Dec 19',
-            'Jan 20','Feb 20','Mar 20','Apr 20','May 20','Jun 20','Jul 20','Aug 20','Sep 20','Oct 20','Nov 20','Dec 20',
-            'Jan 21','Feb 21','Mar 21','Apr 21','May 21','Jun 21','Jul 21','Aug 21','Sep 21','Oct 21','Nov 21','Dec 21',
+        '02-2019','03-2019','04-2019','05-2019','06-2019','07-2019','08-2019','09-2019','10-2019','11-2019','12-2019',
+            '01-2020','02-2020','03-2020','04-2020','05-2020','06-2020','07-2020','08-2020','09-2020','10-2020','11-2020','12-2020',
+            '01-2021','02-2021','03-2021','04-2021','05-2021','06-2021','07-2021','08-2021','09-2021','10-2021','11-2021','12-2021',
         ],
 
     },
     yAxis: {
         labels: {
     style: {
-        color: '#fff'
+        color: '#fff',
+        fontWeight:'500'
     }
 },
         title: {
-            text: 'Subscribers',
+            text: '',
             style:{
-                color:'#fff'
+                color:'#fff',
+                fontWeight:'500'
             },
         },
         
@@ -154,8 +596,7 @@ var url2=`https://api.subscriberwars.space/subscriberwars/api`
         enabled: false
     },
     plotOptions: {
-        areaspline: {
-            fillOpacity: 0.5,
+        spline: {
             color: '#FF0000',
         }
     },
@@ -166,87 +607,10 @@ var url2=`https://api.subscriberwars.space/subscriberwars/api`
             color: '#fff'
         },
     
-        data: [0,532,1720,3486,4838,10953,12281,14821,15258,15018,15451,
-               19424,19697,19680,21973,28336,29599,31923,31700,31938,32872,32899,32875,
-               32404,33541,33453,33638,35341,70873,69363,69638,70005,69699,70079]
-    } ]
-});
-</script>
-
-<script> //Monthly Views
-    Highcharts.chart('month-views', {
-    chart: {
-        type: 'areaspline',
-        backgroundColor: 'rgb(20,20,20)',
-        zoomType: 'xy',
-        style: {
-            fontFamily: 'roboto',
-            fontWeight: 'bold',
-            color: "#fff",
-        }
-
-
-    },
-    title: {
-        text: 'Total Views (inc. Deleted/Private/Unlisted Videos)',
-        style:{
-            color:"#fff"
-        }
-    },
-    
-    xAxis: {
-        tickInterval: 2,
-        labels: {
-    style: {
-        color: '#fff'
-    }
-},
-        categories: [
-            'Feb 19','Mar 19','Apr 19','May 19','Jun 19','Jul 19','Aug 19','Sep 19','Oct 19','Nov 19','Dec 19',
-            'Jan 20','Feb 20','Mar 20','Apr 20','May 20','Jun 20','Jul 20','Aug 20','Sep 20','Oct 20','Nov 20','Dec 20',
-            'Jan 21','Feb 21','Mar 21','Apr 21','May 21','Jun 21','Jul 21','Aug 21','Sep 21','Oct 21','Nov 21','Dec 21',
-        ],
-
-    },
-    yAxis: {
-        labels: {
-    style: {
-        color: '#fff'
-    }
-},
-        title: {
-            text: 'Views',
-            style:{
-                color:'#fff'
-            },
-        },
-        
-        
-        
-    },
-    tooltip: {
-        shared: true,
-        valueSuffix: ' Views'
-    },
-    credits: {
-        enabled: false
-    },
-    plotOptions: {
-        areaspline: {
-            fillOpacity: 0.5,
-            color: '#FF0000',
-        }
-    },
-    series: [{
-        name: 'Views',
-        showInLegend: false,
-        style: {
-            color: '#fff'
-        },
-    
-        data: [0,11338,61993,314028,479960,711301,976363,1498550,1820032,1930784,1990968,2150237,
-               2295757,2398595,2544160,2715905,3065063,3878238,3974997,4088170,4203913,4277753,4371167,4453013,
-               4733813,4798909,4895565,5306654,10467460,10615281,10828634,10996795,11093797,11175558]
+        data: [502,1448,3464,4813,11028,12249,14693,15254,15014,15418,19407,
+               19684,19682,21751,28354,29603,31936,31721,31900,32876,32861,32870,32319,
+               33546,33455,33600,35323,70957,69414,69638,69987,69705,69839,
+              ]
     } ]
 });
 </script>
@@ -255,11 +619,11 @@ var url2=`https://api.subscriberwars.space/subscriberwars/api`
     Highcharts.chart('month-subs-gain', {
     chart: {
         type: 'areaspline',
-        backgroundColor: 'rgb(20,20,20)',
+        backgroundColor: 'rgb(26,26,26)',
         zoomType: 'xy',
         style: {
             fontFamily: 'roboto',
-            fontWeight: 'bold',
+            fontWeight: '500',
             color: "#fff",
         }
 
@@ -268,34 +632,38 @@ var url2=`https://api.subscriberwars.space/subscriberwars/api`
     title: {
         text: 'Subscribers Gained',
         style:{
-            color:"#fff"
+            color:"#fff",
+            fontWeight:'500'
         }
     },
     
     xAxis: {
-        tickInterval: 2,
+        tickInterval: 6,
         labels: {
     style: {
-        color: '#fff'
+        color: '#fff',
+        fontWeight:'500'
     }
 },
         categories: [
-            'Feb 19','Mar 19','Apr 19','May 19','Jun 19','Jul 19','Aug 19','Sep 19','Oct 19','Nov 19','Dec 19',
-            'Jan 20','Feb 20','Mar 20','Apr 20','May 20','Jun 20','Jul 20','Aug 20','Sep 20','Oct 20','Nov 20','Dec 20',
-            'Jan 21','Feb 21','Mar 21','Apr 21','May 21','Jun 21','Jul 21','Aug 21','Sep 21','Oct 21','Nov 21','Dec 21',
+            '02-2019','03-2019','04-2019','05-2019','06-2019','07-2019','08-2019','09-2019','10-2019','11-2019','12-2019',
+            '01-2020','02-2020','03-2020','04-2020','05-2020','06-2020','07-2020','08-2020','09-2020','10-2020','11-2020','12-2020',
+            '01-2021','02-2021','03-2021','04-2021','05-2021','06-2021','07-2021','08-2021','09-2021','10-2021','11-2021','12-2021',
         ],
 
     },
     yAxis: {
         labels: {
     style: {
-        color: '#fff'
+        color: '#fff',
+        fontWeight:'500'
     }
 },
         title: {
-            text: 'Subscribers',
+            text: '',
             style:{
-                color:'#fff'
+                color:'#fff',
+                fontWeight:'500'
             },
         },
         
@@ -327,11 +695,11 @@ var url2=`https://api.subscriberwars.space/subscriberwars/api`
 });
 </script>
 
-<script> //Monthly Views Gain
-    Highcharts.chart('month-views-gain', {
+<script> //Monthly Views
+    Highcharts.chart('month-views', {
     chart: {
-        type: 'areaspline',
-        backgroundColor: 'rgb(20,20,20)',
+        type: 'spline',
+        backgroundColor: 'rgb(26,26,26)',
         zoomType: 'xy',
         style: {
             fontFamily: 'roboto',
@@ -342,36 +710,40 @@ var url2=`https://api.subscriberwars.space/subscriberwars/api`
 
     },
     title: {
-        text: 'Views Gained',
+        text: 'Total Views',
         style:{
-            color:"#fff"
+            color:'#fff',
+            fontWeight:'500'
         }
     },
     
     xAxis: {
-        tickInterval: 2,
+        tickInterval: 6,
         labels: {
-    style: {
-        color: '#fff'
+        style: {
+        color: '#fff',
+        fontWeight:'500'
     }
 },
         categories: [
-            'Feb 19','Mar 19','Apr 19','May 19','Jun 19','Jul 19','Aug 19','Sep 19','Oct 19','Nov 19','Dec 19',
-            'Jan 20','Feb 20','Mar 20','Apr 20','May 20','Jun 20','Jul 20','Aug 20','Sep 20','Oct 20','Nov 20','Dec 20',
-            'Jan 21','Feb 21','Mar 21','Apr 21','May 21','Jun 21','Jul 21','Aug 21','Sep 21','Oct 21','Nov 21','Dec 21',
+        '02-2019','03-2019','04-2019','05-2019','06-2019','07-2019','08-2019','09-2019','10-2019','11-2019','12-2019',
+            '01-2020','02-2020','03-2020','04-2020','05-2020','06-2020','07-2020','08-2020','09-2020','10-2020','11-2020','12-2020',
+            '01-2021','02-2021','03-2021','04-2021','05-2021','06-2021','07-2021','08-2021','09-2021','10-2021','11-2021','12-2021',
         ],
 
     },
     yAxis: {
         labels: {
     style: {
-        color: '#fff'
+        color: '#fff',
+        fontWeight:'500'
     }
 },
         title: {
-            text: 'Views',
+            text: '',
             style:{
-                color:'#fff'
+                color:'#fff',
+                fontWeight:'500'
             },
         },
         
@@ -380,7 +752,89 @@ var url2=`https://api.subscriberwars.space/subscriberwars/api`
     },
     tooltip: {
         shared: true,
-        valueSuffix: ' Views'
+        valueSuffix: ''
+    },
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        spline: {
+            color: '#FF0000',
+        }
+    },
+    series: [{
+        name: 'Views',
+        showInLegend: false,
+        style: {
+            color: '#fff'
+        },
+    
+        data: [11267,61950,313984,479889,711230,976292,1498479,1819961,1930713,1990897,2150166,
+               2195686,2398524,2544089,2715834,3064992,3878167,3974926,4088099,4203842,4277682,4371096,4452946,
+               4733742,4798838,4895494,5305870,10427089,10574767,10828611,10996787,11093775,11175476,
+              ]
+    } ]
+});
+</script>
+
+<script> //Monthly Views Gain
+    Highcharts.chart('month-views-gain', {
+    chart: {
+        type: 'areaspline',
+        backgroundColor: 'rgb(26,26,26)',
+        zoomType: 'xy',
+        style: {
+            fontFamily: 'roboto',
+            fontWeight: '500',
+            color: "#fff",
+        }
+
+
+    },
+    title: {
+        text: 'Views Gained',
+        style:{
+            color:"#fff",
+            fontWeight:'500'
+        }
+    },
+    
+    xAxis: {
+        tickInterval: 6,
+        labels: {
+    style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        categories: [
+            '02-2019','03-2019','04-2019','05-2019','06-2019','07-2019','08-2019','09-2019','10-2019','11-2019','12-2019',
+            '01-2020','02-2020','03-2020','04-2020','05-2020','06-2020','07-2020','08-2020','09-2020','10-2020','11-2020','12-2020',
+            '01-2021','02-2021','03-2021','04-2021','05-2021','06-2021','07-2021','08-2021','09-2021','10-2021','11-2021','12-2021',
+        ],
+
+    },
+    yAxis: {
+        labels: {
+    style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        title: {
+            text: '',
+            style:{
+                color:'#fff',
+                fontWeight:'500'
+            },
+        },
+        
+        
+        
+    },
+    tooltip: {
+        shared: true,
+        valueSuffix: ''
     },
     credits: {
         enabled: false
@@ -398,547 +852,10 @@ var url2=`https://api.subscriberwars.space/subscriberwars/api`
             color: '#fff'
         },
     
-        data: [11338,50655,263373,165932,231341,265062,522187,321482,110752,60184,159269,
-        145520,102838,145565,171745,349158,813175,96759,113173,115443,73840,93414,81846,
-        280800,65096,96656,411089,5190806,147821,213353,168161,97002,81761]
-    } ]
-});
-</script>
-
-<script> //Daily Subs
-    Highcharts.chart('day-subs', {
-    chart: {
-        type: 'areaspline',
-        backgroundColor: 'rgb(20,20,20)',
-        zoomType: 'xy',
-        style: {
-            fontFamily: 'roboto',
-            fontWeight: 'bold',
-            color: "#fff",
-        }
-
-
-    },
-    title: {
-        text: 'Total Subscribers',
-        style:{
-            color:"#fff"
-        }
-    },
-    
-    xAxis: {
-        tickInterval:100,
-        labels: {
-    style: {
-        color: '#fff',
-    },  
-},
-        categories: [
-            '2019-02-15','2019-02-16','2019-02-17','2019-02-18','2019-02-19','2019-02-20','2019-02-21','2019-02-22','2019-02-23','2019-02-24','2019-02-25','2019-02-26','2019-02-27','2019-02-28',
-            '2019-03-01','2019-03-02','2019-03-03','2019-03-04','2019-03-05','2019-03-06','2019-03-07','2019-03-08','2019-03-09','2019-03-10','2019-03-11','2019-03-12','2019-03-13','2019-03-14','2019-03-15','2019-03-16','2019-03-17','2019-03-18','2019-03-19','2019-03-20','2019-03-21','2019-03-22','2019-03-23','2019-03-24','2019-03-25','2019-03-26','2019-03-27','2019-03-28','2019-03-29','2019-03-30','2019-03-31',
-            '2019-04-01','2019-04-02','2019-04-03','2019-04-04','2019-04-05','2019-04-06','2019-04-07','2019-04-08','2019-04-09','2019-04-10','2019-04-11','2019-04-12','2019-04-13','2019-04-14','2019-04-15','2019-04-16','2019-04-17','2019-04-18','2019-04-19','2019-04-20','2019-04-21','2019-04-22','2019-04-23','2019-04-24','2019-04-25','2019-04-26','2019-04-27','2019-04-28','2019-04-29','2019-04-30',
-            '2019-05-01','2019-05-02','2019-05-03','2019-05-04','2019-05-05','2019-05-06','2019-05-07','2019-05-08','2019-05-09','2019-05-10','2019-05-11','2019-05-12','2019-05-13','2019-05-14','2019-05-15','2019-05-16','2019-05-17','2019-05-18','2019-05-19','2019-05-20','2019-05-21','2019-05-22','2019-05-23','2019-05-24','2019-05-25','2019-05-26','2019-05-27','2019-05-28','2019-05-29','2019-05-30','2019-05-31',
-            '2019-06-01','2019-06-02','2019-06-03','2019-06-04','2019-06-05','2019-06-06','2019-06-07','2019-06-08','2019-06-09','2019-06-10','2019-06-11','2019-06-12','2019-06-13','2019-06-14','2019-06-15','2019-06-16','2019-06-17','2019-06-18','2019-06-19','2019-06-20','2019-06-21','2019-06-22','2019-06-23','2019-06-24','2019-06-25','2019-06-26','2019-06-27','2019-06-28','2019-06-29','2019-06-30',
-            '2019-07-01','2019-07-02','2019-07-03','2019-07-04','2019-07-05','2019-07-06','2019-07-07','2019-07-08','2019-07-09','2019-07-10','2019-07-11','2019-07-12','2019-07-13','2019-07-14','2019-07-15','2019-07-16','2019-07-17','2019-07-18','2019-07-19','2019-07-20','2019-07-21','2019-07-22','2019-07-23','2019-07-24','2019-07-25','2019-07-26','2019-07-27','2019-07-28','2019-07-29','2019-07-30','2019-07-31',
-            '2019-08-01','2019-08-02','2019-08-03','2019-08-04','2019-08-05','2019-08-06','2019-08-07','2019-08-08','2019-08-09','2019-08-10','2019-08-11','2019-08-12','2019-08-13','2019-08-14','2019-08-15','2019-08-16','2019-08-17','2019-08-18','2019-08-19','2019-08-20','2019-08-21','2019-08-22','2019-08-23','2019-08-24','2019-08-25','2019-08-26','2019-08-27','2019-08-28','2019-08-29','2019-08-30','2019-08-31',
-            '2019-09-01','2019-09-02','2019-09-03','2019-09-04','2019-09-05','2019-09-06','2019-09-07','2019-09-08','2019-09-09','2019-09-10','2019-09-11','2019-09-12','2019-09-13','2019-09-14','2019-09-15','2019-09-16','2019-09-17','2019-09-18','2019-09-19','2019-09-20','2019-09-21','2019-09-22','2019-09-23','2019-09-24','2019-09-25','2019-09-26','2019-09-27','2019-09-28','2019-09-29','2019-09-30',
-            '2019-10-01','2019-10-02','2019-10-03','2019-10-04','2019-10-05','2019-10-06','2019-10-07','2019-10-08','2019-10-09','2019-10-10','2019-10-11','2019-10-12','2019-10-13','2019-10-14','2019-10-15','2019-10-16','2019-10-17','2019-10-18','2019-10-19','2019-10-20','2019-10-21','2019-10-22','2019-10-23','2019-10-24','2019-10-25','2019-10-26','2019-10-27','2019-10-28','2019-10-29','2019-10-30','2019-10-31',
-            '2019-11-01','2019-11-02','2019-11-03','2019-11-04','2019-11-05','2019-11-06','2019-11-07','2019-11-08','2019-11-09','2019-11-10','2019-11-11','2019-11-12','2019-11-13','2019-11-14','2019-11-15','2019-11-16','2019-11-17','2019-11-18','2019-11-19','2019-11-20','2019-11-21','2019-11-22','2019-11-23','2019-11-24','2019-11-25','2019-11-26','2019-11-27','2019-11-28','2019-11-29','2019-11-30',
-            '2019-12-01','2019-12-02','2019-12-03','2019-12-04','2019-12-05','2019-12-06','2019-12-07','2019-12-08','2019-12-09','2019-12-10','2019-12-11','2019-12-12','2019-12-13','2019-12-14','2019-12-15','2019-12-16','2019-12-17','2019-12-18','2019-12-19','2019-12-20','2019-12-21','2019-12-22','2019-12-23','2019-12-24','2019-12-25','2019-12-26','2019-12-27','2019-12-28','2019-12-29','2019-12-30','2019-12-31',
-            '2020-01-01','2020-01-02','2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07','2020-01-08','2020-01-09','2020-01-10','2020-01-11','2020-01-12','2020-01-13','2020-01-14','2020-01-15','2020-01-16','2020-01-17','2020-01-18','2020-01-19','2020-01-20','2020-01-21','2020-01-22','2020-01-23','2020-01-24','2020-01-25','2020-01-26','2020-01-27','2020-01-28','2020-01-29','2020-01-30','2020-01-31',
-            '2020-02-01','2020-02-02','2020-02-03','2020-02-04','2020-02-05','2020-02-06','2020-02-07','2020-02-08','2020-02-09','2020-02-10','2020-02-11','2020-02-12','2020-02-13','2020-02-14','2020-02-15','2020-02-16','2020-02-17','2020-02-18','2020-02-19','2020-02-20','2020-02-21','2020-02-22','2020-02-23','2020-02-24','2020-02-25','2020-02-26','2020-02-27','2020-02-28','2020-02-29',
-            '2020-03-01','2020-03-02','2020-03-03','2020-03-04','2020-03-05','2020-03-06','2020-03-07','2020-03-08','2020-03-09','2020-03-10','2020-03-11','2020-03-12','2020-03-13','2020-03-14','2020-03-15','2020-03-16','2020-03-17','2020-03-18','2020-03-19','2020-03-20','2020-03-21','2020-03-22','2020-03-23','2020-03-24','2020-03-25','2020-03-26','2020-03-27','2020-03-28','2020-03-29','2020-03-30','2020-03-31',
-            '2020-04-01','2020-04-02','2020-04-03','2020-04-04','2020-04-05','2020-04-06','2020-04-07','2020-04-08','2020-04-09','2020-04-10','2020-04-11','2020-04-12','2020-04-13','2020-04-14','2020-04-15','2020-04-16','2020-04-17','2020-04-18','2020-04-19','2020-04-20','2020-04-21','2020-04-22','2020-04-23','2020-04-24','2020-04-25','2020-04-26','2020-04-27','2020-04-28','2020-04-29','2020-04-30',
-            '2020-05-01','2020-05-02','2020-05-03','2020-05-04','2020-05-05','2020-05-06','2020-05-07','2020-05-08','2020-05-09','2020-05-10','2020-05-11','2020-05-12','2020-05-13','2020-05-14','2020-05-15','2020-05-16','2020-05-17','2020-05-18','2020-05-19','2020-05-20','2020-05-21','2020-05-22','2020-05-23','2020-05-24','2020-05-25','2020-05-26','2020-05-27','2020-05-28','2020-05-29','2020-05-30','2020-05-31',
-            '2020-06-01','2020-06-02','2020-06-03','2020-06-04','2020-06-05','2020-06-06','2020-06-07','2020-06-08','2020-06-09','2020-06-10','2020-06-11','2020-06-12','2020-06-13','2020-06-14','2020-06-15','2020-06-16','2020-06-17','2020-06-18','2020-06-19','2020-06-20','2020-06-21','2020-06-22','2020-06-23','2020-06-24','2020-06-25','2020-06-26','2020-06-27','2020-06-28','2020-06-29','2020-06-30',
-            '2020-07-01','2020-07-02','2020-07-03','2020-07-04','2020-07-05','2020-07-06','2020-07-07','2020-07-08','2020-07-09','2020-07-10','2020-07-11','2020-07-12','2020-07-13','2020-07-14','2020-07-15','2020-07-16','2020-07-17','2020-07-18','2020-07-19','2020-07-20','2020-07-21','2020-07-22','2020-07-23','2020-07-24','2020-07-25','2020-07-26','2020-07-27','2020-07-28','2020-07-29','2020-07-30','2020-07-31',
-            '2020-08-01','2020-08-02','2020-08-03','2020-08-04','2020-08-05','2020-08-06','2020-08-07','2020-08-08','2020-08-09','2020-08-10','2020-08-11','2020-08-12','2020-08-13','2020-08-14','2020-08-15','2020-08-16','2020-08-17','2020-08-18','2020-08-19','2020-08-20','2020-08-21','2020-08-22','2020-08-23','2020-08-24','2020-08-25','2020-08-26','2020-08-27','2020-08-28','2020-08-29','2020-08-30','2020-08-31',
-            '2020-09-01','2020-09-02','2020-09-03','2020-09-04','2020-09-05','2020-09-06','2020-09-07','2020-09-08','2020-09-09','2020-09-10','2020-09-11','2020-09-12','2020-09-13','2020-09-14','2020-09-15','2020-09-16','2020-09-17','2020-09-18','2020-09-19','2020-09-20','2020-09-21','2020-09-22','2020-09-23','2020-09-24','2020-09-25','2020-09-26','2020-09-27','2020-09-28','2020-09-29','2020-09-30',
-            '2020-10-01','2020-10-02','2020-10-03','2020-10-04','2020-10-05','2020-10-06','2020-10-07','2020-10-08','2020-10-09','2020-10-10','2020-10-11','2020-10-12','2020-10-13','2020-10-14','2020-10-15','2020-10-16','2020-10-17','2020-10-18','2020-10-19','2020-10-20','2020-10-21','2020-10-22','2020-10-23','2020-10-24','2020-10-25','2020-10-26','2020-10-27','2020-10-28','2020-10-29','2020-10-30','2020-10-31',
-            '2020-11-01','2020-11-02','2020-11-03','2020-11-04','2020-11-05','2020-11-06','2020-11-07','2020-11-08','2020-11-09','2020-11-10','2020-11-11','2020-11-12','2020-11-13','2020-11-14','2020-11-15','2020-11-16','2020-11-17','2020-11-18','2020-11-19','2020-11-20','2020-11-21','2020-11-22','2020-11-23','2020-11-24','2020-11-25','2020-11-26','2020-11-27','2020-11-28','2020-11-29','2020-11-30',
-            '2020-12-01','2020-12-02','2020-12-03','2020-12-04','2020-12-05','2020-12-06','2020-12-07','2020-12-08','2020-12-09','2020-12-10','2020-12-11','2020-12-12','2020-12-13','2020-12-14','2020-12-15','2020-12-16','2020-12-17','2020-12-18','2020-12-19','2020-12-20','2020-12-21','2020-12-22','2020-12-23','2020-12-24','2020-12-25','2020-12-26','2020-12-27','2020-12-28','2020-12-29','2020-12-30','2020-12-31',
-            '2021-01-01','2021-01-02','2021-01-03','2021-01-04','2021-01-05','2021-01-06','2021-01-07','2021-01-08','2021-01-09','2021-01-10','2021-01-11','2021-01-12','2021-01-13','2021-01-14','2021-01-15','2021-01-16','2021-01-17','2021-01-18','2021-01-19','2021-01-20','2021-01-21','2021-01-22','2021-01-23','2021-01-24','2021-01-25','2021-01-26','2021-01-27','2021-01-28','2021-01-29','2021-01-30','2021-01-31',
-            '2021-02-01','2021-02-02','2021-02-03','2021-02-04','2021-02-05','2021-02-06','2021-02-07','2021-02-08','2021-02-09','2021-02-10','2021-02-11','2021-02-12','2021-02-13','2021-02-14','2021-02-15','2021-02-16','2021-02-17','2021-02-18','2021-02-19','2021-02-20','2021-02-21','2021-02-22','2021-02-23','2021-02-24','2021-02-25','2021-02-26','2021-02-27','2021-02-28',
-            '2021-03-01','2021-03-02','2021-03-03','2021-03-04','2021-03-05','2021-03-06','2021-03-07','2021-03-08','2021-03-09','2021-03-10','2021-03-11','2021-03-12','2021-03-13','2021-03-14','2021-03-15','2021-03-16','2021-03-17','2021-03-18','2021-03-19','2021-03-20','2021-03-21','2021-03-22','2021-03-23','2021-03-24','2021-03-25','2021-03-26','2021-03-27','2021-03-28','2021-03-29','2021-03-30','2021-03-31',
-            '2021-04-01','2021-04-02','2021-04-03','2021-04-04','2021-04-05','2021-04-06','2021-04-07','2021-04-08','2021-04-09','2021-04-10','2021-04-11','2021-04-12','2021-04-13','2021-04-14','2021-04-15','2021-04-16','2021-04-17','2021-04-18','2021-04-19','2021-04-20','2021-04-21','2021-04-22','2021-04-23','2021-04-24','2021-04-25','2021-04-26','2021-04-27','2021-04-28','2021-04-29','2021-04-30',
-            '2021-05-01','2021-05-02','2021-05-03','2021-05-04','2021-05-05','2021-05-06','2021-05-07','2021-05-08','2021-05-09','2021-05-10','2021-05-11','2021-05-12','2021-05-13','2021-05-14','2021-05-15','2021-05-16','2021-05-17','2021-05-18','2021-05-19','2021-05-20','2021-05-21','2021-05-22','2021-05-23','2021-05-24','2021-05-25','2021-05-26','2021-05-27','2021-05-28','2021-05-29','2021-05-30','2021-05-31',
-            '2021-06-01','2021-06-02','2021-06-03','2021-06-04','2021-06-05','2021-06-06','2021-06-07','2021-06-08','2021-06-09','2021-06-10','2021-06-11','2021-06-12','2021-06-13','2021-06-14','2021-06-15','2021-06-16','2021-06-17','2021-06-18','2021-06-19','2021-06-20','2021-06-21','2021-06-22','2021-06-23','2021-06-24','2021-06-25','2021-06-26','2021-06-27','2021-06-28','2021-06-29','2021-06-30',
-            '2021-07-01','2021-07-02','2021-07-03','2021-07-04','2021-07-05','2021-07-06','2021-07-07','2021-07-08','2021-07-09','2021-07-10','2021-07-11','2021-07-12','2021-07-13','2021-07-14','2021-07-15','2021-07-16','2021-07-17','2021-07-18','2021-07-19','2021-07-20','2021-07-21','2021-07-22','2021-07-23','2021-07-24','2021-07-25','2021-07-26','2021-07-27','2021-07-28','2021-07-29','2021-07-30','2021-07-31',
-            '2021-08-01','2021-08-02','2021-08-03','2021-08-04','2021-08-05','2021-08-06','2021-08-07','2021-08-08','2021-08-09','2021-08-10','2021-08-11','2021-08-12','2021-08-13','2021-08-14','2021-08-15','2021-08-16','2021-08-17','2021-08-18','2021-08-19','2021-08-20','2021-08-21','2021-08-22','2021-08-23','2021-08-24','2021-08-25','2021-08-26','2021-08-27','2021-08-28','2021-08-29','2021-08-30','2021-08-31',
-            '2021-09-01','2021-09-02','2021-09-03','2021-09-04','2021-09-05','2021-09-06','2021-09-07','2021-09-08','2021-09-09','2021-09-10','2021-09-11','2021-09-12','2021-09-13','2021-09-14','2021-09-15','2021-09-16','2021-09-17','2021-09-18','2021-09-19','2021-09-20','2021-09-21','2021-09-22','2021-09-23','2021-09-24','2021-09-25','2021-09-26','2021-09-27','2021-09-28','2021-09-29','2021-09-30',
-            '2021-10-01','2021-10-02','2021-10-03','2021-10-04','2021-10-05','2021-10-06','2021-10-07','2021-10-08','2021-10-09','2021-10-10','2021-10-11','2021-10-12','2021-10-13','2021-10-14','2021-10-15','2021-10-16','2021-10-17','2021-10-18','2021-10-19','2021-10-20','2021-10-21','2021-10-22','2021-10-23','2021-10-24','2021-10-25','2021-10-26','2021-10-27','2021-10-28','2021-10-29','2021-10-30','2021-10-31',
-        ],
-
-    },
-    yAxis: {
-        labels: {
-    style: {
-        color: '#fff'
-    }
-},
-        title: {
-            text: 'Subscribers',
-            style:{
-                color:'#fff'
-            },
-        },
-        
-        
-        
-    },
-    tooltip: {
-        shared: true,
-        valueSuffix: ''
-    },
-    credits: {
-        enabled: false
-    },
-    plotOptions: {
-        areaspline: {
-            marker:{enabled: false},
-            fillOpacity: 0.5,
-            color: '#0099ff',
-        }
-        
-    },
-    series: [{
-        name: 'Subscribers',
-        showInLegend: false,
-        style: {
-            color: '#fff'
-        },
-    
-        data: [27,76,130,174,216,259,285,323,364,403,433,447,472,502,532,550,579,610,637,654,680,708,734,766,785,814,854,893,917,958,1032,1059,1121,1124,1146,1191,1226,1258,1291,1312,1301,1321,1335,1399,1448,1720,2004,2137,2237,2276,2335,2385,2416,2451,2513,2601,2693,2777,2872,2966,3066,3035,3027,3039,3063,3116,3171,3205,3236,3283,3321,3359,3395,3422,3464,
-               3486,3523,3557,3574,3608,3635,3669,3722,3770,3818,3851,3896,3971,4033,4071,4103,4132,4173,4211,4241,4267,4302,4333,4485,4606,4670,4707,4724,4771,4783,4813,4838,4860,4889,4905,4917,4952,4971,5122,7571,9665,9625,9628,9660,9731,9870,10094,10156,10260,10355,10395,10414,10468,10543,10597,10639,10651,10702,10964,10992,11028,
-               10953,10958,10992,11028,11116,11128,11168,11190,11237,11268,11282,11311,11344,11361,11386,11411,11423,11466,11511,11554,11607,11653,11687,11711,11740,11826,11889,12028,12117,12177,12249,12281,12351,12425,12563,12638,12733,12796,12863,13049,13084,13123,13185,13239,13325,13441,13569,13716,13791,13811,13881,13925,13959,14044,14283,14399,14472,14502,14525,14563,14605,14693,
-               14821,14880,14896,14911,14908,14925,14958,14978,14999,15031,15041,15047,15065,15093,15111,15114,15130,15121,15138,15150,15193,15209,15209,15214,15239,15258,15254,15267,15262,15254,15258,15248,15244,15237,15245,15247,15252,15244,15247,15232,15226,15205,15202,15197,15186,15185,15189,15181,15188,15178,15048,15029,15020,15014,15004,15017,15024,15019,15017,15011,15014,
-               15018,15024,15033,15043,15056,15057,15065,15071,15083,15088,15097,15109,15128,15143,15148,15163,15171,15188,15207,15223,15231,15253,15254,15273,15289,15317,15339,15370,15405,15418,15451,15495,15520,15575,15638,15694,15731,15802,15990,16498,17249,18273,19014,18999,18979,18961,18944,18967,18989,18996,18992,19006,19062,19064,19104,19136,19183,19267,19331,19367,19407,
-               19424,19438,19449,19450,19459,19471,19480,19478,19494,19506,19548,19558,19567,19569,19581,19558,19605,19617,19634,19634,19642,19657,19664,19671,19679,19676,19690,19697,19699,19680,19684,19697,19703,19699,19696,19692,19688,19704,19707,19706,19706,19702,19697,19696,19699,19695,19700,19702,19695,19691,19685,19677,19675,19672,19667,19667,19661,19663,19665,19682,
-               19680,19670,19666,19663,19645,19644,19661,19670,19680,19699,19712,19731,19751,19774,19795,19991,20030,20215,20478,20862,21239,21497,21712,21717,21730,21734,21728,21719,21715,21713,21751,21973,21908,21918,21908,21900,21898,21899,22063,22018,21999,22033,22355,23121,23534,23843,24365,24986,25548,26099,26947,27615,28133,28647,28878,28912,28890,28867,28384,28373,28354,
-               28336,28324,28315,28314,28322,28321,28311,28304,28279,28314,28356,28577,28724,28841,28838,28852,29060,29385,29535,29546,29519,29505,29459,29511,29568,29603,29623,29605,29611,29601,29603,29599,29620,29676,29668,29660,29642,29712,29762,29941,30215,30457,30781,31067,31376,31641,31775,31844,31942,31986,31993,31999,32009,31980,31967,31972,31962,31964,31958,31940,31936,
-               31923,31900,31883,31866,31864,31843,31841,31821,31822,31818,31806,31797,31786,31791,31789,31794,31791,31780,31775,31780,31772,31773,31758,31757,31760,31752,31746,31728,31724,31721,31721,31700,31705,31707,31712,31719,31702,31704,31704,31678,31673,31684,31685,31680,31678,31685,31710,31757,31793,31801,31801,31840,31839,31834,31829,31832,31838,31875,31875,31878,31874,31900,
-               31938,31981,32041,32069,32591,32627,32671,32709,32735,32763,32800,32844,32873,32896,32910,32947,32893,32868,32858,32848,32827,32821,32821,32819,32853,32873,32872,32883,32874,32876,32872,32871,32863,32870,32866,32881,32876,32878,32876,32872,32873,32879,32884,32893,32900,32895,32903,32896,32892,32880,32871,32867,32859,32852,32845,32847,32842,32841,32835,32849,32861,
-               32889,32889,32880,32874,32868,32865,32867,32855,32850,32849,32841,32836,32832,32825,32822,32824,32821,32821,32843,32894,32911,32911,32906,32905,32896,32887,32879,32866,32866,32870,32875,32871,32860,32853,32846,32840,32198,32198,32189,32188,32174,32165,32159,32158,32156,32154,32143,32137,32136,32168,32170,32182,32191,32207,32218,32246,32273,32322,32360,32375,32319,
-               32204,32542,33215,33340,33374,33400,33434,33462,33488,33507,33547,33584,33614,33632,33640,33632,33628,33596,33590,33586,33583,33588,33583,33570,33564,33555,33552,33543,33544,33548,33546,33541,33543,33543,33547,33554,33545,33532,33536,33533,33528,33522,33513,33516,33512,33516,33513,33502,33498,33485,33467,33462,33466,33464,33454,33458,33459,33455,33455,
-               33453,33448,33433,33423,33419,33425,33412,33402,33397,33396,33397,33394,33394,33395,33402,33415,33434,33449,33463,33523,33570,33564,33556,33557,33552,33554,33562,33563,33565,33587,33600,33638,33657,33700,33735,33764,33805,33842,33852,33871,33882,33893,33916,33954,33981,34025,34049,34067,34155,34233,34579,34550,34669,34741,34830,34913,35006,35145,35145,35198,35256,
-               35341,35387,35420,35525,35553,35582,35590,35614,35638,35666,35700,35741,35771,35805,35833,35862,35888,35919,37957,49303,58212,66256,69135,70102,70659,70868,71033,71084,71135,71084,70957,70873,70827,70791,70721,70640,70601,70552,70499,70450,70359,70283,70213,70149,70037,69985,69940,69905,69846,69809,69777,69737,69689,69649,69627,69564,69538,69511,69480,69453,69414,
-               69393,69351,69300,69253,69215,69174,69153,69296,69616,69847,69938,69917,69883,69864,69847,69822,69805,69746,69697,69651,69630,69616,69576,69562,69543,69523,69507,69697,69690,69659,69638,69614,69576,69542,69524,69551,69542,69804,70378,70444,70389,70360,70327,70287,70258,70230,70215,70170,70175,70136,70123,70104,70083,70030,70006,69995,69985,69971,69983,69992,69998,69971,
-               69964,69956,69947,69934,69926,69909,69908,69890,69869,69847,69809,69777,69776,69750,69734,69725,69712,69690,69685,69681,69666,69698,69695,69691,69710,69681,69662,69648,69690,69705,
-               69699,69680,69652,69615,69584,69574,69561,69550,69541,69531,69520,69520,69522,69515,69509,69502,69491,69483,69474,69465,69465,69459,69458,69457,69445,69432,69410,69402,69528,69683,69839,
-
-               ]
-    } ]
-});
-</script>
-
-<script> //Daily Views
-    Highcharts.chart('day-views', {
-    chart: {
-        type: 'areaspline',
-        backgroundColor: 'rgb(20,20,20)',
-        zoomType: 'xy',
-        style: {
-            fontFamily: 'roboto',
-            fontWeight: 'bold',
-            color: "#fff",
-        }
-
-
-    },
-    title: {
-        text: 'Total Views (inc. Deleted/Private/Unlisted Videos)',
-        style:{
-            color:"#fff"
-        }
-    },
-    
-    xAxis: {
-        tickInterval:100,
-        labels: {
-    style: {
-        color: '#fff',
-    },  
-},
-        categories: [
-            '2019-02-15','2019-02-16','2019-02-17','2019-02-18','2019-02-19','2019-02-20','2019-02-21','2019-02-22','2019-02-23','2019-02-24','2019-02-25','2019-02-26','2019-02-27','2019-02-28',
-            '2019-03-01','2019-03-02','2019-03-03','2019-03-04','2019-03-05','2019-03-06','2019-03-07','2019-03-08','2019-03-09','2019-03-10','2019-03-11','2019-03-12','2019-03-13','2019-03-14','2019-03-15','2019-03-16','2019-03-17','2019-03-18','2019-03-19','2019-03-20','2019-03-21','2019-03-22','2019-03-23','2019-03-24','2019-03-25','2019-03-26','2019-03-27','2019-03-28','2019-03-29','2019-03-30','2019-03-31',
-            '2019-04-01','2019-04-02','2019-04-03','2019-04-04','2019-04-05','2019-04-06','2019-04-07','2019-04-08','2019-04-09','2019-04-10','2019-04-11','2019-04-12','2019-04-13','2019-04-14','2019-04-15','2019-04-16','2019-04-17','2019-04-18','2019-04-19','2019-04-20','2019-04-21','2019-04-22','2019-04-23','2019-04-24','2019-04-25','2019-04-26','2019-04-27','2019-04-28','2019-04-29','2019-04-30',
-            '2019-05-01','2019-05-02','2019-05-03','2019-05-04','2019-05-05','2019-05-06','2019-05-07','2019-05-08','2019-05-09','2019-05-10','2019-05-11','2019-05-12','2019-05-13','2019-05-14','2019-05-15','2019-05-16','2019-05-17','2019-05-18','2019-05-19','2019-05-20','2019-05-21','2019-05-22','2019-05-23','2019-05-24','2019-05-25','2019-05-26','2019-05-27','2019-05-28','2019-05-29','2019-05-30','2019-05-31',
-            '2019-06-01','2019-06-02','2019-06-03','2019-06-04','2019-06-05','2019-06-06','2019-06-07','2019-06-08','2019-06-09','2019-06-10','2019-06-11','2019-06-12','2019-06-13','2019-06-14','2019-06-15','2019-06-16','2019-06-17','2019-06-18','2019-06-19','2019-06-20','2019-06-21','2019-06-22','2019-06-23','2019-06-24','2019-06-25','2019-06-26','2019-06-27','2019-06-28','2019-06-29','2019-06-30',
-            '2019-07-01','2019-07-02','2019-07-03','2019-07-04','2019-07-05','2019-07-06','2019-07-07','2019-07-08','2019-07-09','2019-07-10','2019-07-11','2019-07-12','2019-07-13','2019-07-14','2019-07-15','2019-07-16','2019-07-17','2019-07-18','2019-07-19','2019-07-20','2019-07-21','2019-07-22','2019-07-23','2019-07-24','2019-07-25','2019-07-26','2019-07-27','2019-07-28','2019-07-29','2019-07-30','2019-07-31',
-            '2019-08-01','2019-08-02','2019-08-03','2019-08-04','2019-08-05','2019-08-06','2019-08-07','2019-08-08','2019-08-09','2019-08-10','2019-08-11','2019-08-12','2019-08-13','2019-08-14','2019-08-15','2019-08-16','2019-08-17','2019-08-18','2019-08-19','2019-08-20','2019-08-21','2019-08-22','2019-08-23','2019-08-24','2019-08-25','2019-08-26','2019-08-27','2019-08-28','2019-08-29','2019-08-30','2019-08-31',
-            '2019-09-01','2019-09-02','2019-09-03','2019-09-04','2019-09-05','2019-09-06','2019-09-07','2019-09-08','2019-09-09','2019-09-10','2019-09-11','2019-09-12','2019-09-13','2019-09-14','2019-09-15','2019-09-16','2019-09-17','2019-09-18','2019-09-19','2019-09-20','2019-09-21','2019-09-22','2019-09-23','2019-09-24','2019-09-25','2019-09-26','2019-09-27','2019-09-28','2019-09-29','2019-09-30',
-            '2019-10-01','2019-10-02','2019-10-03','2019-10-04','2019-10-05','2019-10-06','2019-10-07','2019-10-08','2019-10-09','2019-10-10','2019-10-11','2019-10-12','2019-10-13','2019-10-14','2019-10-15','2019-10-16','2019-10-17','2019-10-18','2019-10-19','2019-10-20','2019-10-21','2019-10-22','2019-10-23','2019-10-24','2019-10-25','2019-10-26','2019-10-27','2019-10-28','2019-10-29','2019-10-30','2019-10-31',
-            '2019-11-01','2019-11-02','2019-11-03','2019-11-04','2019-11-05','2019-11-06','2019-11-07','2019-11-08','2019-11-09','2019-11-10','2019-11-11','2019-11-12','2019-11-13','2019-11-14','2019-11-15','2019-11-16','2019-11-17','2019-11-18','2019-11-19','2019-11-20','2019-11-21','2019-11-22','2019-11-23','2019-11-24','2019-11-25','2019-11-26','2019-11-27','2019-11-28','2019-11-29','2019-11-30',
-            '2019-12-01','2019-12-02','2019-12-03','2019-12-04','2019-12-05','2019-12-06','2019-12-07','2019-12-08','2019-12-09','2019-12-10','2019-12-11','2019-12-12','2019-12-13','2019-12-14','2019-12-15','2019-12-16','2019-12-17','2019-12-18','2019-12-19','2019-12-20','2019-12-21','2019-12-22','2019-12-23','2019-12-24','2019-12-25','2019-12-26','2019-12-27','2019-12-28','2019-12-29','2019-12-30','2019-12-31',
-            '2020-01-01','2020-01-02','2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07','2020-01-08','2020-01-09','2020-01-10','2020-01-11','2020-01-12','2020-01-13','2020-01-14','2020-01-15','2020-01-16','2020-01-17','2020-01-18','2020-01-19','2020-01-20','2020-01-21','2020-01-22','2020-01-23','2020-01-24','2020-01-25','2020-01-26','2020-01-27','2020-01-28','2020-01-29','2020-01-30','2020-01-31',
-            '2020-02-01','2020-02-02','2020-02-03','2020-02-04','2020-02-05','2020-02-06','2020-02-07','2020-02-08','2020-02-09','2020-02-10','2020-02-11','2020-02-12','2020-02-13','2020-02-14','2020-02-15','2020-02-16','2020-02-17','2020-02-18','2020-02-19','2020-02-20','2020-02-21','2020-02-22','2020-02-23','2020-02-24','2020-02-25','2020-02-26','2020-02-27','2020-02-28','2020-02-29',
-            '2020-03-01','2020-03-02','2020-03-03','2020-03-04','2020-03-05','2020-03-06','2020-03-07','2020-03-08','2020-03-09','2020-03-10','2020-03-11','2020-03-12','2020-03-13','2020-03-14','2020-03-15','2020-03-16','2020-03-17','2020-03-18','2020-03-19','2020-03-20','2020-03-21','2020-03-22','2020-03-23','2020-03-24','2020-03-25','2020-03-26','2020-03-27','2020-03-28','2020-03-29','2020-03-30','2020-03-31',
-            '2020-04-01','2020-04-02','2020-04-03','2020-04-04','2020-04-05','2020-04-06','2020-04-07','2020-04-08','2020-04-09','2020-04-10','2020-04-11','2020-04-12','2020-04-13','2020-04-14','2020-04-15','2020-04-16','2020-04-17','2020-04-18','2020-04-19','2020-04-20','2020-04-21','2020-04-22','2020-04-23','2020-04-24','2020-04-25','2020-04-26','2020-04-27','2020-04-28','2020-04-29','2020-04-30',
-            '2020-05-01','2020-05-02','2020-05-03','2020-05-04','2020-05-05','2020-05-06','2020-05-07','2020-05-08','2020-05-09','2020-05-10','2020-05-11','2020-05-12','2020-05-13','2020-05-14','2020-05-15','2020-05-16','2020-05-17','2020-05-18','2020-05-19','2020-05-20','2020-05-21','2020-05-22','2020-05-23','2020-05-24','2020-05-25','2020-05-26','2020-05-27','2020-05-28','2020-05-29','2020-05-30','2020-05-31',
-            '2020-06-01','2020-06-02','2020-06-03','2020-06-04','2020-06-05','2020-06-06','2020-06-07','2020-06-08','2020-06-09','2020-06-10','2020-06-11','2020-06-12','2020-06-13','2020-06-14','2020-06-15','2020-06-16','2020-06-17','2020-06-18','2020-06-19','2020-06-20','2020-06-21','2020-06-22','2020-06-23','2020-06-24','2020-06-25','2020-06-26','2020-06-27','2020-06-28','2020-06-29','2020-06-30',
-            '2020-07-01','2020-07-02','2020-07-03','2020-07-04','2020-07-05','2020-07-06','2020-07-07','2020-07-08','2020-07-09','2020-07-10','2020-07-11','2020-07-12','2020-07-13','2020-07-14','2020-07-15','2020-07-16','2020-07-17','2020-07-18','2020-07-19','2020-07-20','2020-07-21','2020-07-22','2020-07-23','2020-07-24','2020-07-25','2020-07-26','2020-07-27','2020-07-28','2020-07-29','2020-07-30','2020-07-31',
-            '2020-08-01','2020-08-02','2020-08-03','2020-08-04','2020-08-05','2020-08-06','2020-08-07','2020-08-08','2020-08-09','2020-08-10','2020-08-11','2020-08-12','2020-08-13','2020-08-14','2020-08-15','2020-08-16','2020-08-17','2020-08-18','2020-08-19','2020-08-20','2020-08-21','2020-08-22','2020-08-23','2020-08-24','2020-08-25','2020-08-26','2020-08-27','2020-08-28','2020-08-29','2020-08-30','2020-08-31',
-            '2020-09-01','2020-09-02','2020-09-03','2020-09-04','2020-09-05','2020-09-06','2020-09-07','2020-09-08','2020-09-09','2020-09-10','2020-09-11','2020-09-12','2020-09-13','2020-09-14','2020-09-15','2020-09-16','2020-09-17','2020-09-18','2020-09-19','2020-09-20','2020-09-21','2020-09-22','2020-09-23','2020-09-24','2020-09-25','2020-09-26','2020-09-27','2020-09-28','2020-09-29','2020-09-30',
-            '2020-10-01','2020-10-02','2020-10-03','2020-10-04','2020-10-05','2020-10-06','2020-10-07','2020-10-08','2020-10-09','2020-10-10','2020-10-11','2020-10-12','2020-10-13','2020-10-14','2020-10-15','2020-10-16','2020-10-17','2020-10-18','2020-10-19','2020-10-20','2020-10-21','2020-10-22','2020-10-23','2020-10-24','2020-10-25','2020-10-26','2020-10-27','2020-10-28','2020-10-29','2020-10-30','2020-10-31',
-            '2020-11-01','2020-11-02','2020-11-03','2020-11-04','2020-11-05','2020-11-06','2020-11-07','2020-11-08','2020-11-09','2020-11-10','2020-11-11','2020-11-12','2020-11-13','2020-11-14','2020-11-15','2020-11-16','2020-11-17','2020-11-18','2020-11-19','2020-11-20','2020-11-21','2020-11-22','2020-11-23','2020-11-24','2020-11-25','2020-11-26','2020-11-27','2020-11-28','2020-11-29','2020-11-30',
-            '2020-12-01','2020-12-02','2020-12-03','2020-12-04','2020-12-05','2020-12-06','2020-12-07','2020-12-08','2020-12-09','2020-12-10','2020-12-11','2020-12-12','2020-12-13','2020-12-14','2020-12-15','2020-12-16','2020-12-17','2020-12-18','2020-12-19','2020-12-20','2020-12-21','2020-12-22','2020-12-23','2020-12-24','2020-12-25','2020-12-26','2020-12-27','2020-12-28','2020-12-29','2020-12-30','2020-12-31',
-            '2021-01-01','2021-01-02','2021-01-03','2021-01-04','2021-01-05','2021-01-06','2021-01-07','2021-01-08','2021-01-09','2021-01-10','2021-01-11','2021-01-12','2021-01-13','2021-01-14','2021-01-15','2021-01-16','2021-01-17','2021-01-18','2021-01-19','2021-01-20','2021-01-21','2021-01-22','2021-01-23','2021-01-24','2021-01-25','2021-01-26','2021-01-27','2021-01-28','2021-01-29','2021-01-30','2021-01-31',
-            '2021-02-01','2021-02-02','2021-02-03','2021-02-04','2021-02-05','2021-02-06','2021-02-07','2021-02-08','2021-02-09','2021-02-10','2021-02-11','2021-02-12','2021-02-13','2021-02-14','2021-02-15','2021-02-16','2021-02-17','2021-02-18','2021-02-19','2021-02-20','2021-02-21','2021-02-22','2021-02-23','2021-02-24','2021-02-25','2021-02-26','2021-02-27','2021-02-28',
-            '2021-03-01','2021-03-02','2021-03-03','2021-03-04','2021-03-05','2021-03-06','2021-03-07','2021-03-08','2021-03-09','2021-03-10','2021-03-11','2021-03-12','2021-03-13','2021-03-14','2021-03-15','2021-03-16','2021-03-17','2021-03-18','2021-03-19','2021-03-20','2021-03-21','2021-03-22','2021-03-23','2021-03-24','2021-03-25','2021-03-26','2021-03-27','2021-03-28','2021-03-29','2021-03-30','2021-03-31',
-            '2021-04-01','2021-04-02','2021-04-03','2021-04-04','2021-04-05','2021-04-06','2021-04-07','2021-04-08','2021-04-09','2021-04-10','2021-04-11','2021-04-12','2021-04-13','2021-04-14','2021-04-15','2021-04-16','2021-04-17','2021-04-18','2021-04-19','2021-04-20','2021-04-21','2021-04-22','2021-04-23','2021-04-24','2021-04-25','2021-04-26','2021-04-27','2021-04-28','2021-04-29','2021-04-30',
-            '2021-05-01','2021-05-02','2021-05-03','2021-05-04','2021-05-05','2021-05-06','2021-05-07','2021-05-08','2021-05-09','2021-05-10','2021-05-11','2021-05-12','2021-05-13','2021-05-14','2021-05-15','2021-05-16','2021-05-17','2021-05-18','2021-05-19','2021-05-20','2021-05-21','2021-05-22','2021-05-23','2021-05-24','2021-05-25','2021-05-26','2021-05-27','2021-05-28','2021-05-29','2021-05-30','2021-05-31',
-            '2021-06-01','2021-06-02','2021-06-03','2021-06-04','2021-06-05','2021-06-06','2021-06-07','2021-06-08','2021-06-09','2021-06-10','2021-06-11','2021-06-12','2021-06-13','2021-06-14','2021-06-15','2021-06-16','2021-06-17','2021-06-18','2021-06-19','2021-06-20','2021-06-21','2021-06-22','2021-06-23','2021-06-24','2021-06-25','2021-06-26','2021-06-27','2021-06-28','2021-06-29','2021-06-30',
-            '2021-07-01','2021-07-02','2021-07-03','2021-07-04','2021-07-05','2021-07-06','2021-07-07','2021-07-08','2021-07-09','2021-07-10','2021-07-11','2021-07-12','2021-07-13','2021-07-14','2021-07-15','2021-07-16','2021-07-17','2021-07-18','2021-07-19','2021-07-20','2021-07-21','2021-07-22','2021-07-23','2021-07-24','2021-07-25','2021-07-26','2021-07-27','2021-07-28','2021-07-29','2021-07-30','2021-07-31',
-            '2021-08-01','2021-08-02','2021-08-03','2021-08-04','2021-08-05','2021-08-06','2021-08-07','2021-08-08','2021-08-09','2021-08-10','2021-08-11','2021-08-12','2021-08-13','2021-08-14','2021-08-15','2021-08-16','2021-08-17','2021-08-18','2021-08-19','2021-08-20','2021-08-21','2021-08-22','2021-08-23','2021-08-24','2021-08-25','2021-08-26','2021-08-27','2021-08-28','2021-08-29','2021-08-30','2021-08-31',
-            '2021-09-01','2021-09-02','2021-09-03','2021-09-04','2021-09-05','2021-09-06','2021-09-07','2021-09-08','2021-09-09','2021-09-10','2021-09-11','2021-09-12','2021-09-13','2021-09-14','2021-09-15','2021-09-16','2021-09-17','2021-09-18','2021-09-19','2021-09-20','2021-09-21','2021-09-22','2021-09-23','2021-09-24','2021-09-25','2021-09-26','2021-09-27','2021-09-28','2021-09-29','2021-09-30',
-            '2021-10-01','2021-10-02','2021-10-03','2021-10-04','2021-10-05','2021-10-06','2021-10-07','2021-10-08','2021-10-09','2021-10-10','2021-10-11','2021-10-12','2021-10-13','2021-10-14','2021-10-15','2021-10-16','2021-10-17','2021-10-18','2021-10-19','2021-10-20','2021-10-21','2021-10-22','2021-10-23','2021-10-24','2021-10-25','2021-10-26','2021-10-27','2021-10-28','2021-10-29','2021-10-30','2021-10-31',
-        ],
-
-    },
-    yAxis: {
-        labels: {
-    style: {
-        color: '#fff'
-    }
-},
-        title: {
-            text: ' Views',
-            style:{
-                color:'#fff'
-            },
-        },
-        
-        
-        
-    },
-    tooltip: {
-        shared: true,
-        valueSuffix: ''
-    },
-    credits: {
-        enabled: false
-    },
-    plotOptions: {
-        areaspline: {
-            marker:{enabled: false},
-            fillOpacity: 0.5,
-            color: '#0099ff',
-        }
-        
-    },
-    series: [{
-        name: 'Views',
-        showInLegend: false,
-        style: {
-            color: '#fff'
-        },
-    
-        data: [0,661,1361,2029,2500,3156,3550,5216,6930,9210,9824,10147,10585,11338,
-        12738,13777,15396,16159,16620,17310,18430,19997,21911,23090,24161,25316,24406,27771,28621,29466,30647,31936,32968,33940,35583,37141,38885,41629,44282,46197,46197,47180,48743,56218,61993,
-        93144,122404,135584,147744,157360,165237,171472,176191,180089,184535,189571,195255,201081,208055,212951,219770,225321,230580,236322,242477,247640,255500,262968,271538,278645,286606,295124,302285,308213,314028,
-        320415,324867,328423,332110,336063,340553,344898,349620,353974,359089,367062,375602,382516,388566,393889,398678,403428,409335,415446,420973,426992,432651,436798,442292,448954,454150,459974,466473,474533,477464,479960,
-        482433,486951,491835,495229,498670,502973,508209,516466,524559,533537,541412,546315,555018,564316,573747,586096,597505,612637,625650,637909,650375,662539,674025,681764,687951,692827,696908,702243,706971,711301,
-        716594,724867,735114,744051,755124,764476,776768,784891,792079,798437,804662,811112,816603,822944,829776,836428,842945,851000,860822,870302,879696,887022,896892,907474,917644,926046,939150,949053,958163,965901,976363,
-        984335,993280,1009061,1029099,1043192,1052410,1065731,1075701,1091805,1104647,1115699,1133196,1151268,1169870,1190589,1208603,1229842,1246941,1262882,1280601,1300496,1318440,1341128,1381559,1411939,1429886,1442957,1454810,1468347,1481267,1498550,
-        1523300,1541367,1554094,1563555,1572888,1587847,1603098,1611660,1617962,1627528,1636790,1646612,1660194,1677797,1690001,1697579,1706000,1711923,1724705,1739072,1751957,1759411,1765457,1771057,1779856,1788088,1795925,1808076,1816266,1820032,
-        1825957,1829475,1832928,1835824,1843654,1853707,1858315,1861300,1864377,1867380,1870412,1873882,1876180,1878808,1881076,1883438,1885596,1888832,1893451,1896885,1899240,1905352,1909478,1911877,1915445,1918979,1922127,1924675,1926689,1928619,1930784,
-        1932567,1935133,1939383,1941596,1943201,1945155,1946948,1947696,1948458,1950183,1951993,1953354,1954938,1956753,1958620,1960850,1963059,1964780,1966649,1968520,1969911,1971570,1973650,1973400,1976847,1979503,1981487,1983218,1986382,1990968,
-        1994545,1997271,2000853,2004182,2008199,2012316,2018409,2027468,2035387,2044719,2051447,2056007,2059198,2063746,2068637,2071931,2073691,2079104,2084395,2089082,2093389,2101269,2106181,2112611,2117955,2122941,2127780,2134125,2139820,2144475,2150237,
-
-        2152915,2157587,2164082,2172363,2179156,2182912,2186594,2191645,2195941,2200512,2209667,2214904,2218517,2222805,2226542,2229925,2233640,2237703,2242742,2246899,2250522,2254252,2257989,2262417,2266763,2273256,2278985,2282347,2285572,2289716,2295757,
-        2300090,2303479,2306488,2308719,2309362,2310061,2310929,2315105,2318060,2319221,2320008,2320658,2321400,2322702,2324055,2324951,2326162,2327675,2328704,2329372,2330224,2337360,2345057,2357238,2366240,2373558,2388092,2391994,2398595,
-        2412951,2426654,2437972,2439979,2450163,2457361,2459988,2462017,2463326,2464579,2465929,2467442,2469066,2471725,2476442,2479319,2481536,2485263,2488358,2490712,2493339,2465141,2498670,2501300,2511704,2515533,2517251,2522508,2527103,2532950,2544160,
-        2584102,2592906,2600731,2605284,2610002,2614018,2617203,2621308,2624804,2642465,2648585,2652819,2656241,2661549,2666392,2668429,2674196,2682130,2685257,2690022,2694423,2697323,2698860,2700116,2701048,2704126,2707050,2710595,2713394,2715905,
-        2717373,2721189,2724870,2727867,2732961,2737200,2740464,2743904,2747778,2757616,2772013,2807969,2839648,2863539,2878249,2887617,2906350,2944105,2969802,2980646,2986292,2989268,2994004,3009411,3025325,3037245,3047301,3051046,3057594,3061373,3065063,
-        3072476,3078269,3083702,3086789,3091014,3094575,3112557,3124658,3154467,3210994,3266176,3344715,3420101,3517943,3611448,3676171,3722260,3768243,3803329,3825870,3836684,3842154,3848037,3850380,3851667,3854887,3868204,3872345,3875995,3878238,
-        3880190,3882196,3884139,3886937,3889091,3892474,3895798,3899091,3901251,3903498,3906938,3909663,3912937,3916068,3921428,3924801,3927535,3931271,3933580,3935858,3938251,3940333,3943643,3947817,3951644,3953226,3956232,3961436,3966160,3971159,3974997,
-        3977387,3980999,3983978,3987463,3992500,3996117,3999105,4002080,4006462,4008122,4010337,4010954,4011564,4014011,4018219,4025126,4031503,4037694,4041935,4046133,4053480,4057948,4061852,4064870,4066906,4067900,4073902,4079701,4082719,4086033,4088170,
-        4090001,4091635,4093792,4096704,4128667,4135466,4140296,4142389,4144796,4148524,4152283,4156004,4159628,4160605,4165273,4167839,4169372,4171141,4171860,4174991,4177470,4179802,4181477,4182899,4184521,4187733,4163185,4199032,4202117,4203913,
-        4206094,4208677,4211426,4218055,4222623,4226593,4227964,4228968,4230084,4232195,4235403,4237510,4240546,4243092,4247068,4247952,4251127,4253105,4254932,4257981,4259781,4260232,4262213,4263843,4267109,4268469,4269890,4271148,4272560,4274305,4277753,
-        4281997,4282531,4283005,4283535,4283904,4284330,4290249,4293693,4295676,4297547,4298970,4301293,4302837,4304909,4306726,4308322,4310270,4313600,4325107,4339669,4348424,4353173,4355145,4357807,4359120,4360803,4362434,4365345,4369032,4371167,
-        4372678,4373323,4373930,4374513,4375413,4375973,4376358,4376800,4377410,4378066,4378660,4379382,4380578,4381175,4381728,4382260,4383583,4384774,4385541,4391017,4394414,4397404,4400255,4403757,4408713,4414549,4421380,4428698,4436861,4444305,4453013,
-
-        4472250,4498905,4581042,4606758,4621040,4627697,4634533,4641075,4648100,4655761,4665405,4676036,4683913,4689495,4693599,4697071,4703631,4705408,4707399,4710176,4712305,4713988,4716692,4718830,4720693,4722401,4724155,4725709,4727287,4730507,4733813,
-        4737567,4741534,4744073,4746102,4747910,4749960,4752111,4754361,4756300,4757762,4759408,4761514,4764463,4768338,4772009,4774709,4777071,4779610,4780988,4783832,4786322,4788551,4790759,4792803,4794905,4796976,4798309,4798909,
-        4799337,4799834,4801289,4803304,4805324,4808261,4809644,4811031,4812186,4812799,4814317,4816206,4819051,4824184,4826766,4828813,4831232,4833883,4837514,4844497,4854434,4857217,4858238,4859044,4861784,4864307,4868977,4877584,4883329,4890314,4895565,
-        4902274,4907655,4916346,4928071,4937918,4948005,4959122,4968319,4974976,4988490,5003016,5014310,5023084,5032663,5041261,5049022,5060146,5079618,5067761,5125184,5149866,5168729,5190262,5215946,5232017,5243612,5260057,5276109,5291407,5306654,
-        5334439,5349532,5359531,5368459,5379243,5388724,5396512,5406739,5415682,5423786,5431696,5440080,5447449,5454844,5463264,5471372,5478394,5486111,5677925,7015284,8439335,9535794,10019519,10203586,10296182,10349047,10379678,10405779,10447223,10462375,10467460,
-        10469817,10470629,10478149,10483526,10489556,10494076,10498181,10502732,10506958,10513383,10518647,10522911,10525389,10538030,10544159,10549111,10556294,10564963,10569481,10573505,10577751,10582281,10585899,10589081,10593994,10599398,10604349,10608715,10612012,10615281,
-        10618402,10621639,10624070,10630016,10634166,10640509,10647876,10677619,10735033,10786378,10803634,10810753,10814366,10817005,10818920,10821505,10823572,10825743,10827854,10829334,10830570,10831445,10792310,10794811,10797884,10801391,10808184,10812836,10814758,10814758,10814758,
-        10816517,10818491,10820619,10821819,10827552,10831235,10860538,10909352,10923060,10924226,10924821,10926917,10929432,10930214,10930768,10931133,10931491,10936041,10938967,10947363,10950975,10953669,10956726,10959709,10961493,10963177,10965709,10968339,10973606,10978399,10983095,
-        10986305,10987561,10987978,10989305,10989658,10990364,10995238,11001320,11003020,11004227,11007002,11010091,11012483,11014589,11017725,11020887,11022940,11025921,11031097,11033446,11035267,11039617,11044222,11048576,11052291,11054065,11055561,11056909,11068645,11080185,
-        11083560,11085700,11088740,11090334,11091680,11093054,11093777,11094117,11094442,11094792,11095123,11095418,11095706,11095993,11096206,11096576,11090076,11091311,11092117,11093401,11094436,11095258,11096083,11096862,11097089,11097344,11097753,11098987,11101547,11115343,11136952,
-    ]
-    } ]
-});
-</script>
-
-<script> //Daily Subs Gain
-    Highcharts.chart('day-subs-gain', {
-    chart: {
-        type: 'areaspline',
-        backgroundColor: 'rgb(20,20,20)',
-        zoomType: 'xy',
-        style: {
-            fontFamily: 'roboto',
-            fontWeight: 'bold',
-            color: "#fff",
-        }
-
-
-    },
-    title: {
-        text: 'Subscribers Gained',
-        style:{
-            color:"#fff"
-        }
-    },
-    
-    xAxis: {
-        tickInterval:100,
-        labels: {
-    style: {
-        color: '#fff',
-    },  
-},
-        categories: [
-            '2019-02-15','2019-02-16','2019-02-17','2019-02-18','2019-02-19','2019-02-20','2019-02-21','2019-02-22','2019-02-23','2019-02-24','2019-02-25','2019-02-26','2019-02-27','2019-02-28',
-            '2019-03-01','2019-03-02','2019-03-03','2019-03-04','2019-03-05','2019-03-06','2019-03-07','2019-03-08','2019-03-09','2019-03-10','2019-03-11','2019-03-12','2019-03-13','2019-03-14','2019-03-15','2019-03-16','2019-03-17','2019-03-18','2019-03-19','2019-03-20','2019-03-21','2019-03-22','2019-03-23','2019-03-24','2019-03-25','2019-03-26','2019-03-27','2019-03-28','2019-03-29','2019-03-30','2019-03-31',
-            '2019-04-01','2019-04-02','2019-04-03','2019-04-04','2019-04-05','2019-04-06','2019-04-07','2019-04-08','2019-04-09','2019-04-10','2019-04-11','2019-04-12','2019-04-13','2019-04-14','2019-04-15','2019-04-16','2019-04-17','2019-04-18','2019-04-19','2019-04-20','2019-04-21','2019-04-22','2019-04-23','2019-04-24','2019-04-25','2019-04-26','2019-04-27','2019-04-28','2019-04-29','2019-04-30',
-            '2019-05-01','2019-05-02','2019-05-03','2019-05-04','2019-05-05','2019-05-06','2019-05-07','2019-05-08','2019-05-09','2019-05-10','2019-05-11','2019-05-12','2019-05-13','2019-05-14','2019-05-15','2019-05-16','2019-05-17','2019-05-18','2019-05-19','2019-05-20','2019-05-21','2019-05-22','2019-05-23','2019-05-24','2019-05-25','2019-05-26','2019-05-27','2019-05-28','2019-05-29','2019-05-30','2019-05-31',
-            '2019-06-01','2019-06-02','2019-06-03','2019-06-04','2019-06-05','2019-06-06','2019-06-07','2019-06-08','2019-06-09','2019-06-10','2019-06-11','2019-06-12','2019-06-13','2019-06-14','2019-06-15','2019-06-16','2019-06-17','2019-06-18','2019-06-19','2019-06-20','2019-06-21','2019-06-22','2019-06-23','2019-06-24','2019-06-25','2019-06-26','2019-06-27','2019-06-28','2019-06-29','2019-06-30',
-            '2019-07-01','2019-07-02','2019-07-03','2019-07-04','2019-07-05','2019-07-06','2019-07-07','2019-07-08','2019-07-09','2019-07-10','2019-07-11','2019-07-12','2019-07-13','2019-07-14','2019-07-15','2019-07-16','2019-07-17','2019-07-18','2019-07-19','2019-07-20','2019-07-21','2019-07-22','2019-07-23','2019-07-24','2019-07-25','2019-07-26','2019-07-27','2019-07-28','2019-07-29','2019-07-30','2019-07-31',
-            '2019-08-01','2019-08-02','2019-08-03','2019-08-04','2019-08-05','2019-08-06','2019-08-07','2019-08-08','2019-08-09','2019-08-10','2019-08-11','2019-08-12','2019-08-13','2019-08-14','2019-08-15','2019-08-16','2019-08-17','2019-08-18','2019-08-19','2019-08-20','2019-08-21','2019-08-22','2019-08-23','2019-08-24','2019-08-25','2019-08-26','2019-08-27','2019-08-28','2019-08-29','2019-08-30','2019-08-31',
-            '2019-09-01','2019-09-02','2019-09-03','2019-09-04','2019-09-05','2019-09-06','2019-09-07','2019-09-08','2019-09-09','2019-09-10','2019-09-11','2019-09-12','2019-09-13','2019-09-14','2019-09-15','2019-09-16','2019-09-17','2019-09-18','2019-09-19','2019-09-20','2019-09-21','2019-09-22','2019-09-23','2019-09-24','2019-09-25','2019-09-26','2019-09-27','2019-09-28','2019-09-29','2019-09-30',
-            '2019-10-01','2019-10-02','2019-10-03','2019-10-04','2019-10-05','2019-10-06','2019-10-07','2019-10-08','2019-10-09','2019-10-10','2019-10-11','2019-10-12','2019-10-13','2019-10-14','2019-10-15','2019-10-16','2019-10-17','2019-10-18','2019-10-19','2019-10-20','2019-10-21','2019-10-22','2019-10-23','2019-10-24','2019-10-25','2019-10-26','2019-10-27','2019-10-28','2019-10-29','2019-10-30','2019-10-31',
-            '2019-11-01','2019-11-02','2019-11-03','2019-11-04','2019-11-05','2019-11-06','2019-11-07','2019-11-08','2019-11-09','2019-11-10','2019-11-11','2019-11-12','2019-11-13','2019-11-14','2019-11-15','2019-11-16','2019-11-17','2019-11-18','2019-11-19','2019-11-20','2019-11-21','2019-11-22','2019-11-23','2019-11-24','2019-11-25','2019-11-26','2019-11-27','2019-11-28','2019-11-29','2019-11-30',
-            '2019-12-01','2019-12-02','2019-12-03','2019-12-04','2019-12-05','2019-12-06','2019-12-07','2019-12-08','2019-12-09','2019-12-10','2019-12-11','2019-12-12','2019-12-13','2019-12-14','2019-12-15','2019-12-16','2019-12-17','2019-12-18','2019-12-19','2019-12-20','2019-12-21','2019-12-22','2019-12-23','2019-12-24','2019-12-25','2019-12-26','2019-12-27','2019-12-28','2019-12-29','2019-12-30','2019-12-31',
-            '2020-01-01','2020-01-02','2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07','2020-01-08','2020-01-09','2020-01-10','2020-01-11','2020-01-12','2020-01-13','2020-01-14','2020-01-15','2020-01-16','2020-01-17','2020-01-18','2020-01-19','2020-01-20','2020-01-21','2020-01-22','2020-01-23','2020-01-24','2020-01-25','2020-01-26','2020-01-27','2020-01-28','2020-01-29','2020-01-30','2020-01-31',
-            '2020-02-01','2020-02-02','2020-02-03','2020-02-04','2020-02-05','2020-02-06','2020-02-07','2020-02-08','2020-02-09','2020-02-10','2020-02-11','2020-02-12','2020-02-13','2020-02-14','2020-02-15','2020-02-16','2020-02-17','2020-02-18','2020-02-19','2020-02-20','2020-02-21','2020-02-22','2020-02-23','2020-02-24','2020-02-25','2020-02-26','2020-02-27','2020-02-28','2020-02-29',
-            '2020-03-01','2020-03-02','2020-03-03','2020-03-04','2020-03-05','2020-03-06','2020-03-07','2020-03-08','2020-03-09','2020-03-10','2020-03-11','2020-03-12','2020-03-13','2020-03-14','2020-03-15','2020-03-16','2020-03-17','2020-03-18','2020-03-19','2020-03-20','2020-03-21','2020-03-22','2020-03-23','2020-03-24','2020-03-25','2020-03-26','2020-03-27','2020-03-28','2020-03-29','2020-03-30','2020-03-31',
-            '2020-04-01','2020-04-02','2020-04-03','2020-04-04','2020-04-05','2020-04-06','2020-04-07','2020-04-08','2020-04-09','2020-04-10','2020-04-11','2020-04-12','2020-04-13','2020-04-14','2020-04-15','2020-04-16','2020-04-17','2020-04-18','2020-04-19','2020-04-20','2020-04-21','2020-04-22','2020-04-23','2020-04-24','2020-04-25','2020-04-26','2020-04-27','2020-04-28','2020-04-29','2020-04-30',
-            '2020-05-01','2020-05-02','2020-05-03','2020-05-04','2020-05-05','2020-05-06','2020-05-07','2020-05-08','2020-05-09','2020-05-10','2020-05-11','2020-05-12','2020-05-13','2020-05-14','2020-05-15','2020-05-16','2020-05-17','2020-05-18','2020-05-19','2020-05-20','2020-05-21','2020-05-22','2020-05-23','2020-05-24','2020-05-25','2020-05-26','2020-05-27','2020-05-28','2020-05-29','2020-05-30','2020-05-31',
-            '2020-06-01','2020-06-02','2020-06-03','2020-06-04','2020-06-05','2020-06-06','2020-06-07','2020-06-08','2020-06-09','2020-06-10','2020-06-11','2020-06-12','2020-06-13','2020-06-14','2020-06-15','2020-06-16','2020-06-17','2020-06-18','2020-06-19','2020-06-20','2020-06-21','2020-06-22','2020-06-23','2020-06-24','2020-06-25','2020-06-26','2020-06-27','2020-06-28','2020-06-29','2020-06-30',
-            '2020-07-01','2020-07-02','2020-07-03','2020-07-04','2020-07-05','2020-07-06','2020-07-07','2020-07-08','2020-07-09','2020-07-10','2020-07-11','2020-07-12','2020-07-13','2020-07-14','2020-07-15','2020-07-16','2020-07-17','2020-07-18','2020-07-19','2020-07-20','2020-07-21','2020-07-22','2020-07-23','2020-07-24','2020-07-25','2020-07-26','2020-07-27','2020-07-28','2020-07-29','2020-07-30','2020-07-31',
-            '2020-08-01','2020-08-02','2020-08-03','2020-08-04','2020-08-05','2020-08-06','2020-08-07','2020-08-08','2020-08-09','2020-08-10','2020-08-11','2020-08-12','2020-08-13','2020-08-14','2020-08-15','2020-08-16','2020-08-17','2020-08-18','2020-08-19','2020-08-20','2020-08-21','2020-08-22','2020-08-23','2020-08-24','2020-08-25','2020-08-26','2020-08-27','2020-08-28','2020-08-29','2020-08-30','2020-08-31',
-            '2020-09-01','2020-09-02','2020-09-03','2020-09-04','2020-09-05','2020-09-06','2020-09-07','2020-09-08','2020-09-09','2020-09-10','2020-09-11','2020-09-12','2020-09-13','2020-09-14','2020-09-15','2020-09-16','2020-09-17','2020-09-18','2020-09-19','2020-09-20','2020-09-21','2020-09-22','2020-09-23','2020-09-24','2020-09-25','2020-09-26','2020-09-27','2020-09-28','2020-09-29','2020-09-30',
-            '2020-10-01','2020-10-02','2020-10-03','2020-10-04','2020-10-05','2020-10-06','2020-10-07','2020-10-08','2020-10-09','2020-10-10','2020-10-11','2020-10-12','2020-10-13','2020-10-14','2020-10-15','2020-10-16','2020-10-17','2020-10-18','2020-10-19','2020-10-20','2020-10-21','2020-10-22','2020-10-23','2020-10-24','2020-10-25','2020-10-26','2020-10-27','2020-10-28','2020-10-29','2020-10-30','2020-10-31',
-            '2020-11-01','2020-11-02','2020-11-03','2020-11-04','2020-11-05','2020-11-06','2020-11-07','2020-11-08','2020-11-09','2020-11-10','2020-11-11','2020-11-12','2020-11-13','2020-11-14','2020-11-15','2020-11-16','2020-11-17','2020-11-18','2020-11-19','2020-11-20','2020-11-21','2020-11-22','2020-11-23','2020-11-24','2020-11-25','2020-11-26','2020-11-27','2020-11-28','2020-11-29','2020-11-30',
-            '2020-12-01','2020-12-02','2020-12-03','2020-12-04','2020-12-05','2020-12-06','2020-12-07','2020-12-08','2020-12-09','2020-12-10','2020-12-11','2020-12-12','2020-12-13','2020-12-14','2020-12-15','2020-12-16','2020-12-17','2020-12-18','2020-12-19','2020-12-20','2020-12-21','2020-12-22','2020-12-23','2020-12-24','2020-12-25','2020-12-26','2020-12-27','2020-12-28','2020-12-29','2020-12-30','2020-12-31',
-            '2021-01-01','2021-01-02','2021-01-03','2021-01-04','2021-01-05','2021-01-06','2021-01-07','2021-01-08','2021-01-09','2021-01-10','2021-01-11','2021-01-12','2021-01-13','2021-01-14','2021-01-15','2021-01-16','2021-01-17','2021-01-18','2021-01-19','2021-01-20','2021-01-21','2021-01-22','2021-01-23','2021-01-24','2021-01-25','2021-01-26','2021-01-27','2021-01-28','2021-01-29','2021-01-30','2021-01-31',
-            '2021-02-01','2021-02-02','2021-02-03','2021-02-04','2021-02-05','2021-02-06','2021-02-07','2021-02-08','2021-02-09','2021-02-10','2021-02-11','2021-02-12','2021-02-13','2021-02-14','2021-02-15','2021-02-16','2021-02-17','2021-02-18','2021-02-19','2021-02-20','2021-02-21','2021-02-22','2021-02-23','2021-02-24','2021-02-25','2021-02-26','2021-02-27','2021-02-28',
-            '2021-03-01','2021-03-02','2021-03-03','2021-03-04','2021-03-05','2021-03-06','2021-03-07','2021-03-08','2021-03-09','2021-03-10','2021-03-11','2021-03-12','2021-03-13','2021-03-14','2021-03-15','2021-03-16','2021-03-17','2021-03-18','2021-03-19','2021-03-20','2021-03-21','2021-03-22','2021-03-23','2021-03-24','2021-03-25','2021-03-26','2021-03-27','2021-03-28','2021-03-29','2021-03-30','2021-03-31',
-            '2021-04-01','2021-04-02','2021-04-03','2021-04-04','2021-04-05','2021-04-06','2021-04-07','2021-04-08','2021-04-09','2021-04-10','2021-04-11','2021-04-12','2021-04-13','2021-04-14','2021-04-15','2021-04-16','2021-04-17','2021-04-18','2021-04-19','2021-04-20','2021-04-21','2021-04-22','2021-04-23','2021-04-24','2021-04-25','2021-04-26','2021-04-27','2021-04-28','2021-04-29','2021-04-30',
-            '2021-05-01','2021-05-02','2021-05-03','2021-05-04','2021-05-05','2021-05-06','2021-05-07','2021-05-08','2021-05-09','2021-05-10','2021-05-11','2021-05-12','2021-05-13','2021-05-14','2021-05-15','2021-05-16','2021-05-17','2021-05-18','2021-05-19','2021-05-20','2021-05-21','2021-05-22','2021-05-23','2021-05-24','2021-05-25','2021-05-26','2021-05-27','2021-05-28','2021-05-29','2021-05-30','2021-05-31',
-            '2021-06-01','2021-06-02','2021-06-03','2021-06-04','2021-06-05','2021-06-06','2021-06-07','2021-06-08','2021-06-09','2021-06-10','2021-06-11','2021-06-12','2021-06-13','2021-06-14','2021-06-15','2021-06-16','2021-06-17','2021-06-18','2021-06-19','2021-06-20','2021-06-21','2021-06-22','2021-06-23','2021-06-24','2021-06-25','2021-06-26','2021-06-27','2021-06-28','2021-06-29','2021-06-30',
-            '2021-07-01','2021-07-02','2021-07-03','2021-07-04','2021-07-05','2021-07-06','2021-07-07','2021-07-08','2021-07-09','2021-07-10','2021-07-11','2021-07-12','2021-07-13','2021-07-14','2021-07-15','2021-07-16','2021-07-17','2021-07-18','2021-07-19','2021-07-20','2021-07-21','2021-07-22','2021-07-23','2021-07-24','2021-07-25','2021-07-26','2021-07-27','2021-07-28','2021-07-29','2021-07-30','2021-07-31',
-            '2021-08-01','2021-08-02','2021-08-03','2021-08-04','2021-08-05','2021-08-06','2021-08-07','2021-08-08','2021-08-09','2021-08-10','2021-08-11','2021-08-12','2021-08-13','2021-08-14','2021-08-15','2021-08-16','2021-08-17','2021-08-18','2021-08-19','2021-08-20','2021-08-21','2021-08-22','2021-08-23','2021-08-24','2021-08-25','2021-08-26','2021-08-27','2021-08-28','2021-08-29','2021-08-30','2021-08-31',
-            '2021-09-01','2021-09-02','2021-09-03','2021-09-04','2021-09-05','2021-09-06','2021-09-07','2021-09-08','2021-09-09','2021-09-10','2021-09-11','2021-09-12','2021-09-13','2021-09-14','2021-09-15','2021-09-16','2021-09-17','2021-09-18','2021-09-19','2021-09-20','2021-09-21','2021-09-22','2021-09-23','2021-09-24','2021-09-25','2021-09-26','2021-09-27','2021-09-28','2021-09-29','2021-09-30',
-            '2021-10-01','2021-10-02','2021-10-03','2021-10-04','2021-10-05','2021-10-06','2021-10-07','2021-10-08','2021-10-09','2021-10-10','2021-10-11','2021-10-12','2021-10-13','2021-10-14','2021-10-15','2021-10-16','2021-10-17','2021-10-18','2021-10-19','2021-10-20','2021-10-21','2021-10-22','2021-10-23','2021-10-24','2021-10-25','2021-10-26','2021-10-27','2021-10-28','2021-10-29','2021-10-30','2021-10-31',
-        ],
-
-    },
-    yAxis: {
-        labels: {
-    style: {
-        color: '#fff'
-    }
-},
-        title: {
-            text: 'Subscribers',
-            style:{
-                color:'#fff'
-            },
-        },
-        
-        
-        
-    },
-    tooltip: {
-        shared: true,
-        valueSuffix: ''
-    },
-    credits: {
-        enabled: false
-    },
-    plotOptions: {
-        areaspline: {
-            marker:{enabled: false},
-            fillOpacity: 0.5,
-            color: '#0099ff',
-        }
-        
-    },
-    series: [{
-        name: 'Gain',
-        showInLegend: false,
-        style: {
-            color: '#fff'
-        },
-    
-        data: [27,49,54,44,42,43,26,38,41,39,30,14,25,30,30,18,29,31,27,17,26,28,26,32,19,29,40,59,24,41,74,27,62,3,22,45,85,32,33,21,-11,20,14,64,49,
-               272,284,133,100,39,59,50,31,35,62,88,92,84,95,94,100,-31,-8,12,24,53,55,34,31,47,38,38,36,27,42,22,37,34,17,34,27,34,53,48,48,33,45,75,62,38,32,29,41,38,30,26,35,31,152,121,64,37,17,47,12,30,
-               25,22,29,16,12,35,19,151,2449,2094,-40,3,32,71,139,224,62,104,95,40,19,54,75,54,42,12,51,262,28,36,-75,5,34,36,88,12,40,22,47,31,14,29,33,17,25,25,12,43,45,43,53,29,51,24,29,86,63,139,89,60,72,
-               32,70,74,140,73,95,63,67,186,35,39,62,54,86,116,128,147,75,20,70,44,34,85,239,116,73,30,23,38,42,88,128,59,16,15,-3,17,33,20,21,32,10,6,18,28,18,3,16,-9,17,12,45,14,0,5,25,19,-4,13,-5,-8,
-               4,-10,-4,-7,8,2,5,-8,3,-15,-6,-22,-2,-5,-11,-1,4,-8,7,-10,-130,-19,-9,-6,-10,13,7,-5,-2,-6,3,4,6,9,10,13,1,8,6,12,5,9,12,19,15,5,15,8,17,19,16,8,22,1,19,16,28,22,31,35,13,
-               33,44,25,55,63,56,37,71,188,508,751,1024,741,-15,-20,-18,-17,23,22,7,-4,14,56,2,40,32,47,84,64,36,40,
-
-               17,14,11,1,9,12,9,-2,16,12,42,10,9,2,12,7,17,12,17,0,8,15,7,7,8,-3,14,7,2,-19,4,13,6,-4,-3,-4,-4,16,3,-1,0,-4,-5,-1,3,-4,5,-5,-4,-6,-8,-2,-3,-5,0,-6,2,2,4,13,
-               -2,-10,-4,-3,-18,-1,17,9,10,19,13,19,20,23,21,196,39,185,263,384,377,258,215,5,13,4,-6,-9,-4,-2,38,222,-65,10,-10,-8,-2,1,166,-47,-19,34,322,766,413,322,509,621,562,551,848,668,518,514,231,34,-22,-23,-483,-11,-19,
-               -18,-12,-9,-1,8,-1,-10,-7,-25,35,42,221,147,117,-3,14,208,325,150,11,-27,-13,-47,52,57,35,20,-18,6,-10,2,-4,21,56,-8,-8,-18,70,50,179,274,242,324,286,309,265,134,69,98,44,7,6,10,-29,-13,5,-10,2,-6,-18,-4,
-               -13,-23,-17,-17,-2,-21,-2,-20,1,-4,-12,-9,-11,5,-2,5,-3,-11,-5,5,-8,1,-15,-1,3,-8,-6,-18,-4,-3,0,-21,5,2,5,7,-17,2,0,-26,-5,11,1,-5,-2,7,25,47,36,8,0,39,-1,-5,-5,3,6,37,0,3,-4,26,
-               38,43,60,28,522,36,44,38,26,28,37,44,29,23,14,37,-54,-25,-10,-20,-11,-6,0,-2,34,20,-1,11,-9,2,-4,-1,-8,7,-4,15,-5,2,-2,-4,1,6,5,9,7,-5,8,-7,-4,-12,-9,-4,-8,-7,-7,2,-5,-1,-6,14,12,
-               28,0,-9,-6,-6,-3,2,-12,-5,-1,-8,-5,-4,-7,-3,2,-3,0,22,51,17,0,-5,-1,-9,-9,-8,-13,0,4,5,-4,-11,-7,-7,-6,-642,0,-9,-1,-14,-9,-6,-1,-2,-2,-11,-6,-1,32,2,12,9,16,11,28,27,49,38,15,-56,
-
-               85,138,673,125,34,26,34,28,26,19,40,37,30,18,8,-8,-4,-32,-6,-4,-3,5,-5,-13,-6,-9,-3,-9,1,4,-2,-5,2,0,4,7,-9,-13,4,-3,-5,-6,-9,3,-4,4,-3,-11,-4,-13,-18,0,-5,4,-2,-10,4,1,-4,
-               -2,-5,-15,-10,-4,6,-13,-10,-5,-1,1,-3,0,1,7,13,19,15,14,60,47,-6,-8,1,-5,2,8,1,2,22,13,38,19,43,35,29,41,37,10,19,11,11,23,38,27,44,24,18,88,78,346,-29,119,72,89,83,93,139,64,53,58,
-               85,46,39,105,28,29,8,24,24,28,34,41,30,34,28,29,26,31,2038,11346,8909,8044,2878,968,557,209,165,51,51,-51,-127,-84,-46,-36,-70,-81,-39,-49,-53,-49,-91,-76,-70,-64,-112,-52,-45,-35,-59,-37,-32,-40,-48,-40,-22,-63,-25,-27,-31,-27,-39,
-               -21,-42,-51,-47,-40,-41,-21,143,320,231,91,-21,-34,-19,-17,-25,-17,-59,-49,-46,-21,-14,-40,-14,-19,-20,-16,190,-7,-31,-21,-24,-38,-34,-18,27,-9,262,574,66,-55,-29,-33,-40,-29,-28,-15,-45,5,-39,-13,-19,-21,-53,-24,-11,-10,-14,12,9,6,-27,
-               -7,-8,-9,-13,-8,-17,-1,-18,-21,-22,-38,-32,-1,-26,-9,-13,-22,-5,-20,-15,32,-3,-1,-4,19,-29,-19,-14,42,15,-6,-19,-28,-37,-31,-10,-13,-11,-9,-10,-11,0,2,-7,-6,-7,-11,-8,-9,-9,0,-6,-1,-1,-12,-13,-22,-8,126,155,156,
-               ]
-    } ]
-});
-</script>
-
-<script> //Daily Views Gain
-    Highcharts.chart('day-views-gain', {
-    chart: {
-        type: 'areaspline',
-        backgroundColor: 'rgb(20,20,20)',
-        zoomType: 'xy',
-        style: {
-            fontFamily: 'roboto',
-            fontWeight: 'bold',
-            color: "#fff",
-        }
-
-
-    },
-    title: {
-        text: 'Views Gained',
-        style:{
-            color:"#fff"
-        }
-    },
-    
-    xAxis: {
-        tickInterval:100,
-        labels: {
-    style: {
-        color: '#fff',
-    },  
-},
-        categories: [
-            '2019-02-15','2019-02-16','2019-02-17','2019-02-18','2019-02-19','2019-02-20','2019-02-21','2019-02-22','2019-02-23','2019-02-24','2019-02-25','2019-02-26','2019-02-27','2019-02-28',
-            '2019-03-01','2019-03-02','2019-03-03','2019-03-04','2019-03-05','2019-03-06','2019-03-07','2019-03-08','2019-03-09','2019-03-10','2019-03-11','2019-03-12','2019-03-13','2019-03-14','2019-03-15','2019-03-16','2019-03-17','2019-03-18','2019-03-19','2019-03-20','2019-03-21','2019-03-22','2019-03-23','2019-03-24','2019-03-25','2019-03-26','2019-03-27','2019-03-28','2019-03-29','2019-03-30','2019-03-31',
-            '2019-04-01','2019-04-02','2019-04-03','2019-04-04','2019-04-05','2019-04-06','2019-04-07','2019-04-08','2019-04-09','2019-04-10','2019-04-11','2019-04-12','2019-04-13','2019-04-14','2019-04-15','2019-04-16','2019-04-17','2019-04-18','2019-04-19','2019-04-20','2019-04-21','2019-04-22','2019-04-23','2019-04-24','2019-04-25','2019-04-26','2019-04-27','2019-04-28','2019-04-29','2019-04-30',
-            '2019-05-01','2019-05-02','2019-05-03','2019-05-04','2019-05-05','2019-05-06','2019-05-07','2019-05-08','2019-05-09','2019-05-10','2019-05-11','2019-05-12','2019-05-13','2019-05-14','2019-05-15','2019-05-16','2019-05-17','2019-05-18','2019-05-19','2019-05-20','2019-05-21','2019-05-22','2019-05-23','2019-05-24','2019-05-25','2019-05-26','2019-05-27','2019-05-28','2019-05-29','2019-05-30','2019-05-31',
-            '2019-06-01','2019-06-02','2019-06-03','2019-06-04','2019-06-05','2019-06-06','2019-06-07','2019-06-08','2019-06-09','2019-06-10','2019-06-11','2019-06-12','2019-06-13','2019-06-14','2019-06-15','2019-06-16','2019-06-17','2019-06-18','2019-06-19','2019-06-20','2019-06-21','2019-06-22','2019-06-23','2019-06-24','2019-06-25','2019-06-26','2019-06-27','2019-06-28','2019-06-29','2019-06-30',
-            '2019-07-01','2019-07-02','2019-07-03','2019-07-04','2019-07-05','2019-07-06','2019-07-07','2019-07-08','2019-07-09','2019-07-10','2019-07-11','2019-07-12','2019-07-13','2019-07-14','2019-07-15','2019-07-16','2019-07-17','2019-07-18','2019-07-19','2019-07-20','2019-07-21','2019-07-22','2019-07-23','2019-07-24','2019-07-25','2019-07-26','2019-07-27','2019-07-28','2019-07-29','2019-07-30','2019-07-31',
-            '2019-08-01','2019-08-02','2019-08-03','2019-08-04','2019-08-05','2019-08-06','2019-08-07','2019-08-08','2019-08-09','2019-08-10','2019-08-11','2019-08-12','2019-08-13','2019-08-14','2019-08-15','2019-08-16','2019-08-17','2019-08-18','2019-08-19','2019-08-20','2019-08-21','2019-08-22','2019-08-23','2019-08-24','2019-08-25','2019-08-26','2019-08-27','2019-08-28','2019-08-29','2019-08-30','2019-08-31',
-            '2019-09-01','2019-09-02','2019-09-03','2019-09-04','2019-09-05','2019-09-06','2019-09-07','2019-09-08','2019-09-09','2019-09-10','2019-09-11','2019-09-12','2019-09-13','2019-09-14','2019-09-15','2019-09-16','2019-09-17','2019-09-18','2019-09-19','2019-09-20','2019-09-21','2019-09-22','2019-09-23','2019-09-24','2019-09-25','2019-09-26','2019-09-27','2019-09-28','2019-09-29','2019-09-30',
-            '2019-10-01','2019-10-02','2019-10-03','2019-10-04','2019-10-05','2019-10-06','2019-10-07','2019-10-08','2019-10-09','2019-10-10','2019-10-11','2019-10-12','2019-10-13','2019-10-14','2019-10-15','2019-10-16','2019-10-17','2019-10-18','2019-10-19','2019-10-20','2019-10-21','2019-10-22','2019-10-23','2019-10-24','2019-10-25','2019-10-26','2019-10-27','2019-10-28','2019-10-29','2019-10-30','2019-10-31',
-            '2019-11-01','2019-11-02','2019-11-03','2019-11-04','2019-11-05','2019-11-06','2019-11-07','2019-11-08','2019-11-09','2019-11-10','2019-11-11','2019-11-12','2019-11-13','2019-11-14','2019-11-15','2019-11-16','2019-11-17','2019-11-18','2019-11-19','2019-11-20','2019-11-21','2019-11-22','2019-11-23','2019-11-24','2019-11-25','2019-11-26','2019-11-27','2019-11-28','2019-11-29','2019-11-30',
-            '2019-12-01','2019-12-02','2019-12-03','2019-12-04','2019-12-05','2019-12-06','2019-12-07','2019-12-08','2019-12-09','2019-12-10','2019-12-11','2019-12-12','2019-12-13','2019-12-14','2019-12-15','2019-12-16','2019-12-17','2019-12-18','2019-12-19','2019-12-20','2019-12-21','2019-12-22','2019-12-23','2019-12-24','2019-12-25','2019-12-26','2019-12-27','2019-12-28','2019-12-29','2019-12-30','2019-12-31',
-            '2020-01-01','2020-01-02','2020-01-03','2020-01-04','2020-01-05','2020-01-06','2020-01-07','2020-01-08','2020-01-09','2020-01-10','2020-01-11','2020-01-12','2020-01-13','2020-01-14','2020-01-15','2020-01-16','2020-01-17','2020-01-18','2020-01-19','2020-01-20','2020-01-21','2020-01-22','2020-01-23','2020-01-24','2020-01-25','2020-01-26','2020-01-27','2020-01-28','2020-01-29','2020-01-30','2020-01-31',
-            '2020-02-01','2020-02-02','2020-02-03','2020-02-04','2020-02-05','2020-02-06','2020-02-07','2020-02-08','2020-02-09','2020-02-10','2020-02-11','2020-02-12','2020-02-13','2020-02-14','2020-02-15','2020-02-16','2020-02-17','2020-02-18','2020-02-19','2020-02-20','2020-02-21','2020-02-22','2020-02-23','2020-02-24','2020-02-25','2020-02-26','2020-02-27','2020-02-28','2020-02-29',
-            '2020-03-01','2020-03-02','2020-03-03','2020-03-04','2020-03-05','2020-03-06','2020-03-07','2020-03-08','2020-03-09','2020-03-10','2020-03-11','2020-03-12','2020-03-13','2020-03-14','2020-03-15','2020-03-16','2020-03-17','2020-03-18','2020-03-19','2020-03-20','2020-03-21','2020-03-22','2020-03-23','2020-03-24','2020-03-25','2020-03-26','2020-03-27','2020-03-28','2020-03-29','2020-03-30','2020-03-31',
-            '2020-04-01','2020-04-02','2020-04-03','2020-04-04','2020-04-05','2020-04-06','2020-04-07','2020-04-08','2020-04-09','2020-04-10','2020-04-11','2020-04-12','2020-04-13','2020-04-14','2020-04-15','2020-04-16','2020-04-17','2020-04-18','2020-04-19','2020-04-20','2020-04-21','2020-04-22','2020-04-23','2020-04-24','2020-04-25','2020-04-26','2020-04-27','2020-04-28','2020-04-29','2020-04-30',
-            '2020-05-01','2020-05-02','2020-05-03','2020-05-04','2020-05-05','2020-05-06','2020-05-07','2020-05-08','2020-05-09','2020-05-10','2020-05-11','2020-05-12','2020-05-13','2020-05-14','2020-05-15','2020-05-16','2020-05-17','2020-05-18','2020-05-19','2020-05-20','2020-05-21','2020-05-22','2020-05-23','2020-05-24','2020-05-25','2020-05-26','2020-05-27','2020-05-28','2020-05-29','2020-05-30','2020-05-31',
-            '2020-06-01','2020-06-02','2020-06-03','2020-06-04','2020-06-05','2020-06-06','2020-06-07','2020-06-08','2020-06-09','2020-06-10','2020-06-11','2020-06-12','2020-06-13','2020-06-14','2020-06-15','2020-06-16','2020-06-17','2020-06-18','2020-06-19','2020-06-20','2020-06-21','2020-06-22','2020-06-23','2020-06-24','2020-06-25','2020-06-26','2020-06-27','2020-06-28','2020-06-29','2020-06-30',
-            '2020-07-01','2020-07-02','2020-07-03','2020-07-04','2020-07-05','2020-07-06','2020-07-07','2020-07-08','2020-07-09','2020-07-10','2020-07-11','2020-07-12','2020-07-13','2020-07-14','2020-07-15','2020-07-16','2020-07-17','2020-07-18','2020-07-19','2020-07-20','2020-07-21','2020-07-22','2020-07-23','2020-07-24','2020-07-25','2020-07-26','2020-07-27','2020-07-28','2020-07-29','2020-07-30','2020-07-31',
-            '2020-08-01','2020-08-02','2020-08-03','2020-08-04','2020-08-05','2020-08-06','2020-08-07','2020-08-08','2020-08-09','2020-08-10','2020-08-11','2020-08-12','2020-08-13','2020-08-14','2020-08-15','2020-08-16','2020-08-17','2020-08-18','2020-08-19','2020-08-20','2020-08-21','2020-08-22','2020-08-23','2020-08-24','2020-08-25','2020-08-26','2020-08-27','2020-08-28','2020-08-29','2020-08-30','2020-08-31',
-            '2020-09-01','2020-09-02','2020-09-03','2020-09-04','2020-09-05','2020-09-06','2020-09-07','2020-09-08','2020-09-09','2020-09-10','2020-09-11','2020-09-12','2020-09-13','2020-09-14','2020-09-15','2020-09-16','2020-09-17','2020-09-18','2020-09-19','2020-09-20','2020-09-21','2020-09-22','2020-09-23','2020-09-24','2020-09-25','2020-09-26','2020-09-27','2020-09-28','2020-09-29','2020-09-30',
-            '2020-10-01','2020-10-02','2020-10-03','2020-10-04','2020-10-05','2020-10-06','2020-10-07','2020-10-08','2020-10-09','2020-10-10','2020-10-11','2020-10-12','2020-10-13','2020-10-14','2020-10-15','2020-10-16','2020-10-17','2020-10-18','2020-10-19','2020-10-20','2020-10-21','2020-10-22','2020-10-23','2020-10-24','2020-10-25','2020-10-26','2020-10-27','2020-10-28','2020-10-29','2020-10-30','2020-10-31',
-            '2020-11-01','2020-11-02','2020-11-03','2020-11-04','2020-11-05','2020-11-06','2020-11-07','2020-11-08','2020-11-09','2020-11-10','2020-11-11','2020-11-12','2020-11-13','2020-11-14','2020-11-15','2020-11-16','2020-11-17','2020-11-18','2020-11-19','2020-11-20','2020-11-21','2020-11-22','2020-11-23','2020-11-24','2020-11-25','2020-11-26','2020-11-27','2020-11-28','2020-11-29','2020-11-30',
-            '2020-12-01','2020-12-02','2020-12-03','2020-12-04','2020-12-05','2020-12-06','2020-12-07','2020-12-08','2020-12-09','2020-12-10','2020-12-11','2020-12-12','2020-12-13','2020-12-14','2020-12-15','2020-12-16','2020-12-17','2020-12-18','2020-12-19','2020-12-20','2020-12-21','2020-12-22','2020-12-23','2020-12-24','2020-12-25','2020-12-26','2020-12-27','2020-12-28','2020-12-29','2020-12-30','2020-12-31',
-            '2021-01-01','2021-01-02','2021-01-03','2021-01-04','2021-01-05','2021-01-06','2021-01-07','2021-01-08','2021-01-09','2021-01-10','2021-01-11','2021-01-12','2021-01-13','2021-01-14','2021-01-15','2021-01-16','2021-01-17','2021-01-18','2021-01-19','2021-01-20','2021-01-21','2021-01-22','2021-01-23','2021-01-24','2021-01-25','2021-01-26','2021-01-27','2021-01-28','2021-01-29','2021-01-30','2021-01-31',
-            '2021-02-01','2021-02-02','2021-02-03','2021-02-04','2021-02-05','2021-02-06','2021-02-07','2021-02-08','2021-02-09','2021-02-10','2021-02-11','2021-02-12','2021-02-13','2021-02-14','2021-02-15','2021-02-16','2021-02-17','2021-02-18','2021-02-19','2021-02-20','2021-02-21','2021-02-22','2021-02-23','2021-02-24','2021-02-25','2021-02-26','2021-02-27','2021-02-28',
-            '2021-03-01','2021-03-02','2021-03-03','2021-03-04','2021-03-05','2021-03-06','2021-03-07','2021-03-08','2021-03-09','2021-03-10','2021-03-11','2021-03-12','2021-03-13','2021-03-14','2021-03-15','2021-03-16','2021-03-17','2021-03-18','2021-03-19','2021-03-20','2021-03-21','2021-03-22','2021-03-23','2021-03-24','2021-03-25','2021-03-26','2021-03-27','2021-03-28','2021-03-29','2021-03-30','2021-03-31',
-            '2021-04-01','2021-04-02','2021-04-03','2021-04-04','2021-04-05','2021-04-06','2021-04-07','2021-04-08','2021-04-09','2021-04-10','2021-04-11','2021-04-12','2021-04-13','2021-04-14','2021-04-15','2021-04-16','2021-04-17','2021-04-18','2021-04-19','2021-04-20','2021-04-21','2021-04-22','2021-04-23','2021-04-24','2021-04-25','2021-04-26','2021-04-27','2021-04-28','2021-04-29','2021-04-30',
-            '2021-05-01','2021-05-02','2021-05-03','2021-05-04','2021-05-05','2021-05-06','2021-05-07','2021-05-08','2021-05-09','2021-05-10','2021-05-11','2021-05-12','2021-05-13','2021-05-14','2021-05-15','2021-05-16','2021-05-17','2021-05-18','2021-05-19','2021-05-20','2021-05-21','2021-05-22','2021-05-23','2021-05-24','2021-05-25','2021-05-26','2021-05-27','2021-05-28','2021-05-29','2021-05-30','2021-05-31',
-            '2021-06-01','2021-06-02','2021-06-03','2021-06-04','2021-06-05','2021-06-06','2021-06-07','2021-06-08','2021-06-09','2021-06-10','2021-06-11','2021-06-12','2021-06-13','2021-06-14','2021-06-15','2021-06-16','2021-06-17','2021-06-18','2021-06-19','2021-06-20','2021-06-21','2021-06-22','2021-06-23','2021-06-24','2021-06-25','2021-06-26','2021-06-27','2021-06-28','2021-06-29','2021-06-30',
-            '2021-07-01','2021-07-02','2021-07-03','2021-07-04','2021-07-05','2021-07-06','2021-07-07','2021-07-08','2021-07-09','2021-07-10','2021-07-11','2021-07-12','2021-07-13','2021-07-14','2021-07-15','2021-07-16','2021-07-17','2021-07-18','2021-07-19','2021-07-20','2021-07-21','2021-07-22','2021-07-23','2021-07-24','2021-07-25','2021-07-26','2021-07-27','2021-07-28','2021-07-29','2021-07-30','2021-07-31',
-            '2021-08-01','2021-08-02','2021-08-03','2021-08-04','2021-08-05','2021-08-06','2021-08-07','2021-08-08','2021-08-09','2021-08-10','2021-08-11','2021-08-12','2021-08-13','2021-08-14','2021-08-15','2021-08-16','2021-08-17','2021-08-18','2021-08-19','2021-08-20','2021-08-21','2021-08-22','2021-08-23','2021-08-24','2021-08-25','2021-08-26','2021-08-27','2021-08-28','2021-08-29','2021-08-30','2021-08-31',
-            '2021-09-01','2021-09-02','2021-09-03','2021-09-04','2021-09-05','2021-09-06','2021-09-07','2021-09-08','2021-09-09','2021-09-10','2021-09-11','2021-09-12','2021-09-13','2021-09-14','2021-09-15','2021-09-16','2021-09-17','2021-09-18','2021-09-19','2021-09-20','2021-09-21','2021-09-22','2021-09-23','2021-09-24','2021-09-25','2021-09-26','2021-09-27','2021-09-28','2021-09-29','2021-09-30',
-            '2021-10-01','2021-10-02','2021-10-03','2021-10-04','2021-10-05','2021-10-06','2021-10-07','2021-10-08','2021-10-09','2021-10-10','2021-10-11','2021-10-12','2021-10-13','2021-10-14','2021-10-15','2021-10-16','2021-10-17','2021-10-18','2021-10-19','2021-10-20','2021-10-21','2021-10-22','2021-10-23','2021-10-24','2021-10-25','2021-10-26','2021-10-27','2021-10-28','2021-10-29','2021-10-30','2021-10-31',
-        ],
-
-    },
-    yAxis: {
-        labels: {
-    style: {
-        color: '#fff'
-    }
-},
-        title: {
-            text: 'Views',
-            style:{
-                color:'#fff'
-            },
-        },
-        
-        
-        
-    },
-    tooltip: {
-        shared: true,
-        valueSuffix: ''
-    },
-    credits: {
-        enabled: false
-    },
-    plotOptions: {
-        areaspline: {
-            marker:{enabled: false},
-            fillOpacity: 0.5,
-            color: '#0099ff',
-        }
-        
-    },
-    series: [{
-        name: 'Gain',
-        showInLegend: false,
-        style: {
-            color: '#fff'
-        },
-    
-        data: [0,661,700,668,471,656,394,1666,1714,2280,614,323,438,753,1400,1039,1619,763,491,690,1120,1547,1938,1179,1071,1155,1090,1365,850,845,1181,1289,1032,972,1643,1558,1744,2744,2653,1915,0,983,1563,7475,5775,
-               31151,29290,13180,12160,9616,7877,6235,4719,3898,4446,5036,5684,5826,6974,4896,6819,5551,5259,5742,6155,5163,7860,7468,8570,7107,7961,8518,7161,5928,5815,
-               6387,4452,3556,3687,3953,4490,4345,4722,4354,5115,7973,8540,6887,6050,5323,4789,4750,5907,6111,5527,6019,5659,4147,5494,6662,5196,5824,6499,8060,2931,2496,
-               2473,4518,4884,3394,3441,4303,5236,8257,8093,8978,7875,4903,8703,9298,9431,12349,11409,15132,13013,12259,12466,12164,11489,7739,6187,4876,4081,5335,4728,4330,
-               5295,8273,10247,8937,11073,9352,12262,8123,7188,6358,6225,6450,5491,6341,6832,6652,6517,8055,9822,9480,9394,7326,9870,10582,10170,8402,13104,9903,9110,7738,10462,
-               7972,8945,15781,20038,14093,9218,13321,9970,16104,12842,11052,17497,18072,18602,20719,18014,21239,17099,15941,17719,19895,17944,22688,40331,30480,17947,13071,11853,13537,12920,17283,
-               24750,18067,12727,9461,9333,14959,14958,8562,6302,9566,9262,9822,13582,17603,12204,7578,8421,5923,12782,14367,12885,7454,6046,5600,8799,8232,7837,12151,8190,3766,
-               5925,3518,3453,2896,7830,10053,4608,2983,3077,3003,3032,3470,2298,2628,2268,2362,2158,3236,4619,3434,2355,6112,4126,2399,3568,3534,3148,2548,2014,1930,2165,
-               1783,2566,4250,2213,1605,1954,1763,748,762,1725,1810,1361,1584,1815,1867,2230,2209,1721,1869,1871,1391,1659,2080,1750,1447,2656,1984,1731,3164,4586,
-               3577,2726,3582,3329,4017,4117,6093,9059,7919,9332,6728,4560,3191,4548,4861,3294,3760,3413,5261,4687,4307,7880,4912,6430,5344,4986,4839,6345,5695,4665,5762,
-
-               2678,4672,6495,8281,6793,3756,3682,5051,4296,4571,9155,5237,3613,4288,3737,3383,3715,4063,5039,4157,3623,3730,3737,4428,4348,6491,5729,3362,3225,4144,6041,
-               4333,3389,3009,2231,643,699,868,4176,2955,1161,787,650,742,1302,1353,896,1211,1513,1029,668,852,7136,7697,12181,9002,7318,14534,3902,6601,
-               14356,13703,11318,2007,10184,7198,2627,2029,1309,1253,1350,1513,1624,2659,4714,2877,2877,3727,3065,2354,2627,1802,3529,2630,10404,1826,3718,5257,4595,5847,11210,
-               39942,8804,7825,4553,4718,4016,3185,0,3496,17661,6120,4423,3422,5308,4843,2037,5767,7934,3127,4765,4401,2900,1537,1256,932,3078,2924,3545,2799,2511,
-               1468,3816,3681,2997,5094,4239,3264,3440,3874,9838,14397,35956,31679,23891,14710,9368,18733,37755,25697,10844,5646,2976,4736,15407,15914,11920,10056,3745,6548,3779,3690,
-               7413,5793,5433,3087,4225,3561,17982,12101,29809,56527,55182,78539,75386,97842,93505,64723,46089,45983,35086,22541,10814,5470,5883,2343,1287,3220,13317,4141,3650,2243,
-               1952,2006,1943,2798,2154,3383,3324,3293,2160,2247,3440,2725,3274,3131,5360,3373,2734,3736,2309,2278,2393,2082,3310,4174,3827,1585,3003,5204,4724,4999,3838,
-               2390,3612,2979,3485,5037,3617,2988,2975,4382,1660,2215,617,610,2447,4208,6907,6377,6191,4241,4198,7347,4468,3904,3018,2036,994,6002,5799,3018,3314,2137,
-               1831,1634,2157,2912,31963,6779,4830,2093,2407,3728,3759,3721,3624,977,4668,2566,1533,1769,719,3131,2479,2332,1675,1422,1622,3212,5452,5847,3085,1796,
-               2181,2583,2749,6629,4568,3970,1371,1004,1116,2111,3208,2107,3036,2546,3976,884,3175,1978,1827,3049,1800,451,1981,1630,3266,1360,1421,1745,3448,
-               4224,534,474,530,369,426,5919,3444,1983,1871,1423,2323,1544,2072,1817,1596,1948,3330,11507,14562,8755,4749,1972,2662,1313,1683,1631,2911,3687,2135,
-               1511,645,607,583,900,0,0,560,385,442,610,656,594,722,1196,597,553,532,1323,1191,767,5476,3397,2990,2851,3502,4956,5836,6831,7318,8163,7444,8708,
-
-               19237,26655,82137,25716,14282,6927,6566,6542,7027,7661,9644,10631,7877,5582,4104,3472,6560,1777,1991,2777,2129,1683,2704,2138,1863,1708,1754,1554,1578,3220,3306,
-               3754,3967,2539,2029,1808,2050,2151,2250,1939,1462,1646,2106,2949,3875,3671,2700,2362,2539,1378,2844,2490,2229,2208,2044,2102,2071,1333,600,
-               428,497,1455,2015,2020,2937,1383,1387,1155,613,1518,1889,2809,5168,2582,2047,2419,2651,3631,6983,9937,2783,1021,806,2740,2523,4670,8607,5745,6981,5251,
-               6709,5381,8691,11725,9847,10087,11117,9197,6657,13514,14526,11294,8774,9579,8598,7761,11124,19472,18143,27423,24682,18863,21563,25654,16071,11595,16445,16052,15298,15247,
-               27785,15093,9999,8928,10784,9481,7788,10227,8943,8104,7910,8384,7369,7395,8420,8108,7022,7717,191814,1337359,1424051,1096459,483725,184067,92596,52865,30631,26101,41444,15152,5085,
-               2357,812,7520,5377,6030,4520,4105,4551,4226,6425,5264,4264,2478,12641,6129,4952,7183,8669,4518,4024,4246,4530,3618,3182,4913,5404,4951,4366,3297,3269,
-               3121,3237,2431,5946,4150,6343,7397,29743,57414,51345,17256,7119,3613,2639,1915,2581,2071,2171,2111,1480,1236,875,0,2501,3073,3303,3507,10687,6793,4652,1922,
-	           1759,1974,2128,1200,5733,3683,29303,48814,13708,1166,595,2096,2515,782,554,365,358,4558,2918,8396,3612,2694,3057,2983,1784,1684,2532,2630,5267,4793,4696,
-               3210,1256,417,1327,353,706,4874,6082,1700,1207,2775,3089,2392,2106,3136,3162,2053,2981,5176,2349,1821,4350,4605,4354,3715,1774,1496,1348,11734,11542,
-               3375,2140,3040,1594,1346,1374,723,340,325,350,331,295,288,287,213,370,14535,806,1284,1035,822,825,779,227,255,409,1234,2560,13796,21609,18501,
-               ]
+        data: [11267,50683,252034,165905,231341,265062,522187,321482,110752,60184,159269,
+               145520,102838,145565,171745,349158,813175,96759,113173,115743,73840,93414,81846,
+               280796,65096,96659,410376,5121219,147678,253844,168176,96988,81701,
+              ]
     } ]
 });
 </script>
