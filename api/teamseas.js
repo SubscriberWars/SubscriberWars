@@ -3,7 +3,7 @@ app=express(),
 fetch=require('node-fetch');
 const path=require('path')
 
-app.get('/count',(req,resp)=>{
+app.get('/api/teamseas',(req,resp)=>{
   resp.setHeader('Access-Control-Allow-Origin','https://subscriberwars.space');
   fetch("https://tscache.com/donation_total.json")
 
