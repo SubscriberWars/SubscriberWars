@@ -320,32 +320,25 @@
 </body>
 
 <script type="text/javascript">
-    var url1=`https://api.subscriberwars.space/subscriberwars2`;
-    var url2=`https://api.subscriberwars.space/subscriberwars2/api`
+    var url=`https://api.subscriberwars.space/subscriberwars2`;
         $(document).ready(function(){
-            $.getJSON(url1, function(data) {
-                uhhm.innerHTML=data.subscriberCount
+            $.getJSON(url, function(data) {
                 mainsubcount.innerHTML=data.subscriberCount
-            });
-            $.getJSON(url2, function(data) {
-            subscribercountapi.innerHTML=data.subscriberCount
-            viewcountapi.innerHTML=data.viewCount
-            videocount.innerHTML=data.videoCount
-            });
-            setInterval(() => {
-                $.getJSON(url1, function(data) {
                 uhhm.innerHTML=data.subscriberCount
-                mainsubcount.innerHTML=data.subscriberCount
+                subscribercountapi.innerHTML=data.subscriberCountAPI
+                viewcountapi.innerHTML=data.viewCount
+                videocount.innerHTML=data.videoCount
             });
-            }, 10000);
 
             setInterval(() => {
-                $.getJSON(url2, function(data) {
-            subscribercountapi.innerHTML=data.subscriberCount
-            viewcountapi.innerHTML=data.viewCount
-            videocount.innerHTML=data.videoCount
+                $.getJSON(url, function(data) {
+                mainsubcount.innerHTML=data.subscriberCount
+                uhhm.innerHTML=data.subscriberCount
+                subscribercountapi.innerHTML=data.subscriberCountAPI
+                viewcountapi.innerHTML=data.viewCount
+                videocount.innerHTML=data.videoCount
             });
-            }, 60000);
+            }, 10000);
         })
     </script>
 

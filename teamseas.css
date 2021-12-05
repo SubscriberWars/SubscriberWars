@@ -3,9 +3,9 @@ a {color: #fff;}
 div {display: block;}
 h1 {font-weight: 400; font-size: 40pt; margin: 0px auto; position: relative; text-align: center;}
 h2 {font-weight: 400; font-size: 20pt; margin: 0px auto; position: relative; text-align: center;}
-#count-block {width:1260px; height:550px; margin: 0px auto; margin-top: 20px; background:#202020; overflow: hidden; position: relative;}
+#count-block {width:1260px; height:550px; margin: 0px auto; margin-top: 20px; background:#151515; overflow: hidden; position: relative;}
 #logo {width: 200px; width: 200px; position: relative; margin: 0px auto; margin-top: 10px; left: 42%; -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.3); box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;}
 #mini-counts {width:1260px; margin: 0px auto; margin-top: 20px;}
-#stat-box {width: 410px; height: 250px; position: relative; float: left; margin: 0px auto; margin-bottom: 20px; background: #202020; overflow: hidden;}
-#goal-box {width: 400px; height: 120px; position: relative; float: left; margin: 0px auto; margin-right: 20px; margin-left: 20px; margin-bottom: 20px; background: #202020; overflow: hidden;}
-#graph-block {width:1260px; height:400px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#202020; overflow: hidden; position: relative;}
+#stat-box {width: 410px; height: 250px; position: relative; float: left; margin: 0px auto; margin-bottom: 20px; background: #151515; overflow: hidden;}
+#goal-box {width: 400px; height: 120px; position: relative; float: left; margin: 0px auto; margin-right: 20px; margin-left: 20px; margin-bottom: 20px; background: #151515; overflow: hidden;}
+#graph-block {width:1260px; height:400px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#151515; overflow: hidden; position: relative;}
