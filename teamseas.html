@@ -22,7 +22,7 @@
         <div id="stat-box">
             <div id='latlbs' class="odometer odometer-auto-theme" style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
             <h2>Latest Donation</h2>
-            <div id='latnam' style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 20px; margin-bottom: 10px; position: relative; width: 400px; text-overflow: ellipsis;">Loading...</div>
+            <div id='latnam' style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 20px; margin-bottom: 10px; position: relative; width: 400px; text-overflow: ellipsis; white-space: nowrap;">Loading...</div>
             <h2>Latest Donator</h2>
         </div>
         <div id="goal-box">
@@ -32,13 +32,13 @@
         <div id="stat-box">
             <div id='toplbs' class="odometer odometer-auto-theme" style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
             <h2>Highest Donation</h2>
-            <div id='topnam' style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 20px; margin-bottom: 10px; position: relative; width: 400px; text-overflow: ellipsis;">Loading...</div>
+        <div id='topnam' style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 20px; margin-bottom: 10px; position: relative; width: 400px; text-overflow: ellipsis; white-space: nowrap;">Loading...</div>
             <h2>Highest Donator</h2>
         </div>
     </div>
 </body>
 
-<script>
+<script>//Data Interval
     var url='https://api.subscriberwars.space/teamseas'
 
     setInterval(() => {
