@@ -1,0 +1,26 @@
+body, html {margin: 0px;padding: 0px;color: #232323;font-size: 11pt;font-family: 'Roboto', sans-serif;display: block;}
+div {display: block;}
+#top-header {height:210px;width: 1260px;margin: 0px auto;background: #e6e6e6;overflow: hidden;position: relative;}
+#top-header-background {background-size: 100%; height: 210px;width: 1280px;}
+#avatar {float: left;height: 170px;width: 170px;border-radius: 85px;border: 5px solid #fff;margin-top: -195px;margin-left: 20px;-webkit-box-shadow: 0px 0px 5px 0px rgba(51,3,0,0.2);-moz-box-shadow: 0px 0px 5px 0px rgba(51,3,0,0.2);box-shadow: 0px 0px 5px 0px rgba(51,3,0,0.2);}
+#user-menu {width: 1260px;margin: 0px auto;background: #151515;line-height: 50px;height: 50px;color: #fff;margin-bottom: 20px;}
+#user-menu a {display: block;float: left;height: 50px;padding: 0px 15px;color: #fff;text-decoration: none; }
+#user-menu a:hover {background: #000;}
+#container {width: 1260px;margin: 20px auto;}
+#panel-left {float: left;width: 600px;}
+#panel-right {float: right;width: 600px;}
+.head-box {width: 560px;height: 60px;background:#151515;padding: 5px 20px;color: #fff;font-size: 30pt;font-weight: 500;text-align: left;position: relative; margin-bottom: 20px;}
+#name {position: absolute;color: #fff;top:8px;left:100px;}
+#name a {display: block;float: left;height: 60px;padding: 0px 15px;color: #fff;text-decoration: none; width:400px }
+.head-box:hover {background: #000;}
+.dropdown {position: relative; display: inline-block;}
+.dropbtn {background: #151515; color: #fff; padding: 0px 15px; height: 50px; font-size: 11pt;font-family: 'Roboto', sans-serif; border: none;}
+.dropcont {display: none; position: absolute; background-color: #151515; z-index: 1;}
+.dropcont2 {display: none; position: absolute; background-color: #151515; z-index: 1; width: 200px}
+.dropcont a {color: #000; padding: 0px 15px; display: block;}
+.dropcont a:hover {background: #000;}
+.dropcont2 a {color: #000; padding: 0px 15px; display: block;}
+.dropcont2 a:hover {background: #000;}
+.dropdown:hover .dropcont {display: block;}
+.dropdown:hover .dropcont2 {display: block;}
+.dropdown:hover .dropbtn {background: #000;}
