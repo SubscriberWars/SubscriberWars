@@ -20,21 +20,25 @@
     </div>
     <div id="mini-counts">
         <div id="stat-box">
-            <div id='latlbs' class="odometer odometer-auto-theme" style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
+            <div id='latlbs' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
             <h2>Latest Donation</h2>
-            <div id='latnam' style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 20px; margin-bottom: 10px; position: relative; width: 400px; text-overflow: ellipsis;">Loading...</div>
+            <div id='latnam' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 20px; margin-bottom: 10px; position: relative; width: 400px; text-overflow: ellipsis;">Loading...</div>
             <h2>Latest Donator</h2>
         </div>
         <div id="goal-box">
-            <div id='goal' class="odometer odometer-auto-theme" style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
+            <div id='goal' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
             <h2>30M Goal</h2>
         </div>
         <div id="stat-box">
-            <div id='toplbs' class="odometer odometer-auto-theme" style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
+            <div id='toplbs' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
             <h2>Highest Donation</h2>
-            <div id='topnam' style="font-size: 40pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 20px; margin-bottom: 10px; position: relative; width: 400px; text-overflow: ellipsis;">Loading...</div>
+            <div id='topnam' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 20px; margin-bottom: 10px; position: relative; width: 400px; text-overflow: ellipsis;">Loading...</div>
             <h2>Highest Donator</h2>
         </div>
+    </div>
+    <div id="graph-block">
+        <div id="graph" style="width: 1260px; height: 400px;"></div>
+        <p id="graphstat" style="visibility: hidden;"></p>
     </div>
 </body>
 
@@ -51,4 +55,80 @@
             latnam.innerHTML=data.latest_name
         })    
     }, 2000);
+</script>
+
+<script>//graph styling
+
+    var graph = new Highcharts.chart({
+chart: {
+renderTo: 'graph',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: 'transparent',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+minorGridLineColor: '#transparent',
+tickColor: 'white',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: 'white',
+minorGridLineColor: 'transparent',
+tickColor: 'white'
+},
+credits: {
+enabled: true,
+text: "TeamTrees.org"
+},
+series: [{
+showInLegend: false,
+name: '#TeamTrees',
+marker: { enabled: false },
+lineColor: '#58a628'
+}]
+});
+</script>
+
+<script>//Graph Data Collection
+$(document).ready(function(){
+var url='https://api.subscriberwars.space/teamtrees'
+$.getJSON(url,function(data){
+    graphstat.innerHTML=data.total
+})
+setInterval(function(){
+    $.getJSON(url,function(data){
+        graphstat.innerHTML=data.total
+    })
+    var yep=(graphstat.innerHTML)
+    console.log(yep)
+    var injection=yep
+    if(graph.series[0].points.length>=1800)graph.series[0].data[0].remove();
+    graph.series[0].addPoint([Date.now(),parseFloat(injection)])
+},2000);
+})
 </script>
