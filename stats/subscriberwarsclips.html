@@ -168,9 +168,9 @@
                         <iframe width='340px' height='191px' frameborder='0' allowfullscreen src=""></iframe>
                         <script>
                             function getID(){
-                                fetch('https://api.subscriberwars.space/subscriberwarsclips/latest')
+                                fetch('https://api.subscriberwars.space/subscriberwarsclips')
                                 .then(res=>res.json()).then(data=>{
-                                    document.querySelector("iframe").src=`https://youtube.com/embed/${data.latestId}?autoplay=0&rel=0`
+                                    document.querySelector("iframe").src=`https://youtube.com/embed/${data.latestVideo.iD}?autoplay=0&rel=0`
                                 })
                             }
                             getID()
