@@ -65,6 +65,9 @@ function updateStats(id) {
 setInterval(() => {
     updateStats(twitchid);
 }, 5000);
+setInterval(() => {
+    checkForNew(channel)
+}, 60000);
 
 checkForNew(channel)
 
