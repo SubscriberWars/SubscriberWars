@@ -41,7 +41,7 @@ var channel = window.location.href.split('?u=')[1] || '';
 function checkForNew(chanid) {
     fetch('https://api.twitch.tv/helix/users?login='+chanid+'', {
         headers: {
-            'Authorization': 'Bearer 5gskub9pcn3qm8zp1kir143psdm0nn',
+            'Authorization': 'Bearer sfxckiabuotm1v4f0vf3luqk0uguzn',
             'Client-Id': 'lkcbcha1jh4q70evrikggligbkbhpx',
         }
     }
@@ -58,7 +58,7 @@ function checkForNew(chanid) {
 function updateStats(id) {
     fetch('https://api.twitch.tv/helix/users/follows?to_id='+id+'&first=1', {
         headers: {
-            'Authorization': 'Bearer 5gskub9pcn3qm8zp1kir143psdm0nn',
+            'Authorization': 'Bearer sfxckiabuotm1v4f0vf3luqk0uguzn',
             'Client-Id': 'lkcbcha1jh4q70evrikggligbkbhpx',
         }
     }
