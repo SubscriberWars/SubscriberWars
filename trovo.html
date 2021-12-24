@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+    <title>Live Trovo Follower Count</title>
+    <meta name="description" content="Live #TeamSeas Statistics">
+    <link rel="stylesheet" href="odometer.css">
+    <link rel="stylesheet" href="tiktok.css">
+    <script src="odometer.js"></script>
+    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="count-block">
+        <img id="logo" src="" alt="Thumbnail">
+        <h1 id="title">Loading...</h1>
+        <div id='followercount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
+        <h2>Followers</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="like-box">
+            <div id='subcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Subscribers</h2>
+        </div>
+        <div id="comment-box">
+            <div id='type' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">Loading...</div>
+            <h2>Live</h2>
+        </div>
+    </div>
+    <div id="graph-block">
+        <div id="graph" style="width: 1260px; height: 400px;"></div>
+        <p id="graphstat" style="visibility: hidden;"></p>
+    </div>
+</body>
+
+<script>
+    var trovoid = ''
+var channel = window.location.href.split('?u=')[1] || '';
+
+function checkForNew(chanid) {
+    fetch('https://api.subscriberwars.space/trovo/id/'+chanid+'')
+    .then(res => res.json()).then(data => {
+        trovoid = data.users[0].channel_id
+    });
+}
+
+
+function updateStats(id) {
+    fetch('https://api.subscriberwars.space/trovo/channel/'+id+'')
+    .then(res => res.json()).then(data => {
+        logo.src=data.profile_pic
+        title.innerHTML=data.username
+        followercount.innerHTML = data.followers,
+        graphstat.innerHTML = data.followers
+        subcount.innerHTML=data.subscriber_num
+        type.innerHTML=data.is_live
+        var yep=(graphstat.innerHTML)
+        console.log(yep)
+        var injection=yep
+        if(graph.series[0].points.length>=720)graph.series[0].data[0].remove();
+        graph.series[0].addPoint([Date.now(),parseFloat(injection)])
+    });
+}
+
+// Intervals
+setInterval(() => {
+    updateStats(trovoid);
+}, 5000);
+
+checkForNew(channel)
+
+</script>
+
+<script>//graph styling
+    var graph = new Highcharts.chart({
+chart: {
+renderTo: 'graph',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: 'transparent',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+minorGridLineColor: '#transparent',
+tickColor: 'white',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: 'white',
+minorGridLineColor: 'transparent',
+tickColor: 'white'
+},
+credits: {
+enabled: true,
+text: "Subscriberwars.space"
+},
+series: [{
+showInLegend: false,
+name: 'Followers',
+marker: { enabled: false },
+lineColor: '#00b853'
+}]
+});
+</script>
