@@ -5,8 +5,6 @@
     <link rel="stylesheet" href="odometer.css">
     <link rel="stylesheet" href="video.css">
     <script src="odometer.js"></script>
-    <script type="text/javascript" src="jquery-3.1.1.min.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -27,16 +25,6 @@
             <div id='commentcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
             <h2>Comments</h2>
         </div>
-    </div>
-    <div id="graph-block">
-        <div id="graph" style="width: 1260px; height: 400px;"></div>
-        <p id="graphstat" style="visibility: hidden;"></p>
-    </div>
-    <div id="graph-block">
-        <h1>How To Use Latest Video Tracker?</h1>
-        <p>The answer is quite simple all it requires is in the url after https://subscriberwars.space/latest video add the following: "?userID=" (not including "") then add the user id you want to get the latest video for
-           The User ID is just the channel ID but instead of starting with "UC" it starts with "UU" for example MrBeasts user id is "UUX6OQ3DkcsbYNE6H8uQQuVA".
-        </p>
     </div>
 </body>
 
@@ -74,14 +62,8 @@ function updateStats(id) {
         likecount.innerHTML = data.counts[3].count,
         commentcount.innerHTML = data.counts[5].count,
         viewscount.innerHTML = lol,
-        graphstat.innerHTML = lol,
         title.innerHTML = data.user[0].count,
         logo.src = data.user[1].count
-        var yep=(graphstat.innerHTML)
-        console.log(yep)
-        var injection=yep
-        if(graph.series[0].points.length>=1800)graph.series[0].data[0].remove();
-        graph.series[0].addPoint([Date.now(),parseFloat(injection)])
     });
 }
 
@@ -95,60 +77,4 @@ checkForNew(channel)
 setInterval(() => {
     checkForNew(channel);
 }, 30000);
-</script>
-
-<script>//graph styling
-    var graph = new Highcharts.chart({
-chart: {
-renderTo: 'graph',
-type: 'spline',
-zoomType: 'x',
-backgroundColor: 'transparent',
-plotBorderColor: 'transparent'
-},
-title: {
-text: ''
-},
-xAxis: {
-type: 'datetime',
-tickPixelInterval: 100,
-gridLineColor: '#transparent',
-labels: {
-    style: {
-        color: 'white'
-    }
-},
-minorGridLineColor: '#transparent',
-tickColor: 'white',
-title: {
-    style: {
-        color: '#transparent'
-    }
-}
-},
-yAxis: {
-title: {
-  text: ''
-},
-gridLineColor: '#transparent',
-labels: {
-    style: {
-        color: 'white'
-    }
-},
-lineColor: 'white',
-minorGridLineColor: 'transparent',
-tickColor: 'white'
-},
-credits: {
-enabled: true,
-text: "YouTube.com"
-},
-series: [{
-showInLegend: false,
-name: 'Views',
-marker: { enabled: false },
-lineColor: '#ff0000'
-}]
-});
 </script>
