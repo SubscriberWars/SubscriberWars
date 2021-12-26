@@ -1,4 +1,4 @@
-body, html {margin: 0px; padding: 0px; color: #fff; font-size: 11pt; font-family: 'Roboto', sans-serif; display: block; background: #181818;}
+body, html {margin: 0px; padding: 0px; color: #fff; font-size: 11pt; font-family: 'Roboto', sans-serif; display: block; background-color: #181818; background-image: linear-gradient(to right, #9146ff , #32c27c);}
 a {color: #fff;}
 div {display: block;}
 h1 {font-weight: 400; font-size: 40pt; margin: 0px auto; position: relative; text-align: center;}
