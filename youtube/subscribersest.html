@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <title>Live Estimated Subscriber Count</title>
+    <meta name="description" content="Live YouTube Subscriber Count">
+    <link rel="stylesheet" href="odometer.css">
+    <link rel="stylesheet" href="tiktok.css">
+    <script src="odometer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="count-block">
+        <img id="logo" src="https://subscriberwars.space/logo/youtube.png" alt="Thumbnail">
+        <h1 id="title">Loading...</h1>
+        <div id='subcount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
+        <h2>Subscribers</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="like-box">
+            <div id='viewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Views</h2>
+        </div>
+        <div id="comment-box">
+            <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Videos</h2>
+        </div>
+    </div>
+    <div id="credit-block">
+        <h2><a href="https://mixerno.space"> Powered by: Mixerno.Space</a></h2>
+    </div>
+</body>
+
+<script>
+
+var channel = window.location.href.split('?u=')[1] || '';
+
+function checkForNew(chanid) {
+    fetch('https://api.subscriberwars.space/mixerno/'+chanid+'').then(res => res.json()).then(data => {
+        title.innerHTML = data.data.info[0]
+        logo.src = data.data.info[1]
+        subcount.innerHTML = Math.round(data.data.estCounts[0])
+        viewcount.innerHTML = data.data.apiCounts[1]
+        videocount.innerHTML = data.data.apiCounts[2]
+    });
+}
+
+// Intervals
+setInterval(() => {
+    checkForNew(channel)
+}, 2000);
+
+checkForNew(channel)
+
+</script>
