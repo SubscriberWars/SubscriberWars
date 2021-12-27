@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <title>Video Statistics</title>
+    <meta name="description" content="Live YouTube Video Stats">
+    <link rel="stylesheet" href="odometer.css">
+    <link rel="stylesheet" href="video.css">
+    <script src="odometer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="count-block">
+        <img id="logo" src="" alt="Thumbnail">
+        <h1 id="title">Loading...</h1>
+        <div id='viewscount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
+        <h2>Views</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="like-box">
+            <div id='likecount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Likes</h2>
+        </div>
+        <div id="comment-box">
+            <div id='commentcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Comments</h2>
+        </div>
+    </div>
+    <div id="credit-block">
+        <h2><a href="https://mixerno.space"> Powered by: Mixerno.Space (Hopefully I will host it fully myself soon)</a></h2>
+    </div>
+</body>
+
+<script>
+var video = window.location.href.split('?v=')[1] || '';
+var capi = 0;
+var lapi = 0;
+var likes = 0;
+var views = 0;
+var viewsC = 0;
+var lol = 0;
+
+function updateStats(chanid) {
+    fetch('https://mixerno.space/api/youtube-video-counter/user/'+chanid+'').then(res => res.json()).then(data => {
+        capi = data.counts[2].count
+        lapi = data.counts[3].count
+
+    var ratio = parseFloat(capi) / parseFloat(lapi)
+                console.log(ratio)
+                    views = (Math.floor(parseFloat(views) + ratio * (parseFloat(lapi) - likes)))
+                        if (viewsC == capi) { } else {
+                            views = (Math.floor(parseFloat(capi)))
+                        }
+                viewsC = (Math.floor(capi))
+                likes = (Math.floor(lapi))
+                lol = views
+        likecount.innerHTML = data.counts[3].count,
+        commentcount.innerHTML = data.counts[5].count,
+        viewscount.innerHTML = lol,
+        title.innerHTML = data.user[0].count,
+        logo.src = data.user[1].count
+    });
+}
+
+// Intervals
+setInterval(() => {
+    updateStats(video);
+}, 2000);
+
+updateStats(video)
+</script>
