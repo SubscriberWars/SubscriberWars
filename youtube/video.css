@@ -8,4 +8,4 @@ h2 {font-weight: 400; font-size: 20pt; margin: 0px auto; position: relative; tex
 #mini-counts {width:1260px; margin: 0px auto; margin-top: 20px;}
 #like-box {width: 620px; height: 120px; position: relative; float: left; margin: 0px auto; margin-right: 20px; margin-bottom: 20px; background: #0f0f0f; overflow: hidden;}
 #comment-box {width: 620px; height: 120px; position: relative; float: left; margin: 0px auto; margin-bottom: 20px; background: #0f0f0f; overflow: hidden;}
-#graph-block {width:1260px; height:400px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative;}
+#credit-block {width:1260px; height:40px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative;}
