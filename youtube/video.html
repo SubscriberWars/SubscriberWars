@@ -38,9 +38,9 @@ var viewsC = 0;
 var lol = 0;
 
 function updateStats(chanid) {
-    fetch('https://mixerno.space/api/youtube-video-counter/user/'+chanid+'').then(res => res.json()).then(data => {
-        capi = data.counts[2].count
-        lapi = data.counts[3].count
+    fetch('https://api.subscriberwars.space/youtube/video/'+chanid+'').then(res => res.json()).then(data => {
+        capi = data.items[0].statistics.viewCount
+        lapi = data.items[0].statistics.likeCount
 
     var ratio = parseFloat(capi) / parseFloat(lapi)
                 console.log(ratio)
@@ -51,11 +51,11 @@ function updateStats(chanid) {
                 viewsC = (Math.floor(capi))
                 likes = (Math.floor(lapi))
                 lol = views
-        likecount.innerHTML = data.counts[3].count,
-        commentcount.innerHTML = data.counts[5].count,
+        likecount.innerHTML = data.items[0].statistics.likeCount,
+        commentcount.innerHTML = data.items[0].statistics.commentCount,
         viewscount.innerHTML = lol,
-        title.innerHTML = data.user[0].count,
-        logo.src = data.user[1].count
+        title.innerHTML = data.items[0].snippet.title,
+        logo.src = data.items[0].snippet.thumbnails.maxres.url
     });
 }
 
