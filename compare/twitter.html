@@ -35,8 +35,9 @@
 </body>
 
 <script>
-    var user1 = window.location.href.split('?u1=')[1] || '';
-    var user2 = window.location.href.split('?u2=')[1] || '';
+    var params=new URLSearchParams(document.location.search.substring(1));
+    var user1=params.get("u1");
+    var user2=params.get("u2");
     var gap01= 0;
     var gap02= 0;
     

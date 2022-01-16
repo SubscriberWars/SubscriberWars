@@ -42,8 +42,8 @@
 var channel = window.location.href.split('?u=')[1] || '';
 
 function checkForNew(chanid) { // User ID: UU NOT UC
-    fetch('https://api.subscriberwars.space/tiktok/user/'+chanid+'').then(res => res.json()).then(data => {
-        newestvidID = data.id
+    fetch('https://api-v2.nextcounts.com/api/tiktok/user/'+chanid+'').then(res => res.json()).then(data => {
+        newestvidID = data.uid
         title.innerHTML = data.username
         logo.src = data.avatar
     });
@@ -51,7 +51,7 @@ function checkForNew(chanid) { // User ID: UU NOT UC
 
 
 function updateStats(id) {
-    fetch('https://api.nextcounts.com/api/tiktok/user/stats/'+id+'').then(res => res.json()).then(data => {
+    fetch('https://api-v2.nextcounts.com/api/tiktok/user/stats/'+id+'').then(res => res.json()).then(data => {
         likecount.innerHTML = data.hearts,
         commentcount.innerHTML = data.videos,
         viewscount.innerHTML = data.followers,
