@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <title>YouTube User Comparison</title>
+    <meta name="description" content="YouTube Live Compare">
+    <link rel="stylesheet" href="odometer.css">
+    <link rel="stylesheet" href="compare.css">
+    <script src="odometer.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <div id="main-block">
+        <div id="count-block1">
+            <img style="margin:10px" id="headerImage1"/>
+            <img class="logo" id="logo1" src="https://subscriberwars.space/logo/youtube.png" alt="" style="top: -170px;">
+            <h1 id="title1" class="title" style="top: -170px;">Loading...</h1>
+            <div id="count1" class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 890px; top: -170px;">0</div>
+            <h2 style="top: -170px;">Subscribers</h2>
+        </div>
+        <div id="count-block2">
+            <img style="margin:10px" id="headerImage2"/>
+            <img class="logo" id="logo2" src="https://subscriberwars.space/logo/youtube.png" alt="" style="top: -170px;">
+            <h1 id="title2" class="title" style="top: -170px;">Loading...</h1>
+            <div id="count2" class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 890px; top: -170px;">0</div>
+            <h2 style="top: -170px;">Subscribers</h2>
+
+        </div>
+    </div>
+    <div id="mini-counts">
+        <div id="gap-box">
+            <div id='gapcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Gap</h2>
+        </div>
+    </div>
+</body>
+
+<script>
+    var params=new URLSearchParams(document.location.search.substring(1));
+    var user1=params.get("u1");
+    var user2=params.get("u2");
+    const headerImage1 = document.getElementById("headerImage1")
+    const headerImage2 = document.getElementById("headerImage2")
+    var gap01= 0;
+    var gap02= 0;
+    
+    function u1(uid1) {
+        headerImage1.src='https://www.banner.yt/'+uid1+'?width=870';
+        fetch('https://api.subscriberwars.space/mixerno/yt/'+uid1+'').then(res => res.json()).then(data => {
+            title1.innerHTML = data.info.name
+            count1.innerHTML= data.estCounts.subCount
+            logo1.src = data.info.pfp
+            gap01=parseFloat(data.estCounts.subCount)
+            gapcount.innerHTML=gap01-gap02
+        });
+    }
+
+    function u2(uid2) {
+        headerImage2.src='https://www.banner.yt/'+uid2+'?width=870';
+        fetch('https://api.subscriberwars.space/mixerno/yt/'+uid2+'').then(res => res.json()).then(data => {
+            title2.innerHTML = data.info.name
+            count2.innerHTML= data.estCounts.subCount
+            logo2.src = data.info.pfp
+            gap02=parseFloat(data.estCounts.subCount)
+        });
+    }
+    
+    // Intervals
+    setInterval(() => {
+        u1(user1);
+        u2(user2);
+    }, 5000);
+    
+    u1(user1)
+    u2(user2)
+    
+    </script>
