@@ -39,7 +39,7 @@ var viewsC = 0;
 var lol = 0;
 
 function checkForNew(chanid) { // User ID: UU NOT UC
-    fetch('https://playlist-latest-video.subscriberwars.repl.co/list/'+chanid+'').then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/youtube/playlist/'+chanid+'').then(res => res.json()).then(data => {
         newestvidID = data.items[0].contentDetails.videoId
     });
 }
