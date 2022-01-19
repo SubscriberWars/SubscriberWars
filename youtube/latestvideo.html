@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="odometer.css">
     <link rel="stylesheet" href="video.css">
     <script src="odometer.js"></script>
+    <script src="latest.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -18,63 +19,16 @@
     </div>
     <div id="mini-counts">
         <div id="like-box">
-            <div id='likecount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <div id='likecount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 406px;">0</div>
             <h2>Likes</h2>
         </div>
         <div id="comment-box">
-            <div id='commentcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <div id='commentcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 406px;">0</div>
             <h2>Comments</h2>
+        </div>
+        <div id="dislike-box">
+            <div id='dislikecount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 406px;">0</div>
+            <h2>Dislikes</h2>
         </div>
     </div>
 </body>
-
-<script>
-    var newestvidID = ''
-var channel = window.location.href.split('?u=')[1] || '';
-var capi = 0;
-var lapi = 0;
-var likes = 0;
-var views = 0;
-var viewsC = 0;
-var lol = 0;
-
-function checkForNew(chanid) { // User ID: UU NOT UC
-    fetch('https://api.subscriberwars.space/youtube/playlist/'+chanid+'').then(res => res.json()).then(data => {
-        newestvidID = data.items[0].contentDetails.videoId
-    });
-}
-
-
-function updateStats(id) {
-    fetch('https://api.subscriberwars.space/youtube/video/'+id+'').then(res => res.json()).then(data => {
-        capi = data.items[0].statistics.viewCount
-        lapi = data.items[0].statistics.likeCount
-
-    var ratio = parseFloat(capi) / parseFloat(lapi)
-                console.log(ratio)
-                    views = (Math.floor(parseFloat(views) + ratio * (parseFloat(lapi) - likes)))
-                        if (viewsC == capi) { } else {
-                            views = (Math.floor(parseFloat(capi)))
-                        }
-                viewsC = (Math.floor(capi))
-                likes = (Math.floor(lapi))
-                lol = views
-        likecount.innerHTML = data.items[0].statistics.likeCount,
-        commentcount.innerHTML = data.items[0].statistics.commentCount,
-        viewscount.innerHTML = lol,
-        title.innerHTML = data.items[0].snippet.title,
-        logo.src = data.items[0].snippet.thumbnails.maxres.url
-    });
-}
-
-// Intervals
-setInterval(() => {
-    updateStats(newestvidID);
-}, 2000);
-
-checkForNew(channel)
-
-setInterval(() => {
-    checkForNew(channel);
-}, 30000);
-</script>
