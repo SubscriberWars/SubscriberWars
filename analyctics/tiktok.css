@@ -1,0 +1,13 @@
+body, html {margin: 0px; padding: 0px; color: #fff; font-size: 11pt; font-family: 'Roboto', sans-serif; display: block; background: #181818;}
+a {color: #fff;}
+div {display: block;}
+h1 {font-weight: 400; font-size: 40pt; margin: 0px auto; position: relative; text-align: center;}
+h2 {font-weight: 400; font-size: 20pt; margin: 0px auto; position: relative; text-align: center;}
+#count-block {width:1260px; height:570px; margin: 0px auto; margin-top: 20px; background:#0f0f0f; overflow: hidden; position: relative;}
+#logo {width: 200px; position: relative; margin: 0px auto; margin-top: 10px; left: 42%; top: -227px; -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.3); box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.596); border-radius: 50%;}
+#mini-counts {width:1260px; margin: 0px auto; margin-top: 20px;}
+#banner {margin: 10px;}
+#like-box {width: 620px; height: 120px; position: relative; float: left; margin: 0px auto; margin-right: 20px; margin-bottom: 20px; background: #0f0f0f; overflow: hidden;}
+#comment-box {width: 620px; height: 120px; position: relative; float: left; margin: 0px auto; margin-bottom: 20px; background: #0f0f0f; overflow: hidden;}
+#graph-block {width:1260px; height:400px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative;}
+#credit-block {width:1260px; height:40px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative;}

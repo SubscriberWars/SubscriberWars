@@ -1,0 +1,18 @@
+body, html { margin: 0px; padding: 0px; color: #ffffff; font-size: 11pt; font-family: 'Roboto', sans-serif; display: block; background: #2b2b2b; }
+a {color: #fff;}
+div { display: block; }
+#top-header { height:210px; width: 1260px; margin: 0px auto; background: #e6e6e6; overflow: hidden; position: relative; }
+#top-header-background { background-size: 100%; height: 210px; width: 1280px; }
+#UserTopInfoWrap { width: 1260px; margin: 0px auto; background: rgb(26, 26, 26); height: 90px; position: relative; }
+#UserTopInfoAvatar { background: rgb(26, 26, 26); float: left; height: 110px; width: 110px; border-radius: 50%; border: 0px solid rgb(15, 15, 15); margin-top: -40px; margin-left: 30px; -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); }
+#UserTopInfoBlockTop { float: left; margin-top: 2px; margin-left: 10px;  }
+#UserTopInfoBlock { margin-top: 2px; width: 1080px; }
+#UserContainer { width: 1260px; margin: 20px auto; }
+#UserContent { width: 900px; float: left; }
+#user-menu {width: 1260px; margin: 0px auto; background: rgb(15, 15, 15); line-height: 50px; height: 50px; color: #fff; margin-bottom: 0px;}
+#user-menu a { display: block; float: left; height: 50px;  padding: 0px 15px;  color: #fff; text-decoration: none; }
+#user-menu a:hover { background: rgb(0,0,0);}
+#UserSidebar { width: 340px;  float: right;}
+.UserTopInfoLight { float: left; margin-right: 20px; text-align: center; }
+.UserTopLight {text-transform: uppercase; font: 0.9em; color: rgb(185, 182, 182); }
+.UserTopInfo { float: left; margin-right: 20px; text-align: center; }
