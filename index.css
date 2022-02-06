@@ -10,7 +10,7 @@ div {display: block;}
 #panel-left {float: left;width: 600px;}
 #panel-right {float: right;width: 600px;}
 .head-box {width: 560px;height: 60px;background:#0f0f0f;padding: 5px 20px;color: #fff;font-size: 30pt;font-weight: 500;text-align: left;position: relative; margin-bottom: 20px;}
-#name {position: absolute;color: #fff;top:8px;left:100px; width: 500px;}
+#name {position: absolute;color: #fff;top:8px;left:100px; width: 450px;}
 #name a {display: block;float: left;height: 60px;padding: 0px 15px;color: #fff;text-decoration: none; width:100% }
 .head-box:hover {background: #000;}
 .dropdown {position: relative; display: inline-block;}
