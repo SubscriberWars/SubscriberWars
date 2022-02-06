@@ -56,7 +56,8 @@
             count2.innerHTML= data.followers
             logo2.src = data.pfp.replace("normal.jpg","400x400.jpg")
             gap02=parseFloat(data.followers)
-            gapcount.innerHTML=gap01-gap02
+            if (gap01>gap02) {gapcount.innerHTML=gap01-gap02}
+            else {gapcount.innerHTML=gap02-gap01};
         });
     }
     

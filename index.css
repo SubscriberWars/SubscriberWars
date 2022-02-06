@@ -20,3 +20,4 @@ div {display: block;}
 .dropcont a:hover {background: #000;}
 .dropdown:hover .dropcont {display: block;}
 .dropdown:hover .dropbtn {background: #000;}
+.footer {position: fixed; left: 0; bottom: 0; width: 100%; background-color: #0f0f0f; color: #fff; text-align: center;}
