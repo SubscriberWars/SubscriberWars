@@ -53,7 +53,8 @@
             count1.innerHTML= data.estCounts.subCount
             logo1.src = data.info.pfp
             gap01=parseFloat(data.estCounts.subCount)
-            gapcount.innerHTML=gap01-gap02
+            if (gap01>gap02){gapcount.innerHTML=gap01-gap02}
+            else {gapcount.innerHTML=gap02-gap01}
         });
     }
 
