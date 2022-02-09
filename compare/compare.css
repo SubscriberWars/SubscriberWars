@@ -8,4 +8,5 @@ h2 {font-weight: 400; font-size: 20pt; margin: 0px auto; position: relative; tex
 #count-block2 {width:890px; height:500px; margin: 0px auto; margin-top: 20px; margin-left: 20px; background:#0f0f0f; overflow: hidden; position: relative; float: left;}
 .logo {width: 150px; position: relative; margin: 0px auto; margin-top: 10px; left: 40%; border-radius: 50%; -webkit-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.3); box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.596);}
 #mini-counts {width:1800px; margin: 0px auto; margin-top: 20px;}
-#gap-box {width: 620px; height: 120px; position: relative; float: left ; margin: 0px auto; margin-right: 20px; margin-bottom: 20px; margin-top:20px; background: #0f0f0f; overflow: hidden; left: 33%;}
+#gap-box {width: 560px; height: 350px; position: relative; float: left ; margin: 0px auto; margin-right: 20px; margin-left: 20px; margin-bottom: 20px; margin-top:20px; background: #0f0f0f; overflow: hidden;}
+.stats{width: 600px; height: 350px; position: relative; float: left ; margin: 0px auto; margin-bottom: 20px; margin-top:20px; background: #0f0f0f; overflow: hidden;}
