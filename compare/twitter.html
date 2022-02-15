@@ -27,9 +27,16 @@
         </div>
     </div>
     <div id="mini-counts">
+        <div class="stats">
+            <div id="u1graph" style="height:350px; width:560px"></div>
+        </div>
         <div id="gap-box">
-            <div id='gapcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <div id='gapcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 560px;">0</div>
             <h2>Gap</h2>
+            <div id="gapgraph" style="height:250px; width:560px"></div>
+        </div>
+        <div class="stats">
+            <div id="u2graph" style="height:350px; width:560px"></div>
         </div>
     </div>
 </body>
@@ -47,6 +54,10 @@
             count1.innerHTML= data.followers
             logo1.src = data.pfp.replace("normal.jpg","400x400.jpg")
             gap01=parseFloat(data.followers)
+            if (gap01>gap02) {gapcount.innerHTML=gap01-gap02}
+            else {gapcount.innerHTML=gap02-gap01};
+            if (gapgraph.series[0].points.length >= 360) gapgraph.series[0].data[0].remove();
+            gapgraph.series[0].addPoint([Date.now(),gap01-gap02]);
         });
     }
 
@@ -56,8 +67,10 @@
             count2.innerHTML= data.followers
             logo2.src = data.pfp.replace("normal.jpg","400x400.jpg")
             gap02=parseFloat(data.followers)
-            if (gap01>gap02) {gapcount.innerHTML=gap01-gap02}
-            else {gapcount.innerHTML=gap02-gap01};
+            if (u1graph.series[0].points.length >= 360) u1graph.series[0].data[0].remove();
+            u1graph.series[0].addPoint([Date.now(),gap01]);
+            if (u2graph.series[0].points.length >= 360) u2graph.series[0].data[0].remove();
+            u2graph.series[0].addPoint([Date.now(),gap02]);
         });
     }
     
@@ -71,3 +84,175 @@
     u2(user2)
     
     </script>
+
+<script type="text/javascript">
+var line = "white"
+var gapgraph = new Highcharts.chart({
+chart: {
+renderTo: 'gapgraph',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: '#0f0f0f',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: 'transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: line,
+minorGridLineColor: '#transparent',
+tickColor: '#transparent',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: 'transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: '#transparent',
+minorGridLineColor: '#transparent',
+tickColor: 'transparent'
+},
+credits: {
+enabled: false,
+text: ""
+},
+series: [{
+showInLegend: false,
+name: '',
+marker: { enabled: false },
+color: '#fff'
+}]
+});
+</script>
+<script type="text/javascript">
+    var line = "white"
+    var u1graph = new Highcharts.chart({
+    chart: {
+    renderTo: 'u1graph',
+    type: 'spline',
+    zoomType: 'x',
+    backgroundColor: '#0f0f0f',
+    plotBorderColor: 'transparent'
+    },
+    title: {
+    text: ''
+    },
+    xAxis: {
+    type: 'datetime',
+    tickPixelInterval: 100,
+    gridLineColor: 'transparent',
+    labels: {
+        style: {
+            color: 'white'
+        }
+    },
+    lineColor: line,
+    minorGridLineColor: '#transparent',
+    tickColor: '#transparent',
+    title: {
+        style: {
+            color: '#transparent'
+        }
+    }
+    },
+    yAxis: {
+    title: {
+      text: ''
+    },
+    gridLineColor: 'transparent',
+    labels: {
+        style: {
+            color: 'white'
+        }
+    },
+    lineColor: '#transparent',
+    minorGridLineColor: '#transparent',
+    tickColor: 'transparent'
+    },
+    credits: {
+    enabled: false,
+    text: ""
+    },
+    series: [{
+    showInLegend: false,
+    name: '',
+    marker: { enabled: false },
+    color: '#fff'
+    }]
+    });
+    </script>
+    <script type="text/javascript">
+        var line = "white"
+        var u2graph = new Highcharts.chart({
+        chart: {
+        renderTo: 'u2graph',
+        type: 'spline',
+        zoomType: 'x',
+        backgroundColor: '#0f0f0f',
+        plotBorderColor: 'transparent'
+        },
+        title: {
+        text: ''
+        },
+        xAxis: {
+        type: 'datetime',
+        tickPixelInterval: 100,
+        gridLineColor: 'transparent',
+        labels: {
+            style: {
+                color: 'white'
+            }
+        },
+        lineColor: line,
+        minorGridLineColor: '#transparent',
+        tickColor: '#transparent',
+        title: {
+            style: {
+                color: '#transparent'
+            }
+        }
+        },
+        yAxis: {
+        title: {
+          text: ''
+        },
+        gridLineColor: 'transparent',
+        labels: {
+            style: {
+                color: 'white'
+            }
+        },
+        lineColor: '#transparent',
+        minorGridLineColor: '#transparent',
+        tickColor: 'transparent'
+        },
+        credits: {
+        enabled: false,
+        text: ""
+        },
+        series: [{
+        showInLegend: false,
+        name: '',
+        marker: { enabled: false },
+        color: '#fff'
+        }]
+        });
+        </script>
