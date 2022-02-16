@@ -28,9 +28,10 @@ div {
     </div>
     
     <div style="width: 1300px;">
-        <div id="min" style="width: 400px; height: 70px; background: transparent; margin-bottom: 20px; font-size: 40pt; font-weight: 700; text-align: center; color: #fff;">0</div>
-        <div id="hr" style="width: 400px; height: 70px; background: transparent; margin-bottom: 20px; font-size: 40pt; font-weight: 700; text-align: center; color: #fff;">0</div>
-        <div id="day" style="width: 400px; height: 70px; background: transparent; margin-bottom: 20px; font-size: 40pt; font-weight: 700; text-align: center; color: #fff;">0</div>
+        <div id="min1" style="width: 400px; height: 70px; background: transparent; margin-bottom: 20px; font-size: 40pt; font-weight: 700; text-align: center; color: #fff;">0</div>
+        <div id="min5" style="width: 400px; height: 70px; background: transparent; margin-bottom: 20px; font-size: 40pt; font-weight: 700; text-align: center; color: #fff;">0</div>
+        <div id="hr1" style="width: 400px; height: 70px; background: transparent; margin-bottom: 20px; font-size: 40pt; font-weight: 700; text-align: center; color: #fff;">0</div>
+        <div id="hr12" style="width: 400px; height: 70px; background: transparent; margin-bottom: 20px; font-size: 40pt; font-weight: 700; text-align: center; color: #fff;">0</div>
     </div>
 </body>
 
@@ -83,17 +84,20 @@ div {
        }
      }
      var deta = count / avg.length
-     var lol = Math.trunc(deta * 6)
-         var lol3 = Math.trunc(deta * 360)
-     var lol5 = Math.trunc(deta * 8640)
+     var lol1 = Math.trunc(deta * 6)
+     var lol2 = Math.trunc(deta * 30)
+     var lol3 = Math.trunc(deta * 360)
+     var lol4 = Math.trunc(deta * 4320)
 
-     var ActualMinuteValue = numeral(lol).format('0,0');
+     var ActualMinuteValue1 = numeral(lol1).format('0,0');
+     var ActualMinuteValue2 = numeral(lol2).format('0,0');
      var ActualMinuteValue3 = numeral(lol3).format('0,0');
-     var ActualMinuteValue5 = numeral(lol5).format('0,0');
+     var ActualMinuteValue4 = numeral(lol4).format('0,0');
 
-     min.innerHTML = ActualMinuteValue
-     hr.innerHTML = ActualMinuteValue3
-     day.innerHTML = ActualMinuteValue5
+     min1.innerHTML = ActualMinuteValue1
+     min5.innerHTML = ActualMinuteValue2
+     hr1.innerHTML = ActualMinuteValue3
+     hr12.innerHTML = ActualMinuteValue4
 
 
  });
