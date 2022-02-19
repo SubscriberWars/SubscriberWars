@@ -59,7 +59,7 @@ function updateStats(id) {
         var yep=(graphstat.innerHTML)
         console.log(yep)
         var injection=yep
-        if(graph.series[0].points.length>=1800)graph.series[0].data[0].remove();
+        if(graph.series[0].points.length>=720)graph.series[0].data[0].remove();
         graph.series[0].addPoint([Date.now(),parseFloat(injection)])
     });
 }
@@ -67,7 +67,7 @@ function updateStats(id) {
 // Intervals
 setInterval(() => {
     updateStats(newestvidID);
-}, 2000);
+}, 5000);
 
 checkForNew(channel)
 
@@ -118,7 +118,7 @@ tickColor: 'white'
 },
 credits: {
 enabled: true,
-text: "Nextcounts.com"
+text: "SubscriberWars.space"
 },
 series: [{
 showInLegend: false,
