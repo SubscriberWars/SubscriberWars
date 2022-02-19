@@ -29,7 +29,7 @@
         </div>
     </div>
     <div id="credit">
-        <h2><a href="https://nextcounts.com/tiktok/followers"> Powered by: Nextcounts.com</a></h2>
+        <h2><a href="https://tokcount.com"> Powered by: TokCount.com</a></h2>
     </div>
     <div id="graph-block">
         <div id="graph" style="width: 1260px; height: 400px;"></div>
@@ -41,9 +41,9 @@
     var newestvidID = ''
 var channel = window.location.href.split('?u=')[1] || '';
 
-function checkForNew(chanid) { // User ID: UU NOT UC
-    fetch('https://api-v2.nextcounts.com/api/tiktok/user/'+chanid+'').then(res => res.json()).then(data => {
-        newestvidID = data.uid
+function checkForNew(chanid) {
+    fetch('https://api.subscriberwars.space/tiktok/user/'+chanid+'').then(res => res.json()).then(data => {
+        newestvidID = data.id
         title.innerHTML = data.username
         logo.src = data.avatar
     });
@@ -51,7 +51,7 @@ function checkForNew(chanid) { // User ID: UU NOT UC
 
 
 function updateStats(id) {
-    fetch('https://api-v2.nextcounts.com/api/tiktok/user/stats/'+id+'').then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/tiktok/'+id+'').then(res => res.json()).then(data => {
         likecount.innerHTML = data.hearts,
         commentcount.innerHTML = data.videos,
         viewscount.innerHTML = data.followers,
