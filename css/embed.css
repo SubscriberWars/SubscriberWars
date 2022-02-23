@@ -1,0 +1,19 @@
+#logo {
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    margin-top: 0;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: relative;
+}
+#title {
+    position: absolute;
+    top: 5px;
+    left: 105px;
+    width: 500px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 25px;
+}
