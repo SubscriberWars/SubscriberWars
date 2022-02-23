@@ -1,3 +1,11 @@
+body, html {
+    margin: 0px;
+    padding: 0px;
+    color: #232323;
+    font-size: 11pt;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+}
 #logo {
     top: 0;
     left: 0;
