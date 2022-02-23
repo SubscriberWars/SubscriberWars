@@ -32,6 +32,6 @@ function updateStats(id) {
 // Intervals
 setInterval(() => {
     updateStats(video);
-}, 2000);
+}, 10000);
 
 updateStats(video)

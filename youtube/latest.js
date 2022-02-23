@@ -39,10 +39,10 @@ function updateStats(id) {
 // Intervals
 setInterval(() => {
     updateStats(newestvidID);
-}, 2000);
+}, 10000);
 
 checkForNew(channel)
 
 setInterval(() => {
     checkForNew(channel);
-}, 30000);
+}, 60000);
