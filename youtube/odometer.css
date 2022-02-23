@@ -1,4 +1,3 @@
-
 .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
   display: inline-block;
   vertical-align: middle;
@@ -82,13 +81,12 @@
 }
 
 .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
-  line-height: 1.2em;
+  font-family: "roboto", sans-serif;
+  line-height: 1.1em;
 }
-
 .odometer.odometer-auto-theme .odometer-value, .odometer.odometer-theme-default .odometer-value {
   text-align: center;
 }
-
 .odometer.odometer-auto-theme, .odometer.odometer-theme-default, .odometer-formatting-mark { 
-  line-height: 1.2em; vertical-align: middle !important;
+  line-height: 1.1em; vertical-align: middle !important;
 }
