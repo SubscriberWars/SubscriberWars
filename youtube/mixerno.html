@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+    <title>Live Subscriber Count</title>
+    <meta name="description" content="Live Mixerno Subscriber Count">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/odometer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+    <div id="count-block">
+        <img style="margin:10px" id="headerImage"/>
+        <img id="logo" src="https://subscriberwars.space/logo/Subscriber%20Wars.png" alt="Avatar" style="top:-227px"/>
+        <h1 id="title" style="top: -227px;">Loading...</h1>
+        <div id='subcount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px; top: -227px;">0</div>
+        <h2 style="top: -227px;">Subscribers</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="like-box">
+            <div id='viewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Views</h2>
+        </div>
+        <div id="comment-box">
+            <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Videos</h2>
+        </div>
+    </div>
+    <div id="graph-block">
+        <div id="graph" style="width: 1260px; height: 400px;"></div>
+        <p id="graphstat" style="visibility: hidden;"></p>
+    </div>
+</body>
+
+<script>
+
+var channel = window.location.href.split('?u=')[1] || '';
+const headerImage = document.getElementById("headerImage")
+
+function checkForNew(chanid) {
+    headerImage.src='https://www.banner.yt/'+chanid+'?width=1240';
+
+    fetch('https://mixerno.space/api/youtube-channel-counter/user/'+chanid+'').then(res => res.json()).then(data => {
+        title.innerHTML = data.user[0].count
+        logo.src = data.user[1].count
+        subcount.innerHTML = data.counts[0].count
+        viewcount.innerHTML = data.counts[3].count
+        videocount.innerHTML = data.counts[5].count
+        graphstat.innerHTML = data.counts[0].count
+        var yep=(graphstat.innerHTML)
+        console.log(yep)
+        var injection=yep
+        if(graph.series[0].points.length>=900)graph.series[0].data[0].remove();
+        graph.series[0].addPoint([Date.now(),parseFloat(injection)])
+    });
+}
+
+// Intervals
+setInterval(() => {
+    checkForNew(channel)
+}, 2000);
+
+checkForNew(channel)
+
+</script>
+
+</script>
+
+<script>//graph styling
+    var graph = new Highcharts.chart({
+chart: {
+renderTo: 'graph',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: 'transparent',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+minorGridLineColor: '#transparent',
+tickColor: 'white',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: 'white',
+minorGridLineColor: 'transparent',
+tickColor: 'white'
+},
+credits: {
+enabled: true,
+text: "Subscriberwars.space"
+},
+series: [{
+showInLegend: false,
+name: 'Subscribers',
+marker: { enabled: false },
+lineColor: '#ff0000'
+}]
+});
+</script>
