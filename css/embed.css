@@ -25,3 +25,9 @@ body, html {
     text-overflow: ellipsis;
     font-size: 25px;
 }
+#count {
+    font-size: 50px;
+    position: absolute;
+    left: 105px;
+    top: 38px;
+}
