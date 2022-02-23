@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>Live TikTok Videos Count</title>
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/embed.css">
+    <script src="/js/odometer.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+   <img id="logo">
+   <span id="title"></span>
+   <div class="odometer odometer-auto-theme" id="count"></div>
+</body>
+
+<script>
+    var userID = ''
+var channel = window.location.href.split('?u=')[1] || '';
+
+function checkForNew(chanid) {
+    fetch('https://api.subscriberwars.space/tiktok/user/'+chanid+'').then(res => res.json()).then(data => {
+        userID = data.id
+        title.innerHTML = data.username
+        logo.src = data.avatar
+    });
+}
+
+
+function updateStats(id) {
+    fetch('https://api.subscriberwars.space/tiktok/'+id+'').then(res => res.json()).then(data => {
+        count.innerHTML = data.videos
+    });
+}
+
+// Intervals
+setInterval(() => {
+    updateStats(userID);
+}, 5000);
+
+checkForNew(channel)
+
+</script>
