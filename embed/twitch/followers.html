@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title>Live Twitch Follower Count</title>
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/embed.css">
+    <script src="/js/odometer.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+   <img id="logo">
+   <span id="title"></span>
+   <div class="odometer odometer-auto-theme" id="count"></div>
+</body>
+
+<script>
+    var twitchid = ''
+var channel = window.location.href.split('?u=')[1] || '';
+
+function checkForNew(chanid) {
+    fetch('https://api.subscriberwars.space/twitch/user/'+chanid+'')
+    .then(res => res.json()).then(data => {
+        twitchid = data.iD
+        title.innerHTML = data.name
+        logo.src = data.logo
+    });
+}
+
+
+function updateStats(id) {
+    fetch('https://api.subscriberwars.space/twitch/'+id+'')
+    .then(res => res.json()).then(data => {
+        count.innerHTML = data.followerCount
+    });
+}
+
+// Intervals
+setInterval(() => {
+    updateStats(twitchid);
+}, 5000);
+
+checkForNew(channel)
+
+</script>
