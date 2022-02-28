@@ -203,7 +203,7 @@
             count2.innerHTML= data.followers
             logo2.src = data.pfp.replace("normal.jpg","400x400.jpg")
             gap02=parseFloat(data.followers)
-            if (chart.series[0].points.length >= 900) chart.series[0].data[0].remove();
+            if (chart.series[0].points.length >= 600) chart.series[0].data[0].remove();
             chart.series[0].addPoint([Date.now(),gap01-gap02]);
         });900
     }
