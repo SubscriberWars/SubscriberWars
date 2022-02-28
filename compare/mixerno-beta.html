@@ -207,7 +207,7 @@
             count2.innerHTML= data.estCounts.subCount
             logo2.src = data.info.pfp
             gap02=parseFloat(data.estCounts.subCount)
-            if (chart.series[0].points.length >= 543434543) chart.series[0].data[0].remove();
+            if (chart.series[0].points.length >= 900) chart.series[0].data[0].remove();
             chart.series[0].addPoint([Date.now(),gap01-gap02]);
         });
     }
