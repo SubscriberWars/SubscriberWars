@@ -187,11 +187,11 @@
     var gap02= 0;
     
     function u1(uid1) {
-        fetch('https://api.subscriberwars.space/twitter/v2/'+uid1+'').then(res => res.json()).then(data => {
-            title1.innerHTML = data.data.name
-            count1.innerHTML= data.data.public_metrics.followers_count
-            logo1.src = data.data.profile_image_url.replace("normal.jpg","400x400.jpg")
-            gap01=parseFloat(data.data.public_metrics.followers_count)
+        fetch('https://api.subscriberwars.space/twitter/v1/'+uid1+'').then(res => res.json()).then(data => {
+            title1.innerHTML = data.displayName
+            count1.innerHTML= data.followers
+            logo1.src = data.pfp.replace("normal.jpg","400x400.jpg")
+            gap01=parseFloat(data.followers)
             if (gap01>gap02){gapcount.innerHTML=gap01-gap02}
             else {gapcount.innerHTML=gap02-gap01}
         });
@@ -203,7 +203,7 @@
             count2.innerHTML= data.data.public_metrics.followers_count
             logo2.src = data.data.profile_image_url.replace("normal.jpg","400x400.jpg")
             gap02=parseFloat(data.data.public_metrics.followers_count)
-            if (chart.series[0].points.length >= 300) chart.series[0].data[0].remove();
+            if (chart.series[0].points.length >= 900) chart.series[0].data[0].remove();
             chart.series[0].addPoint([Date.now(),gap01-gap02]);
         });
     }
@@ -240,7 +240,7 @@
     setInterval(() => {
         u1(user1);
         u2(user2);
-    }, 6000);
+    }, 2000);
 
     setInterval(() => {
         sb1(user1);
