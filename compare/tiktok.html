@@ -91,16 +91,21 @@ function graphs(){
 }
     
     // Intervals
-    setInterval(() => {
-        update1(user1id);
-        update2(user2id);
-        graphs()
-    }, 6000);
-
     setTimeout(()=>{
         graphs()
     }, 20000);
-    
+
+    setTimeout(()=>{
+        update1(user1id)
+        update2(user2id)
+    }, 2000);
+
+    setInterval(() => {
+        update1(user1id)
+        update2(user2id)
+        graphs()
+    }, 6000);
+
     check1(user1)
     check2(user2)
     
