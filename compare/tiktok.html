@@ -45,108 +45,64 @@
     var params=new URLSearchParams(document.location.search.substring(1));
     var user1=params.get("u1");
     var user2=params.get("u2");
+    var user1id='';
+    var user2id='';
     var gap01= 0;
     var gap02= 0;
-    
-    function u1(uid1) {
-        fetch('https://api.subscriberwars.space/twitter/'+uid1+'').then(res => res.json()).then(data => {
-            title1.innerHTML = data.displayName
-            count1.innerHTML= data.followers
-            logo1.src = data.pfp.replace("normal.jpg","400x400.jpg")
-            gap01=parseFloat(data.followers)
-            if (gap01>gap02) {gapcount.innerHTML=gap01-gap02}
-            else {gapcount.innerHTML=gap02-gap01};
-            if (gapgraph.series[0].points.length >= 360) gapgraph.series[0].data[0].remove();
-            gapgraph.series[0].addPoint([Date.now(),gap01-gap02]);
-        });
-    }
 
-    function u2(uid2) {
-        fetch('https://api.subscriberwars.space/twitter/'+uid2+'').then(res => res.json()).then(data => {
-            title2.innerHTML = data.displayName
-            count2.innerHTML= data.followers
-            logo2.src = data.pfp.replace("normal.jpg","400x400.jpg")
-            gap02=parseFloat(data.followers)
-            if (u1graph.series[0].points.length >= 360) u1graph.series[0].data[0].remove();
-            u1graph.series[0].addPoint([Date.now(),gap01]);
-            if (u2graph.series[0].points.length >= 360) u2graph.series[0].data[0].remove();
-            u2graph.series[0].addPoint([Date.now(),gap02]);
-        });
-    }
+function check1(uid1) {
+    fetch('https://api.subscriberwars.space/tiktok/user/'+uid1+'').then(res => res.json()).then(data => {
+        user1id = data.id
+        title1.innerHTML = data.username
+        logo1.src = data.avatar
+    });
+}
+function check2(uid2) {
+    fetch('https://api.subscriberwars.space/tiktok/user/'+uid2+'').then(res => res.json()).then(data => {
+        user2id = data.id
+        title2.innerHTML = data.username
+        logo2.src = data.avatar
+    });
+}
+    
+function update1(id1) {
+    fetch('https://api.subscriberwars.space/tiktok/'+id1+'').then(res => res.json()).then(data => {
+        count1.innerHTML= data.followers
+        gap01=parseFloat(data.followers)
+        if (gap01>gap02) {gapcount.innerHTML=gap01-gap02}
+        else {gapcount.innerHTML=gap02-gap01};
+        if (gapgraph.series[0].points.length >= 360) gapgraph.series[0].data[0].remove();
+        gapgraph.series[0].addPoint([Date.now(),gap01-gap02]);
+    });
+}
+
+function update2(id2) {
+    fetch('https://api.subscriberwars.space/twitter/'+id2+'').then(res => res.json()).then(data => {
+        count2.innerHTML= data.followers
+        gap02=parseFloat(data.followers)
+        if (u1graph.series[0].points.length >= 360) u1graph.series[0].data[0].remove();
+        u1graph.series[0].addPoint([Date.now(),gap01]);
+        if (u2graph.series[0].points.length >= 360) u2graph.series[0].data[0].remove();
+        u2graph.series[0].addPoint([Date.now(),gap02]);
+    });
+}
     
     // Intervals
     setInterval(() => {
-        u1(user1);
-        u2(user2);
+        update1(user1id);
+        update2(user2id);
     }, 6000);
     
-    u1(user1)
-    u2(user2)
+    check1(user1)
+    check2(user2)
     
-    </script>
+</script>
 
 <script type="text/javascript">
-var line = "#03d7fc"
-var gapgraph = new Highcharts.chart({
-chart: {
-renderTo: 'gapgraph',
-type: 'spline',
-zoomType: 'x',
-backgroundColor: '#0f0f0f',
-plotBorderColor: 'transparent'
-},
-title: {
-text: ''
-},
-xAxis: {
-type: 'datetime',
-tickPixelInterval: 100,
-gridLineColor: 'transparent',
-labels: {
-    style: {
-        color: 'white'
-    }
-},
-lineColor: line,
-minorGridLineColor: '#transparent',
-tickColor: '#transparent',
-title: {
-    style: {
-        color: '#transparent'
-    }
-}
-},
-yAxis: {
-title: {
-  text: ''
-},
-gridLineColor: 'transparent',
-labels: {
-    style: {
-        color: 'white'
-    }
-},
-lineColor: '#transparent',
-minorGridLineColor: '#transparent',
-tickColor: 'transparent'
-},
-credits: {
-enabled: false,
-text: ""
-},
-series: [{
-showInLegend: false,
-name: '',
-marker: { enabled: false },
-color: '#03d7fc'
-}]
-});
-</script>
-<script type="text/javascript">
-    var line = "white"
-    var u1graph = new Highcharts.chart({
+    var line = "#03d7fc"
+    var gapgraph = new Highcharts.chart({
     chart: {
-    renderTo: 'u1graph',
+    renderTo: 'gapgraph',
     type: 'spline',
     zoomType: 'x',
     backgroundColor: '#0f0f0f',
@@ -195,15 +151,15 @@ color: '#03d7fc'
     showInLegend: false,
     name: '',
     marker: { enabled: false },
-    color: '#fff'
+    color: '#03d7fc'
     }]
     });
     </script>
     <script type="text/javascript">
-        var line = "white"
-        var u2graph = new Highcharts.chart({
+        var line = "#ff0055"
+        var u1graph = new Highcharts.chart({
         chart: {
-        renderTo: 'u2graph',
+        renderTo: 'u1graph',
         type: 'spline',
         zoomType: 'x',
         backgroundColor: '#0f0f0f',
@@ -252,7 +208,64 @@ color: '#03d7fc'
         showInLegend: false,
         name: '',
         marker: { enabled: false },
-        color: '#fff'
+        color: '#ff0055'
         }]
         });
         </script>
+        <script type="text/javascript">
+            var line = "#ff0055"
+            var u2graph = new Highcharts.chart({
+            chart: {
+            renderTo: 'u2graph',
+            type: 'spline',
+            zoomType: 'x',
+            backgroundColor: '#0f0f0f',
+            plotBorderColor: 'transparent'
+            },
+            title: {
+            text: ''
+            },
+            xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 100,
+            gridLineColor: 'transparent',
+            labels: {
+                style: {
+                    color: 'white'
+                }
+            },
+            lineColor: line,
+            minorGridLineColor: '#transparent',
+            tickColor: '#transparent',
+            title: {
+                style: {
+                    color: '#transparent'
+                }
+            }
+            },
+            yAxis: {
+            title: {
+              text: ''
+            },
+            gridLineColor: 'transparent',
+            labels: {
+                style: {
+                    color: 'white'
+                }
+            },
+            lineColor: '#transparent',
+            minorGridLineColor: '#transparent',
+            tickColor: 'transparent'
+            },
+            credits: {
+            enabled: false,
+            text: ""
+            },
+            series: [{
+            showInLegend: false,
+            name: '',
+            marker: { enabled: false },
+            color: '#ff0055'
+            }]
+            });
+            </script>
