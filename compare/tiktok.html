@@ -77,7 +77,7 @@ function update1(id1) {
 }
 
 function update2(id2) {
-    fetch('https://api.subscriberwars.space/twitter/'+id2+'').then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/tiktok/'+id2+'').then(res => res.json()).then(data => {
         count2.innerHTML= data.followers
         gap02=parseFloat(data.followers)
         if (u1graph.series[0].points.length >= 360) u1graph.series[0].data[0].remove();
@@ -99,7 +99,7 @@ function update2(id2) {
 </script>
 
 <script type="text/javascript">
-    var line = "#03d7fc"
+    var line = "white"
     var gapgraph = new Highcharts.chart({
     chart: {
     renderTo: 'gapgraph',
@@ -151,12 +151,12 @@ function update2(id2) {
     showInLegend: false,
     name: '',
     marker: { enabled: false },
-    color: '#03d7fc'
+    color: '#fff'
     }]
     });
     </script>
     <script type="text/javascript">
-        var line = "#ff0055"
+        var line = "white"
         var u1graph = new Highcharts.chart({
         chart: {
         renderTo: 'u1graph',
@@ -213,7 +213,7 @@ function update2(id2) {
         });
         </script>
         <script type="text/javascript">
-            var line = "#ff0055"
+            var line = "white"
             var u2graph = new Highcharts.chart({
             chart: {
             renderTo: 'u2graph',
