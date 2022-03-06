@@ -76,6 +76,8 @@ function update2(id2) {
     fetch('https://api.subscriberwars.space/tiktok/'+id2+'').then(res => res.json()).then(data => {
         count2.innerHTML= data.followers
         gap02=parseFloat(data.followers)
+        if (gap01>gap02) {gapcount.innerHTML=gap01-gap02}
+        else {gapcount.innerHTML=gap02-gap01};
     });
 }
 
@@ -84,8 +86,6 @@ function graphs(){
         u1graph.series[0].addPoint([Date.now(),gap01]);
         if (u2graph.series[0].points.length >= 360) u2graph.series[0].data[0].remove();
         u2graph.series[0].addPoint([Date.now(),gap02]);
-        if (gap01>gap02) {gapcount.innerHTML=gap01-gap02}
-        else {gapcount.innerHTML=gap02-gap01};
         if (gapgraph.series[0].points.length >= 360) gapgraph.series[0].data[0].remove();
         gapgraph.series[0].addPoint([Date.now(),gap01-gap02]);
 }
