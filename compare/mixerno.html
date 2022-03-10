@@ -207,9 +207,13 @@
             count2.innerHTML= data.counts[0].count
             logo2.src = data.user[1].count
             gap02=parseFloat(data.counts[0].count)
-            if (chart.series[0].points.length >= 900) chart.series[0].data[0].remove();
-            chart.series[0].addPoint([Date.now(),gap01-gap02]);
+            
         });
+    }
+
+    function graph(){
+        if (chart.series[0].points.length >= 900) chart.series[0].data[0].remove();
+            chart.series[0].addPoint([Date.now(),gap01-gap02]);
     }
 
     function sb1(uid1) {
@@ -241,6 +245,11 @@
     }
     
     // Intervals
+
+    setTimeout(()=>{
+        graph()
+    }, 10000);
+    
     setInterval(() => {
         u1(user1);
         u2(user2);
