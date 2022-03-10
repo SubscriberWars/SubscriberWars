@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<head>
+    <title>YouTube User Comparison</title>
+    <meta name="description" content="YouTube Live Compare">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/compare.css">
+    <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <div id="main-block">
+        <div id="count-block1">
+            <!--<img style="margin:10px" id="headerImage1"/>-->
+            <img class="logo" id="logo1" src="https://subscriberwars.space/logo/youtube.png">
+            <h1 id="title1" class="title">Loading...</h1>
+            <div id="count1" class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 890px;">0</div>
+            <h2>Subscribers</h2>
+        </div>
+        <div id="count-block2">
+            <img style="margin:10px" id="headerImage2"/>
+            <img class="logo" id="logo2" src="https://subscriberwars.space/logo/youtube.png" style="top: -170px;">
+            <h1 id="title2" class="title" style="top: -170px;">Loading...</h1> 
+            <div id="count2" class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 890px; top: -170px;">0</div>
+            <h2 style="top: -170px;">Subscribers</h2>
+
+        </div>
+    </div>
+    <div id="mini-counts">
+        <div id="stats1" class="stats">
+            <div style='width: 600px; float: left; font-size: 8pt;'>
+                <div style='clear: both;'></div>
+                <div style='width: 600px; background:rgb(15,15,15); padding: 10px 20px; text-transform: uppercase; color: rgb(255, 255, 255);'>
+                    <h2 style='font-size: 10pt; font-weight: 500;'>Last 7 Days (1 update/hr)</h2>
+                </div>
+                <div style='width: 600px; height: 30px; line-height: 30px; background: rgb(26,26,26); padding: 0px 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 10pt;'>
+                    <div style='width: 120px; float: left;'>date</div>
+                    <div style='width: 240px; float: left;'>subscribers</div>
+                    <div style='width: 240px; float: left;'>views</div>
+                </div>
+                <div style='clear: both;'></div>
+                <!--chart entries here-->
+                <!--rgb(33,33,33) rgb(38,38,38)-->
+                <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date1'>0</div>
+                    <div style='float: left; width: 120px;'>--</div>
+                    <div style='float: left; width: 120px;' id='subs1'>0</div>
+                    <div style='float: left; width: 120px;'>--</div>
+                    <div style='float: left; width: 120px;' id='views1'>0</div>
+                </div>
+                <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date2'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain2'>--</div>
+                    <div style='float: left; width: 120px;' id='subs2'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain2'>--</div>
+                    <div style='float: left; width: 120px;' id='views2'>0</div>
+                </div>
+                <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date3'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain3'>--</div>
+                    <div style='float: left; width: 120px;' id='subs3'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain3'>--</div>
+                    <div style='float: left; width: 120px;' id='views3'>0</div>
+                </div>
+                <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date4'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain4'>--</div>
+                    <div style='float: left; width: 120px;' id='subs4'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain4'>--</div>
+                    <div style='float: left; width: 120px;' id='views4'>0</div>
+                </div>
+                <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date5'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain5'>--</div>
+                    <div style='float: left; width: 120px;' id='subs5'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain5'>--</div>
+                    <div style='float: left; width: 120px;' id='views5'>0</div>
+                </div>
+                <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date6'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain6'>--</div>
+                    <div style='float: left; width: 120px;' id='subs6'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain6'>--</div>
+                    <div style='float: left; width: 120px;' id='views6'>0</div>
+                </div>
+                <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date7'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain7'>--</div>
+                    <div style='float: left; width: 120px;' id='subs7'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain7'>--</div>
+                    <div style='float: left; width: 120px;' id='views7'>0</div>
+                </div>
+                <div style='background: rgb(26, 26, 26); width: 600px; height: 55px; line-height: 55px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt;'>
+                    <div style='float: left; width: 120px;'>Daily Average</div>
+                    <div id='sub7d1' style='float: left; width: 240px;'>0</div>
+                    <div id='view7d1' style='float: left; width: 240px;'>0</div>
+                </div>
+            </div>
+        </div>
+        <div id="gap-box">
+            <div id='gapcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 560px;">0</div>
+            <h2>Gap</h2>
+            <div id="chart" style="height:250px; width:560px"></div>
+            <p id="a" style="visibility: hidden;"></p>
+        </div>
+        <div id="stats2" class="stats">
+            <div style='width: 600px; float: left; font-size: 8pt;'>
+                <div style='clear: both;'></div>
+                <div style='width: 600px; background:rgb(15,15,15); padding: 10px 20px; text-transform: uppercase; color: rgb(255, 255, 255);'>
+                    <h2 style='font-size: 10pt; font-weight: 500;'>Last 7 Days(1 update/hr)</h2>
+                </div>
+                <div style='width: 600px; height: 30px; line-height: 30px; background: rgb(26,26,26); padding: 0px 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 10pt;'>
+                    <div style='width: 120px; float: left;'>date</div>
+                    <div style='width: 240px; float: left;'>subscribers</div>
+                    <div style='width: 240px; float: left;'>views</div>
+                </div>
+                <div style='clear: both;'></div>
+                <!--chart entries here-->
+                <!--rgb(33,33,33) rgb(38,38,38)-->
+                <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date8'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain8'>--</div>
+                    <div style='float: left; width: 120px;' id='subs8'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain8'>--</div>
+                    <div style='float: left; width: 120px;' id='views8'>0</div>
+                </div>
+                <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date9'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain9'>--</div>
+                    <div style='float: left; width: 120px;' id='subs9'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain9'>--</div>
+                    <div style='float: left; width: 120px;' id='views9'>0</div>
+                </div>
+                <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date10'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain10'>--</div>
+                    <div style='float: left; width: 120px;' id='subs10'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain10'>--</div>
+                    <div style='float: left; width: 120px;' id='views10'>0</div>
+                </div>
+                <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date11'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain11'>--</div>
+                    <div style='float: left; width: 120px;' id='subs11'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain11'>--</div>
+                    <div style='float: left; width: 120px;' id='views11'>0</div>
+                </div>
+                <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date12'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain12'>--</div>
+                    <div style='float: left; width: 120px;' id='subs12'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain12'>--</div>
+                    <div style='float: left; width: 120px;' id='views12'>0</div>
+                </div>
+                <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date13'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain13'>--</div>
+                    <div style='float: left; width: 120px;' id='subs13'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain13'>--</div>
+                    <div style='float: left; width: 120px;' id='views13'>0</div>
+                </div>
+                <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                    <div style='float: left; width: 120px;' id='date14'>0</div>
+                    <div style='float: left; width: 120px;' id='subgain14'>--</div>
+                    <div style='float: left; width: 120px;' id='subs14'>0</div>
+                    <div style='float: left; width: 120px;' id='viewgain14'>--</div>
+                    <div style='float: left; width: 120px;' id='views14'>0</div>
+                </div>
+                <div style='background: rgb(26, 26, 26); width: 600px; height: 55px; line-height: 55px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt;'>
+                    <div style='float: left; width: 120px;'>Daily Average</div>
+                    <div id='sub7d2' style='float: left; width: 240px;'>0</div>
+                    <div id='view7d2' style='float: left; width: 240px;'>0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var params=new URLSearchParams(document.location.search.substring(1));
+    var user1=params.get("u1");
+    var user2=params.get("u2");
+    const headerImage1 = document.getElementById("headerImage1")
+    const headerImage2 = document.getElementById("headerImage2")
+    var gap01= 0;
+    var gap02= 0;
+    
+    function u1(uid1) {
+        headerImage1.src='https://www.banner.yt/'+uid1+'?width=870';
+        fetch('https://mixerno.space/api/youtube-channel-counter/user/'+uid1+'').then(res => res.json()).then(data => {
+            title1.innerHTML = data.user[0].count
+            count1.innerHTML= data.counts[0].count
+            logo1.src = data.user[1].count
+            gap01=parseFloat(data.counts[0].count)
+            if (gap01>gap02){gapcount.innerHTML=gap01-gap02}
+            else {gapcount.innerHTML=gap02-gap01}
+        });
+    }
+
+    function u2(uid2) {
+        headerImage2.src='https://www.banner.yt/'+uid2+'?width=870';
+        fetch('https://mixerno.space/api/youtube-channel-counter/user/'+uid2+'').then(res => res.json()).then(data => {
+            title2.innerHTML = data.user[0].count
+            count2.innerHTML= data.counts[0].count
+            logo2.src = data.user[1].count
+            gap02=parseFloat(data.counts[0].count)
+            if (chart.series[0].points.length >= 900) chart.series[0].data[0].remove();
+            chart.series[0].addPoint([Date.now(),gap01-gap02]);
+        });
+    }
+
+    function sb1(uid1) {
+        fetch('https://api.subscriberwars.space/sb/yt/'+uid1+'').then(res => res.json()).then(data => {
+            date1.innerHTML=data.data.daily[6].date; subs1.innerHTML=data.data.daily[6].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views1.innerHTML=data.data.daily[6].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+            date2.innerHTML=data.data.daily[5].date; subs2.innerHTML=data.data.daily[5].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views2.innerHTML=data.data.daily[5].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain2').innerHTML=(data.data.daily[5].subs-data.data.daily[6].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[5].subs>data.data.daily[6].subs){document.getElementById('subgain2').style.color='#1bed0c'}; if(data.data.daily[5].subs<data.data.daily[6].subs){document.getElementById('subgain2').style.color='#ed2121'}; document.getElementById('viewgain2').innerHTML=(data.data.daily[5].views-data.data.daily[6].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[5].views>data.data.daily[6].views){document.getElementById('viewgain2').style.color='#1bed0c'}; if(data.data.daily[5].views<data.data.daily[6].views){document.getElementById('viewgain2').style.color='#ed2121'};
+            date3.innerHTML=data.data.daily[4].date; subs3.innerHTML=data.data.daily[4].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views3.innerHTML=data.data.daily[4].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain3').innerHTML=(data.data.daily[4].subs-data.data.daily[5].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[4].subs>data.data.daily[5].subs){document.getElementById('subgain3').style.color='#1bed0c'}; if(data.data.daily[4].subs<data.data.daily[5].subs){document.getElementById('subgain3').style.color='#ed2121'}; document.getElementById('viewgain3').innerHTML=(data.data.daily[4].views-data.data.daily[5].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[4].views>data.data.daily[5].views){document.getElementById('viewgain3').style.color='#1bed0c'}; if(data.data.daily[4].views<data.data.daily[5].views){document.getElementById('viewgain3').style.color='#ed2121'};
+            date4.innerHTML=data.data.daily[3].date; subs4.innerHTML=data.data.daily[3].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views4.innerHTML=data.data.daily[3].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain4').innerHTML=(data.data.daily[3].subs-data.data.daily[4].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[3].subs>data.data.daily[4].subs){document.getElementById('subgain4').style.color='#1bed0c'}; if(data.data.daily[3].subs<data.data.daily[4].subs){document.getElementById('subgain4').style.color='#ed2121'}; document.getElementById('viewgain4').innerHTML=(data.data.daily[3].views-data.data.daily[4].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[3].views>data.data.daily[4].views){document.getElementById('viewgain4').style.color='#1bed0c'}; if(data.data.daily[3].views<data.data.daily[4].views){document.getElementById('viewgain4').style.color='#ed2121'};
+            date5.innerHTML=data.data.daily[2].date; subs5.innerHTML=data.data.daily[2].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views5.innerHTML=data.data.daily[2].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain5').innerHTML=(data.data.daily[2].subs-data.data.daily[3].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[2].subs>data.data.daily[3].subs){document.getElementById('subgain5').style.color='#1bed0c'}; if(data.data.daily[2].subs<data.data.daily[3].subs){document.getElementById('subgain5').style.color='#ed2121'}; document.getElementById('viewgain5').innerHTML=(data.data.daily[2].views-data.data.daily[3].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[2].views>data.data.daily[3].views){document.getElementById('viewgain5').style.color='#1bed0c'}; if(data.data.daily[2].views<data.data.daily[3].views){document.getElementById('viewgain5').style.color='#ed2121'};
+            date6.innerHTML=data.data.daily[1].date; subs6.innerHTML=data.data.daily[1].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views6.innerHTML=data.data.daily[1].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain6').innerHTML=(data.data.daily[1].subs-data.data.daily[2].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[1].subs>data.data.daily[2].subs){document.getElementById('subgain6').style.color='#1bed0c'}; if(data.data.daily[1].subs<data.data.daily[2].subs){document.getElementById('subgain6').style.color='#ed2121'}; document.getElementById('viewgain6').innerHTML=(data.data.daily[1].views-data.data.daily[2].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[1].views>data.data.daily[2].views){document.getElementById('viewgain6').style.color='#1bed0c'}; if(data.data.daily[1].views<data.data.daily[2].views){document.getElementById('viewgain6').style.color='#ed2121'};
+            date7.innerHTML=data.data.daily[0].date; subs7.innerHTML=data.data.daily[0].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views7.innerHTML=data.data.daily[0].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain7').innerHTML=(data.data.daily[0].subs-data.data.daily[1].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[0].subs>data.data.daily[1].subs){document.getElementById('subgain7').style.color='#1bed0c'}; if(data.data.daily[0].subs<data.data.daily[1].subs){document.getElementById('subgain7').style.color='#ed2121'}; document.getElementById('viewgain7').innerHTML=(data.data.daily[0].views-data.data.daily[1].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[0].views>data.data.daily[1].views){document.getElementById('viewgain7').style.color='#1bed0c'}; if(data.data.daily[0].views<data.data.daily[1].views){document.getElementById('viewgain7').style.color='#ed2121'};
+            sub7d1.innerHTML=Math.round(((data.data.daily[0].subs-data.data.daily[6].subs)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].subs-data.data.daily[6].subs)/7)>0){document.getElementById('sub7d1').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].subs-data.data.daily[6].subs)/7)<0){document.getElementById('sub7d1').style.color='#ed2121'};
+            view7d1.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[6].views)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)>0){document.getElementById('view7d1').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)<0){document.getElementById('view7d1').style.color='#ed2121'};
+        });
+    }
+
+    function sb2(uid2) {
+        fetch('https://api.subscriberwars.space/sb/yt/'+uid2+'').then(res => res.json()).then(data => {
+            date8.innerHTML=data.data.daily[6].date; subs8.innerHTML=data.data.daily[6].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views8.innerHTML=data.data.daily[6].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+            date9.innerHTML=data.data.daily[5].date; subs9.innerHTML=data.data.daily[5].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views9.innerHTML=data.data.daily[5].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain9').innerHTML=(data.data.daily[5].subs-data.data.daily[6].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[5].subs>data.data.daily[6].subs){document.getElementById('subgain9').style.color='#1bed0c'}; if(data.data.daily[5].subs<data.data.daily[6].subs){document.getElementById('subgain9').style.color='#ed2121'}; document.getElementById('viewgain9').innerHTML=(data.data.daily[5].views-data.data.daily[6].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[5].views>data.data.daily[6].views){document.getElementById('viewgain9').style.color='#1bed0c'}; if(data.data.daily[5].views<data.data.daily[6].views){document.getElementById('viewgain9').style.color='#ed2121'};
+            date10.innerHTML=data.data.daily[4].date; subs10.innerHTML=data.data.daily[4].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views10.innerHTML=data.data.daily[4].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain10').innerHTML=(data.data.daily[4].subs-data.data.daily[5].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[4].subs>data.data.daily[5].subs){document.getElementById('subgain10').style.color='#1bed0c'}; if(data.data.daily[4].subs<data.data.daily[5].subs){document.getElementById('subgain10').style.color='#ed2121'}; document.getElementById('viewgain10').innerHTML=(data.data.daily[4].views-data.data.daily[5].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[4].views>data.data.daily[5].views){document.getElementById('viewgain10').style.color='#1bed0c'}; if(data.data.daily[4].views<data.data.daily[5].views){document.getElementById('viewgain10').style.color='#ed2121'};
+            date11.innerHTML=data.data.daily[3].date; subs11.innerHTML=data.data.daily[3].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views11.innerHTML=data.data.daily[3].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain11').innerHTML=(data.data.daily[3].subs-data.data.daily[4].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[3].subs>data.data.daily[4].subs){document.getElementById('subgain11').style.color='#1bed0c'}; if(data.data.daily[3].subs<data.data.daily[4].subs){document.getElementById('subgain11').style.color='#ed2121'}; document.getElementById('viewgain11').innerHTML=(data.data.daily[3].views-data.data.daily[4].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[3].views>data.data.daily[4].views){document.getElementById('viewgain11').style.color='#1bed0c'}; if(data.data.daily[3].views<data.data.daily[4].views){document.getElementById('viewgain11').style.color='#ed2121'};
+            date12.innerHTML=data.data.daily[2].date; subs12.innerHTML=data.data.daily[2].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views12.innerHTML=data.data.daily[2].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain12').innerHTML=(data.data.daily[2].subs-data.data.daily[3].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[2].subs>data.data.daily[3].subs){document.getElementById('subgain12').style.color='#1bed0c'}; if(data.data.daily[2].subs<data.data.daily[3].subs){document.getElementById('subgain12').style.color='#ed2121'}; document.getElementById('viewgain12').innerHTML=(data.data.daily[2].views-data.data.daily[3].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[2].views>data.data.daily[3].views){document.getElementById('viewgain12').style.color='#1bed0c'}; if(data.data.daily[2].views<data.data.daily[3].views){document.getElementById('viewgain12').style.color='#ed2121'};
+            date13.innerHTML=data.data.daily[1].date; subs13.innerHTML=data.data.daily[1].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views13.innerHTML=data.data.daily[1].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain13').innerHTML=(data.data.daily[1].subs-data.data.daily[2].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[1].subs>data.data.daily[2].subs){document.getElementById('subgain13').style.color='#1bed0c'}; if(data.data.daily[1].subs<data.data.daily[2].subs){document.getElementById('subgain13').style.color='#ed2121'}; document.getElementById('viewgain13').innerHTML=(data.data.daily[1].views-data.data.daily[2].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[1].views>data.data.daily[2].views){document.getElementById('viewgain13').style.color='#1bed0c'}; if(data.data.daily[1].views<data.data.daily[2].views){document.getElementById('viewgain13').style.color='#ed2121'};
+            date14.innerHTML=data.data.daily[0].date; subs14.innerHTML=data.data.daily[0].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views14.innerHTML=data.data.daily[0].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain14').innerHTML=(data.data.daily[0].subs-data.data.daily[1].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[0].subs>data.data.daily[1].subs){document.getElementById('subgain14').style.color='#1bed0c'}; if(data.data.daily[0].subs<data.data.daily[1].subs){document.getElementById('subgain14').style.color='#ed2121'}; document.getElementById('viewgain14').innerHTML=(data.data.daily[0].views-data.data.daily[1].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[0].views>data.data.daily[1].views){document.getElementById('viewgain14').style.color='#1bed0c'}; if(data.data.daily[0].views<data.data.daily[1].views){document.getElementById('viewgain14').style.color='#ed2121'};
+            sub7d2.innerHTML=Math.round(((data.data.daily[0].subs-data.data.daily[6].subs)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].subs-data.data.daily[6].subs)/7)>0){document.getElementById('sub7d2').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].subs-data.data.daily[6].subs)/7)<0){document.getElementById('sub7d2').style.color='#ed2121'};
+            view7d2.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[6].views)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)>0){document.getElementById('view7d2').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)<0){document.getElementById('view7d2').style.color='#ed2121'};
+        });
+    }
+    
+    // Intervals
+    setInterval(() => {
+        u1(user1);
+        u2(user2);
+    }, 2000);
+
+    setInterval(() => {
+        sb1(user1);
+        sb2(user2);
+    }, 3600000);
+    
+    u1(user1)
+    u2(user2)
+    sb1(user1)
+    sb2(user2)
+    
+    </script>
+
+<script type="text/javascript">
+    var line = "white"
+
+    var chart = new Highcharts.chart({
+chart: {
+renderTo: 'chart',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: '#0f0f0f',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: 'transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: line,
+minorGridLineColor: '#transparent',
+tickColor: '#transparent',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: 'transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: '#transparent',
+minorGridLineColor: '#transparent',
+tickColor: 'transparent'
+},
+credits: {
+enabled: false,
+text: ""
+},
+
+series: [{
+showInLegend: false,
+name: '',
+marker: { enabled: false },
+color: '#fff'
+}]
+});
+
+
+
+    </script>	
