@@ -55,7 +55,7 @@ function checkForNew(chanid) {
         if (data.items[0].statistics.subscriberCount>1000000) {string +='M'}
         if (data.items[0].statistics.subscriberCount>10000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
         if (data.items[0].statistics.subscriberCount>10000000) {string +='M'}
-        if (data.items[0].statistics.subscriberCount>100000000) {string=parseFloat(data.items[0].statistics.subscriberCount/10000000)}
+        if (data.items[0].statistics.subscriberCount>100000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
         if (data.items[0].statistics.subscriberCount>100000000) {string +='M'}
         subcount.innerHTML=string
     });
