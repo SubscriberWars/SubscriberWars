@@ -6,7 +6,6 @@
   <title>YouTube Top 50</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <link rel="stylesheet" href="/css/odometer.css"/>
-  <link rel="stylesheet" href="/css/top50.css"/>
   <script src="/js/odometer.js"></script>
   <script src="/js/yt50.js"></script>
 </head>
@@ -14,3 +13,77 @@
 <div class="loader"></div>
 <div class="counters"></div>
 </html>
+
+<style>
+    * {
+    box-sizing: border-box;
+}
+
+body {
+    background: transparent;
+    font-family: roboto;
+    margin: 0;
+}
+
+.row {
+  display: inline-block;
+}
+
+.card {
+height: 80px;
+width: 330px;
+padding: 4px;
+margin: 4px;
+text-align: left;
+margin-left: 2px;
+background: #0f0f0f;
+transition: 0.5s;
+}
+
+.cimg {
+    height: 70px;
+    width: 70px;
+    float: left;
+    margin-top: 3px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.rankdis {
+   float: right;
+    border-radius: 8px;
+    color: #fff;
+    padding: 5px;
+    background: rgb(0, 223, 0);
+    font-size: 16px;
+    transition: background 2s;
+    font-weight: 500;
+}
+
+.cnb {
+    font-size: 26px;
+    margin-top: 20px;
+    float: left;
+    color: #fff;
+    margin-left: 5px;
+    margin-right: 10px;
+    font-weight: 900;
+}
+
+    .subscriberCount {
+        font-size: 34px;
+        color: #fff;
+        margin-top: 5px;
+        font-weight: 400;
+    }
+
+.chnam {
+    margin-top: 0px;
+    font-family: 'Roboto';
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+</style>
