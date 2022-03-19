@@ -12,7 +12,7 @@
 <body>
    <img id="logo">
    <span id="title"></span>
-   <div id="subcount"></div>
+   <div id="count" style=""></div>
 </body>
 <script>
     var string='';
@@ -25,7 +25,7 @@
         fetch('https://api.subscriberwars.space/youtube/channel/'+chanid+'').then(res => res.json()).then(data => {
             title.innerHTML = data.items[0].snippet.title
             logo.src = data.items[0].snippet.thumbnails.medium.url
-            if (data.items[0].statistics.subscriberCount<1000) {subcount.innerHTML=data.items[0].statistics.subscriberCount}
+            if (data.items[0].statistics.subscriberCount<1000) {count.innerHTML=data.items[0].statistics.subscriberCount}
             if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
             if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
             if (data.items[0].statistics.subscriberCount>10000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
@@ -38,7 +38,7 @@
             if (data.items[0].statistics.subscriberCount>10000000) {string +='M'}
             if (data.items[0].statistics.subscriberCount>100000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
             if (data.items[0].statistics.subscriberCount>100000000) {string +='M'}
-            subcount.innerHTML=string
+            count.innerHTML=string
         });
     }
     // Intervals
