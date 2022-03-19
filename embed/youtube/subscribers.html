@@ -25,7 +25,7 @@
         fetch('https://api.subscriberwars.space/youtube/channel/'+chanid+'').then(res => res.json()).then(data => {
             title.innerHTML = data.items[0].snippet.title
             logo.src = data.items[0].snippet.thumbnails.medium.url
-            if (data.items[0].statistics.subscriberCount<1000) {count.innerHTML=data.items[0].statistics.subscriberCount}
+            if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)}
             if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
             if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
             if (data.items[0].statistics.subscriberCount>10000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}

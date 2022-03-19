@@ -45,7 +45,7 @@ function checkForNew(chanid) {
         logo.src = data.items[0].snippet.thumbnails.medium.url
         viewcount.innerHTML = data.items[0].statistics.viewCount
         videocount.innerHTML = data.items[0].statistics.videoCount
-        if (data.items[0].statistics.subscriberCount<1000) {subcount.innerHTML=data.items[0].statistics.subscriberCount}
+        if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)}
         if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
         if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
         if (data.items[0].statistics.subscriberCount>10000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
