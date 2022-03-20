@@ -334,24 +334,17 @@
 </body>	
 
 <script type="text/javascript">//main stats
-    var string='';
-        string +='';
+    var string=''; string +=''; d1=''; d1 +=''; d2=''; d2 +=''; d3=''; d3 +=''; d4=''; d4 +=''; d5=''; d5 +=''; d6=''; d6 +=''; d7=''; d7 +=''; d8=''; d8 +=''; d9=''; d9 +=''; d10=''; d10 +='';
 
     function maindata() {
         fetch('https://api.subscriberwars.space/youtube/channel/UCdKLd9f_8ZyDSKxMm16oRww').then(res => res.json()).then(data => {
-            if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)}
+            if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)} 
             if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
             if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
             if (data.items[0].statistics.subscriberCount>10000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
             if (data.items[0].statistics.subscriberCount>10000) {string +='K'}
             if (data.items[0].statistics.subscriberCount>100000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
             if (data.items[0].statistics.subscriberCount>100000) {string +='K'}
-            if (data.items[0].statistics.subscriberCount>1000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
-            if (data.items[0].statistics.subscriberCount>1000000) {string +='M'}
-            if (data.items[0].statistics.subscriberCount>10000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
-            if (data.items[0].statistics.subscriberCount>10000000) {string +='M'}
-            if (data.items[0].statistics.subscriberCount>100000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
-            if (data.items[0].statistics.subscriberCount>100000000) {string +='M'}
             subscribercount.innerHTML=string
             viewcount.innerHTML=data.items[0].statistics.viewCount.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             videocount.innerHTML=data.items[0].statistics.videoCount.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
