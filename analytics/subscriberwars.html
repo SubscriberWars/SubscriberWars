@@ -20,7 +20,7 @@
     </div>
     
     <div id='UserTopInfoWrap'>
-        <img id='UserTopInfoAvatar' src='https://subscriberwars.space/logo/Subscriber%20Wars.png'>
+        <img id='UserTopInfoAvatar'>
         <div id='UserTopInfoBlockTop'>
             <div>
                 <h1 style='float: left; font-size: 1.4em; font-weight: 500; color:rgb(255, 255, 255); margin: 0px; padding: 0px; margin-right: 5px;' title='Absolute Legend'>Subscriber Wars</h1>
@@ -345,6 +345,7 @@
             subscribercount.innerHTML=data.items[0].statistics.subscriberCount.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             viewcount.innerHTML=data.items[0].statistics.viewCount.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             videocount.innerHTML=data.items[0].statistics.videoCount.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            UserTopInfoAvatar.src=data.items[0].snippet.thumbnails.medium.url
     });
     }
 
