@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html class="fa-events-icons-ready">
+   
+<head>
+    <title>Subscriber Wars Shorts</title>
+    <meta name="description" content="View the daily statistics of the Subscriber Wars YouTube Channel since its origin">
+    <meta name="keywords" content="Subscriber Wars, YouTube Statistics, Channel Statistics">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/stats_styles.css">
+    <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id='top-header'>
+        <img id="top-header-background" src="https://www.banner.yt/UCUwpdDnAumDnC56vqyLcAHQ?width=1280" alt="Subscriber Wars Shorts" title="Subscriber Wars Shorts">
+    </div>
+    
+    <div id='UserTopInfoWrap'>
+        <img id='UserTopInfoAvatar'>
+        <div id='UserTopInfoBlockTop'>
+            <div>
+                <h1 style='float: left; font-size: 1.4em; font-weight: 500; color:rgb(255, 255, 255); margin: 0px; padding: 0px; margin-right: 5px;' title='Absolute Legend'>Subscriber Wars Shorts</h1>
+            </div>
+            <br><br>
+            <div style='clear:both'></div>
+            <div id="UserTopInfoBlock">
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Subscribers</span><br>
+                    <span id='subscribercount' style="font-weight: 500;">0</span>
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Video Views</span><br>
+                    <span id='viewcount' style="font-weight: 500;">0</span> 
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Videos</span><br>
+                    <span id='videocount' style="font-weight: 500;">0</span>
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Social Blade Rank</span><br>
+                    <span id='sbrank' style="font-weight: 500;">0</span>
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Subscriber Rank</span><br>
+                    <span id='srank' style="font-weight: 500;">0</span>
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">View Rank</span><br>
+                    <span id='vrank' style="font-weight: 500;">0</span>
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Channel Created</span><br>
+                    <span id='created' style="font-weight: 500;">0</span>
+                </div>
+                <div class="UserTopInfo">
+                    <span class="UserTopLight">Country</span><br>
+                    <span id='country' style="font-weight: 500;">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="user-menu">
+        <a href="/index.html">Home</a>
+        <a href="/youtube/subscribers?u=UCUwpdDnAumDnC56vqyLcAHQ" target="_blank">Live Sub Count</a>
+    </div>
+    <div style='width: 1260px; margin: 0px auto'>
+        <div id='UserContainer'>
+            <div id='UserContent'>
+                <div style='width: 600px; float: left; font-size: 8pt;'>
+                    <div style='clear: both;'></div>
+                    <div style='width: 600px; background:rgb(15,15,15); padding: 10px 20px; text-transform: uppercase; color: rgb(255, 255, 255);'>
+                        <h2 style='font-size: 10pt; font-weight: 500;'>Last 30 Days (From SocialBlade.com)</h2>
+                    </div>
+                    <div style='width: 600px; height: 30px; line-height: 30px; background: rgb(26,26,26); padding: 0px 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 10pt;'>
+                        <div style='width: 120px; float: left;'>date</div>
+                        <div style='width: 240px; float: left;'>subscribers</div>
+                        <div style='width: 240px; float: left;'>views</div>
+                    </div>
+                    <div style='clear: both;'></div>
+                    <!--chart entries here-->
+                    <!--rgb(33,33,33) rgb(38,38,38)-->
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date1'>0</div>
+                        <div style='float: left; width: 120px;'>--</div>
+                        <div style='float: left; width: 120px;' id='subs1'>0</div>
+                        <div style='float: left; width: 120px;'>--</div>
+                        <div style='float: left; width: 120px;' id='views1'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date2'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain2'>--</div>
+                        <div style='float: left; width: 120px;' id='subs2'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain2'>--</div>
+                        <div style='float: left; width: 120px;' id='views2'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date3'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain3'>--</div>
+                        <div style='float: left; width: 120px;' id='subs3'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain3'>--</div>
+                        <div style='float: left; width: 120px;' id='views3'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date4'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain4'>--</div>
+                        <div style='float: left; width: 120px;' id='subs4'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain4'>--</div>
+                        <div style='float: left; width: 120px;' id='views4'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date5'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain5'>--</div>
+                        <div style='float: left; width: 120px;' id='subs5'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain5'>--</div>
+                        <div style='float: left; width: 120px;' id='views5'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date6'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain6'>--</div>
+                        <div style='float: left; width: 120px;' id='subs6'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain6'>--</div>
+                        <div style='float: left; width: 120px;' id='views6'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date7'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain7'>--</div>
+                        <div style='float: left; width: 120px;' id='subs7'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain7'>--</div>
+                        <div style='float: left; width: 120px;' id='views7'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date8'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain8'>--</div>
+                        <div style='float: left; width: 120px;' id='subs8'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain8'>--</div>
+                        <div style='float: left; width: 120px;' id='views8'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date9'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain9'>--</div>
+                        <div style='float: left; width: 120px;' id='subs9'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain9'>--</div>
+                        <div style='float: left; width: 120px;' id='views9'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date10'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain10'>--</div>
+                        <div style='float: left; width: 120px;' id='subs10'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain10'>--</div>
+                        <div style='float: left; width: 120px;' id='views10'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date11'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain11'>--</div>
+                        <div style='float: left; width: 120px;' id='subs11'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain11'>--</div>
+                        <div style='float: left; width: 120px;' id='views11'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date12'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain12'>--</div>
+                        <div style='float: left; width: 120px;' id='subs12'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain12'>--</div>
+                        <div style='float: left; width: 120px;' id='views12'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date13'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain13'>--</div>
+                        <div style='float: left; width: 120px;' id='subs13'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain13'>--</div>
+                        <div style='float: left; width: 120px;' id='views13'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date14'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain14'>--</div>
+                        <div style='float: left; width: 120px;' id='subs14'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain14'>--</div>
+                        <div style='float: left; width: 120px;' id='views14'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date15'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain15'>--</div>
+                        <div style='float: left; width: 120px;' id='subs15'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain15'>--</div>
+                        <div style='float: left; width: 120px;' id='views15'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date16'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain16'>--</div>
+                        <div style='float: left; width: 120px;' id='subs16'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain16'>--</div>
+                        <div style='float: left; width: 120px;' id='views16'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date17'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain17'>--</div>
+                        <div style='float: left; width: 120px;' id='subs17'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain17'>--</div>
+                        <div style='float: left; width: 120px;' id='views17'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date18'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain18'>--</div>
+                        <div style='float: left; width: 120px;' id='subs18'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain18'>--</div>
+                        <div style='float: left; width: 120px;' id='views18'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date19'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain19'>--</div>
+                        <div style='float: left; width: 120px;' id='subs19'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain19'>--</div>
+                        <div style='float: left; width: 120px;' id='views19'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date20'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain20'>--</div>
+                        <div style='float: left; width: 120px;' id='subs20'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain20'>--</div>
+                        <div style='float: left; width: 120px;' id='views20'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date21'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain21'>--</div>
+                        <div style='float: left; width: 120px;' id='subs21'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain21'>--</div>
+                        <div style='float: left; width: 120px;' id='views21'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date22'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain22'>--</div>
+                        <div style='float: left; width: 120px;' id='subs22'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain22'>--</div>
+                        <div style='float: left; width: 120px;' id='views22'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date23'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain23'>--</div>
+                        <div style='float: left; width: 120px;' id='subs23'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain23'>--</div>
+                        <div style='float: left; width: 120px;' id='views23'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date24'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain24'>--</div>
+                        <div style='float: left; width: 120px;' id='subs24'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain24'>--</div>
+                        <div style='float: left; width: 120px;' id='views24'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date25'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain25'>--</div>
+                        <div style='float: left; width: 120px;' id='subs25'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain25'>--</div>
+                        <div style='float: left; width: 120px;' id='views25'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date26'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain26'>--</div>
+                        <div style='float: left; width: 120px;' id='subs26'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain26'>--</div>
+                        <div style='float: left; width: 120px;' id='views26'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date27'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain27'>--</div>
+                        <div style='float: left; width: 120px;' id='subs27'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain27'>--</div>
+                        <div style='float: left; width: 120px;' id='views27'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date28'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain28'>--</div>
+                        <div style='float: left; width: 120px;' id='subs28'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain28'>--</div>
+                        <div style='float: left; width: 120px;' id='views28'>0</div>
+                    </div>
+                    <div style='background: rgb(33, 33, 33); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date29'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain29'>--</div>
+                        <div style='float: left; width: 120px;' id='subs29'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain29'>--</div>
+                        <div style='float: left; width: 120px;' id='views29'>0</div>
+                    </div>
+                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
+                        <div style='float: left; width: 120px;' id='date30'>0</div>
+                        <div style='float: left; width: 120px;' id='subgain30'>--</div>
+                        <div style='float: left; width: 120px;' id='subs30'>0</div>
+                        <div style='float: left; width: 120px;' id='viewgain30'>--</div>
+                        <div style='float: left; width: 120px;' id='views30'>0</div>
+                    </div>
+                    <!--Averages-->
+                    <div style='background: rgb(26, 26, 26); width: 600px; height: 64px; line-height: 64px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt;'>
+                        <div style='float: left; width: 120px;'>7 Day Avg</div>
+                        <div id='sub7d' style='float: left; width: 240px;'>0</div>
+                        <div id='view7d' style='float: left; width: 240px;'>0</div>
+                    </div>
+                    <div style='background: rgb(26, 26, 26); width: 600px; height: 64px; line-height: 64px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt;'>
+                        <div style='float: left; width: 120px;'> 30 Day Avg</div>
+                        <div id='sub30d' style='float: left; width: 240px;'>0</div>
+                        <div id='view30d' style='float: left; width: 240px;'>0</div>
+                    </div>
+                </div>
+            </div>
+            <div id='UserSidebar'>
+                <div style='width: 600px; float: left; left: -260px; position: relative;'>
+                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Most Recent Video</div>
+                    <div style='width: 600px; height: 338px; position: relative; background: rgb(26, 26, 26); cursor: pointer; margin-bottom: 20px;'>
+                        <iframe width='600px' height='338px' frameborder='0' allowfullscreen src=""></iframe>
+                        <script>
+                            function getID(){
+                                fetch('https://api.subscriberwars.space/youtube/latest/UCUwpdDnAumDnC56vqyLcAHQ')
+                                .then(res=>res.json()).then(data=>{
+                                    document.querySelector("iframe").src=`https://youtube.com/embed/${data.items[0].id.videoId}?autoplay=0&rel=0`
+                                })
+                            }
+                            getID()
+                        </script>
+                    </div>
+                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Monthly Subscribers</div>
+                    <div id='month-subs' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
+                    <div id='month-subs-gain' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>
+                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Monthly Views</div>
+                    <div id='month-views' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
+                    <div id='month-views-gain' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>	
+
+<script type="text/javascript">//main stats
+    var string=''; string +='';
+
+    function maindata() {
+        fetch('https://api.subscriberwars.space/youtube/channel/UCUwpdDnAumDnC56vqyLcAHQ').then(res => res.json()).then(data => {
+            if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)} 
+            if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
+            if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
+            if (data.items[0].statistics.subscriberCount>10000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
+            if (data.items[0].statistics.subscriberCount>10000) {string +='K'}
+            if (data.items[0].statistics.subscriberCount>100000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
+            if (data.items[0].statistics.subscriberCount>100000) {string +='K'}
+            subscribercount.innerHTML=string
+            viewcount.innerHTML=data.items[0].statistics.viewCount.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            videocount.innerHTML=data.items[0].statistics.videoCount.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            UserTopInfoAvatar.src=data.items[0].snippet.thumbnails.medium.url
+    });
+    }
+
+    function dailydata() {
+        fetch('https://api.subscriberwars.space/sb/yt/UCUwpdDnAumDnC56vqyLcAHQ').then(res => res.json()).then(data => {
+            date1.innerHTML=data.data.daily[29].date; subs1.innerHTML=data.data.daily[29].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views1.innerHTML=data.data.daily[29].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            date2.innerHTML=data.data.daily[28].date; subs2.innerHTML=data.data.daily[28].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views2.innerHTML=data.data.daily[28].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain2').innerHTML=data.data.daily[28].subs-data.data.daily[29].subs; if(data.data.daily[28].subs>data.data.daily[29].subs){document.getElementById('subgain2').style.color='#1bed0c'}; if(data.data.daily[28].subs<data.data.daily[29].subs){document.getElementById('subgain2').style.color='#ed2121'}; document.getElementById('viewgain2').innerHTML=(data.data.daily[28].views-data.data.daily[29].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[28].views>data.data.daily[29].views){document.getElementById('viewgain2').style.color='#1bed0c'}; if(data.data.daily[28].views<data.data.daily[29].views){document.getElementById('viewgain2').style.color='#ed2121'};
+            date3.innerHTML=data.data.daily[27].date; subs3.innerHTML=data.data.daily[27].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views3.innerHTML=data.data.daily[27].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain3').innerHTML=data.data.daily[27].subs-data.data.daily[28].subs; if(data.data.daily[27].subs>data.data.daily[28].subs){document.getElementById('subgain3').style.color='#1bed0c'}; if(data.data.daily[27].subs<data.data.daily[28].subs){document.getElementById('subgain3').style.color='#ed2121'}; document.getElementById('viewgain3').innerHTML=(data.data.daily[27].views-data.data.daily[28].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[27].views>data.data.daily[28].views){document.getElementById('viewgain3').style.color='#1bed0c'}; if(data.data.daily[27].views<data.data.daily[28].views){document.getElementById('viewgain3').style.color='#ed2121'};
+            date4.innerHTML=data.data.daily[26].date; subs4.innerHTML=data.data.daily[26].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views4.innerHTML=data.data.daily[26].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain4').innerHTML=data.data.daily[26].subs-data.data.daily[27].subs; if(data.data.daily[26].subs>data.data.daily[27].subs){document.getElementById('subgain4').style.color='#1bed0c'}; if(data.data.daily[26].subs<data.data.daily[27].subs){document.getElementById('subgain4').style.color='#ed2121'}; document.getElementById('viewgain4').innerHTML=(data.data.daily[26].views-data.data.daily[27].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[26].views>data.data.daily[27].views){document.getElementById('viewgain4').style.color='#1bed0c'}; if(data.data.daily[26].views<data.data.daily[27].views){document.getElementById('viewgain4').style.color='#ed2121'};
+            date5.innerHTML=data.data.daily[25].date; subs5.innerHTML=data.data.daily[25].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views5.innerHTML=data.data.daily[25].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain5').innerHTML=data.data.daily[25].subs-data.data.daily[26].subs; if(data.data.daily[25].subs>data.data.daily[26].subs){document.getElementById('subgain5').style.color='#1bed0c'}; if(data.data.daily[25].subs<data.data.daily[26].subs){document.getElementById('subgain5').style.color='#ed2121'}; document.getElementById('viewgain5').innerHTML=(data.data.daily[25].views-data.data.daily[26].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[25].views>data.data.daily[26].views){document.getElementById('viewgain5').style.color='#1bed0c'}; if(data.data.daily[25].views<data.data.daily[26].views){document.getElementById('viewgain5').style.color='#ed2121'};
+            date6.innerHTML=data.data.daily[24].date; subs6.innerHTML=data.data.daily[24].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views6.innerHTML=data.data.daily[24].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain6').innerHTML=data.data.daily[24].subs-data.data.daily[25].subs; if(data.data.daily[24].subs>data.data.daily[25].subs){document.getElementById('subgain6').style.color='#1bed0c'}; if(data.data.daily[24].subs<data.data.daily[25].subs){document.getElementById('subgain6').style.color='#ed2121'}; document.getElementById('viewgain6').innerHTML=(data.data.daily[24].views-data.data.daily[25].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[24].views>data.data.daily[25].views){document.getElementById('viewgain6').style.color='#1bed0c'}; if(data.data.daily[24].views<data.data.daily[25].views){document.getElementById('viewgain6').style.color='#ed2121'};
+            date7.innerHTML=data.data.daily[23].date; subs7.innerHTML=data.data.daily[23].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views7.innerHTML=data.data.daily[23].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain7').innerHTML=data.data.daily[23].subs-data.data.daily[24].subs; if(data.data.daily[23].subs>data.data.daily[24].subs){document.getElementById('subgain7').style.color='#1bed0c'}; if(data.data.daily[23].subs<data.data.daily[24].subs){document.getElementById('subgain7').style.color='#ed2121'}; document.getElementById('viewgain7').innerHTML=(data.data.daily[23].views-data.data.daily[24].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[23].views>data.data.daily[24].views){document.getElementById('viewgain7').style.color='#1bed0c'}; if(data.data.daily[23].views<data.data.daily[24].views){document.getElementById('viewgain7').style.color='#ed2121'};
+            date8.innerHTML=data.data.daily[22].date; subs8.innerHTML=data.data.daily[22].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views8.innerHTML=data.data.daily[22].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain8').innerHTML=data.data.daily[22].subs-data.data.daily[23].subs; if(data.data.daily[22].subs>data.data.daily[23].subs){document.getElementById('subgain8').style.color='#1bed0c'}; if(data.data.daily[22].subs<data.data.daily[23].subs){document.getElementById('subgain8').style.color='#ed2121'}; document.getElementById('viewgain8').innerHTML=(data.data.daily[22].views-data.data.daily[23].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[22].views>data.data.daily[23].views){document.getElementById('viewgain8').style.color='#1bed0c'}; if(data.data.daily[22].views<data.data.daily[23].views){document.getElementById('viewgain8').style.color='#ed2121'};
+            date9.innerHTML=data.data.daily[21].date; subs9.innerHTML=data.data.daily[21].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views9.innerHTML=data.data.daily[21].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain9').innerHTML=data.data.daily[21].subs-data.data.daily[22].subs; if(data.data.daily[21].subs>data.data.daily[22].subs){document.getElementById('subgain9').style.color='#1bed0c'}; if(data.data.daily[21].subs<data.data.daily[22].subs){document.getElementById('subgain9').style.color='#ed2121'}; document.getElementById('viewgain9').innerHTML=(data.data.daily[21].views-data.data.daily[22].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[21].views>data.data.daily[22].views){document.getElementById('viewgain9').style.color='#1bed0c'}; if(data.data.daily[21].views<data.data.daily[22].views){document.getElementById('viewgain9').style.color='#ed2121'};
+            date10.innerHTML=data.data.daily[20].date; subs10.innerHTML=data.data.daily[20].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views10.innerHTML=data.data.daily[20].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain10').innerHTML=data.data.daily[20].subs-data.data.daily[21].subs; if(data.data.daily[20].subs>data.data.daily[21].subs){document.getElementById('subgain10').style.color='#1bed0c'}; if(data.data.daily[20].subs<data.data.daily[21].subs){document.getElementById('subgain10').style.color='#ed2121'}; document.getElementById('viewgain10').innerHTML=(data.data.daily[20].views-data.data.daily[21].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[20].views>data.data.daily[21].views){document.getElementById('viewgain10').style.color='#1bed0c'}; if(data.data.daily[20].views<data.data.daily[21].views){document.getElementById('viewgain10').style.color='#ed2121'};
+            date11.innerHTML=data.data.daily[19].date; subs11.innerHTML=data.data.daily[19].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views11.innerHTML=data.data.daily[19].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain11').innerHTML=data.data.daily[19].subs-data.data.daily[20].subs; if(data.data.daily[19].subs>data.data.daily[20].subs){document.getElementById('subgain11').style.color='#1bed0c'}; if(data.data.daily[19].subs<data.data.daily[20].subs){document.getElementById('subgain11').style.color='#ed2121'}; document.getElementById('viewgain11').innerHTML=(data.data.daily[19].views-data.data.daily[20].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[19].views>data.data.daily[20].views){document.getElementById('viewgain11').style.color='#1bed0c'}; if(data.data.daily[19].views<data.data.daily[20].views){document.getElementById('viewgain11').style.color='#ed2121'};
+            date12.innerHTML=data.data.daily[18].date; subs12.innerHTML=data.data.daily[18].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views12.innerHTML=data.data.daily[18].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain12').innerHTML=data.data.daily[18].subs-data.data.daily[19].subs; if(data.data.daily[18].subs>data.data.daily[19].subs){document.getElementById('subgain12').style.color='#1bed0c'}; if(data.data.daily[18].subs<data.data.daily[19].subs){document.getElementById('subgain12').style.color='#ed2121'}; document.getElementById('viewgain12').innerHTML=(data.data.daily[18].views-data.data.daily[19].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[18].views>data.data.daily[19].views){document.getElementById('viewgain12').style.color='#1bed0c'}; if(data.data.daily[18].views<data.data.daily[19].views){document.getElementById('viewgain12').style.color='#ed2121'};
+            date13.innerHTML=data.data.daily[17].date; subs13.innerHTML=data.data.daily[17].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views13.innerHTML=data.data.daily[17].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain13').innerHTML=data.data.daily[17].subs-data.data.daily[18].subs; if(data.data.daily[17].subs>data.data.daily[18].subs){document.getElementById('subgain13').style.color='#1bed0c'}; if(data.data.daily[17].subs<data.data.daily[18].subs){document.getElementById('subgain13').style.color='#ed2121'}; document.getElementById('viewgain13').innerHTML=(data.data.daily[17].views-data.data.daily[18].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[17].views>data.data.daily[18].views){document.getElementById('viewgain13').style.color='#1bed0c'}; if(data.data.daily[17].views<data.data.daily[18].views){document.getElementById('viewgain13').style.color='#ed2121'};
+            date14.innerHTML=data.data.daily[16].date; subs14.innerHTML=data.data.daily[16].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views14.innerHTML=data.data.daily[16].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain14').innerHTML=data.data.daily[16].subs-data.data.daily[17].subs; if(data.data.daily[16].subs>data.data.daily[17].subs){document.getElementById('subgain14').style.color='#1bed0c'}; if(data.data.daily[16].subs<data.data.daily[17].subs){document.getElementById('subgain14').style.color='#ed2121'}; document.getElementById('viewgain14').innerHTML=(data.data.daily[16].views-data.data.daily[17].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[16].views>data.data.daily[17].views){document.getElementById('viewgain14').style.color='#1bed0c'}; if(data.data.daily[16].views<data.data.daily[17].views){document.getElementById('viewgain14').style.color='#ed2121'};
+            date15.innerHTML=data.data.daily[15].date; subs15.innerHTML=data.data.daily[15].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views15.innerHTML=data.data.daily[15].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain15').innerHTML=data.data.daily[15].subs-data.data.daily[16].subs; if(data.data.daily[15].subs>data.data.daily[16].subs){document.getElementById('subgain15').style.color='#1bed0c'}; if(data.data.daily[15].subs<data.data.daily[16].subs){document.getElementById('subgain15').style.color='#ed2121'}; document.getElementById('viewgain15').innerHTML=(data.data.daily[15].views-data.data.daily[16].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[15].views>data.data.daily[16].views){document.getElementById('viewgain15').style.color='#1bed0c'}; if(data.data.daily[15].views<data.data.daily[16].views){document.getElementById('viewgain15').style.color='#ed2121'};
+            date16.innerHTML=data.data.daily[14].date; subs16.innerHTML=data.data.daily[14].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views16.innerHTML=data.data.daily[14].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain16').innerHTML=data.data.daily[14].subs-data.data.daily[15].subs; if(data.data.daily[14].subs>data.data.daily[15].subs){document.getElementById('subgain16').style.color='#1bed0c'}; if(data.data.daily[14].subs<data.data.daily[15].subs){document.getElementById('subgain16').style.color='#ed2121'}; document.getElementById('viewgain16').innerHTML=(data.data.daily[14].views-data.data.daily[15].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[14].views>data.data.daily[15].views){document.getElementById('viewgain16').style.color='#1bed0c'}; if(data.data.daily[14].views<data.data.daily[15].views){document.getElementById('viewgain16').style.color='#ed2121'};
+            date17.innerHTML=data.data.daily[13].date; subs17.innerHTML=data.data.daily[13].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views17.innerHTML=data.data.daily[13].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain17').innerHTML=data.data.daily[13].subs-data.data.daily[14].subs; if(data.data.daily[13].subs>data.data.daily[14].subs){document.getElementById('subgain17').style.color='#1bed0c'}; if(data.data.daily[13].subs<data.data.daily[14].subs){document.getElementById('subgain17').style.color='#ed2121'}; document.getElementById('viewgain17').innerHTML=(data.data.daily[13].views-data.data.daily[14].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[13].views>data.data.daily[14].views){document.getElementById('viewgain17').style.color='#1bed0c'}; if(data.data.daily[13].views<data.data.daily[14].views){document.getElementById('viewgain17').style.color='#ed2121'};
+            date18.innerHTML=data.data.daily[12].date; subs18.innerHTML=data.data.daily[12].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views18.innerHTML=data.data.daily[12].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain18').innerHTML=data.data.daily[12].subs-data.data.daily[13].subs; if(data.data.daily[12].subs>data.data.daily[13].subs){document.getElementById('subgain18').style.color='#1bed0c'}; if(data.data.daily[12].subs<data.data.daily[13].subs){document.getElementById('subgain18').style.color='#ed2121'}; document.getElementById('viewgain18').innerHTML=(data.data.daily[12].views-data.data.daily[13].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[12].views>data.data.daily[13].views){document.getElementById('viewgain18').style.color='#1bed0c'}; if(data.data.daily[12].views<data.data.daily[13].views){document.getElementById('viewgain18').style.color='#ed2121'};
+            date19.innerHTML=data.data.daily[11].date; subs19.innerHTML=data.data.daily[11].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views19.innerHTML=data.data.daily[11].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain19').innerHTML=data.data.daily[11].subs-data.data.daily[12].subs; if(data.data.daily[11].subs>data.data.daily[12].subs){document.getElementById('subgain19').style.color='#1bed0c'}; if(data.data.daily[11].subs<data.data.daily[12].subs){document.getElementById('subgain19').style.color='#ed2121'}; document.getElementById('viewgain19').innerHTML=(data.data.daily[11].views-data.data.daily[12].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[11].views>data.data.daily[12].views){document.getElementById('viewgain19').style.color='#1bed0c'}; if(data.data.daily[11].views<data.data.daily[12].views){document.getElementById('viewgain19').style.color='#ed2121'};
+            date20.innerHTML=data.data.daily[10].date; subs20.innerHTML=data.data.daily[10].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views20.innerHTML=data.data.daily[10].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain20').innerHTML=data.data.daily[10].subs-data.data.daily[11].subs; if(data.data.daily[10].subs>data.data.daily[11].subs){document.getElementById('subgain20').style.color='#1bed0c'}; if(data.data.daily[10].subs<data.data.daily[11].subs){document.getElementById('subgain20').style.color='#ed2121'}; document.getElementById('viewgain20').innerHTML=(data.data.daily[10].views-data.data.daily[11].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[10].views>data.data.daily[11].views){document.getElementById('viewgain20').style.color='#1bed0c'}; if(data.data.daily[10].views<data.data.daily[11].views){document.getElementById('viewgain20').style.color='#ed2121'};
+            date21.innerHTML=data.data.daily[9].date; subs21.innerHTML=data.data.daily[9].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views21.innerHTML=data.data.daily[9].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain21').innerHTML=data.data.daily[9].subs-data.data.daily[10].subs; if(data.data.daily[9].subs>data.data.daily[10].subs){document.getElementById('subgain21').style.color='#1bed0c'}; if(data.data.daily[9].subs<data.data.daily[10].subs){document.getElementById('subgain21').style.color='#ed2121'}; document.getElementById('viewgain21').innerHTML=(data.data.daily[9].views-data.data.daily[10].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[9].views>data.data.daily[10].views){document.getElementById('viewgain21').style.color='#1bed0c'}; if(data.data.daily[9].views<data.data.daily[10].views){document.getElementById('viewgain21').style.color='#ed2121'};
+            date22.innerHTML=data.data.daily[8].date; subs22.innerHTML=data.data.daily[8].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views22.innerHTML=data.data.daily[8].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain22').innerHTML=data.data.daily[8].subs-data.data.daily[9].subs; if(data.data.daily[8].subs>data.data.daily[9].subs){document.getElementById('subgain22').style.color='#1bed0c'}; if(data.data.daily[8].subs<data.data.daily[9].subs){document.getElementById('subgain22').style.color='#ed2121'}; document.getElementById('viewgain22').innerHTML=(data.data.daily[8].views-data.data.daily[9].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[8].views>data.data.daily[9].views){document.getElementById('viewgain22').style.color='#1bed0c'}; if(data.data.daily[8].views<data.data.daily[9].views){document.getElementById('viewgain22').style.color='#ed2121'};
+            date23.innerHTML=data.data.daily[7].date; subs23.innerHTML=data.data.daily[7].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views23.innerHTML=data.data.daily[7].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain23').innerHTML=data.data.daily[7].subs-data.data.daily[8].subs; if(data.data.daily[7].subs>data.data.daily[8].subs){document.getElementById('subgain23').style.color='#1bed0c'}; if(data.data.daily[7].subs<data.data.daily[8].subs){document.getElementById('subgain23').style.color='#ed2121'}; document.getElementById('viewgain23').innerHTML=(data.data.daily[7].views-data.data.daily[8].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[7].views>data.data.daily[8].views){document.getElementById('viewgain23').style.color='#1bed0c'}; if(data.data.daily[7].views<data.data.daily[8].views){document.getElementById('viewgain23').style.color='#ed2121'};
+            date24.innerHTML=data.data.daily[6].date; subs24.innerHTML=data.data.daily[6].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views24.innerHTML=data.data.daily[6].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain24').innerHTML=data.data.daily[6].subs-data.data.daily[7].subs; if(data.data.daily[6].subs>data.data.daily[7].subs){document.getElementById('subgain24').style.color='#1bed0c'}; if(data.data.daily[6].subs<data.data.daily[7].subs){document.getElementById('subgain24').style.color='#ed2121'}; document.getElementById('viewgain24').innerHTML=(data.data.daily[6].views-data.data.daily[7].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[6].views>data.data.daily[7].views){document.getElementById('viewgain24').style.color='#1bed0c'}; if(data.data.daily[6].views<data.data.daily[7].views){document.getElementById('viewgain24').style.color='#ed2121'};
+            date25.innerHTML=data.data.daily[5].date; subs25.innerHTML=data.data.daily[5].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views25.innerHTML=data.data.daily[5].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain25').innerHTML=data.data.daily[5].subs-data.data.daily[6].subs; if(data.data.daily[5].subs>data.data.daily[6].subs){document.getElementById('subgain25').style.color='#1bed0c'}; if(data.data.daily[5].subs<data.data.daily[6].subs){document.getElementById('subgain25').style.color='#ed2121'}; document.getElementById('viewgain25').innerHTML=(data.data.daily[5].views-data.data.daily[6].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[5].views>data.data.daily[6].views){document.getElementById('viewgain25').style.color='#1bed0c'}; if(data.data.daily[5].views<data.data.daily[6].views){document.getElementById('viewgain25').style.color='#ed2121'};
+            date26.innerHTML=data.data.daily[4].date; subs26.innerHTML=data.data.daily[4].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views26.innerHTML=data.data.daily[4].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain26').innerHTML=data.data.daily[4].subs-data.data.daily[5].subs; if(data.data.daily[4].subs>data.data.daily[5].subs){document.getElementById('subgain26').style.color='#1bed0c'}; if(data.data.daily[4].subs<data.data.daily[5].subs){document.getElementById('subgain26').style.color='#ed2121'}; document.getElementById('viewgain26').innerHTML=(data.data.daily[4].views-data.data.daily[5].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[4].views>data.data.daily[5].views){document.getElementById('viewgain26').style.color='#1bed0c'}; if(data.data.daily[4].views<data.data.daily[5].views){document.getElementById('viewgain26').style.color='#ed2121'};
+            date27.innerHTML=data.data.daily[3].date; subs27.innerHTML=data.data.daily[3].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views27.innerHTML=data.data.daily[3].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain27').innerHTML=data.data.daily[3].subs-data.data.daily[4].subs; if(data.data.daily[3].subs>data.data.daily[4].subs){document.getElementById('subgain27').style.color='#1bed0c'}; if(data.data.daily[3].subs<data.data.daily[4].subs){document.getElementById('subgain27').style.color='#ed2121'}; document.getElementById('viewgain27').innerHTML=(data.data.daily[3].views-data.data.daily[4].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[3].views>data.data.daily[4].views){document.getElementById('viewgain27').style.color='#1bed0c'}; if(data.data.daily[3].views<data.data.daily[4].views){document.getElementById('viewgain27').style.color='#ed2121'};
+            date28.innerHTML=data.data.daily[2].date; subs28.innerHTML=data.data.daily[2].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views28.innerHTML=data.data.daily[2].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain28').innerHTML=data.data.daily[2].subs-data.data.daily[3].subs; if(data.data.daily[2].subs>data.data.daily[3].subs){document.getElementById('subgain28').style.color='#1bed0c'}; if(data.data.daily[2].subs<data.data.daily[3].subs){document.getElementById('subgain28').style.color='#ed2121'}; document.getElementById('viewgain28').innerHTML=(data.data.daily[2].views-data.data.daily[3].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[2].views>data.data.daily[3].views){document.getElementById('viewgain28').style.color='#1bed0c'}; if(data.data.daily[2].views<data.data.daily[3].views){document.getElementById('viewgain28').style.color='#ed2121'};
+            date29.innerHTML=data.data.daily[1].date; subs29.innerHTML=data.data.daily[1].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views29.innerHTML=data.data.daily[1].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain29').innerHTML=data.data.daily[1].subs-data.data.daily[2].subs; if(data.data.daily[1].subs>data.data.daily[2].subs){document.getElementById('subgain29').style.color='#1bed0c'}; if(data.data.daily[1].subs<data.data.daily[2].subs){document.getElementById('subgain29').style.color='#ed2121'}; document.getElementById('viewgain29').innerHTML=(data.data.daily[1].views-data.data.daily[2].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[1].views>data.data.daily[2].views){document.getElementById('viewgain29').style.color='#1bed0c'}; if(data.data.daily[1].views<data.data.daily[2].views){document.getElementById('viewgain29').style.color='#ed2121'};
+            date30.innerHTML=data.data.daily[0].date; subs30.innerHTML=data.data.daily[0].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views30.innerHTML=data.data.daily[0].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain30').innerHTML=data.data.daily[0].subs-data.data.daily[1].subs; if(data.data.daily[0].subs>data.data.daily[1].subs){document.getElementById('subgain30').style.color='#1bed0c'}; if(data.data.daily[0].subs<data.data.daily[1].subs){document.getElementById('subgain30').style.color='#ed2121'}; document.getElementById('viewgain30').innerHTML=(data.data.daily[0].views-data.data.daily[1].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[0].views>data.data.daily[1].views){document.getElementById('viewgain30').style.color='#1bed0c'}; if(data.data.daily[0].views<data.data.daily[1].views){document.getElementById('viewgain30').style.color='#ed2121'};
+            sub7d.innerHTML=Math.round(((data.data.daily[0].subs-data.data.daily[6].subs)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].subs-data.data.daily[6].subs)/7)>0){document.getElementById('sub7d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].subs-data.data.daily[6].subs)/7)<0){document.getElementById('sub7d').style.color='#ed2121'};
+            sub30d.innerHTML=Math.round(((data.data.daily[0].subs-data.data.daily[29].subs)/30)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].subs-data.data.daily[29].subs)/30)>0){document.getElementById('sub30d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].subs-data.data.daily[29].subs)/7)<0){document.getElementById('sub30d').style.color='#ed2121'};
+            view7d.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[6].views)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)>0){document.getElementById('view7d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)<0){document.getElementById('view7d').style.color='#ed2121'};
+            view30d.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[29].views)/30)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[29].views)/30)>0){document.getElementById('view30d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[29].views)/7)<0){document.getElementById('view30d').style.color='#ed2121'};
+            sbrank.innerHTML=data.data.misc.grade.grade; document.getElementById('sbrank').style.color=data.data.misc.grade.color;
+            created.innerHTML=data.data.general.created_at;
+            country.innerHTML=data.data.general.geo.country;
+            srank.innerHTML=data.data.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            vrank.innerHTML=data.data.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }); 
+    }
+
+    maindata()
+    dailydata()
+
+</script>
