@@ -354,6 +354,11 @@
 
     function dailydata() {
         fetch('https://api.subscriberwars.space/sb/yt/UCUwpdDnAumDnC56vqyLcAHQ').then(res => res.json()).then(data => {
+            sbrank.innerHTML=data.data.misc.grade.grade; document.getElementById('sbrank').style.color=data.data.misc.grade.color;
+            created.innerHTML=data.data.general.created_at;
+            country.innerHTML=data.data.general.geo.country;
+            srank.innerHTML=data.data.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            vrank.innerHTML=data.data.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             date1.innerHTML=data.data.daily[29].date; subs1.innerHTML=data.data.daily[29].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views1.innerHTML=data.data.daily[29].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             date2.innerHTML=data.data.daily[28].date; subs2.innerHTML=data.data.daily[28].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views2.innerHTML=data.data.daily[28].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain2').innerHTML=data.data.daily[28].subs-data.data.daily[29].subs; if(data.data.daily[28].subs>data.data.daily[29].subs){document.getElementById('subgain2').style.color='#1bed0c'}; if(data.data.daily[28].subs<data.data.daily[29].subs){document.getElementById('subgain2').style.color='#ed2121'}; document.getElementById('viewgain2').innerHTML=(data.data.daily[28].views-data.data.daily[29].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[28].views>data.data.daily[29].views){document.getElementById('viewgain2').style.color='#1bed0c'}; if(data.data.daily[28].views<data.data.daily[29].views){document.getElementById('viewgain2').style.color='#ed2121'};
             date3.innerHTML=data.data.daily[27].date; subs3.innerHTML=data.data.daily[27].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views3.innerHTML=data.data.daily[27].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain3').innerHTML=data.data.daily[27].subs-data.data.daily[28].subs; if(data.data.daily[27].subs>data.data.daily[28].subs){document.getElementById('subgain3').style.color='#1bed0c'}; if(data.data.daily[27].subs<data.data.daily[28].subs){document.getElementById('subgain3').style.color='#ed2121'}; document.getElementById('viewgain3').innerHTML=(data.data.daily[27].views-data.data.daily[28].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[27].views>data.data.daily[28].views){document.getElementById('viewgain3').style.color='#1bed0c'}; if(data.data.daily[27].views<data.data.daily[28].views){document.getElementById('viewgain3').style.color='#ed2121'};
@@ -388,11 +393,6 @@
             sub30d.innerHTML=Math.round(((data.data.daily[0].subs-data.data.daily[29].subs)/30)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].subs-data.data.daily[29].subs)/30)>0){document.getElementById('sub30d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].subs-data.data.daily[29].subs)/7)<0){document.getElementById('sub30d').style.color='#ed2121'};
             view7d.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[6].views)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)>0){document.getElementById('view7d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)<0){document.getElementById('view7d').style.color='#ed2121'};
             view30d.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[29].views)/30)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[29].views)/30)>0){document.getElementById('view30d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[29].views)/7)<0){document.getElementById('view30d').style.color='#ed2121'};
-            sbrank.innerHTML=data.data.misc.grade.grade; document.getElementById('sbrank').style.color=data.data.misc.grade.color;
-            created.innerHTML=data.data.general.created_at;
-            country.innerHTML=data.data.general.geo.country;
-            srank.innerHTML=data.data.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            vrank.innerHTML=data.data.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }); 
     }
 
