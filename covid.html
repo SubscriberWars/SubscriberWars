@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<head>
+    <title>Live Covid-19 Data</title>
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body, html {
+        margin: 0px;
+        padding: 0px;
+        color: #fff;
+        font-size: 11pt;
+        font-family: 'Roboto', sans-serif;
+        display: block;
+        background: #181818;
+    }
+    h1 {
+        font-weight: 500;
+        font-size: 30pt;
+        margin: 0px auto;
+        position: relative;
+        text-align: center;
+    }
+    h2 {
+        font-weight: 400;
+        font-size: 20pt;
+        margin: 0px auto;
+        position: relative;
+        text-align: center;
+    }
+    h3 {
+        font-weight: 500;
+        font-size: 60pt;
+        margin: 0px auto;
+        position: relative;
+        text-align: center;
+    }
+    h4 {
+        font-weight: 400;
+        font-size: 10pt;
+        margin: 0px auto;
+        position: relative;
+        text-align: center;
+    }
+    #main-counts {
+        width:1500px;
+        margin: 0px auto;
+        margin-top: 20px;
+    }
+    .main-box {
+        width: 700px;
+        height: 200px;
+        position: relative;
+        float: left;
+        margin: 0px auto;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        background: #0f0f0f;
+        overflow: hidden;
+    }
+    .mini-box-r {
+        width: 340px;
+        height: 100px;
+        position: relative;
+        float: left;
+        margin: 0px auto;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        background: #0f0f0f;
+        overflow: hidden;
+    }
+    .mini-box-l {
+        width: 350px;
+        height: 100px;
+        position: relative;
+        float: left;
+        margin: 0px auto;
+        margin-bottom: 20px;
+        background: #0f0f0f;
+        overflow: hidden;
+    }
+    .box-l {
+        width:700px;
+        position: relative;
+        float: left;
+        margin-right: 20px;
+    }
+    .box-r {
+        width:700px;
+        position: relative;
+        float: left;
+    }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #181818; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0f0f0f; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #000; 
+}
+</style>
+
+<body>
+    <h3>COVID-19 Statistics</h3>
+    <h1 id="info">If the data changes, it will be updated in 5:00</h1>
+    <h1 id="lastUpdate">Data was last updated</h1>
+    <div id="main-counts">
+        <div class="box-l">
+           <div class="main-box">
+               <div id='totalcount' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 700px;">0</div>
+               <h2>Cases</h2>
+           </div>
+           <div class="mini-box-r">
+              <div id='totaltoday' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 350px;">0</div>
+              <h4>Cases Today</h4>
+           </div>
+           <div class="mini-box-l">
+              <div id='totalmillion' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 350px;">0</div>
+              <h4>Cases Per 1 Million People</h4>
+           </div>
+        </div>
+        <div class="box-r">
+           <div class="main-box">
+               <div id='deathcount' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 700px;">0</div>
+               <h2>Deaths</h2>
+           </div>
+           <div class="mini-box-r">
+               <div id='deathtoday' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 350px;">0</div>
+               <h4>Deaths Today</h4>
+           </div>
+           <div class="mini-box-l">
+               <div id='deathmillion' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 350px;">0</div>
+               <h4>Deaths Per 1 Million People</h4>
+           </div>
+        </div>
+        <div class="box-l">
+           <div class="main-box">
+               <div id='recovercount' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 700px;">0</div>
+               <h2>Recovered</h2>
+           </div>
+           <div class="mini-box-r">
+               <div id='recovertoday' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 350px;">0</div>
+               <h4>Recoveries Today</h4>
+           </div>
+           <div class="mini-box-l">
+               <div id='recovermillion' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 350px;">0</div>
+               <h4>Recoveries Per 1 Million People</h4>
+           </div>
+        </div>
+        <div class="box-r">
+           <div class="main-box">
+               <div id='activecount' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 700px;">0</div>
+               <h2>Active Cases</h2>
+           </div>
+           <div class="mini-box-r">
+               <div id='critical' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 350px;">0</div>
+               <h4>Critical Condition</h4>
+           </div>
+           <div class="mini-box-l">
+               <div id='activemillion' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 350px;">0</div>
+               <h4>Active Per 1 Million People</h4>
+           </div>
+        </div>
+        <div class="box-l">
+            <div class="main-box">
+                <div id='testcount' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 700px;">0</div>
+                <h2>Tests</h2>
+            </div>
+            <div class="mini-box-r"></div>
+            <div class="mini-box-l">
+                <div id='testmillion' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 350px;">0</div>
+                <h4>Tests Per 1 Million People</h4>
+            </div>
+        </div>
+        <div class="box-r">
+            <div class="main-box">
+                <div id='population' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 700px;">0</div>
+                <h2>World Population</h2>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    //api: https://corona.lmao.ninja/v2/all
+
+    document.bgColor = "#333"
+    const loadTime = Date.now()
+    
+    class formatDate extends Date {
+        format() {
+            const days =["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+            return `${days[this.getUTCDay()]} at ${this.getUTCHours() < 10 ? "0" + this.getUTCHours() : this.getUTCHours()}:${this.getUTCMinutes() < 10 ? "0" + this.getUTCMinutes() : this.getUTCMinutes()}`
+        }
+    }
+    
+    async function getCoronaStats() {
+        let request = await fetch("https://corona.lmao.ninja/v2/all", { mode: "cors" })
+        let data = await request.json().catch(() => {})
+        if (!data) return;
+        totalcount.innerHTML=data.cases
+        totaltoday.innerHTML=data.todayCases
+        totalmillion.innerHTML=Math.round(data.casesPerOneMillion)
+        deathcount.innerHTML=data.deaths
+        deathtoday.innerHTML=data.todayDeaths
+        deathmillion.innerHTML=Math.round(data.deathsPerOneMillion)
+        activecount.innerHTML=(data.cases - data.recovered) - data.deaths
+        critical.innerHTML=data.critical
+        activemillion.innerHTML=Math.round(data.activePerOneMillion)
+        recovercount.innerHTML=data.recovered
+        recovertoday.innerHTML=data.todayRecovered
+        recovermillion.innerHTML=Math.round(data.recoveredPerOneMillion)
+        testcount.innerHTML=data.tests
+        testmillion.innerHTML=Math.round(data.testsPerOneMillion)
+        population.innerHTML=data.population
+        lastUpdate.innerHTML=`Data last updated: ${new formatDate(data.updated).format()} UTC`
+    }
+    setInterval(getCoronaStats, 300000)
+    getCoronaStats()
+    
+    function updateTime() {
+        let seconds = 300 - ((Math.round((Date.now() - loadTime) / 1000)) % 300)
+        let mins = Math.floor(seconds/60)
+        let secs = seconds % 60
+        if (secs < 10) secs = "0" + secs
+        info.innerHTML = `If the data changes, it will be updated in ${mins}:${secs}`
+    }
+    setInterval(updateTime, 1000)
+</script>
