@@ -3,7 +3,7 @@
     <title>Live Subscriber Count</title>
     <meta name="description" content="Live YouTube Subscriber Count">
     <link rel="stylesheet" href="odometer.css">
-    <link rel="stylesheet" href="tiktok.css">
+    <link rel="stylesheet" href="youtube.css">
     <script src="odometer.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,17 +14,21 @@
         <img style="margin:10px" id="headerImage"/>
         <img id="logo" src="https://subscriberwars.space/logo/Subscriber%20Wars.png" alt="Avatar"/>
         <h1 id="title" style="top: -227px;">Loading...</h1>
-        <div id='subcount' style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px; top: -227px;">0</div>
+        <div id='subcount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px; top: -227px;">0</div>
         <h2 style="top: -227px;">Subscribers</h2>
     </div>
     <div id="mini-counts">
-        <div id="like-box">
-            <div id='viewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+        <div id="view-box">
+            <div id='viewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
             <h2>Views</h2>
         </div>
-        <div id="comment-box">
-            <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+        <div id="video-box">
+            <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
             <h2>Videos</h2>
+        </div>
+        <div id="api-box">
+            <div id='apicount' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>YouTube Displays</h2>
         </div>
     </div>
 </body>
@@ -45,6 +49,7 @@ function checkForNew(chanid) {
         logo.src = data.items[0].snippet.thumbnails.medium.url
         viewcount.innerHTML = data.items[0].statistics.viewCount
         videocount.innerHTML = data.items[0].statistics.videoCount
+        subcount.innerHTML=data.items[0].statistics.subscriberCount
         if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)}
         if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
         if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
@@ -58,7 +63,7 @@ function checkForNew(chanid) {
         if (data.items[0].statistics.subscriberCount>10000000) {string +='M'}
         if (data.items[0].statistics.subscriberCount>100000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
         if (data.items[0].statistics.subscriberCount>100000000) {string +='M'}
-        subcount.innerHTML=string
+        apicount.innerHTML=string
     });
 }
 
