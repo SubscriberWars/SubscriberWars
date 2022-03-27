@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+    <title>Live VidShare Subscriber Count</title>
+    <meta name="description" content="Live VidShare Stats">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="count-block">
+        <img id="logo" src="https://subscriberwars.space/logo/twitter.svg" alt="">
+        <h1 id="title">Loading...</h1>
+        <div id='subcount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
+        <h2>Subscribers</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="like-box">
+            <div id='viewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Views</h2>
+        </div>
+        <div id="comment-box">
+            <div id='since' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Since</h2>
+        </div>
+    </div>
+    <div id="graph-block">
+        <div id="graph" style="width: 1260px; height: 400px;"></div>
+        <p id="graphstat" style="visibility: hidden;"></p>
+    </div>
+</body>
+
+<script>
+var channel = window.location.href.split('?u=')[1] || '';
+var timestamp=0
+
+class formatDate extends Date {
+        format() {
+            return `${this.getDate()+"/"+this.getMonth()+"/"+this.getFullYear()}`
+        }
+    }
+
+function update(chanid) {
+    fetch('https://api.subscriberwars.space/vidshare/'+chanid+'').then(res => res.json()).then(data => {
+        title.innerHTML = data.username
+        subcount.innerHTML= data.subscriberCount
+        viewcount.innerHTML= data.viewCount
+        timestamp=parseFloat(data.since)
+        since.innerHTML= new formatDate(timestamp).format()
+        graphstat.innerHTML = data.subscriberCount
+        logo.src = data.channelImage
+        var yep=(graphstat.innerHTML)
+        console.log(yep)
+        var injection=yep
+        if(graph.series[0].points.length>=720)graph.series[0].data[0].remove();
+        graph.series[0].addPoint([Date.now(),parseFloat(injection)])
+    });
+}
+
+// Intervals
+setInterval(() => {
+    update(channel);
+}, 5000);
+
+update(channel)
+
+</script>
+
+<script>//graph styling
+    var graph = new Highcharts.chart({
+chart: {
+renderTo: 'graph',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: 'transparent',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+minorGridLineColor: '#transparent',
+tickColor: 'white',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: 'white',
+minorGridLineColor: 'transparent',
+tickColor: 'white'
+},
+credits: {
+enabled: true,
+text: "Subscriberwars.space"
+},
+series: [{
+showInLegend: false,
+name: 'Followers',
+marker: { enabled: false },
+lineColor: '#fff'
+}]
+});
+</script>
