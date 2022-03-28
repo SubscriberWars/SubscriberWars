@@ -44,14 +44,14 @@ class formatDate extends Date {
     }
 
 function update(chanid) {
-    fetch('https://api.subscriberwars.space/vidshare/'+chanid+'').then(res => res.json()).then(data => {
-        title.innerHTML = data.username
-        subcount.innerHTML= data.subscriberCount
-        viewcount.innerHTML= data.viewCount
-        timestamp=parseFloat(data.since)
+    fetch('https://vidshare.mgcounts.com/utils/user/'+chanid+'').then(res => res.json()).then(data => {
+        title.innerHTML = data.name
+        subcount.innerHTML= data.subscribers
+        viewcount.innerHTML= data.views
+        timestamp=parseFloat(data.created)
         since.innerHTML= new formatDate(timestamp).format()
-        graphstat.innerHTML = data.subscriberCount
-        logo.src = data.channelImage
+        graphstat.innerHTML = data.subscribers
+        logo.src = 'https://vidshare.mgcounts.com'+data.image
         var yep=(graphstat.innerHTML)
         console.log(yep)
         var injection=yep
