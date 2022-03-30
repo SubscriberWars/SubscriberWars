@@ -10,6 +10,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
+
+<style>
+    .button{
+        background-color: #048000;
+        border: none;
+        color: #fff;
+        text-align: center;
+        padding: 16px 16px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 30px;
+        margin: auto;
+        transition-duration: 0.5s;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    .button:hover{
+        background-color: #035a00;
+    }
+</style>
 <body>
     <div id="count-block" style="height: 400px;">
         <h1 id="title">Loading...</h1>
@@ -17,14 +38,7 @@
         <h2>Signatures</h2>
     </div>
     <div id="mini-counts">
-        <div id="like-box">
-            <div id='start' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
-            <h2>Opened</h2>
-        </div>
-        <div id="comment-box">
-            <div id='end' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
-            <h2>Creator</h2>
-        </div>
+        <a id='sign' class="button" href="" style="position: relative; left: 40%;" target="_blank">Sign this petition</a>
     </div>
     <div id="graph-block">
         <div id="graph" style="width: 1260px; height: 400px;"></div>
@@ -41,8 +55,7 @@ function checkForNew(chanid) {
     fetch('https://api.subscriberwars.space/ukgov/petitions/'+chanid+'').then(res => res.json()).then(data => {
         title.innerHTML = data.data.attributes.action
         count.innerHTML = data.data.attributes.signature_count
-        start.innerHTML = data.data.attributes.opened_at
-        end.innerHTML = data.data.attributes.creator_name
+        sign.href= "https://petition.parliament.uk/petitions/"+data.data.id+"/signatures/new"
         info.innerHTML=data.data.attributes.background+data.data.attributes.additional_details
         graphstat.innerHTML=data.data.attributes.signature_count
         var yep=(graphstat.innerHTML)
