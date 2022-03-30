@@ -38,7 +38,6 @@
 var channel = window.location.href.split('?u=')[1] || '';
 
 function checkForNew(chanid) {
-
     fetch('https://api.subscriberwars.space/ukgov/petitions/'+chanid+'').then(res => res.json()).then(data => {
         title.innerHTML = data.data.attributes.action
         count.innerHTML = data.data.attributes.signature_count
@@ -114,7 +113,7 @@ series: [{
 showInLegend: false,
 name: 'Gov.UK Count',
 marker: { enabled: false },
-lineColor: '#fff'
+lineColor: '#048000'
 }]
 });
 </script>
