@@ -27,7 +27,6 @@
     </div>
     <div id="graph-block">
         <div id="info" style="width: 1260px; height: 200px; font-size: 30pt;"></div>
-        <div id="addinfo" style="width: 1260px; height: 200px;"></div>
     </div>
 </body>
 
@@ -43,8 +42,7 @@ function checkForNew(chanid) {
         count.innerHTML = data.data.attributes.signature_count
         start.innerHTML = data.data.attributes.opened_at
         end.innerHTML = data.data.attributes.creator_name
-        info.innerHTML=data.data.attributes.background
-        addinfo.innerHTML=data.data.attributes.additional_details
+        info.innerHTML=data.data.attributes.background+data.data.attributes.additional_details
     });
 }
 
