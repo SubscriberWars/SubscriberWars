@@ -8,32 +8,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <body>
-    <div id="count-block">
+    <div id="count-block" style="height: 400px;">
         <h1 id="title">Loading...</h1>
         <div id='count' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
         <h2>Signatures</h2>
     </div>
     <div id="mini-counts">
         <div id="like-box">
-            <div id='start' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <div id='start' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
             <h2>Opened</h2>
         </div>
         <div id="comment-box">
-            <div id='end' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <div id='end' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
             <h2>Creator</h2>
         </div>
     </div>
     <div id="graph-block">
-        <div id="info" style="width: 1260px; height: 200px; font-size: 30pt;"></div>
+        <div id="graph" style="width: 1260px; height: 400px;"></div>
+        <p id="graphstat" style="visibility: hidden;"></p>
     </div>
+    <div id="info" style="width: 1260px; font-size: 20pt; text-align: center; margin: auto;"></div>
 </body>
 
 <script>
 
 var channel = window.location.href.split('?u=')[1] || '';
-const headerImage = document.getElementById("headerImage")
 
 function checkForNew(chanid) {
 
@@ -43,14 +45,76 @@ function checkForNew(chanid) {
         start.innerHTML = data.data.attributes.opened_at
         end.innerHTML = data.data.attributes.creator_name
         info.innerHTML=data.data.attributes.background+data.data.attributes.additional_details
+        graphstat.innerHTML=data.data.attributes.signature_count
+        var yep=(graphstat.innerHTML)
+        console.log(yep)
+        var injection=yep
+        if(graph.series[0].points.length>=720)graph.series[0].data[0].remove();
+        graph.series[0].addPoint([Date.now(),parseFloat(injection)])
     });
 }
 
 // Intervals
 setInterval(() => {
     checkForNew(channel)
-}, 2000);
+}, 5000);
 
 checkForNew(channel)
 
+</script>
+
+<script>//graph styling
+    var graph = new Highcharts.chart({
+chart: {
+renderTo: 'graph',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: 'transparent',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+minorGridLineColor: '#transparent',
+tickColor: 'white',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: 'white',
+minorGridLineColor: 'transparent',
+tickColor: 'white'
+},
+credits: {
+enabled: true,
+text: "Subscriberwars.space"
+},
+series: [{
+showInLegend: false,
+name: 'Gov.UK Count',
+marker: { enabled: false },
+lineColor: '#fff'
+}]
+});
 </script>
