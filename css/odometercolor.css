@@ -74,6 +74,8 @@
     -ms-transform: translateY(-100%);
     -o-transform: translateY(-100%);
     transform: translateY(-100%);
+    animation-name: down;
+    animation-duration: 2s;
   }
   .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
     -webkit-transition: -webkit-transform 2s;
@@ -86,8 +88,6 @@
     -ms-transform: translateY(0);
     -o-transform: translateY(0);
     transform: translateY(0);
-    animation-name: down;
-    animation-duration: 2s;
   }
   @keyframes down {
     0% {color: #fff;}
