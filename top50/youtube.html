@@ -130,24 +130,24 @@ function updateData(q, data) {
     $(".channel_"+cnb+" .subscriberCount").html(Math.floor(data.channel[q].subscriberCount));
 
 
-    if (lol[q] - data.channel[q].subscriberCount >= 1) {
-      document.getElementById("card_thing_"+cnb+"").style.backgroundColor = "#282828";
-      setTimeout(reset, 500)
-    }
-    if (lol[q] - data.channel[q].subscriberCount <= -1) {
-      document.getElementById("card_thing_"+cnb+"").style.backgroundColor = "#282828";
-      setTimeout(reset, 500)
-    }
+    //if (lol[q] - data.channel[q].subscriberCount >= 1) {
+      //document.getElementById("card_thing_"+cnb+"").style.backgroundColor = "#282828";
+      //setTimeout(reset, 500)
+    //}
+    //if (lol[q] - data.channel[q].subscriberCount <= -1) {
+      //document.getElementById("card_thing_"+cnb+"").style.backgroundColor = "#282828";
+      //setTimeout(reset, 500)
+    //}
 
-    setTimeout(idkpopdelay, 1000) 
+    //setTimeout(idkpopdelay, 1000) 
 
-    function idkpopdelay() {
-      lol[q] = data.channel[q].subscriberCount
-    }
+    //function idkpopdelay() {
+      //lol[q] = data.channel[q].subscriberCount
+    //}
 
-function reset() {
-  document.getElementById("card_thing_"+cnb+"").style.backgroundColor = "#0f0f0f";
-}
+//function reset() {
+  //document.getElementById("card_thing_"+cnb+"").style.backgroundColor = "#0f0f0f";
+//}
 
 
     }, random(5 , 25)*1000);
