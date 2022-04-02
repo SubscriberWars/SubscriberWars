@@ -60,12 +60,12 @@
     -o-transform: translateY(-100%);
     transform: translateY(-100%);
     animation-name: up;
-    color: #fff;
     animation-duration: 2s;
   }
   @keyframes up {
       0% {color: #fff;}
-      50% {color: #097909;}
+      25% {color: #0ea70e;}
+      75% {color: #0ea70e;}
       100% {color: #fff;}
   }
   .odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-default.odometer-animating-down .odometer-ribbon-inner {
@@ -86,7 +86,15 @@
     -ms-transform: translateY(0);
     -o-transform: translateY(0);
     transform: translateY(0);
+    animation-name: down;
+    animation-duration: 2;
   }
+  @keyframes down {
+    0% {color: #fff;}
+    25% {color: #f12424;}
+    75% {color: #f12424;}
+    100% {color: #fff;}
+}
   
   .odometer.odometer-auto-theme, .odometer.odometer-theme-default {
     font-family: "roboto", sans-serif;
