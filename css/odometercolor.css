@@ -87,7 +87,7 @@
     -o-transform: translateY(0);
     transform: translateY(0);
     animation-name: down;
-    animation-duration: 2;
+    animation-duration: 2s;
   }
   @keyframes down {
     0% {color: #fff;}
