@@ -1,4 +1,4 @@
-var video = window.location.href.split('?s=')[1] || '';
+var video = window.location.href.split('?v=')[1] || '';
 var capi = 0;
 var lapi = 0;
 var likes = 0;
