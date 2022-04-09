@@ -207,9 +207,12 @@
             count2.innerHTML= data.estCounts.subCount
             logo2.src = data.info.pfp
             gap02=parseFloat(data.estCounts.subCount)
-            if (chart.series[0].points.length >= 900) chart.series[0].data[0].remove();
-            chart.series[0].addPoint([Date.now(),gap01-gap02]);
         });
+    }
+
+    function graph(){
+        if (chart.series[0].points.length >= 900) chart.series[0].data[0].remove();
+            chart.series[0].addPoint([Date.now(),gap01-gap02]);
     }
 
     function sb1(uid1) {
@@ -244,6 +247,7 @@
     setInterval(() => {
         u1(user1);
         u2(user2);
+        graph()
     }, 2000);
 
     setInterval(() => {
