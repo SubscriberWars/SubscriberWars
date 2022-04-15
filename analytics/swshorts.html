@@ -400,3 +400,316 @@
     dailydata()
 
 </script>
+
+<script> //Monthly Subs
+    Highcharts.chart('month-subs', {
+    chart: {
+        type: 'spline',
+        backgroundColor: 'rgb(26,26,26)',
+        zoomType: 'xy',
+        style: {
+            fontFamily: 'roboto',
+            fontWeight: 'bold',
+            color: "#fff",
+        }
+
+
+    },
+    title: {
+        text: 'Total Subscribers',
+        style:{
+            color:'#fff',
+            fontWeight:'500'
+        }
+    },
+    
+    xAxis: {
+        tickInterval: 6,
+        labels: {
+        style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        categories: [
+        '02-2022','03-2022',
+        ],
+
+    },
+    yAxis: {
+        labels: {
+    style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        title: {
+            text: '',
+            style:{
+                color:'#fff',
+                fontWeight:'500'
+            },
+        },
+        
+        
+        
+    },
+    tooltip: {
+        shared: true,
+        valueSuffix: ' Subscribers'
+    },
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        spline: {
+            color: '#FF0000',
+        }
+    },
+    series: [{
+        name: 'Subscribers',
+        showInLegend: false,
+        style: {
+            color: '#fff'
+        },
+    
+        data: [0,122,
+              ]
+    } ]
+});
+</script>
+
+<script> //Monthly Subs Gain
+    Highcharts.chart('month-subs-gain', {
+    chart: {
+        type: 'areaspline',
+        backgroundColor: 'rgb(26,26,26)',
+        zoomType: 'xy',
+        style: {
+            fontFamily: 'roboto',
+            fontWeight: '500',
+            color: "#fff",
+        }
+
+
+    },
+    title: {
+        text: 'Subscribers Gained',
+        style:{
+            color:"#fff",
+            fontWeight:'500'
+        }
+    },
+    
+    xAxis: {
+        tickInterval: 6,
+        labels: {
+    style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        categories: [
+            '02-2022','03-2022',
+        ],
+
+    },
+    yAxis: {
+        labels: {
+    style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        title: {
+            text: '',
+            style:{
+                color:'#fff',
+                fontWeight:'500'
+            },
+        },
+        
+        
+        
+    },
+    tooltip: {
+        shared: true,
+        valueSuffix: ' Subscribers'
+    },
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        areaspline: {
+            fillOpacity: 0.5,
+            color: '#FF0000',
+        }
+    },
+    series: [{
+        name: 'Gain',
+        showInLegend: false,
+        style: {
+            color: '#fff'
+        },
+    
+        data: [0,122,
+              ]
+    } ]
+});
+</script>
+<script> //Monthly Views
+    Highcharts.chart('month-views', {
+    chart: {
+        type: 'spline',
+        backgroundColor: 'rgb(26,26,26)',
+        zoomType: 'xy',
+        style: {
+            fontFamily: 'roboto',
+            fontWeight: 'bold',
+            color: "#fff",
+        }
+
+
+    },
+    title: {
+        text: 'Total Views',
+        style:{
+            color:'#fff',
+            fontWeight:'500'
+        }
+    },
+    
+    xAxis: {
+        tickInterval: 6,
+        labels: {
+        style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        categories: [
+        '02-2022','03-2022',
+        ],
+
+    },
+    yAxis: {
+        labels: {
+    style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        title: {
+            text: '',
+            style:{
+                color:'#fff',
+                fontWeight:'500'
+            },
+        },
+        
+        
+        
+    },
+    tooltip: {
+        shared: true,
+        valueSuffix: ''
+    },
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        spline: {
+            color: '#FF0000',
+        }
+    },
+    series: [{
+        name: 'Views',
+        showInLegend: false,
+        style: {
+            color: '#fff'
+        },
+    
+        data: [0,8837,
+              ]
+    } ]
+});
+</script>
+
+<script> //Monthly Views Gain
+    Highcharts.chart('month-views-gain', {
+    chart: {
+        type: 'areaspline',
+        backgroundColor: 'rgb(26,26,26)',
+        zoomType: 'xy',
+        style: {
+            fontFamily: 'roboto',
+            fontWeight: '500',
+            color: "#fff",
+        }
+
+
+    },
+    title: {
+        text: 'Views Gained',
+        style:{
+            color:"#fff",
+            fontWeight:'500'
+        }
+    },
+    
+    xAxis: {
+        tickInterval: 6,
+        labels: {
+    style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        categories: [
+            '02-2022','03-2022',
+        ],
+
+    },
+    yAxis: {
+        labels: {
+    style: {
+        color: '#fff',
+        fontWeight:'500'
+    }
+},
+        title: {
+            text: '',
+            style:{
+                color:'#fff',
+                fontWeight:'500'
+            },
+        },
+        
+        
+        
+    },
+    tooltip: {
+        shared: true,
+        valueSuffix: ''
+    },
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        areaspline: {
+            fillOpacity: 0.5,
+            color: '#FF0000',
+        }
+    },
+    series: [{
+        name: 'Gain',
+        showInLegend: false,
+        style: {
+            color: '#fff'
+        },
+    
+        data: [0,8837,
+              ]
+    } ]
+});
+</script>
