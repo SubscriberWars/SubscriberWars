@@ -22,6 +22,7 @@
 </body>
 
 <script>
+    var newestvidID = ''
 var channel = window.location.href.split('?u=')[1] || '';
 
 function updateStats(id) {
@@ -39,7 +40,7 @@ function updateStats(id) {
 // Intervals
 updateStats()
 setInterval(() => {
-    updateStats();
+    updateStats(newestvidID);
 }, 5000);
 
 
