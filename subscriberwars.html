@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <title>Live Subscriber Count</title>
+    <meta name="description" content="Live YouTube Subscriber Count">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/youtube.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="count-block">
+        <img style="margin:10px" id="headerImage"/>
+        <img id="logo" src="https://subscriberwars.space/favicon.ico" alt="Avatar"/>
+        <h1 id="title" style="top: -227px;">Loading...</h1>
+        <div id='subcount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px; top: -227px;">0</div>
+        <h2 style="top: -227px;">Subscribers</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="view-box">
+            <div id='viewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Views</h2>
+        </div>
+        <div id="video-box">
+            <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Videos</h2>
+        </div>
+        <div id="api-box">
+            <div id='apicount' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Subscribers API</h2>
+        </div>
+        <div id="view-box">
+            <div id='apiviewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Views API</h2>
+        </div>
+        <div id="video-box">
+            <div id='money' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Earnings (£)</h2>
+        </div>
+        <div id="api-box">
+            <div id='impres' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Impresions</h2>
+        </div>
+    </div>
+</body>
+
+<script>
+
+var string='';
+string +='';
+
+const headerImage = document.getElementById("headerImage")
+
+function checkForNew(chanid) {
+    headerImage.src='https://www.banner.yt/UCdKLd9f_8ZyDSKxMm16oRww?width=1240';
+
+    fetch('https://api.subscriberwars.space/youtube/channel/UCdKLd9f_8ZyDSKxMm16oRww').then(res => res.json()).then(data => {
+        title.innerHTML = data.items[0].snippet.title
+        logo.src = data.items[0].snippet.thumbnails.medium.url
+        apiviewcount.innerHTML = data.items[0].statistics.viewCount
+        videocount.innerHTML = data.items[0].statistics.videoCount
+        if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)}
+        if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
+        if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
+        if (data.items[0].statistics.subscriberCount>10000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
+        if (data.items[0].statistics.subscriberCount>10000) {string +='K'}
+        if (data.items[0].statistics.subscriberCount>100000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
+        if (data.items[0].statistics.subscriberCount>100000) {string +='K'}
+        if (data.items[0].statistics.subscriberCount>1000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
+        if (data.items[0].statistics.subscriberCount>1000000) {string +='M'}
+        if (data.items[0].statistics.subscriberCount>10000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
+        if (data.items[0].statistics.subscriberCount>10000000) {string +='M'}
+        if (data.items[0].statistics.subscriberCount>100000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
+        if (data.items[0].statistics.subscriberCount>100000000) {string +='M'}
+        apicount.innerHTML=string
+    });
+    fetch('https://priv.subscriberwars.space/subscriberwars').then(res => res.json()).then(data => {
+        subcount.innerHTML = data.SUBSCRIBERS
+        viewcount.innerHTML = data.VIDEO_VIEWS
+        money.innerHTML = data.TOTAL_ESTIMATED_EARNINGS/1000
+        impres.innerHTML = data.IMPRESSIONS
+
+    })
+}
+
+// Intervals
+setInterval(() => {
+    checkForNew()
+}, 10000);
+
+checkForNew()
+
+</script>
