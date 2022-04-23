@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <title>Live Roblox Follower Count</title>
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/main.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="count-block">
+        <img id="logo" src="https://subscriberwars.space/favicon.ico" alt="Thumbnail">
+        <h1 id="title">Loading...</h1>
+        <div id='followerscount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
+        <h2>Followers</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="like-box">
+            <div id='followingcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Following</h2>
+        </div>
+        <div id="comment-box">
+            <div id='friendscount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <h2>Friends</h2>
+        </div>
+    </div>
+</body>
+
+<script>
+var channel = window.location.href.split('?u=')[1] || '';
+
+function update(id) {
+    fetch('https://api.subscriberwars.space/roblox/'+id+'').then(res => res.json()).then(data => {
+        logo.src = data.avatar
+        title.innerHTML = data.display_name
+        followerscount.innerHTML = data.follower_count
+        followingcount.innerHTML = data.following_count
+        friendscount.innerHTML = data.friend_count
+    });
+}
+
+// Intervals
+setInterval(() => {
+    update(channel);
+}, 5000);
+
+update(channel)
+
+</script>
