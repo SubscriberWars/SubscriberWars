@@ -1,0 +1,91 @@
+body {
+    background-color: #222222;
+    font-family: roboto;
+    width: 100%;
+    color: #fff;
+}
+
+::placeholder {
+    color: #fff;
+    opacity: 5;
+    background: #333;
+}
+
+:-ms-input-placeholder {
+    color: #FFFFFF;
+    background: #333
+    ;
+  }
+
+  ::-ms-input-placeholder {
+    color: #FFFFFF;
+    background: #333
+    ;
+  }
+
+#search {
+    width: 100%;
+    background-color: #333;
+    height: 37px;
+    color: #fff;
+    border: solid #111;
+}
+
+.searchbtn {
+    color: #FFF;
+    height: 37px;
+    width: 10%;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 0.25rem;
+    border: solid #111;
+    background: #111;
+    margin-left: -10px;
+}
+
+.searchbtn:hover{
+    background: #000;
+    border: #000;
+    transition: 0.5s;
+}
+
+.chan-card {
+    background: #111;
+    border-radius: 10px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.chan-card :hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.pfp {
+    border-radius: 50%;
+    position: relative;
+    top: 10px;
+    height: 100px;
+    margin-left: 5px;
+}
+
+.chan-name {
+    font-size: 20pt;
+    font-weight: 900;
+    position: relative;
+    left: 120px;
+    top: -90px
+}
+
+.chan-id {
+    font-size: 20pt;
+    font-weight: 400;
+    position: relative;
+    left: 120px;
+    top: -80px;
+}
