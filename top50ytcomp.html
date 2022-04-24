@@ -158,7 +158,7 @@ function reset() {
 }
 
 function update(){
-    $.getJSON("https://top50.subscriberwars.repl.co/top50/company",(data)=>{
+    $.getJSON("https://company50.subscriberwars.repl.co",(data)=>{
 
         data.channel.sort(function(a,b){return b.subscriberCount - a.subscriberCount});
 
