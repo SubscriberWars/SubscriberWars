@@ -75,7 +75,7 @@ function checkForNew(chanid) {
         if (data.items[0].statistics.subscriberCount>100000000) {string +='M'}
         apicount.innerHTML=string
     });
-    fetch('https://priv.subscriberwars.space/subscriberwars').then(res => res.json()).then(data => {
+    fetch('https://priv.subscriberwars.space').then(res => res.json()).then(data => {
         subcount.innerHTML = data.SUBSCRIBERS
         viewcount.innerHTML = data.VIDEO_VIEWS
         money.innerHTML = data.TOTAL_ESTIMATED_EARNINGS/1000
