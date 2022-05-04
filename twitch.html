@@ -34,8 +34,8 @@
 </body>
 
 <script>
-    const TWITCH_AUTH_TOKEN = process.env.TWITCH_AUTH_TOKEN;
-    const TWITCH_CLIENT_ID = process.env.TWITCH_CLIENT_ID;
+    const TWITCH_AUTH_TOKEN = process.env[TWITCH_AUTH_TOKEN];
+    const TWITCH_CLIENT_ID = process.env[TWITCH_CLIENT_ID];
     var twitchid = ''
 var channel = window.location.href.split('?u=')[1] || '';
 
