@@ -4,7 +4,6 @@
     <meta name="description" content="Live Twitch Statistics">
     <link rel="stylesheet" href="/css/odometer.css">
     <link rel="stylesheet" href="/css/main.css">
-    <script type="module" src="/js/twitch.js"></script>
     <script src="/js/odometer.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +32,47 @@
         <p id="graphstat" style="visibility: hidden;"></p>
     </div>
 </body>
+
+<script>
+    var twitchid = ''
+var channel = window.location.href.split('?u=')[1] || '';
+
+function checkForNew(chanid) {
+    fetch('https://api.subscriberwars.space/twitch/user/'+chanid+'')
+    .then(res => res.json()).then(data => {
+        twitchid = data.iD
+        title.innerHTML = data.name
+        logo.src = data.logo
+        type.innerHTML = data.type
+        viewcount.innerHTML = data.viewCount
+    });
+}
+
+
+function updateStats(id) {
+    fetch('https://api.subscriberwars.space/twitch/'+id+'')
+    .then(res => res.json()).then(data => {
+        followercount.innerHTML = data.followerCount,
+        graphstat.innerHTML = data.followerCount
+        var yep=(graphstat.innerHTML)
+        console.log(yep)
+        var injection=yep
+        if(graph.series[0].points.length>=720)graph.series[0].data[0].remove();
+        graph.series[0].addPoint([Date.now(),parseFloat(injection)])
+    });
+}
+
+// Intervals
+setInterval(() => {
+    updateStats(twitchid);
+}, 5000);
+setInterval(() => {
+    checkForNew(channel)
+}, 60000);
+
+checkForNew(channel)
+
+</script>
 
 <script>//graph styling
     var graph = new Highcharts.chart({
