@@ -4,6 +4,7 @@
     <meta name="description" content="Live Twitch Statistics">
     <link rel="stylesheet" href="/css/odometer.css">
     <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/config.js"></script>
     <script src="/js/odometer.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,17 +35,24 @@
 </body>
 
 <script>
-    var twitchid = ''
+var twitchid = ''
 var channel = window.location.href.split('?u=')[1] || '';
+var auth = config.TWITCH_AUTH;
+var client = config.TWITCH_CLI;
 
 function checkForNew(chanid) {
-    fetch('https://api.subscriberwars.space/twitch/user/'+chanid+'')
+    fetch('https://api.twitch.tv/helix/users?login='+chanid, {
+        headers: {
+            Authorization: auth,
+            'Client-Id': client
+        }
+    })
     .then(res => res.json()).then(data => {
-        twitchid = data.iD
-        title.innerHTML = data.name
-        logo.src = data.logo
-        type.innerHTML = data.type
-        viewcount.innerHTML = data.viewCount
+        twitchid = data[0].id
+        title.innerHTML = data[0].display_name
+        logo.src = data[0].profile_image_url
+        type.innerHTML = data[0].broadcaster_type
+        viewcount.innerHTML = data[0].view_count
     });
 }
 
