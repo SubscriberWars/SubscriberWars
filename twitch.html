@@ -41,20 +41,15 @@ var auth = config.TWITCH_AUTH;
 var client = config.TWITCH_CLI;
 
 function checkForNew(chanid) {
-    fetch('https://api.twitch.tv/helix/users?login='+chanid, {
-        headers: {
-            Authorization: auth,
-            'Client-Id': client
-        }
-    })
+    fetch('https://api.subscriberwars.space/twitch/user/'+chanid+'')
     .then(res => res.json()).then(data => {
-        twitchid = data[0].id
-        title.innerHTML = data[0].display_name
-        logo.src = data[0].profile_image_url
-        type.innerHTML = data[0].broadcaster_type
-        viewcount.innerHTML = data[0].view_count
+        twitchid = data.iD
+        title.innerHTML = data.name
+        logo.src = data.logo
+        type.innerHTML = data.type
+        viewcount.innerHTML = data.viewCount
     });
-};
+}
 
 
 function updateStats(id) {
