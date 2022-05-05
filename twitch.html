@@ -36,8 +36,6 @@
 <script>
 var twitchid = ''
 var channel = window.location.href.split('?u=')[1] || '';
-var auth = config.TWITCH_AUTH;
-var client = config.TWITCH_CLI;
 
 function checkForNew(chanid) {
     fetch('https://api.subscriberwars.space/twitch/user/'+chanid+'')
