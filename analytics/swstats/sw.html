@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Live Subscriber Count</title>
+    <title>Subscriber Wars' Live Studio Data</title>
     <meta name="description" content="Live YouTube Subscriber Count">
     <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
     <link rel="stylesheet" href="https://subscriberwars.space/css/youtube.css">
@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!--sw-->
     <div id="count-block">
         <img style="margin:10px" id="headerImage"/>
         <img id="logo" src="https://subscriberwars.space/favicon.ico" alt="Avatar"/>
@@ -43,6 +44,7 @@
             <h2>Impresions</h2>
         </div>
     </div>
+    <br>
 </body>
 
 <script>
@@ -75,11 +77,11 @@ function checkForNew(chanid) {
         if (data.items[0].statistics.subscriberCount>100000000) {string +='M'}
         apicount.innerHTML=string
     });
-    fetch('https://priv.subscriberwars.space').then(res => res.json()).then(data => {
-        subcount.innerHTML = data.SUBSCRIBERS
-        viewcount.innerHTML = data.VIDEO_VIEWS
-        money.innerHTML = data.TOTAL_ESTIMATED_EARNINGS/1000
-        impres.innerHTML = data.IMPRESSIONS
+    fetch('https://api.subscriberwars.space').then(res => res.json()).then(data => {
+        subcount.innerHTML = data.channel[0].subscriberCount
+        viewcount.innerHTML = data.channel[0].viewCount
+        money.innerHTML = data.channel[0].estimatedEarnings/1000
+        impres.innerHTML = data.channel[0].impressions
 
     })
 }
