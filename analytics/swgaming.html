@@ -2,7 +2,7 @@
 <html class="fa-events-icons-ready">
    
 <head>
-    <title>Exploring With Jay</title>
+    <title>Subscriber Wars Gaming</title>
     <meta name="description" content="View the daily statistics of the Subscriber Wars YouTube Channel since its origin">
     <meta name="keywords" content="Subscriber Wars, YouTube Statistics, Channel Statistics">
     <link rel="stylesheet" href="/css/odometer.css">
@@ -16,7 +16,7 @@
 
 <body>
     <div id='top-header'>
-        <img id="top-header-background" src="https://www.banner.yt/UCCI3vvoBklJqLjwdg1uBFCg?width=1280" alt="Subscriber Wars" title="Subscriber Wars">
+        <img id="top-header-background" src="https://www.banner.yt/UClx-t76jqvFTcBxQsQBYJWA?width=1280" alt="Subscriber Wars" title="Subscriber Wars Gaming">
     </div>
     
     <div id='UserTopInfoWrap'>
@@ -65,8 +65,8 @@
     </div>
     <div id="user-menu">
         <a href="/index.html">Home</a>
-        <a href="/analytics/swstats/swe.html" target="_blank">Live Sub Count</a>
-        <a href="https://youtube.com/channel/UCCI3vvoBklJqLjwdg1uBFCg" target="_blank">View Channel</a>
+        <a href="/analytics/swstats/swg.html" target="_blank">Live Sub Count</a>
+        <a href="https://youtube.com/channel/UClx-t76jqvFTcBxQsQBYJWA" target="_blank">View Channel</a>
 
     </div>
     <div style='width: 1260px; margin: 0px auto'>
@@ -75,7 +75,7 @@
                 <div style='width: 600px; float: left; font-size: 8pt;'>
                     <div style='clear: both;'></div>
                     <div style='width: 600px; background:rgb(15,15,15); padding: 10px 20px; text-transform: uppercase; color: rgb(255, 255, 255);'>
-                        <h2 style='font-size: 10pt; font-weight: 500;'>Last 30 Days for Subscriber Wars  (From SocialBlade.com)</h2>
+                        <h2 style='font-size: 10pt; font-weight: 500;'>Last 30 Days for Subscriber Wars Gaming  (From SocialBlade.com)</h2>
                     </div>
                     <div style='width: 600px; height: 30px; line-height: 30px; background: rgb(26,26,26); padding: 0px 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 10pt;'>
                         <div style='width: 120px; float: left;'>date</div>
@@ -315,7 +315,7 @@
                         <iframe width='600px' height='338px' frameborder='0' allowfullscreen src=""></iframe>
                         <script>
                             function getID(){
-                                fetch('https://api.subscriberwars.space/youtube/latest/UCCI3vvoBklJqLjwdg1uBFCg')
+                                fetch('https://api.subscriberwars.space/youtube/latest/UClx-t76jqvFTcBxQsQBYJWA')
                                 .then(res=>res.json()).then(data=>{
                                     document.querySelector("iframe").src=`https://youtube.com/embed/${data.items[0].id.videoId}?autoplay=0&rel=0`
                                 })
@@ -333,7 +333,7 @@
     var string=''; string +='';
 
     function maindata() {
-        fetch('https://api.subscriberwars.space/youtube/channel/UCCI3vvoBklJqLjwdg1uBFCg').then(res => res.json()).then(data => {
+        fetch('https://api.subscriberwars.space/youtube/channel/UClx-t76jqvFTcBxQsQBYJWA').then(res => res.json()).then(data => {
             if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)} 
             if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
             if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
@@ -349,7 +349,7 @@
     }
 
     function dailydata() {
-        fetch('https://api.subscriberwars.space/sb/yt/UCCI3vvoBklJqLjwdg1uBFCg').then(res => res.json()).then(data => {
+        fetch('https://api.subscriberwars.space/sb/yt/UClx-t76jqvFTcBxQsQBYJWA').then(res => res.json()).then(data => {
             date1.innerHTML=data.data.daily[29].date; subs1.innerHTML=data.data.daily[29].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views1.innerHTML=data.data.daily[29].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             date2.innerHTML=data.data.daily[28].date; subs2.innerHTML=data.data.daily[28].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views2.innerHTML=data.data.daily[28].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain2').innerHTML=data.data.daily[28].subs-data.data.daily[29].subs; if(data.data.daily[28].subs>data.data.daily[29].subs){document.getElementById('subgain2').style.color='#1bed0c'}; if(data.data.daily[28].subs<data.data.daily[29].subs){document.getElementById('subgain2').style.color='#ed2121'}; document.getElementById('viewgain2').innerHTML=(data.data.daily[28].views-data.data.daily[29].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[28].views>data.data.daily[29].views){document.getElementById('viewgain2').style.color='#1bed0c'}; if(data.data.daily[28].views<data.data.daily[29].views){document.getElementById('viewgain2').style.color='#ed2121'};
             date3.innerHTML=data.data.daily[27].date; subs3.innerHTML=data.data.daily[27].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views3.innerHTML=data.data.daily[27].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain3').innerHTML=data.data.daily[27].subs-data.data.daily[28].subs; if(data.data.daily[27].subs>data.data.daily[28].subs){document.getElementById('subgain3').style.color='#1bed0c'}; if(data.data.daily[27].subs<data.data.daily[28].subs){document.getElementById('subgain3').style.color='#ed2121'}; document.getElementById('viewgain3').innerHTML=(data.data.daily[27].views-data.data.daily[28].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[27].views>data.data.daily[28].views){document.getElementById('viewgain3').style.color='#1bed0c'}; if(data.data.daily[27].views<data.data.daily[28].views){document.getElementById('viewgain3').style.color='#ed2121'};
