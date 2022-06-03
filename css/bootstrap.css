@@ -4133,7 +4133,7 @@ textarea.form-control-lg {
     z-index: 1000;
     flex-grow: 1;
     visibility: visible !important;
-    background-color: transparent;
+    background-color: #000;
     border-right: 0;
     border-left: 0;
     transition: none;
@@ -4186,7 +4186,7 @@ textarea.form-control-lg {
     z-index: 1000;
     flex-grow: 1;
     visibility: visible !important;
-    background-color: transparent;
+    background-color: #000;
     border-right: 0;
     border-left: 0;
     transition: none;
@@ -4239,7 +4239,7 @@ textarea.form-control-lg {
     z-index: 1000;
     flex-grow: 1;
     visibility: visible !important;
-    background-color: transparent;
+    background-color: #000;
     border-right: 0;
     border-left: 0;
     transition: none;
@@ -4292,7 +4292,7 @@ textarea.form-control-lg {
     z-index: 1000;
     flex-grow: 1;
     visibility: visible !important;
-    background-color: transparent;
+    background-color: #000;
     border-right: 0;
     border-left: 0;
     transition: none;
@@ -4345,7 +4345,7 @@ textarea.form-control-lg {
     z-index: 1000;
     flex-grow: 1;
     visibility: visible !important;
-    background-color: transparent;
+    background-color: #000;
     border-right: 0;
     border-left: 0;
     transition: none;
@@ -4397,7 +4397,7 @@ textarea.form-control-lg {
   z-index: 1000;
   flex-grow: 1;
   visibility: visible !important;
-  background-color: transparent;
+  background-color: #000;
   border-right: 0;
   border-left: 0;
   transition: none;
@@ -6250,8 +6250,7 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  visibility: hidden;
-  background-color: #fff;
+  background-color: #000;
   background-clip: padding-box;
   outline: 0;
   transition: transform 0.3s ease-in-out;
