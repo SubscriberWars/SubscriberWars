@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>Live Subscriber Count</title>
-    <meta name="description" content="Live Mixerno (beta) Subscriber Count">
+    <meta name="description" content="Live Next Subscriber Count">
     <link rel="stylesheet" href="/css/odometer.css">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/odometer.js"></script>
@@ -21,12 +21,15 @@
     <div id="mini-counts">
         <div id="like-box">
             <div id='viewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
-            <h2>Displayed on YouTube</h2>
+            <h2>Views</h2>
         </div>
         <div id="comment-box">
             <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
             <h2>Videos</h2>
         </div>
+    </div>
+    <div id="credit">
+        <h2><a href="https://nextcounts.com"> Powered by: Next Counts</a></h2>
     </div>
     <div id="graph-block">
         <div id="graph" style="width: 1260px; height: 400px;"></div>
@@ -42,11 +45,11 @@ const headerImage = document.getElementById("headerImage")
 function checkForNew(chanid) {
     headerImage.src='https://www.banner.yt/'+chanid+'?width=1240';
 
-    fetch('https://api.subscriberwars.space/mixerno/yt/'+chanid+'').then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/next/yt/'+chanid+'').then(res => res.json()).then(data => {
         title.innerHTML = data.info.name
         logo.src = data.info.pfp
         subcount.innerHTML = data.estCounts.subCount
-        viewcount.innerHTML = data.apiCounts.subCount
+        viewcount.innerHTML = data.estCounts.viewCount
         videocount.innerHTML = data.apiCounts.videoCount
         graphstat.innerHTML = data.estCounts.subCount
         var yep=(graphstat.innerHTML)
