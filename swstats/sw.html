@@ -78,10 +78,10 @@ function checkForNew(chanid) {
         apicount.innerHTML=string
     });
     fetch('https://SW.subscriberwars.repl.co').then(res => res.json()).then(data => {
-        subcount.innerHTML = data.channel[0].SUBSCRIBERS
-        viewcount.innerHTML = data.channel[0].VIDEO-VIEWS
-        money.innerHTML = data.channel[0].TOTAL_ESTIMATED_EARNINGS/1000
-        impres.innerHTML = data.channel[0].IMPRESSIONS
+        subcount.innerHTML = data.SUBSCRIBERS
+        viewcount.innerHTML = data.VIDEO-VIEWS
+        money.innerHTML = data.TOTAL_ESTIMATED_EARNINGS/1000
+        impres.innerHTML = data.IMPRESSIONS
 
     })
 }
