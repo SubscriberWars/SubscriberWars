@@ -77,11 +77,11 @@ function checkForNew(chanid) {
         if (data.items[0].statistics.subscriberCount>100000000) {string +='M'}
         apicount.innerHTML=string
     });
-    fetch('https://api.subscriberwars.space').then(res => res.json()).then(data => {
-        subcount.innerHTML = data.channel[0].subscriberCount
-        viewcount.innerHTML = data.channel[0].viewCount
-        money.innerHTML = data.channel[0].estimatedEarnings/1000
-        impres.innerHTML = data.channel[0].impressions
+    fetch('https://SW.subscriberwars.repl.co').then(res => res.json()).then(data => {
+        subcount.innerHTML = data.channel[0].SUBSCRIBERS
+        viewcount.innerHTML = data.channel[0].VIDEO-VIEWS
+        money.innerHTML = data.channel[0].TOTAL_ESTIMATED_EARNINGS/1000
+        impres.innerHTML = data.channel[0].IMPRESSIONS
 
     })
 }
