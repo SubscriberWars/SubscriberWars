@@ -398,7 +398,7 @@
             vrank.innerHTML=data.data.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }); 
         //YTStudio
-        fetch('https://api.subscriberwars.space/sw/30day').then(res =>.json()).then(data => {
+        fetch('https://api.subscriberwars.space/sw/30day').then(res =>res.json()).then(data => {
             subs1.innerHTML=data.d30.metric[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             subs2.innerHTML=data.d30.metric[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             subs3.innerHTML=data.d30.metric[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -428,7 +428,7 @@
             subs27.innerHTML=data.d30.metric[26].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             subs28.innerHTML=data.d30.metric[27].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             subs29.innerHTML=data.d30.metric[28].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        })
+        });
     }
 
     maindata()
