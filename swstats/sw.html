@@ -79,7 +79,7 @@ function checkForNew(chanid) {
     });
     fetch('https://SW.subscriberwars.repl.co').then(res => res.json()).then(data => {
         subcount.innerHTML = data.SUBSCRIBERS
-        viewcount.innerHTML = data.VIDEO-VIEWS
+        viewcount.innerHTML = data.VIDEO_VIEWS
         money.innerHTML = data.TOTAL_ESTIMATED_EARNINGS/1000
         impres.innerHTML = data.IMPRESSIONS
 
