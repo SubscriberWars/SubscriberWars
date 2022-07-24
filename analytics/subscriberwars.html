@@ -350,6 +350,11 @@
     function dailydata() {
         //socialblade
         fetch('https://api.subscriberwars.space/sb/yt/subscriberwars1').then(res => res.json()).then(data => {
+            sbrank.innerHTML=data.data.misc.grade.grade; document.getElementById('sbrank').style.color=data.data.misc.grade.color;
+            created.innerHTML=data.data.general.created_at;
+            country.innerHTML=data.data.general.geo.country;
+            srank.innerHTML=data.data.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            vrank.innerHTML=data.data.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             views1.innerHTML=data.data.daily[29].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             views2.innerHTML=data.data.daily[28].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain2').innerHTML=(data.data.daily[28].views-data.data.daily[29].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[28].views>data.data.daily[29].views){document.getElementById('viewgain2').style.color='#1bed0c'}; if(data.data.daily[28].views<data.data.daily[29].views){document.getElementById('viewgain2').style.color='#ed2121'};
             views3.innerHTML=data.data.daily[27].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain3').innerHTML=(data.data.daily[27].views-data.data.daily[28].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[27].views>data.data.daily[28].views){document.getElementById('viewgain3').style.color='#1bed0c'}; if(data.data.daily[27].views<data.data.daily[28].views){document.getElementById('viewgain3').style.color='#ed2121'};
@@ -382,11 +387,7 @@
             views30.innerHTML=data.data.daily[0].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain30').innerHTML=(data.data.daily[0].views-data.data.daily[1].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[0].views>data.data.daily[1].views){document.getElementById('viewgain30').style.color='#1bed0c'}; if(data.data.daily[0].views<data.data.daily[1].views){document.getElementById('viewgain30').style.color='#ed2121'};
             view7d.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[6].views)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)>0){document.getElementById('view7d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)<0){document.getElementById('view7d').style.color='#ed2121'};
             view30d.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[29].views)/30)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[29].views)/30)>0){document.getElementById('view30d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[29].views)/7)<0){document.getElementById('view30d').style.color='#ed2121'};
-            sbrank.innerHTML=data.data.misc.grade.grade; document.getElementById('sbrank').style.color=data.data.misc.grade.color;
-            created.innerHTML=data.data.general.created_at;
-            country.innerHTML=data.data.general.geo.country;
-            srank.innerHTML=data.data.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            vrank.innerHTML=data.data.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            
         }); 
         //YTStudio
         fetch('https://api.subscriberwars.space/sw/30day').then(res =>res.json()).then(data => {
