@@ -319,9 +319,6 @@
                     <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Subscribers Last 30 Days</div>
                     <div id='month-subs' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
                     <div id='month-subs-gain' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>
-                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Views</div>
-                    <div id='hrs-graph' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
-                    <div id='mins-graph' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>
                 </div>
             </div>
         </div>
@@ -559,7 +556,7 @@
 
 Highcharts.chart('month-subs-gain', {
     chart: {
-        type: 'spline',
+        type: 'column',
         backgroundColor: 'rgb(26,26,26)',
         zoomType: 'xy',
         style: {
@@ -644,7 +641,7 @@ Highcharts.chart('month-subs-gain', {
         enabled: false
     },
     plotOptions: {
-        spline: {
+        column: {
             color: '#FF0000',
             marker:{
                 enabled: false
@@ -654,9 +651,7 @@ Highcharts.chart('month-subs-gain', {
     series: [{
         name: 'Subscribers',
         showInLegend: false,
-        style: {
-            color: '#fff'
-        },
+        color:'#FF0000',
     
         data: [
                data.d30.metric[1]-data.d30.metric[0],
@@ -693,292 +688,7 @@ Highcharts.chart('month-subs-gain', {
         });
         
     }
-
-    function graph48() {
-        fetch('https://api.subscriberwars.space/sw/30day').then(res=>res.json()).then(data=> {
-                
-                Highcharts.chart('hrs-graph', {
-                chart: {
-                    type: 'column',
-                    backgroundColor: 'rgb(26,26,26)',
-                    zoomType: 'xy',
-                    style: {
-                        fontFamily: 'roboto',
-                        fontWeight: 'bold',
-                        color: "#fff",
-                    }
-            
-            
-                },
-                title: {
-                    text: '48 Hours',
-                    style:{
-                        color:'#fff',
-                        fontWeight:'500'
-                    }
-                },
-                
-                xAxis: {
-                    tickInterval: 6,
-                    labels: {
-                    style: {
-                    color: '#fff',
-                    fontWeight:'500'
-                }
-            },
-                    categories: [
-                    "48","47","46","45","44","43","42","41","40","39","38","37","36","35","34","33","32","31","30","29","28","27","26","25","24","23","22","21","20","19","18","17","16","15","14","13","12","11","10","9","8","7","6","5","4","3","2","1","0"
-                    ],
-            
-                },
-                yAxis: {
-                    labels: {
-                style: {
-                    color: '#fff',
-                    fontWeight:'500'
-                }
-            },
-                    title: {
-                        text: '',
-                        style:{
-                            color:'#fff',
-                            fontWeight:'500'
-                        },
-                    },
-                    
-                    
-                    
-                },
-                tooltip: {
-                    shared: true,
-                    valueSuffix: ' Views'
-                },
-                credits: {
-                    enabled: false
-                },
-                plotOptions: {
-                    coumn: {
-                        color: '#FF0000',
-                        borderWidth: 0,
-                        pointPadding: 0
-                    }
-                },
-                series: [{
-                    name: 'Views',
-                    showInLegend: false,
-                    color: '#ff0000',
-                
-                    data: [
-                           data.views[0].metric[0],
-                           data.views[0].metric[1],
-                           data.views[0].metric[2],
-                           data.views[0].metric[3],
-                           data.views[0].metric[4],
-                           data.views[0].metric[5],
-                           data.views[0].metric[6],
-                           data.views[0].metric[7],
-                           data.views[0].metric[8],
-                           data.views[0].metric[9],
-                           data.views[0].metric[10],
-                           data.views[0].metric[11],
-                           data.views[0].metric[12],
-                           data.views[0].metric[13],
-                           data.views[0].metric[14],
-                           data.views[0].metric[15],
-                           data.views[0].metric[16],
-                           data.views[0].metric[17],
-                           data.views[0].metric[18],
-                           data.views[0].metric[19],
-                           data.views[0].metric[20],
-                           data.views[0].metric[21],
-                           data.views[0].metric[22],
-                           data.views[0].metric[23],
-                           data.views[0].metric[23],
-                           data.views[0].metric[24],
-                           data.views[0].metric[25],
-                           data.views[0].metric[26],
-                           data.views[0].metric[27],
-                           data.views[0].metric[28],
-                           data.views[0].metric[29],
-                           data.views[0].metric[30],
-                           data.views[0].metric[31],
-                           data.views[0].metric[32],
-                           data.views[0].metric[33],
-                           data.views[0].metric[34],
-                           data.views[0].metric[35],
-                           data.views[0].metric[36],
-                           data.views[0].metric[37],
-                           data.views[0].metric[38],
-                           data.views[0].metric[39],
-                           data.views[0].metric[40],
-                           data.views[0].metric[41],
-                           data.views[0].metric[42],
-                           data.views[0].metric[43],
-                           data.views[0].metric[44],
-                           data.views[0].metric[45],
-                           data.views[0].metric[46],
-                           data.views[0].metric[47],
-                          ]
-                } ]
-            });
-                        })
-    }
-
-    function graph60() {
-        fetch('https://api.subscriberwars.space/sw/30day').then(res=>res.json()).then(data=> {
-                
-                Highcharts.chart('mins-graph', {
-                chart: {
-                    type: 'column',
-                    backgroundColor: 'rgb(26,26,26)',
-                    zoomType: 'xy',
-                    style: {
-                        fontFamily: 'roboto',
-                        fontWeight: 'bold',
-                        color: "#fff",
-                    }
-            
-            
-                },
-                title: {
-                    text: '60 Mins',
-                    style:{
-                        color:'#fff',
-                        fontWeight:'500'
-                    }
-                },
-                
-                xAxis: {
-                    tickInterval: 6,
-                    labels: {
-                    style: {
-                    color: '#fff',
-                    fontWeight:'500'
-                }
-            },
-                    categories: [
-                    "60","59","58","57","56","55","54","53","52","51",
-                    "50","49","48","47","46","45","44","43","42","41",
-                    "40","39","38","37","36","35","34","33","32","31",
-                    "30","29","28","27","26","25","24","23","22","21",
-                    "20","19","18","17","16","15","14","13","12","11",
-                    "10","9","8","7","6","5","4","3","2","1","0"
-                    ],
-            
-                },
-                yAxis: {
-                    labels: {
-                style: {
-                    color: '#fff',
-                    fontWeight:'500'
-                }
-            },
-                    title: {
-                        text: '',
-                        style:{
-                            color:'#fff',
-                            fontWeight:'500'
-                        },
-                    },
-                    
-                    
-                    
-                },
-                tooltip: {
-                    shared: true,
-                    valueSuffix: ' Views'
-                },
-                credits: {
-                    enabled: false
-                },
-                plotOptions: {
-                    coumn: {
-                        color: '#FF0000',
-                        borderWidth: 0,
-                        pointPadding: 0
-                    }
-                },
-                series: [{
-                    name: 'Views',
-                    showInLegend: false,
-                    color: '#ff0000',
-                
-                    data: [
-                           data.views[1].metric[0],
-                           data.views[1].metric[1],
-                           data.views[1].metric[2],
-                           data.views[1].metric[3],
-                           data.views[1].metric[4],
-                           data.views[1].metric[5],
-                           data.views[1].metric[6],
-                           data.views[1].metric[7],
-                           data.views[1].metric[8],
-                           data.views[1].metric[9],
-                           data.views[1].metric[10],
-                           data.views[1].metric[11],
-                           data.views[1].metric[12],
-                           data.views[1].metric[13],
-                           data.views[1].metric[14],
-                           data.views[1].metric[15],
-                           data.views[1].metric[16],
-                           data.views[1].metric[17],
-                           data.views[1].metric[18],
-                           data.views[1].metric[19],
-                           data.views[1].metric[20],
-                           data.views[1].metric[21],
-                           data.views[1].metric[22],
-                           data.views[1].metric[23],
-                           data.views[1].metric[23],
-                           data.views[1].metric[24],
-                           data.views[1].metric[25],
-                           data.views[1].metric[26],
-                           data.views[1].metric[27],
-                           data.views[1].metric[28],
-                           data.views[1].metric[29],
-                           data.views[1].metric[30],
-                           data.views[1].metric[31],
-                           data.views[1].metric[32],
-                           data.views[1].metric[33],
-                           data.views[1].metric[34],
-                           data.views[1].metric[35],
-                           data.views[1].metric[36],
-                           data.views[1].metric[37],
-                           data.views[1].metric[38],
-                           data.views[1].metric[39],
-                           data.views[1].metric[40],
-                           data.views[1].metric[41],
-                           data.views[1].metric[42],
-                           data.views[1].metric[43],
-                           data.views[1].metric[44],
-                           data.views[1].metric[45],
-                           data.views[1].metric[46],
-                           data.views[1].metric[47],
-                           data.views[1].metric[48],
-                           data.views[1].metric[49],
-                           data.views[1].metric[50],
-                           data.views[1].metric[51],
-                           data.views[1].metric[52],
-                           data.views[1].metric[53],
-                           data.views[1].metric[54],
-                           data.views[1].metric[55],
-                           data.views[1].metric[56],
-                           data.views[1].metric[57],
-                           data.views[1].metric[58],
-                           data.views[1].metric[59],
-                          ]
-                } ]
-            });
-                        })
-    }
+   
     maindata()
     dailydata()
-    graph48()
-    graph60()
-    setInterval(() => {
-        graph48()
-    }, 3600*1000);
-    setInterval(() => {
-        graph60()
-    }, 60*1000);
-
 </script>
