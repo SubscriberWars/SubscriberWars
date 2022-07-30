@@ -316,12 +316,13 @@
                             getID()
                         </script>
                     </div>
-                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Daily Subscribers Last 30 Days</div>
+                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Daily Subscribers</div>
                     <div id='month-subs' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
-                    <div id='month-subs-gain' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>
-                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Daily Views Last 30 Days</div>
+                    <div id='month-subs-gain' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
+                    <div id='life-subs' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>
+                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Daily Views</div>
                     <div id='month-views' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
-                    <div id='month-views-gain' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>
+                    <div id='month-views-gain' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>    
                 </div>
             </div>
         </div>
@@ -418,7 +419,7 @@
                     }
                 },
                 title: {
-                    text: 'Total Subscribers',
+                    text: 'Total Subscribers (Last 30 Days)',
                     style:{
                         color:'#fff',
                         fontWeight:'500'
@@ -546,7 +547,7 @@
                     }
                 },
                 title: {
-                    text: 'Gained Subscribers',
+                    text: 'Gained Subscribers (last 30 days)',
                     style:{
                         color:'#fff',
                         fontWeight:'500'
@@ -671,7 +672,7 @@
                     }
                 },
                 title: {
-                    text: 'Total Views',
+                    text: 'Total Views (last 30 days)',
                     style:{
                         color:'#fff',
                         fontWeight:'500'
@@ -799,7 +800,7 @@
                     }
                 },
                 title: {
-                    text: 'Gained Views',
+                    text: 'Gained Views (last 30 days)',
                     style:{
                         color:'#fff',
                         fontWeight:'500'
@@ -915,4 +916,91 @@
 
     }
     dailydata()
+
+    function lifedata() {
+        fetch('https://api.subscriberwars.space/sw/life').then(res => res.json()).then(data => {
+            let alldimension = []
+            for(let q=0;q<data.dimension.length;q++){
+                alldimension.push(data.dimension[q].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'))
+            }
+            let allmetric = []
+            for(let q=0;q<data.metric.length;q++){
+                allmetric.push(data.metric[q])
+            }
+
+            Highcharts.chart('life-subs', {
+                chart: {
+                    type: 'spline',
+                    backgroundColor: 'rgb(26,26,26)',
+                    zoomType: 'xy',
+                    style: {
+                        fontFamily: 'roboto',
+                        fontWeight: 'bold',
+                        color: "#fff",
+                    }
+                },
+                title: {
+                    text: 'Total Subscribers (Lifetime)',
+                    style:{
+                        color:'#fff',
+                        fontWeight:'500'
+                    }
+                },
+                xAxis: {
+                    tickInterval: 200,
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    categories:
+                        alldimension
+                    
+                },
+                yAxis: {
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    spline: {
+                        color: '#ff0000',
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Subscribers',
+                    showInLegend: false,
+                    style: {
+                        color: '#fff'
+                    },
+                    data: 
+                        allmetric
+                    
+                }]
+            })
+            
+        })
+    }
+    lifedata()
 </script>
