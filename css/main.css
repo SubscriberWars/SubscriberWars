@@ -20,3 +20,31 @@ h2 {font-weight: 400; font-size: 20pt; margin: 0px auto; position: relative; tex
 #name a {display: block;float: left;height: 60px;padding: 0px 15px;color: #fff;text-decoration: none; width:100% }
 .head-box {width: 560px;height: 60px;background:#0f0f0f;padding: 5px 20px;color: #fff;font-size: 30pt;font-weight: 500;text-align: left;position: relative; margin-bottom: 20px;}
 .head-box:hover {background: #000;}
+/* ScrollBar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 20px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff0000;
+  }
+  
+  @media screen and (max-width: 992px) {
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
