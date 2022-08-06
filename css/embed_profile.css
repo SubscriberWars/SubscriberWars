@@ -3,26 +3,27 @@
     top: 0%;
     left: 0%;
     object-fit: cover;
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
 
 }
 #title {
     position: absolute;
     top: 5px;
-    left: 170px;
-    font-size: 36px;
+    left: 105px;
+    font-size: 25px;
     width: 350px;
     overflow: hidden;
     white-space: nowrap;
     font-family: roboto;
     color: #fff;
+    text-overflow: ellipsis;
 }
 #count {
     position: absolute;
-    top: 40px;
-    left: 170px;
-    font-size: 100px;
+    top: 38px;
+    left: 105px;
+    font-size: 50px;
     color: #fff;
     font-weight: 500;
 }
