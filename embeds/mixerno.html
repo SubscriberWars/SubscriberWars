@@ -19,7 +19,7 @@
     var channel = window.location.href.split('?u=')[1] || '';
     function stats(chanid){
         fetch('https://api-v6.mixerno.space/youtube-channel-counter/live/'+chanid).then(res => res.json()).then(data=>{
-            image.innerHTML=data.profile_picture
+            image.src=data.profile_picture
             title.innerHTML=data.name
             count.innerHTML=data.subscribers
         })
