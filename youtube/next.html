@@ -2,9 +2,9 @@
 <head>
     <title>Live Subscriber Count</title>
     <meta name="description" content="Live Next Subscriber Count">
-    <link rel="stylesheet" href="/css/odometer.css">
-    <link rel="stylesheet" href="/css/youtube.css">
-    <script src="/js/odometer.js"></script>
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/youtube.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
         </div>
     </div>
     <div id="credit">
-        <h2><a href="https://nextcounts.com"> Powered by: Next Counts</a></h2>
+        <h2><a href="https://nextcounts.com"> Powered by: NextCounts</a></h2>
     </div>
     <div id="graph-block">
         <div id="graph" style="width: 1260px; height: 400px;"></div>
@@ -53,12 +53,21 @@ function checkForNew(chanid) {
     headerImage.src='https://www.banner.yt/'+chanid+'?width=1240';
 
     fetch('https://api.subscriberwars.space/next/yt/'+chanid).then(res => res.json()).then(data => {
+        if(chanid="UCdKLd9f_8ZyDSKxMm16oRww","UCluz1vjFgbA3At7-NeE1yBA"){
         title.innerHTML = data.info.name
+        logo.src = data.info.pfp.replace("s88","s400")
+        subcount.innerHTML = data.apiCounts.subCount
+        viewcount.innerHTML = data.estCounts.viewCount
+        videocount.innerHTML = data.apiCounts.videoCount
+        graphstat.innerHTML = data.apiCounts.subCount 
+        } else{
+            title.innerHTML = data.info.name
         logo.src = data.info.pfp
         subcount.innerHTML = data.estCounts.subCount
         viewcount.innerHTML = data.estCounts.viewCount
         videocount.innerHTML = data.apiCounts.videoCount
         graphstat.innerHTML = data.estCounts.subCount
+        }
         var yep=(graphstat.innerHTML)
         console.log(yep)
         var injection=yep
