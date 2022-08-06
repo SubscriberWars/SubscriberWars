@@ -52,7 +52,7 @@ const headerImage = document.getElementById("headerImage")
 function checkForNew(chanid) {
     headerImage.src='https://www.banner.yt/'+chanid+'?width=1240';
 
-    fetch('https://api.subscriberwars.space/next/yt/'+chanid+'').then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/next/yt/'+chanid).then(res => res.json()).then(data => {
         title.innerHTML = data.info.name
         logo.src = data.info.pfp
         subcount.innerHTML = data.estCounts.subCount
