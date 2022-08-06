@@ -1,5 +1,5 @@
 <head>
-    <title>Live Subscriber Count</title>
+    <title>Live View Count</title>
     <meta name="description" content="Subscriber Count">
     <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
     <link rel="stylesheet" href="https://subscriberwars.space/css/embed_profile.css">
@@ -21,10 +21,11 @@
         fetch('https://api-v6.mixerno.space/youtube-channel-counter/live/'+chanid).then(res => res.json()).then(data=>{
             image.src=data.profile_picture
             title.innerHTML=data.name
-            count.innerHTML=data.subscribers
+            count.innerHTML=data.views_api
         })
     }
     setInterval(() => {
     stats(channel)
-}, 2000)
+}, 60000)
+stats(channel)
 </script>
