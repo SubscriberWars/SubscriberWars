@@ -2,12 +2,12 @@
 <html class="fa-events-icons-ready">
    
 <head>
-    <title>Subscriber Wars Gaming</title>
-    <meta name="description" content="View the daily statistics of the Subscriber Wars YouTube Channel since its origin">
-    <meta name="keywords" content="Subscriber Wars, YouTube Statistics, Channel Statistics">
-    <link rel="stylesheet" href="/css/odometer.css">
-    <link rel="stylesheet" href="/css/stats_styles.css">
-    <script src="/js/odometer.js"></script>
+    <title>JayMBurtonSW</title>
+    <meta name="description" content="View the daily statistics of the JayMBurtonSW YouTube Channel since its origin">
+    <meta name="keywords" content="JayMBurtonSW, YouTube Statistics, Channel Statistics">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/stats_styles.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,14 +16,14 @@
 
 <body>
     <div id='top-header'>
-        <img id="top-header-background" src="https://www.banner.yt/UClx-t76jqvFTcBxQsQBYJWA?width=1280" alt="Subscriber Wars" title="Subscriber Wars Gaming">
+        <img id="top-header-background" src="https://www.banner.yt/UClx-t76jqvFTcBxQsQBYJWA?width=1280" alt="JayMBurtonSW" title="JayMBurtonSW">
     </div>
     
     <div id='UserTopInfoWrap'>
         <img id='UserTopInfoAvatar'>
         <div id='UserTopInfoBlockTop'>
             <div>
-                <h1 style='float: left; font-size: 1.4em; font-weight: 500; color:rgb(255, 255, 255); margin: 0px; padding: 0px; margin-right: 5px;' title='Absolute Legend'>Subscriber Wars Gaming</h1>
+                <h1 style='float: left; font-size: 1.4em; font-weight: 500; color:rgb(255, 255, 255); margin: 0px; padding: 0px; margin-right: 5px;' title='Absolute Legend'>JayMBurtonSW</h1>
             </div>
             <br><br>
             <div style='clear:both'></div>
@@ -65,7 +65,7 @@
     </div>
     <div id="user-menu">
         <a href="/index.html">Home</a>
-        <a href="/swstats/swg.html" target="_blank">Live Sub Count</a>
+        <a href="/youtube/next?u=UClx-t76jqvFTcBxQsQBYJWA" target="_blank">Live Sub Count</a>
         <a href="https://youtube.com/channel/UClx-t76jqvFTcBxQsQBYJWA" target="_blank">View Channel</a>
 
     </div>
@@ -75,7 +75,7 @@
                 <div style='width: 600px; float: left; font-size: 8pt;'>
                     <div style='clear: both;'></div>
                     <div style='width: 600px; background:rgb(15,15,15); padding: 10px 20px; text-transform: uppercase; color: rgb(255, 255, 255);'>
-                        <h2 style='font-size: 10pt; font-weight: 500;'>Last 30 Days for Subscriber Wars Gaming  (From SocialBlade.com)</h2>
+                        <h2 style='font-size: 10pt; font-weight: 500;'>Last 30 Days for JayMBurtonSW</h2>
                     </div>
                     <div style='width: 600px; height: 30px; line-height: 30px; background: rgb(26,26,26); padding: 0px 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 10pt;'>
                         <div style='width: 120px; float: left;'>date</div>
@@ -288,13 +288,6 @@
                         <div style='float: left; width: 120px;' id='viewgain29'>--</div>
                         <div style='float: left; width: 120px;' id='views29'>0</div>
                     </div>
-                    <div style='background: rgb(38, 38, 38); width: 600px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date30'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain30'>--</div>
-                        <div style='float: left; width: 120px;' id='subs30'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain30'>--</div>
-                        <div style='float: left; width: 120px;' id='views30'>0</div>
-                    </div>
                     <!--Averages-->
                     <div style='background: rgb(26, 26, 26); width: 600px; height: 64px; line-height: 64px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt;'>
                         <div style='float: left; width: 120px;'>7 Day Avg</div>
@@ -323,6 +316,13 @@
                             getID()
                         </script>
                     </div>
+                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Daily Subscribers</div>
+                    <div id='month-subs' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
+                    <div id='month-subs-gain' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
+                    <div id='life-subs' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>
+                    <div style='width: 560px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Daily Views</div>
+                    <div id='month-views' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
+                    <div id='month-views-gain' style='width: 600px; height: 200px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>    
                 </div>
             </div>
         </div>
@@ -330,69 +330,677 @@
 </body>	
 
 <script type="text/javascript">//main stats
-    var string=''; string +='';
-
-    function maindata() {
-        fetch('https://api.subscriberwars.space/youtube/channel/UClx-t76jqvFTcBxQsQBYJWA').then(res => res.json()).then(data => {
-            if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)} 
-            if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
-            if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
-            if (data.items[0].statistics.subscriberCount>10000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
-            if (data.items[0].statistics.subscriberCount>10000) {string +='K'}
-            if (data.items[0].statistics.subscriberCount>100000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
-            if (data.items[0].statistics.subscriberCount>100000) {string +='K'}
-            subscribercount.innerHTML=string
-            viewcount.innerHTML=data.items[0].statistics.viewCount.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            videocount.innerHTML=data.items[0].statistics.videoCount.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            UserTopInfoAvatar.src=data.items[0].snippet.thumbnails.medium.url
-    });
-    }
 
     function dailydata() {
-        fetch('https://api.subscriberwars.space/sb/yt/UClx-t76jqvFTcBxQsQBYJWA').then(res => res.json()).then(data => {
-            date1.innerHTML=data.data.daily[29].date; subs1.innerHTML=data.data.daily[29].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views1.innerHTML=data.data.daily[29].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            date2.innerHTML=data.data.daily[28].date; subs2.innerHTML=data.data.daily[28].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views2.innerHTML=data.data.daily[28].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain2').innerHTML=data.data.daily[28].subs-data.data.daily[29].subs; if(data.data.daily[28].subs>data.data.daily[29].subs){document.getElementById('subgain2').style.color='#1bed0c'}; if(data.data.daily[28].subs<data.data.daily[29].subs){document.getElementById('subgain2').style.color='#ed2121'}; document.getElementById('viewgain2').innerHTML=(data.data.daily[28].views-data.data.daily[29].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[28].views>data.data.daily[29].views){document.getElementById('viewgain2').style.color='#1bed0c'}; if(data.data.daily[28].views<data.data.daily[29].views){document.getElementById('viewgain2').style.color='#ed2121'};
-            date3.innerHTML=data.data.daily[27].date; subs3.innerHTML=data.data.daily[27].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views3.innerHTML=data.data.daily[27].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain3').innerHTML=data.data.daily[27].subs-data.data.daily[28].subs; if(data.data.daily[27].subs>data.data.daily[28].subs){document.getElementById('subgain3').style.color='#1bed0c'}; if(data.data.daily[27].subs<data.data.daily[28].subs){document.getElementById('subgain3').style.color='#ed2121'}; document.getElementById('viewgain3').innerHTML=(data.data.daily[27].views-data.data.daily[28].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[27].views>data.data.daily[28].views){document.getElementById('viewgain3').style.color='#1bed0c'}; if(data.data.daily[27].views<data.data.daily[28].views){document.getElementById('viewgain3').style.color='#ed2121'};
-            date4.innerHTML=data.data.daily[26].date; subs4.innerHTML=data.data.daily[26].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views4.innerHTML=data.data.daily[26].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain4').innerHTML=data.data.daily[26].subs-data.data.daily[27].subs; if(data.data.daily[26].subs>data.data.daily[27].subs){document.getElementById('subgain4').style.color='#1bed0c'}; if(data.data.daily[26].subs<data.data.daily[27].subs){document.getElementById('subgain4').style.color='#ed2121'}; document.getElementById('viewgain4').innerHTML=(data.data.daily[26].views-data.data.daily[27].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[26].views>data.data.daily[27].views){document.getElementById('viewgain4').style.color='#1bed0c'}; if(data.data.daily[26].views<data.data.daily[27].views){document.getElementById('viewgain4').style.color='#ed2121'};
-            date5.innerHTML=data.data.daily[25].date; subs5.innerHTML=data.data.daily[25].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views5.innerHTML=data.data.daily[25].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain5').innerHTML=data.data.daily[25].subs-data.data.daily[26].subs; if(data.data.daily[25].subs>data.data.daily[26].subs){document.getElementById('subgain5').style.color='#1bed0c'}; if(data.data.daily[25].subs<data.data.daily[26].subs){document.getElementById('subgain5').style.color='#ed2121'}; document.getElementById('viewgain5').innerHTML=(data.data.daily[25].views-data.data.daily[26].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[25].views>data.data.daily[26].views){document.getElementById('viewgain5').style.color='#1bed0c'}; if(data.data.daily[25].views<data.data.daily[26].views){document.getElementById('viewgain5').style.color='#ed2121'};
-            date6.innerHTML=data.data.daily[24].date; subs6.innerHTML=data.data.daily[24].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views6.innerHTML=data.data.daily[24].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain6').innerHTML=data.data.daily[24].subs-data.data.daily[25].subs; if(data.data.daily[24].subs>data.data.daily[25].subs){document.getElementById('subgain6').style.color='#1bed0c'}; if(data.data.daily[24].subs<data.data.daily[25].subs){document.getElementById('subgain6').style.color='#ed2121'}; document.getElementById('viewgain6').innerHTML=(data.data.daily[24].views-data.data.daily[25].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[24].views>data.data.daily[25].views){document.getElementById('viewgain6').style.color='#1bed0c'}; if(data.data.daily[24].views<data.data.daily[25].views){document.getElementById('viewgain6').style.color='#ed2121'};
-            date7.innerHTML=data.data.daily[23].date; subs7.innerHTML=data.data.daily[23].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views7.innerHTML=data.data.daily[23].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain7').innerHTML=data.data.daily[23].subs-data.data.daily[24].subs; if(data.data.daily[23].subs>data.data.daily[24].subs){document.getElementById('subgain7').style.color='#1bed0c'}; if(data.data.daily[23].subs<data.data.daily[24].subs){document.getElementById('subgain7').style.color='#ed2121'}; document.getElementById('viewgain7').innerHTML=(data.data.daily[23].views-data.data.daily[24].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[23].views>data.data.daily[24].views){document.getElementById('viewgain7').style.color='#1bed0c'}; if(data.data.daily[23].views<data.data.daily[24].views){document.getElementById('viewgain7').style.color='#ed2121'};
-            date8.innerHTML=data.data.daily[22].date; subs8.innerHTML=data.data.daily[22].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views8.innerHTML=data.data.daily[22].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain8').innerHTML=data.data.daily[22].subs-data.data.daily[23].subs; if(data.data.daily[22].subs>data.data.daily[23].subs){document.getElementById('subgain8').style.color='#1bed0c'}; if(data.data.daily[22].subs<data.data.daily[23].subs){document.getElementById('subgain8').style.color='#ed2121'}; document.getElementById('viewgain8').innerHTML=(data.data.daily[22].views-data.data.daily[23].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[22].views>data.data.daily[23].views){document.getElementById('viewgain8').style.color='#1bed0c'}; if(data.data.daily[22].views<data.data.daily[23].views){document.getElementById('viewgain8').style.color='#ed2121'};
-            date9.innerHTML=data.data.daily[21].date; subs9.innerHTML=data.data.daily[21].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views9.innerHTML=data.data.daily[21].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain9').innerHTML=data.data.daily[21].subs-data.data.daily[22].subs; if(data.data.daily[21].subs>data.data.daily[22].subs){document.getElementById('subgain9').style.color='#1bed0c'}; if(data.data.daily[21].subs<data.data.daily[22].subs){document.getElementById('subgain9').style.color='#ed2121'}; document.getElementById('viewgain9').innerHTML=(data.data.daily[21].views-data.data.daily[22].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[21].views>data.data.daily[22].views){document.getElementById('viewgain9').style.color='#1bed0c'}; if(data.data.daily[21].views<data.data.daily[22].views){document.getElementById('viewgain9').style.color='#ed2121'};
-            date10.innerHTML=data.data.daily[20].date; subs10.innerHTML=data.data.daily[20].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views10.innerHTML=data.data.daily[20].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain10').innerHTML=data.data.daily[20].subs-data.data.daily[21].subs; if(data.data.daily[20].subs>data.data.daily[21].subs){document.getElementById('subgain10').style.color='#1bed0c'}; if(data.data.daily[20].subs<data.data.daily[21].subs){document.getElementById('subgain10').style.color='#ed2121'}; document.getElementById('viewgain10').innerHTML=(data.data.daily[20].views-data.data.daily[21].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[20].views>data.data.daily[21].views){document.getElementById('viewgain10').style.color='#1bed0c'}; if(data.data.daily[20].views<data.data.daily[21].views){document.getElementById('viewgain10').style.color='#ed2121'};
-            date11.innerHTML=data.data.daily[19].date; subs11.innerHTML=data.data.daily[19].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views11.innerHTML=data.data.daily[19].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain11').innerHTML=data.data.daily[19].subs-data.data.daily[20].subs; if(data.data.daily[19].subs>data.data.daily[20].subs){document.getElementById('subgain11').style.color='#1bed0c'}; if(data.data.daily[19].subs<data.data.daily[20].subs){document.getElementById('subgain11').style.color='#ed2121'}; document.getElementById('viewgain11').innerHTML=(data.data.daily[19].views-data.data.daily[20].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[19].views>data.data.daily[20].views){document.getElementById('viewgain11').style.color='#1bed0c'}; if(data.data.daily[19].views<data.data.daily[20].views){document.getElementById('viewgain11').style.color='#ed2121'};
-            date12.innerHTML=data.data.daily[18].date; subs12.innerHTML=data.data.daily[18].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views12.innerHTML=data.data.daily[18].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain12').innerHTML=data.data.daily[18].subs-data.data.daily[19].subs; if(data.data.daily[18].subs>data.data.daily[19].subs){document.getElementById('subgain12').style.color='#1bed0c'}; if(data.data.daily[18].subs<data.data.daily[19].subs){document.getElementById('subgain12').style.color='#ed2121'}; document.getElementById('viewgain12').innerHTML=(data.data.daily[18].views-data.data.daily[19].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[18].views>data.data.daily[19].views){document.getElementById('viewgain12').style.color='#1bed0c'}; if(data.data.daily[18].views<data.data.daily[19].views){document.getElementById('viewgain12').style.color='#ed2121'};
-            date13.innerHTML=data.data.daily[17].date; subs13.innerHTML=data.data.daily[17].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views13.innerHTML=data.data.daily[17].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain13').innerHTML=data.data.daily[17].subs-data.data.daily[18].subs; if(data.data.daily[17].subs>data.data.daily[18].subs){document.getElementById('subgain13').style.color='#1bed0c'}; if(data.data.daily[17].subs<data.data.daily[18].subs){document.getElementById('subgain13').style.color='#ed2121'}; document.getElementById('viewgain13').innerHTML=(data.data.daily[17].views-data.data.daily[18].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[17].views>data.data.daily[18].views){document.getElementById('viewgain13').style.color='#1bed0c'}; if(data.data.daily[17].views<data.data.daily[18].views){document.getElementById('viewgain13').style.color='#ed2121'};
-            date14.innerHTML=data.data.daily[16].date; subs14.innerHTML=data.data.daily[16].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views14.innerHTML=data.data.daily[16].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain14').innerHTML=data.data.daily[16].subs-data.data.daily[17].subs; if(data.data.daily[16].subs>data.data.daily[17].subs){document.getElementById('subgain14').style.color='#1bed0c'}; if(data.data.daily[16].subs<data.data.daily[17].subs){document.getElementById('subgain14').style.color='#ed2121'}; document.getElementById('viewgain14').innerHTML=(data.data.daily[16].views-data.data.daily[17].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[16].views>data.data.daily[17].views){document.getElementById('viewgain14').style.color='#1bed0c'}; if(data.data.daily[16].views<data.data.daily[17].views){document.getElementById('viewgain14').style.color='#ed2121'};
-            date15.innerHTML=data.data.daily[15].date; subs15.innerHTML=data.data.daily[15].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views15.innerHTML=data.data.daily[15].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain15').innerHTML=data.data.daily[15].subs-data.data.daily[16].subs; if(data.data.daily[15].subs>data.data.daily[16].subs){document.getElementById('subgain15').style.color='#1bed0c'}; if(data.data.daily[15].subs<data.data.daily[16].subs){document.getElementById('subgain15').style.color='#ed2121'}; document.getElementById('viewgain15').innerHTML=(data.data.daily[15].views-data.data.daily[16].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[15].views>data.data.daily[16].views){document.getElementById('viewgain15').style.color='#1bed0c'}; if(data.data.daily[15].views<data.data.daily[16].views){document.getElementById('viewgain15').style.color='#ed2121'};
-            date16.innerHTML=data.data.daily[14].date; subs16.innerHTML=data.data.daily[14].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views16.innerHTML=data.data.daily[14].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain16').innerHTML=data.data.daily[14].subs-data.data.daily[15].subs; if(data.data.daily[14].subs>data.data.daily[15].subs){document.getElementById('subgain16').style.color='#1bed0c'}; if(data.data.daily[14].subs<data.data.daily[15].subs){document.getElementById('subgain16').style.color='#ed2121'}; document.getElementById('viewgain16').innerHTML=(data.data.daily[14].views-data.data.daily[15].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[14].views>data.data.daily[15].views){document.getElementById('viewgain16').style.color='#1bed0c'}; if(data.data.daily[14].views<data.data.daily[15].views){document.getElementById('viewgain16').style.color='#ed2121'};
-            date17.innerHTML=data.data.daily[13].date; subs17.innerHTML=data.data.daily[13].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views17.innerHTML=data.data.daily[13].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain17').innerHTML=data.data.daily[13].subs-data.data.daily[14].subs; if(data.data.daily[13].subs>data.data.daily[14].subs){document.getElementById('subgain17').style.color='#1bed0c'}; if(data.data.daily[13].subs<data.data.daily[14].subs){document.getElementById('subgain17').style.color='#ed2121'}; document.getElementById('viewgain17').innerHTML=(data.data.daily[13].views-data.data.daily[14].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[13].views>data.data.daily[14].views){document.getElementById('viewgain17').style.color='#1bed0c'}; if(data.data.daily[13].views<data.data.daily[14].views){document.getElementById('viewgain17').style.color='#ed2121'};
-            date18.innerHTML=data.data.daily[12].date; subs18.innerHTML=data.data.daily[12].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views18.innerHTML=data.data.daily[12].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain18').innerHTML=data.data.daily[12].subs-data.data.daily[13].subs; if(data.data.daily[12].subs>data.data.daily[13].subs){document.getElementById('subgain18').style.color='#1bed0c'}; if(data.data.daily[12].subs<data.data.daily[13].subs){document.getElementById('subgain18').style.color='#ed2121'}; document.getElementById('viewgain18').innerHTML=(data.data.daily[12].views-data.data.daily[13].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[12].views>data.data.daily[13].views){document.getElementById('viewgain18').style.color='#1bed0c'}; if(data.data.daily[12].views<data.data.daily[13].views){document.getElementById('viewgain18').style.color='#ed2121'};
-            date19.innerHTML=data.data.daily[11].date; subs19.innerHTML=data.data.daily[11].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views19.innerHTML=data.data.daily[11].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain19').innerHTML=data.data.daily[11].subs-data.data.daily[12].subs; if(data.data.daily[11].subs>data.data.daily[12].subs){document.getElementById('subgain19').style.color='#1bed0c'}; if(data.data.daily[11].subs<data.data.daily[12].subs){document.getElementById('subgain19').style.color='#ed2121'}; document.getElementById('viewgain19').innerHTML=(data.data.daily[11].views-data.data.daily[12].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[11].views>data.data.daily[12].views){document.getElementById('viewgain19').style.color='#1bed0c'}; if(data.data.daily[11].views<data.data.daily[12].views){document.getElementById('viewgain19').style.color='#ed2121'};
-            date20.innerHTML=data.data.daily[10].date; subs20.innerHTML=data.data.daily[10].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views20.innerHTML=data.data.daily[10].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain20').innerHTML=data.data.daily[10].subs-data.data.daily[11].subs; if(data.data.daily[10].subs>data.data.daily[11].subs){document.getElementById('subgain20').style.color='#1bed0c'}; if(data.data.daily[10].subs<data.data.daily[11].subs){document.getElementById('subgain20').style.color='#ed2121'}; document.getElementById('viewgain20').innerHTML=(data.data.daily[10].views-data.data.daily[11].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[10].views>data.data.daily[11].views){document.getElementById('viewgain20').style.color='#1bed0c'}; if(data.data.daily[10].views<data.data.daily[11].views){document.getElementById('viewgain20').style.color='#ed2121'};
-            date21.innerHTML=data.data.daily[9].date; subs21.innerHTML=data.data.daily[9].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views21.innerHTML=data.data.daily[9].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain21').innerHTML=data.data.daily[9].subs-data.data.daily[10].subs; if(data.data.daily[9].subs>data.data.daily[10].subs){document.getElementById('subgain21').style.color='#1bed0c'}; if(data.data.daily[9].subs<data.data.daily[10].subs){document.getElementById('subgain21').style.color='#ed2121'}; document.getElementById('viewgain21').innerHTML=(data.data.daily[9].views-data.data.daily[10].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[9].views>data.data.daily[10].views){document.getElementById('viewgain21').style.color='#1bed0c'}; if(data.data.daily[9].views<data.data.daily[10].views){document.getElementById('viewgain21').style.color='#ed2121'};
-            date22.innerHTML=data.data.daily[8].date; subs22.innerHTML=data.data.daily[8].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views22.innerHTML=data.data.daily[8].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain22').innerHTML=data.data.daily[8].subs-data.data.daily[9].subs; if(data.data.daily[8].subs>data.data.daily[9].subs){document.getElementById('subgain22').style.color='#1bed0c'}; if(data.data.daily[8].subs<data.data.daily[9].subs){document.getElementById('subgain22').style.color='#ed2121'}; document.getElementById('viewgain22').innerHTML=(data.data.daily[8].views-data.data.daily[9].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[8].views>data.data.daily[9].views){document.getElementById('viewgain22').style.color='#1bed0c'}; if(data.data.daily[8].views<data.data.daily[9].views){document.getElementById('viewgain22').style.color='#ed2121'};
-            date23.innerHTML=data.data.daily[7].date; subs23.innerHTML=data.data.daily[7].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views23.innerHTML=data.data.daily[7].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain23').innerHTML=data.data.daily[7].subs-data.data.daily[8].subs; if(data.data.daily[7].subs>data.data.daily[8].subs){document.getElementById('subgain23').style.color='#1bed0c'}; if(data.data.daily[7].subs<data.data.daily[8].subs){document.getElementById('subgain23').style.color='#ed2121'}; document.getElementById('viewgain23').innerHTML=(data.data.daily[7].views-data.data.daily[8].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[7].views>data.data.daily[8].views){document.getElementById('viewgain23').style.color='#1bed0c'}; if(data.data.daily[7].views<data.data.daily[8].views){document.getElementById('viewgain23').style.color='#ed2121'};
-            date24.innerHTML=data.data.daily[6].date; subs24.innerHTML=data.data.daily[6].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views24.innerHTML=data.data.daily[6].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain24').innerHTML=data.data.daily[6].subs-data.data.daily[7].subs; if(data.data.daily[6].subs>data.data.daily[7].subs){document.getElementById('subgain24').style.color='#1bed0c'}; if(data.data.daily[6].subs<data.data.daily[7].subs){document.getElementById('subgain24').style.color='#ed2121'}; document.getElementById('viewgain24').innerHTML=(data.data.daily[6].views-data.data.daily[7].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[6].views>data.data.daily[7].views){document.getElementById('viewgain24').style.color='#1bed0c'}; if(data.data.daily[6].views<data.data.daily[7].views){document.getElementById('viewgain24').style.color='#ed2121'};
-            date25.innerHTML=data.data.daily[5].date; subs25.innerHTML=data.data.daily[5].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views25.innerHTML=data.data.daily[5].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain25').innerHTML=data.data.daily[5].subs-data.data.daily[6].subs; if(data.data.daily[5].subs>data.data.daily[6].subs){document.getElementById('subgain25').style.color='#1bed0c'}; if(data.data.daily[5].subs<data.data.daily[6].subs){document.getElementById('subgain25').style.color='#ed2121'}; document.getElementById('viewgain25').innerHTML=(data.data.daily[5].views-data.data.daily[6].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[5].views>data.data.daily[6].views){document.getElementById('viewgain25').style.color='#1bed0c'}; if(data.data.daily[5].views<data.data.daily[6].views){document.getElementById('viewgain25').style.color='#ed2121'};
-            date26.innerHTML=data.data.daily[4].date; subs26.innerHTML=data.data.daily[4].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views26.innerHTML=data.data.daily[4].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain26').innerHTML=data.data.daily[4].subs-data.data.daily[5].subs; if(data.data.daily[4].subs>data.data.daily[5].subs){document.getElementById('subgain26').style.color='#1bed0c'}; if(data.data.daily[4].subs<data.data.daily[5].subs){document.getElementById('subgain26').style.color='#ed2121'}; document.getElementById('viewgain26').innerHTML=(data.data.daily[4].views-data.data.daily[5].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[4].views>data.data.daily[5].views){document.getElementById('viewgain26').style.color='#1bed0c'}; if(data.data.daily[4].views<data.data.daily[5].views){document.getElementById('viewgain26').style.color='#ed2121'};
-            date27.innerHTML=data.data.daily[3].date; subs27.innerHTML=data.data.daily[3].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views27.innerHTML=data.data.daily[3].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain27').innerHTML=data.data.daily[3].subs-data.data.daily[4].subs; if(data.data.daily[3].subs>data.data.daily[4].subs){document.getElementById('subgain27').style.color='#1bed0c'}; if(data.data.daily[3].subs<data.data.daily[4].subs){document.getElementById('subgain27').style.color='#ed2121'}; document.getElementById('viewgain27').innerHTML=(data.data.daily[3].views-data.data.daily[4].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[3].views>data.data.daily[4].views){document.getElementById('viewgain27').style.color='#1bed0c'}; if(data.data.daily[3].views<data.data.daily[4].views){document.getElementById('viewgain27').style.color='#ed2121'};
-            date28.innerHTML=data.data.daily[2].date; subs28.innerHTML=data.data.daily[2].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views28.innerHTML=data.data.daily[2].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain28').innerHTML=data.data.daily[2].subs-data.data.daily[3].subs; if(data.data.daily[2].subs>data.data.daily[3].subs){document.getElementById('subgain28').style.color='#1bed0c'}; if(data.data.daily[2].subs<data.data.daily[3].subs){document.getElementById('subgain28').style.color='#ed2121'}; document.getElementById('viewgain28').innerHTML=(data.data.daily[2].views-data.data.daily[3].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[2].views>data.data.daily[3].views){document.getElementById('viewgain28').style.color='#1bed0c'}; if(data.data.daily[2].views<data.data.daily[3].views){document.getElementById('viewgain28').style.color='#ed2121'};
-            date29.innerHTML=data.data.daily[1].date; subs29.innerHTML=data.data.daily[1].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views29.innerHTML=data.data.daily[1].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain29').innerHTML=data.data.daily[1].subs-data.data.daily[2].subs; if(data.data.daily[1].subs>data.data.daily[2].subs){document.getElementById('subgain29').style.color='#1bed0c'}; if(data.data.daily[1].subs<data.data.daily[2].subs){document.getElementById('subgain29').style.color='#ed2121'}; document.getElementById('viewgain29').innerHTML=(data.data.daily[1].views-data.data.daily[2].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[1].views>data.data.daily[2].views){document.getElementById('viewgain29').style.color='#1bed0c'}; if(data.data.daily[1].views<data.data.daily[2].views){document.getElementById('viewgain29').style.color='#ed2121'};
-            date30.innerHTML=data.data.daily[0].date; subs30.innerHTML=data.data.daily[0].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); views30.innerHTML=data.data.daily[0].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain30').innerHTML=data.data.daily[0].subs-data.data.daily[1].subs; if(data.data.daily[0].subs>data.data.daily[1].subs){document.getElementById('subgain30').style.color='#1bed0c'}; if(data.data.daily[0].subs<data.data.daily[1].subs){document.getElementById('subgain30').style.color='#ed2121'}; document.getElementById('viewgain30').innerHTML=(data.data.daily[0].views-data.data.daily[1].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.data.daily[0].views>data.data.daily[1].views){document.getElementById('viewgain30').style.color='#1bed0c'}; if(data.data.daily[0].views<data.data.daily[1].views){document.getElementById('viewgain30').style.color='#ed2121'};
-            sub7d.innerHTML=Math.round(((data.data.daily[0].subs-data.data.daily[6].subs)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].subs-data.data.daily[6].subs)/7)>0){document.getElementById('sub7d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].subs-data.data.daily[6].subs)/7)<0){document.getElementById('sub7d').style.color='#ed2121'};
-            sub30d.innerHTML=Math.round(((data.data.daily[0].subs-data.data.daily[29].subs)/30)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].subs-data.data.daily[29].subs)/30)>0){document.getElementById('sub30d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].subs-data.data.daily[29].subs)/7)<0){document.getElementById('sub30d').style.color='#ed2121'};
-            view7d.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[6].views)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)>0){document.getElementById('view7d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[6].views)/7)<0){document.getElementById('view7d').style.color='#ed2121'};
-            view30d.innerHTML=Math.round(((data.data.daily[0].views-data.data.daily[29].views)/30)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.data.daily[0].views-data.data.daily[29].views)/30)>0){document.getElementById('view30d').style.color='#1bed0c'}; if(Math.round((data.data.daily[0].views-data.data.daily[29].views)/7)<0){document.getElementById('view30d').style.color='#ed2121'};
-            sbrank.innerHTML=data.data.misc.grade.grade; document.getElementById('sbrank').style.color=data.data.misc.grade.color;
-            created.innerHTML=data.data.general.created_at;
-            country.innerHTML=data.data.general.geo.country;
-            srank.innerHTML=data.data.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            vrank.innerHTML=data.data.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }); 
-    }
+        //YTStudio
+        fetch('https://api.subscriberwars.space/jaymburtonsw').then(res =>res.json()).then(data => {
+            UserTopInfoAvatar.src=data.socialblade.general.branding.avatar.replace("s88","s400");
+            viewcount.innerHTML=data.socialblade.statistics.total.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            subscribercount.innerHTML=data.totals.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            videocount.innerHTML=data.socialblade.statistics.total.uploads;
+            sbrank.innerHTML=data.socialblade.misc.grade.grade; document.getElementById('sbrank').style.color=data.socialblade.misc.grade.color;
+            created.innerHTML=data.socialblade.general.created_at;
+            country.innerHTML=data.socialblade.general.geo.country;
+            srank.innerHTML=data.socialblade.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            vrank.innerHTML=data.socialblade.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            date1.innerHTML=data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs1.innerHTML=data.d30.metric[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            date2.innerHTML=data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs2.innerHTML=data.d30.metric[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain2').innerHTML=data.d30.metric[1]-data.d30.metric[0]; if(data.d30.metric[1]>data.d30.metric[0]){document.getElementById('subgain2').style.color='#1bed0c'}; if(data.d30.metric[1]<data.d30.metric[0]){document.getElementById('subgain2').style.color='#ed2121'};
+            date3.innerHTML=data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs3.innerHTML=data.d30.metric[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain3').innerHTML=data.d30.metric[2]-data.d30.metric[1]; if(data.d30.metric[2]>data.d30.metric[1]){document.getElementById('subgain3').style.color='#1bed0c'}; if(data.d30.metric[2]<data.d30.metric[1]){document.getElementById('subgain3').style.color='#ed2121'};
+            date4.innerHTML=data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs4.innerHTML=data.d30.metric[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain4').innerHTML=data.d30.metric[3]-data.d30.metric[2]; if(data.d30.metric[3]>data.d30.metric[2]){document.getElementById('subgain4').style.color='#1bed0c'}; if(data.d30.metric[3]<data.d30.metric[2]){document.getElementById('subgain4').style.color='#ed2121'};
+            date5.innerHTML=data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs5.innerHTML=data.d30.metric[4].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain5').innerHTML=data.d30.metric[4]-data.d30.metric[3]; if(data.d30.metric[4]>data.d30.metric[3]){document.getElementById('subgain5').style.color='#1bed0c'}; if(data.d30.metric[4]<data.d30.metric[3]){document.getElementById('subgain5').style.color='#ed2121'};
+            date6.innerHTML=data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs6.innerHTML=data.d30.metric[5].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain6').innerHTML=data.d30.metric[5]-data.d30.metric[4]; if(data.d30.metric[5]>data.d30.metric[4]){document.getElementById('subgain6').style.color='#1bed0c'}; if(data.d30.metric[5]<data.d30.metric[4]){document.getElementById('subgain6').style.color='#ed2121'};
+            date7.innerHTML=data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs7.innerHTML=data.d30.metric[6].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain7').innerHTML=data.d30.metric[6]-data.d30.metric[5]; if(data.d30.metric[6]>data.d30.metric[5]){document.getElementById('subgain7').style.color='#1bed0c'}; if(data.d30.metric[6]<data.d30.metric[5]){document.getElementById('subgain7').style.color='#ed2121'};
+            date8.innerHTML=data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs8.innerHTML=data.d30.metric[7].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain8').innerHTML=data.d30.metric[7]-data.d30.metric[6]; if(data.d30.metric[7]>data.d30.metric[6]){document.getElementById('subgain8').style.color='#1bed0c'}; if(data.d30.metric[7]<data.d30.metric[6]){document.getElementById('subgain8').style.color='#ed2121'};
+            date9.innerHTML=data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs9.innerHTML=data.d30.metric[8].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain9').innerHTML=data.d30.metric[8]-data.d30.metric[7]; if(data.d30.metric[8]>data.d30.metric[7]){document.getElementById('subgain9').style.color='#1bed0c'}; if(data.d30.metric[8]<data.d30.metric[7]){document.getElementById('subgain9').style.color='#ed2121'};
+            date10.innerHTML=data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs10.innerHTML=data.d30.metric[9].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain10').innerHTML=data.d30.metric[9]-data.d30.metric[8]; if(data.d30.metric[9]>data.d30.metric[8]){document.getElementById('subgain10').style.color='#1bed0c'}; if(data.d30.metric[9]<data.d30.metric[8]){document.getElementById('subgain10').style.color='#ed2121'};
+            date11.innerHTML=data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs11.innerHTML=data.d30.metric[10].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain11').innerHTML=data.d30.metric[10]-data.d30.metric[9]; if(data.d30.metric[10]>data.d30.metric[9]){document.getElementById('subgain11').style.color='#1bed0c'}; if(data.d30.metric[10]<data.d30.metric[9]){document.getElementById('subgain11').style.color='#ed2121'};
+            date12.innerHTML=data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs12.innerHTML=data.d30.metric[11].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain12').innerHTML=data.d30.metric[11]-data.d30.metric[10]; if(data.d30.metric[11]>data.d30.metric[10]){document.getElementById('subgain12').style.color='#1bed0c'}; if(data.d30.metric[11]<data.d30.metric[10]){document.getElementById('subgain12').style.color='#ed2121'};
+            date13.innerHTML=data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs13.innerHTML=data.d30.metric[12].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain13').innerHTML=data.d30.metric[12]-data.d30.metric[11]; if(data.d30.metric[12]>data.d30.metric[11]){document.getElementById('subgain13').style.color='#1bed0c'}; if(data.d30.metric[12]<data.d30.metric[11]){document.getElementById('subgain13').style.color='#ed2121'};
+            date14.innerHTML=data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs14.innerHTML=data.d30.metric[13].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain14').innerHTML=data.d30.metric[13]-data.d30.metric[12]; if(data.d30.metric[13]>data.d30.metric[12]){document.getElementById('subgain14').style.color='#1bed0c'}; if(data.d30.metric[13]<data.d30.metric[12]){document.getElementById('subgain14').style.color='#ed2121'};
+            date15.innerHTML=data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs15.innerHTML=data.d30.metric[14].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain15').innerHTML=data.d30.metric[14]-data.d30.metric[13]; if(data.d30.metric[14]>data.d30.metric[13]){document.getElementById('subgain15').style.color='#1bed0c'}; if(data.d30.metric[14]<data.d30.metric[13]){document.getElementById('subgain15').style.color='#ed2121'};
+            date16.innerHTML=data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs16.innerHTML=data.d30.metric[15].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain16').innerHTML=data.d30.metric[15]-data.d30.metric[14]; if(data.d30.metric[15]>data.d30.metric[14]){document.getElementById('subgain16').style.color='#1bed0c'}; if(data.d30.metric[15]<data.d30.metric[14]){document.getElementById('subgain16').style.color='#ed2121'};
+            date17.innerHTML=data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs17.innerHTML=data.d30.metric[16].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain17').innerHTML=data.d30.metric[16]-data.d30.metric[15]; if(data.d30.metric[16]>data.d30.metric[15]){document.getElementById('subgain17').style.color='#1bed0c'}; if(data.d30.metric[16]<data.d30.metric[15]){document.getElementById('subgain17').style.color='#ed2121'};
+            date18.innerHTML=data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs18.innerHTML=data.d30.metric[17].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain18').innerHTML=data.d30.metric[17]-data.d30.metric[16]; if(data.d30.metric[17]>data.d30.metric[16]){document.getElementById('subgain18').style.color='#1bed0c'}; if(data.d30.metric[17]<data.d30.metric[16]){document.getElementById('subgain18').style.color='#ed2121'};
+            date19.innerHTML=data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs19.innerHTML=data.d30.metric[18].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain19').innerHTML=data.d30.metric[18]-data.d30.metric[17]; if(data.d30.metric[18]>data.d30.metric[17]){document.getElementById('subgain19').style.color='#1bed0c'}; if(data.d30.metric[18]<data.d30.metric[17]){document.getElementById('subgain19').style.color='#ed2121'};
+            date20.innerHTML=data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs20.innerHTML=data.d30.metric[19].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain20').innerHTML=data.d30.metric[19]-data.d30.metric[18]; if(data.d30.metric[19]>data.d30.metric[18]){document.getElementById('subgain20').style.color='#1bed0c'}; if(data.d30.metric[19]<data.d30.metric[18]){document.getElementById('subgain20').style.color='#ed2121'};
+            date21.innerHTML=data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs21.innerHTML=data.d30.metric[20].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain21').innerHTML=data.d30.metric[20]-data.d30.metric[19]; if(data.d30.metric[20]>data.d30.metric[19]){document.getElementById('subgain21').style.color='#1bed0c'}; if(data.d30.metric[20]<data.d30.metric[19]){document.getElementById('subgain21').style.color='#ed2121'};
+            date22.innerHTML=data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs22.innerHTML=data.d30.metric[21].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain22').innerHTML=data.d30.metric[21]-data.d30.metric[20]; if(data.d30.metric[21]>data.d30.metric[20]){document.getElementById('subgain22').style.color='#1bed0c'}; if(data.d30.metric[21]<data.d30.metric[20]){document.getElementById('subgain22').style.color='#ed2121'};
+            date23.innerHTML=data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs23.innerHTML=data.d30.metric[22].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain23').innerHTML=data.d30.metric[22]-data.d30.metric[21]; if(data.d30.metric[22]>data.d30.metric[21]){document.getElementById('subgain23').style.color='#1bed0c'}; if(data.d30.metric[22]<data.d30.metric[21]){document.getElementById('subgain23').style.color='#ed2121'};
+            date24.innerHTML=data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs24.innerHTML=data.d30.metric[23].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain24').innerHTML=data.d30.metric[23]-data.d30.metric[22]; if(data.d30.metric[23]>data.d30.metric[22]){document.getElementById('subgain24').style.color='#1bed0c'}; if(data.d30.metric[23]<data.d30.metric[22]){document.getElementById('subgain24').style.color='#ed2121'};
+            date25.innerHTML=data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs25.innerHTML=data.d30.metric[24].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain25').innerHTML=data.d30.metric[24]-data.d30.metric[23]; if(data.d30.metric[24]>data.d30.metric[23]){document.getElementById('subgain25').style.color='#1bed0c'}; if(data.d30.metric[24]<data.d30.metric[23]){document.getElementById('subgain25').style.color='#ed2121'};
+            date26.innerHTML=data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs26.innerHTML=data.d30.metric[25].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain26').innerHTML=data.d30.metric[25]-data.d30.metric[24]; if(data.d30.metric[25]>data.d30.metric[24]){document.getElementById('subgain26').style.color='#1bed0c'}; if(data.d30.metric[25]<data.d30.metric[24]){document.getElementById('subgain26').style.color='#ed2121'};
+            date27.innerHTML=data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs27.innerHTML=data.d30.metric[26].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain27').innerHTML=data.d30.metric[26]-data.d30.metric[25]; if(data.d30.metric[26]>data.d30.metric[25]){document.getElementById('subgain27').style.color='#1bed0c'}; if(data.d30.metric[26]<data.d30.metric[25]){document.getElementById('subgain27').style.color='#ed2121'};
+            date28.innerHTML=data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs28.innerHTML=data.d30.metric[27].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain28').innerHTML=data.d30.metric[27]-data.d30.metric[26]; if(data.d30.metric[27]>data.d30.metric[26]){document.getElementById('subgain28').style.color='#1bed0c'}; if(data.d30.metric[27]<data.d30.metric[26]){document.getElementById('subgain28').style.color='#ed2121'};
+            date29.innerHTML=data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs29.innerHTML=data.d30.metric[28].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain29').innerHTML=data.d30.metric[28]-data.d30.metric[27]; if(data.d30.metric[28]>data.d30.metric[27]){document.getElementById('subgain29').style.color='#1bed0c'}; if(data.d30.metric[28]<data.d30.metric[27]){document.getElementById('subgain29').style.color='#ed2121'};
+            views1.innerHTML=data.socialblade.daily[28].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            views2.innerHTML=data.socialblade.daily[27].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain2').innerHTML=(data.socialblade.daily[27].views-data.socialblade.daily[28].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[27].views>data.socialblade.daily[28].views){document.getElementById('viewgain2').style.color='#1bed0c'}; if(data.socialblade.daily[27].views<data.socialblade.daily[28].views){document.getElementById('viewgain2').style.color='#ed2121'};
+            views3.innerHTML=data.socialblade.daily[26].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain3').innerHTML=(data.socialblade.daily[26].views-data.socialblade.daily[27].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[26].views>data.socialblade.daily[27].views){document.getElementById('viewgain3').style.color='#1bed0c'}; if(data.socialblade.daily[26].views<data.socialblade.daily[27].views){document.getElementById('viewgain3').style.color='#ed2121'};
+            views4.innerHTML=data.socialblade.daily[25].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain4').innerHTML=(data.socialblade.daily[25].views-data.socialblade.daily[26].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[25].views>data.socialblade.daily[26].views){document.getElementById('viewgain4').style.color='#1bed0c'}; if(data.socialblade.daily[25].views<data.socialblade.daily[26].views){document.getElementById('viewgain4').style.color='#ed2121'};
+            views5.innerHTML=data.socialblade.daily[24].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain5').innerHTML=(data.socialblade.daily[24].views-data.socialblade.daily[25].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[24].views>data.socialblade.daily[25].views){document.getElementById('viewgain5').style.color='#1bed0c'}; if(data.socialblade.daily[24].views<data.socialblade.daily[25].views){document.getElementById('viewgain5').style.color='#ed2121'};
+            views6.innerHTML=data.socialblade.daily[23].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain6').innerHTML=(data.socialblade.daily[23].views-data.socialblade.daily[24].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[23].views>data.socialblade.daily[24].views){document.getElementById('viewgain6').style.color='#1bed0c'}; if(data.socialblade.daily[23].views<data.socialblade.daily[24].views){document.getElementById('viewgain6').style.color='#ed2121'};
+            views7.innerHTML=data.socialblade.daily[22].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain7').innerHTML=(data.socialblade.daily[22].views-data.socialblade.daily[23].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[22].views>data.socialblade.daily[23].views){document.getElementById('viewgain7').style.color='#1bed0c'}; if(data.socialblade.daily[22].views<data.socialblade.daily[23].views){document.getElementById('viewgain7').style.color='#ed2121'};
+            views8.innerHTML=data.socialblade.daily[21].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain8').innerHTML=(data.socialblade.daily[21].views-data.socialblade.daily[22].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[21].views>data.socialblade.daily[22].views){document.getElementById('viewgain8').style.color='#1bed0c'}; if(data.socialblade.daily[21].views<data.socialblade.daily[22].views){document.getElementById('viewgain8').style.color='#ed2121'};
+            views9.innerHTML=data.socialblade.daily[20].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain9').innerHTML=(data.socialblade.daily[20].views-data.socialblade.daily[21].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[20].views>data.socialblade.daily[21].views){document.getElementById('viewgain9').style.color='#1bed0c'}; if(data.socialblade.daily[20].views<data.socialblade.daily[21].views){document.getElementById('viewgain9').style.color='#ed2121'};
+            views10.innerHTML=data.socialblade.daily[19].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain10').innerHTML=(data.socialblade.daily[19].views-data.socialblade.daily[20].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[19].views>data.socialblade.daily[20].views){document.getElementById('viewgain10').style.color='#1bed0c'}; if(data.socialblade.daily[19].views<data.socialblade.daily[20].views){document.getElementById('viewgain10').style.color='#ed2121'};
+            views11.innerHTML=data.socialblade.daily[18].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain11').innerHTML=(data.socialblade.daily[18].views-data.socialblade.daily[19].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[18].views>data.socialblade.daily[19].views){document.getElementById('viewgain11').style.color='#1bed0c'}; if(data.socialblade.daily[18].views<data.socialblade.daily[19].views){document.getElementById('viewgain11').style.color='#ed2121'};
+            views12.innerHTML=data.socialblade.daily[17].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain12').innerHTML=(data.socialblade.daily[17].views-data.socialblade.daily[18].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[17].views>data.socialblade.daily[18].views){document.getElementById('viewgain12').style.color='#1bed0c'}; if(data.socialblade.daily[17].views<data.socialblade.daily[18].views){document.getElementById('viewgain12').style.color='#ed2121'};
+            views13.innerHTML=data.socialblade.daily[16].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain13').innerHTML=(data.socialblade.daily[16].views-data.socialblade.daily[17].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[16].views>data.socialblade.daily[17].views){document.getElementById('viewgain13').style.color='#1bed0c'}; if(data.socialblade.daily[16].views<data.socialblade.daily[17].views){document.getElementById('viewgain13').style.color='#ed2121'};
+            views14.innerHTML=data.socialblade.daily[15].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain14').innerHTML=(data.socialblade.daily[15].views-data.socialblade.daily[16].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[15].views>data.socialblade.daily[16].views){document.getElementById('viewgain14').style.color='#1bed0c'}; if(data.socialblade.daily[15].views<data.socialblade.daily[16].views){document.getElementById('viewgain14').style.color='#ed2121'};
+            views15.innerHTML=data.socialblade.daily[14].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain15').innerHTML=(data.socialblade.daily[14].views-data.socialblade.daily[15].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[14].views>data.socialblade.daily[15].views){document.getElementById('viewgain15').style.color='#1bed0c'}; if(data.socialblade.daily[14].views<data.socialblade.daily[15].views){document.getElementById('viewgain15').style.color='#ed2121'};
+            views16.innerHTML=data.socialblade.daily[13].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain16').innerHTML=(data.socialblade.daily[13].views-data.socialblade.daily[14].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[13].views>data.socialblade.daily[14].views){document.getElementById('viewgain16').style.color='#1bed0c'}; if(data.socialblade.daily[13].views<data.socialblade.daily[14].views){document.getElementById('viewgain16').style.color='#ed2121'};
+            views17.innerHTML=data.socialblade.daily[12].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain17').innerHTML=(data.socialblade.daily[12].views-data.socialblade.daily[13].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[12].views>data.socialblade.daily[13].views){document.getElementById('viewgain17').style.color='#1bed0c'}; if(data.socialblade.daily[12].views<data.socialblade.daily[13].views){document.getElementById('viewgain17').style.color='#ed2121'};
+            views18.innerHTML=data.socialblade.daily[11].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain18').innerHTML=(data.socialblade.daily[11].views-data.socialblade.daily[12].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[11].views>data.socialblade.daily[12].views){document.getElementById('viewgain18').style.color='#1bed0c'}; if(data.socialblade.daily[11].views<data.socialblade.daily[12].views){document.getElementById('viewgain18').style.color='#ed2121'};
+            views19.innerHTML=data.socialblade.daily[10].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain19').innerHTML=(data.socialblade.daily[10].views-data.socialblade.daily[11].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[10].views>data.socialblade.daily[11].views){document.getElementById('viewgain19').style.color='#1bed0c'}; if(data.socialblade.daily[10].views<data.socialblade.daily[11].views){document.getElementById('viewgain19').style.color='#ed2121'};
+            views20.innerHTML=data.socialblade.daily[9].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain20').innerHTML=(data.socialblade.daily[9].views-data.socialblade.daily[10].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[9].views>data.socialblade.daily[10].views){document.getElementById('viewgain20').style.color='#1bed0c'}; if(data.socialblade.daily[9].views<data.socialblade.daily[10].views){document.getElementById('viewgain20').style.color='#ed2121'};
+            views21.innerHTML=data.socialblade.daily[8].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain21').innerHTML=(data.socialblade.daily[8].views-data.socialblade.daily[9].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[8].views>data.socialblade.daily[9].views){document.getElementById('viewgain21').style.color='#1bed0c'}; if(data.socialblade.daily[8].views<data.socialblade.daily[9].views){document.getElementById('viewgain21').style.color='#ed2121'};
+            views22.innerHTML=data.socialblade.daily[7].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain22').innerHTML=(data.socialblade.daily[7].views-data.socialblade.daily[8].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[7].views>data.socialblade.daily[8].views){document.getElementById('viewgain22').style.color='#1bed0c'}; if(data.socialblade.daily[7].views<data.socialblade.daily[8].views){document.getElementById('viewgain22').style.color='#ed2121'};
+            views23.innerHTML=data.socialblade.daily[6].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain23').innerHTML=(data.socialblade.daily[6].views-data.socialblade.daily[7].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[6].views>data.socialblade.daily[7].views){document.getElementById('viewgain23').style.color='#1bed0c'}; if(data.socialblade.daily[6].views<data.socialblade.daily[7].views){document.getElementById('viewgain23').style.color='#ed2121'};
+            views24.innerHTML=data.socialblade.daily[5].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain24').innerHTML=(data.socialblade.daily[5].views-data.socialblade.daily[6].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[5].views>data.socialblade.daily[6].views){document.getElementById('viewgain24').style.color='#1bed0c'}; if(data.socialblade.daily[5].views<data.socialblade.daily[6].views){document.getElementById('viewgain24').style.color='#ed2121'};
+            views25.innerHTML=data.socialblade.daily[4].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain25').innerHTML=(data.socialblade.daily[4].views-data.socialblade.daily[5].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[4].views>data.socialblade.daily[5].views){document.getElementById('viewgain25').style.color='#1bed0c'}; if(data.socialblade.daily[4].views<data.socialblade.daily[5].views){document.getElementById('viewgain25').style.color='#ed2121'};
+            views26.innerHTML=data.socialblade.daily[3].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain26').innerHTML=(data.socialblade.daily[3].views-data.socialblade.daily[4].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[3].views>data.socialblade.daily[4].views){document.getElementById('viewgain26').style.color='#1bed0c'}; if(data.socialblade.daily[3].views<data.socialblade.daily[4].views){document.getElementById('viewgain26').style.color='#ed2121'};
+            views27.innerHTML=data.socialblade.daily[2].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain27').innerHTML=(data.socialblade.daily[2].views-data.socialblade.daily[3].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[2].views>data.socialblade.daily[3].views){document.getElementById('viewgain27').style.color='#1bed0c'}; if(data.socialblade.daily[2].views<data.socialblade.daily[3].views){document.getElementById('viewgain27').style.color='#ed2121'};
+            views28.innerHTML=data.socialblade.daily[1].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain28').innerHTML=(data.socialblade.daily[1].views-data.socialblade.daily[2].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[1].views>data.socialblade.daily[2].views){document.getElementById('viewgain28').style.color='#1bed0c'}; if(data.socialblade.daily[1].views<data.socialblade.daily[2].views){document.getElementById('viewgain28').style.color='#ed2121'};
+            views29.innerHTML=data.socialblade.daily[0].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain29').innerHTML=(data.socialblade.daily[0].views-data.socialblade.daily[1].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.socialblade.daily[0].views>data.socialblade.daily[1].views){document.getElementById('viewgain29').style.color='#1bed0c'}; if(data.socialblade.daily[0].views<data.socialblade.daily[1].views){document.getElementById('viewgain29').style.color='#ed2121'};
+            
+            view7d.innerHTML=Math.round(((data.socialblade.daily[0].views-data.socialblade.daily[6].views)/7)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.socialblade.daily[0].views-data.socialblade.daily[6].views)/7)>0){document.getElementById('view7d').style.color='#1bed0c'}; if(Math.round((data.socialblade.daily[0].views-data.socialblade.daily[6].views)/7)<0){document.getElementById('view7d').style.color='#ed2121'};
+            view30d.innerHTML=Math.round(((data.socialblade.daily[0].views-data.socialblade.daily[28].views)/29)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.socialblade.daily[0].views-data.socialblade.daily[29].views)/30)>0){document.getElementById('view30d').style.color='#1bed0c'}; if(Math.round((data.socialblade.daily[0].views-data.socialblade.daily[29].views)/7)<0){document.getElementById('view30d').style.color='#ed2121'};
+            sub7d.innerHTML=Math.round((data.d30.metric[28]-data.d30.metric[22])/7).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.d30.metric[28]-data.d30.metric[22])/7)>0){document.getElementById('sub7d').style.color='#1bed0c'}; if(Math.round((data.d30.metric[28]-data.d30.metric[22])/7)<0){document.getElementById('sub7d').style.color='#ed2121'};
+            sub30d.innerHTML=Math.round((data.d30.metric[28]-data.d30.metric[0])/29).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(Math.round((data.d30.metric[28]-data.d30.metric[0])/29)>0){document.getElementById('sub30d').style.color='#1bed0c'}; if(Math.round((data.d30.metric[28]-data.d30.metric[0])/29)<0){document.getElementById('sub30d').style.color='#ed2121'};
 
-    maindata()
+            Highcharts.chart('month-subs', {
+                chart: {
+                    type: 'spline',
+                    backgroundColor: 'rgb(26,26,26)',
+                    zoomType: 'xy',
+                    style: {
+                        fontFamily: 'roboto',
+                        fontWeight: 'bold',
+                        color: "#fff",
+                    }
+                },
+                title: {
+                    text: 'Total Subscribers (Last 30 Days)',
+                    style:{
+                        color:'#fff',
+                        fontWeight:'500'
+                    }
+                },
+                xAxis: {
+                    tickInterval: 6,
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    categories:[
+                        data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3')
+                    ]
+                },
+                yAxis: {
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    spline: {
+                        color: '#ff0000',
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Subscribers',
+                    showInLegend: false,
+                    style: {
+                        color: '#fff'
+                    },
+                    data: [
+                        data.d30.metric[0],
+                        data.d30.metric[1],
+                        data.d30.metric[2],
+                        data.d30.metric[3],
+                        data.d30.metric[4],
+                        data.d30.metric[5],
+                        data.d30.metric[6],
+                        data.d30.metric[7],
+                        data.d30.metric[8],
+                        data.d30.metric[9],
+                        data.d30.metric[10],
+                        data.d30.metric[11],
+                        data.d30.metric[12],
+                        data.d30.metric[13],
+                        data.d30.metric[14],
+                        data.d30.metric[15],
+                        data.d30.metric[16],
+                        data.d30.metric[17],
+                        data.d30.metric[18],
+                        data.d30.metric[19],
+                        data.d30.metric[20],
+                        data.d30.metric[21],
+                        data.d30.metric[22],
+                        data.d30.metric[23],
+                        data.d30.metric[24],
+                        data.d30.metric[25],
+                        data.d30.metric[26],
+                        data.d30.metric[27],
+                        data.d30.metric[28]
+                    ]
+                }]
+            })
+
+            Highcharts.chart('month-subs-gain', {
+                chart: {
+                    type: 'column',
+                    backgroundColor: 'rgb(26,26,26)',
+                    zoomType: 'xy',
+                    style: {
+                        fontFamily: 'roboto',
+                        fontWeight: 'bold',
+                        color: "#fff",
+                    }
+                },
+                title: {
+                    text: 'Gained Subscribers (last 30 days)',
+                    style:{
+                        color:'#fff',
+                        fontWeight:'500'
+                    }
+                },
+                xAxis: {
+                    tickInterval: 6,
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    categories:[
+                        data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3')
+                    ]
+                },
+                yAxis: {
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    column: {
+                        color: '#ff0000',
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Subscribers',
+                    showInLegend: false,
+                    color: '#ff0000',
+                    data: [
+                        data.d30.metric[1]-data.d30.metric[0],
+                        data.d30.metric[2]-data.d30.metric[1],
+                        data.d30.metric[3]-data.d30.metric[2],
+                        data.d30.metric[4]-data.d30.metric[3],
+                        data.d30.metric[5]-data.d30.metric[4],
+                        data.d30.metric[6]-data.d30.metric[5],
+                        data.d30.metric[7]-data.d30.metric[6],
+                        data.d30.metric[8]-data.d30.metric[7],
+                        data.d30.metric[9]-data.d30.metric[8],
+                        data.d30.metric[10]-data.d30.metric[9],
+                        data.d30.metric[11]-data.d30.metric[10],
+                        data.d30.metric[12]-data.d30.metric[11],
+                        data.d30.metric[13]-data.d30.metric[12],
+                        data.d30.metric[14]-data.d30.metric[13],
+                        data.d30.metric[15]-data.d30.metric[14],
+                        data.d30.metric[16]-data.d30.metric[15],
+                        data.d30.metric[17]-data.d30.metric[16],
+                        data.d30.metric[18]-data.d30.metric[17],
+                        data.d30.metric[19]-data.d30.metric[18],
+                        data.d30.metric[20]-data.d30.metric[19],
+                        data.d30.metric[21]-data.d30.metric[20],
+                        data.d30.metric[22]-data.d30.metric[21],
+                        data.d30.metric[23]-data.d30.metric[22],
+                        data.d30.metric[24]-data.d30.metric[23],
+                        data.d30.metric[25]-data.d30.metric[24],
+                        data.d30.metric[26]-data.d30.metric[25],
+                        data.d30.metric[27]-data.d30.metric[26],
+                        data.d30.metric[28]-data.d30.metric[27]
+                    ]
+                }]
+            })
+            
+            Highcharts.chart('month-views', {
+                chart: {
+                    type: 'spline',
+                    backgroundColor: 'rgb(26,26,26)',
+                    zoomType: 'xy',
+                    style: {
+                        fontFamily: 'roboto',
+                        fontWeight: 'bold',
+                        color: "#fff",
+                    }
+                },
+                title: {
+                    text: 'Total Views (last 30 days)',
+                    style:{
+                        color:'#fff',
+                        fontWeight:'500'
+                    }
+                },
+                xAxis: {
+                    tickInterval: 6,
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    categories:[
+                        data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3')
+                    ]
+                },
+                yAxis: {
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    spline: {
+                        color: '#ff0000',
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Views',
+                    showInLegend: false,
+                    style: {
+                        color: '#fff'
+                    },
+                    data: [
+                        data.socialblade.daily[28].views,
+                        data.socialblade.daily[27].views,
+                        data.socialblade.daily[26].views,
+                        data.socialblade.daily[25].views,
+                        data.socialblade.daily[24].views,
+                        data.socialblade.daily[23].views,
+                        data.socialblade.daily[22].views,
+                        data.socialblade.daily[21].views,
+                        data.socialblade.daily[20].views,
+                        data.socialblade.daily[19].views,
+                        data.socialblade.daily[18].views,
+                        data.socialblade.daily[17].views,
+                        data.socialblade.daily[16].views,
+                        data.socialblade.daily[15].views,
+                        data.socialblade.daily[14].views,
+                        data.socialblade.daily[13].views,
+                        data.socialblade.daily[12].views,
+                        data.socialblade.daily[11].views,
+                        data.socialblade.daily[10].views,
+                        data.socialblade.daily[9].views,
+                        data.socialblade.daily[8].views,
+                        data.socialblade.daily[7].views,
+                        data.socialblade.daily[6].views,
+                        data.socialblade.daily[5].views,
+                        data.socialblade.daily[4].views,
+                        data.socialblade.daily[3].views,
+                        data.socialblade.daily[2].views,
+                        data.socialblade.daily[1].views,
+                        data.socialblade.daily[0].views,
+                    ]
+                }]
+            })
+
+            Highcharts.chart('month-views-gain', {
+                chart: {
+                    type: 'column',
+                    backgroundColor: 'rgb(26,26,26)',
+                    zoomType: 'xy',
+                    style: {
+                        fontFamily: 'roboto',
+                        fontWeight: 'bold',
+                        color: "#fff",
+                    }
+                },
+                title: {
+                    text: 'Gained Views (last 30 days)',
+                    style:{
+                        color:'#fff',
+                        fontWeight:'500'
+                    }
+                },
+                xAxis: {
+                    tickInterval: 6,
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    categories:[
+                        data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
+                        data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3')
+                    ]
+                },
+                yAxis: {
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    column: {
+                        color: '#ff0000',
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Views',
+                    showInLegend: false,
+                    color: '#ff0000',
+                    data: [
+                        data.socialblade.daily[27].views-data.socialblade.daily[28].views,
+                        data.socialblade.daily[26].views-data.socialblade.daily[27].views,
+                        data.socialblade.daily[25].views-data.socialblade.daily[26].views,
+                        data.socialblade.daily[24].views-data.socialblade.daily[25].views,
+                        data.socialblade.daily[23].views-data.socialblade.daily[24].views,
+                        data.socialblade.daily[22].views-data.socialblade.daily[23].views,
+                        data.socialblade.daily[21].views-data.socialblade.daily[22].views,
+                        data.socialblade.daily[20].views-data.socialblade.daily[21].views,
+                        data.socialblade.daily[19].views-data.socialblade.daily[20].views,
+                        data.socialblade.daily[18].views-data.socialblade.daily[19].views,
+                        data.socialblade.daily[17].views-data.socialblade.daily[18].views,
+                        data.socialblade.daily[16].views-data.socialblade.daily[17].views,
+                        data.socialblade.daily[15].views-data.socialblade.daily[16].views,
+                        data.socialblade.daily[14].views-data.socialblade.daily[15].views,
+                        data.socialblade.daily[13].views-data.socialblade.daily[14].views,
+                        data.socialblade.daily[12].views-data.socialblade.daily[13].views,
+                        data.socialblade.daily[11].views-data.socialblade.daily[12].views,
+                        data.socialblade.daily[10].views-data.socialblade.daily[11].views,
+                        data.socialblade.daily[9].views-data.socialblade.daily[10].views,
+                        data.socialblade.daily[8].views-data.socialblade.daily[9].views,
+                        data.socialblade.daily[7].views-data.socialblade.daily[8].views,
+                        data.socialblade.daily[6].views-data.socialblade.daily[7].views,
+                        data.socialblade.daily[5].views-data.socialblade.daily[6].views,
+                        data.socialblade.daily[4].views-data.socialblade.daily[5].views,
+                        data.socialblade.daily[3].views-data.socialblade.daily[4].views,
+                        data.socialblade.daily[2].views-data.socialblade.daily[3].views,
+                        data.socialblade.daily[1].views-data.socialblade.daily[2].views,
+                        data.socialblade.daily[0].views-data.socialblade.daily[1].views,
+                    ]
+                }]
+            })
+        });
+
+    }
     dailydata()
 
+    function lifedata() {
+        fetch('https://api.subscriberwars.space/jaymburtonsw/life').then(res => res.json()).then(data => {
+            let alldimension = []
+            for(let q=0;q<data.dimension.length;q++){
+                alldimension.push(data.dimension[q].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'))
+            }
+            let allmetric = []
+            for(let q=0;q<data.metric.length;q++){
+                allmetric.push(data.metric[q])
+            }
+
+            Highcharts.chart('life-subs', {
+                chart: {
+                    type: 'spline',
+                    backgroundColor: 'rgb(26,26,26)',
+                    zoomType: 'xy',
+                    style: {
+                        fontFamily: 'roboto',
+                        fontWeight: 'bold',
+                        color: "#fff",
+                    }
+                },
+                title: {
+                    text: 'Total Subscribers (Lifetime)',
+                    style:{
+                        color:'#fff',
+                        fontWeight:'500'
+                    }
+                },
+                xAxis: {
+                    tickInterval: 200,
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    categories:
+                        alldimension
+                    
+                },
+                yAxis: {
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    spline: {
+                        color: '#ff0000',
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Subscribers',
+                    showInLegend: false,
+                    style: {
+                        color: '#fff'
+                    },
+                    data: 
+                        allmetric
+                    
+                }]
+            })
+            
+        })
+    }
+    lifedata()
 </script>
