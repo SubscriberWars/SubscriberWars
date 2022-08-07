@@ -16,3 +16,8 @@ div { display: block; }
 .UserTopInfoLight { float: left; margin-right: 20px; text-align: center; }
 .UserTopLight {text-transform: uppercase; font: 0.9em; color: rgb(185, 182, 182); }
 .UserTopInfo { float: left; margin-right: 20px; text-align: center; }
+::-webkit-scrollbar {width: 5px;}
+::-webkit-scrollbar-track {border-radius: 20px;}
+::-webkit-scrollbar-thumb {background: #ff0000;border-radius: 10px;}
+::-webkit-scrollbar-thumb:hover {background: #ff0000;}
+@media screen and (max-width: 992px) {::-webkit-scrollbar {display: none;}}
