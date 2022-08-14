@@ -13,11 +13,11 @@
 <body>
     <div id="count-block">
         <img id="logo" src="" alt="Thumbnail">
-        <h1 id="title">Loading...</h1>
-        <div id='viewscount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
-        <h2>Views</h2>
+        <h1 id="title">This Page Is Not Available At The Moment</h1>
+        <!--<div id='viewscount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
+        <h2>Views</h2>-->
     </div>
-    <div id="mini-counts">
+    <!--<div id="mini-counts">
         <div id="like-box">
             <div id='likecount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 406px;">0</div>
             <h2>Likes</h2>
@@ -30,5 +30,5 @@
             <div id='dislikecount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 406px;">0</div>
             <h2>Dislikes</h2>
         </div>
-    </div>
+    </div>-->
 </body>
