@@ -55,7 +55,7 @@ function checkForNew(chanid) {
     headerImage.src='https://www.banner.yt/'+chanid+'?width=1240';
 
     fetch('https://api.subscriberwars.space/next/yt/'+chanid).then(res => res.json()).then(data => {
-        if(channel=="UCdKLd9f_8ZyDSKxMm16oRww"||channel=="UCluz1vjFgbA3At7-NeE1yBA"){
+        if(channel=="UCdKLd9f_8ZyDSKxMm16oRww"||channel=="UCluz1vjFgbA3At7-NeE1yBA"||channel=="UC7G_LkTLLqeeFVjq0Ry9XQQ"||channel=="UCB3_5M_Wh92aiqv9YxTtb0g"){
         title.innerHTML = data.info.name
         logo.src = data.info.pfp.replace("s88","s400")
         subcount.innerHTML = data.apiCounts.subCount
