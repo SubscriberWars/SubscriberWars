@@ -20,7 +20,7 @@
     <div id="mini-counts">
         <div id="like-box">
             <div id='viewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
-            <h2>Views</h2>
+            <h2>Views (Depricated)</h2>
         </div>
         <div id="comment-box">
             <div id='type' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">Loading...</div>
@@ -65,7 +65,9 @@ function checkForNew(chanid) {
         twitchid = data.iD
         title.innerHTML = data.name
         logo.src = data.logo
-        type.innerHTML = data.type
+        if(data.type=""){type.innerHTML="Default User"}
+        if(data.type="affiliate"){type.innerHTML="Affiliate"}
+        if(data.type="partner"){type.innerHTML="Partner"}
         viewcount.innerHTML = data.viewCount
     });
 }
