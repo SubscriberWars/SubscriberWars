@@ -16,16 +16,34 @@
 </body>
 
 <script>
+    var twitchid = ''
     var channel = window.location.href.split('?u=')[1] || '';
-    function stats(chanid){
-        fetch('https://api.subscriberwars.space/twitter/'+chanid).then(res => res.json()).then(data=>{
-            image.src=data.pfp.replace("normal","400x400")
-            title.innerHTML=data.displayName
-            count.innerHTML=data.followers
-        })
+    
+    function checkForNew(chanid) {
+        fetch('https://api.subscriberwars.space/twitch/user/'+chanid+'')
+        .then(res => res.json()).then(data => {
+            twitchid = data.iD
+            title.innerHTML = data.name
+            image.src = data.logo
+        });
     }
+    
+    
+    function updateStats(id) {
+        fetch('https://api.subscriberwars.space/twitch/'+id+'')
+        .then(res => res.json()).then(data => {
+            count.innerHTML = data.followerCount
+        });
+    }
+    
+    // Intervals
     setInterval(() => {
-    stats(channel)
-}, 2000)
-stats(channel)
-</script>
+        updateStats(twitchid);
+    }, 5000);
+    setInterval(() => {
+        checkForNew(channel)
+    }, 60000);
+    
+    checkForNew(channel)
+    
+    </script>
