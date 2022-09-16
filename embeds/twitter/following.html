@@ -19,7 +19,7 @@
     var channel = window.location.href.split('?u=')[1] || '';
     function stats(chanid){
         fetch('https://api.subscriberwars.space/twitter/'+chanid).then(res => res.json()).then(data=>{
-            image.src=data.pfp
+            image.src=data.pfp.replace("normal","100x100")
             title.innerHTML=data.displayName
             count.innerHTML=data.following
         })
