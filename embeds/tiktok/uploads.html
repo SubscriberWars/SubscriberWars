@@ -30,7 +30,7 @@ function checkForNew(chanid) {
 
 function updateStats(id) {
     fetch('https://api.subscriberwars.space/tiktok/'+id+'').then(res => res.json()).then(data => {
-        count.innerHTML = data.followers
+        count.innerHTML = data.videos
     });
 }
 
