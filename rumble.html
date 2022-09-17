@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Live Rumble Subscriber Count</title>
+    <title id="tab_header">Live Rumble Subscriber Count</title>
     <meta name="description" content="Live Rumble Stats">
     <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
     <link rel="stylesheet" href="https://subscriberwars.space/css/youtube.css">
@@ -43,6 +43,7 @@ var channel = window.location.href.split('?u=')[1] || '';
 
 function update(chanid) {
     fetch('https://api.subscriberwars.space/rumble/'+chanid+'').then(res => res.json()).then(data => {
+        tab_header.innerHTML = data.data.title +"'s Live Rumble Stats"
         title.innerHTML = data.data.title
         followercount.innerHTML= data.data.followers
         videocount.innerHTML= data.data.videos
