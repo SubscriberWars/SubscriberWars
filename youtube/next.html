@@ -35,7 +35,11 @@
         </div>
     </div>
     <div id="credit">
-        <h2><a href="https://nextcounts.com"> Powered by: NextCounts</a></h2>
+        <h2>Powered by: <a href="https://nextcounts.com" target="_blank">Next Counts</a></h2>
+    </div>
+    <div style="width:1260px; height:72px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative;">
+        <h2>Want To Add your True Subscriber Count? <a href="https://nextcounts.com/unabbreviate/" target="_blank">Click Here</a></h2>
+        <h2>Full list of channels with a verified Subscriber Count: <a href="https://subscriberwars.space/next-verified" target="_blank">Here</a></h2>
     </div>
     <div id="graph-block">
         <div id="graph" style="width: 1260px; height: 400px;"></div>
@@ -100,7 +104,29 @@ function checkForNew(chanid) {
             ||channel=="UC842fCOMpJEDefXG9GexNkw"
             ||channel=="UC0x5opn-cy_ZHz0xOUZAXXg"
             ||channel=="UCHbZ17WfuwsnjOEYVnuhanQ"
-
+            ||channel=="UC3ZrayS9HYqdqkvNLKQJpZQ"
+            ||channel=="UCotJIuDV_thnoWI7p7aam5w"
+            ||channel=="UCpTVcgCRH5Un5Xzn0wmCLbQ"
+            ||channel=="UCmWt8AdXLPjaZD-q4jbCxOQ"
+            ||channel=="UChEjbx7s-xBraTpdGYY71ig"
+            ||channel=="UCNJGgbNSky29GEfCRMKM9jA"
+            ||channel=="UCeGCG8SYUIgFO13NyOe6reQ"
+            ||channel=="UCzPZzW4uNL3q4VOpnrLN7Ng"
+            ||channel=="UCva4HrhzkhRroh0NW2z05Gg"
+            ||channel=="UCZw0GEj6Qb9MagDRDhjehVA"
+            ||channel=="UCSyOyapqCeZYmLmLWmjg1bw"
+            ||channel=="UCIomu95JJu_CeVLR4jgxmUg"
+            ||channel=="UCOqoCkdIV_gSd1LjOFFjBuw"
+            ||channel=="UCtGCf2ohvsmUBgLhWiq6jyA"
+            ||channel=="UCQa6XAETFgrp4epsrxo50ew"
+            ||channel=="UC2MEzaNOop0tqj8m06v8owA"
+            ||channel=="UC85hYGnuUV2Efq75dbcLpMQ"
+            ||channel=="UCgG5aRcYGzPPB4UG3mS-ZNg"
+            ||channel=="UCCWeciUzEqEP-4ROSkOdBZQ"
+            ||channel=="UCMV8WFF4yzayXU5sOYt_9tg"
+            ||channel=="UCHEFOnWt-nKCa6RrlOUbr8w"
+            ||channel=="UCHwDPvSxPCgcd1NIlg8FUxQ"
+            ||channel=="UCzxt2-Lbe-9rLsU4gA57Q_g"
         ){
         title.innerHTML = data.info.name
         logo.src = data.info.pfp.replace("s88","s400")
@@ -195,13 +221,13 @@ minorGridLineColor: 'transparent',
 tickColor: 'white'
 },
 credits: {
-enabled: true,
-text: "Subscriberwars.space"
+enabled: false
 },
 series: [{
 showInLegend: false,
 name: 'Subscribers',
 marker: { enabled: false },
+color:'#ff0000',
 lineColor: '#ff0000'
 }]
 });

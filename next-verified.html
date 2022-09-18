@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Verified Subscriber Counts</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>   
+</head>
+<style>
+
+    @media (min-width: 576px){
+        .container{
+            max-width: 540px;
+        }
+    }
+    
+    @media (min-width: 768px){
+        .container{
+            max-width: 720px;
+        }
+    }
+    
+    @media (min-width: 992px){
+        .container{
+            max-width: 960px;
+        }
+    }
+    
+    @media (min-width: 1200px){
+        .container{
+            max-width: 1140px;
+        }
+    }
+    
+    @media (min-width: 576px){
+        .card-columns{
+            column-count: 3;
+            column-gap: 20px;
+            orphans: 1;
+            widows: 1;
+        }
+    }
+    
+    div {
+        display: block;
+    }
+    
+    body {
+        background: #181818;
+        font-family: roboto;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    article {
+        display: block;
+    }
+    
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+    
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+    
+    .col {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+        position: relative;
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .card {
+    position: relative;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: #0f0f0f;
+    border-radius: 10px;
+    height: 200px;
+    margin-bottom: 10px;
+    }
+
+    .card-body {
+        padding: 0.75rem !important;
+    }
+
+    .text-center {
+        text-align: center!important;
+    }
+    
+    .cimg {
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        margin-top: 3px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    
+    .cnb {
+        font-size: 26px;
+        margin-top: 20px;
+        float: left;
+        color: #fff;
+        margin-left: 5px;
+        margin-right: 10px;
+        font-weight: 900;
+    }
+    
+        .subscriberCount {
+            font-size: 15px;
+            color: #fff;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+    
+    .chnam {
+        margin-top: 0px;
+        font-family: 'Roboto';
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 20px;
+        color: #fff;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    h4 {
+        color: #fff;
+        font-size: 20px;
+    }
+
+    p {
+        color: #fff;
+        font-size: 20px;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    </style>
+
+<body>
+    <div style="text-align: center;margin: 5vw;">
+        <h4><strong>Full List of Users with Unabbreviated Subscriber Counts (Via Next Counts)</strong><br><br></h4>
+        <p id="infoPar">Total of Channels: <strong>Loading...</strong> - Total Subscribers: <strong>Loading...</strong></p>
+        <article class="text-left">
+            <div class="container">
+                <div class="row">
+                    <div class="col" id="counters">
+                        <div class="card-columns"></div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</html>
+
+<script type="text/javascript">
+
+$.getJSON("https://api-v2.nextcounts.com/api/youtube/channels/unabbreviated/list", function (data) {
+    let totalCards = 0,
+        cardsAdded = 0;
+
+    //sort the channels by the most subscribers
+    let chanList = data.data.sort(function (a, b) {
+        return b.subs - a.subs;
+    });
+
+    let totalSubs = 0;
+    for (let i = 0; i < chanList.length; i++) {
+        totalSubs += chanList[i].subs;
+    }
+
+    document.getElementById('infoPar').innerHTML = `Total of Channels: <strong>${data.count.toLocaleString()}</strong> - Total Subscribers Counted: <strong>${totalSubs.toLocaleString()}</strong>`;
+
+    for (var i = 0; i < data.count; i++) {
+        let channel = chanList[i];
+
+        //create a card element for each channel
+        let card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `<a href="https://subscriberwars.space/youtube/next?u=${channel.key}"><div class="card-body text-center"><img class="cimg" src="${channel.channelImg}" width="87vw" style="margin-right: 10px;" /><div><h4 class="chnam">${channel.channelName}</h4><h6 class="subscriberCount mb-2">${(channel.subs).toLocaleString()} Subscribers</h6></div></div></a>`;
+
+        document.getElementsByClassName("card-columns")[$('.card-columns').length - 1].appendChild(card);
+
+        if (cardsAdded < 2) {
+            cardsAdded++;
+        } else {
+            cardsAdded = 0;
+            totalCards++;
+            $('counters').append(`<div class="card-columns"></div>`.toString());
+        }
+    }
+});
+</script>
