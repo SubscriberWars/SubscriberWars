@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <title id="tab_header">Spotify Playlist</title>
+    <meta name="description" content="Live Spotify Stats">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/youtube.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="count-block">
+        <img id="logo" style="top: 0px;" src="https://subscriberwars.space/images/sw.png" alt="">
+        <h1 id="title">Loading...</h1>
+        <div id='followercount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
+        <h2>Followers</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="view-box">
+            <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 413px;">0</div>
+            <h2>Tracks</h2>
+        </div>
+        <div id="video-box">
+            <a id="playlink" style="text-decoration: none; top: -60px; position: relative;" target="_blank">
+                <div style="text-align: center; width: 413px; font-size: 30px; height: 120px;">
+                    <p id="play" style="top: 35%; position:relative;"></p>
+                    <h2 style="top: 30px;">Playlist</h2>
+                </div>
+            </a>
+        </div>
+        <div id="api-box">
+            <a id="profilelink" style="text-decoration: none; top: -60px; position: relative;" target="_blank">
+                <div style="text-align: center; width: 413px; font-size: 30px; height: 120px;">
+                    <p id="profile" style="top: 35%; position:relative;"></p>
+                    <h2 style="top: 30px;">Owner</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+<script>
+var channel = window.location.href.split('?u=')[1] || '';
+
+function load(chanid) {
+    fetch('https://api.subscriberwars.space/spotify/playlist/'+chanid+'').then(res => res.json()).then(data => {
+        tab_header.innerHTML = data.name +"'s Playlist Stats"
+        title.innerHTML = data.name
+        followercount.innerHTML= data.followers.total
+        videocount.innerHTML= data.tracks.total
+        logo.src = data.images[0].url
+        playlink.href=data.external_urls.spotify
+        play.innerHTML=data.name
+        profilelink.href=data.owner.external_urls.spotify
+        profile.innerHTML=data.owner.display_name
+    });
+}
+
+// Intervals
+setInterval(() => {
+    load(channel);
+}, 10000);
+
+load(channel)
+
+</script>
