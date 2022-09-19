@@ -57,7 +57,7 @@ function load(chanid) {
 }
 
 function update(chanid) {
-    fetch('https://api.subscriberwars.space/spotify/artist/'+chanid+'').then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/spotify/profiles/'+chanid+'').then(res => res.json()).then(data => {
         followercount.innerHTML= data.followers.total
         graphstat.innerHTML = data.followers.total
         var yep=(graphstat.innerHTML)
