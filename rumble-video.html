@@ -42,13 +42,13 @@
     
     function update(chanid) {
         fetch('https://api.subscriberwars.space/rumble/v/'+chanid+'').then(res => res.json()).then(data => {
-            title.innerHTML = data.title
-            viewscount.innerHTML= data.views
-            likecount.innerHTML= data.rumble_votes.num_votes_up
-            dislikecount.innerHTML= data.rumble_votes.num_votes_down
-            commentcount.innerHTML=data.comments.count
-            logo.src = data.thumbnail
-            graphstat.innerHTML = data.views
+            title.innerHTML = data.data.title
+            viewscount.innerHTML= data.data.views
+            likecount.innerHTML= data.data.rumble_votes.num_votes_up
+            dislikecount.innerHTML= data.data.rumble_votes.num_votes_down
+            commentcount.innerHTML=data.data.comments.count
+            logo.src = data.data.thumbnail
+            graphstat.innerHTML = data.data.views
             var yep=(graphstat.innerHTML)
             console.log(yep)
             var injection=yep
