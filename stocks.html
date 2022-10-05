@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <title id="tab_header">Live Stock Price</title>
+    <meta name="description" content="Live Stocks">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/youtube.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="count-block" style="height: 320px;">
+        <h1 id="title">Loading...</h1>
+        <div id='maincount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
+        <h2 id="currency">currency</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="view-box">
+            <div id='prevcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Previous Close</h2>
+        </div>
+        <div id="video-box">
+            <div id='tradestart' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Trading Since</h2>
+        </div>
+        <div id="api-box">
+            <div id='mtype' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Type</h2>
+        </div>
+    </div>
+    <div id="graph-block">
+        <div id="graph" style="width: 1260px; height: 400px;"></div>
+        <p id="graphstat" style="visibility: hidden;"></p>
+    </div>
+</body>
+
+<script>
+var channel = window.location.href.split('?s=')[1] || '';
+
+function update(chanid) {
+    fetch('https://api.subscriberwars.space/stocks/'+chanid+'/1d').then(res => res.json()).then(data => {
+        tab_header.innerHTML = data.chart.result[0].meta.symbol +" Stock Price"
+        title.innerHTML = data.chart.result[0].meta.symbol
+        maincount.innerHTML= data.chart.result[0].meta.regularMarketPrice
+        currency.innerHTML=data.chart.result[0].meta.currency
+        graphstat.innerHTML = data.chart.result[0].meta.regularMarketPrice
+        prevcount.innerHTML= data.chart.result[0].meta.previousClose
+        mtype.innerHTML=data.chart.result[0].meta.instrumentType
+        var date=new Date(data.chart.result[0].meta.firstTradeDate*1000)
+        var day= '0'+date.getDay()
+        var month= '0'+date.getMonth()
+        var year= date.getFullYear()
+        var hour= '0'+date.getHours()
+        var min= '0'+date.getMinutes()
+        var formatdate= day.substr(-2)+'/'+month.substr(-2)+'/'+year+' @ '+hour.substr(-2)+':'+min.substr(-2)
+        tradestart.innerHTML= formatdate
+        var yep=(graphstat.innerHTML)
+        console.log(yep)
+        var injection=yep
+        if(graph.series[0].points.length>=900)graph.series[0].data[0].remove();
+        graph.series[0].addPoint([Date.now(),parseFloat(injection)])
+    });
+}
+
+// Intervals
+setInterval(() => {
+    update(channel);
+}, 2000);
+
+update(channel)
+
+</script>
+
+<script>//graph styling
+    var graph = new Highcharts.chart({
+chart: {
+renderTo: 'graph',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: 'transparent',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+minorGridLineColor: '#transparent',
+tickColor: 'white',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: 'white',
+minorGridLineColor: 'transparent',
+tickColor: 'white'
+},
+credits: {
+enabled: false,
+text: "Subscriberwars.space"
+},
+series: [{
+showInLegend: false,
+name: 'Price',
+marker: { enabled: false },
+color: 'red',
+lineColor: 'red'
+}]
+});
+</script>
