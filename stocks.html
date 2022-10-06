@@ -50,7 +50,7 @@ function update(chanid) {
         mtype.innerHTML=data.chart.result[0].meta.instrumentType
         var date=new Date(data.chart.result[0].meta.firstTradeDate*1000)
         var day= '0'+date.getDay()
-        var month= '0'+date.getMonth()+1
+        var month= '0'+date.getMonth()
         var year= date.getFullYear()
         var hour= '0'+date.getHours()
         var min= '0'+date.getMinutes()
