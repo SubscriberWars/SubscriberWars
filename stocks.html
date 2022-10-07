@@ -22,8 +22,8 @@
             <h2>Previous Close</h2>
         </div>
         <div id="video-box">
-            <div id='tradestart' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
-            <h2>Trading Since</h2>
+            <div id='changecount' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <div id='changecountp' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
         </div>
         <div id="api-box">
             <div id='mtype' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
@@ -33,6 +33,12 @@
     <div id="graph-block">
         <div id="graph" style="width: 1260px; height: 400px;"></div>
         <p id="graphstat" style="visibility: hidden;"></p>
+    </div>
+    <div id="count-block" style="height: 400px; margin-bottom: 20px;">
+        <h1>How To Use</h1>
+        <h2>We have not figured out how to add a search method to these specific counts so as of now the only option is to manually change the url to suit your needs for example if you want to see the stock price for Tesla after "?s=" you would type "tsla" so the url would then be "https://subscriberwars.space/stocks?s=tsla". Some more examples would be: "twtr", "rum" & "amzn". This page also supports currencies like "gbpusd=x" which is how much £1 is worth in US $, so whatever currencies you want to support works as long as you follow the string with "=x". Another stat is Crypto Currencies like Bitcoin and Dogecoin this is done again in the url after "?s=" followed by the the crypto code (example: BTC) and then the regular currency you want (example: CAD) the end of the url in this case would be "?s=btc-cad" (price of Bitcoin in Canadian $).
+        <br><br>This data is powered by <a href="https://finance.yahoo.com" target="_blank">Yahoo</a>
+        </h2>
     </div>
 </body>
 
@@ -47,15 +53,11 @@ function update(chanid) {
         currency.innerHTML=data.chart.result[0].meta.currency
         graphstat.innerHTML = data.chart.result[0].meta.regularMarketPrice
         prevcount.innerHTML= data.chart.result[0].meta.previousClose
+        changecount.innerHTML= (data.chart.result[0].meta.regularMarketPrice-data.chart.result[0].meta.previousClose).toFixed(3)
+        changecountp.innerHTML= (((data.chart.result[0].meta.regularMarketPrice-data.chart.result[0].meta.previousClose)/data.chart.result[0].meta.regularMarketPrice)*100).toFixed(2)+"%"
+        if(data.chart.result[0].meta.regularMarketPrice-data.chart.result[0].meta.previousClose<0){document.getElementById("changecount").style.color="#ed2121"}else{document.getElementById("changecount").style.color="#1bed0c"}
+        if(data.chart.result[0].meta.regularMarketPrice-data.chart.result[0].meta.previousClose<0){document.getElementById("changecountp").style.color="#ed2121"}else{document.getElementById("changecountp").style.color="#1bed0c"}
         mtype.innerHTML=data.chart.result[0].meta.instrumentType
-        var date=new Date(data.chart.result[0].meta.firstTradeDate*1000)
-        var day= '0'+date.getDay()
-        var month= '0'+date.getMonth()
-        var year= date.getFullYear()
-        var hour= '0'+date.getHours()
-        var min= '0'+date.getMinutes()
-        var formatdate= day.substr(-2)+'/'+month.substr(-2)+'/'+year+' @ '+hour.substr(-2)+':'+min.substr(-2)
-        tradestart.innerHTML= formatdate
         var yep=(graphstat.innerHTML)
         console.log(yep)
         var injection=yep
