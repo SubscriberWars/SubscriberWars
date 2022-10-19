@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<head>
+    <title>Live Twitter Follower Count</title>
+    <meta name="description" content="Live Twitter Stats">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/compare-main.css">
+    <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="count-block">
+        <img class="logo" id="logo" src="https://subscriberwars.space/logo/twitter.svg" alt="">
+        <h1 id="title">Loading...</h1>
+        <div id='followercount' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 100%;">0</div>
+        <h2>Followers</h2>
+        <div id="graph1" style="height: 250px;"></div>
+        <p id="graphstat1"></p>
+    </div>
+    <div id="count-block2">
+        <img class="logo"  id="logob" src="https://subscriberwars.space/logo/twitter.svg" alt="">
+        <h1 id="titleb">Loading...</h1>
+        <div id='followercountb' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 100%;">0</div>
+        <h2>Followers</h2>
+        <div id="graph2" style="height: 250px;"></div>
+        <p id="graphstat2"></p>
+
+    </div>
+    <div id="graph-block">
+        <h1>Difference</h1>
+        <div id='difference' class="odometer odometer-auto-theme" style="font-size: 50pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 100%;">0</div>
+        <div id="graph3" style="height: 250px;"></div>
+        <p id="graphstat3"></p>
+    </div>
+</body>
+
+<script>
+var channel = window.location.href.split('&')[1];
+var channel2 = window.location.href.split('&')[2];
+var gap01=[]
+var gap02=[]
+
+function update(chanid) {
+    fetch('https://api.subscriberwars.space/twitter/'+chanid).then(res => res.json()).then(data => {
+        title.innerHTML = data.displayName
+        followercount.innerHTML= data.followers
+        logo.src = data.pfp.replace("normal","400x400")
+        graphstat1.innerHTML = data.followers
+        gap01= data.followers
+        var yep=(graphstat1.innerHTML)
+        console.log(yep)
+        var injection=yep
+        if(graph1.series[0].points.length>=720)graph1.series[0].data[0].remove();
+        graph1.series[0].addPoint([Date.now(),parseFloat(injection)])
+    });
+}
+function update2(chanid) {
+    fetch('https://api.subscriberwars.space/twitter/'+chanid).then(res => res.json()).then(data => {
+        titleb.innerHTML = data.displayName
+        followercountb.innerHTML= data.followers
+        logob.src = data.pfp.replace("normal","400x400")
+        graphstat2.innerHTML = data.followers
+        gap02= data.followers
+        if(gap01>gap02){difference.innerHTML= gap01-gap02} else{difference.innerHTML= gap02-gap01}
+        if(gap01>gap02){graphstat3.innerHTML= gap01-gap02} else{graphstat3.innerHTML= gap02-gap01}
+        
+        var yep2=(graphstat2.innerHTML)
+        console.log(yep2)
+        var injection2=yep2
+        if(graph2.series[0].points.length>=720)graph2.series[0].data[0].remove();
+        graph2.series[0].addPoint([Date.now(),parseFloat(injection2)])
+        
+        var yep3=(graphstat3.innerHTML)
+        console.log(yep3)
+        var injection3=yep3
+        if(graph3.series[0].points.length>=720)graph3.series[0].data[0].remove();
+        graph3.series[0].addPoint([Date.now(),parseFloat(injection3)])
+    });
+}
+
+// Intervals
+setInterval(() => {
+    update(channel);
+    update2(channel2);
+}, 6000);
+
+update(channel)
+update2(channel2)
+
+</script>
+<script>//graph styling
+    var graph1 = new Highcharts.chart({
+chart: {
+renderTo: 'graph1',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: 'transparent',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+minorGridLineColor: '#transparent',
+tickColor: 'white',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: 'white',
+minorGridLineColor: 'transparent',
+tickColor: 'white'
+},
+credits: {
+enabled: false,
+text: "Subscriberwars.space"
+},
+series: [{
+showInLegend: false,
+name: 'Followers',
+marker: { enabled: false },
+lineColor: '#03d7fc'
+}]
+});
+
+var graph2 = new Highcharts.chart({
+chart: {
+renderTo: 'graph2',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: 'transparent',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+minorGridLineColor: '#transparent',
+tickColor: 'white',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: 'white',
+minorGridLineColor: 'transparent',
+tickColor: 'white'
+},
+credits: {
+enabled: false,
+text: "Subscriberwars.space"
+},
+series: [{
+showInLegend: false,
+name: 'Followers',
+marker: { enabled: false },
+lineColor: '#03d7fc'
+}]
+});
+
+var graph3 = new Highcharts.chart({
+chart: {
+renderTo: 'graph3',
+type: 'spline',
+zoomType: 'x',
+backgroundColor: 'transparent',
+plotBorderColor: 'transparent'
+},
+title: {
+text: ''
+},
+xAxis: {
+type: 'datetime',
+tickPixelInterval: 100,
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+minorGridLineColor: '#transparent',
+tickColor: 'white',
+title: {
+    style: {
+        color: '#transparent'
+    }
+}
+},
+yAxis: {
+title: {
+  text: ''
+},
+gridLineColor: '#transparent',
+labels: {
+    style: {
+        color: 'white'
+    }
+},
+lineColor: 'white',
+minorGridLineColor: 'transparent',
+tickColor: 'white'
+},
+credits: {
+enabled: false,
+text: "Subscriberwars.space"
+},
+series: [{
+showInLegend: false,
+name: 'Followers',
+marker: { enabled: false },
+lineColor: '#03d7fc'
+}]
+});
+</script>
