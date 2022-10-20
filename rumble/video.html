@@ -38,7 +38,7 @@
     </div>
 </body>
 <script>
-    var channel = window.location.href.split('?u=')[1] || '';
+    var channel = window.location.href.split('?v=')[1] || '';
     
     function update(chanid) {
         fetch('https://api.subscriberwars.space/rumble/v/'+chanid+'').then(res => res.json()).then(data => {
