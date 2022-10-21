@@ -3,10 +3,10 @@ a {color: #fff;}
 div {display: block;}
 h1 {font-weight: 400; font-size: 30pt; margin: 0px auto; position: relative; text-align: center;}
 h2 {font-weight: 400; font-size: 15pt; margin: 0px auto; position: relative; text-align: center;}
-#count-block {width:49%; height:570px; margin: 0px auto; margin-top: 20px; background:#0f0f0f; overflow: hidden; position: relative;}
-#count-block2 {width:49%; height:570px; margin: 0px auto; margin-top: 20px; background:#0f0f0f; overflow: hidden; position: relative; left: 51%; top: -590px;}
-.logo {width: 100px; position: relative; margin: 0px auto; margin-top: 10px; left: 42%; -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.3); box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;}
-#graph-block {width:1260px; height:400px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative; top: -590px; left: 25.5%;}
+#count-block {width:49%; height:400px; margin: 0px auto; margin-top: 20px; background:#0f0f0f; overflow: hidden; position: relative;}
+#count-block2 {width:49%; height:400px; margin: 0px auto; margin-top: 20px; background:#0f0f0f; overflow: hidden; position: relative; left: 51%; top: -420px;}
+.logo {width: 150px; position: relative; margin: 0px auto; margin-top: 10px; left: 38%; -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.3); box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;}
+#gap-block{width:35%; height:150px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative; top: -420px; left: 25.5%;}
 #credit {width:1260px; height:40px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative;}
 #container {width: 1260px;margin: 20px auto;}
 #name {position: absolute;color: #fff;top:8px;left:10px; width: 550px;}
