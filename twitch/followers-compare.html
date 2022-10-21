@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Live Twitter Follower Count</title>
+    <title>Live Twitch Follower Count</title>
     <meta name="description" content="Live Twitter Stats">
     <link rel="stylesheet" href="/css/odometer.css">
     <link rel="stylesheet" href="/css/compare-main.css">
@@ -11,13 +11,13 @@
 </head>
 <body>
     <div id="count-block">
-        <img class="logo" id="logo" src="https://subscriberwars.space/images/twitter.svg">
+        <img class="logo" id="logo" src="https://subscriberwars.space/images/twitch.svg">
         <h1 id="title">Loading...</h1>
         <div id='followercount' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 100%;">0</div>
         <h2>Followers</h2>
     </div>
     <div id="count-block2">
-        <img class="logo"  id="logob" src="https://subscriberwars.space/images/twitter.svg">
+        <img class="logo"  id="logob" src="https://subscriberwars.space/images/twitch.svg">
         <h1 id="titleb">Loading...</h1>
         <div id='followercountb' class="odometer odometer-auto-theme" style="font-size: 80pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 100%;">0</div>
         <h2>Followers</h2>
@@ -31,34 +31,47 @@
 <script>
 var channel = window.location.href.split('&')[1];
 var channel2 = window.location.href.split('&')[2];
+var id1=[]
+var id2=[]
 var gap01=[]
 var gap02=[]
 
-function update(chanid) {
-    fetch('https://api.subscriberwars.space/twitter/'+chanid).then(res => res.json()).then(data => {
-        title.innerHTML = data.displayName
-        followercount.innerHTML= data.followers
-        logo.src = data.pfp.replace("normal","400x400")
-        gap01= data.followers
+function chan1(chanid) {
+    fetch('https://api.subscriberwars.space/twitch/user/'+chanid).then(res => res.json()).then(data => {
+        id1 = data.iD
+        title.innerHTML = data.name
+        logo.src = data.logo
     });
 }
-function update2(chanid) {
-    fetch('https://api.subscriberwars.space/twitter/'+chanid).then(res => res.json()).then(data => {
-        titleb.innerHTML = data.displayName
-        followercountb.innerHTML= data.followers
-        logob.src = data.pfp.replace("normal","400x400")
-        gap02= data.followers
-        if(gap01>gap02){difference.innerHTML= gap01-gap02} else{difference.innerHTML= gap02-gap01}   
+function update(id) {
+    fetch('https://api.subscriberwars.space/twitch/'+id).then(res => res.json()).then(data => {
+        followercount.innerHTML = data.followerCount
+        gap01= data.followerCount
+    });
+}
+
+function chan2(chanid) {
+    fetch('https://api.subscriberwars.space/twitch/user/'+chanid).then(res => res.json()).then(data => {
+        id2 = data.iD
+        titleb.innerHTML = data.name
+        logob.src = data.logo
+    });
+}
+function update2(id) {
+    fetch('https://api.subscriberwars.space/twitch/'+id).then(res => res.json()).then(data => {
+        followercountb.innerHTML = data.followerCount
+        gap02= data.followerCount
+        if(gap01>gap02){difference.innerHTML= gap01-gap02} else{difference.innerHTML= gap02-gap01}
     });
 }
 
 // Intervals
 setInterval(() => {
-    update(channel);
-    update2(channel2);
+    update(id1);
+    update2(id2);
 }, 6000);
 
-update(channel)
-update2(channel2)
+chan1(channel)
+chan2(channel2)
 
 </script>
