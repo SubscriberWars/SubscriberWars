@@ -74,7 +74,7 @@ $('form').submit(function(event){
 })
 
 function channelSearch(search) {
-    fetch("https://api.subscriberwars.space/twitch/search/u/" + search).then(res => res.json()).then(data => {
+    fetch("https://api.subscriberwars.space/twitch/search/" + search).then(res => res.json()).then(data => {
        console.log(data)
 
        img1.src = data.data[0].thumbnail_url
