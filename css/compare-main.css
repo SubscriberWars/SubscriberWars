@@ -1,7 +1,7 @@
 body, html {margin: 0px; padding: 0px; color: #fff; font-size: 11pt; font-family: 'Roboto', sans-serif; display: block; background: #181818; width: 1260px;}
 a {color: #fff;}
 div {display: block;}
-h1 {font-weight: 400; font-size: 30pt; margin: 0px auto; position: relative; text-align: center;}
+h1 {font-weight: 400; font-size: 30pt; margin: 0px auto; position: relative; text-align: center; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
 h2 {font-weight: 400; font-size: 15pt; margin: 0px auto; position: relative; text-align: center;}
 #count-block {width:49%; height:400px; margin: 0px auto; margin-top: 20px; background:#0f0f0f; overflow: hidden; position: relative;}
 #count-block2 {width:49%; height:400px; margin: 0px auto; margin-top: 20px; background:#0f0f0f; overflow: hidden; position: relative; left: 51%; top: -420px;}
