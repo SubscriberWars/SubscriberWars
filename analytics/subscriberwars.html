@@ -175,35 +175,35 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             videocount.innerHTML=data.socialblade.statistics.total.uploads;
             srank.innerHTML=data.socialblade.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             vrank.innerHTML=data.socialblade.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            date1.innerHTML=data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs1.innerHTML=data.d30.metric[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            date2.innerHTML=data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs2.innerHTML=data.d30.metric[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain2').innerHTML=data.d30.metric[1]-data.d30.metric[0]; if(data.d30.metric[1]>data.d30.metric[0]){document.getElementById('subgain2').style.color='#1bed0c'}; if(data.d30.metric[1]<data.d30.metric[0]){document.getElementById('subgain2').style.color='#ed2121'};
-            date3.innerHTML=data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs3.innerHTML=data.d30.metric[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain3').innerHTML=data.d30.metric[2]-data.d30.metric[1]; if(data.d30.metric[2]>data.d30.metric[1]){document.getElementById('subgain3').style.color='#1bed0c'}; if(data.d30.metric[2]<data.d30.metric[1]){document.getElementById('subgain3').style.color='#ed2121'};
-            date4.innerHTML=data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs4.innerHTML=data.d30.metric[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain4').innerHTML=data.d30.metric[3]-data.d30.metric[2]; if(data.d30.metric[3]>data.d30.metric[2]){document.getElementById('subgain4').style.color='#1bed0c'}; if(data.d30.metric[3]<data.d30.metric[2]){document.getElementById('subgain4').style.color='#ed2121'};
-            date5.innerHTML=data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs5.innerHTML=data.d30.metric[4].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain5').innerHTML=data.d30.metric[4]-data.d30.metric[3]; if(data.d30.metric[4]>data.d30.metric[3]){document.getElementById('subgain5').style.color='#1bed0c'}; if(data.d30.metric[4]<data.d30.metric[3]){document.getElementById('subgain5').style.color='#ed2121'};
-            date6.innerHTML=data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs6.innerHTML=data.d30.metric[5].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain6').innerHTML=data.d30.metric[5]-data.d30.metric[4]; if(data.d30.metric[5]>data.d30.metric[4]){document.getElementById('subgain6').style.color='#1bed0c'}; if(data.d30.metric[5]<data.d30.metric[4]){document.getElementById('subgain6').style.color='#ed2121'};
-            date7.innerHTML=data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs7.innerHTML=data.d30.metric[6].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain7').innerHTML=data.d30.metric[6]-data.d30.metric[5]; if(data.d30.metric[6]>data.d30.metric[5]){document.getElementById('subgain7').style.color='#1bed0c'}; if(data.d30.metric[6]<data.d30.metric[5]){document.getElementById('subgain7').style.color='#ed2121'};
-            date8.innerHTML=data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs8.innerHTML=data.d30.metric[7].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain8').innerHTML=data.d30.metric[7]-data.d30.metric[6]; if(data.d30.metric[7]>data.d30.metric[6]){document.getElementById('subgain8').style.color='#1bed0c'}; if(data.d30.metric[7]<data.d30.metric[6]){document.getElementById('subgain8').style.color='#ed2121'};
-            date9.innerHTML=data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs9.innerHTML=data.d30.metric[8].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain9').innerHTML=data.d30.metric[8]-data.d30.metric[7]; if(data.d30.metric[8]>data.d30.metric[7]){document.getElementById('subgain9').style.color='#1bed0c'}; if(data.d30.metric[8]<data.d30.metric[7]){document.getElementById('subgain9').style.color='#ed2121'};
-            date10.innerHTML=data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs10.innerHTML=data.d30.metric[9].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain10').innerHTML=data.d30.metric[9]-data.d30.metric[8]; if(data.d30.metric[9]>data.d30.metric[8]){document.getElementById('subgain10').style.color='#1bed0c'}; if(data.d30.metric[9]<data.d30.metric[8]){document.getElementById('subgain10').style.color='#ed2121'};
-            date11.innerHTML=data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs11.innerHTML=data.d30.metric[10].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain11').innerHTML=data.d30.metric[10]-data.d30.metric[9]; if(data.d30.metric[10]>data.d30.metric[9]){document.getElementById('subgain11').style.color='#1bed0c'}; if(data.d30.metric[10]<data.d30.metric[9]){document.getElementById('subgain11').style.color='#ed2121'};
-            date12.innerHTML=data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs12.innerHTML=data.d30.metric[11].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain12').innerHTML=data.d30.metric[11]-data.d30.metric[10]; if(data.d30.metric[11]>data.d30.metric[10]){document.getElementById('subgain12').style.color='#1bed0c'}; if(data.d30.metric[11]<data.d30.metric[10]){document.getElementById('subgain12').style.color='#ed2121'};
-            date13.innerHTML=data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs13.innerHTML=data.d30.metric[12].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain13').innerHTML=data.d30.metric[12]-data.d30.metric[11]; if(data.d30.metric[12]>data.d30.metric[11]){document.getElementById('subgain13').style.color='#1bed0c'}; if(data.d30.metric[12]<data.d30.metric[11]){document.getElementById('subgain13').style.color='#ed2121'};
-            date14.innerHTML=data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs14.innerHTML=data.d30.metric[13].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain14').innerHTML=data.d30.metric[13]-data.d30.metric[12]; if(data.d30.metric[13]>data.d30.metric[12]){document.getElementById('subgain14').style.color='#1bed0c'}; if(data.d30.metric[13]<data.d30.metric[12]){document.getElementById('subgain14').style.color='#ed2121'};
-            date15.innerHTML=data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs15.innerHTML=data.d30.metric[14].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain15').innerHTML=data.d30.metric[14]-data.d30.metric[13]; if(data.d30.metric[14]>data.d30.metric[13]){document.getElementById('subgain15').style.color='#1bed0c'}; if(data.d30.metric[14]<data.d30.metric[13]){document.getElementById('subgain15').style.color='#ed2121'};
-            date16.innerHTML=data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs16.innerHTML=data.d30.metric[15].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain16').innerHTML=data.d30.metric[15]-data.d30.metric[14]; if(data.d30.metric[15]>data.d30.metric[14]){document.getElementById('subgain16').style.color='#1bed0c'}; if(data.d30.metric[15]<data.d30.metric[14]){document.getElementById('subgain16').style.color='#ed2121'};
-            date17.innerHTML=data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs17.innerHTML=data.d30.metric[16].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain17').innerHTML=data.d30.metric[16]-data.d30.metric[15]; if(data.d30.metric[16]>data.d30.metric[15]){document.getElementById('subgain17').style.color='#1bed0c'}; if(data.d30.metric[16]<data.d30.metric[15]){document.getElementById('subgain17').style.color='#ed2121'};
-            date18.innerHTML=data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs18.innerHTML=data.d30.metric[17].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain18').innerHTML=data.d30.metric[17]-data.d30.metric[16]; if(data.d30.metric[17]>data.d30.metric[16]){document.getElementById('subgain18').style.color='#1bed0c'}; if(data.d30.metric[17]<data.d30.metric[16]){document.getElementById('subgain18').style.color='#ed2121'};
-            date19.innerHTML=data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs19.innerHTML=data.d30.metric[18].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain19').innerHTML=data.d30.metric[18]-data.d30.metric[17]; if(data.d30.metric[18]>data.d30.metric[17]){document.getElementById('subgain19').style.color='#1bed0c'}; if(data.d30.metric[18]<data.d30.metric[17]){document.getElementById('subgain19').style.color='#ed2121'};
-            date20.innerHTML=data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs20.innerHTML=data.d30.metric[19].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain20').innerHTML=data.d30.metric[19]-data.d30.metric[18]; if(data.d30.metric[19]>data.d30.metric[18]){document.getElementById('subgain20').style.color='#1bed0c'}; if(data.d30.metric[19]<data.d30.metric[18]){document.getElementById('subgain20').style.color='#ed2121'};
-            date21.innerHTML=data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs21.innerHTML=data.d30.metric[20].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain21').innerHTML=data.d30.metric[20]-data.d30.metric[19]; if(data.d30.metric[20]>data.d30.metric[19]){document.getElementById('subgain21').style.color='#1bed0c'}; if(data.d30.metric[20]<data.d30.metric[19]){document.getElementById('subgain21').style.color='#ed2121'};
-            date22.innerHTML=data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs22.innerHTML=data.d30.metric[21].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain22').innerHTML=data.d30.metric[21]-data.d30.metric[20]; if(data.d30.metric[21]>data.d30.metric[20]){document.getElementById('subgain22').style.color='#1bed0c'}; if(data.d30.metric[21]<data.d30.metric[20]){document.getElementById('subgain22').style.color='#ed2121'};
-            date23.innerHTML=data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs23.innerHTML=data.d30.metric[22].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain23').innerHTML=data.d30.metric[22]-data.d30.metric[21]; if(data.d30.metric[22]>data.d30.metric[21]){document.getElementById('subgain23').style.color='#1bed0c'}; if(data.d30.metric[22]<data.d30.metric[21]){document.getElementById('subgain23').style.color='#ed2121'};
-            date24.innerHTML=data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs24.innerHTML=data.d30.metric[23].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain24').innerHTML=data.d30.metric[23]-data.d30.metric[22]; if(data.d30.metric[23]>data.d30.metric[22]){document.getElementById('subgain24').style.color='#1bed0c'}; if(data.d30.metric[23]<data.d30.metric[22]){document.getElementById('subgain24').style.color='#ed2121'};
-            date25.innerHTML=data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs25.innerHTML=data.d30.metric[24].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain25').innerHTML=data.d30.metric[24]-data.d30.metric[23]; if(data.d30.metric[24]>data.d30.metric[23]){document.getElementById('subgain25').style.color='#1bed0c'}; if(data.d30.metric[24]<data.d30.metric[23]){document.getElementById('subgain25').style.color='#ed2121'};
-            date26.innerHTML=data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs26.innerHTML=data.d30.metric[25].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain26').innerHTML=data.d30.metric[25]-data.d30.metric[24]; if(data.d30.metric[25]>data.d30.metric[24]){document.getElementById('subgain26').style.color='#1bed0c'}; if(data.d30.metric[25]<data.d30.metric[24]){document.getElementById('subgain26').style.color='#ed2121'};
-            date27.innerHTML=data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs27.innerHTML=data.d30.metric[26].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain27').innerHTML=data.d30.metric[26]-data.d30.metric[25]; if(data.d30.metric[26]>data.d30.metric[25]){document.getElementById('subgain27').style.color='#1bed0c'}; if(data.d30.metric[26]<data.d30.metric[25]){document.getElementById('subgain27').style.color='#ed2121'};
-            date28.innerHTML=data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs28.innerHTML=data.d30.metric[27].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain28').innerHTML=data.d30.metric[27]-data.d30.metric[26]; if(data.d30.metric[27]>data.d30.metric[26]){document.getElementById('subgain28').style.color='#1bed0c'}; if(data.d30.metric[27]<data.d30.metric[26]){document.getElementById('subgain28').style.color='#ed2121'};
-            date29.innerHTML=data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs29.innerHTML=data.d30.metric[28].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain29').innerHTML=data.d30.metric[28]-data.d30.metric[27]; if(data.d30.metric[28]>data.d30.metric[27]){document.getElementById('subgain29').style.color='#1bed0c'}; if(data.d30.metric[28]<data.d30.metric[27]){document.getElementById('subgain29').style.color='#ed2121'};
+            date1.innerHTML=data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs1.innerHTML=data.d30.subscribers[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            date2.innerHTML=data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs2.innerHTML=data.d30.subscribers[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain2').innerHTML=data.d30.subscribers[1]-data.d30.subscribers[0]; if(data.d30.subscribers[1]>data.d30.subscribers[0]){document.getElementById('subgain2').style.color='#1bed0c'}; if(data.d30.subscribers[1]<data.d30.subscribers[0]){document.getElementById('subgain2').style.color='#ed2121'};
+            date3.innerHTML=data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs3.innerHTML=data.d30.subscribers[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain3').innerHTML=data.d30.subscribers[2]-data.d30.subscribers[1]; if(data.d30.subscribers[2]>data.d30.subscribers[1]){document.getElementById('subgain3').style.color='#1bed0c'}; if(data.d30.subscribers[2]<data.d30.subscribers[1]){document.getElementById('subgain3').style.color='#ed2121'};
+            date4.innerHTML=data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs4.innerHTML=data.d30.subscribers[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain4').innerHTML=data.d30.subscribers[3]-data.d30.subscribers[2]; if(data.d30.subscribers[3]>data.d30.subscribers[2]){document.getElementById('subgain4').style.color='#1bed0c'}; if(data.d30.subscribers[3]<data.d30.subscribers[2]){document.getElementById('subgain4').style.color='#ed2121'};
+            date5.innerHTML=data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs5.innerHTML=data.d30.subscribers[4].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain5').innerHTML=data.d30.subscribers[4]-data.d30.subscribers[3]; if(data.d30.subscribers[4]>data.d30.subscribers[3]){document.getElementById('subgain5').style.color='#1bed0c'}; if(data.d30.subscribers[4]<data.d30.subscribers[3]){document.getElementById('subgain5').style.color='#ed2121'};
+            date6.innerHTML=data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs6.innerHTML=data.d30.subscribers[5].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain6').innerHTML=data.d30.subscribers[5]-data.d30.subscribers[4]; if(data.d30.subscribers[5]>data.d30.subscribers[4]){document.getElementById('subgain6').style.color='#1bed0c'}; if(data.d30.subscribers[5]<data.d30.subscribers[4]){document.getElementById('subgain6').style.color='#ed2121'};
+            date7.innerHTML=data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs7.innerHTML=data.d30.subscribers[6].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain7').innerHTML=data.d30.subscribers[6]-data.d30.subscribers[5]; if(data.d30.subscribers[6]>data.d30.subscribers[5]){document.getElementById('subgain7').style.color='#1bed0c'}; if(data.d30.subscribers[6]<data.d30.subscribers[5]){document.getElementById('subgain7').style.color='#ed2121'};
+            date8.innerHTML=data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs8.innerHTML=data.d30.subscribers[7].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain8').innerHTML=data.d30.subscribers[7]-data.d30.subscribers[6]; if(data.d30.subscribers[7]>data.d30.subscribers[6]){document.getElementById('subgain8').style.color='#1bed0c'}; if(data.d30.subscribers[7]<data.d30.subscribers[6]){document.getElementById('subgain8').style.color='#ed2121'};
+            date9.innerHTML=data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs9.innerHTML=data.d30.subscribers[8].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain9').innerHTML=data.d30.subscribers[8]-data.d30.subscribers[7]; if(data.d30.subscribers[8]>data.d30.subscribers[7]){document.getElementById('subgain9').style.color='#1bed0c'}; if(data.d30.subscribers[8]<data.d30.subscribers[7]){document.getElementById('subgain9').style.color='#ed2121'};
+            date10.innerHTML=data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs10.innerHTML=data.d30.subscribers[9].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain10').innerHTML=data.d30.subscribers[9]-data.d30.subscribers[8]; if(data.d30.subscribers[9]>data.d30.subscribers[8]){document.getElementById('subgain10').style.color='#1bed0c'}; if(data.d30.subscribers[9]<data.d30.subscribers[8]){document.getElementById('subgain10').style.color='#ed2121'};
+            date11.innerHTML=data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs11.innerHTML=data.d30.subscribers[10].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain11').innerHTML=data.d30.subscribers[10]-data.d30.subscribers[9]; if(data.d30.subscribers[10]>data.d30.subscribers[9]){document.getElementById('subgain11').style.color='#1bed0c'}; if(data.d30.subscribers[10]<data.d30.subscribers[9]){document.getElementById('subgain11').style.color='#ed2121'};
+            date12.innerHTML=data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs12.innerHTML=data.d30.subscribers[11].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain12').innerHTML=data.d30.subscribers[11]-data.d30.subscribers[10]; if(data.d30.subscribers[11]>data.d30.subscribers[10]){document.getElementById('subgain12').style.color='#1bed0c'}; if(data.d30.subscribers[11]<data.d30.subscribers[10]){document.getElementById('subgain12').style.color='#ed2121'};
+            date13.innerHTML=data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs13.innerHTML=data.d30.subscribers[12].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain13').innerHTML=data.d30.subscribers[12]-data.d30.subscribers[11]; if(data.d30.subscribers[12]>data.d30.subscribers[11]){document.getElementById('subgain13').style.color='#1bed0c'}; if(data.d30.subscribers[12]<data.d30.subscribers[11]){document.getElementById('subgain13').style.color='#ed2121'};
+            date14.innerHTML=data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs14.innerHTML=data.d30.subscribers[13].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain14').innerHTML=data.d30.subscribers[13]-data.d30.subscribers[12]; if(data.d30.subscribers[13]>data.d30.subscribers[12]){document.getElementById('subgain14').style.color='#1bed0c'}; if(data.d30.subscribers[13]<data.d30.subscribers[12]){document.getElementById('subgain14').style.color='#ed2121'};
+            date15.innerHTML=data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs15.innerHTML=data.d30.subscribers[14].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain15').innerHTML=data.d30.subscribers[14]-data.d30.subscribers[13]; if(data.d30.subscribers[14]>data.d30.subscribers[13]){document.getElementById('subgain15').style.color='#1bed0c'}; if(data.d30.subscribers[14]<data.d30.subscribers[13]){document.getElementById('subgain15').style.color='#ed2121'};
+            date16.innerHTML=data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs16.innerHTML=data.d30.subscribers[15].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain16').innerHTML=data.d30.subscribers[15]-data.d30.subscribers[14]; if(data.d30.subscribers[15]>data.d30.subscribers[14]){document.getElementById('subgain16').style.color='#1bed0c'}; if(data.d30.subscribers[15]<data.d30.subscribers[14]){document.getElementById('subgain16').style.color='#ed2121'};
+            date17.innerHTML=data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs17.innerHTML=data.d30.subscribers[16].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain17').innerHTML=data.d30.subscribers[16]-data.d30.subscribers[15]; if(data.d30.subscribers[16]>data.d30.subscribers[15]){document.getElementById('subgain17').style.color='#1bed0c'}; if(data.d30.subscribers[16]<data.d30.subscribers[15]){document.getElementById('subgain17').style.color='#ed2121'};
+            date18.innerHTML=data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs18.innerHTML=data.d30.subscribers[17].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain18').innerHTML=data.d30.subscribers[17]-data.d30.subscribers[16]; if(data.d30.subscribers[17]>data.d30.subscribers[16]){document.getElementById('subgain18').style.color='#1bed0c'}; if(data.d30.subscribers[17]<data.d30.subscribers[16]){document.getElementById('subgain18').style.color='#ed2121'};
+            date19.innerHTML=data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs19.innerHTML=data.d30.subscribers[18].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain19').innerHTML=data.d30.subscribers[18]-data.d30.subscribers[17]; if(data.d30.subscribers[18]>data.d30.subscribers[17]){document.getElementById('subgain19').style.color='#1bed0c'}; if(data.d30.subscribers[18]<data.d30.subscribers[17]){document.getElementById('subgain19').style.color='#ed2121'};
+            date20.innerHTML=data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs20.innerHTML=data.d30.subscribers[19].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain20').innerHTML=data.d30.subscribers[19]-data.d30.subscribers[18]; if(data.d30.subscribers[19]>data.d30.subscribers[18]){document.getElementById('subgain20').style.color='#1bed0c'}; if(data.d30.subscribers[19]<data.d30.subscribers[18]){document.getElementById('subgain20').style.color='#ed2121'};
+            date21.innerHTML=data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs21.innerHTML=data.d30.subscribers[20].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain21').innerHTML=data.d30.subscribers[20]-data.d30.subscribers[19]; if(data.d30.subscribers[20]>data.d30.subscribers[19]){document.getElementById('subgain21').style.color='#1bed0c'}; if(data.d30.subscribers[20]<data.d30.subscribers[19]){document.getElementById('subgain21').style.color='#ed2121'};
+            date22.innerHTML=data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs22.innerHTML=data.d30.subscribers[21].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain22').innerHTML=data.d30.subscribers[21]-data.d30.subscribers[20]; if(data.d30.subscribers[21]>data.d30.subscribers[20]){document.getElementById('subgain22').style.color='#1bed0c'}; if(data.d30.subscribers[21]<data.d30.subscribers[20]){document.getElementById('subgain22').style.color='#ed2121'};
+            date23.innerHTML=data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs23.innerHTML=data.d30.subscribers[22].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain23').innerHTML=data.d30.subscribers[22]-data.d30.subscribers[21]; if(data.d30.subscribers[22]>data.d30.subscribers[21]){document.getElementById('subgain23').style.color='#1bed0c'}; if(data.d30.subscribers[22]<data.d30.subscribers[21]){document.getElementById('subgain23').style.color='#ed2121'};
+            date24.innerHTML=data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs24.innerHTML=data.d30.subscribers[23].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain24').innerHTML=data.d30.subscribers[23]-data.d30.subscribers[22]; if(data.d30.subscribers[23]>data.d30.subscribers[22]){document.getElementById('subgain24').style.color='#1bed0c'}; if(data.d30.subscribers[23]<data.d30.subscribers[22]){document.getElementById('subgain24').style.color='#ed2121'};
+            date25.innerHTML=data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs25.innerHTML=data.d30.subscribers[24].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain25').innerHTML=data.d30.subscribers[24]-data.d30.subscribers[23]; if(data.d30.subscribers[24]>data.d30.subscribers[23]){document.getElementById('subgain25').style.color='#1bed0c'}; if(data.d30.subscribers[24]<data.d30.subscribers[23]){document.getElementById('subgain25').style.color='#ed2121'};
+            date26.innerHTML=data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs26.innerHTML=data.d30.subscribers[25].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain26').innerHTML=data.d30.subscribers[25]-data.d30.subscribers[24]; if(data.d30.subscribers[25]>data.d30.subscribers[24]){document.getElementById('subgain26').style.color='#1bed0c'}; if(data.d30.subscribers[25]<data.d30.subscribers[24]){document.getElementById('subgain26').style.color='#ed2121'};
+            date27.innerHTML=data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs27.innerHTML=data.d30.subscribers[26].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain27').innerHTML=data.d30.subscribers[26]-data.d30.subscribers[25]; if(data.d30.subscribers[26]>data.d30.subscribers[25]){document.getElementById('subgain27').style.color='#1bed0c'}; if(data.d30.subscribers[26]<data.d30.subscribers[25]){document.getElementById('subgain27').style.color='#ed2121'};
+            date28.innerHTML=data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs28.innerHTML=data.d30.subscribers[27].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain28').innerHTML=data.d30.subscribers[27]-data.d30.subscribers[26]; if(data.d30.subscribers[27]>data.d30.subscribers[26]){document.getElementById('subgain28').style.color='#1bed0c'}; if(data.d30.subscribers[27]<data.d30.subscribers[26]){document.getElementById('subgain28').style.color='#ed2121'};
+            date29.innerHTML=data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs29.innerHTML=data.d30.subscribers[28].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain29').innerHTML=data.d30.subscribers[28]-data.d30.subscribers[27]; if(data.d30.subscribers[28]>data.d30.subscribers[27]){document.getElementById('subgain29').style.color='#1bed0c'}; if(data.d30.subscribers[28]<data.d30.subscribers[27]){document.getElementById('subgain29').style.color='#ed2121'};
 
             views1.innerHTML=(data.totals.views-data.d30.views[27].y-data.d30.views[26].y-data.d30.views[25].y-data.d30.views[24].y-data.d30.views[23].y-data.d30.views[22].y-data.d30.views[21].y-data.d30.views[20].y-data.d30.views[19].y-data.d30.views[18].y-data.d30.views[17].y-data.d30.views[16].y-data.d30.views[15].y-data.d30.views[14].y-data.d30.views[13].y-data.d30.views[12].y-data.d30.views[11].y-data.d30.views[10].y-data.d30.views[9].y-data.d30.views[8].y-data.d30.views[7].y-data.d30.views[6].y-data.d30.views[5].y-data.d30.views[4].y-data.d30.views[3].y-data.d30.views[2].y-data.d30.views[1].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             views2.innerHTML=(data.totals.views-data.d30.views[27].y-data.d30.views[26].y-data.d30.views[25].y-data.d30.views[24].y-data.d30.views[23].y-data.d30.views[22].y-data.d30.views[21].y-data.d30.views[20].y-data.d30.views[19].y-data.d30.views[18].y-data.d30.views[17].y-data.d30.views[16].y-data.d30.views[15].y-data.d30.views[14].y-data.d30.views[13].y-data.d30.views[12].y-data.d30.views[11].y-data.d30.views[10].y-data.d30.views[9].y-data.d30.views[8].y-data.d30.views[7].y-data.d30.views[6].y-data.d30.views[5].y-data.d30.views[4].y-data.d30.views[3].y-data.d30.views[2].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain2').innerHTML=data.d30.views[1].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[1].y>0){document.getElementById('viewgain2').style.color='#1bed0c'};
@@ -330,35 +330,35 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                         color: '#fff'
                     },
                     data: [
-                        data.d30.metric[0],
-                        data.d30.metric[1],
-                        data.d30.metric[2],
-                        data.d30.metric[3],
-                        data.d30.metric[4],
-                        data.d30.metric[5],
-                        data.d30.metric[6],
-                        data.d30.metric[7],
-                        data.d30.metric[8],
-                        data.d30.metric[9],
-                        data.d30.metric[10],
-                        data.d30.metric[11],
-                        data.d30.metric[12],
-                        data.d30.metric[13],
-                        data.d30.metric[14],
-                        data.d30.metric[15],
-                        data.d30.metric[16],
-                        data.d30.metric[17],
-                        data.d30.metric[18],
-                        data.d30.metric[19],
-                        data.d30.metric[20],
-                        data.d30.metric[21],
-                        data.d30.metric[22],
-                        data.d30.metric[23],
-                        data.d30.metric[24],
-                        data.d30.metric[25],
-                        data.d30.metric[26],
-                        data.d30.metric[27],
-                        data.d30.metric[28]
+                        data.d30.subscribers[0],
+                        data.d30.subscribers[1],
+                        data.d30.subscribers[2],
+                        data.d30.subscribers[3],
+                        data.d30.subscribers[4],
+                        data.d30.subscribers[5],
+                        data.d30.subscribers[6],
+                        data.d30.subscribers[7],
+                        data.d30.subscribers[8],
+                        data.d30.subscribers[9],
+                        data.d30.subscribers[10],
+                        data.d30.subscribers[11],
+                        data.d30.subscribers[12],
+                        data.d30.subscribers[13],
+                        data.d30.subscribers[14],
+                        data.d30.subscribers[15],
+                        data.d30.subscribers[16],
+                        data.d30.subscribers[17],
+                        data.d30.subscribers[18],
+                        data.d30.subscribers[19],
+                        data.d30.subscribers[20],
+                        data.d30.subscribers[21],
+                        data.d30.subscribers[22],
+                        data.d30.subscribers[23],
+                        data.d30.subscribers[24],
+                        data.d30.subscribers[25],
+                        data.d30.subscribers[26],
+                        data.d30.subscribers[27],
+                        data.d30.subscribers[28]
                     ]
                 }]
             })
@@ -456,34 +456,34 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                     showInLegend: false,
                     color: '#ff0000',
                     data: [
-                        data.d30.metric[1]-data.d30.metric[0],
-                        data.d30.metric[2]-data.d30.metric[1],
-                        data.d30.metric[3]-data.d30.metric[2],
-                        data.d30.metric[4]-data.d30.metric[3],
-                        data.d30.metric[5]-data.d30.metric[4],
-                        data.d30.metric[6]-data.d30.metric[5],
-                        data.d30.metric[7]-data.d30.metric[6],
-                        data.d30.metric[8]-data.d30.metric[7],
-                        data.d30.metric[9]-data.d30.metric[8],
-                        data.d30.metric[10]-data.d30.metric[9],
-                        data.d30.metric[11]-data.d30.metric[10],
-                        data.d30.metric[12]-data.d30.metric[11],
-                        data.d30.metric[13]-data.d30.metric[12],
-                        data.d30.metric[14]-data.d30.metric[13],
-                        data.d30.metric[15]-data.d30.metric[14],
-                        data.d30.metric[16]-data.d30.metric[15],
-                        data.d30.metric[17]-data.d30.metric[16],
-                        data.d30.metric[18]-data.d30.metric[17],
-                        data.d30.metric[19]-data.d30.metric[18],
-                        data.d30.metric[20]-data.d30.metric[19],
-                        data.d30.metric[21]-data.d30.metric[20],
-                        data.d30.metric[22]-data.d30.metric[21],
-                        data.d30.metric[23]-data.d30.metric[22],
-                        data.d30.metric[24]-data.d30.metric[23],
-                        data.d30.metric[25]-data.d30.metric[24],
-                        data.d30.metric[26]-data.d30.metric[25],
-                        data.d30.metric[27]-data.d30.metric[26],
-                        data.d30.metric[28]-data.d30.metric[27]
+                        data.d30.subscribers[1]-data.d30.subscribers[0],
+                        data.d30.subscribers[2]-data.d30.subscribers[1],
+                        data.d30.subscribers[3]-data.d30.subscribers[2],
+                        data.d30.subscribers[4]-data.d30.subscribers[3],
+                        data.d30.subscribers[5]-data.d30.subscribers[4],
+                        data.d30.subscribers[6]-data.d30.subscribers[5],
+                        data.d30.subscribers[7]-data.d30.subscribers[6],
+                        data.d30.subscribers[8]-data.d30.subscribers[7],
+                        data.d30.subscribers[9]-data.d30.subscribers[8],
+                        data.d30.subscribers[10]-data.d30.subscribers[9],
+                        data.d30.subscribers[11]-data.d30.subscribers[10],
+                        data.d30.subscribers[12]-data.d30.subscribers[11],
+                        data.d30.subscribers[13]-data.d30.subscribers[12],
+                        data.d30.subscribers[14]-data.d30.subscribers[13],
+                        data.d30.subscribers[15]-data.d30.subscribers[14],
+                        data.d30.subscribers[16]-data.d30.subscribers[15],
+                        data.d30.subscribers[17]-data.d30.subscribers[16],
+                        data.d30.subscribers[18]-data.d30.subscribers[17],
+                        data.d30.subscribers[19]-data.d30.subscribers[18],
+                        data.d30.subscribers[20]-data.d30.subscribers[19],
+                        data.d30.subscribers[21]-data.d30.subscribers[20],
+                        data.d30.subscribers[22]-data.d30.subscribers[21],
+                        data.d30.subscribers[23]-data.d30.subscribers[22],
+                        data.d30.subscribers[24]-data.d30.subscribers[23],
+                        data.d30.subscribers[25]-data.d30.subscribers[24],
+                        data.d30.subscribers[26]-data.d30.subscribers[25],
+                        data.d30.subscribers[27]-data.d30.subscribers[26],
+                        data.d30.subscribers[28]-data.d30.subscribers[27]
                     ]
                 }]
             })
@@ -725,17 +725,17 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             for(let q=0;q<data.dimension.length;q++){
                 alldimension.push(data.dimension[q].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'))
             }
-            let sub_metric = []
-            for(let q=0;q<data.metric.subs.length;q++){
-                sub_metric.push(data.metric.subs[q])
+            let sub_subscribers = []
+            for(let q=0;q<data.subscribers.subs.length;q++){
+                sub_subscribers.push(data.subscribers.subs[q])
             }
-            let sub_metric_gain = []
-            for(let q=0;q<data.metric.subs_gain.length;q++){
-                sub_metric_gain.push(data.metric.subs_gain[q].y)
+            let sub_subscribers_gain = []
+            for(let q=0;q<data.subscribers.subs_gain.length;q++){
+                sub_subscribers_gain.push(data.subscribers.subs_gain[q].y)
             }
-            let view_metric_gain =[]
-            for(let q=0;q<data.metric.views_gain.length;q++){
-                view_metric_gain.push(data.metric.views_gain[q].y)
+            let view_subscribers_gain =[]
+            for(let q=0;q<data.subscribers.views_gain.length;q++){
+                view_subscribers_gain.push(data.subscribers.views_gain[q].y)
             }
 
             Highcharts.chart('life-subs', {
@@ -805,7 +805,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                         color: '#fff'
                     },
                     data: 
-                        sub_metric
+                        sub_subscribers
                     
                 }]
             })
@@ -876,7 +876,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                         color: '#fff'
                     },
                     data: 
-                        sub_metric_gain
+                        sub_subscribers_gain
                     
                 }]
             })
@@ -947,7 +947,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                         color: '#fff'
                     },
                     data: 
-                        view_metric_gain
+                        view_subscribers_gain
                     
                 }]
             })
