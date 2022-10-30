@@ -6,13 +6,44 @@
     <meta name="description" content="View the daily statistics of the Subscriber Wars YouTube Channel since its origin">
     <meta name="keywords" content="Subscriber Wars, YouTube Statistics, Channel Statistics">
     <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
-    <link rel="stylesheet" href="https://subscriberwars.space/css/stats_styles.css">
     <script src="https://subscriberwars.space/js/odometer.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
+
+<style>
+body, html { margin: 0px; padding: 0px; color: #ffffff; font-size: 11pt; font-family: 'Roboto', sans-serif; display: block; background: #2b2b2b; }
+a {color: #fff;}
+div { display: block; }
+#top-header { height:210px; width: 1260px; margin: 0px auto; background: #e6e6e6; overflow: hidden; position: relative; }
+#top-header-background { background-size: 100%; height: 210px; width: 1280px; }
+#UserTopInfoWrap { width: 1260px; margin: 0px auto; background: rgb(26, 26, 26); height: 90px; position: relative; }
+#UserTopInfoAvatar { background: rgb(26, 26, 26); float: left; height: 110px; width: 110px; border-radius: 50%; border: 0px solid rgb(15, 15, 15); margin-top: -40px; margin-left: 30px; -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); }
+#UserTopInfoBlockTop { float: left; margin-top: 2px; margin-left: 10px;  }
+#UserTopInfoBlock { margin-top: 2px; width: 1080px; }
+#UserContainer { width: 1260px; margin: 20px auto; }
+#UserContent { width: 900px; float: left; }
+#user-menu {width: 1260px; margin: 0px auto; background: rgb(15, 15, 15); line-height: 50px; height: 50px; color: #fff; margin-bottom: 0px;}
+#user-menu a { display: block; float: left; height: 50px;  padding: 0px 15px;  color: #fff; text-decoration: none; }
+#user-menu a:hover { background: rgb(0,0,0);}
+#UserSidebar { width: 340px;  float: right;}
+.UserTopInfoLight { float: left; margin-right: 20px; text-align: center; }
+.UserTopLight {text-transform: uppercase; font: 0.9em; color: rgb(185, 182, 182); }
+.UserTopInfo { float: left; margin-right: 20px; text-align: center; }
+::-webkit-scrollbar {width: 5px;}
+::-webkit-scrollbar-track {border-radius: 20px;}
+::-webkit-scrollbar-thumb {background: #ff0000;border-radius: 10px;}
+::-webkit-scrollbar-thumb:hover {background: #ff0000;}
+@media screen and (max-width: 992px) {::-webkit-scrollbar {display: none;}}
+table{border-collapse: collapse; width: 100%;}
+th{font-weight: 500; font-size: 20px;}
+td{font-size: 20px;}
+td,th{border: 1px solid #000; text-align: left; padding: 5px; max-width: 30px;}
+tr:nth-child(even){background: rgb(33,33,33);}
+tr:nth-child(odd){background: rgb(38,38,38);}
+</style>
 
 <body>
     <div id='top-header'>
@@ -77,335 +108,40 @@
                     <div style='width: 1220px; background:rgb(15,15,15); padding: 10px 20px; text-transform: uppercase; color: rgb(255, 255, 255);'>
                         <h2 style='font-size: 10pt; font-weight: 500;'>Last 30 Days for Subscriber Wars</h2>
                     </div>
-                    <div style='width: 1220px; height: 30px; line-height: 30px; background: rgb(26,26,26); padding: 0px 20px; text-transform: uppercase; color: rgb(255, 255, 255); font-size: 10pt;'>
-                        <div style='width: 120px; float: left;'>date</div>
-                        <div style='width: 240px; float: left;'>subscribers</div>
-                        <div style='width: 240px; float: left;'>views</div>
-                        <div style='width: 240px; float: left;'>subscribers API</div>
-                        <div style='width: 240px; float: left;'>views API</div>
-                    </div>
-                    <div style='clear: both;'></div>
-                    <!--chart entries here-->
                     <!--rgb(33,33,33) rgb(38,38,38)-->
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date1'>0</div>
-                        <div style='float: left; width: 120px;'>--</div>
-                        <div style='float: left; width: 120px;' id='subs1'>0</div>
-                        <div style='float: left; width: 120px;' id="viewgain1">0</div>
-                        <div style='float: left; width: 120px;' id='views1'>0</div>
-                        <div style='float: left; width: 120px;' id="apisubs1">--</div>
-                        <div style='float: left; width: 120px;' id="apisubsg1">--</div>
-                        <div style='float: left; width: 120px;'id='apiviews1'>--</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg1'>--</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date2'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain2'>--</div>
-                        <div style='float: left; width: 120px;' id='subs2'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain2'>--</div>
-                        <div style='float: left; width: 120px;' id='views2'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs2'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg2'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews2'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg2'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date3'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain3'>--</div>
-                        <div style='float: left; width: 120px;' id='subs3'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain3'>--</div>
-                        <div style='float: left; width: 120px;' id='views3'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs3'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg3'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews3'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg3'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date4'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain4'>--</div>
-                        <div style='float: left; width: 120px;' id='subs4'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain4'>--</div>
-                        <div style='float: left; width: 120px;' id='views4'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs4'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg4'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews4'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg4'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date5'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain5'>--</div>
-                        <div style='float: left; width: 120px;' id='subs5'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain5'>--</div>
-                        <div style='float: left; width: 120px;' id='views5'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs5'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg5'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews5'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg5'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date6'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain6'>--</div>
-                        <div style='float: left; width: 120px;' id='subs6'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain6'>--</div>
-                        <div style='float: left; width: 120px;' id='views6'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs6'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg6'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews6'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg6'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date7'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain7'>--</div>
-                        <div style='float: left; width: 120px;' id='subs7'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain7'>--</div>
-                        <div style='float: left; width: 120px;' id='views7'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs7'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg7'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews7'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg7'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date8'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain8'>--</div>
-                        <div style='float: left; width: 120px;' id='subs8'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain8'>--</div>
-                        <div style='float: left; width: 120px;' id='views8'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs8'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg8'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews8'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg8'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date9'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain9'>--</div>
-                        <div style='float: left; width: 120px;' id='subs9'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain9'>--</div>
-                        <div style='float: left; width: 120px;' id='views9'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs9'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg9'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews9'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg9'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date10'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain10'>--</div>
-                        <div style='float: left; width: 120px;' id='subs10'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain10'>--</div>
-                        <div style='float: left; width: 120px;' id='views10'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs10'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg10'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews10'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg10'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date11'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain11'>--</div>
-                        <div style='float: left; width: 120px;' id='subs11'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain11'>--</div>
-                        <div style='float: left; width: 120px;' id='views11'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs11'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg11'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews11'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg11'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date12'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain12'>--</div>
-                        <div style='float: left; width: 120px;' id='subs12'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain12'>--</div>
-                        <div style='float: left; width: 120px;' id='views12'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs12'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg12'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews12'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg12'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date13'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain13'>--</div>
-                        <div style='float: left; width: 120px;' id='subs13'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain13'>--</div>
-                        <div style='float: left; width: 120px;' id='views13'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs13'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg13'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews13'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg13'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date14'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain14'>--</div>
-                        <div style='float: left; width: 120px;' id='subs14'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain14'>--</div>
-                        <div style='float: left; width: 120px;' id='views14'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs14'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg14'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews14'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg14'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date15'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain15'>--</div>
-                        <div style='float: left; width: 120px;' id='subs15'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain15'>--</div>
-                        <div style='float: left; width: 120px;' id='views15'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs15'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg15'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews15'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg15'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date16'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain16'>--</div>
-                        <div style='float: left; width: 120px;' id='subs16'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain16'>--</div>
-                        <div style='float: left; width: 120px;' id='views16'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs16'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg16'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews16'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg16'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date17'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain17'>--</div>
-                        <div style='float: left; width: 120px;' id='subs17'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain17'>--</div>
-                        <div style='float: left; width: 120px;' id='views17'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs17'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg17'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews17'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg17'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date18'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain18'>--</div>
-                        <div style='float: left; width: 120px;' id='subs18'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain18'>--</div>
-                        <div style='float: left; width: 120px;' id='views18'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs18'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg18'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews18'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg18'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date19'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain19'>--</div>
-                        <div style='float: left; width: 120px;' id='subs19'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain19'>--</div>
-                        <div style='float: left; width: 120px;' id='views19'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs19'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg19'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews19'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg19'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date20'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain20'>--</div>
-                        <div style='float: left; width: 120px;' id='subs20'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain20'>--</div>
-                        <div style='float: left; width: 120px;' id='views20'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs20'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg20'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews20'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg20'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date21'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain21'>--</div>
-                        <div style='float: left; width: 120px;' id='subs21'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain21'>--</div>
-                        <div style='float: left; width: 120px;' id='views21'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs21'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg21'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews21'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg21'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date22'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain22'>--</div>
-                        <div style='float: left; width: 120px;' id='subs22'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain22'>--</div>
-                        <div style='float: left; width: 120px;' id='views22'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs22'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg22'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews22'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg22'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date23'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain23'>--</div>
-                        <div style='float: left; width: 120px;' id='subs23'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain23'>--</div>
-                        <div style='float: left; width: 120px;' id='views23'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs23'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg23'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews23'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg23'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date24'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain24'>--</div>
-                        <div style='float: left; width: 120px;' id='subs24'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain24'>--</div>
-                        <div style='float: left; width: 120px;' id='views24'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs24'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg24'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews24'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg24'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date25'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain25'>--</div>
-                        <div style='float: left; width: 120px;' id='subs25'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain25'>--</div>
-                        <div style='float: left; width: 120px;' id='views25'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs25'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg25'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews25'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg25'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date26'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain26'>--</div>
-                        <div style='float: left; width: 120px;' id='subs26'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain26'>--</div>
-                        <div style='float: left; width: 120px;' id='views26'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs26'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg26'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews26'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg26'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date27'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain27'>--</div>
-                        <div style='float: left; width: 120px;' id='subs27'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain27'>--</div>
-                        <div style='float: left; width: 120px;' id='views27'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs27'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg27'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews27'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg27'>0</div>
-                    </div>
-                    <div style='background: rgb(38, 38, 38); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date28'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain28'>--</div>
-                        <div style='float: left; width: 120px;' id='subs28'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain28'>--</div>
-                        <div style='float: left; width: 120px;' id='views28'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs28'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg28'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews28'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg28'>0</div>
-                    </div>
-                    <div style='background: rgb(33, 33, 33); width: 1220px; height: 32px; line-height: 32px; padding: 0px 20px; color: rgb(255, 255, 255); font-size: 9pt; border-bottom: 1px solid rgb(26,26,26);'>
-                        <div style='float: left; width: 120px;' id='date29'>0</div>
-                        <div style='float: left; width: 120px;' id='subgain29'>--</div>
-                        <div style='float: left; width: 120px;' id='subs29'>0</div>
-                        <div style='float: left; width: 120px;' id='viewgain29'>--</div>
-                        <div style='float: left; width: 120px;' id='views29'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubs29'>0</div>
-                        <div style='float: left; width: 120px;' id='apisubsg29'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviews29'>0</div>
-                        <div style='float: left; width: 120px;' id='apiviewsg29'>0</div>
-                    </div>
+                    <table>
+                        <tr><th>Date</th><th>Sub Growth</th><th>Subscribers</th><th>Views Gained</th><th>Views</th></tr>
+                        <tr><td id="date1"></td><td>--</td><td id="subs1"></td><td>--</td><td id="views1"></td></tr>
+                        <tr><td id="date2"></td><td id="subgain2"></td><td id="subs2"></td><td id="viewgain2"></td><td id="views2"></td></tr>
+                        <tr><td id="date3"></td><td id="subgain3"></td><td id="subs3"></td><td id="viewgain3"></td><td id="views3"></td></tr>
+                        <tr><td id="date4"></td><td id="subgain4"></td><td id="subs4"></td><td id="viewgain4"></td><td id="views4"></td></tr>
+                        <tr><td id="date5"></td><td id="subgain5"></td><td id="subs5"></td><td id="viewgain5"></td><td id="views5"></td></tr>
+                        <tr><td id="date6"></td><td id="subgain6"></td><td id="subs6"></td><td id="viewgain6"></td><td id="views6"></td></tr>
+                        <tr><td id="date7"></td><td id="subgain7"></td><td id="subs7"></td><td id="viewgain7"></td><td id="views7"></td></tr>
+                        <tr><td id="date8"></td><td id="subgain8"></td><td id="subs8"></td><td id="viewgain8"></td><td id="views8"></td></tr>
+                        <tr><td id="date9"></td><td id="subgain9"></td><td id="subs9"></td><td id="viewgain9"></td><td id="views9"></td></tr>
+                        <tr><td id="date10"></td><td id="subgain10"></td><td id="subs10"></td><td id="viewgain10"></td><td id="views10"></td></tr>
+                        <tr><td id="date11"></td><td id="subgain11"></td><td id="subs11"></td><td id="viewgain11"></td><td id="views11"></td></tr>
+                        <tr><td id="date12"></td><td id="subgain12"></td><td id="subs12"></td><td id="viewgain12"></td><td id="views12"></td></tr>
+                        <tr><td id="date13"></td><td id="subgain13"></td><td id="subs13"></td><td id="viewgain13"></td><td id="views13"></td></tr>
+                        <tr><td id="date14"></td><td id="subgain14"></td><td id="subs14"></td><td id="viewgain14"></td><td id="views14"></td></tr>
+                        <tr><td id="date15"></td><td id="subgain15"></td><td id="subs15"></td><td id="viewgain15"></td><td id="views15"></td></tr>
+                        <tr><td id="date16"></td><td id="subgain16"></td><td id="subs16"></td><td id="viewgain16"></td><td id="views16"></td></tr>
+                        <tr><td id="date17"></td><td id="subgain17"></td><td id="subs17"></td><td id="viewgain17"></td><td id="views17"></td></tr>
+                        <tr><td id="date18"></td><td id="subgain18"></td><td id="subs18"></td><td id="viewgain18"></td><td id="views18"></td></tr>
+                        <tr><td id="date19"></td><td id="subgain19"></td><td id="subs19"></td><td id="viewgain19"></td><td id="views19"></td></tr>
+                        <tr><td id="date20"></td><td id="subgain20"></td><td id="subs20"></td><td id="viewgain20"></td><td id="views20"></td></tr>
+                        <tr><td id="date21"></td><td id="subgain21"></td><td id="subs21"></td><td id="viewgain21"></td><td id="views21"></td></tr>
+                        <tr><td id="date22"></td><td id="subgain22"></td><td id="subs22"></td><td id="viewgain22"></td><td id="views22"></td></tr>
+                        <tr><td id="date23"></td><td id="subgain23"></td><td id="subs23"></td><td id="viewgain23"></td><td id="views23"></td></tr>
+                        <tr><td id="date24"></td><td id="subgain24"></td><td id="subs24"></td><td id="viewgain24"></td><td id="views24"></td></tr>
+                        <tr><td id="date25"></td><td id="subgain25"></td><td id="subs25"></td><td id="viewgain25"></td><td id="views25"></td></tr>
+                        <tr><td id="date26"></td><td id="subgain26"></td><td id="subs26"></td><td id="viewgain26"></td><td id="views26"></td></tr>
+                        <tr><td id="date27"></td><td id="subgain27"></td><td id="subs27"></td><td id="viewgain27"></td><td id="views27"></td></tr>
+                        <tr><td id="date28"></td><td id="subgain28"></td><td id="subs28"></td><td id="viewgain28"></td><td id="views28"></td></tr>
+                        <tr><td id="date29"></td><td id="subgain29"></td><td id="subs29"></td><td id="viewgain29"></td><td id="views29"></td></tr>
+                    </table>
+                    
                     <div style='width: 1220px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500; margin-top: 20px;'>Daily Subscribers</div>
                     <div id='month-subs' style='width: 1260px; height: 300px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
                     <div id='month-subs-gain' style='width: 1260px; height: 300px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
@@ -469,7 +205,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             date28.innerHTML=data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs28.innerHTML=data.d30.metric[27].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain28').innerHTML=data.d30.metric[27]-data.d30.metric[26]; if(data.d30.metric[27]>data.d30.metric[26]){document.getElementById('subgain28').style.color='#1bed0c'}; if(data.d30.metric[27]<data.d30.metric[26]){document.getElementById('subgain28').style.color='#ed2121'};
             date29.innerHTML=data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs29.innerHTML=data.d30.metric[28].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain29').innerHTML=data.d30.metric[28]-data.d30.metric[27]; if(data.d30.metric[28]>data.d30.metric[27]){document.getElementById('subgain29').style.color='#1bed0c'}; if(data.d30.metric[28]<data.d30.metric[27]){document.getElementById('subgain29').style.color='#ed2121'};
 
-            views1.innerHTML=(data.totals.views-data.d30.views[27].y-data.d30.views[26].y-data.d30.views[25].y-data.d30.views[24].y-data.d30.views[23].y-data.d30.views[22].y-data.d30.views[21].y-data.d30.views[20].y-data.d30.views[19].y-data.d30.views[18].y-data.d30.views[17].y-data.d30.views[16].y-data.d30.views[15].y-data.d30.views[14].y-data.d30.views[13].y-data.d30.views[12].y-data.d30.views[11].y-data.d30.views[10].y-data.d30.views[9].y-data.d30.views[8].y-data.d30.views[7].y-data.d30.views[6].y-data.d30.views[5].y-data.d30.views[4].y-data.d30.views[3].y-data.d30.views[2].y-data.d30.views[1].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain1').innerHTML=data.d30.views[0].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[0].y>0){document.getElementById('viewgain1').style.color='#1bed0c'};
+            views1.innerHTML=(data.totals.views-data.d30.views[27].y-data.d30.views[26].y-data.d30.views[25].y-data.d30.views[24].y-data.d30.views[23].y-data.d30.views[22].y-data.d30.views[21].y-data.d30.views[20].y-data.d30.views[19].y-data.d30.views[18].y-data.d30.views[17].y-data.d30.views[16].y-data.d30.views[15].y-data.d30.views[14].y-data.d30.views[13].y-data.d30.views[12].y-data.d30.views[11].y-data.d30.views[10].y-data.d30.views[9].y-data.d30.views[8].y-data.d30.views[7].y-data.d30.views[6].y-data.d30.views[5].y-data.d30.views[4].y-data.d30.views[3].y-data.d30.views[2].y-data.d30.views[1].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             views2.innerHTML=(data.totals.views-data.d30.views[27].y-data.d30.views[26].y-data.d30.views[25].y-data.d30.views[24].y-data.d30.views[23].y-data.d30.views[22].y-data.d30.views[21].y-data.d30.views[20].y-data.d30.views[19].y-data.d30.views[18].y-data.d30.views[17].y-data.d30.views[16].y-data.d30.views[15].y-data.d30.views[14].y-data.d30.views[13].y-data.d30.views[12].y-data.d30.views[11].y-data.d30.views[10].y-data.d30.views[9].y-data.d30.views[8].y-data.d30.views[7].y-data.d30.views[6].y-data.d30.views[5].y-data.d30.views[4].y-data.d30.views[3].y-data.d30.views[2].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain2').innerHTML=data.d30.views[1].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[1].y>0){document.getElementById('viewgain2').style.color='#1bed0c'};
             views3.innerHTML=(data.totals.views-data.d30.views[27].y-data.d30.views[26].y-data.d30.views[25].y-data.d30.views[24].y-data.d30.views[23].y-data.d30.views[22].y-data.d30.views[21].y-data.d30.views[20].y-data.d30.views[19].y-data.d30.views[18].y-data.d30.views[17].y-data.d30.views[16].y-data.d30.views[15].y-data.d30.views[14].y-data.d30.views[13].y-data.d30.views[12].y-data.d30.views[11].y-data.d30.views[10].y-data.d30.views[9].y-data.d30.views[8].y-data.d30.views[7].y-data.d30.views[6].y-data.d30.views[5].y-data.d30.views[4].y-data.d30.views[3].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain3').innerHTML=data.d30.views[2].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[2].y>0){document.getElementById('viewgain3').style.color='#1bed0c'};
             views4.innerHTML=(data.totals.views-data.d30.views[27].y-data.d30.views[26].y-data.d30.views[25].y-data.d30.views[24].y-data.d30.views[23].y-data.d30.views[22].y-data.d30.views[21].y-data.d30.views[20].y-data.d30.views[19].y-data.d30.views[18].y-data.d30.views[17].y-data.d30.views[16].y-data.d30.views[15].y-data.d30.views[14].y-data.d30.views[13].y-data.d30.views[12].y-data.d30.views[11].y-data.d30.views[10].y-data.d30.views[9].y-data.d30.views[8].y-data.d30.views[7].y-data.d30.views[6].y-data.d30.views[5].y-data.d30.views[4].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain4').innerHTML=data.d30.views[3].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[3].y>0){document.getElementById('viewgain4').style.color='#1bed0c'};
@@ -498,66 +234,6 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             views27.innerHTML=(data.totals.views-data.d30.views[27].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain27').innerHTML=data.d30.views[26].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[26].y>0){document.getElementById('viewgain27').style.color='#1bed0c'};
             views28.innerHTML=data.totals.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain28').innerHTML=data.d30.views[27].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[27].y>0){document.getElementById('viewgain28').style.color='#1bed0c'};
             views29.innerHTML=data.totals.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain29').innerHTML=0;
-
-            apisubsg1.innerHTML=data.socialblade.daily[28].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs1.innerHTML=(data.socialblade.daily[28].subs-data.socialblade.daily[29].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[28].subs-data.socialblade.daily[29].subs)>0){document.getElementById('apisubs1').style.color='#1bed0c'}; if((data.socialblade.daily[28].subs-data.socialblade.daily[29].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg2.innerHTML=data.socialblade.daily[27].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs2.innerHTML=(data.socialblade.daily[27].subs-data.socialblade.daily[28].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[27].subs-data.socialblade.daily[28].subs)>0){document.getElementById('apisubs2').style.color='#1bed0c'}; if((data.socialblade.daily[27].subs-data.socialblade.daily[28].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg3.innerHTML=data.socialblade.daily[26].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs3.innerHTML=(data.socialblade.daily[26].subs-data.socialblade.daily[27].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[26].subs-data.socialblade.daily[27].subs)>0){document.getElementById('apisubs3').style.color='#1bed0c'}; if((data.socialblade.daily[26].subs-data.socialblade.daily[27].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg4.innerHTML=data.socialblade.daily[25].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs4.innerHTML=(data.socialblade.daily[25].subs-data.socialblade.daily[26].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[25].subs-data.socialblade.daily[26].subs)>0){document.getElementById('apisubs4').style.color='#1bed0c'}; if((data.socialblade.daily[25].subs-data.socialblade.daily[26].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg5.innerHTML=data.socialblade.daily[24].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs5.innerHTML=(data.socialblade.daily[24].subs-data.socialblade.daily[25].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[24].subs-data.socialblade.daily[25].subs)>0){document.getElementById('apisubs5').style.color='#1bed0c'}; if((data.socialblade.daily[24].subs-data.socialblade.daily[25].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg6.innerHTML=data.socialblade.daily[23].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs6.innerHTML=(data.socialblade.daily[23].subs-data.socialblade.daily[24].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[23].subs-data.socialblade.daily[24].subs)>0){document.getElementById('apisubs6').style.color='#1bed0c'}; if((data.socialblade.daily[23].subs-data.socialblade.daily[24].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg7.innerHTML=data.socialblade.daily[22].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs7.innerHTML=(data.socialblade.daily[22].subs-data.socialblade.daily[23].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[22].subs-data.socialblade.daily[23].subs)>0){document.getElementById('apisubs7').style.color='#1bed0c'}; if((data.socialblade.daily[22].subs-data.socialblade.daily[23].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg8.innerHTML=data.socialblade.daily[21].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs8.innerHTML=(data.socialblade.daily[21].subs-data.socialblade.daily[22].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[21].subs-data.socialblade.daily[22].subs)>0){document.getElementById('apisubs8').style.color='#1bed0c'}; if((data.socialblade.daily[21].subs-data.socialblade.daily[22].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg9.innerHTML=data.socialblade.daily[20].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs9.innerHTML=(data.socialblade.daily[20].subs-data.socialblade.daily[21].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[20].subs-data.socialblade.daily[21].subs)>0){document.getElementById('apisubs9').style.color='#1bed0c'}; if((data.socialblade.daily[20].subs-data.socialblade.daily[21].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg10.innerHTML=data.socialblade.daily[19].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs10.innerHTML=(data.socialblade.daily[19].subs-data.socialblade.daily[20].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[19].subs-data.socialblade.daily[20].subs)>0){document.getElementById('apisubs10').style.color='#1bed0c'}; if((data.socialblade.daily[19].subs-data.socialblade.daily[20].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg11.innerHTML=data.socialblade.daily[18].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs11.innerHTML=(data.socialblade.daily[18].subs-data.socialblade.daily[19].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[18].subs-data.socialblade.daily[19].subs)>0){document.getElementById('apisubs11').style.color='#1bed0c'}; if((data.socialblade.daily[18].subs-data.socialblade.daily[19].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg12.innerHTML=data.socialblade.daily[17].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs12.innerHTML=(data.socialblade.daily[17].subs-data.socialblade.daily[18].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[17].subs-data.socialblade.daily[18].subs)>0){document.getElementById('apisubs12').style.color='#1bed0c'}; if((data.socialblade.daily[17].subs-data.socialblade.daily[18].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg13.innerHTML=data.socialblade.daily[16].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs13.innerHTML=(data.socialblade.daily[16].subs-data.socialblade.daily[17].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[16].subs-data.socialblade.daily[17].subs)>0){document.getElementById('apisubs13').style.color='#1bed0c'}; if((data.socialblade.daily[16].subs-data.socialblade.daily[17].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg14.innerHTML=data.socialblade.daily[15].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs14.innerHTML=(data.socialblade.daily[15].subs-data.socialblade.daily[16].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[15].subs-data.socialblade.daily[16].subs)>0){document.getElementById('apisubs14').style.color='#1bed0c'}; if((data.socialblade.daily[15].subs-data.socialblade.daily[16].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg15.innerHTML=data.socialblade.daily[14].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs15.innerHTML=(data.socialblade.daily[14].subs-data.socialblade.daily[15].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[14].subs-data.socialblade.daily[15].subs)>0){document.getElementById('apisubs15').style.color='#1bed0c'}; if((data.socialblade.daily[14].subs-data.socialblade.daily[15].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg16.innerHTML=data.socialblade.daily[13].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs16.innerHTML=(data.socialblade.daily[13].subs-data.socialblade.daily[14].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[13].subs-data.socialblade.daily[14].subs)>0){document.getElementById('apisubs16').style.color='#1bed0c'}; if((data.socialblade.daily[13].subs-data.socialblade.daily[14].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg17.innerHTML=data.socialblade.daily[12].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs17.innerHTML=(data.socialblade.daily[12].subs-data.socialblade.daily[13].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[12].subs-data.socialblade.daily[13].subs)>0){document.getElementById('apisubs17').style.color='#1bed0c'}; if((data.socialblade.daily[12].subs-data.socialblade.daily[13].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg18.innerHTML=data.socialblade.daily[11].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs18.innerHTML=(data.socialblade.daily[11].subs-data.socialblade.daily[12].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[11].subs-data.socialblade.daily[12].subs)>0){document.getElementById('apisubs18').style.color='#1bed0c'}; if((data.socialblade.daily[11].subs-data.socialblade.daily[12].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg19.innerHTML=data.socialblade.daily[10].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs19.innerHTML=(data.socialblade.daily[10].subs-data.socialblade.daily[11].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[10].subs-data.socialblade.daily[11].subs)>0){document.getElementById('apisubs19').style.color='#1bed0c'}; if((data.socialblade.daily[10].subs-data.socialblade.daily[11].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg20.innerHTML=data.socialblade.daily[9].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs20.innerHTML=(data.socialblade.daily[9].subs-data.socialblade.daily[10].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[9].subs-data.socialblade.daily[10].subs)>0){document.getElementById('apisubs20').style.color='#1bed0c'}; if((data.socialblade.daily[9].subs-data.socialblade.daily[10].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg21.innerHTML=data.socialblade.daily[8].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs21.innerHTML=(data.socialblade.daily[8].subs-data.socialblade.daily[9].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[8].subs-data.socialblade.daily[9].subs)>0){document.getElementById('apisubs21').style.color='#1bed0c'}; if((data.socialblade.daily[8].subs-data.socialblade.daily[9].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg22.innerHTML=data.socialblade.daily[7].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs22.innerHTML=(data.socialblade.daily[7].subs-data.socialblade.daily[8].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[7].subs-data.socialblade.daily[8].subs)>0){document.getElementById('apisubs22').style.color='#1bed0c'}; if((data.socialblade.daily[7].subs-data.socialblade.daily[8].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg23.innerHTML=data.socialblade.daily[6].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs23.innerHTML=(data.socialblade.daily[6].subs-data.socialblade.daily[7].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[6].subs-data.socialblade.daily[7].subs)>0){document.getElementById('apisubs23').style.color='#1bed0c'}; if((data.socialblade.daily[6].subs-data.socialblade.daily[7].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg24.innerHTML=data.socialblade.daily[5].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs24.innerHTML=(data.socialblade.daily[5].subs-data.socialblade.daily[6].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[5].subs-data.socialblade.daily[6].subs)>0){document.getElementById('apisubs24').style.color='#1bed0c'}; if((data.socialblade.daily[5].subs-data.socialblade.daily[6].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg25.innerHTML=data.socialblade.daily[4].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs25.innerHTML=(data.socialblade.daily[4].subs-data.socialblade.daily[5].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[4].subs-data.socialblade.daily[5].subs)>0){document.getElementById('apisubs25').style.color='#1bed0c'}; if((data.socialblade.daily[4].subs-data.socialblade.daily[5].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg26.innerHTML=data.socialblade.daily[3].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs26.innerHTML=(data.socialblade.daily[3].subs-data.socialblade.daily[4].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[3].subs-data.socialblade.daily[4].subs)>0){document.getElementById('apisubs26').style.color='#1bed0c'}; if((data.socialblade.daily[3].subs-data.socialblade.daily[4].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg27.innerHTML=data.socialblade.daily[2].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs27.innerHTML=(data.socialblade.daily[2].subs-data.socialblade.daily[3].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[2].subs-data.socialblade.daily[3].subs)>0){document.getElementById('apisubs27').style.color='#1bed0c'}; if((data.socialblade.daily[2].subs-data.socialblade.daily[3].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg28.innerHTML=data.socialblade.daily[1].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs28.innerHTML=(data.socialblade.daily[1].subs-data.socialblade.daily[2].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[1].subs-data.socialblade.daily[2].subs)>0){document.getElementById('apisubs28').style.color='#1bed0c'}; if((data.socialblade.daily[1].subs-data.socialblade.daily[2].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-            apisubsg29.innerHTML=data.socialblade.daily[0].subs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apisubs29.innerHTML=(data.socialblade.daily[0].subs-data.socialblade.daily[1].subs).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[0].subs-data.socialblade.daily[1].subs)>0){document.getElementById('apisubs29').style.color='#1bed0c'}; if((data.socialblade.daily[0].subs-data.socialblade.daily[1].subs)<0){document.getElementById('apisubs').style.color='#ed2121'};
-
-            apiviewsg1.innerHTML=data.socialblade.daily[28].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews1.innerHTML=(data.socialblade.daily[28].views-data.socialblade.daily[29].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[28].views-data.socialblade.daily[29].views)>0){document.getElementById('apiviews1').style.color='#1bed0c'}; if((data.socialblade.daily[28].views-data.socialblade.daily[29].views)<0){document.getElementById('apiviews1').style.color='#ed2121'};
-            apiviewsg2.innerHTML=data.socialblade.daily[27].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews2.innerHTML=(data.socialblade.daily[27].views-data.socialblade.daily[28].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[27].views-data.socialblade.daily[28].views)>0){document.getElementById('apiviews2').style.color='#1bed0c'}; if((data.socialblade.daily[27].views-data.socialblade.daily[28].views)<0){document.getElementById('apiviews2').style.color='#ed2121'};
-            apiviewsg3.innerHTML=data.socialblade.daily[26].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews3.innerHTML=(data.socialblade.daily[26].views-data.socialblade.daily[27].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[26].views-data.socialblade.daily[27].views)>0){document.getElementById('apiviews3').style.color='#1bed0c'}; if((data.socialblade.daily[26].views-data.socialblade.daily[27].views)<0){document.getElementById('apiviews3').style.color='#ed2121'};
-            apiviewsg4.innerHTML=data.socialblade.daily[25].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews4.innerHTML=(data.socialblade.daily[25].views-data.socialblade.daily[26].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[25].views-data.socialblade.daily[26].views)>0){document.getElementById('apiviews4').style.color='#1bed0c'}; if((data.socialblade.daily[25].views-data.socialblade.daily[26].views)<0){document.getElementById('apiviews4').style.color='#ed2121'};
-            apiviewsg5.innerHTML=data.socialblade.daily[24].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews5.innerHTML=(data.socialblade.daily[24].views-data.socialblade.daily[25].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[24].views-data.socialblade.daily[25].views)>0){document.getElementById('apiviews5').style.color='#1bed0c'}; if((data.socialblade.daily[24].views-data.socialblade.daily[25].views)<0){document.getElementById('apiviews5').style.color='#ed2121'};
-            apiviewsg6.innerHTML=data.socialblade.daily[23].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews6.innerHTML=(data.socialblade.daily[23].views-data.socialblade.daily[24].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[23].views-data.socialblade.daily[24].views)>0){document.getElementById('apiviews6').style.color='#1bed0c'}; if((data.socialblade.daily[23].views-data.socialblade.daily[24].views)<0){document.getElementById('apiviews6').style.color='#ed2121'};
-            apiviewsg7.innerHTML=data.socialblade.daily[22].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews7.innerHTML=(data.socialblade.daily[22].views-data.socialblade.daily[23].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[22].views-data.socialblade.daily[23].views)>0){document.getElementById('apiviews7').style.color='#1bed0c'}; if((data.socialblade.daily[22].views-data.socialblade.daily[23].views)<0){document.getElementById('apiviews7').style.color='#ed2121'};
-            apiviewsg8.innerHTML=data.socialblade.daily[21].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews8.innerHTML=(data.socialblade.daily[21].views-data.socialblade.daily[22].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[21].views-data.socialblade.daily[22].views)>0){document.getElementById('apiviews8').style.color='#1bed0c'}; if((data.socialblade.daily[21].views-data.socialblade.daily[22].views)<0){document.getElementById('apiviews8').style.color='#ed2121'};
-            apiviewsg9.innerHTML=data.socialblade.daily[20].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews9.innerHTML=(data.socialblade.daily[20].views-data.socialblade.daily[21].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[20].views-data.socialblade.daily[21].views)>0){document.getElementById('apiviews9').style.color='#1bed0c'}; if((data.socialblade.daily[20].views-data.socialblade.daily[21].views)<0){document.getElementById('apiviews9').style.color='#ed2121'};
-            apiviewsg10.innerHTML=data.socialblade.daily[19].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews10.innerHTML=(data.socialblade.daily[19].views-data.socialblade.daily[20].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[19].views-data.socialblade.daily[20].views)>0){document.getElementById('apiviews10').style.color='#1bed0c'}; if((data.socialblade.daily[19].views-data.socialblade.daily[20].views)<0){document.getElementById('apiviews10').style.color='#ed2121'};
-            apiviewsg11.innerHTML=data.socialblade.daily[18].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews11.innerHTML=(data.socialblade.daily[18].views-data.socialblade.daily[19].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[18].views-data.socialblade.daily[19].views)>0){document.getElementById('apiviews11').style.color='#1bed0c'}; if((data.socialblade.daily[18].views-data.socialblade.daily[19].views)<0){document.getElementById('apiviews11').style.color='#ed2121'};
-            apiviewsg12.innerHTML=data.socialblade.daily[17].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews12.innerHTML=(data.socialblade.daily[17].views-data.socialblade.daily[18].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[17].views-data.socialblade.daily[18].views)>0){document.getElementById('apiviews12').style.color='#1bed0c'}; if((data.socialblade.daily[17].views-data.socialblade.daily[18].views)<0){document.getElementById('apiviews12').style.color='#ed2121'};
-            apiviewsg13.innerHTML=data.socialblade.daily[16].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews13.innerHTML=(data.socialblade.daily[16].views-data.socialblade.daily[17].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[16].views-data.socialblade.daily[17].views)>0){document.getElementById('apiviews13').style.color='#1bed0c'}; if((data.socialblade.daily[16].views-data.socialblade.daily[17].views)<0){document.getElementById('apiviews13').style.color='#ed2121'};
-            apiviewsg14.innerHTML=data.socialblade.daily[15].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews14.innerHTML=(data.socialblade.daily[15].views-data.socialblade.daily[16].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[15].views-data.socialblade.daily[16].views)>0){document.getElementById('apiviews14').style.color='#1bed0c'}; if((data.socialblade.daily[15].views-data.socialblade.daily[16].views)<0){document.getElementById('apiviews14').style.color='#ed2121'};
-            apiviewsg15.innerHTML=data.socialblade.daily[14].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews15.innerHTML=(data.socialblade.daily[14].views-data.socialblade.daily[15].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[14].views-data.socialblade.daily[15].views)>0){document.getElementById('apiviews15').style.color='#1bed0c'}; if((data.socialblade.daily[14].views-data.socialblade.daily[15].views)<0){document.getElementById('apiviews15').style.color='#ed2121'};
-            apiviewsg16.innerHTML=data.socialblade.daily[13].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews16.innerHTML=(data.socialblade.daily[13].views-data.socialblade.daily[14].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[13].views-data.socialblade.daily[14].views)>0){document.getElementById('apiviews16').style.color='#1bed0c'}; if((data.socialblade.daily[13].views-data.socialblade.daily[14].views)<0){document.getElementById('apiviews16').style.color='#ed2121'};
-            apiviewsg17.innerHTML=data.socialblade.daily[12].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews17.innerHTML=(data.socialblade.daily[12].views-data.socialblade.daily[13].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[12].views-data.socialblade.daily[13].views)>0){document.getElementById('apiviews17').style.color='#1bed0c'}; if((data.socialblade.daily[12].views-data.socialblade.daily[13].views)<0){document.getElementById('apiviews17').style.color='#ed2121'};
-            apiviewsg18.innerHTML=data.socialblade.daily[11].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews18.innerHTML=(data.socialblade.daily[11].views-data.socialblade.daily[12].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[11].views-data.socialblade.daily[12].views)>0){document.getElementById('apiviews18').style.color='#1bed0c'}; if((data.socialblade.daily[11].views-data.socialblade.daily[12].views)<0){document.getElementById('apiviews18').style.color='#ed2121'};
-            apiviewsg19.innerHTML=data.socialblade.daily[10].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews19.innerHTML=(data.socialblade.daily[10].views-data.socialblade.daily[11].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[10].views-data.socialblade.daily[11].views)>0){document.getElementById('apiviews19').style.color='#1bed0c'}; if((data.socialblade.daily[10].views-data.socialblade.daily[11].views)<0){document.getElementById('apiviews19').style.color='#ed2121'};
-            apiviewsg20.innerHTML=data.socialblade.daily[9].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews20.innerHTML=(data.socialblade.daily[9].views-data.socialblade.daily[10].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[9].views-data.socialblade.daily[10].views)>0){document.getElementById('apiviews20').style.color='#1bed0c'}; if((data.socialblade.daily[9].views-data.socialblade.daily[10].views)<0){document.getElementById('apiviews20').style.color='#ed2121'};
-            apiviewsg21.innerHTML=data.socialblade.daily[8].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews21.innerHTML=(data.socialblade.daily[8].views-data.socialblade.daily[9].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[8].views-data.socialblade.daily[9].views)>0){document.getElementById('apiviews21').style.color='#1bed0c'}; if((data.socialblade.daily[8].views-data.socialblade.daily[9].views)<0){document.getElementById('apiviews21').style.color='#ed2121'};
-            apiviewsg22.innerHTML=data.socialblade.daily[7].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews22.innerHTML=(data.socialblade.daily[7].views-data.socialblade.daily[8].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[7].views-data.socialblade.daily[8].views)>0){document.getElementById('apiviews22').style.color='#1bed0c'}; if((data.socialblade.daily[7].views-data.socialblade.daily[8].views)<0){document.getElementById('apiviews22').style.color='#ed2121'};
-            apiviewsg23.innerHTML=data.socialblade.daily[6].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews23.innerHTML=(data.socialblade.daily[6].views-data.socialblade.daily[7].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[6].views-data.socialblade.daily[7].views)>0){document.getElementById('apiviews23').style.color='#1bed0c'}; if((data.socialblade.daily[6].views-data.socialblade.daily[7].views)<0){document.getElementById('apiviews23').style.color='#ed2121'};
-            apiviewsg24.innerHTML=data.socialblade.daily[5].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews24.innerHTML=(data.socialblade.daily[5].views-data.socialblade.daily[6].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[5].views-data.socialblade.daily[6].views)>0){document.getElementById('apiviews24').style.color='#1bed0c'}; if((data.socialblade.daily[5].views-data.socialblade.daily[6].views)<0){document.getElementById('apiviews24').style.color='#ed2121'};
-            apiviewsg25.innerHTML=data.socialblade.daily[4].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews25.innerHTML=(data.socialblade.daily[4].views-data.socialblade.daily[5].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[4].views-data.socialblade.daily[5].views)>0){document.getElementById('apiviews25').style.color='#1bed0c'}; if((data.socialblade.daily[4].views-data.socialblade.daily[5].views)<0){document.getElementById('apiviews25').style.color='#ed2121'};
-            apiviewsg26.innerHTML=data.socialblade.daily[3].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews26.innerHTML=(data.socialblade.daily[3].views-data.socialblade.daily[4].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[3].views-data.socialblade.daily[4].views)>0){document.getElementById('apiviews26').style.color='#1bed0c'}; if((data.socialblade.daily[3].views-data.socialblade.daily[4].views)<0){document.getElementById('apiviews26').style.color='#ed2121'};
-            apiviewsg27.innerHTML=data.socialblade.daily[2].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews27.innerHTML=(data.socialblade.daily[2].views-data.socialblade.daily[3].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[2].views-data.socialblade.daily[3].views)>0){document.getElementById('apiviews27').style.color='#1bed0c'}; if((data.socialblade.daily[2].views-data.socialblade.daily[3].views)<0){document.getElementById('apiviews27').style.color='#ed2121'};
-            apiviewsg28.innerHTML=data.socialblade.daily[1].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews28.innerHTML=(data.socialblade.daily[1].views-data.socialblade.daily[2].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[1].views-data.socialblade.daily[2].views)>0){document.getElementById('apiviews28').style.color='#1bed0c'}; if((data.socialblade.daily[1].views-data.socialblade.daily[2].views)<0){document.getElementById('apiviews28').style.color='#ed2121'};
-            apiviewsg29.innerHTML=data.socialblade.daily[0].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); apiviews29.innerHTML=(data.socialblade.daily[0].views-data.socialblade.daily[1].views).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if((data.socialblade.daily[0].views-data.socialblade.daily[1].views)>0){document.getElementById('apiviews29').style.color='#1bed0c'}; if((data.socialblade.daily[0].views-data.socialblade.daily[1].views)<0){document.getElementById('apiviews29').style.color='#ed2121'};
 
             Highcharts.chart('month-subs', {
                 chart: {
