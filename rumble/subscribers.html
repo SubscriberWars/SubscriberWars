@@ -2,9 +2,9 @@
 <head>
     <title id="tab_header">Live Rumble Subscriber Count</title>
     <meta name="description" content="Live Rumble Stats">
-    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
-    <link rel="stylesheet" href="https://subscriberwars.space/css/youtube.css">
-    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/odometer.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,28 +13,29 @@
 <body>
     <div id="count-block">
         <img style="margin:10px; width:1240px; height: 206px;" id="headerImage"/>
-        <img id="logo" src="https://subscriberwars.space/images/sw.png" alt="">
+        <img id="logo" src="https://subscriberwars.space/images/sw.png" alt="" width="206px" height="206px" style="top: -230px; position: relative">
         <h1 id="title" style="top: -227px;">Loading...</h1>
         <div id='followercount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px; top: -227px;">0</div>
         <h2 style="top: -227px;">Subscribers</h2>
     </div>
     <div id="mini-counts">
-        <div id="view-box">
+        <div id="like-box">
             <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
             <h2>Videos</h2>
         </div>
-        <div id="video-box">
+        <div id="comment-box">
             <div id='followingcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
             <h2>Subscriptions</h2>
         </div>
         <div id="api-box">
-            <div id='rumblescount' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
-            <h2>Rumbles</h2>
+            <div id='goalcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Goal</h2>
         </div>
     </div>
     <div id="graph-block">
         <div id="graph" style="width: 1260px; height: 400px;"></div>
         <p id="graphstat" style="visibility: hidden;"></p>
+        <p id="goal01" style="visibility: hidden;"></p>
     </div>
 </body>
 
@@ -65,6 +66,16 @@ function update(chanid) {
         var injection=yep
         if(graph.series[0].points.length>=900)graph.series[0].data[0].remove();
         graph.series[0].addPoint([Date.now(),parseFloat(injection)])
+        if(data.data.followers>=0) {goal01.innerHTML=10}
+        if(data.data.followers>=10) {goal01.innerHTML=100}
+        if(data.data.followers>=100) {goal01.innerHTML=1000}
+        if(data.data.followers>=1000) {goal01.innerHTML=(Math.floor(data.data.followers/1000)*1000)+1000}
+        if(data.data.followers>=10000) {goal01.innerHTML=(Math.floor(data.data.followers/10000)*10000)+10000}
+        if(data.data.followers>=100000) {goal01.innerHTML=(Math.floor(data.data.followers/100000)*100000)+100000}
+        if(data.data.followers>=1000000) {goal01.innerHTML=(Math.floor(data.data.followers/1000000)*1000000)+1000000}
+        if(data.data.followers>=10000000) {goal01.innerHTML=(Math.floor(data.data.followers/10000000)*10000000)+10000000}
+        if(data.data.followers>=100000000) {goal01.innerHTML=(Math.floor(data.data.followers/100000000)*100000000)+100000000}
+        goalcount.innerHTML=goal01.innerHTML-data.data.followers
     });
 }
 
