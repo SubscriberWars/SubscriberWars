@@ -63,8 +63,8 @@
         <img id="thumbnail" height="150px" style="position: relative; left:-200px; top: 8px; border-radius: 10px;">
         <div id="vidtitle" style="font-size: 2rem; text-align: left; width: 400px; position: relative; left: 290px; top: -150px; color: #fff;"></div>
         <div id="viewsOdometer" class="odometer odometer-auto-theme" style="font-size: 7rem; font-weight: 500; position: relative; top: -50px; color: #fff;"></div>
-        <div id="likesOdometer" class="odometer odometer-auto-theme" style="position: absolute; top: 370px; font-size: 4rem; left: 100px; color: rgb(9, 243, 20); text-align: center;"></div>
-        <div id="commentsOdometer" class="odometer odometer-auto-theme" style="position: absolute; top: 370px; font-size: 4rem; left: 400px; color: rgb(9, 138, 243); text-align: center;"></div>
+        <div id="likesOdometer" class="odometer odometer-auto-theme" style="position: absolute; top: 370px; font-size: 4rem; left: 100px; color: rgb(9, 243, 20);"></div>
+        <div id="commentsOdometer" class="odometer odometer-auto-theme" style="position: absolute; top: 370px; font-size: 4rem; left: 400px; color: rgb(9, 138, 243);"></div>
     </div>
     <div class="other-box" style="top: -1478px;">
         <img class="mini-img" id="mini1_img">
@@ -97,7 +97,7 @@ string +='';
 var string2='';
 string2 +='';
 function mainstats() {
-    fetch('https://api.subscriberwars.space/stream/UC-lHJZR3Gqxm24_Vd_AJ5Yw').then(res=>res.json()).then(data=>{
+    fetch('https://api.subscriberwars.space/stream/UC-9-kyTW8ZkZNDHQJ6FgpwQ').then(res=>res.json()).then(data=>{
         followers_one.innerHTML=data.estCounts[0]
         gap01=parseFloat(data.estCounts[0])
         title_one.innerHTML=data.name
