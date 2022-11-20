@@ -7,11 +7,13 @@
     <div id="viewsOdometer" class=odometer style="width: 1000px; font-size: 150px; color: white; display: block; text-align: center;">0</div><br>
     <div style="width: 1000px; font-size: 40px; color: white; display: block; text-align: center;">Views</div><br>
     <div>
-       <div id="likesOdometer" class=odometer style="width:500px; font-size: 60px; color: rgb(0, 255, 13); display: block; text-align: center;">0</div><br>
-       <div style="width: 500px; font-size: 40px; color: rgb(0, 255, 13); display: block; text-align: center;">Likes</div><br>
-       <div id="commentsOdometer" class=odometer style="position: relative; left: 500px; top: -150px; width: 500px; font-size: 60px; color: rgb(11, 185, 238); display: block; text-align: center;">0</div><br>
-       <div style="position: relative; left: 500px; top: -150px; width: 500px; font-size: 40px; color: rgb(11, 185, 238); display: block; text-align: center;">Comments</div><br>
+       <div id="likesOdometer" class=odometer style="width:500px; font-size: 60px; color: rgb(255, 255, 255); display: block; text-align: center;">0</div><br>
+       <div style="width: 500px; font-size: 40px; color: rgb(255, 255, 255); display: block; text-align: center;">Likes</div><br>
+       <div id="commentsOdometer" class=odometer style="position: relative; left: 480px; top: -160px; width: 500px; font-size: 60px; color: rgb(255, 255, 255); display: block; text-align: center;">0</div><br>
+       <div style="position: relative; left: 480px; top: -160px; width: 500px; font-size: 40px; color: rgb(255, 255, 255); display: block; text-align: center;">Comments</div><br>
     </div>
+    <div id="viewsOdometerapi" class=odometer style="width: 1000px; font-size: 150px; color: white; display: block; text-align: center; position: relative; top: -100px;">0</div><br>
+    <div style="width: 1000px; font-size: 40px; color: white; display: block; text-align: center; position: relative; top: -100px;">Views</div><br>
 </body>
 
 <script>
@@ -28,6 +30,7 @@ function updateStats(id) {
     fetch('https://mixerno.space/api/youtube-video-counter/user/'+id).then(res => res.json()).then(data => {
         vidtitle.innerHTML = data.user[0].count,
         viewsOdometer.innerHTML = data.counts[0].count,
+        viewsOdometerapi.innerHTML = data.counts[2].count,
         likesOdometer.innerHTML = data.counts[3].count,
         commentsOdometer.innerHTML= data.counts[5].count,
         thumbnailmax.src = data.user[1].count
@@ -105,11 +108,11 @@ setInterval(() => {
       vertical-align: middle;
     }
     .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner {
-      -webkit-transition: -webkit-transform 2s;
-      -moz-transition: -moz-transform 2s;
-      -ms-transition: -ms-transform 2s;
-      -o-transition: -o-transform 2s;
-      transition: transform 2s;
+      -webkit-transition: -webkit-transform 1s;
+      -moz-transition: -moz-transform 1s;
+      -ms-transition: -ms-transform 1s;
+      -o-transition: -o-transform 1s;
+      transition: transform 1s;
     }
     .odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
       -webkit-transform: translateY(-100%);
@@ -117,20 +120,30 @@ setInterval(() => {
       -ms-transform: translateY(-100%);
       -o-transform: translateY(-100%);
       transform: translateY(-100%);
+      animation-name: up;
+      animation-duration: 1s;
     }
+    @keyframes up {
+      0% {color: #fff;}
+      25% {color: #0ea70e;}
+      75% {color: #0ea70e;}
+      100% {color: #fff;}
+  }
     .odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-down .odometer-ribbon-inner {
       -webkit-transform: translateY(-100%);
       -moz-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
       -o-transform: translateY(-100%);
       transform: translateY(-100%);
+      animation-name: down;
+      animation-duration: 1s;
     }
     .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
-      -webkit-transition: -webkit-transform 2s;
-      -moz-transition: -moz-transform 2s;
-      -ms-transition: -ms-transform 2s;
-      -o-transition: -o-transform 2s;
-      transition: transform 2s;
+      -webkit-transition: -webkit-transform 1s;
+      -moz-transition: -moz-transform 1s;
+      -ms-transition: -ms-transform 1s;
+      -o-transition: -o-transform 1s;
+      transition: transform 1s;
     
       -webkit-transform: translateY(0);
       -moz-transform: translateY(0);
@@ -138,6 +151,12 @@ setInterval(() => {
       -o-transform: translateY(0);
       transform: translateY(0);
     }
+    @keyframes down {
+    0% {color: #fff;}
+    25% {color: #f12424;}
+    75% {color: #f12424;}
+    100% {color: #fff;}
+}
     </style>
 
 <script>//Odometer
