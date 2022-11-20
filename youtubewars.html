@@ -39,14 +39,14 @@ function updateStats(id) {
 
 setInterval(() => {
     updateStats(newestvidID);
-}, 2000);
+}, 20000);
 
 checkForNew(channel)
 updateStats(newestvidID)
 
 setInterval(() => {
     checkForNew(channel);
-}, 15000);
+}, 60000);
 </script>
 
 <style>
@@ -108,11 +108,11 @@ setInterval(() => {
       vertical-align: middle;
     }
     .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner {
-      -webkit-transition: -webkit-transform 1s;
-      -moz-transition: -moz-transform 1s;
-      -ms-transition: -ms-transform 1s;
-      -o-transition: -o-transform 1s;
-      transition: transform 1s;
+      -webkit-transition: -webkit-transform 1.5s;
+      -moz-transition: -moz-transform 1.5s;
+      -ms-transition: -ms-transform 1.5s;
+      -o-transition: -o-transform 1.5s;
+      transition: transform 1.5s;
     }
     .odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
       -webkit-transform: translateY(-100%);
@@ -121,7 +121,7 @@ setInterval(() => {
       -o-transform: translateY(-100%);
       transform: translateY(-100%);
       animation-name: up;
-      animation-duration: 1s;
+      animation-duration: 1.5s;
     }
     @keyframes up {
       0% {color: #fff;}
@@ -136,14 +136,14 @@ setInterval(() => {
       -o-transform: translateY(-100%);
       transform: translateY(-100%);
       animation-name: down;
-      animation-duration: 1s;
+      animation-duration: 1.5s;
     }
     .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-minimal.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
-      -webkit-transition: -webkit-transform 1s;
-      -moz-transition: -moz-transform 1s;
-      -ms-transition: -ms-transform 1s;
-      -o-transition: -o-transform 1s;
-      transition: transform 1s;
+      -webkit-transition: -webkit-transform 1.5s;
+      -moz-transition: -moz-transform 1.5s;
+      -ms-transition: -ms-transform 1.5s;
+      -o-transition: -o-transform 1.5s;
+      transition: transform 1.5s;
     
       -webkit-transform: translateY(0);
       -moz-transform: translateY(0);
