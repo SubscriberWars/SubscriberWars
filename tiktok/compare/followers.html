@@ -52,13 +52,13 @@ function check2(chanid) {
 }
 
 function update(chanid) {
-    fetch('https://api.subscriberwars.space/tiktok/'+chanid).then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/tiktok/v2/'+chanid).then(res => res.json()).then(data => {
         followercount.innerHTML= data.followers
         gap01= data.followers
     });
 }
 function update2(chanid) {
-    fetch('https://api.subscriberwars.space/tiktok/'+chanid).then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/tiktok/v2/'+chanid).then(res => res.json()).then(data => {
         followercountb.innerHTML= data.followers
         gap02= data.followers
         if(gap01>gap02){difference.innerHTML= gap01-gap02} else{difference.innerHTML= gap02-gap01}   
