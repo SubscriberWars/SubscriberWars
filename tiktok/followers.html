@@ -19,19 +19,16 @@
     <div id="mini-counts">
         <div id="like-box">
             <div id='likecount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 411px;">0</div>
-            <h2>Hearts</h2>
+            <h2>Following</h2>
         </div>
         <div id="comment-box">
             <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 411px;">0</div>
-            <h2>Videos</h2>
+            <h2>...</h2>
         </div>
         <div id="api-box">
             <div id='goalcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 411px;">0</div>
             <h2>Goal</h2>
         </div>
-    </div>
-    <div id="credit">
-        <h2><a href="https://tokcount.com"> Powered by: TokCount.com</a></h2>
     </div>
     <div id="graph-block">
         <div id="graph" style="width: 1260px; height: 400px;"></div>
@@ -54,15 +51,15 @@ function checkForNew(chanid) {
 
 
 function updateStats(id) {
-    fetch('https://api.subscriberwars.space/tiktok/'+id+'').then(res => res.json()).then(data => {
-        likecount.innerHTML = data.hearts,
-        videocount.innerHTML = data.videos,
+    fetch('https://api.subscriberwars.space/tiktok/v2/'+id+'').then(res => res.json()).then(data => {
+        likecount.innerHTML = data.following,
+        videocount.innerHTML = "0",
         followercount.innerHTML = data.followers,
         graphstat.innerHTML = data.followers
         var yep=(graphstat.innerHTML)
         console.log(yep)
         var injection=yep
-        if(graph.series[0].points.length>=720)graph.series[0].data[0].remove();
+        if(graph.series[0].points.length>=900)graph.series[0].data[0].remove();
         graph.series[0].addPoint([Date.now(),parseFloat(injection)])
         if(data.followers>=0) {goal01.innerHTML=10}
         if(data.followers>=10) {goal01.innerHTML=100}
@@ -80,7 +77,7 @@ function updateStats(id) {
 // Intervals
 setInterval(() => {
     updateStats(newestvidID);
-}, 5000);
+}, 2000);
 
 checkForNew(channel)
 
@@ -130,7 +127,7 @@ minorGridLineColor: 'transparent',
 tickColor: 'white'
 },
 credits: {
-enabled: true,
+enabled: false,
 text: "SubscriberWars.space"
 },
 series: [{
