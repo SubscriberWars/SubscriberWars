@@ -13,6 +13,7 @@ h2 {font-weight: 400; font-size: 15pt; margin: 0px auto; position: relative; tex
 #name a {display: block;float: left;height: 60px;padding: 0px 15px;color: #fff;text-decoration: none; width:100% }
 .head-box {width: 560px;height: 60px;background:#0f0f0f;padding: 5px 20px;color: #fff;font-size: 30pt;font-weight: 500;text-align: left;position: relative; margin-bottom: 20px;}
 .head-box:hover {background: #000;}
+#graph-block {width:1260px; height:400px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative;}
 /* ScrollBar */
 
 /* width */
