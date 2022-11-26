@@ -58,11 +58,11 @@
         <div id="chart3" style="height: 360px; width: 500px; position: relative; left: -50px;"></div>
     </div>
     <div class="table-box" style="top: -992px;">
-        <!--<img class="main-img" id="img_3" style="position:absolute; left: 5px; width: 100px; height: 100px;">
+        <img class="main-img" id="img_3" style="position:absolute; left: 5px; width: 100px; height: 100px;">
         <div id="followers_3" class="odometer odometer-auto-theme" style="font-size: 6rem; font-weight: 500; color: #fff; position: absolute; left: 110px; top: 130px;"></div>
         <h5 id="title_3" style="position: absolute; left: 170px; top: -40px;"></h5>
         <h6 id="tag_3" style="position: absolute; left: 120px; top: 0px;"></h6>
-        <img src="https://subscriberwars.space/images/tiktok.svg" style="width: 40px; position: absolute; top: 15px; left: 120px;">-->
+        <img src="https://subscriberwars.space/images/tiktok.svg" style="width: 40px; position: absolute; top: 15px; left: 120px;">
     </div>
     <div class="table-box" style="top: -1244px; left: 1170px; height: 498px;">
         <img id="thumbnail" height="150px" style="position: relative; left:-200px; top: 8px; border-radius: 10px;">
@@ -168,6 +168,9 @@ function mainstats() {
         if (data.apiCounts[0]>100000000) {string2 +='M'}
         api_two.innerHTML=string2
     })
+    fetch('https://api.subscriberwars.space/tiktok/v2/6614519312189947909').then(res=>res.json()).then(data=>{
+        followers_3.innerHTML=data.followers
+    })
 }
 function chanstats() {
     fetch('https://api.subscriberwars.space/sw/30day').then(res=>res.json()).then(data=>{
@@ -187,6 +190,11 @@ function singleload(){
         mini2_title.innerHTML=data.items[0].snippet.title
         mini2_tag.innerHTML=data.items[0].snippet.customUrl
         mini2_img.src=data.items[0].snippet.thumbnails.medium.url
+    })
+    fetch('https://api.subscriberwars.space/tiktok/user/mrbeast').then(res=>res.json()).then(data=>{
+        img_3.src=data.avatar
+        title_3.innerHTML=data.username
+        tag_3.innerHTML="@mrbeast"
     })
 }
 var vidid=0;
