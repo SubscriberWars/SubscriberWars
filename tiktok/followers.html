@@ -52,10 +52,14 @@ function checkForNew(chanid) {
 
 function updateStats(id) {
     fetch('https://api.subscriberwars.space/tiktok/v2/'+id+'').then(res => res.json()).then(data => {
+        if(data.followers>=1000) {graphstat.innerHTML=data.followers+5}
+        if(data.followers>=10000) {graphstat.innerHTML=data.followers+50}
+        if(data.followers>=100000) {graphstat.innerHTML=data.followers+500}
+        if(data.followers>=1000000) {graphstat.innerHTML=data.followers+5000}
+        if(data.followers>=10000000) {graphstat.innerHTML=data.followers+50000}
+        followercount.innerHTML=graphstat.innerHTML
         likecount.innerHTML = data.following,
-        videocount.innerHTML = "0",
-        followercount.innerHTML = data.followers,
-        graphstat.innerHTML = data.followers
+        videocount.innerHTML = "0"
         var yep=(graphstat.innerHTML)
         console.log(yep)
         var injection=yep
@@ -68,9 +72,9 @@ function updateStats(id) {
         if(data.followers>=10000) {goal01.innerHTML=(Math.floor(data.followers/10000)*10000)+10000}
         if(data.followers>=100000) {goal01.innerHTML=(Math.floor(data.followers/100000)*100000)+100000}
         if(data.followers>=1000000) {goal01.innerHTML=(Math.floor(data.followers/1000000)*1000000)+1000000}
-        if(data.followers>=10000000) {goal01.innerHTML=(Math.floor(data.followers/10000000)*10000000)+10000000}
-        if(data.followers>=100000000) {goal01.innerHTML=(Math.floor(data.followers/100000000)*100000000)+100000000}
-        goalcount.innerHTML=goal01.innerHTML-data.followers
+        if(data.followers>=10000000) {goal01.innerHTML=(Math.floor(data.followers/10000000)*10000000)+20000000}
+        if(data.followers>=100000000) {goal01.innerHTML=(Math.floor(data.followers/100000000)*100000000)+200000000}
+        goalcount.innerHTML=goal01.innerHTML-graphstat.innerHTML
     });
 }
 
