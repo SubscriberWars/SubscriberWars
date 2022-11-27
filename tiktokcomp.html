@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{height: 1080px; width: 1920px; background: #242424;}
+    *{font-family: roboto; color: #fff;}
+    .main{width: 920px; height: 500px; background: #181818; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000;}
+    .main-img{width: 150px; height: 150px; border-radius: 0.5rem; border: 1px solid #000; position: relative; top: 10px; left: 10px;}
+    .mini-img{width: 80px; height: 80px; border-radius: 0.5rem; border: 1px solid #000; position: relative; top: 5px; left: -36%;}
+    h1{font-size: 3rem; position: relative; left: 220px; top: -180px;}
+    h2{font-size: 2rem; font-weight: 400; position: relative; left: 175px; top: -200px;}
+    h3{font-size: 9rem; text-align: center; position: relative; top: -560px; left: 100px; font-weight: 500;}
+    h4{font-size: 2rem; font-weight: 400; position: relative; top: -1150px; left: 600px;}
+    h5{font-size: 2rem; position: relative; left: 90px; top: -130px; font-weight: 500;}
+    h6{font-size: 1.5rem; position: relative; left: 90px; top: -180px; font-weight: 400;}
+    .h7{font-size: 5rem; position: relative; top: -200px; font-weight: 500;}
+    .chart{position: relative; top: -150px; height: 310px; width: 980px; left: -70px;}
+    .gap-box{width: 460px; height: 500px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; text-align: center; background: #181818; position: relative; top: -490px; left: 695px;}
+    .table-box{width: 680px; height: 252px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: relative; text-align: center;}
+    table{border-collapse: collapse; width: 98%; position: relative; top: 5px; left: 7px;}
+    td,th{border: 1px solid #000; text-align: left; padding: 5px;}
+    tr:nth-child(even){background: rgb(33,33,33);}
+    tr:nth-child(odd){background: rgb(38,38,38);}
+    .other-box{width: 335px; height: 234px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: relative; text-align: center;}
+</style>
+<body>
+    <div class="main">
+        <img class="main-img" id="img_one">
+        <h1 id="title_one">User 1</h1>
+        <h2 id="tag_one">@user1</h2>
+        <div id="chart1" class="chart"></div>
+        <h3 id="followers_one" class="odometer odometer-auto-theme">0</h3>
+        <h4 id="min1"></h4>
+        <h4 id="hrs1"></h4>
+        <img src="https://subscriberwars.space/images/tiktok.svg" style="width: 60px; position: relative; top: -1310px; left: 155px;">
+    </div>
+    <div class="main" style="position: relative; top: -502px; left: 930px;">
+        <img class="main-img" id="img_two">
+        <h1 id="title_two">User 2</h1>
+        <h2 id="tag_two">@user2</h2>
+        <div id="chart2" class="chart"></div>
+        <h3 id="followers_two" class="odometer odometer-auto-theme"></h3>
+        <h4 id="min2"></h4>
+        <h4 id="hrs2"></h4>
+        <img src="https://subscriberwars.space/images/tiktok.svg" style="width: 60px; position: relative; top: -1310px; left: 155px;">
+    </div>
+    <div class="gap-box">
+        <div style="font-size: 3rem; font-weight: 500">Follower Gap</div>
+        <div id="diff" class="odometer odometer-auto-theme" style="font-size: 4rem; position: relative; top: 10px; font-weight: 500;"></div>
+        <div id="chart3" style="height: 360px; width: 500px; position: relative; left: -50px;"></div>
+    </div>
+    <div class="table-box" style="top: -992px;">
+        <table>
+            <tr><th style="background: #000;">Date</th><th style="background: #000;">Follower Gain</th><th style="background: #000;">Total Followers</th></tr>
+            <tr><td id="date1">--</td><td id="ag1">--</td><td id="af1">--</td></tr>
+            <tr><td id="date2">--</td><td id="ag2">--</td><td id="af2">--</td></tr>
+            <tr><td id="date3">--</td><td id="ag3">--</td><td id="af3">--</td></tr>
+            <tr><td id="date4">--</td><td id="ag4">--</td><td id="af4">--</td></tr>
+            <tr><td id="date5">--</td><td id="ag5">--</td><td id="af5">--</td></tr>
+            <tr><td id="date6">--</td><td id="ag6">--</td><td id="af6">--</td></tr>
+            <tr><td id="date7">--</td><td id="ag7">--</td><td id="af7">--</td></tr>
+        </table>
+    </div>
+    <div class="table-box" style="top: -1244px; left: 1170px;">
+        <table>
+            <tr><th style="background: #000;">Date</th><th style="background: #000;">Follower Gain</th><th style="background: #000;">Total Followers</th></tr>
+            <tr><td id="bdate1">--</td><td id="bg1">--</td><td id="bf1">--</td></tr>
+            <tr><td id="bdate2">--</td><td id="bg2">--</td><td id="bf2">--</td></tr>
+            <tr><td id="bdate3">--</td><td id="bg3">--</td><td id="bf3">--</td></tr>
+            <tr><td id="bdate4">--</td><td id="bg4">--</td><td id="bf4">--</td></tr>
+            <tr><td id="bdate5">--</td><td id="bg5">--</td><td id="bf5">--</td></tr>
+            <tr><td id="bdate6">--</td><td id="bg6">--</td><td id="bf6">--</td></tr>
+            <tr><td id="bdate7">--</td><td id="bg7">--</td><td id="bf7">--</td></tr>
+        </table>
+    </div>
+    <div class="other-box" style="top: -1234px;">
+        <img class="mini-img" id="mini1_img">
+        <div style="text-align: left;">
+            <h5 id="mini1_title">--</h5>
+            <h6 id="mini1_tag">--</h6>
+        </div>
+        <div class="h7 odometer odometer-auto-theme" id="mini1_count"></div>
+        <img src="https://subscriberwars.space/images/youtube.png" style="width: 30px; position: absolute; top: 200px; left: 5px;">
+    </div>
+    <div class="other-box" style="top: -1469px; left:344px">
+        <img class="mini-img" id="mini2_img">
+        <div style="text-align: left;">
+            <h5 id="mini2_title">--</h5>
+            <h6 id="mini2_tag">--</h6>
+        </div>
+        <div class="h7 odometer odometer-auto-theme" id="mini2_count"></div>
+        <img src="https://subscriberwars.space/images/youtube.png" style="width: 30px; position: absolute; top: 200px; left: 5px;">
+    </div>
+    <div class="other-box" style="top: -1704px; left: 1170px;">
+        <img class="mini-img" id="mini3_img">
+        <div style="text-align: left;">
+            <h5 id="mini3_title"></h5>
+            <h6 id="mini3_tag"></h6>
+        </div>
+        <div class="h7 odometer odometer-auto-theme" id="mini3_count"></div>
+        <img src="https://subscriberwars.space/images/twitch.svg" style="width: 30px; position: absolute; top: 200px; left: 5px;">
+    </div>
+    <div class="other-box" style="top: -1939px; left: 1515px;">
+        <img class="mini-img" id="mini4_img">
+        <div style="text-align: left;">
+            <h5 id="mini4_title"></h5>
+            <h6 id="mini4_tag"></h6>
+        </div>
+        <div class="h7 odometer odometer-auto-theme" id="mini4_count"></div>
+        <img src="https://subscriberwars.space/images/twitter.svg" style="width: 30px; position: absolute; top: 200px; left: 5px;">
+    </div>
+    <p id="a1" style="visibility: hidden;"></p>
+    <p id="a2" style="visibility: hidden;"></p>
+</body>
+<script>
+var list1=[]
+var list2=[]
+var gap01=[]
+var gap02=[]
+function mainstats() {
+    fetch('https://api.subscriberwars.space/tiktok/v2/131039763028930560').then(res=>res.json()).then(data=>{
+        followers_one.innerHTML=(data.followers+50000)
+        gap01=parseFloat(data.followers)
+        a1.innerHTML=(data.followers+50000)
+        list1.unshift(data.followers)
+        if(list1.length>900){list1.pop()}
+        min1.innerHTML= data.followers-parseFloat(list1[14])+"/Min"
+        hrs1.innerHTML= data.followers-parseFloat(list1[899])+"/Hr"
+        var result = (a1.innerHTML)
+        var inject = result
+        if (chart1.series[0].points.length >= 900) chart1.series[0].data[0].remove();
+        chart1.series[0].addPoint([Date.now(),parseFloat(inject)])
+    })
+    fetch('https://api.subscriberwars.space/tiktok/v2/6614519312189947909').then(res=>res.json()).then(data=>{
+        followers_two.innerHTML=(data.followers+50000)
+        gap02=parseFloat(data.followers)
+        diff.innerHTML=gap01-gap02
+        a2.innerHTML=data.followers+50000
+        list2.unshift(data.followers)
+        if(list2.length>900){list2.pop()}
+        min2.innerHTML= data.followers-parseFloat(list2[14])+"/Min"
+        hrs2.innerHTML= data.followers-parseFloat(list2[899])+"/Hr"
+        var result2 = (a2.innerHTML)
+        var inject2 = result2
+        if (chart2.series[0].points.length >= 900) chart2.series[0].data[0].remove();
+        chart2.series[0].addPoint([Date.now(),parseFloat(inject2)])
+        var result3 = (a1.innerHTML-a2.innerHTML)
+        var inject3 = result3
+        if (chart3.series[0].points.length >= 900) chart3.series[0].data[0].remove();
+        chart3.series[0].addPoint([Date.now(),parseFloat(inject3)])
+    })
+}
+function chanstats() {
+    fetch('https://api.subscriberwars.space/twitter/v2/jaymburton').then(res=>res.json()).then(data=>{
+        mini4_count.innerHTML=data.data.public_metrics.followers_count
+        mini4_title.innerHTML=data.data.name
+        mini4_tag.innerHTML="@"+data.data.username
+        mini4_img.src=data.data.profile_image_url.replace('normal','400x400')
+    })
+    fetch('https://api.subscriberwars.space/twitch/750736092').then(res=>res.json()).then(data=>{
+        mini3_count.innerHTML=data.followerCount
+    })
+    fetch('https://api.subscriberwars.space/sw/30day').then(res=>res.json()).then(data=>{
+        mini1_count.innerHTML=data.totals.subscribers
+    })
+    fetch('https://api.subscriberwars.space/jmbsw/30day').then(res=>res.json()).then(data=>{
+        mini2_count.innerHTML=data.totals.subscribers
+    })
+}
+function singleload(){
+    fetch('https://api.subscriberwars.space/twitch/user/jaymburtonsw').then(res=>res.json()).then(data=>{
+        mini3_title.innerHTML=data.name
+        mini3_tag.innerHTML="@"+data.iD
+        mini3_img.src=data.logo
+    })
+    fetch('https://api.subscriberwars.space/youtube/channel/UCdKLd9f_8ZyDSKxMm16oRww').then(res=>res.json()).then(data=>{
+        mini1_title.innerHTML=data.items[0].snippet.title
+        mini1_tag.innerHTML=data.items[0].snippet.customUrl
+        mini1_img.src=data.items[0].snippet.thumbnails.medium.url
+    })
+    fetch('https://api.subscriberwars.space/youtube/channel/UClx-t76jqvFTcBxQsQBYJWA').then(res=>res.json()).then(data=>{
+        mini2_title.innerHTML=data.items[0].snippet.title
+        mini2_tag.innerHTML=data.items[0].snippet.customUrl
+        mini2_img.src=data.items[0].snippet.thumbnails.medium.url
+    })
+    fetch('https://api.subscriberwars.space/tiktok/user/domelipa').then(res=>res.json()).then(data=>{
+        title_one.innerHTML=data.username
+        tag_one.innerHTML="@domelipa"
+        img_one.src=data.avatar
+    })
+    fetch('https://api.subscriberwars.space/tiktok/user/mrbeast').then(res=>res.json()).then(data=>{
+        title_two.innerHTML=data.username
+        tag_two.innerHTML="@mrbeast"
+        img_two.src=data.avatar
+    })
+}
+function socialblade() {
+    fetch('https://api.subscriberwars.space/tiktok/analytics/131039763028930560').then(res=>res.json()).then(data=>{
+        date1.innerHTML=data.dailyGrowth[6].date_str
+        date2.innerHTML=data.dailyGrowth[5].date_str
+        date3.innerHTML=data.dailyGrowth[4].date_str
+        date4.innerHTML=data.dailyGrowth[3].date_str
+        date5.innerHTML=data.dailyGrowth[2].date_str
+        date6.innerHTML=data.dailyGrowth[1].date_str
+        date7.innerHTML=data.dailyGrowth[0].date_str
+        af1.innerHTML=data.dailyGrowth[6].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af2.innerHTML=data.dailyGrowth[5].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af3.innerHTML=data.dailyGrowth[4].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af4.innerHTML=data.dailyGrowth[3].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af5.innerHTML=data.dailyGrowth[2].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af6.innerHTML=data.dailyGrowth[1].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af7.innerHTML=data.dailyGrowth[0].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag1.innerHTML=data.dailyGrowth[6].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag2.innerHTML=data.dailyGrowth[5].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag3.innerHTML=data.dailyGrowth[4].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag4.innerHTML=data.dailyGrowth[3].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag5.innerHTML=data.dailyGrowth[2].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag6.innerHTML=data.dailyGrowth[1].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag7.innerHTML=data.dailyGrowth[0].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        if(data.dailyGrowth[6].follower_growth<0){document.getElementById('ag1').style.color='#ed2121'} else{document.getElementById('ag1').style.color='#1bed0c'}
+        if(data.dailyGrowth[5].follower_growth<0){document.getElementById('ag2').style.color='#ed2121'} else{document.getElementById('ag2').style.color='#1bed0c'}
+        if(data.dailyGrowth[4].follower_growth<0){document.getElementById('ag3').style.color='#ed2121'} else{document.getElementById('ag3').style.color='#1bed0c'}
+        if(data.dailyGrowth[3].follower_growth<0){document.getElementById('ag4').style.color='#ed2121'} else{document.getElementById('ag4').style.color='#1bed0c'}
+        if(data.dailyGrowth[2].follower_growth<0){document.getElementById('ag5').style.color='#ed2121'} else{document.getElementById('ag5').style.color='#1bed0c'}
+        if(data.dailyGrowth[1].follower_growth<0){document.getElementById('ag6').style.color='#ed2121'} else{document.getElementById('ag6').style.color='#1bed0c'}
+        if(data.dailyGrowth[0].follower_growth<0){document.getElementById('ag7').style.color='#ed2121'} else{document.getElementById('ag7').style.color='#1bed0c'}
+    })
+    fetch('https://api.subscriberwars.space/tiktok/analytics/6614519312189947909').then(res=>res.json()).then(data=>{
+        bdate1.innerHTML=data.dailyGrowth[6].date_str
+        bdate2.innerHTML=data.dailyGrowth[5].date_str
+        bdate3.innerHTML=data.dailyGrowth[4].date_str
+        bdate4.innerHTML=data.dailyGrowth[3].date_str
+        bdate5.innerHTML=data.dailyGrowth[2].date_str
+        bdate6.innerHTML=data.dailyGrowth[1].date_str
+        bdate7.innerHTML=data.dailyGrowth[0].date_str
+        bf1.innerHTML=data.dailyGrowth[6].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bf2.innerHTML=data.dailyGrowth[5].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bf3.innerHTML=data.dailyGrowth[4].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bf4.innerHTML=data.dailyGrowth[3].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bf5.innerHTML=data.dailyGrowth[2].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bf6.innerHTML=data.dailyGrowth[1].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bf7.innerHTML=data.dailyGrowth[0].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bg1.innerHTML=data.dailyGrowth[6].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bg2.innerHTML=data.dailyGrowth[5].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bg3.innerHTML=data.dailyGrowth[4].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bg4.innerHTML=data.dailyGrowth[3].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bg5.innerHTML=data.dailyGrowth[2].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bg6.innerHTML=data.dailyGrowth[1].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        bg7.innerHTML=data.dailyGrowth[0].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        if(data.dailyGrowth[6].follower_growth<0){document.getElementById('bg1').style.color='#ed2121'} else{document.getElementById('bg1').style.color='#1bed0c'}
+        if(data.dailyGrowth[5].follower_growth<0){document.getElementById('bg2').style.color='#ed2121'} else{document.getElementById('bg2').style.color='#1bed0c'}
+        if(data.dailyGrowth[4].follower_growth<0){document.getElementById('bg3').style.color='#ed2121'} else{document.getElementById('bg3').style.color='#1bed0c'}
+        if(data.dailyGrowth[3].follower_growth<0){document.getElementById('bg4').style.color='#ed2121'} else{document.getElementById('bg4').style.color='#1bed0c'}
+        if(data.dailyGrowth[2].follower_growth<0){document.getElementById('bg5').style.color='#ed2121'} else{document.getElementById('bg5').style.color='#1bed0c'}
+        if(data.dailyGrowth[1].follower_growth<0){document.getElementById('bg6').style.color='#ed2121'} else{document.getElementById('bg6').style.color='#1bed0c'}
+        if(data.dailyGrowth[0].follower_growth<0){document.getElementById('bg7').style.color='#ed2121'} else{document.getElementById('bg7').style.color='#1bed0c'}
+    })
+}
+mainstats()
+socialblade()
+chanstats()
+singleload()
+setInterval(() => {
+    mainstats()
+}, 2000);
+setInterval(() => {
+    socialblade()
+}, 3600000);
+setInterval(() => {
+    chanstats()
+}, 20000);
+
+var chart1 = new Highcharts.chart({
+chart: {renderTo: 'chart1',type: 'spline',zoomType: 'x',backgroundColor: 'transparent',plotBorderColor: 'transparent'},
+title: {text: ''},
+xAxis: {type: 'datetime', tickPixelInterval: 100, gridLineColor: '#transparent', labels: {style: {color: 'white'}}, minorGridLineColor: '#transparent', tickColor: 'white', title: {style: {color: '#transparent'}}},
+yAxis: {title: {text: ''}, gridLineColor: '#transparent', labels: {style: {color: 'transparent'}}, lineColor: 'white', minorGridLineColor: 'transparent', tickColor: 'white'},
+credits: {enabled: false, text: ""},
+plotOptions:{spline:{fillOpacity: 0.5}},
+series: [{showInLegend: false, name: '', marker: { enabled: false }, lineColor: '#ff0059', color: '#ff0059'}]
+});
+var chart2 = new Highcharts.chart({
+chart: {renderTo: 'chart2',type: 'spline',zoomType: 'x',backgroundColor: 'transparent',plotBorderColor: 'transparent'},
+title: {text: ''},
+xAxis: {type: 'datetime', tickPixelInterval: 100, gridLineColor: '#transparent', labels: {style: {color: 'white'}}, minorGridLineColor: '#transparent', tickColor: 'white', title: {style: {color: '#transparent'}}},
+yAxis: {title: {text: ''}, gridLineColor: '#transparent', labels: {style: {color: 'transparent'}}, lineColor: '#transparent', minorGridLineColor: 'transparent', tickColor: '#transparent'},
+credits: {enabled: false, text: ""},
+plotOptions:{spline:{fillOpacity: 0.5}},
+series: [{showInLegend: false, name: '', marker: { enabled: false }, lineColor: '#ff0059', color: '#ff0059'}]
+});
+var chart3 = new Highcharts.chart({
+chart: {renderTo: 'chart3',type: 'spline',zoomType: 'x',backgroundColor: 'transparent',plotBorderColor: 'transparent'},
+title: {text: ''},
+xAxis: {type: 'datetime', tickPixelInterval: 100, gridLineColor: '#transparent', labels: {style: {color: 'white'}}, minorGridLineColor: '#transparent', tickColor: 'white', title: {style: {color: '#transparent'}}},
+yAxis: {title: {text: ''}, gridLineColor: '#transparent', labels: {style: {color: 'transparent'}}, lineColor: '#transparent', minorGridLineColor: 'transparent', tickColor: '#transparent'},
+credits: {enabled: false, text: ""},
+plotOptions:{spline:{fillOpacity: 0.5}},
+series: [{showInLegend: false, name: '', marker: { enabled: false }, lineColor: '#ff0059', color: '#ff0059'}]
+});
+</script>

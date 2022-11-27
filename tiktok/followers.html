@@ -68,10 +68,10 @@ function updateStats(id) {
         if(data.followers>=0) {goal01.innerHTML=10}
         if(data.followers>=10) {goal01.innerHTML=100}
         if(data.followers>=100) {goal01.innerHTML=1000}
-        if(data.followers>=1000) {goal01.innerHTML=(Math.floor(data.followers/1000)*1000)+1000}
-        if(data.followers>=10000) {goal01.innerHTML=(Math.floor(data.followers/10000)*10000)+10000}
-        if(data.followers>=100000) {goal01.innerHTML=(Math.floor(data.followers/100000)*100000)+100000}
-        if(data.followers>=1000000) {goal01.innerHTML=(Math.floor(data.followers/1000000)*1000000)+1000000}
+        if(data.followers>=1000) {goal01.innerHTML=(Math.floor(data.followers/1000)*1000)+2000}
+        if(data.followers>=10000) {goal01.innerHTML=(Math.floor(data.followers/10000)*10000)+20000}
+        if(data.followers>=100000) {goal01.innerHTML=(Math.floor(data.followers/100000)*100000)+200000}
+        if(data.followers>=1000000) {goal01.innerHTML=(Math.floor(data.followers/1000000)*1000000)+2000000}
         if(data.followers>=10000000) {goal01.innerHTML=(Math.floor(data.followers/10000000)*10000000)+20000000}
         if(data.followers>=100000000) {goal01.innerHTML=(Math.floor(data.followers/100000000)*100000000)+200000000}
         goalcount.innerHTML=goal01.innerHTML-graphstat.innerHTML
