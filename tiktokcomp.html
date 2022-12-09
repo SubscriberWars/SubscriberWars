@@ -124,28 +124,28 @@ var list2=[]
 var gap01=[]
 var gap02=[]
 function mainstats() {
-    fetch('https://api.subscriberwars.space/tiktok/v2/131039763028930560').then(res=>res.json()).then(data=>{
+    fetch('https://api.subscriberwars.space/tiktok/v2/14166631').then(res=>res.json()).then(data=>{
         followers_one.innerHTML=(data.followers+50000)
         gap01=parseFloat(data.followers)
         a1.innerHTML=(data.followers+50000)
         list1.unshift(data.followers)
-        if(list1.length>900){list1.pop()}
-        min1.innerHTML= data.followers-parseFloat(list1[14])+"/Min"
-        hrs1.innerHTML= data.followers-parseFloat(list1[899])+"/Hr"
+        if(list1.length>1800){list1.pop()}
+        min1.innerHTML= data.followers-parseFloat(list1[29])+"/Min"
+        hrs1.innerHTML= data.followers-parseFloat(list1[1799])+"/Hr"
         var result = (a1.innerHTML)
         var inject = result
         if (chart1.series[0].points.length >= 900) chart1.series[0].data[0].remove();
         chart1.series[0].addPoint([Date.now(),parseFloat(inject)])
     })
-    fetch('https://api.subscriberwars.space/tiktok/v2/6614519312189947909').then(res=>res.json()).then(data=>{
+    fetch('https://api.subscriberwars.space/tiktok/v2/6747935906352907269').then(res=>res.json()).then(data=>{
         followers_two.innerHTML=(data.followers+50000)
         gap02=parseFloat(data.followers)
         diff.innerHTML=gap01-gap02
         a2.innerHTML=data.followers+50000
         list2.unshift(data.followers)
-        if(list2.length>900){list2.pop()}
-        min2.innerHTML= data.followers-parseFloat(list2[14])+"/Min"
-        hrs2.innerHTML= data.followers-parseFloat(list2[899])+"/Hr"
+        if(list2.length>1800){list2.pop()}
+        min2.innerHTML= data.followers-parseFloat(list2[29])+"/Min"
+        hrs2.innerHTML= data.followers-parseFloat(list2[1799])+"/Hr"
         var result2 = (a2.innerHTML)
         var inject2 = result2
         if (chart2.series[0].points.length >= 900) chart2.series[0].data[0].remove();
@@ -189,19 +189,19 @@ function singleload(){
         mini2_tag.innerHTML=data.items[0].snippet.customUrl
         mini2_img.src=data.items[0].snippet.thumbnails.medium.url
     })
-    fetch('https://api.subscriberwars.space/tiktok/user/domelipa').then(res=>res.json()).then(data=>{
+    fetch('https://api.subscriberwars.space/tiktok/user/gilmhercroes').then(res=>res.json()).then(data=>{
         title_one.innerHTML=data.username
         tag_one.innerHTML="@domelipa"
         img_one.src=data.avatar
     })
-    fetch('https://api.subscriberwars.space/tiktok/user/mrbeast').then(res=>res.json()).then(data=>{
+    fetch('https://api.subscriberwars.space/tiktok/user/gordonramsayofficial').then(res=>res.json()).then(data=>{
         title_two.innerHTML=data.username
         tag_two.innerHTML="@mrbeast"
         img_two.src=data.avatar
     })
 }
 function socialblade() {
-    fetch('https://api.subscriberwars.space/tiktok/analytics/131039763028930560').then(res=>res.json()).then(data=>{
+    fetch('https://api.subscriberwars.space/tiktok/analytics/14166631').then(res=>res.json()).then(data=>{
         date1.innerHTML=data.dailyGrowth[6].date_str
         date2.innerHTML=data.dailyGrowth[5].date_str
         date3.innerHTML=data.dailyGrowth[4].date_str
@@ -231,7 +231,7 @@ function socialblade() {
         if(data.dailyGrowth[1].follower_growth<0){document.getElementById('ag6').style.color='#ed2121'} else{document.getElementById('ag6').style.color='#1bed0c'}
         if(data.dailyGrowth[0].follower_growth<0){document.getElementById('ag7').style.color='#ed2121'} else{document.getElementById('ag7').style.color='#1bed0c'}
     })
-    fetch('https://api.subscriberwars.space/tiktok/analytics/6614519312189947909').then(res=>res.json()).then(data=>{
+    fetch('https://api.subscriberwars.space/tiktok/analytics/6747935906352907269').then(res=>res.json()).then(data=>{
         bdate1.innerHTML=data.dailyGrowth[6].date_str
         bdate2.innerHTML=data.dailyGrowth[5].date_str
         bdate3.innerHTML=data.dailyGrowth[4].date_str
