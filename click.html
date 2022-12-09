@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
-    <script src="https://subscriberwars.space/js/odometer.js"></script>
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
-    <script src="/js/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -11,23 +7,34 @@
 <body>
     <button onclick="myFunction()" class="mainBtn">Button</button>
     <p>The button has been clicked</p>
-    <p id="demo"></p>
-    <script>
-      var count=0
-      function myFunction() {
-        count++;
-        document.getElementById("demo").innerHTML = count;
-        console.log(count)
-        fetch('https://api.subscriberwars.repl.co',{
-          method:'PATCH',
-          body: JSON.stringify({
-            clicks: 31
-          }),
-          headers:{
-            'Content-type':'application/json; charset=UTF-8',
-          }
-        })
-      }
+    <p id="session"></p>
+    <p id="total"></p>
+
+<script>
+var count=''
+function myFunction() {
+  count++;
+  document.getElementById("session").innerHTML = count;
+  console.log(count)
+  fetch('https://api.subscriberwars.repl.co',{
+    method:'PATCH',
+    body: JSON.stringify({
+      clicks: count
+    }),
+    headers:{
+      'Content-type':'application/json; charset=UTF-8',
+    }
+  })
+}
+function getclicks(id) {
+        fetch('https://api.subscriberwars.repl.co').then(res => res.json()).then(data => {
+        total.innerHTML=data.clicks
+    });
+}
+
+setInterval(() => {
+  getclicks()
+}, 2000);
     </script>
   </body>
 </html>
