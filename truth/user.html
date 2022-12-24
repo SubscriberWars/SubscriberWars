@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <title>Live Subscriber Count</title>
-    <meta name="description" content="Live YouTube Subscriber Count">
+    <title>Live Follower Count</title>
+    <meta name="description" content="Live Truth Social Follower Count">
     <link rel="stylesheet" href="/css/odometer.css">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/odometer.js"></script>
@@ -60,6 +60,7 @@ function checkForNew(chanid) {
         title.innerHTML = data.display_name
         logo.src = data.avatar
         followers.innerHTML = data.followers_count
+        following.innerHTML = data.following_count
         posts.innerHTML=data.statuses_count
         headerImage.src=data.header
         graphstat.innerHTML = data.followers_count
