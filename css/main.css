@@ -21,6 +21,7 @@ h2 {font-weight: 400; font-size: 20pt; margin: 0px auto; position: relative; tex
 #name a {display: block;float: left;height: 60px;padding: 0px 15px;color: #fff;text-decoration: none; width:100% }
 .head-box {width: 560px;height: 60px;background:#0f0f0f;padding: 5px 20px;color: #fff;font-size: 30pt;font-weight: 500;text-align: left;position: relative; margin-bottom: 20px;}
 .head-box:hover {background: #000;}
+#embed-block {width:1260px; height:auto; margin: 0px auto; margin-top: 20px; background:#0f0f0f; overflow: hidden; position: relative; border: 1px solid #000; box-shadow: 3px 3px 2px #000; border-radius: 10px;}
 /* ScrollBar */
 
 /* width */
