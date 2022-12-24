@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://truthsocial.com/embed.js" async="async"></script>
 </head>
 <body>
     <div id="count-block">
@@ -39,11 +40,10 @@
         <p id="graphstat" style="visibility: hidden;"></p>
         <p id="goal01" style="visibility: hidden;"></p>
     </div>
-    <div id="count-block" style="height: 300px;">
-        <h1>Status Text</h1><br>
-        <h2 id="text" style="margin: 10px;"></h2>
+    <div id="embed-block">
+        <iframe id="embed" class="truthsocial-embed" style="max-width: 100%; border: 0; max-height: 100%;" width="100%" height="100%" allowfullscreen="allowfullscreen"></iframe>
     </div>
-    <div id="count-block" style="height: 400px; margin-bottom: 20px;">
+    <div id="count-block" style="height: 300px; margin-bottom: 20px;">
         <h1>How To Use</h1>
         <h2>We have not figured out how to add a search method to these specific counts so as of now the only option is to manually change the url to suit your needs. After "?s=" you will need to paste a status id.
         <br><br>This data is powered by <a href="https://truthsocial.com" target="_blank">Truth Social</a>
@@ -55,6 +55,8 @@
 
 var string='';
 string +='';
+var user='';
+var sid=''
 
 var channel = window.location.href.split('?s=')[1] || '';
 
@@ -66,9 +68,10 @@ function checkForNew(chanid) {
         likecount.innerHTML = data.favourites_count
         retruthcount.innerHTML=data.reblogs_count
         replycount.innerHTML=data.replies_count
-        text.innerHTML=data.content
         headerImage.src=data.account.header
         graphstat.innerHTML = data.favourites_count
+        sid=data.id
+        user=data.account.username
         var yep=(graphstat.innerHTML)
         console.log(yep)
         var injection=yep
@@ -87,10 +90,18 @@ function checkForNew(chanid) {
     });
 }
 
+function load(){
+    embed.src="https://truthsocial.com/@"+user+"/"+sid+"/embed"
+}
+
 // Intervals
 setInterval(() => {
     checkForNew(channel)
 }, 5000);
+
+setTimeout(() => {
+    load()
+}, 2000);
 
 checkForNew(channel)
 
