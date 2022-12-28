@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>Live Trovo Follower Count</title>
-    <meta name="description" content="Live #TeamSeas Statistics">
+    <meta name="description" content="Live Trovo Statistics">
     <link rel="stylesheet" href="/css/odometer.css">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/odometer.js"></script>
@@ -12,24 +12,31 @@
 </head>
 <body>
     <div id="count-block">
-        <img id="logo" src="https://subscriberwars.space/logo/trovo.png" alt="">
+        <img id="logo" src="https://subscriberwars.space/images/trovo.png" alt="">
         <h1 id="title">Loading...</h1>
         <div id='followercount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
         <h2>Followers</h2>
+        <img src="/images/leon01.png" style="position: absolute; right: 10px; top: 10px; height: 200px;">
+        <img src="/images/leon02.png" style="position: absolute; left: 10px; top: 10px; height: 200px;">
     </div>
     <div id="mini-counts">
         <div id="like-box">
-            <div id='subcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">0</div>
+            <div id='subcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
             <h2>Subscribers</h2>
         </div>
         <div id="comment-box">
-            <div id='type' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 620px;">Loading...</div>
-            <h2>Live</h2>
+            <div id='viewerscount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">Loading...</div>
+            <h2>Live Viewers</h2>
+        </div>
+        <div id="api-box">
+            <div id='goalcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Goal</h2>
         </div>
     </div>
     <div id="graph-block">
         <div id="graph" style="width: 1260px; height: 400px;"></div>
         <p id="graphstat" style="visibility: hidden;"></p>
+        <p id="goal01" style="visibility: hidden;"></p>
     </div>
 </body>
 
@@ -53,12 +60,21 @@ function updateStats(id) {
         followercount.innerHTML = data.followers,
         graphstat.innerHTML = data.followers
         subcount.innerHTML=data.subscriber_num
-        type.innerHTML=data.is_live
+        viewerscount.innerHTML=data.current_viewers
         var yep=(graphstat.innerHTML)
         console.log(yep)
         var injection=yep
         if(graph.series[0].points.length>=720)graph.series[0].data[0].remove();
         graph.series[0].addPoint([Date.now(),parseFloat(injection)])
+        if(data.followers>=0) {goal01.innerHTML=10}
+        if(data.followers>=10) {goal01.innerHTML=100}
+        if(data.followers>=100) {goal01.innerHTML=1000}
+        if(data.followers>=1000) {goal01.innerHTML=(Math.floor(data.followers/1000)*1000)+1000}
+        if(data.followers>=10000) {goal01.innerHTML=(Math.floor(data.followers/10000)*10000)+10000}
+        if(data.followers>=100000) {goal01.innerHTML=(Math.floor(data.followers/100000)*100000)+100000}
+        if(data.followers>=1000000) {goal01.innerHTML=(Math.floor(data.followers/1000000)*1000000)+1000000}
+        if(data.followers>=10000000) {goal01.innerHTML=(Math.floor(data.followers/10000000)*10000000)+10000000}
+        goalcount.innerHTML=goal01.innerHTML-data.followers
     });
 }
 
@@ -66,6 +82,10 @@ function updateStats(id) {
 setInterval(() => {
     updateStats(trovoid);
 }, 5000);
+
+setTimeout(() => {
+    updateStats(trovoid)
+}, 1000);
 
 checkForNew(channel)
 
