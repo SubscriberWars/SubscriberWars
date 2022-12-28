@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{height: 1080px; width: 1920px; background: #242424;}
+    *{font-family: roboto; color: #fff;}
+    .main{width: 920px; height: 450px; background: #181818; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000;}
+    .main-img{width: 100px; height: 100px; border-radius: 0.5rem; border: 1px solid #000; position: relative; top: 10px; left: 10px;}
+    .mini-img{width: 100px; height: 100px; border-radius: 0.5rem; border: 1px solid #000; position: relative; top: 5px; left: -36%;}
+    h1{font-size: 3rem; position: relative; left: 175px; top: -140px; color: #fff;}
+    h2{font-size: 2rem; font-weight: 400; position: relative; left: 175px; top: -170px; color: #fff;}
+    h3{font-size: 9rem; text-align: center; position: relative; top: -550px; left: 50px; font-weight: 500; color: #fff;}
+    h4{font-size: 2rem; font-weight: 400; position: relative; top: -1100px; left: 600px; color: #fff;}
+    h5{font-size: 2rem; position: relative; left: 90px; top: -130px; font-weight: 500; color: #fff;}
+    h6{font-size: 1.5rem; position: relative; left: 90px; top: -180px; font-weight: 400; color: #fff;}
+    .h7{font-size: 5rem; position: relative; top: -200px; font-weight: 500; color: #fff;}
+    .chart{position: relative; top: -160px; height: 310px; width: 980px; left: -70px;}
+    .table-box{width: 400px; height: 325px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; text-align: center; background: #181818; position: relative; left: 1445px;}
+    .vid-box{width: 500px; height: 450px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: absolute; text-align: center;}
+    .embed{width: 400px; height: 140px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: absolute; text-align: center;}
+    table{border-collapse: collapse; width: 98%; position: relative; top: 5px; left: 7px;}
+    td,th{border: 1px solid #000; text-align: left; padding: 5px;}
+    tr:nth-child(even){background: rgb(33,33,33);}
+    tr:nth-child(odd){background: rgb(38,38,38);}
+    .other-box{width: 335px; height: 234px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: relative; text-align: center;}
+</style>
+<body>
+    <div class="embed" style="top: 8px; left: 10px;">
+        <div style="font-size: 1.5rem; visibility: hidden;">hi</div>
+        <img class="mini-img" src="/images/sw.png">
+        <div style="font-size: 2rem; text-align: left; width: 300px; position: relative; left: 110px; top: -100px; color: #fff;">Subscriber Wars</div>
+        <div id="sub1" class="odometer odometer-auto-theme" style="font-size: 3rem; text-align: left; width: 300px; position: relative; left: 60px; top: -100px; color: #fff;"></div>
+    </div>
+    <div class="embed" style="top: 8px; left: 420px;">
+        <div style="font-size: 1.5rem;">Members</div>
+        <img class="mini-img" id="mini2">
+        <div id="title2" style="font-size: 2rem; text-align: left; width: 300px; position: relative; left: 110px; top: -100px; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"></div>
+        <div id="sub2" class="odometer odometer-auto-theme" style="font-size: 3rem; text-align: left; width: 300px; position: relative; left: 60px; top: -100px; color: #fff;"></div>
+    </div>
+</body>
+<script>
+//channel Ids
+function sw() {
+    fetch('https://api.subscriberwars.space/sw/30day').then(res => res.json()).then(data => {
+        sub1.innerHTML = data.totals.subscribers
+    });
+}
+var ids = [
+    'UCc94S4JcalndMiNxFdCfCCg',
+    'UCOZEISLT9D7Q-LQeN9MaEZw',
+    'UCPHkiXjOltxl89fhDJm7oRw',
+    'UCgmyin4Yw9iRZHpguQa7i0w',
+    'UCARmLh0V8e1ft7quAemurYw',
+    'UCmLFQS2IA_dGqmQ2rjAmBAA',
+    'UCoX8ryfXcf6Lstwt1JhQKKw',
+    'UCD6m7OsUU3zMzd9hXEY-GbQ',
+    'UCluz1vjFgbA3At7-NeE1yBA',
+    'UCgemkH1_yuf3zLElhq0ldRg'
+]
+async function getstats1(){
+    let request = await fetch('https://api.subscriberwars.space/youtube/channel/'+ids[0])
+    let data = await request.json().catch(() => {})
+    if (!data) return;
+    title2.innerHTML = data.items[0].snippet.title
+    sub2.innerHTML = data.items[0].statistics.subscriberCount
+    mini2.src = data.items[0].snippet.thumbnails.medium.url
+}
+function switch1(){
+    ids.push(ids.shift())
+}
+getstats1()
+sw()
+setInterval(() => {
+    switch1()
+    getstats1()
+    sw()
+}, 10000);
+</script>
