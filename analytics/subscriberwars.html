@@ -38,11 +38,12 @@ div { display: block; }
 ::-webkit-scrollbar-thumb:hover {background: #ff0000;}
 @media screen and (max-width: 992px) {::-webkit-scrollbar {display: none;}}
 table{border-collapse: collapse; width: 100%;}
-th{font-weight: 500; font-size: 20px;}
-td{font-size: 20px;}
-td,th{border: 1px solid #000; text-align: left; padding: 5px; width: 50px;}
+th{font-weight: 500; font-size: 15px;}
+td{font-size: 15px;}
+td,th{border: 1px solid #000; text-align: left; padding: 5px; width: 50px; height: 20px;}
 tr:nth-child(even){background: rgb(33,33,33);}
 tr:nth-child(odd){background: rgb(38,38,38);}
+.xtra {height: 35px;}
 </style>
 
 <body>
@@ -140,6 +141,7 @@ tr:nth-child(odd){background: rgb(38,38,38);}
                         <tr><td id="date27"></td><td id="subgain27"></td><td id="subs27"></td><td id="viewgain27"></td><td id="views27"></td><td id=revgain27></td><td id="rev27"></td></tr>
                         <tr><td id="date28"></td><td id="subgain28"></td><td id="subs28"></td><td id="viewgain28"></td><td id="views28"></td><td id=revgain28></td><td id="rev28"></td></tr>
                         <tr><td id="date29"></td><td id="subgain29"></td><td id="subs29"></td><td id="viewgain29"></td><td id="views29"></td><td id=revgain29></td><td id="rev29"></td></tr>
+                        <tr class="xtra"><td>Daily Average<br><br>Last 28 Days</td><td><span id="subavg30"></span><br><br><span id="sub30"></span></td><td></td><td><span id="viewavg30"></span><br><br><span id="view30"></span></td><td></td><td><span id="revavg30"></span><br><br><span id="rev30"></span></td><td></td></tr>
                     </table>
                     
                     <div style='width: 1220px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500; margin-top: 20px;'>Daily Subscribers</div>
@@ -149,7 +151,8 @@ tr:nth-child(odd){background: rgb(38,38,38);}
                     <div id='life-subs-gain' style='width: 1260px; height: 300px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div>
                     <div style='width: 1220px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500;'>Daily Views</div>
                     <div id='month-views' style='width: 1260px; height: 300px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
-                    <div id='month-views-gain' style='width: 1260px; height: 300px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div> 
+                    <div id='month-views-gain' style='width: 1260px; height: 300px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
+                    <div id='life-views' style='width: 1260px; height: 300px; position: relative; background: rgb(26, 26, 26); margin-bottom: 0px;'></div>
                     <div id='life-views-gain' style='width: 1260px; height: 300px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div> 
                 </div>
             </div>
@@ -174,6 +177,24 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             videocount.innerHTML=data.socialblade.statistics.total.uploads;
             srank.innerHTML=data.socialblade.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             vrank.innerHTML=data.socialblade.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+            let dim30=[]
+            for(let q=0;q<data.d30.dimension.length;q++){
+                dim30.push(data.d30.dimension[q].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'))
+            }
+            let viewmet28 =[]
+            for(let q=0;q<data.d30.views.length;q++){
+                viewmet28.push(data.d30.views[q].y)
+            }
+            let view_total = []
+            for(let q=0;q<data.d30.views.length;q++){
+                view_total.push(data.d30.views.slice(0, q+1).reduce((partialSum, a) => partialSum + a.y, 0))
+            }
+            let rev_total = []
+            for(let q=0;q<data.d30.estrev.length;q++){
+                rev_total.push(data.d30.estrev.slice(0, q+1).reduce((partialSum, a) => partialSum + a.y, 0))
+            }
+
             date1.innerHTML=data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs1.innerHTML=data.d30.subscribers[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             date2.innerHTML=data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs2.innerHTML=data.d30.subscribers[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain2').innerHTML=data.d30.subscribers[1]-data.d30.subscribers[0]; if(data.d30.subscribers[1]>data.d30.subscribers[0]){document.getElementById('subgain2').style.color='#1bed0c'}; if(data.d30.subscribers[1]<data.d30.subscribers[0]){document.getElementById('subgain2').style.color='#ed2121'};
             date3.innerHTML=data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs3.innerHTML=data.d30.subscribers[2].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain3').innerHTML=data.d30.subscribers[2]-data.d30.subscribers[1]; if(data.d30.subscribers[2]>data.d30.subscribers[1]){document.getElementById('subgain3').style.color='#1bed0c'}; if(data.d30.subscribers[2]<data.d30.subscribers[1]){document.getElementById('subgain3').style.color='#ed2121'};
@@ -203,6 +224,8 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             date27.innerHTML=data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs27.innerHTML=data.d30.subscribers[26].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain27').innerHTML=data.d30.subscribers[26]-data.d30.subscribers[25]; if(data.d30.subscribers[26]>data.d30.subscribers[25]){document.getElementById('subgain27').style.color='#1bed0c'}; if(data.d30.subscribers[26]<data.d30.subscribers[25]){document.getElementById('subgain27').style.color='#ed2121'};
             date28.innerHTML=data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs28.innerHTML=data.d30.subscribers[27].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain28').innerHTML=data.d30.subscribers[27]-data.d30.subscribers[26]; if(data.d30.subscribers[27]>data.d30.subscribers[26]){document.getElementById('subgain28').style.color='#1bed0c'}; if(data.d30.subscribers[27]<data.d30.subscribers[26]){document.getElementById('subgain28').style.color='#ed2121'};
             date29.innerHTML=data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'); subs29.innerHTML=data.d30.subscribers[28].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('subgain29').innerHTML=data.d30.subscribers[28]-data.d30.subscribers[27]; if(data.d30.subscribers[28]>data.d30.subscribers[27]){document.getElementById('subgain29').style.color='#1bed0c'}; if(data.d30.subscribers[28]<data.d30.subscribers[27]){document.getElementById('subgain29').style.color='#ed2121'};
+            sub30.innerHTML=(data.d30.subscribers[28]-data.d30.subscribers[0]).toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3');
+            subavg30.innerHTML=Math.round((data.d30.subscribers[28]-data.d30.subscribers[0])/29);
 
             views1.innerHTML=(data.totals.views-data.d30.views[27].y-data.d30.views[26].y-data.d30.views[25].y-data.d30.views[24].y-data.d30.views[23].y-data.d30.views[22].y-data.d30.views[21].y-data.d30.views[20].y-data.d30.views[19].y-data.d30.views[18].y-data.d30.views[17].y-data.d30.views[16].y-data.d30.views[15].y-data.d30.views[14].y-data.d30.views[13].y-data.d30.views[12].y-data.d30.views[11].y-data.d30.views[10].y-data.d30.views[9].y-data.d30.views[8].y-data.d30.views[7].y-data.d30.views[6].y-data.d30.views[5].y-data.d30.views[4].y-data.d30.views[3].y-data.d30.views[2].y-data.d30.views[1].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             views2.innerHTML=(data.totals.views-data.d30.views[27].y-data.d30.views[26].y-data.d30.views[25].y-data.d30.views[24].y-data.d30.views[23].y-data.d30.views[22].y-data.d30.views[21].y-data.d30.views[20].y-data.d30.views[19].y-data.d30.views[18].y-data.d30.views[17].y-data.d30.views[16].y-data.d30.views[15].y-data.d30.views[14].y-data.d30.views[13].y-data.d30.views[12].y-data.d30.views[11].y-data.d30.views[10].y-data.d30.views[9].y-data.d30.views[8].y-data.d30.views[7].y-data.d30.views[6].y-data.d30.views[5].y-data.d30.views[4].y-data.d30.views[3].y-data.d30.views[2].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain2').innerHTML=data.d30.views[1].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[1].y>0){document.getElementById('viewgain2').style.color='#1bed0c'};
@@ -233,6 +256,8 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             views27.innerHTML=(data.totals.views-data.d30.views[27].y).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain27').innerHTML=data.d30.views[26].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[26].y>0){document.getElementById('viewgain27').style.color='#1bed0c'};
             views28.innerHTML=data.totals.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain28').innerHTML=data.d30.views[27].y.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.views[27].y>0){document.getElementById('viewgain28').style.color='#1bed0c'};
             views29.innerHTML=data.totals.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain29').innerHTML=0;
+            view30.innerHTML=(view_total[27]-view_total[0]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            viewavg30.innerHTML=Math.round((view_total[27]-view_total[0])/28).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
             rev1.innerHTML="£"+((data.totals.estrev-data.d30.estrev[27].y-data.d30.estrev[26].y-data.d30.estrev[25].y-data.d30.estrev[24].y-data.d30.estrev[23].y-data.d30.estrev[22].y-data.d30.estrev[21].y-data.d30.estrev[20].y-data.d30.estrev[19].y-data.d30.estrev[18].y-data.d30.estrev[17].y-data.d30.estrev[16].y-data.d30.estrev[15].y-data.d30.estrev[14].y-data.d30.estrev[13].y-data.d30.estrev[12].y-data.d30.estrev[11].y-data.d30.estrev[10].y-data.d30.estrev[9].y-data.d30.estrev[8].y-data.d30.estrev[7].y-data.d30.estrev[6].y-data.d30.estrev[5].y-data.d30.estrev[4].y-data.d30.estrev[3].y-data.d30.estrev[2].y-data.d30.estrev[1].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             rev2.innerHTML="£"+((data.totals.estrev-data.d30.estrev[27].y-data.d30.estrev[26].y-data.d30.estrev[25].y-data.d30.estrev[24].y-data.d30.estrev[23].y-data.d30.estrev[22].y-data.d30.estrev[21].y-data.d30.estrev[20].y-data.d30.estrev[19].y-data.d30.estrev[18].y-data.d30.estrev[17].y-data.d30.estrev[16].y-data.d30.estrev[15].y-data.d30.estrev[14].y-data.d30.estrev[13].y-data.d30.estrev[12].y-data.d30.estrev[11].y-data.d30.estrev[10].y-data.d30.estrev[9].y-data.d30.estrev[8].y-data.d30.estrev[7].y-data.d30.estrev[6].y-data.d30.estrev[5].y-data.d30.estrev[4].y-data.d30.estrev[3].y-data.d30.estrev[2].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain2').innerHTML="£"+(data.d30.estrev[1].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.estrev[1].y>0){document.getElementById('revgain2').style.color='#1bed0c'};
@@ -261,9 +286,12 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             rev25.innerHTML="£"+((data.totals.estrev-data.d30.estrev[27].y-data.d30.estrev[26].y-data.d30.estrev[25].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain25').innerHTML="£"+(data.d30.estrev[24].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.estrev[24].y>0){document.getElementById('revgain25').style.color='#1bed0c'};
             rev26.innerHTML="£"+((data.totals.estrev-data.d30.estrev[27].y-data.d30.estrev[26].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain26').innerHTML="£"+(data.d30.estrev[25].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.estrev[25].y>0){document.getElementById('revgain26').style.color='#1bed0c'};
             rev27.innerHTML="£"+((data.totals.estrev-data.d30.estrev[27].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain27').innerHTML="£"+(data.d30.estrev[26].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.estrev[26].y>0){document.getElementById('revgain27').style.color='#1bed0c'};
-            rev28.innerHTML="£"+data.totals.estrev.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain28').innerHTML="£"+(data.d30.estrev[27].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.estrev[27].y>0){document.getElementById('revgain28').style.color='#1bed0c'};
-            rev29.innerHTML="£"+data.totals.estrev.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain29').innerHTML="£0.00";
+            rev28.innerHTML="£"+(data.totals.estrev/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain28').innerHTML="£"+(data.d30.estrev[27].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.d30.estrev[27].y>0){document.getElementById('revgain28').style.color='#1bed0c'};
+            rev29.innerHTML="£"+(data.totals.estrev/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain29').innerHTML="£0.00";
+            rev30.innerHTML='£'+((rev_total[27]-rev_total[0])/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            revavg30.innerHTML='£'+(((rev_total[27]-rev_total[0])/1000)/28).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
+            //monthsubs
             Highcharts.chart('month-subs', {
                 chart: {
                     type: 'spline',
@@ -290,37 +318,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                             fontWeight: '500'
                         }
                     },
-                    categories:[
-                        data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3')
-                    ]
+                    categories: dim30
                 },
                 yAxis: {
                     labels: {
@@ -391,6 +389,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                     ]
                 }]
             })
+            //monthsubgain
             Highcharts.chart('month-subs-gain', {
                 chart: {
                     type: 'column',
@@ -417,37 +416,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                             fontWeight: '500'
                         }
                     },
-                    categories:[
-                        data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3')
-                    ]
+                    categories: dim30
                 },
                 yAxis: {
                     labels: {
@@ -515,6 +484,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                     ]
                 }]
             })
+            //monthviews
             Highcharts.chart('month-views', {
                 chart: {
                     type: 'spline',
@@ -541,36 +511,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                             fontWeight: '500'
                         }
                     },
-                    categories:[
-                        data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3')
-                    ]
+                    categories: dim30
                 },
                 yAxis: {
                     labels: {
@@ -639,12 +580,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                     ]
                 }]
             })
-
-            let viewmet28 =[]
-            for(let q=0;q<data.d30.views.length;q++){
-                viewmet28.push(data.d30.views[q].y)
-            }
-
+            //monthviewgain
             Highcharts.chart('month-views-gain', {
                 chart: {
                     type: 'column',
@@ -671,37 +607,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                             fontWeight: '500'
                         }
                     },
-                    categories:[
-                        data.d30.dimension[0].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[1].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[2].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[3].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[4].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[5].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[6].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[7].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[8].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[9].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[10].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[11].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[12].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[13].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[14].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[15].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[16].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[17].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[18].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[19].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[20].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[21].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[22].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[23].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[24].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[25].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[26].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[27].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3'),
-                        data.d30.dimension[28].toString().replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3')
-                    ]
+                    categories: dim30
                 },
                 yAxis: {
                     labels: {
@@ -761,11 +667,16 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             for(let q=0;q<data.metric.subs_gain.length;q++){
                 sub_subscribers_gain.push(data.metric.subs_gain[q].y)
             }
+            let view_subscribers = []
+            for(let q=0;q<data.metric.views_gain.length;q++){
+                view_subscribers.push(data.metric.views_gain.slice(0, q+1).reduce((partialSum, a) => partialSum + a.y, 0))
+            }
             let view_subscribers_gain =[]
             for(let q=0;q<data.metric.views_gain.length;q++){
                 view_subscribers_gain.push(data.metric.views_gain[q].y)
             }
 
+            //lifesubs
             Highcharts.chart('life-subs', {
                 chart: {
                     type: 'spline',
@@ -837,6 +748,7 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                     
                 }]
             })
+            //sub gain
             Highcharts.chart('life-subs-gain', {
                 chart: {
                     type: 'column',
@@ -908,6 +820,79 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
                     
                 }]
             })
+            //lifeviews
+            Highcharts.chart('life-views', {
+                chart: {
+                    type: 'spline',
+                    backgroundColor: 'rgb(26,26,26)',
+                    zoomType: 'xy',
+                    style: {
+                        fontFamily: 'roboto',
+                        fontWeight: 'bold',
+                        color: "#fff",
+                    }
+                },
+                title: {
+                    text: 'Total Views (Lifetime)',
+                    style:{
+                        color:'#fff',
+                        fontWeight:'500'
+                    }
+                },
+                xAxis: {
+                    tickInterval: 200,
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    categories:
+                        alldimension
+                    
+                },
+                yAxis: {
+                    labels: {
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    },
+                    title: {
+                        text: '',
+                        style: {
+                            color: '#fff',
+                            fontWeight: '500'
+                        }
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ''
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    spline: {
+                        color: '#ff0000',
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Views',
+                    showInLegend: false,
+                    style: {
+                        color: '#fff'
+                    },
+                    data: 
+                        view_subscribers
+                    
+                }]
+            })
+            //view gain
             Highcharts.chart('life-views-gain', {
                 chart: {
                     type: 'column',
