@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{height: 1080px; width: 1920px; background: #242424;}
+    *{font-family: roboto; color: #fff;}
+    .main{width: 1000px; height: 500px; background: #181818; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000;}
+    .main-img{width: 150px; height: 150px; border-radius: 0.5rem; border: 1px solid #000; position: relative; top: 10px; left: 10px;}
+    .mini-img{width: 100px; height: 100px; border-radius: 0.5rem; border: 1px solid #000; position: relative; top: 5px; left: -36%;}
+    h1{font-size: 4rem; position: relative; left: 175px; top: -160px; color: #fff;}
+    h2{font-size: 2rem; font-weight: 400; position: relative; left: 175px; top: -170px; color: #fff;}
+    h3{font-size: 12rem; text-align: center; position: relative; top: -250px; left: 10px; font-weight: 500; color: #fff;}
+    h4{font-size: 2rem; font-weight: 400; position: relative; top: -950px; left: 600px; color: #fff;}
+    h5{font-size: 3rem; position: relative; left: 0px; top: -280px; font-weight: 500; color: #fff;text-align: left;}
+    h6{font-size: 1.5rem; position: relative; left: 0px; top: -155px; font-weight: 400; color: #fff;}
+    .h7{font-size: 5rem; position: relative; top: -200px; font-weight: 500; color: #fff;}
+    .chart{position: relative; top: 0px; height: 480px; width: 1000px; left: -40px;}
+    .table-box{width: 400px; height: 890px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; text-align: center; background: #181818; position: relative; left: 1020px;}
+    .vid-box{width: 500px; height: 450px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: absolute; text-align: center;}
+    .embed{width: 400px; height: 110px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: absolute; text-align: center; left: 1452px;}
+    table{border-collapse: collapse; width: 98%; position: relative; top: 5px; left: 5px;}
+    td,th{border: 1px solid #000; text-align: left; padding: 5px;}
+    tr:nth-child(even){background: rgb(33,33,33);}
+    tr:nth-child(odd){background: rgb(38,38,38);}
+    .other-box{width: 335px; height: 234px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: relative; text-align: center;}
+</style>
+<body>
+    <div class="main">
+        <img class="main-img" id="img">
+        <h1 id="title">User 1</h1>
+        <h3 id="followers" class="odometer odometer-auto-theme">0</h3>
+        <h4 id="min"></h4>
+        <h4 id="hrs"></h4>
+        <img src="https://subscriberwars.space/images/tiktok.png" style="width: 40px; position: relative; top: -1260px; left: 120px;">
+    </div>
+<br>
+    <div class="main" position="">
+        <div id="chart1" class="chart"></div>
+    </div>
+
+    <div class="table-box" style="top: -1020px;">
+        <table>
+            <tr><th style="background: #000;">Date</th><th style="background: #000;">Follower Gain</th><th style="background: #000;">Total Followers</th></tr>
+            <tr><td id="date1">--</td><td id="ag1">--</td><td id="af1">--</td></tr>
+            <tr><td id="date2">--</td><td id="ag2">--</td><td id="af2">--</td></tr>
+            <tr><td id="date3">--</td><td id="ag3">--</td><td id="af3">--</td></tr>
+            <tr><td id="date4">--</td><td id="ag4">--</td><td id="af4">--</td></tr>
+            <tr><td id="date5">--</td><td id="ag5">--</td><td id="af5">--</td></tr>
+            <tr><td id="date6">--</td><td id="ag6">--</td><td id="af6">--</td></tr>
+            <tr><td id="date7">--</td><td id="ag7">--</td><td id="af7">--</td></tr>
+            <tr><td id="date8">--</td><td id="ag8">--</td><td id="af8">--</td></tr>
+            <tr><td id="date9">--</td><td id="ag9">--</td><td id="af9">--</td></tr>
+            <tr><td id="date10">--</td><td id="ag10">--</td><td id="af10">--</td></tr>
+            <tr><td id="date11">--</td><td id="ag11">--</td><td id="af11">--</td></tr>
+            <tr><td id="date12">--</td><td id="ag12">--</td><td id="af12">--</td></tr>
+            <tr><td id="date13">--</td><td id="ag13">--</td><td id="af13">--</td></tr>
+            <tr><td id="date14">--</td><td id="ag14">--</td><td id="af14">--</td></tr>
+            <tr><td id="date15">--</td><td id="ag15">--</td><td id="af15">--</td></tr>
+            <tr><td id="date16">--</td><td id="ag16">--</td><td id="af16">--</td></tr>
+            <tr><td id="date17">--</td><td id="ag17">--</td><td id="af17">--</td></tr>
+            <tr><td id="date18">--</td><td id="ag18">--</td><td id="af18">--</td></tr>
+            <tr><td id="date19">--</td><td id="ag19">--</td><td id="af19">--</td></tr>
+            <tr><td id="date20">--</td><td id="ag20">--</td><td id="af20">--</td></tr>
+            <tr><td id="date21">--</td><td id="ag21">--</td><td id="af21">--</td></tr>
+            <tr><td id="date22">--</td><td id="ag22">--</td><td id="af22">--</td></tr>
+            <tr><td id="date23">--</td><td id="ag23">--</td><td id="af23">--</td></tr>
+            <tr><td id="date24">--</td><td id="ag24">--</td><td id="af24">--</td></tr>
+            <tr><td id="date25">--</td><td id="ag25">--</td><td id="af25">--</td></tr>
+            <tr><td id="date26">--</td><td id="ag26">--</td><td id="af26">--</td></tr>
+            <tr><td id="date27">--</td><td id="ag27">--</td><td id="af27">--</td></tr>
+            <tr><td id="date28">--</td><td id="ag28">--</td><td id="af28">--</td></tr>
+        </table>
+    </div>
+    <div class="embed" style="position: relative; top: -1005px; left: 1020px">
+        <img class="mini-img" src="/images/sw.png">
+        <h6>Subscriber Wars</h6>
+        <h5 class="odometer" id="swcount"></h5>
+    </div>
+    <p id="a1" style="visibility: hidden;"></p>
+</body>
+<script>
+var list=[]
+var string='';
+string +='';
+cursor=0
+diff=0
+diff2=0
+
+function load(){
+    fetch('https://api.subscriberwars.space/tiktok/user/mrbeast').then(res=>res.json()).then(data=>{
+        img.src=data.avatar
+        title.innerHTML=data.username
+    })
+}
+function sw(){
+    fetch('https://api.subscriberwars.space/sw/30day').then(res=>res.json()).then(data=>{
+        swcount.innerHTML=data.totals.subscribers
+    })
+}
+
+function mainstats() {
+    fetch('https://api.subscriberwars.space/tiktok/v2/6614519312189947909').then(res=>res.json()).then(data=>{
+        followers.innerHTML=data.followers
+        a1.innerHTML=data.followers
+        af28.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        list.unshift(data.followers)
+        if(list.length>1800){list.pop()}
+        min.innerHTML= data.followers-parseFloat(list[29])+"/Min"
+        hrs.innerHTML= data.followers-parseFloat(list[1799])+"/Hr"
+        var result = (a1.innerHTML)
+        var inject = result
+        if (chart1.series[0].points.length >= 900) chart1.series[0].data[0].remove();
+        chart1.series[0].addPoint([Date.now(),parseFloat(inject)])
+        ag28.innerHTML=(data.followers-diff).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        if(data.followers-diff<0){document.getElementById('ag14').style.color='#ed2121'} else{document.getElementById('ag14').style.color='#1bed0c'}
+    })
+}
+
+
+function analytics() {
+    fetch('https://api.subscriberwars.space/tiktok/analytics/6614519312189947909/').then(res=>res.json()).then(data=>{
+        cursor=data.nextCursor
+        date15.innerHTML=data.dailyGrowth[13].date_str
+        date16.innerHTML=data.dailyGrowth[12].date_str
+        date17.innerHTML=data.dailyGrowth[11].date_str
+        date18.innerHTML=data.dailyGrowth[10].date_str
+        date19.innerHTML=data.dailyGrowth[9].date_str
+        date20.innerHTML=data.dailyGrowth[8].date_str
+        date21.innerHTML=data.dailyGrowth[7].date_str
+        date22.innerHTML=data.dailyGrowth[6].date_str
+        date23.innerHTML=data.dailyGrowth[5].date_str
+        date24.innerHTML=data.dailyGrowth[4].date_str
+        date25.innerHTML=data.dailyGrowth[3].date_str
+        date26.innerHTML=data.dailyGrowth[2].date_str
+        date27.innerHTML=data.dailyGrowth[1].date_str
+        date28.innerHTML=data.dailyGrowth[0].date_str
+        af15.innerHTML=data.dailyGrowth[13].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af16.innerHTML=data.dailyGrowth[12].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af17.innerHTML=data.dailyGrowth[11].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af18.innerHTML=data.dailyGrowth[10].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af19.innerHTML=data.dailyGrowth[9].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af20.innerHTML=data.dailyGrowth[8].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af21.innerHTML=data.dailyGrowth[7].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af22.innerHTML=data.dailyGrowth[6].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af23.innerHTML=data.dailyGrowth[5].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af24.innerHTML=data.dailyGrowth[4].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af25.innerHTML=data.dailyGrowth[3].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af26.innerHTML=data.dailyGrowth[2].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af27.innerHTML=data.dailyGrowth[1].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag16.innerHTML=data.dailyGrowth[12].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag17.innerHTML=data.dailyGrowth[11].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag18.innerHTML=data.dailyGrowth[10].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag19.innerHTML=data.dailyGrowth[9].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag20.innerHTML=data.dailyGrowth[8].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag21.innerHTML=data.dailyGrowth[7].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag22.innerHTML=data.dailyGrowth[6].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag23.innerHTML=data.dailyGrowth[5].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag24.innerHTML=data.dailyGrowth[4].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag25.innerHTML=data.dailyGrowth[3].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag26.innerHTML=data.dailyGrowth[2].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag27.innerHTML=data.dailyGrowth[1].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        diff=data.dailyGrowth[0].follower_count
+        ag15.innerHTML=(data.dailyGrowth[13].follower_count-diff2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        if(data.dailyGrowth[13].follower_growth<0){document.getElementById('ag15').style.color='#ed2121'} else{document.getElementById('ag15').style.color='#1bed0c'}
+        if(data.dailyGrowth[12].follower_growth<0){document.getElementById('ag16').style.color='#ed2121'} else{document.getElementById('ag16').style.color='#1bed0c'}
+        if(data.dailyGrowth[11].follower_growth<0){document.getElementById('ag17').style.color='#ed2121'} else{document.getElementById('ag17').style.color='#1bed0c'}
+        if(data.dailyGrowth[10].follower_growth<0){document.getElementById('ag18').style.color='#ed2121'} else{document.getElementById('ag18').style.color='#1bed0c'}
+        if(data.dailyGrowth[9].follower_growth<0){document.getElementById('ag19').style.color='#ed2121'} else{document.getElementById('ag19').style.color='#1bed0c'}
+        if(data.dailyGrowth[8].follower_growth<0){document.getElementById('ag20').style.color='#ed2121'} else{document.getElementById('ag20').style.color='#1bed0c'}
+        if(data.dailyGrowth[7].follower_growth<0){document.getElementById('ag21').style.color='#ed2121'} else{document.getElementById('ag21').style.color='#1bed0c'}
+        if(data.dailyGrowth[6].follower_growth<0){document.getElementById('ag22').style.color='#ed2121'} else{document.getElementById('ag22').style.color='#1bed0c'}
+        if(data.dailyGrowth[5].follower_growth<0){document.getElementById('ag23').style.color='#ed2121'} else{document.getElementById('ag23').style.color='#1bed0c'}
+        if(data.dailyGrowth[4].follower_growth<0){document.getElementById('ag24').style.color='#ed2121'} else{document.getElementById('ag24').style.color='#1bed0c'}
+        if(data.dailyGrowth[3].follower_growth<0){document.getElementById('ag25').style.color='#ed2121'} else{document.getElementById('ag25').style.color='#1bed0c'}
+        if(data.dailyGrowth[2].follower_growth<0){document.getElementById('ag26').style.color='#ed2121'} else{document.getElementById('ag26').style.color='#1bed0c'}
+        if(data.dailyGrowth[1].follower_growth<0){document.getElementById('ag27').style.color='#ed2121'} else{document.getElementById('ag27').style.color='#1bed0c'}
+        if(data.dailyGrowth[13].follower_count-diff2<0){document.getElementById('ag28').style.color='#ed2121'} else{document.getElementById('ag28').style.color='#1bed0c'}
+    })
+    fetch('https://api.subscriberwars.space/tiktok/analytics/cursor/6614519312189947909/'+cursor).then(res=>res.json()).then(data=>{
+        diff2=data.dailyGrowth[0].follower_count
+        date1.innerHTML=data.dailyGrowth[13].date_str
+        date2.innerHTML=data.dailyGrowth[12].date_str
+        date3.innerHTML=data.dailyGrowth[11].date_str
+        date4.innerHTML=data.dailyGrowth[10].date_str
+        date5.innerHTML=data.dailyGrowth[9].date_str
+        date6.innerHTML=data.dailyGrowth[8].date_str
+        date7.innerHTML=data.dailyGrowth[7].date_str
+        date8.innerHTML=data.dailyGrowth[6].date_str
+        date9.innerHTML=data.dailyGrowth[5].date_str
+        date10.innerHTML=data.dailyGrowth[4].date_str
+        date11.innerHTML=data.dailyGrowth[3].date_str
+        date12.innerHTML=data.dailyGrowth[2].date_str
+        date13.innerHTML=data.dailyGrowth[1].date_str
+        date14.innerHTML=data.dailyGrowth[0].date_str
+        af1.innerHTML=data.dailyGrowth[13].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af2.innerHTML=data.dailyGrowth[12].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af3.innerHTML=data.dailyGrowth[11].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af4.innerHTML=data.dailyGrowth[10].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af5.innerHTML=data.dailyGrowth[9].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af6.innerHTML=data.dailyGrowth[8].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af7.innerHTML=data.dailyGrowth[7].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af8.innerHTML=data.dailyGrowth[6].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af9.innerHTML=data.dailyGrowth[5].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af10.innerHTML=data.dailyGrowth[4].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af11.innerHTML=data.dailyGrowth[3].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af12.innerHTML=data.dailyGrowth[2].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af13.innerHTML=data.dailyGrowth[1].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        af14.innerHTML=data.dailyGrowth[0].follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag1.innerHTML=data.dailyGrowth[13].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag2.innerHTML=data.dailyGrowth[12].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag3.innerHTML=data.dailyGrowth[11].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag4.innerHTML=data.dailyGrowth[10].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag5.innerHTML=data.dailyGrowth[9].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag6.innerHTML=data.dailyGrowth[8].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag7.innerHTML=data.dailyGrowth[7].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag8.innerHTML=data.dailyGrowth[6].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag9.innerHTML=data.dailyGrowth[5].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag10.innerHTML=data.dailyGrowth[4].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag11.innerHTML=data.dailyGrowth[3].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag12.innerHTML=data.dailyGrowth[2].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag13.innerHTML=data.dailyGrowth[1].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ag14.innerHTML=data.dailyGrowth[0].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        if(data.dailyGrowth[13].follower_growth<0){document.getElementById('ag1').style.color='#ed2121'} else{document.getElementById('ag1').style.color='#1bed0c'}
+        if(data.dailyGrowth[12].follower_growth<0){document.getElementById('ag2').style.color='#ed2121'} else{document.getElementById('ag2').style.color='#1bed0c'}
+        if(data.dailyGrowth[11].follower_growth<0){document.getElementById('ag3').style.color='#ed2121'} else{document.getElementById('ag3').style.color='#1bed0c'}
+        if(data.dailyGrowth[10].follower_growth<0){document.getElementById('ag4').style.color='#ed2121'} else{document.getElementById('ag4').style.color='#1bed0c'}
+        if(data.dailyGrowth[9].follower_growth<0){document.getElementById('ag5').style.color='#ed2121'} else{document.getElementById('ag5').style.color='#1bed0c'}
+        if(data.dailyGrowth[8].follower_growth<0){document.getElementById('ag6').style.color='#ed2121'} else{document.getElementById('ag6').style.color='#1bed0c'}
+        if(data.dailyGrowth[7].follower_growth<0){document.getElementById('ag7').style.color='#ed2121'} else{document.getElementById('ag7').style.color='#1bed0c'}
+        if(data.dailyGrowth[6].follower_growth<0){document.getElementById('ag8').style.color='#ed2121'} else{document.getElementById('ag8').style.color='#1bed0c'}
+        if(data.dailyGrowth[5].follower_growth<0){document.getElementById('ag9').style.color='#ed2121'} else{document.getElementById('ag9').style.color='#1bed0c'}
+        if(data.dailyGrowth[4].follower_growth<0){document.getElementById('ag10').style.color='#ed2121'} else{document.getElementById('ag10').style.color='#1bed0c'}
+        if(data.dailyGrowth[3].follower_growth<0){document.getElementById('ag11').style.color='#ed2121'} else{document.getElementById('ag11').style.color='#1bed0c'}
+        if(data.dailyGrowth[2].follower_growth<0){document.getElementById('ag12').style.color='#ed2121'} else{document.getElementById('ag12').style.color='#1bed0c'}
+        if(data.dailyGrowth[1].follower_growth<0){document.getElementById('ag13').style.color='#ed2121'} else{document.getElementById('ag13').style.color='#1bed0c'}
+    })
+}
+load()
+mainstats()
+analytics()
+sw()
+setTimeout(() => {
+    analytics() 
+}, 1000);
+setInterval(() => {
+    mainstats()
+}, 2000);
+setInterval(() => {
+    analytics()
+}, 60000);
+setInterval(() => {
+    sw()
+}, 10000);
+
+var chart1 = new Highcharts.chart({
+chart: {renderTo: 'chart1',type: 'spline',zoomType: 'x',backgroundColor: 'transparent',plotBorderColor: 'transparent'},
+title: {text: ''},
+xAxis: {type: 'datetime', tickPixelInterval: 100, gridLineColor: '#transparent', labels: {style: {color: 'white'}}, minorGridLineColor: '#transparent', tickColor: 'white', title: {style: {color: '#transparent'}}},
+yAxis: {title: {text: ''}, gridLineColor: '#transparent', labels: {style: {color: 'transparent'}}, lineColor: 'white', minorGridLineColor: 'transparent', tickColor: 'white'},
+credits: {enabled: false, text: ""},
+plotOptions:{spline:{fillOpacity: 0.5}},
+series: [{showInLegend: false, name: '', marker: { enabled: false }, lineColor: '#e80e4f', color: '#e80e4f'}]
+});
+
+</script>
