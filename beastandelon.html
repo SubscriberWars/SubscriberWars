@@ -63,9 +63,9 @@
     </div>
     <div class="vid-box" style="top: 470px; left: 940px;">
         <div id="tweettitle" style="font-size: 2rem; text-align: left; width: 480px; position: relative; left: 10px; top: 0px; color: #fff; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"></div>
-        <p style="font-size: 2rem; text-align: left; width: 400px; position: relative; left: 10px; top: -10px; color: #fff;">Likes</p>
+        <p style="font-size: 2rem; text-align: left; width: 400px; position: relative; left: 10px; top: -10px; color: #fff;">Views</p>
         <div id="viewsOdometerb" class="odometer odometer-auto-theme" style="font-size: 4rem; font-weight: 500; position: absolute; top: 100px; left: 10px; color: #fff;"></div>
-        <p style="font-size: 2rem; text-align: left; width: 400px; position: relative; left: 10px; top: 50px; color: #fff;">ReTweets</p>
+        <p style="font-size: 2rem; text-align: left; width: 400px; position: relative; left: 10px; top: 50px; color: #fff;">Likes</p>
         <div id="likesOdometerb" class="odometer odometer-auto-theme" style="font-size: 4rem; font-weight: 500; position: absolute; top: 230px; left: 10px; color: #fff;"></div>
         <p style="font-size: 2rem; text-align: left; width: 400px; position: relative; left: 10px; top: 110px; color: #fff;">Replies</p>
         <div id="commentsOdometerb" class="odometer odometer-auto-theme" style="font-size: 4rem; font-weight: 500; position: absolute; top: 360px; left: 10px; color: #fff;"></div>
@@ -204,8 +204,8 @@ function updateStats(vidid,tweetid) {
     });
     fetch('https://api.subscriberwars.space/twitter/tweet/'+tweetid).then(res => res.json()).then(data => {
         tweettitle.innerHTML = data.data.text,
-        viewsOdometerb.innerHTML = data.data.public_metrics.like_count
-        likesOdometerb.innerHTML = data.data.public_metrics.retweet_count
+        viewsOdometerb.innerHTML = data.data.public_metrics.impression_count
+        likesOdometerb.innerHTML = data.data.public_metrics.like_count
         commentsOdometerb.innerHTML = data.data.public_metrics.reply_count
     }); 
 }
