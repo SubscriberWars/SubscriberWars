@@ -13,17 +13,18 @@
     .main{width: 1000px; height: 500px; background: #181818; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000;}
     .main-img{width: 150px; height: 150px; border-radius: 0.5rem; border: 1px solid #000; position: relative; top: 10px; left: 10px;}
     .mini-img{width: 100px; height: 100px; border-radius: 0.5rem; border: 1px solid #000; position: relative; top: 5px; left: -36%;}
-    h1{font-size: 4rem; position: relative; left: 175px; top: -160px; color: #fff;}
+    h1{font-size: 4rem; position: relative; left: 240px; top: -190px; color: #fff;}
     h2{font-size: 2rem; font-weight: 400; position: relative; left: 175px; top: -170px; color: #fff;}
-    h3{font-size: 12rem; text-align: center; position: relative; top: -250px; left: 10px; font-weight: 500; color: #fff;}
-    h4{font-size: 2rem; font-weight: 400; position: relative; top: -950px; left: 600px; color: #fff;}
+    h3{font-size: 12rem; text-align: center; position: relative; top: -350px; left: 10px; font-weight: 500; color: #fff;}
+    h4{font-size: 2rem; font-weight: 400; position: relative; top: -1050px; left: 600px; color: #fff;}
     h5{font-size: 3rem; position: relative; left: 0px; top: -280px; font-weight: 500; color: #fff;text-align: left;}
     h6{font-size: 1.5rem; position: relative; left: 0px; top: -155px; font-weight: 400; color: #fff;}
     .h7{font-size: 5rem; position: relative; top: -200px; font-weight: 500; color: #fff;}
-    .chart{position: relative; top: 0px; height: 480px; width: 1000px; left: -40px;}
-    .table-box{width: 400px; height: 890px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; text-align: center; background: #181818; position: relative; left: 1020px;}
+    .chart{position: relative; top: 0px; height: 350px; width: 1000px; left: -40px;}
+    .table-box{width: 800px; height: 910px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; text-align: center; background: #181818; position: relative; left: 1020px;}
     .vid-box{width: 500px; height: 450px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: absolute; text-align: center;}
-    .embed{width: 400px; height: 110px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: absolute; text-align: center; left: 1452px;}
+    .embed{width: 390px; height: 110px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: absolute; text-align: center; left: 1452px;}
+    .xtra{width: 490px; height: 150px; border-radius: 0.5rem; border: 1px solid #000; box-shadow: 3px 3px 2px #000; background: #181818; position: absolute; text-align: center; left: 1452px;}
     table{border-collapse: collapse; width: 98%; position: relative; top: 5px; left: 5px;}
     td,th{border: 1px solid #000; text-align: left; padding: 5px;}
     tr:nth-child(even){background: rgb(33,33,33);}
@@ -34,53 +35,69 @@
     <div class="main">
         <img class="main-img" id="img">
         <h1 id="title">User 1</h1>
+        <h1 id="username" style="font-weight: 400; font-size: 3rem; position: relative; top: -220px;">@####</h1>
         <h3 id="followers" class="odometer odometer-auto-theme">0</h3>
         <h4 id="min"></h4>
         <h4 id="hrs"></h4>
-        <img src="https://subscriberwars.space/images/tiktok.png" style="width: 40px; position: relative; top: -1260px; left: 120px;">
+        <img src="https://subscriberwars.space/images/tiktok.png" style="width: 100px; position: relative; top: -1230px; left: 150px;">
     </div>
 <br>
-    <div class="main" position="">
+    <div class="xtra" style="left: 8px;">
+        <div style="font-size: 1.75rem;">Likes</div>
+        <div class="odometer" id="likes" style="font-size: 5rem; font-weight: 500;">0</div>
+    </div>
+    <div class="xtra" style="left: 518px;">
+        <div style="font-size: 1.75rem;">Following</div>
+        <div class="odometer" id="following" style="font-size: 5rem; font-weight: 500;">0</div>
+    </div>
+<br>
+    <div class="main" style="height: 350px; position: relative; top: 150px;">
         <div id="chart1" class="chart"></div>
     </div>
 
-    <div class="table-box" style="top: -1020px;">
+    <div class="table-box" style="top: -890px;">
         <table>
-            <tr><th style="background: #000;">Date</th><th style="background: #000;">Follower Gain</th><th style="background: #000;">Total Followers</th></tr>
-            <tr><td id="date1">--</td><td id="ag1">--</td><td id="af1">--</td></tr>
-            <tr><td id="date2">--</td><td id="ag2">--</td><td id="af2">--</td></tr>
-            <tr><td id="date3">--</td><td id="ag3">--</td><td id="af3">--</td></tr>
-            <tr><td id="date4">--</td><td id="ag4">--</td><td id="af4">--</td></tr>
-            <tr><td id="date5">--</td><td id="ag5">--</td><td id="af5">--</td></tr>
-            <tr><td id="date6">--</td><td id="ag6">--</td><td id="af6">--</td></tr>
-            <tr><td id="date7">--</td><td id="ag7">--</td><td id="af7">--</td></tr>
-            <tr><td id="date8">--</td><td id="ag8">--</td><td id="af8">--</td></tr>
-            <tr><td id="date9">--</td><td id="ag9">--</td><td id="af9">--</td></tr>
-            <tr><td id="date10">--</td><td id="ag10">--</td><td id="af10">--</td></tr>
-            <tr><td id="date11">--</td><td id="ag11">--</td><td id="af11">--</td></tr>
-            <tr><td id="date12">--</td><td id="ag12">--</td><td id="af12">--</td></tr>
-            <tr><td id="date13">--</td><td id="ag13">--</td><td id="af13">--</td></tr>
-            <tr><td id="date14">--</td><td id="ag14">--</td><td id="af14">--</td></tr>
-            <tr><td id="date15">--</td><td id="ag15">--</td><td id="af15">--</td></tr>
-            <tr><td id="date16">--</td><td id="ag16">--</td><td id="af16">--</td></tr>
-            <tr><td id="date17">--</td><td id="ag17">--</td><td id="af17">--</td></tr>
-            <tr><td id="date18">--</td><td id="ag18">--</td><td id="af18">--</td></tr>
-            <tr><td id="date19">--</td><td id="ag19">--</td><td id="af19">--</td></tr>
-            <tr><td id="date20">--</td><td id="ag20">--</td><td id="af20">--</td></tr>
-            <tr><td id="date21">--</td><td id="ag21">--</td><td id="af21">--</td></tr>
-            <tr><td id="date22">--</td><td id="ag22">--</td><td id="af22">--</td></tr>
-            <tr><td id="date23">--</td><td id="ag23">--</td><td id="af23">--</td></tr>
-            <tr><td id="date24">--</td><td id="ag24">--</td><td id="af24">--</td></tr>
-            <tr><td id="date25">--</td><td id="ag25">--</td><td id="af25">--</td></tr>
-            <tr><td id="date26">--</td><td id="ag26">--</td><td id="af26">--</td></tr>
-            <tr><td id="date27">--</td><td id="ag27">--</td><td id="af27">--</td></tr>
-            <tr><td id="date28">--</td><td id="ag28">--</td><td id="af28">--</td></tr>
+            <tr><th style="background: #000;">Date</th><th style="background: #000;">Follower Gain</th><th style="background: #000;">Total Followers</th><th style="background: #000;">Like Gain</th><th style="background: #000;">Total Likes</th></tr>
+            <tr><td id="date1">--</td><td id="ag1">--</td><td id="af1">--</td><td id="lg1">--</td><td id="l1">--</td></tr>
+            <tr><td id="date2">--</td><td id="ag2">--</td><td id="af2">--</td><td id="lg2">--</td><td id="l2">--</td></tr>
+            <tr><td id="date3">--</td><td id="ag3">--</td><td id="af3">--</td><td id="lg3">--</td><td id="l3">--</td></tr>
+            <tr><td id="date4">--</td><td id="ag4">--</td><td id="af4">--</td><td id="lg4">--</td><td id="l4">--</td></tr>
+            <tr><td id="date5">--</td><td id="ag5">--</td><td id="af5">--</td><td id="lg5">--</td><td id="l5">--</td></tr>
+            <tr><td id="date6">--</td><td id="ag6">--</td><td id="af6">--</td><td id="lg6">--</td><td id="l6">--</td></tr>
+            <tr><td id="date7">--</td><td id="ag7">--</td><td id="af7">--</td><td id="lg7">--</td><td id="l7">--</td></tr>
+            <tr><td id="date8">--</td><td id="ag8">--</td><td id="af8">--</td><td id="lg8">--</td><td id="l8">--</td></tr>
+            <tr><td id="date9">--</td><td id="ag9">--</td><td id="af9">--</td><td id="lg9">--</td><td id="l9">--</td></tr>
+            <tr><td id="date10">--</td><td id="ag10">--</td><td id="af10">--</td><td id="lg10">--</td><td id="l10">--</td></tr>
+            <tr><td id="date11">--</td><td id="ag11">--</td><td id="af11">--</td><td id="lg11">--</td><td id="l11">--</td></tr>
+            <tr><td id="date12">--</td><td id="ag12">--</td><td id="af12">--</td><td id="lg12">--</td><td id="l12">--</td></tr>
+            <tr><td id="date13">--</td><td id="ag13">--</td><td id="af13">--</td><td id="lg13">--</td><td id="l13">--</td></tr>
+            <tr><td id="date14">--</td><td id="ag14">--</td><td id="af14">--</td><td id="lg14">--</td><td id="l14">--</td></tr>
+            <tr><td id="date15">--</td><td id="ag15">--</td><td id="af15">--</td><td id="lg15">--</td><td id="l15">--</td></tr>
+            <tr><td id="date16">--</td><td id="ag16">--</td><td id="af16">--</td><td id="lg16">--</td><td id="l16">--</td></tr>
+            <tr><td id="date17">--</td><td id="ag17">--</td><td id="af17">--</td><td id="lg17">--</td><td id="l17">--</td></tr>
+            <tr><td id="date18">--</td><td id="ag18">--</td><td id="af18">--</td><td id="lg18">--</td><td id="l18">--</td></tr>
+            <tr><td id="date19">--</td><td id="ag19">--</td><td id="af19">--</td><td id="lg19">--</td><td id="l19">--</td></tr>
+            <tr><td id="date20">--</td><td id="ag20">--</td><td id="af20">--</td><td id="lg20">--</td><td id="l20">--</td></tr>
+            <tr><td id="date21">--</td><td id="ag21">--</td><td id="af21">--</td><td id="lg21">--</td><td id="l21">--</td></tr>
+            <tr><td id="date22">--</td><td id="ag22">--</td><td id="af22">--</td><td id="lg22">--</td><td id="l22">--</td></tr>
+            <tr><td id="date23">--</td><td id="ag23">--</td><td id="af23">--</td><td id="lg23">--</td><td id="l23">--</td></tr>
+            <tr><td id="date24">--</td><td id="ag24">--</td><td id="af24">--</td><td id="lg24">--</td><td id="l24">--</td></tr>
+            <tr><td id="date25">--</td><td id="ag25">--</td><td id="af25">--</td><td id="lg25">--</td><td id="l25">--</td></tr>
+            <tr><td id="date26">--</td><td id="ag26">--</td><td id="af26">--</td><td id="lg26">--</td><td id="l26">--</td></tr>
+            <tr><td id="date27">--</td><td id="ag27">--</td><td id="af27">--</td><td id="lg27">--</td><td id="l27">--</td></tr>
+            <tr><td id="date28">--</td><td id="ag28">--</td><td id="af28">--</td><td id="lg28">--</td><td id="l28">--</td></tr>
         </table>
+        <div style="font-size: 2rem;">Powered by: Tokcounter.com</div>
     </div>
-    <div class="embed" style="position: relative; top: -1005px; left: 1020px">
+    <div class="embed" style="position: relative; top: -875px; left: 1020px">
         <img class="mini-img" src="/images/sw.png">
         <h6>Subscriber Wars</h6>
         <h5 class="odometer" id="swcount"></h5>
+    </div>
+    <div class="embed" style="position: relative; top: -987px; left: 1430px">
+        <img class="mini-img" id="eimg">
+        <h6 id="enam"></h6>
+        <h5 class="odometer" id="ecnt" style="left: 45px;"></h5>
     </div>
     <p id="a1" style="visibility: hidden;"></p>
 </body>
@@ -89,8 +106,24 @@ var list=[]
 var string='';
 string +='';
 cursor=0
-diff=0
-diff2=0
+fdiff=0
+fdiff2=0
+ldiff=0
+ldiff2=0
+
+var ids=['127905465618821121','5831967','6748458643983238149','6703550784929793030','6727327145951183878','68616495085350913','6596805238354558982','6614519312189947909','107955','6626035987700531205','6745191554350760966','6539853526925841423','21609287','6737188750352401410','6524904798586672143','934514','3777553','6869286989888406529','6654362767867265030','6717651461067604997','6813560925275128838','6517183233778521103','6879693940111901701','7445731','238105215445516288','123036','97614653324771328','6507509552522313730','79609045006872576','158438610466201600','6567760124612624390','81360503117144064','18459858','6742459250268832769','6806648197319820294','6848593700559700998','6640997977560334341','153052319851388928','6718992235998741510','190068318278651904','6510959669837185025','8133246','10542006','6602330263203414021','6615209867715051526','6780564068844880902','209793','6747935906352907269','6787763834675512325','6622888224762314757']
+
+async function getstats1(){
+    let request = await fetch('https://api.subscriberwars.space/tiktok/v2/'+ids[0])
+    let data = await request.json().catch(() => {})
+    if (!data) return;
+    enam.innerHTML = data.nickname
+    ecnt.innerHTML = data.followers+50000
+    eimg.src = data.pfp
+}
+function switch1(){
+    ids.push(ids.shift())
+}
 
 function load(){
     fetch('https://api.subscriberwars.space/tiktok/user/mrbeast').then(res=>res.json()).then(data=>{
@@ -102,23 +135,31 @@ function sw(){
     fetch('https://api.subscriberwars.space/sw/30day').then(res=>res.json()).then(data=>{
         swcount.innerHTML=data.totals.subscribers
     })
+    fetch('https://api.subscriberwars.space/tiktok/v2/6614519312189947909').then(res=>res.json()).then(data=>{
+        a1.innerHTML=data.followers
+        var result = (a1.innerHTML)
+        var inject = result
+        if (chart1.series[0].points.length >= 4320) chart1.series[0].data[0].remove();
+        chart1.series[0].addPoint([Date.now(),parseFloat(inject)])
+    })
 }
 
 function mainstats() {
     fetch('https://api.subscriberwars.space/tiktok/v2/6614519312189947909').then(res=>res.json()).then(data=>{
-        followers.innerHTML=data.followers
-        a1.innerHTML=data.followers
-        af28.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        followers.innerHTML=data.followers+50000
+        likes.innerHTML=data.likes
+        following.innerHTML=data.following
+        username.innerHTML="@"+data.username
+        af28.innerHTML=(data.followers+50000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l28.innerHTML=data.likes.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         list.unshift(data.followers)
         if(list.length>1800){list.pop()}
         min.innerHTML= data.followers-parseFloat(list[29])+"/Min"
         hrs.innerHTML= data.followers-parseFloat(list[1799])+"/Hr"
-        var result = (a1.innerHTML)
-        var inject = result
-        if (chart1.series[0].points.length >= 900) chart1.series[0].data[0].remove();
-        chart1.series[0].addPoint([Date.now(),parseFloat(inject)])
-        ag28.innerHTML=(data.followers-diff).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        if(data.followers-diff<0){document.getElementById('ag14').style.color='#ed2121'} else{document.getElementById('ag14').style.color='#1bed0c'}
+        ag28.innerHTML=(data.followers-fdiff).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        if(data.followers-fdiff<0){document.getElementById('ag14').style.color='#ed2121'} else{document.getElementById('ag14').style.color='#1bed0c'}
+        lg28.innerHTML=(data.likes-ldiff).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        if(data.likes-ldiff<0){document.getElementById('lg14').style.color='#ed2121'} else{document.getElementById('lg14').style.color='#1bed0c'}
     })
 }
 
@@ -165,8 +206,8 @@ function analytics() {
         ag25.innerHTML=data.dailyGrowth[3].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         ag26.innerHTML=data.dailyGrowth[2].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         ag27.innerHTML=data.dailyGrowth[1].follower_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        diff=data.dailyGrowth[0].follower_count
-        ag15.innerHTML=(data.dailyGrowth[13].follower_count-diff2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        fdiff=(data.dailyGrowth[1].follower_count)-50000
+        ag15.innerHTML=(data.dailyGrowth[13].follower_count-fdiff2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         if(data.dailyGrowth[13].follower_growth<0){document.getElementById('ag15').style.color='#ed2121'} else{document.getElementById('ag15').style.color='#1bed0c'}
         if(data.dailyGrowth[12].follower_growth<0){document.getElementById('ag16').style.color='#ed2121'} else{document.getElementById('ag16').style.color='#1bed0c'}
         if(data.dailyGrowth[11].follower_growth<0){document.getElementById('ag17').style.color='#ed2121'} else{document.getElementById('ag17').style.color='#1bed0c'}
@@ -180,10 +221,52 @@ function analytics() {
         if(data.dailyGrowth[3].follower_growth<0){document.getElementById('ag25').style.color='#ed2121'} else{document.getElementById('ag25').style.color='#1bed0c'}
         if(data.dailyGrowth[2].follower_growth<0){document.getElementById('ag26').style.color='#ed2121'} else{document.getElementById('ag26').style.color='#1bed0c'}
         if(data.dailyGrowth[1].follower_growth<0){document.getElementById('ag27').style.color='#ed2121'} else{document.getElementById('ag27').style.color='#1bed0c'}
-        if(data.dailyGrowth[13].follower_count-diff2<0){document.getElementById('ag28').style.color='#ed2121'} else{document.getElementById('ag28').style.color='#1bed0c'}
+        if(data.dailyGrowth[13].follower_count-fdiff2<0){document.getElementById('ag28').style.color='#ed2121'} else{document.getElementById('ag28').style.color='#1bed0c'}
+        l15.innerHTML=data.dailyGrowth[13].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l16.innerHTML=data.dailyGrowth[12].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l17.innerHTML=data.dailyGrowth[11].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l18.innerHTML=data.dailyGrowth[10].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l19.innerHTML=data.dailyGrowth[9].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l20.innerHTML=data.dailyGrowth[8].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l21.innerHTML=data.dailyGrowth[7].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l22.innerHTML=data.dailyGrowth[6].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l23.innerHTML=data.dailyGrowth[5].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l24.innerHTML=data.dailyGrowth[4].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l25.innerHTML=data.dailyGrowth[3].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l26.innerHTML=data.dailyGrowth[2].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l27.innerHTML=data.dailyGrowth[1].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg16.innerHTML=data.dailyGrowth[12].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg17.innerHTML=data.dailyGrowth[11].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg18.innerHTML=data.dailyGrowth[10].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg19.innerHTML=data.dailyGrowth[9].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg20.innerHTML=data.dailyGrowth[8].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg21.innerHTML=data.dailyGrowth[7].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg22.innerHTML=data.dailyGrowth[6].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg23.innerHTML=data.dailyGrowth[5].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg24.innerHTML=data.dailyGrowth[4].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg25.innerHTML=data.dailyGrowth[3].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg26.innerHTML=data.dailyGrowth[2].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg27.innerHTML=data.dailyGrowth[1].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        ldiff=(data.dailyGrowth[1].like_count)
+        lg15.innerHTML=(data.dailyGrowth[13].like_count-ldiff2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        if(data.dailyGrowth[13].likes_growth<0){document.getElementById('lg15').style.color='#ed2121'} else{document.getElementById('lg15').style.color='#1bed0c'}
+        if(data.dailyGrowth[12].likes_growth<0){document.getElementById('lg16').style.color='#ed2121'} else{document.getElementById('lg16').style.color='#1bed0c'}
+        if(data.dailyGrowth[11].likes_growth<0){document.getElementById('lg17').style.color='#ed2121'} else{document.getElementById('lg17').style.color='#1bed0c'}
+        if(data.dailyGrowth[10].likes_growth<0){document.getElementById('lg18').style.color='#ed2121'} else{document.getElementById('lg18').style.color='#1bed0c'}
+        if(data.dailyGrowth[9].likes_growth<0){document.getElementById('lg19').style.color='#ed2121'} else{document.getElementById('lg19').style.color='#1bed0c'}
+        if(data.dailyGrowth[8].likes_growth<0){document.getElementById('lg20').style.color='#ed2121'} else{document.getElementById('lg20').style.color='#1bed0c'}
+        if(data.dailyGrowth[7].likes_growth<0){document.getElementById('lg21').style.color='#ed2121'} else{document.getElementById('lg21').style.color='#1bed0c'}
+        if(data.dailyGrowth[6].likes_growth<0){document.getElementById('lg22').style.color='#ed2121'} else{document.getElementById('lg22').style.color='#1bed0c'}
+        if(data.dailyGrowth[5].likes_growth<0){document.getElementById('lg23').style.color='#ed2121'} else{document.getElementById('lg23').style.color='#1bed0c'}
+        if(data.dailyGrowth[4].likes_growth<0){document.getElementById('lg24').style.color='#ed2121'} else{document.getElementById('lg24').style.color='#1bed0c'}
+        if(data.dailyGrowth[3].likes_growth<0){document.getElementById('lg25').style.color='#ed2121'} else{document.getElementById('lg25').style.color='#1bed0c'}
+        if(data.dailyGrowth[2].likes_growth<0){document.getElementById('lg26').style.color='#ed2121'} else{document.getElementById('lg26').style.color='#1bed0c'}
+        if(data.dailyGrowth[1].likes_growth<0){document.getElementById('lg27').style.color='#ed2121'} else{document.getElementById('lg27').style.color='#1bed0c'}
+        if(data.dailyGrowth[13].likes_count-ldiff2<0){document.getElementById('lg28').style.color='#ed2121'} else{document.getElementById('lg28').style.color='#1bed0c'}
     })
     fetch('https://api.subscriberwars.space/tiktok/analytics/cursor/6614519312189947909/'+cursor).then(res=>res.json()).then(data=>{
-        diff2=data.dailyGrowth[0].follower_count
+        fdiff2=data.dailyGrowth[0].follower_count
+        ldiff2=data.dailyGrowth[0].like_count
         date1.innerHTML=data.dailyGrowth[13].date_str
         date2.innerHTML=data.dailyGrowth[12].date_str
         date3.innerHTML=data.dailyGrowth[11].date_str
@@ -239,23 +322,67 @@ function analytics() {
         if(data.dailyGrowth[3].follower_growth<0){document.getElementById('ag11').style.color='#ed2121'} else{document.getElementById('ag11').style.color='#1bed0c'}
         if(data.dailyGrowth[2].follower_growth<0){document.getElementById('ag12').style.color='#ed2121'} else{document.getElementById('ag12').style.color='#1bed0c'}
         if(data.dailyGrowth[1].follower_growth<0){document.getElementById('ag13').style.color='#ed2121'} else{document.getElementById('ag13').style.color='#1bed0c'}
+        l1.innerHTML=data.dailyGrowth[13].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l2.innerHTML=data.dailyGrowth[12].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l3.innerHTML=data.dailyGrowth[11].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l4.innerHTML=data.dailyGrowth[10].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l5.innerHTML=data.dailyGrowth[9].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l6.innerHTML=data.dailyGrowth[8].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l7.innerHTML=data.dailyGrowth[7].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l8.innerHTML=data.dailyGrowth[6].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l9.innerHTML=data.dailyGrowth[5].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l10.innerHTML=data.dailyGrowth[4].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l11.innerHTML=data.dailyGrowth[3].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l12.innerHTML=data.dailyGrowth[2].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l13.innerHTML=data.dailyGrowth[1].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        l14.innerHTML=data.dailyGrowth[0].like_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg1.innerHTML=data.dailyGrowth[13].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg2.innerHTML=data.dailyGrowth[12].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg3.innerHTML=data.dailyGrowth[11].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg4.innerHTML=data.dailyGrowth[10].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg5.innerHTML=data.dailyGrowth[9].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg6.innerHTML=data.dailyGrowth[8].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg7.innerHTML=data.dailyGrowth[7].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg8.innerHTML=data.dailyGrowth[6].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg9.innerHTML=data.dailyGrowth[5].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg10.innerHTML=data.dailyGrowth[4].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg11.innerHTML=data.dailyGrowth[3].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg12.innerHTML=data.dailyGrowth[2].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg13.innerHTML=data.dailyGrowth[1].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        lg14.innerHTML=data.dailyGrowth[0].likes_growth.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        if(data.dailyGrowth[13].likes_growth<0){document.getElementById('lg1').style.color='#ed2121'} else{document.getElementById('lg1').style.color='#1bed0c'}
+        if(data.dailyGrowth[12].likes_growth<0){document.getElementById('lg2').style.color='#ed2121'} else{document.getElementById('lg2').style.color='#1bed0c'}
+        if(data.dailyGrowth[11].likes_growth<0){document.getElementById('lg3').style.color='#ed2121'} else{document.getElementById('lg3').style.color='#1bed0c'}
+        if(data.dailyGrowth[10].likes_growth<0){document.getElementById('lg4').style.color='#ed2121'} else{document.getElementById('lg4').style.color='#1bed0c'}
+        if(data.dailyGrowth[9].likes_growth<0){document.getElementById('lg5').style.color='#ed2121'} else{document.getElementById('lg5').style.color='#1bed0c'}
+        if(data.dailyGrowth[8].likes_growth<0){document.getElementById('lg6').style.color='#ed2121'} else{document.getElementById('lg6').style.color='#1bed0c'}
+        if(data.dailyGrowth[7].likes_growth<0){document.getElementById('lg7').style.color='#ed2121'} else{document.getElementById('lg7').style.color='#1bed0c'}
+        if(data.dailyGrowth[6].likes_growth<0){document.getElementById('lg8').style.color='#ed2121'} else{document.getElementById('lg8').style.color='#1bed0c'}
+        if(data.dailyGrowth[5].likes_growth<0){document.getElementById('lg9').style.color='#ed2121'} else{document.getElementById('lg9').style.color='#1bed0c'}
+        if(data.dailyGrowth[4].likes_growth<0){document.getElementById('lg10').style.color='#ed2121'} else{document.getElementById('lg10').style.color='#1bed0c'}
+        if(data.dailyGrowth[3].likes_growth<0){document.getElementById('lg11').style.color='#ed2121'} else{document.getElementById('lg11').style.color='#1bed0c'}
+        if(data.dailyGrowth[2].likes_growth<0){document.getElementById('lg12').style.color='#ed2121'} else{document.getElementById('lg12').style.color='#1bed0c'}
+        if(data.dailyGrowth[1].likes_growth<0){document.getElementById('lg13').style.color='#ed2121'} else{document.getElementById('lg13').style.color='#1bed0c'}
     })
 }
 load()
 mainstats()
 analytics()
 sw()
+getstats1()
 setTimeout(() => {
     analytics() 
 }, 1000);
 setInterval(() => {
     mainstats()
+    getstats1()
 }, 2000);
 setInterval(() => {
     analytics()
 }, 60000);
 setInterval(() => {
     sw()
+    switch1()
 }, 10000);
 
 var chart1 = new Highcharts.chart({
