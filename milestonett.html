@@ -77,9 +77,9 @@
         <div style="font-size: 2rem;">Powered by: Tokcounter.com</div>
     </div>
     <div class="embed" style="position: relative; top: -872px; left: 1020px">
-        <img class="mini-img" src="/images/sw.png">
-        <h6>Subscriber Wars</h6>
-        <h5 class="odometer" id="swcount" style="left: 60px;"></h5>
+        <img class="mini-img" id="eimg2">
+        <h6 id="enam2"></h6>
+        <h5 class="odometer" id="ecnt2" style="left: 60px;"></h5>
     </div>
     <div class="embed" style="position: relative; top: -1024px; left: 1455px">
         <img class="mini-img" id="eimg">
@@ -125,6 +125,20 @@ function switch1(){
     ids.push(ids.shift())
 }
 
+var ids2=['sw','jmbsw','sws','swm']
+
+async function getstats2(){
+    let request = await fetch('https://api.subscriberwars.space/'+ids2[0])
+    let data = await request.json().catch(() => {})
+    if (!data) return;
+    enam2.innerHTML = data.title
+    ecnt2.innerHTML = data.subscribers
+    eimg2.src = data.pfp
+}
+function switch2(){
+    ids2.push(ids2.shift())
+}
+
 function load(){
     fetch('https://api.subscriberwars.space/tiktok/user/mrbeast').then(res=>res.json()).then(data=>{
         img.src=data.avatar
@@ -132,14 +146,10 @@ function load(){
     })
 }
 function sw(){
-    fetch('https://api.subscriberwars.space/sw/30day').then(res=>res.json()).then(data=>{
-        swcount.innerHTML=data.totals.subscribers
-    })
     fetch('https://api.subscriberwars.space/tiktok/v2/6614519312189947909').then(res=>res.json()).then(data=>{
         a1.innerHTML=data.followers
         fol=data.followers
         lik=data.likes
-        console.log(fol,lik,minval,minval2)
         var result = (a1.innerHTML)
         var inject = result
         if (chart1.series[0].points.length >= 4320) chart1.series[0].data[0].remove();
@@ -303,9 +313,11 @@ mainstats()
 analytics()
 sw()
 getstats1()
+getstats2()
 setInterval(() => {
     mainstats()
     getstats1()
+    getstats2()
 }, 2000);
 setInterval(() => {
     analytics()
@@ -313,6 +325,7 @@ setInterval(() => {
 setInterval(() => {
     sw()
     switch1()
+    switch2()
 }, 10000);
 
 var chart1 = new Highcharts.chart({
