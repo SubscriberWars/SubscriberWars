@@ -38,20 +38,11 @@
 </body>
 
 <script>
-    var newestvidID = ''
 var channel = window.location.href.split('?u=')[1] || '';
 
-function checkForNew(chanid) {
-    fetch('https://api.subscriberwars.space/tiktok/user/'+chanid+'').then(res => res.json()).then(data => {
-        newestvidID = data.id
-        title.innerHTML = data.username
-        logo.src = data.avatar
-    });
-}
-
-
 function updateStats(id) {
-    fetch('https://api.subscriberwars.space/tiktok/v2/'+id+'').then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/tiktok/v2/'+id).then(res => res.json()).then(data => {
+        title.innerHTML=data.nickname
         if(data.followers>=1000) {graphstat.innerHTML=data.followers+5}
         if(data.followers>=10000) {graphstat.innerHTML=data.followers+50}
         if(data.followers>=100000) {graphstat.innerHTML=data.followers+500}
@@ -60,6 +51,7 @@ function updateStats(id) {
         followercount.innerHTML=graphstat.innerHTML
         likecount.innerHTML = data.following
         videocount.innerHTML = data.likes
+        logo.src=data.pfp
         var yep=(graphstat.innerHTML)
         console.log(yep)
         var injection=yep
@@ -80,10 +72,10 @@ function updateStats(id) {
 
 // Intervals
 setInterval(() => {
-    updateStats(newestvidID);
+    updateStats(channel)
 }, 2000);
 
-checkForNew(channel)
+updateStats(channel)
 
 </script>
 
