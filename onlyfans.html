@@ -40,7 +40,7 @@
             <h2>Last Seen</h2>
         </div>
         <div id="api-box">
-            <div id='goalcount' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <div id='goalcount' class="odometer" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
             <h2>Likes Goal</h2>
         </div>
     </div>
@@ -60,9 +60,6 @@ function updateStats(id) {
         viewcount.innerHTML = data.liked
         videocount.innerHTML = data.media
         apicount.innerHTML="$"+data.sub_price
-        since.innerHTML=data.created.slice(0, 10)
-        lastseen.innerHTML=data.last_seen.slice(0, 10)
-
         logo.src=data.pfp
         headerImage.src=data.header
         if(data.likes>=0) {goal01.innerHTML=10}
@@ -75,6 +72,8 @@ function updateStats(id) {
         if(data.likes>=10000000) {goal01.innerHTML=(Math.floor(data.likes/10000000)*10000000)+10000000}
         if(data.likes>=100000000) {goal01.innerHTML=(Math.floor(data.likes/100000000)*100000000)+100000000}
         goalcount.innerHTML=goal01.innerHTML-data.likes
+        since.innerHTML=data.created.slice(0, 10)
+        lastseen.innerHTML=data.last_seen.slice(0, 10)
     });
 }
 
