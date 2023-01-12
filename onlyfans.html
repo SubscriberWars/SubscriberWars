@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<head>
+    <title>Only Fans Profile Data</title>
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/odometer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="count-block">
+        <div style="height: 224px; width: 1240px; margin:10px; overflow: hidden; border-radius: 10px; border: 1px solid #000;">
+            <img id="headerImage"/>
+        </div>
+        <img id="logo" src="https://subscriberwars.space/logo/Subscriber%20Wars.png" alt="Avatar" style="top: -245px; height: 224px;"/>
+        <h1 id="title" style="top: -227px;">Loading...</h1>
+        <div id='subcount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px; top: -227px;">0</div>
+        <h2 style="top: -227px;">Likes</h2>
+    </div>
+    <div id="mini-counts">
+        <div id="like-box">
+            <div id='viewcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Liked</h2>
+        </div>
+        <div id="comment-box">
+            <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Media</h2>
+        </div>
+        <div id="api-box">
+            <div id='apicount' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Subscriber Price</h2>
+        </div>
+        <div id="like-box">
+            <div id='since' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>User Created</h2>
+        </div>
+        <div id="comment-box">
+            <div id='lastseen' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Last Seen</h2>
+        </div>
+        <div id="api-box">
+            <div id='goalcount' style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
+            <h2>Likes Goal</h2>
+        </div>
+    </div>
+    <div id="credit">
+        <div style="width: 1260px; height: 200px; font-size: 2rem; text-align: center;">This Data only updates on page refresh due to severe rate limits. This API is Extremely Slow.</div>
+        <p id="goal01" style="visibility: hidden;"></p>
+    </div>
+</body>
+
+<script>
+var channel = window.location.href.split('?u=')[1] || '';
+
+function updateStats(id) {
+    fetch('https://api.subscriberwars.space/onlyfans/'+id).then(res => res.json()).then(data => {
+        title.innerHTML=data.name
+        subcount.innerHTML=data.likes
+        viewcount.innerHTML = data.liked
+        videocount.innerHTML = data.media
+        apicount.innerHTML="$"+data.sub_price
+        since.innerHTML=data.created.slice(0, 10)
+        lastseen.innerHTML=data.last_seen.slice(0, 10)
+
+        logo.src=data.pfp
+        headerImage.src=data.header
+        if(data.likes>=0) {goal01.innerHTML=10}
+        if(data.likes>=10) {goal01.innerHTML=100}
+        if(data.likes>=100) {goal01.innerHTML=1000}
+        if(data.likes>=1000) {goal01.innerHTML=(Math.floor(data.likes/1000)*1000)+1000}
+        if(data.likes>=10000) {goal01.innerHTML=(Math.floor(data.likes/10000)*10000)+10000}
+        if(data.likes>=100000) {goal01.innerHTML=(Math.floor(data.likes/100000)*100000)+100000}
+        if(data.likes>=1000000) {goal01.innerHTML=(Math.floor(data.likes/1000000)*1000000)+1000000}
+        if(data.likes>=10000000) {goal01.innerHTML=(Math.floor(data.likes/10000000)*10000000)+10000000}
+        if(data.likes>=100000000) {goal01.innerHTML=(Math.floor(data.likes/100000000)*100000000)+100000000}
+        goalcount.innerHTML=goal01.innerHTML-data.likes
+    });
+}
+
+// Intervals
+
+updateStats(channel)
+
+</script>
+
