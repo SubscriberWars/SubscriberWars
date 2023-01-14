@@ -3,12 +3,14 @@
     <title>Live Trovo Follower Count</title>
     <meta name="description" content="Live Trovo Statistics">
     <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/odometer.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="count-block">
@@ -41,7 +43,7 @@
 </body>
 
 <script>
-    var trovoid = ''
+var trovoid = ''
 var channel = window.location.href.split('?u=')[1] || '';
 
 function checkForNew(chanid) {
