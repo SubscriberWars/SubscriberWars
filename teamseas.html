@@ -3,7 +3,6 @@
     <title>#TeamSeas</title>
     <meta name="description" content="Live #TeamSeas Statistics">
     <link rel="stylesheet" href="/css/odometer.css">
-    <link rel="stylesheet" href="/css/teamseas.css">
     <script src="/js/odometer.js"></script>
     <script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -11,6 +10,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
+<style>
+body, html {margin: 0px; padding: 0px; color: #fff; font-size: 11pt; font-family: 'Roboto', sans-serif; display: block; background: #181818;}
+a {color: #fff;}
+div {display: block;}
+h1 {font-weight: 400; font-size: 40pt; margin: 0px auto; position: relative; text-align: center;}
+h2 {font-weight: 400; font-size: 20pt; margin: 0px auto; position: relative; text-align: center;}
+#count-block {width:1260px; height:550px; margin: 0px auto; margin-top: 20px; background:#0f0f0f; overflow: hidden; position: relative; border: 1px solid #000; box-shadow: 3px 3px 2px #000; border-radius: 10px;}
+#logo {width: 200px; width: 200px; position: relative; margin: 0px auto; margin-top: 10px; left: 42%; -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.3); box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;}
+#mini-counts {width:1260px; margin: 0px auto; margin-top: 20px;}
+#stat-box {width: 408px; height: 250px; position: relative; float: left; margin: 0px auto; margin-bottom: 20px; background: #0f0f0f; overflow: hidden; border: 1px solid #000; box-shadow: 3px 3px 2px #000; border-radius: 10px;}
+#goal-box {width: 395px; height: 120px; position: relative; float: left; margin: 0px auto; margin-right: 20px; margin-left: 20px; margin-bottom: 20px; background: #0f0f0f; overflow: hidden;border: 1px solid #000; box-shadow: 3px 3px 2px #000; border-radius: 10px;}
+#graph-block {width:1260px; height:400px; margin: 0px auto; margin-top: 20px; margin-bottom: 20px; background:#0f0f0f; overflow: hidden; position: relative; border: 1px solid #000; box-shadow: 3px 3px 2px #000; border-radius: 10px;}
+</style>
 <body>
     <div id="count-block">
         <img id="logo" src="https://teamseas.org/assets/images/teamseas-logo.png" alt="#TeamSeas">
@@ -27,7 +39,7 @@
         </div>
         <div id="goal-box">
             <div id='goal' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
-            <h2>30M Goal</h2>
+            <h2>Goal</h2>
         </div>
         <div id="stat-box">
             <div id='toplbs' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 400px;">0</div>
@@ -48,7 +60,7 @@ var url='https://api.subscriberwars.space/teamseas'
 $.getJSON(url,function(data){
     graphstat.innerHTML=data.total
     total.innerHTML=data.total
-        goal.innerHTML=30000000-data.total
+        goal.innerHTML=40000000-data.total
         toplbs.innerHTML=data.top_count
         topnam.innerHTML=data.top_name
         latlbs.innerHTML=data.latest_count
@@ -58,7 +70,7 @@ setInterval(function(){
     $.getJSON(url,function(data){
         graphstat.innerHTML=data.total
         total.innerHTML=data.total
-        goal.innerHTML=30000000-data.total
+        goal.innerHTML=40000000-data.total
         toplbs.innerHTML=data.top_count
         topnam.innerHTML=data.top_name
         latlbs.innerHTML=data.latest_count
@@ -67,9 +79,9 @@ setInterval(function(){
     var yep=(graphstat.innerHTML)
     console.log(yep)
     var injection=yep
-    if(graph.series[0].points.length>=1800)graph.series[0].data[0].remove();
+    if(graph.series[0].points.length>=900)graph.series[0].data[0].remove();
     graph.series[0].addPoint([Date.now(),parseFloat(injection)])
-},2000);
+},5000);
 })    
 </script>
 
