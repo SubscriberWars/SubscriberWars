@@ -227,6 +227,13 @@ function socialblade() {
         if((data.data.daily[2].subs-data.data.daily[3].subs)>=1000000){ag5.innerHTML="+"+((data.data.daily[2].subs-data.data.daily[3].subs)/1000000)+"M"}
         if((data.data.daily[1].subs-data.data.daily[2].subs)>=1000000){ag6.innerHTML="+"+((data.data.daily[1].subs-data.data.daily[2].subs)/1000000)+"M"}
         if((data.data.daily[0].subs-data.data.daily[1].subs)>=1000000){ag7.innerHTML="+"+((data.data.daily[0].subs-data.data.daily[1].subs)/1000000)+"M"}
+        if((data.data.daily[6].subs-data.data.daily[7].subs)=0){ag1.innerHTML="--"}
+        if((data.data.daily[5].subs-data.data.daily[6].subs)=0){ag2.innerHTML="--"}
+        if((data.data.daily[4].subs-data.data.daily[5].subs)=0){ag3.innerHTML="--"}
+        if((data.data.daily[3].subs-data.data.daily[4].subs)=0){ag4.innerHTML="--"}
+        if((data.data.daily[2].subs-data.data.daily[3].subs)=0){ag5.innerHTML="--"}
+        if((data.data.daily[1].subs-data.data.daily[2].subs)=0){ag6.innerHTML="--"}
+        if((data.data.daily[0].subs-data.data.daily[1].subs)=0){ag7.innerHTML="--"}
         if((data.data.daily[6].subs-data.data.daily[7].subs)<0){document.getElementById('ag1').style.color='#ed2121'} if(ag1.innerHTML=="+1M"){document.getElementById('ag1').style.color='#1bed0c'} if(ag1.innerHTML==0){document.getElementById('ag1').style.color='#7e7d82'}
         if((data.data.daily[5].subs-data.data.daily[6].subs)<0){document.getElementById('ag2').style.color='#ed2121'} if(ag2.innerHTML=="+1M"){document.getElementById('ag2').style.color='#1bed0c'} if(ag2.innerHTML==0){document.getElementById('ag2').style.color='#7e7d82'}
         if((data.data.daily[4].subs-data.data.daily[5].subs)<0){document.getElementById('ag3').style.color='#ed2121'} if(ag3.innerHTML=="+1M"){document.getElementById('ag3').style.color='#1bed0c'} if(ag3.innerHTML==0){document.getElementById('ag3').style.color='#7e7d82'}
