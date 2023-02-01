@@ -153,7 +153,7 @@
     </div>
     <div class="embed" style="right: 10px;">
         <img class="micro_img" id="microI6">
-        <img class="micro_plat" src="/images/tiktok.svg">
+        <img class="micro_plat" src="/images/discord.svg">
         <div class="micro_title" id="microT6">User</div>
         <div class="micro_count odometer" id="microC6"></div>
     </div>
@@ -279,12 +279,13 @@
         font-size: 10rem;
         font-weight: 500;
         position: relative;
-        top: -420px;
+        top: -370px;
     }
     .chart {
         position: relative;
-        top:-160px;
-        left: -50px
+        top:-80px;
+        left: -50px;
+        height: 315px;
     }
     .table_box {
         width: 950px;
@@ -535,19 +536,19 @@
             microC3.innerHTML=data.channel[3].subscribers
             microC4.innerHTML=data.channel[4].subscribers
             microC5.innerHTML=data.channel[5].subscribers
-            microC6.innerHTML=data.channel[7].subscribers
+            microC6.innerHTML=data.channel[9].subscribers
             microT1.innerHTML=data.channel[0].title
             microT2.innerHTML=data.channel[1].title
             microT3.innerHTML=data.channel[3].title
             microT4.innerHTML=data.channel[4].title
             microT5.innerHTML=data.channel[5].title
-            microT6.innerHTML=data.channel[7].title
+            microT6.innerHTML=data.channel[9].title
             microI1.src=data.channel[0].pfp
             microI2.src=data.channel[1].pfp
             microI3.src=data.channel[3].pfp
             microI4.src=data.channel[4].pfp
             microI5.src=data.channel[5].pfp.replace("normal","400x400")
-            microI6.src=data.channel[7].pfp
+            microI6.src=data.channel[9].pfp
         })
     }
     maindata()
