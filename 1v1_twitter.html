@@ -121,6 +121,42 @@
         <div class="right_title" style="top: -165px;">Replies</div>
         <div class="mini_right odometer" id="rep2" style="top: -165px;"></div>
     </div>
+    <div class="embed">
+        <img class="micro_img" id="microI1">
+        <img class="micro_plat" src="/images/youtube.svg">
+        <div class="micro_title" id="microT1">User</div>
+        <div class="micro_count odometer" id="microC1"></div>
+    </div>
+    <div class="embed" style="left: 320px;">
+        <img class="micro_img" id="microI2">
+        <img class="micro_plat" src="/images/youtube.svg">
+        <div class="micro_title" id="microT2">User</div>
+        <div class="micro_count odometer" id="microC2"></div>
+    </div>
+    <div class="embed" style="left: 633px;">
+        <img class="micro_img" id="microI3">
+        <img class="micro_plat" src="/images/youtube.svg">
+        <div class="micro_title" id="microT3">User</div>
+        <div class="micro_count odometer" id="microC3"></div>
+    </div>
+    <div class="embed" style="right: 635px;">
+        <img class="micro_img" id="microI4">
+        <img class="micro_plat" src="/images/twitch.svg">
+        <div class="micro_title" id="microT4">User</div>
+        <div class="micro_count odometer" id="microC4"></div>
+    </div>
+    <div class="embed" style="right: 323px;">
+        <img class="micro_img" id="microI5">
+        <img class="micro_plat" src="/images/twitter.svg">
+        <div class="micro_title" id="microT5">User</div>
+        <div class="micro_count odometer" id="microC5"></div>
+    </div>
+    <div class="embed" style="right: 10px;">
+        <img class="micro_img" id="microI6">
+        <img class="micro_plat" src="/images/tiktok.svg">
+        <div class="micro_title" id="microT6">User</div>
+        <div class="micro_count odometer" id="microC6"></div>
+    </div>
     <p id="a1" style="visibility: hidden;"></p>
     <p id="a2" style="visibility: hidden;"></p>
 </body>
@@ -131,6 +167,7 @@
         background: #242424;
         font-family: roboto;
         color: #fff;
+        overflow: hidden;
     }
     .main {
         width: 920px;
@@ -153,12 +190,29 @@
         left: -375px;
         text-align: left !important;
     }
+    .micro_img {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        position: relative;
+        text-align: left !important;
+    }
     .platimg {
         width: 40px;
         height: 40px;
         position: relative;
         top: -70px;
         left: -375px;
+        text-align: left !important;
+    }
+    .micro_plat {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -80px;
+        left: -5px;
         text-align: left !important;
     }
     .title {
@@ -168,6 +222,21 @@
         top: -117px;
         left: 170px;
         text-align: left !important;
+    }
+    .micro_title {
+        font-size: 20px;
+        font-weight: 400;
+        position: relative;
+        top: -111px;
+        left: 160px;
+        text-align: left !important;
+    }
+    .micro_count {
+        font-size: 45px;
+        font-weight: 500;
+        position: relative;
+        top: -100px;
+        left: 120px;
     }
     .tag {
         font-size: 40px;
@@ -271,6 +340,18 @@
         background: #181818;
         overflow: hidden;
     }
+    .embed {
+        width: 300px;
+        height: 125px;
+        position: absolute;
+        border-radius: 10px;
+        border: 1px solid #000;
+        box-shadow: 3px 3px 2px #000;
+        background: #181818;
+        overflow: hidden;
+        margin: 10px;
+        top: 925px;
+    }
 </style>
 <script>
     var followercount1=""
@@ -283,14 +364,7 @@
     var yes2=""
     var latestId1=""
     var latestId2=""
-    function getaverage() {
-        fetch('https://api.subscriberwars.space/sb/twitter/barackobama').then(res=>res.json()).then(data=>{
-            average1=data.data.statistics.growth.followers[7]/604800
-        })
-        fetch('https://api.subscriberwars.space/sb/twitter/elonmusk').then(res=>res.json()).then(data=>{
-            average2=data.data.statistics.growth.followers[7]/604800
-        })
-    }
+
     function socialblade() {
         fetch('https://api.subscriberwars.space/sb/twitter/barackobama').then(res=>res.json()).then(data=>{
             //date
@@ -395,15 +469,15 @@
         a1.innerHTML=followercount1
         a2.innerHTML=followercount2
         gap.innerHTML=a1.innerHTML-a2.innerHTML
-        var result = (a1.innerHTML)
-        var inject = result
+    }
+    function livegraph() {
+        var inject1 =(a1.innerHTML)
+        var inject2 =(a2.innerHTML)
+        var inject3 =(a1.innerHTML-a2.innerHTML)
         if (chart1.series[0].points.length >= 900) chart1.series[0].data[0].remove();
-        chart1.series[0].addPoint([Date.now(),parseFloat(inject)])
-        var result2 = (a2.innerHTML)
-        var inject2 = result2
+        chart1.series[0].addPoint([Date.now(),parseFloat(inject1)])
         if (chart2.series[0].points.length >= 900) chart2.series[0].data[0].remove();
-        chart2.series[0].addPoint([Date.now(),parseFloat(inject2)]) 
-        var inject3=(a1.innerHTML-a2.innerHTML)
+        chart2.series[0].addPoint([Date.now(),parseFloat(inject2)])
         if (chart3.series[0].points.length >= 900) chart3.series[0].data[0].remove();
         chart3.series[0].addPoint([Date.now(),parseFloat(inject3)])
     }
@@ -454,11 +528,33 @@
             rep2.innerHTML=data.counts[1]
         })
     }
+    function swats() {
+        fetch('https://api.subscriberwars.space/all').then(res=>res.json()).then(data=>{
+            microC1.innerHTML=data.channel[0].subscribers
+            microC2.innerHTML=data.channel[1].subscribers
+            microC3.innerHTML=data.channel[3].subscribers
+            microC4.innerHTML=data.channel[4].subscribers
+            microC5.innerHTML=data.channel[5].subscribers
+            microC6.innerHTML=data.channel[7].subscribers
+            microT1.innerHTML=data.channel[0].title
+            microT2.innerHTML=data.channel[1].title
+            microT3.innerHTML=data.channel[3].title
+            microT4.innerHTML=data.channel[4].title
+            microT5.innerHTML=data.channel[5].title
+            microT6.innerHTML=data.channel[7].title
+            microI1.src=data.channel[0].pfp
+            microI2.src=data.channel[1].pfp
+            microI3.src=data.channel[3].pfp
+            microI4.src=data.channel[4].pfp
+            microI5.src=data.channel[5].pfp.replace("normal","400x400")
+            microI6.src=data.channel[7].pfp
+        })
+    }
     maindata()
-    getaverage()
     socialblade()
     graphs()
     gettweetid()
+    swats()
     setInterval(() => {
         socialblade()
     }, 1800*1000);
@@ -475,7 +571,13 @@
     }, 4000);
     setInterval(() => {
         gettweetid()
+        swats()
     }, 60*1000);
+    setTimeout(() => {
+        setInterval(() => {
+            livegraph()
+        }, 2000);
+    }, 12*1000);
 var chart1 = new Highcharts.chart({
 chart: {renderTo: 'chart1',type: 'spline',zoomType: 'x',backgroundColor: 'transparent',plotBorderColor: 'transparent'},
 title: {text: ''},
