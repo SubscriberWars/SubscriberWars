@@ -507,55 +507,10 @@
         });
         }) 
     }
-    function gettweetid() {
-        fetch('https://api.subscriberwars.space/twitter/usertweet/813286').then(res=>res.json()).then(data=>{
-            latestId1=data.meta.newest_id
-        })
-        fetch('https://api.subscriberwars.space/twitter/usertweet/44196397').then(res=>res.json()).then(data=>{
-            latestId2=data.meta.newest_id
-        })
-    }
-    function tweetdata() {
-        fetch('https://livecounts.xyz/api/twitter-live-like-count/live/'+latestId1).then(res=>res.json()).then(data=>{
-            view1.innerHTML=data.counts[3]
-            like1.innerHTML=data.counts[0]
-            ret1.innerHTML=data.counts[2]
-            rep1.innerHTML=data.counts[1]
-        })
-        fetch('https://livecounts.xyz/api/twitter-live-like-count/live/'+latestId2).then(res=>res.json()).then(data=>{
-            view2.innerHTML=data.counts[3]
-            like2.innerHTML=data.counts[0]
-            ret2.innerHTML=data.counts[2]
-            rep2.innerHTML=data.counts[1]
-        })
-    }
-    function swats() {
-        fetch('https://api.subscriberwars.space/all').then(res=>res.json()).then(data=>{
-            microC1.innerHTML=data.channel[0].subscribers
-            microC2.innerHTML=data.channel[1].subscribers
-            microC3.innerHTML=data.channel[3].subscribers
-            microC4.innerHTML=data.channel[4].subscribers
-            microC5.innerHTML=data.channel[5].subscribers
-            microC6.innerHTML=data.channel[9].subscribers
-            microT1.innerHTML=data.channel[0].title
-            microT2.innerHTML=data.channel[1].title
-            microT3.innerHTML=data.channel[3].title
-            microT4.innerHTML=data.channel[4].title
-            microT5.innerHTML=data.channel[5].title
-            microT6.innerHTML=data.channel[9].title
-            microI1.src=data.channel[0].pfp
-            microI2.src=data.channel[1].pfp
-            microI3.src=data.channel[3].pfp
-            microI4.src=data.channel[4].pfp
-            microI5.src=data.channel[5].pfp.replace("normal","400x400")
-            microI6.src=data.channel[9].pfp
-        })
-    }
+    
     maindata()
     socialblade()
     graphs()
-    gettweetid()
-    swats()
     setInterval(() => {
         socialblade()
     }, 1800*1000);
@@ -566,14 +521,7 @@
         setInterval(() => {
             calculate()
         }, 2000);
-        setInterval(() => {
-            tweetdata(latestId1,latestId2)
-        }, 10*1000);
-    }, 4000);
-    setInterval(() => {
-        gettweetid()
-        swats()
-    }, 60*1000);
+    }, 10000);
     setTimeout(() => {
         setInterval(() => {
             livegraph()

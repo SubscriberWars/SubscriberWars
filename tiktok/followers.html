@@ -43,6 +43,7 @@ var channel = window.location.href.split('?u=')[1] || '';
 function updateStats(id) {
     fetch('https://api.subscriberwars.space/tiktok/v2/'+id).then(res => res.json()).then(data => {
         title.innerHTML=data.nickname
+        if(data.followers<=999) {graphstat.innerHTML=data.followers}
         if(data.followers>=1000) {graphstat.innerHTML=data.followers+5}
         if(data.followers>=10000) {graphstat.innerHTML=data.followers+50}
         if(data.followers>=100000) {graphstat.innerHTML=data.followers+500}
