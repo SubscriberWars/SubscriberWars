@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title id="tab_header">Live Rumble Subscriber Count</title>
+    <title id="tab_header">Live Rumble Follower Count</title>
     <meta name="description" content="Live Rumble Stats">
     <link rel="stylesheet" href="/css/odometer.css">
     <link rel="stylesheet" href="/css/main.css">
@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div style="width: 100%; background-image: linear-gradient(to right, #3fad28, #37ff05); height: 80px;">
+        <h1 style="text-align: center; color: #fff; top: 8px; position: relative;" id="header_desc">Rumble Profile Statistics</h1>
+    </div>
     <div id="count-block">
         <img style="margin:10px; width:1240px; height: 206px;" id="headerImage"/>
         <img id="logo" src="https://subscriberwars.space/images/sw.png" alt="" width="206px" height="206px" style="top: -230px; position: relative">
@@ -25,7 +28,7 @@
         </div>
         <div id="comment-box">
             <div id='followingcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
-            <h2>Subscriptions</h2>
+            <h2>Following</h2>
         </div>
         <div id="api-box">
             <div id='goalcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 410px;">0</div>
@@ -45,6 +48,7 @@ var channel = window.location.href.split('?u=')[1] || '';
 function load(chanid) {
     fetch('https://api.subscriberwars.space/rumble/'+chanid+'').then(res => res.json()).then(data => {
         tab_header.innerHTML = data.data.title +"'s Live Rumble Stats"
+        header_desc.innerHTML = data.data.title +"'s Live Rumble Statistics"
         title.innerHTML = data.data.title
         followercount.innerHTML= data.data.followers
         videocount.innerHTML= data.data.videos
