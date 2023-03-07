@@ -202,7 +202,7 @@
     var g5=""
     var g6=""
     function update() {
-        fetch('https://api.subscriberwars.space/twitter/3/user/barackobama').then(res=>res.json()).then(data=>{
+        fetch('https://api.subscriberwars.space/twitter/2/user/barackobama').then(res=>res.json()).then(data=>{
             count_1.innerHTML=data.followers_count
             img_1.src=data.profile_image.replace("normal","400x400")
             a1.innerHTML=data.tweet_count
