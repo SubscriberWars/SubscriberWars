@@ -15,7 +15,7 @@
     .mini-img{width: 80px; height: 80px; border-radius: 0.5rem; border: 1px solid #000; position: relative; top: 5px; left: -36%;}
     h1{font-size: 3rem; position: relative; left: 220px; top: -180px; color: #fff;}
     h2{font-size: 2rem; font-weight: 400; position: relative; left: 175px; top: -200px; color: #fff;}
-    h3{font-size: 9rem; text-align: center; position: relative; top: -600px; left: 50px; font-weight: 500; color: #fff;}
+    h3{font-size: 7rem; text-align: center; position: relative; top: -600px; left: 50px; font-weight: 500; color: #fff;}
     h4{font-size: 2rem; font-weight: 400; position: relative; top: -1150px; left: 600px; color: #fff;}
     h5{font-size: 2rem; position: relative; left: 90px; top: -130px; font-weight: 500; color: #fff;}
     h6{font-size: 1.5rem; position: relative; left: 90px; top: -180px; font-weight: 400; color: #fff;}
@@ -102,17 +102,17 @@ string +='';
 var string2='';
 string2 +='';
 function mainstats() {
-    fetch('https://api.subscriberwars.space/stream/UC-9-kyTW8ZkZNDHQJ6FgpwQ').then(res=>res.json()).then(data=>{
-        followers_one.innerHTML=data.estCounts[0]
-        gap01=parseFloat(data.estCounts[0])
+    fetch('https://api.subscriberwars.space/stream/UC-lHJZR3Gqxm24_Vd_AJ5Yw').then(res=>res.json()).then(data=>{
+        followers_one.innerHTML=data.estCounts[1]
+        gap01=parseFloat(data.estCounts[1])
         title_one.innerHTML=data.name
         tag_one.innerHTML=data.tag
         img_one.src=data.pfp
-        a1.innerHTML=data.estCounts[0]
-        list1.unshift(data.estCounts[0])
+        a1.innerHTML=data.estCounts[1]
+        list1.unshift(data.estCounts[1])
         if(list1.length>900){list1.pop()}
-        min1.innerHTML= data.estCounts[0]-parseFloat(list1[14])+"/Min"
-        hrs1.innerHTML= data.estCounts[0]-parseFloat(list1[899])+"/Hr"
+        min1.innerHTML= data.estCounts[1]-parseFloat(list1[14])+"/Min"
+        hrs1.innerHTML= data.estCounts[1]-parseFloat(list1[899])+"/Hr"
         var result = (a1.innerHTML)
         var inject = result
         if (chart1.series[0].points.length >= 900) chart1.series[0].data[0].remove();
@@ -133,18 +133,18 @@ function mainstats() {
         api_one.innerHTML=string
     })
     fetch('https://api.subscriberwars.space/stream/UCX6OQ3DkcsbYNE6H8uQQuVA').then(res=>res.json()).then(data=>{
-        followers_two.innerHTML=data.estCounts[0]
-        gap02=parseFloat(data.estCounts[0])
+        followers_two.innerHTML=data.estCounts[1]
+        gap02=parseFloat(data.estCounts[1])
         diff.innerHTML=gap01-gap02
         title_two.innerHTML=data.name
         tag_two.innerHTML=data.tag
         api_two.innerHTML=data.apiCounts[0]
         img_two.src=data.pfp
-        a2.innerHTML=data.estCounts[0]
-        list2.unshift(data.estCounts[0])
+        a2.innerHTML=data.estCounts[1]
+        list2.unshift(data.estCounts[1])
         if(list2.length>900){list2.pop()}
-        min2.innerHTML= data.estCounts[0]-parseFloat(list2[14])+"/Min"
-        hrs2.innerHTML= data.estCounts[0]-parseFloat(list2[899])+"/Hr"
+        min2.innerHTML= data.estCounts[1]-parseFloat(list2[14])+"/Min"
+        hrs2.innerHTML= data.estCounts[1]-parseFloat(list2[899])+"/Hr"
         var result2 = (a2.innerHTML)
         var inject2 = result2
         if (chart2.series[0].points.length >= 900) chart2.series[0].data[0].remove();
@@ -170,13 +170,16 @@ function mainstats() {
     })
     fetch('https://api.subscriberwars.space/tiktok/v2/6614519312189947909').then(res=>res.json()).then(data=>{
         followers_3.innerHTML=data.followers
+        img_3.src=data.pfp
+        title_3.innerHTML=data.nickname
+        tag_3.innerHTML="@"+data.username
     })
 }
 function chanstats() {
     fetch('https://api.subscriberwars.space/sw/30day').then(res=>res.json()).then(data=>{
         mini1_count.innerHTML=data.totals.subscribers
     })
-    fetch('https://api.subscriberwars.space/jmbsw/30day').then(res=>res.json()).then(data=>{
+    fetch('https://api.subscriberwars.space/jb/30day').then(res=>res.json()).then(data=>{
         mini2_count.innerHTML=data.totals.subscribers
     })
 }
@@ -190,11 +193,6 @@ function singleload(){
         mini2_title.innerHTML=data.items[0].snippet.title
         mini2_tag.innerHTML=data.items[0].snippet.customUrl
         mini2_img.src=data.items[0].snippet.thumbnails.medium.url
-    })
-    fetch('https://api.subscriberwars.space/tiktok/user/mrbeast').then(res=>res.json()).then(data=>{
-        img_3.src=data.avatar
-        title_3.innerHTML=data.username
-        tag_3.innerHTML="@mrbeast"
     })
 }
 var vidid=0;
