@@ -159,7 +159,7 @@ function reset() {
 }
 
 function update(){
-    $.getJSON("https://top50views.subscriberwars.repl.co/tiktok",(data)=>{
+    $.getJSON("https://top50.subscriberwars.repl.co/tiktok",(data)=>{
 
         data.channel.sort(function(a,b){return b.subs - a.subs});
 
