@@ -229,7 +229,7 @@
             gap02= data.followers_count
             if(gap01>gap02){gap1.innerHTML=gap01-gap02} else{gap1.innerHTML=gap02-gap01}
         })
-        fetch('https://api.subscriberwars.space/tiktok/v2/6539853526925841423').then(res=>res.json()).then(data=>{
+        fetch('https://api.subscriberwars.space/tiktok/v2/21609287').then(res=>res.json()).then(data=>{
             title3.innerHTML= data.nickname
             img3.src= data.pfp
             view3.innerHTML= data.likes
