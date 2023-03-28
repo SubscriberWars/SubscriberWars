@@ -31,6 +31,7 @@
     </div>
     <br>
     <div class="container2">
+        <h1>Profile Links</h1>
         <button class="links_button" style="margin-top: 10px;" onclick="window.open('https://youtube.com/@subscriberwars1','_blank')">
             <img class="button_logo" src="/images/youtube.svg">
             <div class="button_text">Subscriber Wars</div>
@@ -86,15 +87,15 @@
             <div class="button_text">Subscriber Wars Shorts</div>
             <div class="button_followers" id="b11">Loading...</div>
         </button>
-        <button class="links_button" onclick="window.open('https://rumble.com/c/c-2260124','_blank')">
-            <img class="button_logo" src="/images/rumble.svg">
-            <div class="button_text">SW Music</div>
-            <div class="button_followers" id="b12">Loading...</div>
-        </button>
         <button class="links_button" onclick="window.open('https://open.spotify.com/user/31oyiiscz4wgnrjob5fdzqjgsuzq','_blank')">
             <img class="button_logo" src="/images/spotify_icon.png">
             <div class="button_text">Jay Burton</div>
             <div class="button_followers" id="b13">Loading...</div>
+        </button>
+        <button class="links_button" onclick="window.open('https://discord.com/invite/zDvtM5SENG','_blank')">
+            <img class="button_logo" src="/images/discord.svg">
+            <div class="button_text">JayMBurtonSW</div>
+            <div class="button_followers" id="b14">Loading...</div>
         </button>
     </div>
     <br>
@@ -133,7 +134,7 @@
         font-size: 2rem;
     }
     .container2 {
-        height: 800px;
+        height: 940px;
         width: 1260px;
         margin: 0px auto;
         background: #0f0f0f;
@@ -202,11 +203,11 @@
             b6.innerHTML=data.channel[5].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
             b7.innerHTML=data.channel[6].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
             b8.innerHTML=data.channel[7].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b9.innerHTML=data.channel[8].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
-            b10.innerHTML=data.channel[9].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
-            b11.innerHTML=data.channel[10].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
-            b12.innerHTML=data.channel[11].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
-            b13.innerHTML=data.channel[8].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b9.innerHTML=data.channel[8].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b10.innerHTML=data.channel[9].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b11.innerHTML=data.channel[10].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b13.innerHTML=data.channel[12].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b14.innerHTML=data.channel[13].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
         })
     }
     followers()
