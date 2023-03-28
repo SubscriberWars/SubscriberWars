@@ -21,8 +21,16 @@
         <h2>Followers</h2>
     </div>
     <div id="mini-counts">
-        <div id="api-box" style="width: 1260px;">
-            <div id='goalcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
+        <div id="like-box">
+            <div id='livecount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 411px;">0</div>
+            <h2>Live Viewers</h2>
+        </div>
+        <div id="comment-box">
+            <div id='othercount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 411px;">0</div>
+            <h2>...</h2>
+        </div>
+        <div id="api-box">
+            <div id='goalcount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 411px;">0</div>
             <h2>Goal</h2>
         </div>
     </div>
@@ -57,6 +65,7 @@ function update(chanid) {
         if(data.followersCount>=10000000) {goal01.innerHTML=(Math.floor(data.followersCount/10000000)*10000000)+10000000}
         if(data.followersCount>=100000000) {goal01.innerHTML=(Math.floor(data.followersCount/100000000)*100000000)+100000000}
         goalcount.innerHTML=goal01.innerHTML-data.followersCount
+        livecount.innerHTML=data.livestream.viewers
     });
 }
 
