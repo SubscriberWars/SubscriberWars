@@ -1,0 +1,737 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<link rel="stylesheet" href="/css/odometer.css">
+<script src="/js/odometer.js"></script>
+
+<style>
+    body {
+        font-family: roboto;
+        color: #fff;
+        background: #181818;
+        width: 1920px;
+        height: 1080px;
+        border: 1px #ff0000 dashed;
+    }
+    h1 {
+        font-size: 50px;
+        position: relative;
+        left: 150px;
+        top: -155px;
+    }
+    h2 {
+        font-size: 120px;
+        position: relative;
+        left: 30px;
+        top: -250px;
+        font-weight: 500;
+    }
+    h3 {
+        font-size: 45px;
+        position: relative;
+        top: -40px;
+        font-weight: 500;
+    }
+    h4 {
+        font-size: 20px;
+        font-weight: 400;
+        position: relative;
+        top: -100px;
+    }
+    .banner {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .pfp {
+        width: 120px;
+        height: 120px;
+        margin-left: 20px;
+        position: relative;
+        top: -60px;
+        border: solid 1px #000;
+        border-radius: 10px;
+    }
+    .container_count {
+        width: 1920px;
+        height: 650px;
+        overflow: hidden;
+        display: flex;
+    }
+    .container_extra {
+        display: flex;
+        overflow: hidden;
+        width: 1920px;
+        height: 112px;
+    }
+    .container_av {
+        display: flex;
+        overflow: hidden;
+        width: 1920px;
+        height: 400px;
+    }
+    .box_count {
+        background: #0f0f0f;
+        width: 743px;
+        height: 638px;
+        margin-left: 10px;
+        margin-top: 10px;
+        border: solid 1px #000;
+        border-radius: 10px;
+    }
+    .box_center {
+        background: #0f0f0f;
+        width: 385px;
+        height: 638px;
+        margin-left: 10px;
+        margin-top: 10px;
+        border: solid 1px #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .box_extra {
+        background: #0f0f0f;
+        width: 365px;
+        height: 100px;
+        margin-left: 10px;
+        margin-top: 10px;
+        border: solid 1px #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .box_xcenter {
+        background: #0f0f0f;
+        width: 385px;
+        height: 100px;
+        margin-left: 10px;
+        margin-top: 10px;
+        border: solid 1px #000;
+        border-radius: 10px;
+    }
+    .box_bottom {
+        background: #0f0f0f;
+        width: 1120px;
+        height: 270px;
+        margin-left: 10px;
+        margin-top: 10px;
+        border: solid 1px #000;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    .graph {
+        position: relative;
+        top: -320px;
+        height: 220px;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    th {
+        border: 1px solid #fff;
+        padding: 10px;
+    }
+    td {
+        border: 1px solid #fff;
+        height: 50px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container_count">
+        <div class="box_count">
+            <img class="banner"id="banner1">
+            <img class="pfp" id="pfp1">
+            <h1 id="title1">User1</h1>
+            <h2 id="subs1" class="odometer"></h2>
+            <div id="graph1" class="graph"></div>
+        </div>
+        <div class="box_center">
+            <div id="graph3" style="height: 250px;"></div>
+            <div id="diff" class="odometer" style="font-size: 60px; font-weight: 500;"></div>
+            <div style="font-size: 30px;">Subscriber Gap</div>
+            <div id="graph4" style="height: 250px; position: relative; top: 20px;"></div>
+        </div>
+        <div class="box_count">
+            <img class="banner" id="banner2">
+            <img class="pfp" id="pfp2">
+            <h1 id="title2">User2</h1>
+            <h2 id="subs2" class="odometer"></h2>
+            <div id="graph2" class="graph"></div>
+        </div>
+    </div>
+    <div class="container_extra">
+        <div class="box_extra">
+            <h3 class="odometer" id="x1"></h3>
+            <h4>Views</h4>
+        </div>
+        <div class="box_extra">
+            <h3 class="odometer" id="x2"></h3>
+            <h4>Videos</h4>
+        </div>
+        <div class="box_xcenter">
+            <img src="/images/sw.png" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
+            <div style="font-size: 30px; position: relative; top: -100px; left: 110px;">Subscriber Wars</div>
+            <div id="sw" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div>
+        </div>
+        <div class="box_extra">
+            <h3 class="odometer" id="x3"></h3>
+            <h4>Views</h4>
+        </div>
+        <div class="box_extra">
+            <h3 class="odometer" id="x4"></h3>
+            <h4>Videos</h4>
+        </div>
+    </div>
+    <div class="container_av">
+        <div class="box_bottom">
+            <table>
+                <tr>
+                    <th>Channel</th>
+                    <th>1 Min Gain</th>
+                    <th id="dim2">2 Min Est</th>
+                    <th id="dim3">10 Min Est</th>
+                    <th id="dim4">1 Hrs Est</th>
+                    <th id="dim5">6 Hrs Est</th>
+                    <th id="dim6">12 Hrs Est</th>
+                    <th id="dim7">1 Day Est</th>
+                    <th id="dim8">7 Day Est</th>
+                    <th id="dim9">30 Day Est</th>
+                    <th id="dim10">60 Day Est</th>
+                    <th id="dim11">1 Year Est</th>
+                </tr>
+                <tr>
+                    <th>Pewdiepie</th>
+                    <td id="a1m">0</td>
+                    <td id="a2m">0</td>
+                    <td id="a10m">0</td>
+                    <td id="a1h">0</td>
+                    <td id="a6h">0</td>
+                    <td id="a12h">0</td>
+                    <td id="a1d">0</td>
+                    <td id="a7d">0</td>
+                    <td id="a30d">0</td>
+                    <td id="a60d">0</td>
+                    <td id="a1y">0</td>
+                </tr>
+                <tr>
+                    <th>Kids Diana Show</th>
+                    <td id="b1m">0</td>
+                    <td id="b2m">0</td>
+                    <td id="b10m">0</td>
+                    <td id="b1h">0</td>
+                    <td id="b6h">0</td>
+                    <td id="b12h">0</td>
+                    <td id="b1d">0</td>
+                    <td id="b7d">0</td>
+                    <td id="b30d">0</td>
+                    <td id="b60d">0</td>
+                    <td id="b1y">0</td>
+                </tr>
+                <tr>
+                    <th>Estimated Takeover</th>
+                    <td id="takeover" colspan="11"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="box_bottom" style="width: 723;">
+            <div id="graph5" style="height: 100%;"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const banner1 = document.getElementById("banner1")
+    const banner2 = document.getElementById("banner2")
+    var gap01=""; gap02=""; injection3="";
+    const list = [];
+    const list1 = [];
+    var rates = {
+      counts: [[], []],
+      vals: [0, 0],
+      divisor: [0, 0],
+      add: function (i, a) {
+        a = Number(a);
+        rates.vals[i] *= rates.counts[i].length;
+        rates.counts[i].push(a);
+        var sub = rates.counts[i].length > 10000 ? rates.counts[i].shift() : 0; //if the data is bigger than 10,000 it removes the first value
+        rates.vals[i] += (a - sub);
+        rates.vals[i] = (rates.vals[i] / rates.counts[i].length).toFixed(60);
+      }
+    }
+
+    function load() {
+        banner1.src='https://www.banner.yt/UC-lHJZR3Gqxm24_Vd_AJ5Yw?width=1240';
+        banner2.src='https://www.banner.yt/UCk8GzjMOrta8yxDcKfylJYw?width=1240';
+        fetch('https://api.subscriberwars.space/youtube/channel/UC-lHJZR3Gqxm24_Vd_AJ5Yw').then(res => res.json()).then(data => {
+        title1.innerHTML = data.items[0].snippet.title
+        pfp1.src = data.items[0].snippet.thumbnails.medium.url
+        x1.innerHTML = data.items[0].statistics.viewCount
+        x2.innerHTML = data.items[0].statistics.videoCount
+        subs1.innerHTML=data.items[0].statistics.subscriberCount
+        });
+        fetch('https://api.subscriberwars.space/youtube/channel/UCk8GzjMOrta8yxDcKfylJYw').then(res => res.json()).then(data => {
+        title2.innerHTML = data.items[0].snippet.title
+        pfp2.src = data.items[0].snippet.thumbnails.medium.url
+        x3.innerHTML = data.items[0].statistics.viewCount
+        x4.innerHTML = data.items[0].statistics.videoCount
+        subs2.innerHTML=data.items[0].statistics.subscriberCount
+        });
+    }
+    function getTime(t) {
+      var str = ['', '', '', '', '', ' seconds'];
+      var s = t, m = '', h = '', d = '', m = '', y = '';
+      if (t >= 60) {
+        str[4] = ' minutes ';
+        m = parseInt(t / 60);
+        s -= m * 60;
+      }
+      if (t >= 3600) {
+        str[3] = ' hours ';
+        h = parseInt(t / 3600);
+        m -= h * 60;
+      }
+      if (t >= 86400) {
+        str[2] = ' days ';
+        d = parseInt(t / 86400);
+        h -= d * 24;
+      }
+      return d + str[2] + h + str[3] + m + str[4] + s + str[5]; //just add hours, days, months, etc
+    }
+
+    function getTime2(t) {
+      return new Date(Date.now() + t*1000).toString().split(' GMT')[0]; //current time
+    }
+
+    function main() {
+        fetch('https://api.subscriberwars.space/stream/UC-lHJZR3Gqxm24_Vd_AJ5Yw').then(res => res.json()).then(data => {
+        x1.innerHTML = data.estCounts[1]
+        x2.innerHTML = data.apiCounts[2]
+        subs1.innerHTML = data.estCounts[0]
+        gap01=data.estCounts[0]
+        var injection1 = data.estCounts[0]
+        if(graph1.series[0].points.length>=1800)graph1.series[0].data[0].remove();
+        graph1.series[0].addPoint([Date.now(),parseFloat(injection1)])
+        });
+        fetch('https://api.subscriberwars.space/stream/UCk8GzjMOrta8yxDcKfylJYw').then(res => res.json()).then(data => {
+        x3.innerHTML = data.estCounts[1]
+        x4.innerHTML = data.apiCounts[2]
+        subs2.innerHTML=data.estCounts[0]
+        gap02=data.estCounts[0]
+        if(gap01>gap02){injection3=gap01-gap02} else{injection3=gap02-gap01}
+        diff.innerHTML=injection3
+        var injection2 = data.estCounts[0]
+        if(graph2.series[0].points.length>=1800)graph2.series[0].data[0].remove();
+        graph2.series[0].addPoint([Date.now(),parseFloat(injection2)])
+        });
+    }
+
+    function gap() {
+        if(graph3.series[0].points.length>=30)graph3.series[0].data[0].remove();
+        graph3.series[0].addPoint([Date.now(),parseFloat(injection3)])
+        if(graph4.series[0].points.length>=1800)graph4.series[0].data[0].remove();
+        graph4.series[0].addPoint([Date.now(),parseFloat(injection3)])
+    }
+
+    function biggap() {
+        if(graph5.series[0].points.length>=525600)graph5.series[0].data[0].remove();
+        graph5.series[0].addPoint([Date.now(),parseFloat(injection3)])
+    }
+
+    function subwars() {
+        fetch('https://api.subscriberwars.space/sw/30day').then(res => res.json()).then(data => {
+            sw.innerHTML = data.totals.subscribers
+        });
+        fetch('https://api.subscriberwars.space/stream/UC-lHJZR3Gqxm24_Vd_AJ5Yw').then(res => res.json()).then(data => {
+            list.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
+            if (list.length>3153600){list.pop()}//shift: removes start. //pop: removes end
+
+            if (list.length>12){dim2.innerHTML="2 min Gain"} else {dim2.innerHTML="2 min Est"}
+            if (list.length>60){dim3.innerHTML="10 mins Gain"} else {dim3.innerHTML="10 mins Est"}
+            if (list.length>360){dim4.innerHTML="1 hr Gain"} else {dim4.innerHTML="1 hr Est"}
+            if (list.length>2160){dim5.innerHTML="6 hrs Gain"} else {dim5.innerHTML="6 hrs Est"}
+            if (list.length>4320){dim6.innerHTML="12 hrs Gain"} else {dim6.innerHTML="12 hrs Est"}
+            if (list.length>8640){dim7.innerHTML="1 day Gain"} else {dim7.innerHTML="1 day Est"}
+            if (list.length>60480){dim8.innerHTML="7 days Gain"} else {dim8.innerHTML="7 days Est"}
+            if (list.length>259200){dim9.innerHTML="30 days Gain"} else {dim9.innerHTML="30 days Est"}
+            if (list.length>518400){dim10.innerHTML="60 days Gain"} else {dim10.innerHTML="60 days Est"}
+            if (list.length>3153600){dim11.innerHTML="1 year Gain"} else {dim11.innerHTML="1 year Est"}
+
+            a1m.innerHTML=(data.estCounts[0]-parseFloat(list[5])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            if (list.length>12){a2m.innerHTML=(data.estCounts[0]-parseFloat(list[11])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a2m.innerHTML=(a1m.innerHTML*2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list.length>60){a10m.innerHTML=(data.estCounts[0]-parseFloat(list[59])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a10m.innerHTML=(a1m.innerHTML*10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list.length>360){a1h.innerHTML=(data.estCounts[0]-parseFloat(list[359])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a1h.innerHTML=(a1m.innerHTML*60).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list.length>2160){a6h.innerHTML=(data.estCounts[0]-parseFloat(list[2159])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a6h.innerHTML=(a1m.innerHTML*360).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list.length>4320){a12h.innerHTML=(data.estCounts[0]-parseFloat(list[4319])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a12h.innerHTML=(a1m.innerHTML*720).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list.length>8640){a1d.innerHTML=(data.estCounts[0]-parseFloat(list[8639])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a1d.innerHTML=(a1m.innerHTML*1440).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list.length>60480){a7d.innerHTML=(data.estCounts[0]-parseFloat(list[60479])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a7d.innerHTML=(a1m.innerHTML*10080).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list.length>259200){a30d.innerHTML=(data.estCounts[0]-parseFloat(list[259199])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a30d.innerHTML=(a1m.innerHTML*43200).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list.length>518400){a60d.innerHTML=(data.estCounts[0]-parseFloat(list[518399])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a60d.innerHTML=(a1m.innerHTML*86400).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list.length>3153600){a1y.innerHTML=(data.estCounts[0]-parseFloat(list[3153599])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {a1y.innerHTML=(a1m.innerHTML*525600).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch('https://api.subscriberwars.space/stream/UCk8GzjMOrta8yxDcKfylJYw').then(res => res.json()).then(data => {
+            list1.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
+            if (list1.length>3153600){list1.pop()}//shift: removes start. //pop: removes end
+
+            b1m.innerHTML=(data.estCounts[0]-parseFloat(list1[5])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            if (list1.length>12){b2m.innerHTML=(data.estCounts[0]-parseFloat(list1[11])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b2m.innerHTML=(b1m.innerHTML*2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list1.length>60){b10m.innerHTML=(data.estCounts[0]-parseFloat(list1[59])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b10m.innerHTML=(b1m.innerHTML*10).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list1.length>360){b1h.innerHTML=(data.estCounts[0]-parseFloat(list1[359])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b1h.innerHTML=(b1m.innerHTML*60).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list1.length>2160){b6h.innerHTML=(data.estCounts[0]-parseFloat(list1[2159])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b6h.innerHTML=(b1m.innerHTML*360).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list1.length>4320){b12h.innerHTML=(data.estCounts[0]-parseFloat(list1[4319])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b12h.innerHTML=(b1m.innerHTML*720).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list1.length>8640){b1d.innerHTML=(data.estCounts[0]-parseFloat(list1[8639])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b1d.innerHTML=(b1m.innerHTML*1440).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list1.length>60480){b7d.innerHTML=(data.estCounts[0]-parseFloat(list1[60479])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b7d.innerHTML=(b1m.innerHTML*10080).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list1.length>259200){b30d.innerHTML=(data.estCounts[0]-parseFloat(list1[259199])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b30d.innerHTML=(b1m.innerHTML*43200).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list1.length>518400){b60d.innerHTML=(data.estCounts[0]-parseFloat(list1[518399])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b60d.innerHTML=(b1m.innerHTML*86400).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            if (list1.length>3153600){b1y.innerHTML=(data.estCounts[0]-parseFloat(list1[3153599])).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} else {b1y.innerHTML=(b1m.innerHTML*525600).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        //get estimated time till takeover
+        if ((gap01 && !isNaN(gap02)) || gap02 && !isNaN(gap01)) {
+            var more = gap01 > gap02 ? 0 : 1, less = 1 - more; //no idea what this does but without it breaks
+            var gap = Math.floor(Math.round(gap01) - Math.round(gap02)); //get gap
+            var secsLeft = parseInt(gap / (parseFloat(a1m.innerHTML) - parseFloat(b1m.innerHTML))); //estimated seconds life
+            //console.log(Math.round(gap01), Math.round(gap02), gap, parseFloat(b1m.innerHTML), parseFloat(a1m.innerHTML), secsLeft); //debugging
+            updateTakeover(secsLeft*60); //display on page
+          }
+        }
+    function updateTakeover(val) {
+      takeover.innerHTML=(getTime(val*-1)+" ("+getTime2(val*-1)+")");
+      //$ takeover.innerHTML=(val >= 0 ? getTime(val) : 'Never');
+    }
+
+    load()
+    subwars()
+
+    setInterval(() => {
+        subwars()
+    }, 10000);
+
+    setTimeout(() => {
+        setInterval(() => {
+           main() 
+        }, 2000);
+    }, 5000);
+
+    setTimeout(() => {
+        setInterval(() => {
+           gap() 
+        }, 2000);
+        setInterval(() => {
+           biggap() 
+        }, 60000);
+        biggap()
+    }, 8000);
+
+</script>
+
+<script>//graph 1 styling
+    var graph1 = new Highcharts.chart({
+        chart: {
+            renderTo: 'graph1',
+            type: 'spline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: {
+            text: ''
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 200,
+            gridLineColor: '#transparent',
+            minorGridLineColor: '#transparent',
+            tickColor: 'white',
+            labels: {
+                style: {
+                color: 'white',
+                fontFamily: 'Roboto',
+                fontSize: '15px'
+                }
+            },
+            title: {
+                style: {
+                color: '#transparent'
+                }
+            }
+        },
+        yAxis: {
+            gridLineColor: '#transparent',
+            lineColor: 'white',
+            minorGridLineColor: 'transparent',
+            tickColor: 'white',
+            labels: {
+                enabled: false,
+                style: {
+                    color: 'white'
+                }
+            },
+            title: {
+                text: ''
+            },
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: {
+                enabled: false
+            },
+            color:'#ff0000',
+            lineColor: '#ff0000'
+        }]
+    });
+    </script>
+
+<script>//graph 2 styling
+    var graph2 = new Highcharts.chart({
+        chart: {
+            renderTo: 'graph2',
+            type: 'spline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: {
+            text: ''
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 200,
+            gridLineColor: '#transparent',
+            minorGridLineColor: '#transparent',
+            tickColor: 'white',
+            labels: {
+                style: {
+                color: 'white',
+                fontFamily: 'Roboto',
+                fontSize: '15px'
+                }
+            },
+            title: {
+                style: {
+                color: '#transparent'
+                }
+            }
+        },
+        yAxis: {
+            gridLineColor: '#transparent',
+            lineColor: 'white',
+            minorGridLineColor: 'transparent',
+            tickColor: 'white',
+            labels: {
+                enabled: false,
+                style: {
+                    color: 'white'
+                }
+            },
+            title: {
+                text: ''
+            },
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: {
+                enabled: false
+            },
+            color:'#ff0000',
+            lineColor: '#ff0000'
+        }]
+    });
+    </script>
+
+<script>//graph 3 styling
+    var graph3 = new Highcharts.chart({
+        chart: {
+            renderTo: 'graph3',
+            type: 'spline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: {
+            text: '1 Min Gap',
+            style: {
+                fontFamily: 'Roboto',
+                fontSize: '30px',
+                fontWeight: 'regular',
+                color: '#fff'
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 200,
+            gridLineColor: '#transparent',
+            minorGridLineColor: '#transparent',
+            tickColor: 'transparent',
+            lineColor: 'transparent',
+            labels: {
+                enabled: false,
+            },
+            title: {
+                style: {
+                color: '#transparent'
+                }
+            }
+        },
+        yAxis: {
+            gridLineColor: '#transparent',
+            lineColor: 'white',
+            minorGridLineColor: 'transparent',
+            tickColor: 'white',
+            labels: {
+                enabled: false,
+                style: {
+                    color: 'white'
+                }
+            },
+            title: {
+                text: ''
+            },
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: {
+                enabled: false
+            },
+            color:'#fff',
+            lineColor: '#fff'
+        }]
+    });
+    </script>
+
+<script>//graph 4 styling
+    var graph4 = new Highcharts.chart({
+        chart: {
+            renderTo: 'graph4',
+            type: 'spline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: {
+            text: '1 Hr Gap',
+            style: {
+                fontFamily: 'Roboto',
+                fontSize: '30px',
+                fontWeight: 'regular',
+                color: '#fff'
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 200,
+            gridLineColor: '#transparent',
+            minorGridLineColor: '#transparent',
+            tickColor: 'transparent',
+            lineColor: 'transparent',
+            labels: {
+                enabled: false,
+            },
+            title: {
+                style: {
+                color: '#transparent'
+                }
+            }
+        },
+        yAxis: {
+            gridLineColor: '#transparent',
+            lineColor: 'white',
+            minorGridLineColor: 'transparent',
+            tickColor: 'white',
+            labels: {
+                enabled: false,
+                style: {
+                    color: 'white'
+                }
+            },
+            title: {
+                text: ''
+            },
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: {
+                enabled: false
+            },
+            color:'#fff',
+            lineColor: '#fff'
+        }]
+    });
+    </script>
+
+<script>//graph 5 styling
+    var graph5 = new Highcharts.chart({
+        chart: {
+            renderTo: 'graph5',
+            type: 'line',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: {
+            text: 'Subscriber Gap',
+            style: {
+                fontFamily: 'Roboto',
+                fontSize: '30px',
+                fontWeight: 'regular',
+                color: '#fff'
+            }
+        },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 200,
+            gridLineColor: 'transparent',
+            minorGridLineColor: 'transparent',
+            tickColor: '#fff',
+            lineColor: '#fff',
+            labels: {
+                enabled: true,
+            },
+            title: {
+                style: {
+                color: '#transparent'
+                }
+            }
+        },
+        yAxis: {
+            gridLineColor: '#fff',
+            lineColor: 'white',
+            minorGridLineColor: 'transparent',
+            tickColor: 'white',
+            labels: {
+                enabled: true,
+                style: {
+                    color: 'white'
+                }
+            },
+            title: {
+                text: ''
+            },
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: {
+                enabled: false
+            },
+            color:'#fff',
+            lineColor: '#fff'
+        }]
+    });
+    </script>
