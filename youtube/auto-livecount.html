@@ -1,0 +1,131 @@
+<head>
+    <script src="odometer.js"></script>
+    <link rel=stylesheet href="odometer-theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>  
+</head>
+
+<style>
+    *{
+      font-family: 'Roboto';
+      font-weight: 500;
+      margin: 0;
+    }
+    body {
+      height: 400px;
+      width: 743px;
+      border: 1px dashed red;
+      background: transparent;
+      padding: 5px;
+    }
+    h1 {
+      position: absolute;
+      left: 210px;
+      top: 5px;
+      height: 100px;
+      width: 500px;
+      font-size: 40px;
+      color: #fff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #thumbnail {
+      width: 200px;
+      height:100px;
+    }
+    #viewsOdometer {
+      width: 743px;
+      font-size: 7rem;
+      color: #fff;
+      display: block;
+      text-align: center;
+      height: 140px;
+    }
+    #viewtext {
+      width: 743px;
+      font-size: 30px;
+      color: #fff;
+      display: block;
+      text-align: center;
+    }
+    #likes-comments {
+      width: 743px;
+      height: 120px;
+      display: flex;
+    }
+    #like-span, #comment-span {
+      width: 371.5px;
+    }
+</style>
+
+<body>
+  <img id=thumbnail>
+  <h1 id=vidtitle>Loading Latest Video...</h1>
+  <h2 id="viewsOdometer" class=odometer>0</h2>
+  <div id="viewtext"><i class="fa fa-sharp fa-eye"></i> Views</div>
+  <div id="likes-comments">
+    <div id="like-span">
+      <div id="likesOdometer" class=odometer style="font-size: 60; color: #00ff0d; display: block; text-align: center;">0</div>
+      <div style="font-size: 30px; color: #00ff0d; display: block; text-align: center;"><i class="fa fa-sharp fa-thumbs-up"></i> Likes</div>
+    </div>
+    <div id="comment-span">
+      <div id="commentsOdometer" class=odometer style="font-size: 60; color: #00c8ff; display: block; text-align: center;">0</div>
+      <div style="font-size: 30px; color: #00c8ff; display: block; text-align: center;"><i class="fa fa-sharp fa-comment"></i> Comments</div>
+    </div>
+  </div>
+</body>
+
+<script>
+  var newestvidID = ''
+var channel = window.location.href.split('?')[1] || '';
+var capi = 0;
+var lapi = 0;
+var likes = 0;
+var views = 0;
+var viewsC = 0;
+var lol = 0;
+
+function checkForNew(chanid) { // replace UC with UU
+    fetch('https://api.subscriberwars.space/priv/yt/playlist/'+chanid+'').then(res => res.json()).then(data => {
+        newestvidID = data.items[0].contentDetails.videoId
+    });
+}
+
+
+function updateStats(id) {
+    fetch('https://youtube.googleapis.com/youtube/v3/videos?part=snippet,statistics&id='+id+'&key=AIzaSyAUfG3BP2Zx4XSPSaigqUFzkBqa8CbMx00').then(res => res.json()).then(data => {
+        capi = data.items[0].statistics.viewCount
+        lapi = data.items[0].statistics.likeCount
+
+    var ratio = parseFloat(capi) / parseFloat(lapi)
+                console.log(ratio)
+                    views = (Math.floor(parseFloat(views) + ratio * (parseFloat(lapi) - likes)))
+                        if (viewsC == capi) { } else {
+                            views = (Math.floor(parseFloat(capi)))
+                        }
+                viewsC = (Math.floor(capi))
+                likes = (Math.floor(lapi))
+                lol = views
+        likesOdometer.innerHTML = data.items[0].statistics.likeCount,
+        viewsOdometer.innerHTML = lol,
+        vidtitle.innerHTML = data.items[0].snippet.title,
+        thumbnail.src = data.items[0].snippet.thumbnails.maxres.url
+        commentsOdometer.innerHTML = data.items[0].statistics.commentCount
+    });
+    
+}
+
+setInterval(() => {
+    updateStats(newestvidID);
+}, 2000);
+
+checkForNew(channel)
+updateStats(newestvidID)
+
+setInterval(() => {
+    checkForNew(channel);
+}, 10000);
+</script>
