@@ -246,7 +246,7 @@
         gap01=data.estCounts[0]
         list.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
         if (list.length>43200){list.pop()}//shift: removes start. //pop: removes end
-        if (list.length>=1800) {x5.innerHTML= data.estCounts[0]-list[17900]}
+        if (list.length>=1800) {x5.innerHTML= data.estCounts[0]-list[17999]}
         if (list>=43200) {x6.innerHTML=data.estCounts[0]-list[43199]} else{x6.innerHTML=socialblade1}
         });
         fetch('https://api.subscriberwars.space/stream/'+id2).then(res => res.json()).then(data => {
