@@ -153,7 +153,6 @@
             <div id="graph3" style="height: 250px;"></div>
             <div id="diff" class="odometer" style="font-size: 60px; font-weight: 500;"></div>
             <div style="font-size: 30px;">Subscriber Gap</div>
-            <div id="graph4" style="height: 250px; position: relative; top: 20px;"></div>
         </div>
         <div class="box_count">
             <img class="banner" id="banner2">
@@ -266,8 +265,6 @@
     function gap() {
         if(graph3.series[0].points.length>=1800)graph3.series[0].data[0].remove();
         graph3.series[0].addPoint([Date.now(),parseFloat(injection3)])
-        if(graph4.series[0].points.length>=43200)graph4.series[0].data[0].remove();
-        graph4.series[0].addPoint([Date.now(),parseFloat(injection3)])
     }
 
     function subwars() {
@@ -323,70 +320,6 @@
         },
         title: {
             text: '1 Hr Gap',
-            style: {
-                fontFamily: 'Roboto',
-                fontSize: '30px',
-                fontWeight: 'regular',
-                color: '#fff'
-            }
-        },
-        xAxis: {
-            type: 'datetime',
-            tickPixelInterval: 200,
-            gridLineColor: '#transparent',
-            minorGridLineColor: '#transparent',
-            tickColor: 'transparent',
-            lineColor: 'transparent',
-            labels: {
-                enabled: false,
-            },
-            title: {
-                style: {
-                color: '#transparent'
-                }
-            }
-        },
-        yAxis: {
-            gridLineColor: '#transparent',
-            lineColor: 'white',
-            minorGridLineColor: 'transparent',
-            tickColor: 'white',
-            labels: {
-                enabled: false,
-                style: {
-                    color: 'white'
-                }
-            },
-            title: {
-                text: ''
-            },
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            showInLegend: false,
-            name: 'Subscribers',
-            marker: {
-                enabled: false
-            },
-            color:'#fff',
-            lineColor: '#fff'
-        }]
-    });
-    </script>
-
-<script>//graph 4 styling
-    var graph4 = new Highcharts.chart({
-        chart: {
-            renderTo: 'graph4',
-            type: 'spline',
-            zoomType: 'x',
-            backgroundColor: 'transparent',
-            plotBorderColor: 'transparent'
-        },
-        title: {
-            text: '1 Day Gap',
             style: {
                 fontFamily: 'Roboto',
                 fontSize: '30px',

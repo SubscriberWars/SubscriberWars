@@ -46,7 +46,7 @@ const headerImage = document.getElementById("headerImage")
 function checkForNew(chanid) {
     headerImage.src='https://www.banner.yt/'+chanid+'?width=1240';
 
-    fetch('https://api.subscriberwars.space/youtube/channel/'+chanid+'').then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/youtube/channel/v2/'+chanid+'').then(res => res.json()).then(data => {
         title.innerHTML = data.items[0].snippet.title
         logo.src = data.items[0].snippet.thumbnails.medium.url
         viewcount.innerHTML = data.items[0].statistics.viewCount
