@@ -246,7 +246,7 @@
         list.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
         if (list.length>43200){list.pop()}//shift: removes start. //pop: removes end
         if (list.length>=1800) {x5.innerHTML= data.estCounts[0]-list[1799]}
-        if (list>=43200) {x6.innerHTML=data.estCounts[0]-list[43199]} else{x6.innerHTML=socialblade1}
+        if (list>=43199) {x6.innerHTML=data.estCounts[0]-list[43199]} else{x6.innerHTML=socialblade1}
         });
         fetch('https://api.subscriberwars.space/stream/'+id2).then(res => res.json()).then(data => {
         x3.innerHTML = data.estCounts[1]
@@ -256,7 +256,7 @@
         list1.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
         if (list1.length>43200){list1.pop()}//shift: removes start. //pop: removes end
         if (list1.length>=1800) {x7.innerHTML= data.estCounts[0]-list1[1799]}
-        if (list1>=43200) {x8.innerHTML=data.estCounts[0]-list1[43199]} else{x8.innerHTML=socialblade2}
+        if (list1>=43199) {x8.innerHTML=data.estCounts[0]-list1[43199]} else{x8.innerHTML=socialblade2}
         if(gap01>gap02){injection3=gap01-gap02} else{injection3=gap02-gap01}
         diff.innerHTML=injection3
         });
