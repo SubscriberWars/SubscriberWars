@@ -14,7 +14,7 @@
         <img id="channel_banner" src="/images/banner_placeholder.png">
         <img id="channel_image" src="/images/pfp_placeholder.png">
         <div id="channel_title_container">
-            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank" ></a>
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="" target="_blank" ></a>
         </div>
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Subscribers</div>
@@ -146,8 +146,9 @@
         fetch("https://api.subscriberwars.space/est/sc/"+chanid).then(res=>res.json()).then(data=>{
             page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
             channel_image.src=data.info.pfp
-            channel_title.innerHTML="https://youtube.com/channel/"+data.info.name
-            channel_title.href=data.info.id
+            channel_title.href="https://youtube.com/channel/"+data.info.id
+            channel_title.title="Visit "+data.info.name+"'s channel"
+            channel_title.href=data.info.name
             channel_subscribers.innerHTML=data.estCounts.subCount
             channel_views.innerHTML=data.estCounts.viewCount
             channel_videos.innerHTML=data.apiCounts.videoCount
