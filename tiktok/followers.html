@@ -13,7 +13,9 @@
     <div class="main_box">
         <img id="channel_banner" src="/images/banner_tiktok.png">
         <img id="channel_image" src="/images/pfp_placeholder.png">
-        <div id="channel_title"></div>
+        <div id="channel_title_container">
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="" target="_blank" ></a>
+        </div>
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
         <div class="bottom_data">
@@ -79,7 +81,7 @@
         top: -100px;
         position: relative;
     }
-    #channel_title {
+    #channel_title_container {
         position: relative;
         top: -100px;
         font-size: 4rem;
@@ -141,6 +143,8 @@
         fetch("https://api.subscriberwars.space/tiktok/v2/"+chanid).then(res=>res.json()).then(data=>{
             page_title.innerHTML= data.nickname+"'s Live TikTok Follower Count"
             channel_title.innerHTML=data.nickname
+            channel_title.title="Visit "+data.nickname+"'s profile"
+            channel_title.href="https://tiktok.com/@"+data.username
             channel_image.src=data.pfp
             channel_subscribers.innerHTML=data.followers
             channel_videos.innerHTML=data.following
