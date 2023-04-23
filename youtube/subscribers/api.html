@@ -1,0 +1,174 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <title id="page_title"></title>
+</head>
+
+<body>
+    <div class="head">
+        <div class="head_text">YouTube Live Subscriber Count</div>
+    </div>
+    <div class="main_box">
+        <img id="channel_banner" src="/images/banner_placeholder.png">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank" ></a>
+        </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Subscribers</div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_views"></div>
+                <div class="bottom_text"><i class="fa fa-solid fa-eye"></i> Views</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_videos"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-video"></i> Videos</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="bottom_odometer" id="channel_abreviation"></div>
+                <div class="bottom_text"><i class="fa fa-brand fa-youtube"></i> YouTube Displays</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    body {
+        background: #181818;
+        color: #fff;
+        margin: 0;
+        font-family: roboto;
+    }
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #ff0000, #830101);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+    }
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+    .main_box {
+        width: 1260px;
+        height: 825px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+    #channel_banner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+    }
+    #channel_image {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        top: -100px;
+        position: relative;
+    }
+    #channel_title_container {
+        position: relative;
+        top: -100px;
+        font-size: 4rem;
+    }
+    #channel_subscribers {
+        position: relative;
+        top: -90px;
+        font-size: 12rem;
+        font-weight: 500;
+    }
+    #subscribers {
+        position: relative;
+        top: -80px;
+        font-size: 2rem;
+    }
+    .bottom_data {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        display: flex;
+        top: -70px;
+    }
+    .bottom_counts {
+        margin: 5px;
+        padding: 10px;
+        width: 400px;
+        height: 130px;
+        background: #000;
+        border-radius: 10px;
+    }
+    .bottom_odometer {
+        font-weight: 500;
+        font-size: 3rem;
+    }
+    .bottom_text {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #ff0000;
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #830101;
+        border-radius: 2.5px;
+    }
+</style>
+
+<script>
+    var channel = window.location.href.split('?u=')[1] || '';
+    var string='';
+    string +='';
+    const channel_banner = document.getElementById("channel_banner")
+
+    function stats(chanid) {
+        channel_banner.src="https://www.banner.yt/"+chanid+"?width=1260"
+        fetch("https://api.subscriberwars.space/youtube/channel/v2/"+chanid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.items[0].snippet.title+"'s Live Subscriber Count"
+            channel_image.src=data.items[0].snippet.thumbnails.medium.url
+            channel_title.innerHTML=data.items[0].snippet.title
+            channel_subscribers.innerHTML=data.items[0].statistics.subscriberCount
+            channel_views.innerHTML=data.items[0].statistics.viewCount
+            channel_videos.innerHTML=data.items[0].statistics.videoCount
+            channel_title.href="https://youtube.com/channel/"+data.items[0].id
+            if (data.items[0].statistics.subscriberCount<1000) {string=parseFloat(data.items[0].statistics.subscriberCount)}
+            if (data.items[0].statistics.subscriberCount>1000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
+            if (data.items[0].statistics.subscriberCount>1000) {string +='K'}
+            if (data.items[0].statistics.subscriberCount>10000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
+            if (data.items[0].statistics.subscriberCount>10000) {string +='K'}
+            if (data.items[0].statistics.subscriberCount>100000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000)}
+            if (data.items[0].statistics.subscriberCount>100000) {string +='K'}
+            if (data.items[0].statistics.subscriberCount>1000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
+            if (data.items[0].statistics.subscriberCount>1000000) {string +='M'}
+            if (data.items[0].statistics.subscriberCount>10000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
+            if (data.items[0].statistics.subscriberCount>10000000) {string +='M'}
+            if (data.items[0].statistics.subscriberCount>100000000) {string=parseFloat(data.items[0].statistics.subscriberCount/1000000)}
+            if (data.items[0].statistics.subscriberCount>100000000) {string +='M'}
+            channel_abreviation.innerHTML=string
+        })
+    }
+    stats(channel)
+    setInterval(() => {
+        stats(channel)
+    }, 10000);
+</script>

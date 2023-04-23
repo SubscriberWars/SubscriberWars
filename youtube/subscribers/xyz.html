@@ -8,30 +8,31 @@
 
 <body>
     <div class="head">
-        <div class="head_text">TikTok Live Follower Count</div>
+        <div class="head_text">YouTube Live Subscriber Count</div>
     </div>
     <div class="main_box">
-        <img id="channel_banner" src="/images/banner_tiktok.png">
+        <img id="channel_banner" src="/images/banner_placeholder.png">
         <img id="channel_image" src="/images/pfp_placeholder.png">
-        <div id="channel_title"></div>
+        <div id="channel_title_container">
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank" ></a>
+        </div>
         <div id="channel_subscribers" class="odometer"></div>
-        <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
+        <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Subscribers</div>
         <div class="bottom_data">
             <div class="bottom_counts">
                 <div class="odometer bottom_odometer" id="channel_views"></div>
-                <div class="bottom_text"><i class="fa fa-sharp fa-heart"></i> Likes</div>
+                <div class="bottom_text"><i class="fa fa-solid fa-eye"></i> Views</div>
             </div>
             <div class="bottom_counts">
                 <div class="odometer bottom_odometer" id="channel_videos"></div>
-                <div class="bottom_text"><i class="fa fa-sharp fa-user"></i> Following</div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-video"></i> Videos</div>
             </div>
             <div class="bottom_counts">
-                <div class="odometer bottom_odometer" id="channel_goal"></div>
-                <div class="bottom_text"><i class="fa fa-sharp fa-goal-net"></i> Goal</div>
+                <div class="bottom_odometer" id="channel_abreviation"></div>
+                <div class="bottom_text"><i class="fa fa-brand fa-youtube"></i> YouTube Displays</div>
             </div>
         </div>
     </div>
-    <p id="goal01" style="display: none;"></p>
 </body>
 
 <style>
@@ -44,7 +45,7 @@
     .head {
         width: 100%;
         height: 60px;
-        background-image: linear-gradient(to right, #ff0050, #00f2ea);
+        background-image: linear-gradient(to right, #ff0000, #830101);
         overflow: hidden;
         border-bottom: 1px solid #000;
     }
@@ -79,7 +80,7 @@
         top: -100px;
         position: relative;
     }
-    #channel_title {
+    #channel_title_container {
         position: relative;
         top: -100px;
         font-size: 4rem;
@@ -125,39 +126,48 @@
         border-radius: 2.5px;
     }
     ::-webkit-scrollbar-thumb {
-        background: #ff0050;
+        background: #ff0000;
         border-radius: 2.5px;
     }
     ::-webkit-scrollbar-thumb:hover {
-        background: #00f2ea;
+        background: #830101;
         border-radius: 2.5px;
     }
 </style>
 
 <script>
     var channel = window.location.href.split('?u=')[1] || '';
+    var string='';
+    string +='';
+    const channel_banner = document.getElementById("channel_banner")
 
     function stats(chanid) {
-        fetch("https://api.subscriberwars.space/tiktok/v2/"+chanid).then(res=>res.json()).then(data=>{
-            page_title.innerHTML= data.nickname+"'s Live TikTok Follower Count"
-            channel_title.innerHTML=data.nickname
-            channel_image.src=data.pfp
-            channel_subscribers.innerHTML=data.followers
-            channel_videos.innerHTML=data.following
-            channel_views.innerHTML=data.likes
-            if(data.followers>=0) {goal01.innerHTML=10}
-            if(data.followers>=10) {goal01.innerHTML=100}
-            if(data.followers>=100) {goal01.innerHTML=1000}
-            if(data.followers>=1000) {goal01.innerHTML=(Math.floor(data.followers/1000)*1000)+1000}
-            if(data.followers>=10000) {goal01.innerHTML=(Math.floor(data.followers/10000)*10000)+10000}
-            if(data.followers>=100000) {goal01.innerHTML=(Math.floor(data.followers/100000)*100000)+100000}
-            if(data.followers>=1000000) {goal01.innerHTML=(Math.floor(data.followers/1000000)*1000000)+1000000}
-            if(data.followers>=10000000) {goal01.innerHTML=(Math.floor(data.followers/10000000)*10000000)+10000000}
-            if(data.followers>=100000000) {goal01.innerHTML=(Math.floor(data.followers/100000000)*100000000)+100000000}
-            channel_goal.innerHTML=goal01.innerHTML-data.followers
+        channel_banner.src="https://www.banner.yt/"+chanid+"?width=1260"
+        fetch("https://api.subscriberwars.space/est/xyz/"+chanid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
+            channel_image.src=data.info.pfp
+            channel_title.innerHTML=data.info.name
+            channel_title.href="https://youtube.com/channel/"+data.info.id
+            channel_subscribers.innerHTML=data.estCounts.subCount
+            channel_views.innerHTML=data.estCounts.viewCount
+            channel_videos.innerHTML=data.apiCounts.videoCount
+            if (data.apiCounts.subCount<1000) {string=parseFloat(data.apiCounts.subCount)}
+            if (data.apiCounts.subCount>1000) {string=parseFloat(data.apiCounts.subCount/1000)}
+            if (data.apiCounts.subCount>1000) {string +='K'}
+            if (data.apiCounts.subCount>10000) {string=parseFloat(data.apiCounts.subCount/1000)}
+            if (data.apiCounts.subCount>10000) {string +='K'}
+            if (data.apiCounts.subCount>100000) {string=parseFloat(data.apiCounts.subCount/1000)}
+            if (data.apiCounts.subCount>100000) {string +='K'}
+            if (data.apiCounts.subCount>1000000) {string=parseFloat(data.apiCounts.subCount/1000000)}
+            if (data.apiCounts.subCount>1000000) {string +='M'}
+            if (data.apiCounts.subCount>10000000) {string=parseFloat(data.apiCounts.subCount/1000000)}
+            if (data.apiCounts.subCount>10000000) {string +='M'}
+            if (data.apiCounts.subCount>100000000) {string=parseFloat(data.apiCounts.subCount/1000000)}
+            if (data.apiCounts.subCount>100000000) {string +='M'}
+            channel_abreviation.innerHTML=string
         })
     }
-    stats()
+    stats(channel)
     setInterval(() => {
         stats(channel)
     }, 2000);
