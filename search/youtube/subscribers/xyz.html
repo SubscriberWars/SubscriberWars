@@ -1,0 +1,216 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>YouTube Search</title>
+</head>
+<div class="container">
+    <div class="head">
+        <div class="head_text">YouTube Search</div>
+    </div>
+    <form>
+        <div style="display: flex; width: 80%; margin: auto;">
+            <input class="form-control mr-sm-2" id="search" placeholder="User To Search For">
+            <button type="submit" class="searchbtn" value="Search"><i class="fa fa-fw fa-search" style="width: 100%;"></i></button>
+        </div>
+    </form>
+    <br>
+    <div class="row">
+        <a href="" id="link1">
+           <div id="chan1" class="chan-card">
+               <img src="" id="img1" class="pfp">
+               <div id="nam1" class="chan-name"></div>
+               <div id="id1" class="chan-id"></div>
+           </div>
+        </a>
+        <a href="" id="link2">
+           <div id="chan2" class="chan-card">
+               <img src="" id="img2" class="pfp">
+               <div id="nam2" class="chan-name"></div>
+               <div id="id2" class="chan-id"></div>
+           </div>
+        </a>
+        <a href="" id="link3">
+           <div id="chan3" class="chan-card">
+               <img src="" id="img3" class="pfp">
+               <div id="nam3" class="chan-name"></div>
+               <div id="id3" class="chan-id"></div>
+           </div>
+        </a>
+        <a href="" id="link4">
+           <div id="chan4" class="chan-card">
+               <img src="" id="img4" class="pfp">
+               <div id="nam4" class="chan-name"></div>
+               <div id="id4" class="chan-id"></div>
+            </div>
+        </a>
+        <a href="" id="link5">
+           <div id="chan5" class="chan-card">
+               <img src="" id="img5" class="pfp">
+               <div id="nam5" class="chan-name"></div>
+               <div id="id5" class="chan-id"></div>
+           </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+
+$('form').submit(function(event){
+event.preventDefault()
+
+var search = $("#search").val()
+
+channelSearch(search)
+})
+
+function channelSearch(search) {
+fetch("https://api.subscriberwars.space/search/youtube/channel/" + search).then(res => res.json()).then(data => {
+console.log(data)
+
+img1.src = data.item[0].pfp
+nam1.innerHTML = data.item[0].title
+id1.innerHTML = data.item[0].id
+link1.href = "https://subscriberwars.space/youtube/subscribers/xyz?u="+data.item[0].id
+
+img2.src = data.item[1].pfp
+nam2.innerHTML = data.item[1].title
+id2.innerHTML = data.item[1].id
+link2.href = "https://subscriberwars.space/youtube/subscribers/xyz?u="+data.item[1].id
+
+img3.src = data.item[2].pfp
+nam3.innerHTML = data.item[2].title
+id3.innerHTML = data.item[2].id
+link3.href = "https://subscriberwars.space/youtube/subscribers/xyz?u="+data.item[2].id
+
+img4.src = data.item[3].pfp
+nam4.innerHTML = data.item[3].title
+id4.innerHTML = data.item[3].id
+link4.href = "https://subscriberwars.space/youtube/subscribers/xyz?u="+data.item[3].id
+
+img5.src = data.item[4].pfp
+nam5.innerHTML = data.item[4].title
+id5.innerHTML = data.item[4].id
+link5.href = "https://subscriberwars.space/youtube/subscribers/xyz?u="+data.item[4].id
+})
+}
+})
+</script>
+<style>
+    body {
+    background-color: #222222;
+    font-family: roboto;
+    width: 100%;
+    color: #fff;
+    margin: 0;
+}
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #ff0000, #830101);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+        margin-bottom: 20px;
+    }
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+
+::placeholder {
+    color: #fff;
+    opacity: 5;
+    background: #333;
+}
+
+:-ms-input-placeholder {
+    color: #FFFFFF;
+    background: #333
+    ;
+  }
+
+  ::-ms-input-placeholder {
+    color: #FFFFFF;
+    background: #333
+    ;
+  }
+
+#search {
+    width: 100%;
+    background-color: #333;
+    height: 37px;
+    color: #fff;
+    border: solid #111;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.searchbtn {
+    color: #FFF;
+    height: 37px;
+    width: 10%;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 0.25rem;
+    border: solid #111;
+    background: #111;
+    margin-left: -10px;
+}
+
+.searchbtn:hover{
+    background: #000;
+    border: #000;
+    transition: 0.5s;
+}
+
+.chan-card {
+    background: #181818;
+    border-radius: 10px;
+    height: 120px;
+    margin-bottom: 10px;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    border: #000 1px solid;
+}
+
+.chan-card:hover {
+    cursor: pointer;
+    text-decoration: none;
+    background: #000;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.pfp {
+    border-radius: 50%;
+    position: relative;
+    top: 10px;
+    height: 100px;
+    width: 100px;
+    margin-left: 5px;
+}
+
+.chan-name {
+    font-size: 20pt;
+    font-weight: 900;
+    position: relative;
+    left: 120px;
+    top: -90px
+}
+
+.chan-id {
+    font-size: 20pt;
+    font-weight: 400;
+    position: relative;
+    left: 120px;
+    top: -80px;
+}
+</style>
