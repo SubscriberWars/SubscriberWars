@@ -8,24 +8,25 @@
 
 <body>
     <div class="head">
-        <div class="head_text">Twitch Live Follower Count</div>
+        <div class="head_text">Rumble Live Follower Count</div>
     </div>
     <div class="main_box">
-        <img id="channel_banner" src="/images/banner_twitch.png">
+        <img id="channel_banner" src="/images/banner_placeholder.png">
         <img id="channel_image" src="/images/pfp_placeholder.png">
         <div id="channel_title_container">
-            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank"></a>
-            <i class="fa fa-badge-check"  style="display: none; color: #9146ff;" id="partner" title=""></i>
-            <i class="fa fa-circle-A"  style="display: none; color: #9146ff;" id="affiliate" title=""></i>
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank" ></a>
         </div>
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
         <div class="bottom_data">
             <div class="bottom_counts">
-                <div class="bottom_odometer" id="channel_views"></div>
-                <div class="bottom_text"><i class="fa fa-sharp fa-user"></i> Latest Follower</div>
+                <div class="odometer bottom_odometer" id="channel_views"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-user"></i> Following</div>
             </div>
-            <div class="bottom_counts"></div>
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_videos"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-video"></i> Videos</div>
+            </div>
             <div class="bottom_counts">
                 <div class="odometer bottom_odometer" id="channel_goal"></div>
                 <div class="bottom_text"><i class="fa fa-sharp fa-goal-net"></i> Goal</div>
@@ -45,7 +46,7 @@
     .head {
         width: 100%;
         height: 60px;
-        background-image: linear-gradient(to right, #9146ff, #4c2588);
+        background-image: linear-gradient(to right, #69b52b, #396118);
         overflow: hidden;
         border-bottom: 1px solid #000;
     }
@@ -80,7 +81,7 @@
         top: -100px;
         position: relative;
     }
-    #channel_title_container {
+    #channel_title {
         position: relative;
         top: -100px;
         font-size: 4rem;
@@ -110,7 +111,6 @@
         height: 130px;
         background: #000;
         border-radius: 10px;
-        overflow: hidden;
     }
     .bottom_odometer {
         font-weight: 500;
@@ -127,51 +127,51 @@
         border-radius: 2.5px;
     }
     ::-webkit-scrollbar-thumb {
-        background: #9146ff;
+        background: #69b52b;
         border-radius: 2.5px;
     }
     ::-webkit-scrollbar-thumb:hover {
-        background: #4c2588;
+        background: #396118;
         border-radius: 2.5px;
     }
 </style>
 
 <script>
     var channel = window.location.href.split('?u=')[1] || '';
-    var twitchid="";
+    var id="";
 
     function load(chanid) {
-        fetch("https://api.subscriberwars.space/twitch/user/"+chanid).then(res=>res.json()).then(data=>{
-            twitchid=data.iD
-            page_title.innerHTML= data.name+"'s Live Twitch Follower Count"
-            channel_title.innerHTML=data.name
-            channel_title.href= "https://twitch.tv/"+data.name
-            channel_image.src=data.logo
-            if (data.type=="partner") {document.getElementById("partner").style.display="inline"} else {document.getElementById("partner").style.width="0px"}
-            if (data.type=="partner") {document.getElementById("partner").title="This channel is a Twitch Partner"}
-            if (data.type=="affiliate") {document.getElementById("affiliate").style.display="inline"} else {document.getElementById("affiliate").style.width="0px"}
-            if (data.type=="affiliate") {document.getElementById("affiliate").title="This channel is a Twitch Affiliate"}
+        fetch("https://api.subscriberwars.space/rumble/"+chanid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.data.title+"'s Live Follower Count"
+            channel_image.src=data.data.thumb
+            channel_title.innerHTML=data.data.title
+            channel_subscribers.innerHTML=data.data.followers
+            channel_videos.innerHTML=data.data.videos
+            channel_views.innerHTML=data.data.following
+            channel_banner.src=data.data.backsplash
+            id=data.data.id.replace("_c", "c-")
+            channel_title.href="https://rumble.com/c/"+id
         })
     }
 
-    function stats(id) {
-        fetch("https://api.subscriberwars.space/twitch/"+id).then(res=>res.json()).then(data=>{
-            channel_subscribers.innerHTML=data.followerCount
-            channel_views.innerHTML=data.latestFollower
-            if(data.followerCount>=0) {goal01.innerHTML=10}
-            if(data.followerCount>=10) {goal01.innerHTML=100}
-            if(data.followerCount>=100) {goal01.innerHTML=1000}
-            if(data.followerCount>=1000) {goal01.innerHTML=(Math.floor(data.followerCount/1000)*1000)+1000}
-            if(data.followerCount>=10000) {goal01.innerHTML=(Math.floor(data.followerCount/10000)*10000)+10000}
-            if(data.followerCount>=100000) {goal01.innerHTML=(Math.floor(data.followerCount/100000)*100000)+100000}
-            if(data.followerCount>=1000000) {goal01.innerHTML=(Math.floor(data.followerCount/1000000)*1000000)+1000000}
-            if(data.followerCount>=10000000) {goal01.innerHTML=(Math.floor(data.followerCount/10000000)*10000000)+10000000}
-            if(data.followerCount>=100000000) {goal01.innerHTML=(Math.floor(data.followerCount/100000000)*100000000)+100000000}
-            channel_goal.innerHTML=goal01.innerHTML-data.followerCount
+    function stats(chanid) {
+        fetch("https://api.subscriberwars.space/rumble/"+chanid).then(res=>res.json()).then(data=>{
+            channel_subscribers.innerHTML=data.data.followers
+            channel_videos.innerHTML=data.data.videos
+            if(data.data.followers>=0) {goal01.innerHTML=10}
+            if(data.data.followers>=10) {goal01.innerHTML=100}
+            if(data.data.followers>=100) {goal01.innerHTML=1000}
+            if(data.data.followers>=1000) {goal01.innerHTML=(Math.floor(data.data.followers/1000)*1000)+1000}
+            if(data.data.followers>=10000) {goal01.innerHTML=(Math.floor(data.data.followers/10000)*10000)+10000}
+            if(data.data.followers>=100000) {goal01.innerHTML=(Math.floor(data.data.followers/100000)*100000)+100000}
+            if(data.data.followers>=1000000) {goal01.innerHTML=(Math.floor(data.data.followers/1000000)*1000000)+1000000}
+            if(data.data.followers>=10000000) {goal01.innerHTML=(Math.floor(data.data.followers/10000000)*10000000)+10000000}
+            if(data.data.followers>=100000000) {goal01.innerHTML=(Math.floor(data.data.followers/100000000)*100000000)+100000000}
+            channel_goal.innerHTML=goal01.innerHTML-data.data.followers
         })
     }
     load(channel)
     setInterval(() => {
-        stats(twitchid)
-    }, 5000);
+        stats(channel)
+    }, 2000);
 </script>
