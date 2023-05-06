@@ -20,16 +20,6 @@
 </head>
 <body>
     <br>
-    <div class="container">
-        <h1>About Me</h1>
-        <div style="width: 820px; margin-left:10px;">
-                Hey!, My name is Jay, I am a 24 Year old (9th of December 1998) Streamer and content creator.
-                I Stream mainly Minecraft on my affiliated Twitch channel, I also run 4 different YouTube Channels also:
-                Subscriber Wars, JayMBurtonSW, Subscriber Wars Shorts & SW Music.
-        </div>
-        <img src="/images/jaymburtonsw.jpg" style="height: 420px; position: relative; left: 850px; top: -330px; border-left: #000 1px solid;">
-    </div>
-    <br>
     <div class="container2">
         <h1>Profile Links</h1>
         <button class="links_button" style="margin-top: 10px;" onclick="window.open('https://youtube.com/@subscriberwars1','_blank')">
@@ -41,16 +31,6 @@
             <img class="button_logo" src="/images/youtube.svg">
             <div class="button_text">JayMBurtonSW</div>
             <div class="button_followers" id="b2">Loading...</div>
-        </button>
-        <button class="links_button" onclick="window.open('https://youtube.com/@subscriberwarsshorts1','_blank')">
-            <img class="button_logo" src="/images/youtube.svg">
-            <div class="button_text">Subscriber Wars Shorts</div>
-            <div class="button_followers" id="b3">Loading...</div>
-        </button>
-        <button class="links_button" onclick="window.open('https://youtube.com/@swmusic1','_blank')">
-            <img class="button_logo" src="/images/youtube.svg">
-            <div class="button_text">SW Music</div>
-            <div class="button_followers" id="b4">Loading...</div>
         </button>
         <button class="links_button" onclick="window.open('https://twitch.tv/jaymburtonsw','_blank')">
             <img class="button_logo" src="/images/twitch.svg">
@@ -81,11 +61,6 @@
             <img class="button_logo" src="/images/rumble.svg">
             <div class="button_text">JayMBurtonSW</div>
             <div class="button_followers" id="b10">Loading...</div>
-        </button>
-        <button class="links_button" onclick="window.open('https://rumble.com/c/c-1848608','_blank')">
-            <img class="button_logo" src="/images/rumble.svg">
-            <div class="button_text">Subscriber Wars Shorts</div>
-            <div class="button_followers" id="b11">Loading...</div>
         </button>
         <button class="links_button" onclick="window.open('https://open.spotify.com/user/31oyiiscz4wgnrjob5fdzqjgsuzq','_blank')">
             <img class="button_logo" src="/images/spotify_icon.png">
@@ -197,17 +172,14 @@
         .then(data=>{
             b1.innerHTML=data.channel[0].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
             b2.innerHTML=data.channel[1].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
-            b3.innerHTML=data.channel[2].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
-            b4.innerHTML=data.channel[3].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
-            b5.innerHTML=data.channel[4].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b6.innerHTML=data.channel[5].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b7.innerHTML=data.channel[6].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b8.innerHTML=data.channel[7].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b9.innerHTML=data.channel[8].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b10.innerHTML=data.channel[9].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b11.innerHTML=data.channel[10].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b13.innerHTML=data.channel[12].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b14.innerHTML=data.channel[13].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
+            b5.innerHTML=data.channel[2].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b6.innerHTML=data.channel[3].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b7.innerHTML=data.channel[4].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b8.innerHTML=data.channel[5].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b9.innerHTML=data.channel[6].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b10.innerHTML=data.channel[7].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b13.innerHTML=data.channel[8].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b14.innerHTML=data.channel[9].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
         })
     }
     followers()
