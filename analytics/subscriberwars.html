@@ -176,7 +176,6 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             sbrank.innerHTML=data.socialblade.misc.grade.grade; document.getElementById('sbrank').style.color=data.socialblade.misc.grade.color;
             videocount.innerHTML=data.socialblade.statistics.total.uploads;
             srank.innerHTML=data.socialblade.ranks.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            vrank.innerHTML=data.socialblade.ranks.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
             let dim30=[]
             for(let q=0;q<data.d30.dimension.length;q++){
