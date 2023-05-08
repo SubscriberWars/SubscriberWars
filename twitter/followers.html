@@ -35,6 +35,18 @@
                 <div class="bottom_text"><i class="fa fa-sharp fa-goal-net"></i> Goal</div>
             </div>
         </div>
+        <div class="button_box">
+            <a id="channel_sb" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <i class="fa-kit fa-socialblade"></i> Go To Social Blade Profile
+                </button>
+            </a>
+            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <i class="fa fa-brand fa-twitter"></i> Go To Profile
+                </button>
+            </a>
+        </div>
     </div>
     <p id="goal01" style="display: none;"></p>
 </body>
@@ -137,6 +149,28 @@
         background: #115b89;
         border-radius: 2.5px;
     }
+    .button_box {
+        width: 1260px;
+        margin: auto;
+        display: flex;
+        position: relative;
+        top: -30px;
+    }
+    .bott_button {
+        width: 620px;
+        margin: auto;
+        background: #0f0f0f;
+        color: #fff;
+        height: 100px;
+        font-size: 30px;
+        border-radius: 10px;
+        border: 1px solid #000;
+    }
+    .bott_button:hover {
+        cursor: pointer;
+        background: #000;
+        border: 1px solid #fff;
+    }
 </style>
 
 <script>
@@ -153,6 +187,8 @@
             channel_views.innerHTML=data.tweet_count
             channel_videos.innerHTML=data.following_count
             channel_banner.src=data.banner_image
+            channel_link.href="https://twitter.com/"+data.tag
+            channel_sb.href="https://socialblade.com/twitter/user/"+data.tag
             if (data.blue_verified==true) {document.getElementById("verified_blue").style.color="#0e4ef0"}
             if (data.blue_verified==true) {document.getElementById("verified_blue").style.display="inline"} else {document.getElementById("verified_blue").style.width="0px"}
             if (data.blue_verified==true) {document.getElementById("verified_blue").title="This account is subscribed to Twitter Blue"}
