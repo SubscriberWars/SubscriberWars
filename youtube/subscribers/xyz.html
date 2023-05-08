@@ -32,6 +32,18 @@
                 <div class="bottom_text"><i class="fa fa-brand fa-youtube"></i> YouTube Displays</div>
             </div>
         </div>
+        <div class="button_box">
+            <a id="channel_sb" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <i class="fa-kit fa-socialblade"></i> Go To Social Blade Profile
+                </button>
+            </a>
+            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <i class="fa fa-brand fa-youtube"></i> Go To Channel
+                </button>
+            </a>
+        </div>
     </div>
 </body>
 
@@ -133,6 +145,28 @@
         background: #830101;
         border-radius: 2.5px;
     }
+    .button_box {
+        width: 1260px;
+        margin: auto;
+        display: flex;
+        position: relative;
+        top: -30px;
+    }
+    .bott_button {
+        width: 620px;
+        margin: auto;
+        background: #0f0f0f;
+        color: #fff;
+        height: 100px;
+        font-size: 30px;
+        border-radius: 10px;
+        border: 1px solid #000;
+    }
+    .bott_button:hover {
+        cursor: pointer;
+        background: #000;
+        border: 1px solid #fff;
+    }
 </style>
 
 <script>
@@ -151,6 +185,8 @@
             channel_subscribers.innerHTML=data.estCounts.subCount
             channel_views.innerHTML=data.estCounts.viewCount
             channel_videos.innerHTML=data.apiCounts.videoCount
+            channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
+            channel_link.href="https://youtube.com/channel/"+data.info.id
             if (data.apiCounts.subCount<1000) {string=parseFloat(data.apiCounts.subCount)}
             if (data.apiCounts.subCount>1000) {string=parseFloat(data.apiCounts.subCount/1000)}
             if (data.apiCounts.subCount>1000) {string +='K'}
