@@ -31,16 +31,13 @@
             <h2>Goal</h2>
         </div>
     </div>
-    <div id="graph-block">
-        <div id="graph" style="width: 1260px; height: 400px;"></div>
-        <p id="graphstat" style="visibility: hidden;"></p>
         <p id="goal01" style="visibility: hidden;"></p>
-    </div>
 </body>
 
 <script>
     var channel = window.location.href.split('?u=')[1] || '';
     var followerCount=""
+    var apifollowers=""
     var average=""
 
     function instagram(chanid) {
@@ -48,6 +45,20 @@
         .then(res=>res.json())
         .then(data=>{
             followerCount=data.items.followers_count
+            apifollowers=data.items.api_followers_count
+            media_count.innerHTML=data.items.media_count
+            following_count.innerHTML=data.items.follows_count
+            title.innerHTML=data.items.name
+            logo.src=data.items.profile_picture_url
+        })
+    }
+    function instagram2(chanid) {
+        fetch('https://api.subscriberwars.space/instagram/'+chanid)
+        .then(res=>res.json())
+        .then(data=>{
+            average=(data.items.followers_count-apifollowers)/150
+            followerCount=data.items.followers_count
+            apifollowers=data.items.followers_count
             media_count.innerHTML=data.items.media_count
             following_count.innerHTML=data.items.follows_count
             title.innerHTML=data.items.name
@@ -64,11 +75,6 @@
     function calculate() {
         followerCount=Math.round(followerCount+average)
         follower_count.innerHTML=followerCount
-        graphstat.innerHTML=followerCount
-        var yep=(graphstat.innerHTML)
-        var injection=yep
-        if(graph.series[0].points.length>=900)graph.series[0].data[0].remove();
-        graph.series[0].addPoint([Date.now(),parseFloat(injection)])
         if(followerCount>=0) {goal01.innerHTML=10}
         if(followerCount>=10) {goal01.innerHTML=100}
         if(followerCount>=100) {goal01.innerHTML=1000}
@@ -83,12 +89,8 @@
     instagram(channel)
     socialblade(channel)
     setInterval(() => {
-        instagram(channel)
+        instagram2(channel)
     }, 300*1000);
-
-    setInterval(() => {
-        socialblade(channel)
-    }, 3600*1000);
 
     setTimeout(() => {
         setInterval(() => {
@@ -98,59 +100,3 @@
 
 </script>
 
-<script>//graph styling
-    var graph = new Highcharts.chart({
-chart: {
-renderTo: 'graph',
-type: 'spline',
-zoomType: 'x',
-backgroundColor: 'transparent',
-plotBorderColor: 'transparent'
-},
-title: {
-text: ''
-},
-xAxis: {
-type: 'datetime',
-tickPixelInterval: 100,
-gridLineColor: '#transparent',
-labels: {
-    style: {
-        color: 'white'
-    }
-},
-minorGridLineColor: '#transparent',
-tickColor: 'white',
-title: {
-    style: {
-        color: '#transparent'
-    }
-}
-},
-yAxis: {
-title: {
-  text: ''
-},
-gridLineColor: '#transparent',
-labels: {
-    style: {
-        color: 'white'
-    }
-},
-lineColor: 'white',
-minorGridLineColor: 'transparent',
-tickColor: 'white'
-},
-credits: {
-enabled: false,
-text: "Subscriberwars.space"
-},
-series: [{
-showInLegend: false,
-name: 'Followers',
-marker: { enabled: false },
-lineColor: '#ff7300',
-color:'#ff7300'
-}]
-});
-</script>
