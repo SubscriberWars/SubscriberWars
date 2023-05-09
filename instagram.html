@@ -84,13 +84,16 @@
     }
 
     instagram(channel)
-    socialblade(channel)
     setInterval(() => {
         instagram(channel)
         setTimeout(() => {
             instagram2(channel)
         }, 1000);
     }, 300*1000);
+
+    setTimeout(() => {
+        socialblade(channel)
+    }, 1000);
 
     setTimeout(() => {
         setInterval(() => {
