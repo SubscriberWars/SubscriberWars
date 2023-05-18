@@ -43,18 +43,6 @@
         fetch('https://api.subscriberwars.space/instagram/'+chanid)
         .then(res=>res.json())
         .then(data=>{
-            average=(data.items.followers_count-followerCount)/150
-            followerCount=data.items.followers_count
-            media_count.innerHTML=data.items.media_count
-            following_count.innerHTML=data.items.follows_count
-            title.innerHTML=data.items.name
-            logo.src=data.items.profile_picture_url
-        })
-    }
-    function instagram2(chanid) {
-        fetch('https://api.subscriberwars.space/instagram/'+chanid)
-        .then(res=>res.json())
-        .then(data=>{
             followerCount=data.items.followers_count
             media_count.innerHTML=data.items.media_count
             following_count.innerHTML=data.items.follows_count
@@ -86,9 +74,6 @@
     instagram(channel)
     setInterval(() => {
         instagram(channel)
-        setTimeout(() => {
-            instagram2(channel)
-        }, 1000);
     }, 300*1000);
 
     setTimeout(() => {
@@ -98,7 +83,7 @@
     setTimeout(() => {
         setInterval(() => {
         calculate()
-    }, 2000) 
+    }, 2000)
     }, 5000);
 
 </script>
