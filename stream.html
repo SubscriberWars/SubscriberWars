@@ -8,7 +8,7 @@
         <div class="count_box">
             <img class="banner" id="banner1">
             <img class="profile_img" id="pfp1">
-            <h1 id="title_1"></h1>
+            <h1 id="title_1">Cocomelon</h1>
             <h2 class="odometer" id="sub_1"></h2>
             <div class="sec_container">
                 <div class="sec_box">
@@ -248,7 +248,7 @@
 </style>
 
 <script>
-    var id1="UCpEhnqL0y41EpW2TvWAHD7Q"
+    var id1="UCbCmjCuTUZos6Inko4u57UQ"
     var id2="UCX6OQ3DkcsbYNE6H8uQQuVA"
     var gap01=""; gap02="";
 
@@ -286,7 +286,6 @@
         banner2.src='https://www.banner.yt/'+id2+'?width=1240';
         fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
             pfp1.src=data.pfp
-            title_1.innerHTML=data.name
             sub_1.innerHTML=data.estCounts[0]
             view1.innerHTML=data.estCounts[1]
             vid1.innerHTML=data.apiCounts[2]
