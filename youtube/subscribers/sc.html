@@ -80,6 +80,7 @@
             channel_subscribers.innerHTML=data.estCounts.subCount
             channel_views.innerHTML=data.estCounts.viewCount
             channel_videos.innerHTML=data.apiCounts.videoCount
+            site.href="https://socialcounts.org/youtube-live-subscriber-count/"+data.info.id
             channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
             channel_link.href="https://youtube.com/channel/"+data.info.id
             if (data.apiCounts.subCount<1000) {string=parseFloat(data.apiCounts.subCount)}
