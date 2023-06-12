@@ -1,0 +1,191 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <title>#TeamSeas</title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-38E6Z6MEMP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-38E6Z6MEMP');
+</script>
+
+<body>
+    <div class="head">
+        <div class="head_text">#TeamSeas</div>
+    </div>
+    <div class="main_box">
+        <img id="channel_banner" src="/images/banner_teamseas.png">
+        <img id="channel_image" src="https://teamseas.org/assets/images/teamseas-logo.png">
+        <div id="channel_title_container">
+            <a id="channel_title" href="https://teamseas.org" style="text-decoration: none; color: #fff;" title="" target="_blank" >#TeamSeas</a>
+        </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers"><i class="fa-sharp fa-regular fa-trash"></i> Pounds Of Trash</div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="latest_donation"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-heart"></i> Latest Donation</div>
+                <div class="bottom_odometer" id="latest_donator"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-user"></i> Latest Donator</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="top_donation"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-heart"></i> Top Donation</div>
+                <div class="bottom_odometer" id="top_donator"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-user"></i> Top Donator</div>
+            </div>
+        </div>
+        <div class="button_box">
+            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <i class="fa-sharp fa-solid fa-dollar-sign"></i> Donate Now!
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+
+<style>
+    body {
+        background: #181818;
+        color: #fff;
+        margin: 0;
+        font-family: roboto;
+    }
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #00bbff, #0095f2);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+    }
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+    .main_box {
+        width: 1260px;
+        height: 1020px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+    #channel_banner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+    }
+    #channel_image {
+        width: 200px;
+        height: 200px;
+        border: 0px solid #000;
+        border-radius: 10px;
+        top: -100px;
+        position: relative;
+    }
+    #channel_title_container {
+        position: relative;
+        top: -100px;
+        font-size: 4rem;
+    }
+    #channel_subscribers {
+        position: relative;
+        top: -90px;
+        font-size: 12rem;
+        font-weight: 500;
+    }
+    #subscribers {
+        position: relative;
+        top: -80px;
+        font-size: 2rem;
+    }
+    .bottom_data {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        display: flex;
+    }
+    .bottom_counts {
+        margin: 5px;
+        padding: 10px;
+        width: 600px;
+        height: 260px;
+        background: #000;
+        border-radius: 10px;
+    }
+    .bottom_odometer {
+        font-weight: 500;
+        font-size: 3rem;
+    }
+    .bottom_text {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #00bbff;
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #0095f2;
+        border-radius: 2.5px;
+    }
+    .button_box {
+        width: 1260px;
+        margin: auto;
+        display: flex;
+        position: relative;
+        top: 170px;
+    }
+    .bott_button {
+        width: 620px;
+        margin: auto;
+        background: #0f0f0f;
+        color: #fff;
+        height: 100px;
+        font-size: 30px;
+        border-radius: 10px;
+        border: 1px solid #000;
+    }
+    .bott_button:hover {
+        cursor: pointer;
+        background: #000;
+        border: 1px solid #fff;
+    }
+</style>
+
+<script>
+
+    function stats() {
+        fetch("https://api.subscriberwars.space/teamseas").then(res=>res.json()).then(data=>{
+            channel_link.href="https://teamseas.org"
+            channel_subscribers.innerHTML=data.total
+            latest_donation.innerHTML=data.latest_count
+            top_donation.innerHTML=data.top_count
+            latest_donator.innerHTML=data.latest_name
+            top_donator.innerHTML=data.top_name
+        })
+    }
+    stats()
+    setInterval(() => {
+        stats()
+    }, 10000);
+</script>
