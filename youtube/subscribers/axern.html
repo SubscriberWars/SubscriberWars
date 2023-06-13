@@ -24,6 +24,7 @@
         <img id="channel_image" src="/images/pfp_placeholder.png">
         <div id="channel_title_container">
             <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank" ></a>
+            <i class="fa fa-badge-check"  style="display: none; color: #fff;" id="verified" title=""></i>
         </div>
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Subscribers</div>
@@ -82,6 +83,8 @@
             site.href="https://axern.space/youtube/channel/"+data.info.id
             channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
             channel_link.href="https://youtube.com/channel/"+data.info.id
+            if(data.info.studio==true){document.getElementById("verified").style.display="inline"}
+            if(data.info.studio==true){document.getElementById("verified").title="This channel is sharing its true subscriber count"}
             if (data.apiCounts.subCount<1000) {string=parseFloat(data.apiCounts.subCount)}
             if (data.apiCounts.subCount>1000) {string=parseFloat(data.apiCounts.subCount/1000)}
             if (data.apiCounts.subCount>1000) {string +='K'}
