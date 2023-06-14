@@ -2,15 +2,15 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Trovo Search</title>
+    <title>Polytoria Guild Search</title>
 </head>
 <div class="container">
     <div class="head">
-        <div class="head_text">Trovo Search</div>
+        <div class="head_text">Polytoria Guild Search</div>
     </div>
     <form>
         <div style="display: flex; width: 80%; margin: auto;">
-            <input class="form-control mr-sm-2" id="search" placeholder="Enter Username">
+            <input class="form-control mr-sm-2" id="search" placeholder="Enter Guild ID">
             <button type="submit" class="searchbtn" value="Search"><i class="fa fa-fw fa-search" style="width: 100%;"></i></button>
         </div>
     </form>
@@ -18,7 +18,7 @@
     <div class="row">
         <div id="chan1" class="chan-card">
             <a href="" id="link1">
-                <img src="/images/trovo.svg" id="img1" class="pfp">
+                <img src="" id="img1" class="pfp">
                 <div id="nam1" class="chan-name"></div>
                 <div id="id1" class="chan-id"></div>
             </a>
@@ -40,11 +40,12 @@ channelSearch(search)
 })
 
 function channelSearch(search) {
-fetch("https://api.subscriberwars.space/trovo/id/" + search).then(res => res.json()).then(data => {
+fetch("https://api.subscriberwars.space/polytoria/guild/" + search).then(res => res.json()).then(data => {
 console.log(data)
-nam1.innerHTML = data.users[0].nickname
-id1.innerHTML = data.users[0].user_id
-link1.href = "/trovo/members?u="+data.users[0].username
+nam1.innerHTML = data.name
+id1.innerHTML = data.id
+link1.href = "/polytoria/guild?g="+data.id
+img1.src = data.thumbnail
 })
 }
 })
@@ -60,7 +61,7 @@ link1.href = "/trovo/members?u="+data.users[0].username
     .head {
         width: 100%;
         height: 60px;
-        background-image: linear-gradient(to right, #33ff00, #1d8702);
+        background-image: linear-gradient(to right, #ff0000, #ff3535);
         overflow: hidden;
         border-bottom: 1px solid #000;
         margin-bottom: 20px;
