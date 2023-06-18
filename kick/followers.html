@@ -186,7 +186,6 @@
             channel_title.href= "https://kick.com/"+data.slug
             channel_link.href="https://kick.com/"+data.slug
             channel_image.src=data.user.profile_pic
-            channel_banner.src=data.banner_image.url
             channel_sb.href="https://kickstats.live/user/"+data.slug
             channel_subscribers.innerHTML=data.followersCount
             if(data.followersCount>=0) {goal01.innerHTML=10}
@@ -199,6 +198,7 @@
             if(data.followersCount>=10000000) {goal01.innerHTML=(Math.floor(data.followersCount/10000000)*10000000)+10000000}
             if(data.followersCount>=100000000) {goal01.innerHTML=(Math.floor(data.followersCount/100000000)*100000000)+100000000}
             channel_goal.innerHTML=goal01.innerHTML-data.followersCount
+            channel_banner.src=data.banner_image.url
             channel_views.innerHTML=data.livestream.viewers
         })
     }
