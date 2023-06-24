@@ -261,11 +261,13 @@
     const list1 = [];
 
     function subwars() {
-        fetch('https://api.subscriberwars.space/sw/30day').then(res => res.json()).then(data => {
-            swyoutube.innerHTML = data.totals.subscribers
-        });
-        fetch('https://api.subscriberwars.space/twitch/750736092').then(res => res.json()).then(data => {
-            swtwitch.innerHTML = data.followerCount
+        fetch('https://api.twitch.tv/helix/users/follows?to_id=750736092&first=1', {
+            headers: {
+                'Client-ID': 'lkcbcha1jh4q70evrikggligbkbhpx',
+                Authorization: 'Bearer jhzd56afyx4rgutfdrsmuavwh5uvd9'
+            }
+        }).then(res => res.json()).then(data => {
+            swtwitch.innerHTML = data.total
         });
         fetch('https://testapi.subscriberwars.repl.co').then(res => res.json()).then(data => {
             t1.innerHTML=data.channel[0].name
@@ -287,7 +289,7 @@
     function load() {
         banner1.src='https://www.banner.yt/'+id1+'?width=1240';
         banner2.src='https://www.banner.yt/'+id2+'?width=1240';
-        fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
+        fetch('https://stream.subscriberwars.repl.co/stream/'+id1).then(res => res.json()).then(data => {
             pfp1.src=data.pfp
             title_1.innerHTML=data.name
             sub_1.innerHTML=data.estCounts[0]
@@ -295,7 +297,7 @@
             vid1.innerHTML=data.apiCounts[2]
             gap01=data.estCounts[0]
         });
-        fetch('https://api.subscriberwars.space/stream/'+id2).then(res => res.json()).then(data => {
+        fetch('https://stream.subscriberwars.repl.co/stream/'+id2).then(res => res.json()).then(data => {
             pfp2.src=data.pfp
             title_2.innerHTML=data.name
             sub_2.innerHTML=data.estCounts[0]
@@ -308,7 +310,7 @@
     load()
 
     function main() {
-        fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
+        fetch('https://stream.subscriberwars.repl.co/stream/'+id1).then(res => res.json()).then(data => {
             sub_1.innerHTML=data.estCounts[0]
             view1.innerHTML=data.estCounts[1]
             vid1.innerHTML=data.apiCounts[2]
@@ -318,7 +320,7 @@
         if (list.length>=1800) {hr1.innerHTML= data.estCounts[0]-list[1799]}
         if (list.length>=43199) {day1.innerHTML=data.estCounts[0]-list[43199]}
         });
-        fetch('https://api.subscriberwars.space/stream/'+id2).then(res => res.json()).then(data => {
+        fetch('https://stream.subscriberwars.repl.co/stream/'+id2).then(res => res.json()).then(data => {
             sub_2.innerHTML=data.estCounts[0]
             view2.innerHTML=data.estCounts[1]
             vid2.innerHTML=data.apiCounts[2]
