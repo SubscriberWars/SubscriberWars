@@ -1,0 +1,124 @@
+<style>
+  * {
+      font-family: roboto;
+      color: #fff;
+      text-decoration: none;
+  }
+  body {
+      background: #181818;
+  }
+  table {
+     border-collapse: collapse;
+     color: #fff;
+     font-family: roboto;
+     font-size: 1.5rem;
+     border: 1px solid #000;
+     width: 100%;
+  }
+  th {
+      background: #000;
+      padding: 10px;
+      text-align: left;
+  }
+  tr {
+      border: 1px solid #000;
+      background: #222222;
+  }
+  td {
+      padding: 10px;
+  }
+  h1 {
+      font-size: 1.5rem;
+      font-weight: 400;
+  }
+  p {
+      color: #b1afaf;
+      font-size: 1rem;
+      margin: 0;
+      overflow: visible;
+      height: 20px;
+  }
+</style>
+<body>
+  <table>
+      <tr><th colspan="7" style="text-align: center;"><img src="/images/youtube_full.png" height="40rem"><p>Powered By: <a href="https://subscriberwars.space" target="_blank">Subscriberwars.space</a></p></th></tr>
+      <tr><th>Pos.</th><th></th><th>Name</th><th>Subscribers</th><th>Views</th><th>Videos</th><th>Profile</th></tr>
+      <tr><td>01</td><td><img id="yp0"></td><td><h1 id="yn0"></h1><p id="ys0"></p></td><td id="yf0"></td><td id="yv0"></td><td id="ym0"></td><td><a id="yl0" target="_blank">GO</a></td></tr>
+      <tr><td>02</td><td><img id="yp1"></td><td><h1 id="yn1"></h1><p id="ys1"></p></td><td id="yf1"></td><td id="yv1"></td><td id="ym1"></td><td><a id="yl1" target="_blank">GO</a></td></tr>
+      <tr><td>03</td><td><img id="yp2"></td><td><h1 id="yn2"></h1><p id="ys2"></p></td><td id="yf2"></td><td id="yv2"></td><td id="ym2"></td><td><a id="yl2" target="_blank">GO</a></td></tr>
+      <tr><td>04</td><td><img id="yp3"></td><td><h1 id="yn3"></h1><p id="ys3"></p></td><td id="yf3"></td><td id="yv3"></td><td id="ym3"></td><td><a id="yl3" target="_blank">GO</a></td></tr>
+      <tr><td>05</td><td><img id="yp4"></td><td><h1 id="yn4"></h1><p id="ys4"></p></td><td id="yf4"></td><td id="yv4"></td><td id="ym4"></td><td><a id="yl4" target="_blank">GO</a></td></tr>
+      <tr><td>06</td><td><img id="yp5"></td><td><h1 id="yn5"></h1><p id="ys5"></p></td><td id="yf5"></td><td id="yv5"></td><td id="ym5"></td><td><a id="yl5" target="_blank">GO</a></td></tr>
+      <tr><td>07</td><td><img id="yp6"></td><td><h1 id="yn6"></h1><p id="ys6"></p></td><td id="yf6"></td><td id="yv6"></td><td id="ym6"></td><td><a id="yl6" target="_blank">GO</a></td></tr>
+      <tr><td>08</td><td><img id="yp7"></td><td><h1 id="yn7"></h1><p id="ys7"></p></td><td id="yf7"></td><td id="yv7"></td><td id="ym7"></td><td><a id="yl7" target="_blank">GO</a></td></tr>
+      <tr><td>09</td><td><img id="yp8"></td><td><h1 id="yn8"></h1><p id="ys8"></p></td><td id="yf8"></td><td id="yv8"></td><td id="ym8"></td><td><a id="yl8" target="_blank">GO</a></td></tr>
+      <tr><td>10</td><td><img id="yp9"></td><td><h1 id="yn9"></h1><p id="ys9"></p></td><td id="yf9"></td><td id="yv9"></td><td id="ym9"></td><td><a id="yl9" target="_blank">GO</a></td></tr>
+  </table>
+</body>
+
+<script type="text/javascript">
+const ytid=[]
+var ytsort=[]
+var ylink ="https://youtube.com/"
+
+//abbreviator
+const abbrNum=(number, decPlaces)=>{
+        decPlaces=Math.pow(10,decPlaces)
+        var abbrev=['K', 'M', 'B', 'T']
+        for(var i=abbrev.length-1;i>=0;i--){
+            var size=Math.pow(10,(i+1)*3)
+            if(size<=number){
+                number=Math.round((number*decPlaces)/size)/decPlaces
+                if(number==1000&&i<abbrev.length-1){
+                    number=1
+                    i++
+                }
+                number+=abbrev[i]
+                break
+            }
+        }
+        return number
+    }
+
+function load() {
+  fetch("https://api.subscriberwars.space/sc/top")
+    .then(res=>res.json()).then(data=>{
+      ytid[0]=data[0][0].id
+      ytid[1]=data[0][1].id
+      ytid[2]=data[0][2].id
+      ytid[3]=data[0][3].id
+      ytid[4]=data[0][4].id
+      ytid[5]=data[0][5].id
+      ytid[6]=data[0][6].id
+      ytid[7]=data[0][7].id
+      ytid[8]=data[0][8].id
+      ytid[9]=data[0][9].id
+        })
+        console.log(ytid)
+}
+load();
+
+function update() {
+  fetch("https://api.subscriberwars.space/youtube/channel/v2/"+ytid[0]+","+ytid[1]+","+ytid[2]+","+ytid[3]+","+ytid[4]+","+ytid[5]+","+ytid[6]+","+ytid[7]+","+ytid[8]+","+ytid[9])
+    .then(res=>res.json()).then(data=>{
+      ytsort=data.items.sort(function(a,b){return b.statistics.subscriberCount - a.statistics.subscriberCount});
+      console.log(ytsort)
+        })
+}
+
+function inject() {
+  yp0.src=ytsort[0].snippet.thumbnails.default.url, yn0.innerHTML=ytsort[0].snippet.title, ys0.innerHTML=ytsort[0].snippet.customUrl, yf0.innerHTML=abbrNum(ytsort[0].statistics.subscriberCount,2), yv0.innerHTML=abbrNum(ytsort[0].statistics.viewCount,2), ym0.innerHTML=abbrNum(ytsort[0].statistics.videoCount,2), yl0.href=ylink+ytsort[0].snippet.customUrl
+  yp1.src=ytsort[1].snippet.thumbnails.default.url, yn1.innerHTML=ytsort[1].snippet.title, ys1.innerHTML=ytsort[1].snippet.customUrl, yf1.innerHTML=abbrNum(ytsort[1].statistics.subscriberCount,2), yv1.innerHTML=abbrNum(ytsort[1].statistics.viewCount,2), ym1.innerHTML=abbrNum(ytsort[1].statistics.videoCount,2), yl1.href=ylink+ytsort[1].snippet.customUrl
+  yp2.src=ytsort[2].snippet.thumbnails.default.url, yn2.innerHTML=ytsort[2].snippet.title, ys2.innerHTML=ytsort[2].snippet.customUrl, yf2.innerHTML=abbrNum(ytsort[2].statistics.subscriberCount,2), yv2.innerHTML=abbrNum(ytsort[2].statistics.viewCount,2), ym2.innerHTML=abbrNum(ytsort[2].statistics.videoCount,2), yl2.href=ylink+ytsort[2].snippet.customUrl
+  yp3.src=ytsort[3].snippet.thumbnails.default.url, yn3.innerHTML=ytsort[3].snippet.title, ys3.innerHTML=ytsort[3].snippet.customUrl, yf3.innerHTML=abbrNum(ytsort[3].statistics.subscriberCount,2), yv3.innerHTML=abbrNum(ytsort[3].statistics.viewCount,2), ym3.innerHTML=abbrNum(ytsort[3].statistics.videoCount,2), yl3.href=ylink+ytsort[3].snippet.customUrl
+  yp4.src=ytsort[4].snippet.thumbnails.default.url, yn4.innerHTML=ytsort[4].snippet.title, ys4.innerHTML=ytsort[4].snippet.customUrl, yf4.innerHTML=abbrNum(ytsort[4].statistics.subscriberCount,2), yv4.innerHTML=abbrNum(ytsort[4].statistics.viewCount,2), ym4.innerHTML=abbrNum(ytsort[4].statistics.videoCount,2), yl4.href=ylink+ytsort[4].snippet.customUrl
+  yp5.src=ytsort[5].snippet.thumbnails.default.url, yn5.innerHTML=ytsort[5].snippet.title, ys5.innerHTML=ytsort[5].snippet.customUrl, yf5.innerHTML=abbrNum(ytsort[5].statistics.subscriberCount,2), yv5.innerHTML=abbrNum(ytsort[5].statistics.viewCount,2), ym5.innerHTML=abbrNum(ytsort[5].statistics.videoCount,2), yl5.href=ylink+ytsort[5].snippet.customUrl
+  yp6.src=ytsort[6].snippet.thumbnails.default.url, yn6.innerHTML=ytsort[6].snippet.title, ys6.innerHTML=ytsort[6].snippet.customUrl, yf6.innerHTML=abbrNum(ytsort[6].statistics.subscriberCount,2), yv6.innerHTML=abbrNum(ytsort[6].statistics.viewCount,2), ym6.innerHTML=abbrNum(ytsort[6].statistics.videoCount,2), yl6.href=ylink+ytsort[6].snippet.customUrl
+  yp7.src=ytsort[7].snippet.thumbnails.default.url, yn7.innerHTML=ytsort[7].snippet.title, ys7.innerHTML=ytsort[7].snippet.customUrl, yf7.innerHTML=abbrNum(ytsort[7].statistics.subscriberCount,2), yv7.innerHTML=abbrNum(ytsort[7].statistics.viewCount,2), ym7.innerHTML=abbrNum(ytsort[7].statistics.videoCount,2), yl7.href=ylink+ytsort[7].snippet.customUrl
+  yp8.src=ytsort[8].snippet.thumbnails.default.url, yn8.innerHTML=ytsort[8].snippet.title, ys8.innerHTML=ytsort[8].snippet.customUrl, yf8.innerHTML=abbrNum(ytsort[8].statistics.subscriberCount,2), yv8.innerHTML=abbrNum(ytsort[8].statistics.viewCount,2), ym8.innerHTML=abbrNum(ytsort[8].statistics.videoCount,2), yl8.href=ylink+ytsort[8].snippet.customUrl
+  yp9.src=ytsort[9].snippet.thumbnails.default.url, yn9.innerHTML=ytsort[9].snippet.title, ys9.innerHTML=ytsort[9].snippet.customUrl, yf9.innerHTML=abbrNum(ytsort[9].statistics.subscriberCount,2), yv9.innerHTML=abbrNum(ytsort[9].statistics.viewCount,2), ym9.innerHTML=abbrNum(ytsort[9].statistics.videoCount,2), yl9.href=ylink+ytsort[9].snippet.customUrl
+}
+
+setTimeout(update,1000);
+setTimeout(inject,2000);
+</script>

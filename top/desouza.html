@@ -156,7 +156,6 @@
         .then(res=>res.json()).then(data=>{
             ytsort=data.items.sort(function(a, b){return (parseFloat(a.statistics.subscriberCount) - parseFloat(b.statistics.subscriberCount))})
         })
-        console.log(ytsort)
         // if can get sort to work below GONE
         fetch("https://api.subscriberwars.space/youtube/channel/v2/"+ytid[0])
         .then(res=>res.json()).then(data=>{
@@ -328,3 +327,4 @@
     load2()
    }, 2000);
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
