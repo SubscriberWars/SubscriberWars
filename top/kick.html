@@ -1,0 +1,143 @@
+<head>
+    <link href="/css/top.css" rel="stylesheet">
+    <title>Top 10 Most Followed Kick Channels</title>
+</head>
+<body>
+    <table>
+        <tr><th colspan="6" style="text-align: center;"><img src="/images/kick_full.svg" height="40rem"><p>Powered By: <a href="https://subscriberwars.space" target="_blank">Subscriberwars.space</a></p></th></tr>
+        <tr><th>Pos.</th><th></th><th>Name</th><th>Followers</th><th>Live Viewers</th><th>Profile</th></tr>
+        <tr><td>01</td><td><img class="p" id="p0"></td><td><h1 id="n0"></h1><p id="s0"></p></td><td id="f0"></td><td id="v0"></td><td><a id="l0" target="_blank">GO</a></td></tr>
+        <tr><td>02</td><td><img class="p" id="p1"></td><td><h1 id="n1"></h1><p id="s1"></p></td><td id="f1"></td><td id="v1"></td><td><a id="l1" target="_blank">GO</a></td></tr>
+        <tr><td>03</td><td><img class="p" id="p2"></td><td><h1 id="n2"></h1><p id="s2"></p></td><td id="f2"></td><td id="v2"></td><td><a id="l2" target="_blank">GO</a></td></tr>
+        <tr><td>04</td><td><img class="p" id="p3"></td><td><h1 id="n3"></h1><p id="s3"></p></td><td id="f3"></td><td id="v3"></td><td><a id="l3" target="_blank">GO</a></td></tr>
+        <tr><td>05</td><td><img class="p" id="p4"></td><td><h1 id="n4"></h1><p id="s4"></p></td><td id="f4"></td><td id="v4"></td><td><a id="l4" target="_blank">GO</a></td></tr>
+        <tr><td>06</td><td><img class="p" id="p5"></td><td><h1 id="n5"></h1><p id="s5"></p></td><td id="f5"></td><td id="v5"></td><td><a id="l5" target="_blank">GO</a></td></tr>
+        <tr><td>07</td><td><img class="p" id="p6"></td><td><h1 id="n6"></h1><p id="s6"></p></td><td id="f6"></td><td id="v6"></td><td><a id="l6" target="_blank">GO</a></td></tr>
+        <tr><td>08</td><td><img class="p" id="p7"></td><td><h1 id="n7"></h1><p id="s7"></p></td><td id="f7"></td><td id="v7"></td><td><a id="l7" target="_blank">GO</a></td></tr>
+        <tr><td>09</td><td><img class="p" id="p8"></td><td><h1 id="n8"></h1><p id="s8"></p></td><td id="f8"></td><td id="v8"></td><td><a id="l8" target="_blank">GO</a></td></tr>
+        <tr><td>10</td><td><img class="p" id="p9"></td><td><h1 id="n9"></h1><p id="s9"></p></td><td id="f9"></td><td id="v9"></td><td><a id="l9" target="_blank">GO</a></td></tr>
+    </table>
+</body>
+
+<script>
+    const link="https://kick.com/"
+    const linksw="https://subscriberwars.space/kick/followers?u="
+    const slug=[]
+
+    function load() {
+        //rumble
+        fetch("https://top10.subscriberwars.repl.co/kick")
+        .then(res=>res.json()).then(data=>{
+            slug[0]=data[0]
+            slug[1]=data[1]
+            slug[2]=data[2]
+            slug[3]=data[3]
+            slug[4]=data[4]
+            slug[5]=data[5]
+            slug[6]=data[6]
+            slug[7]=data[7]
+            slug[8]=data[8]
+            slug[9]=data[9]
+            l0.href=link+data[0]
+            l1.href=link+data[1]
+            l2.href=link+data[2]
+            l3.href=link+data[3]
+            l4.href=link+data[4]
+            l5.href=link+data[5]
+            l6.href=link+data[6]
+            l7.href=link+data[7]
+            l8.href=link+data[8]
+            l9.href=link+data[9]
+            console.log(slug)
+        })
+    }
+    load()
+
+    function load2() {
+        fetch("https://kick.com/api/v1/channels/"+slug[0])
+        .then(res=>res.json()).then(data=>{
+            n0.innerHTML=data.user.username
+            s0.innerHTML=data.slug
+            f0.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p0.src=data.user.profile_pic
+           if (data.livestream==null) {v0.innerHTML="Offline"} else{v0.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch("https://kick.com/api/v1/channels/"+slug[1])
+        .then(res=>res.json()).then(data=>{
+            n1.innerHTML=data.user.username
+            s1.innerHTML=data.slug
+            f1.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p1.src=data.user.profile_pic
+           if (data.livestream==null) {v1.innerHTML="Offline"} else{v1.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch("https://kick.com/api/v1/channels/"+slug[2])
+        .then(res=>res.json()).then(data=>{
+            n2.innerHTML=data.user.username
+            s2.innerHTML=data.slug
+            f2.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p2.src=data.user.profile_pic
+           if (data.livestream==null) {v2.innerHTML="Offline"} else{v2.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch("https://kick.com/api/v1/channels/"+slug[3])
+        .then(res=>res.json()).then(data=>{
+            n3.innerHTML=data.user.username
+            s3.innerHTML=data.slug
+            f3.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p3.src=data.user.profile_pic
+           if (data.livestream==null) {v3.innerHTML="Offline"} else{v3.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch("https://kick.com/api/v1/channels/"+slug[4])
+        .then(res=>res.json()).then(data=>{
+            n4.innerHTML=data.user.username
+            s4.innerHTML=data.slug
+            f4.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p4.src=data.user.profile_pic
+           if (data.livestream==null) {v4.innerHTML="Offline"} else{v4.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch("https://kick.com/api/v1/channels/"+slug[5])
+        .then(res=>res.json()).then(data=>{
+            n5.innerHTML=data.user.username
+            s5.innerHTML=data.slug
+            f5.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p5.src=data.user.profile_pic
+           if (data.livestream==null) {v5.innerHTML="Offline"} else{v5.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch("https://kick.com/api/v1/channels/"+slug[6])
+        .then(res=>res.json()).then(data=>{
+            n6.innerHTML=data.user.username
+            s6.innerHTML=data.slug
+            f6.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p6.src=data.user.profile_pic
+           if (data.livestream==null) {v6.innerHTML="Offline"} else{v6.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch("https://kick.com/api/v1/channels/"+slug[7])
+        .then(res=>res.json()).then(data=>{
+            n7.innerHTML=data.user.username
+            s7.innerHTML=data.slug
+            f7.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p7.src=data.user.profile_pic
+           if (data.livestream==null) {v7.innerHTML="Offline"} else{v7.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch("https://kick.com/api/v1/channels/"+slug[8])
+        .then(res=>res.json()).then(data=>{
+            n8.innerHTML=data.user.username
+            s8.innerHTML=data.slug
+            f8.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p8.src=data.user.profile_pic
+           if (data.livestream==null) {v8.innerHTML="Offline"} else{v8.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+        fetch("https://kick.com/api/v1/channels/"+slug[9])
+        .then(res=>res.json()).then(data=>{
+            n9.innerHTML=data.user.username
+            s9.innerHTML=data.slug
+            f9.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            p9.src=data.user.profile_pic
+           if (data.livestream==null) {v9.innerHTML="Offline"} else{v9.innerHTML=data.livestream.viewers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        })
+    }
+   
+   setTimeout(() => {
+    load2()
+   }, 2000);
+    
+</script>
