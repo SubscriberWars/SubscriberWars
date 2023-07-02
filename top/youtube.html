@@ -1,6 +1,10 @@
 <head>
     <link href="/css/top.css" rel="stylesheet">
     <title>Top 10 Most Subscribed YouTube Channels</title>
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
 </head>
 <body>
   <div class="menu_bar">
@@ -27,7 +31,8 @@
 <script type="text/javascript">
 const ytid=[]
 var ytsort=[]
-var ylink ="https://youtube.com/"
+var ylink ="https://youtube.com/channel/"
+var subcon = "?sub_confirmation=true"
 
 //abbreviator
 const abbrNum=(number, decPlaces)=>{
@@ -49,18 +54,18 @@ const abbrNum=(number, decPlaces)=>{
     }
 
 function load() {
-  fetch("https://api.subscriberwars.space/sc/top/youtube")
+  fetch("https://top10.subscriberwars.repl.co/youtube")
     .then(res=>res.json()).then(data=>{
-      ytid[0]=data[0][0].id
-      ytid[1]=data[0][1].id
-      ytid[2]=data[0][2].id
-      ytid[3]=data[0][3].id
-      ytid[4]=data[0][4].id
-      ytid[5]=data[0][5].id
-      ytid[6]=data[0][6].id
-      ytid[7]=data[0][7].id
-      ytid[8]=data[0][8].id
-      ytid[9]=data[0][9].id
+      ytid[0]=data[0]
+      ytid[1]=data[1]
+      ytid[2]=data[2]
+      ytid[3]=data[3]
+      ytid[4]=data[4]
+      ytid[5]=data[5]
+      ytid[6]=data[6]
+      ytid[7]=data[7]
+      ytid[8]=data[8]
+      ytid[9]=data[9]
         })
         console.log(ytid)
 }
@@ -77,16 +82,16 @@ function update() {
 }
 
 function inject() {
-  yp0.src=ytsort[0].snippet.thumbnails.default.url, yn0.innerHTML=ytsort[0].snippet.title, ys0.innerHTML=ytsort[0].snippet.customUrl, yf0.innerHTML=abbrNum(ytsort[0].statistics.subscriberCount,2), yv0.innerHTML=abbrNum(ytsort[0].statistics.viewCount,2), ym0.innerHTML=abbrNum(ytsort[0].statistics.videoCount,2), yl0.href=ylink+ytsort[0].snippet.customUrl
-  yp1.src=ytsort[1].snippet.thumbnails.default.url, yn1.innerHTML=ytsort[1].snippet.title, ys1.innerHTML=ytsort[1].snippet.customUrl, yf1.innerHTML=abbrNum(ytsort[1].statistics.subscriberCount,2), yv1.innerHTML=abbrNum(ytsort[1].statistics.viewCount,2), ym1.innerHTML=abbrNum(ytsort[1].statistics.videoCount,2), yl1.href=ylink+ytsort[1].snippet.customUrl
-  yp2.src=ytsort[2].snippet.thumbnails.default.url, yn2.innerHTML=ytsort[2].snippet.title, ys2.innerHTML=ytsort[2].snippet.customUrl, yf2.innerHTML=abbrNum(ytsort[2].statistics.subscriberCount,2), yv2.innerHTML=abbrNum(ytsort[2].statistics.viewCount,2), ym2.innerHTML=abbrNum(ytsort[2].statistics.videoCount,2), yl2.href=ylink+ytsort[2].snippet.customUrl
-  yp3.src=ytsort[3].snippet.thumbnails.default.url, yn3.innerHTML=ytsort[3].snippet.title, ys3.innerHTML=ytsort[3].snippet.customUrl, yf3.innerHTML=abbrNum(ytsort[3].statistics.subscriberCount,2), yv3.innerHTML=abbrNum(ytsort[3].statistics.viewCount,2), ym3.innerHTML=abbrNum(ytsort[3].statistics.videoCount,2), yl3.href=ylink+ytsort[3].snippet.customUrl
-  yp4.src=ytsort[4].snippet.thumbnails.default.url, yn4.innerHTML=ytsort[4].snippet.title, ys4.innerHTML=ytsort[4].snippet.customUrl, yf4.innerHTML=abbrNum(ytsort[4].statistics.subscriberCount,2), yv4.innerHTML=abbrNum(ytsort[4].statistics.viewCount,2), ym4.innerHTML=abbrNum(ytsort[4].statistics.videoCount,2), yl4.href=ylink+ytsort[4].snippet.customUrl
-  yp5.src=ytsort[5].snippet.thumbnails.default.url, yn5.innerHTML=ytsort[5].snippet.title, ys5.innerHTML=ytsort[5].snippet.customUrl, yf5.innerHTML=abbrNum(ytsort[5].statistics.subscriberCount,2), yv5.innerHTML=abbrNum(ytsort[5].statistics.viewCount,2), ym5.innerHTML=abbrNum(ytsort[5].statistics.videoCount,2), yl5.href=ylink+ytsort[5].snippet.customUrl
-  yp6.src=ytsort[6].snippet.thumbnails.default.url, yn6.innerHTML=ytsort[6].snippet.title, ys6.innerHTML=ytsort[6].snippet.customUrl, yf6.innerHTML=abbrNum(ytsort[6].statistics.subscriberCount,2), yv6.innerHTML=abbrNum(ytsort[6].statistics.viewCount,2), ym6.innerHTML=abbrNum(ytsort[6].statistics.videoCount,2), yl6.href=ylink+ytsort[6].snippet.customUrl
-  yp7.src=ytsort[7].snippet.thumbnails.default.url, yn7.innerHTML=ytsort[7].snippet.title, ys7.innerHTML=ytsort[7].snippet.customUrl, yf7.innerHTML=abbrNum(ytsort[7].statistics.subscriberCount,2), yv7.innerHTML=abbrNum(ytsort[7].statistics.viewCount,2), ym7.innerHTML=abbrNum(ytsort[7].statistics.videoCount,2), yl7.href=ylink+ytsort[7].snippet.customUrl
-  yp8.src=ytsort[8].snippet.thumbnails.default.url, yn8.innerHTML=ytsort[8].snippet.title, ys8.innerHTML=ytsort[8].snippet.customUrl, yf8.innerHTML=abbrNum(ytsort[8].statistics.subscriberCount,2), yv8.innerHTML=abbrNum(ytsort[8].statistics.viewCount,2), ym8.innerHTML=abbrNum(ytsort[8].statistics.videoCount,2), yl8.href=ylink+ytsort[8].snippet.customUrl
-  yp9.src=ytsort[9].snippet.thumbnails.default.url, yn9.innerHTML=ytsort[9].snippet.title, ys9.innerHTML=ytsort[9].snippet.customUrl, yf9.innerHTML=abbrNum(ytsort[9].statistics.subscriberCount,2), yv9.innerHTML=abbrNum(ytsort[9].statistics.viewCount,2), ym9.innerHTML=abbrNum(ytsort[9].statistics.videoCount,2), yl9.href=ylink+ytsort[9].snippet.customUrl
+  yp0.src=ytsort[0].snippet.thumbnails.default.url, yn0.innerHTML=ytsort[0].snippet.title, ys0.innerHTML=ytsort[0].snippet.customUrl, yf0.innerHTML=abbrNum(ytsort[0].statistics.subscriberCount,2), yv0.innerHTML=ytsort[0].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym0.innerHTML=ytsort[0].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl0.href=ylink+ytsort[0].id+subcon
+  yp1.src=ytsort[1].snippet.thumbnails.default.url, yn1.innerHTML=ytsort[1].snippet.title, ys1.innerHTML=ytsort[1].snippet.customUrl, yf1.innerHTML=abbrNum(ytsort[1].statistics.subscriberCount,2), yv1.innerHTML=ytsort[1].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym1.innerHTML=ytsort[1].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl1.href=ylink+ytsort[1].id+subcon
+  yp2.src=ytsort[2].snippet.thumbnails.default.url, yn2.innerHTML=ytsort[2].snippet.title, ys2.innerHTML=ytsort[2].snippet.customUrl, yf2.innerHTML=abbrNum(ytsort[2].statistics.subscriberCount,2), yv2.innerHTML=ytsort[2].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym2.innerHTML=ytsort[2].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl2.href=ylink+ytsort[2].id+subcon
+  yp3.src=ytsort[3].snippet.thumbnails.default.url, yn3.innerHTML=ytsort[3].snippet.title, ys3.innerHTML=ytsort[3].snippet.customUrl, yf3.innerHTML=abbrNum(ytsort[3].statistics.subscriberCount,2), yv3.innerHTML=ytsort[3].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym3.innerHTML=ytsort[3].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl3.href=ylink+ytsort[3].id+subcon
+  yp4.src=ytsort[4].snippet.thumbnails.default.url, yn4.innerHTML=ytsort[4].snippet.title, ys4.innerHTML=ytsort[4].snippet.customUrl, yf4.innerHTML=abbrNum(ytsort[4].statistics.subscriberCount,2), yv4.innerHTML=ytsort[4].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym4.innerHTML=ytsort[4].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl4.href=ylink+ytsort[4].id+subcon
+  yp5.src=ytsort[5].snippet.thumbnails.default.url, yn5.innerHTML=ytsort[5].snippet.title, ys5.innerHTML=ytsort[5].snippet.customUrl, yf5.innerHTML=abbrNum(ytsort[5].statistics.subscriberCount,2), yv5.innerHTML=ytsort[5].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym5.innerHTML=ytsort[5].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl5.href=ylink+ytsort[5].id+subcon
+  yp6.src=ytsort[6].snippet.thumbnails.default.url, yn6.innerHTML=ytsort[6].snippet.title, ys6.innerHTML=ytsort[6].snippet.customUrl, yf6.innerHTML=abbrNum(ytsort[6].statistics.subscriberCount,2), yv6.innerHTML=ytsort[6].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym6.innerHTML=ytsort[6].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl6.href=ylink+ytsort[6].id+subcon
+  yp7.src=ytsort[7].snippet.thumbnails.default.url, yn7.innerHTML=ytsort[7].snippet.title, ys7.innerHTML=ytsort[7].snippet.customUrl, yf7.innerHTML=abbrNum(ytsort[7].statistics.subscriberCount,2), yv7.innerHTML=ytsort[7].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym7.innerHTML=ytsort[7].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl7.href=ylink+ytsort[7].id+subcon
+  yp8.src=ytsort[8].snippet.thumbnails.default.url, yn8.innerHTML=ytsort[8].snippet.title, ys8.innerHTML=ytsort[8].snippet.customUrl, yf8.innerHTML=abbrNum(ytsort[8].statistics.subscriberCount,2), yv8.innerHTML=ytsort[8].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym8.innerHTML=ytsort[8].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl8.href=ylink+ytsort[8].id+subcon
+  yp9.src=ytsort[9].snippet.thumbnails.default.url, yn9.innerHTML=ytsort[9].snippet.title, ys9.innerHTML=ytsort[9].snippet.customUrl, yf9.innerHTML=abbrNum(ytsort[9].statistics.subscriberCount,2), yv9.innerHTML=ytsort[9].statistics.viewCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), ym9.innerHTML=ytsort[9].statistics.videoCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","), yl9.href=ylink+ytsort[9].id+subcon
 }
 
 setTimeout(update,1000);
