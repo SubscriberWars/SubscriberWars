@@ -19,10 +19,11 @@
         <div class="head_text">Kick Live Follower Count</div>
     </div>
     <div class="main_box">
-        <img id="channel_banner" src="/images/banner_placeholder.png">
+        <img id="channel_banner" src="/images/banner_placeholder_kick.svg">
         <img id="channel_image" src="/images/pfp_placeholder.png">
         <div id="channel_title_container">
             <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank"></a>
+            <i class="fa fa-badge-check"  style="display: none; color: #33ff00;" id="verified"></i>
         </div>
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
@@ -182,6 +183,7 @@
     function stats(chanid) {
         fetch("https://kick.com/api/v1/channels/"+chanid).then(res=>res.json()).then(data=>{
             page_title.innerHTML= data.user.username+"'s Live Kick Follower Count"
+            if (data.verified==null) {document.getElementById("verified").style.display="none"} else {document.getElementById("verified").style.display="inline"}
             channel_title.innerHTML=data.user.username
             channel_title.href= "https://kick.com/"+data.slug
             channel_link.href="https://kick.com/"+data.slug

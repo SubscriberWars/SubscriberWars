@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1095" height="181" viewBox="0 0 1095 181">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-6" y1="91.5" x2="1102" y2="91.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#53fc18"/>
+      <stop offset="1" stop-color="#39a314"/>
+    </linearGradient>
+    <image id="image" width="136" height="150" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACSCAYAAACEy2IhAAAGXUlEQVR4nO3dT2gUZxzG8ecXU4vItl4sodjQ4raUuLWGLJaUjTbQg1fbgyAYkotag7EFL14s1AU9SaUH//SQNFkKBaGXHqyHBLKh0hTpoTa0GAlZRBZ6SA4xUrvdt7yTGeuPis3M7roz7z4fmJhds/F9hy+vmd3JrBhjYInIPgB7AeT8LWlKAIoAZowxl57V2EXkbIL32Yy/v049uscP4oz91KFtws6rkRuAHgCzjuyzaQDbg8VhX/AX+XzeFItFk0SLi4umUCiYVCoVTPJog4PwYshms4ndZ3bcmUwm2F/XgyDyQQwusFH4Eyw0MIZsEEPSra6umnQ6HeyzdDuAPjvDvj7vD5yufoA5c+PZ/29Wo63Yhosbfno0j2BeDaL22XfmS4xVTydsjwHDbZ+jf9MB5HI5zM/P27v62po/LIoTBkEKgyCFQZDCIEhhEKQwCFIYBCkMgpR27g7vFUu7H1IxGErTtXQQInIIwEcAemMwnFho2SD8GMbt5+3t7UiluECgxVcIuzLg8uXLOHz4cPNHExMtGYT/M0OvXRlsDFX8jQe4H/n7PcSDuo6vmVp1hXjLfshkMt6NkvkNJ6vvN3tMscDDTlIYBCkMghQGQQqDIIVBkMIgSGEQpDAIUhgEKU4/dS0i/TEYRqK4HEQngMkYjCNRnAyiv58LQ1TOBdHZ2YnJSS4MUTkTxF/4E7+aHyI9toyFuo8nqZwJYhl/4NPqhzEYSbLxsJMUBkEKgyCFQZDCIEhhEKQwCFIYBCkMghQGQQqDIIVBkMIgSOElhRLuZWzHFnkp0iS2YO1x5XI5uKvMIBJuf9tx9MuByJNYWFjAzMxMcLPIIBwxPT0deiLFYhHnzp3DysoK/HchWmEQjhgdHcXY2FjUyUwEl1hiEO4Js1QEb1p3LbiDQbhnzBgzGnVWPOwkhUGQwiBIYRCkMAhSGAQpDIIUBkEKgyCFQZDCp66bbBtex9vyXuRBvII3vD/n5uaCu+ae9vX/h0E0WVq6MdT2WU2DuHnzJmZnZ+2nD40xP9byvRhETIyPj2N5eTn0YOw5DVevXg1uXqx1NgwiRk6cOBF1MA9tDMaYj2udDYOIn3HvgjjrF5zTUK7HTBhEDBljIi8VteJhJykMghQGQQqDIIVBkMKjjBgSkQshRsXDTscNhJzeiH1iSkT4xJRrLlwIszCs8Z+63mif6BQR1BoFg4iJgYGwC8OakZER78WtbDYL/9fxGESSzZufMVo9HXkGfbIfPT092L17t33Fc6OIvFPLK54Mosnu4jbumtuRB/Gq7EAa3ejq6gpeAu8CEDkIHnaSwiBIYRCkMAhSGAQpDIIUBkEKgyCFQZDCIEjhU9fuGRSRwXXOipclbAF7QkzR+1oR8S5caoy5zyAcMTQ05G1hPHZp40P+wwYYhCP27AmzMKyxjzl48CB27tzpRSEixxhEwn1b/QJT8k2kSeyX4+h+rR+5XA7Xrnk/RvQxiIS7hzu4Z+5EmkTwtgodHR3BXR087CSFQZDCIEhhEKQwCFIYBCkMghQGQQqDIIVBkMIgSGEQpDAIUpx5tXMLtuKTtkuRHlvGAi5WT9Z9TEnkTBDP4XnskHcjPXazebHu40kq586HKJVKGBxc7zmmwOTkZEPHkzROniAzNTW1rq/btWtXw8eSNC6fMVWyp6Q/5e+5NDyB06fQGWOeuFSISPezH00y8LCTFAZBCoMghUGQwiBIYRCkMAhSGAQpDIIUBkFKq/729y/2w61bt7wbnfImvtrwe+Rv9r0Zw9fVs/UbXRO15AphjKkAuFGpVHDlyhW0YQM244XI20ZsisGs6qOVrw9h30m/98iRIxgeHkYqlQr9Dex5F+fPn2/I4JqlZYMwxkzY96iyF9uqVCq9S0tLzR9UDLT0FWRsFABsGHY/hFki7HkWbi0NPl5S6N+fKda9RPgri5N42EkKgyCFQZDCIEhhEKQwCFIYBCkMghQGQf+Rt0/W5fN544JCoWDsfAAUjDFoxAYga/+NbDab+D22urpq0ul0sM/SdnL7/BteFMViMQbDDG9xcdGLIZVKBZM72qgg/ChmgyiSus/suDOZTLC/rnvz8id3JojCkW2ikTH4+6wniMKBbRrAdjsv8SdnX7CxK8VeADl/S5rSY28qFu1SMhGIiD1VKqn7bMbfX6e8WwD+AX3/9AOyjvOwAAAAAElFTkSuQmCC"/>
+  </defs>
+  <rect class="cls-1" x="-6" y="-9" width="1108" height="201"/>
+  <use id="Green" x="146" y="16" xlink:href="#image"/>
+  <use id="Green-2" data-name="Green" x="796" y="16" xlink:href="#image"/>
+</svg>
