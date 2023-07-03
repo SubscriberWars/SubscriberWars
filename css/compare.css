@@ -1,0 +1,94 @@
+body {
+    background: #181818;
+    color: #fff;
+    margin: 0;
+    font-family: roboto;
+}
+.head {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    border-bottom: 1px solid #000;
+}
+.head_text {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 3rem;
+    }
+#container {
+    width: 100%;
+    display: flex;
+}
+.main_count {
+    background: #0f0f0f;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 50%;
+    margin: 10px;
+    min-width: 500px;
+    height: 700px;
+}
+.channel_banner {
+    width: 100%;
+    height: 206px;
+    border: 1px solid #000;
+    border-radius: 10px 10px 0px 0px;
+}
+.channel_image {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: -100px; 
+    display: block;
+    margin: auto;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.channel_name {
+    font-size: 4em;
+    text-align: center;
+    position: relative;
+    top: -100px;
+    margin-top: 10px;
+}
+.channel_slug {
+    color: #808080;
+    text-align: center;
+    font-size: 2em;
+    position: relative;
+    top: -100px;
+    margin-top: 10px;
+}
+.odometer_parent {
+    text-align: center;
+    position: relative;
+    top: -100px;
+    margin-top: 10px;
+}
+.channel_count {
+    font-size: 6.5vw;
+    font-weight: 500;
+}
+.channel_type {
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+    top: -100px;
+}
+.gap_box {
+    width: 40%;
+    margin: auto;
+    background: #0f0f0f;
+    height: 200px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+.gap_name {
+    font-size: 3em;
+    text-align: center;
+}
+.gap_count {
+    font-size: 4.5vw;
+    font-weight: 500;
+}
