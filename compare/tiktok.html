@@ -57,7 +57,12 @@
             nam1=data.nickname
             slug_1.innerHTML="@"+data.username
             image_1.src=data.pfp
-            if(type=="followers"){gap01=data.followers, head_text.innerHTML="TikTok Follower Comparison", type_1.innerHTML="Followers", type_2.innerHTML="Followers"}
+            if(type=="followers"){head_text.innerHTML="TikTok Follower Comparison", type_1.innerHTML="Followers", type_2.innerHTML="Followers"}
+            if(type=="followers" && data.followers>1000){gap01=data.followers+5}
+            if(type=="followers" && data.followers>10000){gap01=data.followers+50}
+            if(type=="followers" && data.followers>100000){gap01=data.followers+500}
+            if(type=="followers" && data.followers>1000000){gap01=data.followers+5000}
+            if(type=="followers" && data.followers>10000000){gap01=data.followers+50000}
             if(type=="likes"){gap01=data.likes, head_text.innerHTML="TikTok Likes Comparison", type_1.innerHTML="Likes", type_2.innerHTML="Likes"}
             if(type=="following"){gap01=data.following, head_text.innerHTML="TikTok Following Comparison", type_1.innerHTML="Following", type_2.innerHTML="Following"}
             count_1.innerHTML=gap01
@@ -69,7 +74,11 @@
             nam2=data.nickname
             slug_2.innerHTML="@"+data.username
             image_2.src=data.pfp
-            if(type=="followers"){gap02=data.followers}
+            if(type=="followers" && data.followers>1000){gap02=data.followers+5}
+            if(type=="followers" && data.followers>10000){gap02=data.followers+50}
+            if(type=="followers" && data.followers>100000){gap02=data.followers+500}
+            if(type=="followers" && data.followers>1000000){gap02=data.followers+5000}
+            if(type=="followers" && data.followers>10000000){gap02=data.followers+50000}
             if(type=="likes"){gap02=data.likes}
             if(type=="following"){gap02=data.following}
             count_2.innerHTML=gap02
