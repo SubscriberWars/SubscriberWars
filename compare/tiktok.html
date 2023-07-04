@@ -58,6 +58,7 @@
             slug_1.innerHTML="@"+data.username
             image_1.src=data.pfp
             if(type=="followers"){head_text.innerHTML="TikTok Follower Comparison", type_1.innerHTML="Followers", type_2.innerHTML="Followers"}
+            if (type=="followers" && data.followers<1000){gap01=data.followers}
             if(type=="followers" && data.followers>1000){gap01=data.followers+5}
             if(type=="followers" && data.followers>10000){gap01=data.followers+50}
             if(type=="followers" && data.followers>100000){gap01=data.followers+500}
