@@ -1,0 +1,103 @@
+<head>
+    <title id="page_title">Twitch</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/compare.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+</head>
+
+<body>
+    <div class="head" style="background-image: linear-gradient(to right, #9146ff, #4c2588);">
+        <div class="head_text" id="head_text">Twitch Comparison</div>
+    </div>
+    <div id="container">
+        <div class="main_count">
+            <img class="channel_banner" id="banner_1" src="/images/banner_twitch.png">
+            <img class="channel_image" id="image_1" src="/images/pfp_placeholder.png">
+            <div class="channel_name" id="name_1">User 1</div>
+            <div class="channel_slug" id="slug_1">@user1</div>
+            <div class="odometer_parent">
+                <div class="channel_count odometer" id="count_1"></div>
+            </div>
+            <div class="channel_type" id="type_1">Followers</div>
+        </div>
+        <div class="main_count">
+            <img class="channel_banner" id="banner_2" src="/images/banner_twitch.png">
+            <img class="channel_image" id="image_2" src="/images/pfp_placeholder.png">
+            <div class="channel_name" id="name_2">User 2</div>
+            <div class="channel_slug" id="slug_2">@user2</div>
+            <div class="odometer_parent">
+                <div class="channel_count odometer" id="count_2"></div>
+            </div>
+            <div class="channel_type" id="type_2">Followers</div>
+        </div>
+    </div>
+    <div class="gap_box">
+        <div class="gap_name" id="gapname">User1 Vs User2</div>
+        <div class="odometer_parent" style="top: 0px;">
+            <div class="gap_count odometer" id="gapcount"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var user1=params.get("u1");
+    var user2=params.get("u2");
+    var id_1="", id_2="";
+    var nam1="";
+    var nam2="";
+    var gap01="";
+    var gap02=""
+
+    //fetch user meta
+    function user_1_load(id) {
+        fetch("https://api.subscriberwars.space/twitch/user/"+id).then(res=>res.json()).then(data=>{
+            name_1.innerHTML=data.name
+            nam1=data.name
+            slug_1.innerHTML=data.iD
+            image_1.src=data.logo
+            id_1=data.iD
+        })
+    }
+    function user_2_load(id) {
+        fetch("https://api.subscriberwars.space/twitch/user/"+id).then(res=>res.json()).then(data=>{
+            name_2.innerHTML=data.name
+            nam2=data.name
+            slug_2.innerHTML=data.iD
+            image_2.src=data.logo
+            id_2=data.iD
+        })
+    }
+
+    function update_title() {
+        gapname.innerHTML=nam1+" Vs "+nam2
+        page_title.innerHTML="Twitch | "+nam1 +" Vs "+nam2
+    }
+
+    //fetch user statistics
+    function users(id_1, id_2) {
+        fetch("https://api.subscriberwars.space/twitch/"+id_1).then(res=>res.json()).then(data=>{
+            gap01=data.followerCount
+            count_1.innerHTML=gap01
+        })
+        fetch("https://api.subscriberwars.space/twitch/"+id_2).then(res=>res.json()).then(data=>{
+            gap02=data.followerCount
+            count_2.innerHTML=gap02
+        })
+        gapcount.innerHTML=gap01-gap02
+    }
+    
+    
+    //runs functions
+    user_1_load(user1)
+    user_2_load(user2)
+    setTimeout(() => {
+        users(id_1, id_2)
+        update_title()
+    }, 1000);
+    setInterval(() => {
+        users(id_1, id_2)
+    }, 10000);
+</script>
