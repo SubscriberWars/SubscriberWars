@@ -66,11 +66,6 @@
             <div class="button_text">JayMBurtonSW</div>
             <div class="button_followers" id="b10">Loading...</div>
         </button>
-        <button class="links_button" onclick="window.open('https://open.spotify.com/user/31oyiiscz4wgnrjob5fdzqjgsuzq','_blank')">
-            <img class="button_logo" src="/images/spotify_icon.png">
-            <div class="button_text">Jay Burton</div>
-            <div class="button_followers" id="b11">Loading...</div>
-        </button>
         <button class="links_button" onclick="window.open('https://discord.com/invite/zDvtM5SENG','_blank')">
             <img class="button_logo" src="/images/discord.svg">
             <div class="button_text">JayMBurtonSW</div>
@@ -88,6 +83,11 @@
         <button class="links_button" onclick="window.open('https://odysee.com/@JayMBurtonSW:8','_blank')">
             <img class="button_logo" src="/images/odysee.png">
             <div class="button_text">JayMBurtonSW</div>
+        </button>
+        <button class="links_button" onclick="window.open('https://truthsocial.com/@subscriberwars','_blank')">
+            <img class="button_logo" src="/images/truth.png">
+            <div class="button_text">SubscriberWars</div>
+            <div class="button_followers" id="b14">Loading...</div>
         </button>
     </div>
     <br>
@@ -207,14 +207,12 @@
         .then(data=>{
             b1.innerHTML=data.channel[0].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
             b2.innerHTML=data.channel[1].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
-            b3.innerHTML=data.channel[6].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b5.innerHTML=data.channel[4].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b3.innerHTML=data.channel[4].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
             b7.innerHTML=data.channel[2].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
             b8.innerHTML=data.channel[3].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b9.innerHTML=data.channel[7].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b10.innerHTML=data.channel[8].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b11.innerHTML=data.channel[10].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-            b13.innerHTML=data.channel[9].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
+            b9.innerHTML=data.channel[5].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b10.innerHTML=data.channel[6].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            b13.innerHTML=data.channel[7].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
         })
          fetch('https://discord.com/api/v10/invites/zDvtM5SENG?with_counts=true&with_expiration=true')
         .then(res=>res.json())
@@ -225,6 +223,11 @@
         .then(res=>res.json())
         .then(data=>{
             b4.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+        fetch('https://truthsocial.com/api/v1/accounts/lookup?acct=subscriberwars')
+        .then(res=>res.json())
+        .then(data=>{
+            b14.innerHTML=data.followers_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
         })
     }
     followers()
