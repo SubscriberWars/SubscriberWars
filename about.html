@@ -23,6 +23,7 @@
     <div class="menu_bar">
         <a class="menu_button" href="/"><i class="fa-sharp fa-house"></i></a>
         <a class="menu_button" href="/top">Top Lists</a>
+        <a class="menu_button" href="/compare/">Compare</a>
     </div>
     <div class="container2">
         <h1>Profile Links</h1>
@@ -89,6 +90,11 @@
             <img class="button_logo" src="/images/truth.png">
             <div class="button_text">SubscriberWars</div>
             <div class="button_followers" id="b14">Loading...</div>
+        </button>
+        <button class="links_button" onclick="window.open('https://www.facebook.com/SubscriberWars','_blank')">
+            <img class="button_logo" src="/images/facebook.png">
+            <div class="button_text">Subscriber Wars</div>
+            <div class="button_followers" id="b16">Loading...</div>
         </button>
     </div>
     <br>
@@ -215,6 +221,7 @@
             b10.innerHTML=data.channel[6].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
             b13.innerHTML=data.channel[7].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
             b15.innerHTML=data.channel[8].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
+            b16.innerHTML=data.channel[9].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
         })
          fetch('https://discord.com/api/v10/invites/zDvtM5SENG?with_counts=true&with_expiration=true')
         .then(res=>res.json())
