@@ -79,6 +79,7 @@
         <button class="links_button" onclick="window.open('https://odysee.com/@SubscriberWars:d','_blank')">
             <img class="button_logo" src="/images/odysee.png">
             <div class="button_text">Subscriber Wars</div>
+            <div class="button_followers" id="b15">Loading...</div>
         </button>
         <button class="links_button" onclick="window.open('https://odysee.com/@JayMBurtonSW:8','_blank')">
             <img class="button_logo" src="/images/odysee.png">
@@ -213,6 +214,7 @@
             b9.innerHTML=data.channel[5].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
             b10.innerHTML=data.channel[6].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
             b13.innerHTML=data.channel[7].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
+            b15.innerHTML=data.channel[8].subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
         })
          fetch('https://discord.com/api/v10/invites/zDvtM5SENG?with_counts=true&with_expiration=true')
         .then(res=>res.json())
