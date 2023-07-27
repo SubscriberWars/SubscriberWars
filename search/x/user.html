@@ -2,11 +2,11 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Twitter Search</title>
+    <title>X Search</title>
 </head>
 <div class="container">
     <div class="head">
-        <div class="head_text">Twitter Search</div>
+        <div class="head_text"><i class="fa-kit fa-x"></i> User Search</div>
     </div>
     <form>
         <div style="display: flex; width: 80%; margin: auto;">
@@ -68,33 +68,33 @@ channelSearch(search)
 })
 
 function channelSearch(search) {
-fetch("https://api.subscriberwars.space/search/twitter/channel/" + search).then(res => res.json()).then(data => {
+fetch("https://api.subscriberwars.space/search/x/" + search).then(res => res.json()).then(data => {
 console.log(data)
 
-img1.src = data.item[0].pfp
+img1.src = data.item[0].pfp.replace("normal","400x400")
 nam1.innerHTML = data.item[0].title
 id1.innerHTML = "@"+data.item[0].id
-link1.href = "/twitter/followers?u="+data.item[0].id
+link1.href = "/x/user?u="+data.item[0].id
 
-img2.src = data.item[1].pfp
+img2.src = data.item[1].pfp.replace("normal","400x400")
 nam2.innerHTML = data.item[1].title
 id2.innerHTML = "@"+data.item[1].id
-link2.href = "/twitter/followers?u="+data.item[1].id
+link2.href = "/x/user?u="+data.item[1].id
 
-img3.src = data.item[2].pfp
+img3.src = data.item[2].pfp.replace("normal","400x400")
 nam3.innerHTML = data.item[2].title
 id3.innerHTML = "@"+data.item[2].id
-link3.href = "/twitter/followers?u="+data.item[2].id
+link3.href = "/x/user?u="+data.item[2].id
 
-img4.src = data.item[3].pfp
+img4.src = data.item[3].pfp.replace("normal","400x400")
 nam4.innerHTML = data.item[3].title
 id4.innerHTML = "@"+data.item[3].id
-link4.href = "/twitter/followers?u="+data.item[3].id
+link4.href = "/x/user?u="+data.item[3].id
 
-img5.src = data.item[4].pfp
+img5.src = data.item[4].pfp.replace("normal","400x400")
 nam5.innerHTML = data.item[4].title
 id5.innerHTML = "@"+data.item[4].id
-link5.href = "/twitter/followers?u="+data.item[4].id
+link5.href = "/x/user?u="+data.item[4].id
 })
 }
 })
