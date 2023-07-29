@@ -23,7 +23,8 @@
         <img id="channel_banner" src="/images/banner_tiktok.png">
         <img id="channel_image" src="/images/pfp_placeholder.png">
         <div id="channel_title_container">
-            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="" target="_blank" ></a>
+            <span id="channel_title"></span>
+            <i class="fa fa-badge-check"  style="display: none;" id="verified_" title=""></i>
         </div>
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
@@ -181,33 +182,52 @@
 
 <script>
     var channel = window.location.href.split('?u=')[1] || '';
+    var username=[];
+    var follow=[];
 
     function stats(chanid) {
         fetch("https://api.subscriberwars.space/tiktok/v2/"+chanid).then(res=>res.json()).then(data=>{
             page_title.innerHTML= data.nickname+"'s Live TikTok Follower Count"
             channel_title.innerHTML=data.nickname
-            channel_title.title="Visit "+data.nickname+"'s profile"
-            channel_title.href="https://tiktok.com/@"+data.username
+            username=data.username
             channel_link.href="https://tiktok.com/@"+data.username
             channel_sb.href="https://socialblade.com/tiktok/user/"+data.username
             channel_image.src=data.pfp
-            channel_subscribers.innerHTML=data.followers
+            channel_subscribers.innerHTML=follow
             channel_videos.innerHTML=data.following
             channel_views.innerHTML=data.likes
-            if(data.followers>=0) {goal01.innerHTML=10}
-            if(data.followers>=10) {goal01.innerHTML=100}
-            if(data.followers>=100) {goal01.innerHTML=1000}
-            if(data.followers>=1000) {goal01.innerHTML=(Math.floor(data.followers/1000)*1000)+1000}
-            if(data.followers>=10000) {goal01.innerHTML=(Math.floor(data.followers/10000)*10000)+10000}
-            if(data.followers>=100000) {goal01.innerHTML=(Math.floor(data.followers/100000)*100000)+100000}
-            if(data.followers>=1000000) {goal01.innerHTML=(Math.floor(data.followers/1000000)*1000000)+1000000}
-            if(data.followers>=10000000) {goal01.innerHTML=(Math.floor(data.followers/10000000)*10000000)+10000000}
-            if(data.followers>=100000000) {goal01.innerHTML=(Math.floor(data.followers/100000000)*100000000)+100000000}
-            channel_goal.innerHTML=goal01.innerHTML-data.followers
+            if (data.followers<1000){follow=data.followers}
+            if(data.followers>1000){follow=data.followers+5}
+            if(data.followers>10000){follow=data.followers+50}
+            if(data.followers>100000){follow=data.followers+500}
+            if(data.followers>1000000){follow=data.followers+5000}
+            if(data.followers>10000000){follow=data.followers+50000}
+            if(follow>=0) {goal01.innerHTML=10}
+            if(follow>=10) {goal01.innerHTML=100}
+            if(follow>=100) {goal01.innerHTML=1000}
+            if(follow>=1000) {goal01.innerHTML=(Math.floor(follow/1000)*1000)+1000}
+            if(follow>=10000) {goal01.innerHTML=(Math.floor(follow/10000)*10000)+10000}
+            if(follow>=100000) {goal01.innerHTML=(Math.floor(follow/100000)*100000)+100000}
+            if(follow>=1000000) {goal01.innerHTML=(Math.floor(follow/1000000)*1000000)+1000000}
+            if(follow>=10000000) {goal01.innerHTML=(Math.floor(follow/10000000)*10000000)+10000000}
+            if(follow>=100000000) {goal01.innerHTML=(Math.floor(follow/100000000)*100000000)+100000000}
+            channel_goal.innerHTML=goal01.innerHTML-follow
         })
     }
     stats()
+    
+    function verify(channam) {
+        fetch("https://api.tokcount.com/?type=node&username="+channam).then(res=>res.json()).then(data=>{
+            if(data.verified==true){document.getElementById("verified_").style.display="inline"} else {document.getElementById("verified_").style.width="0px"}
+            if(data.verified==true){document.getElementById("verified_").title="This user is Verified"}
+        })
+    }
+
     setInterval(() => {
         stats(channel)
     }, 2000);
+
+    setTimeout(() => {
+        verify(username)
+    }, 3000);
 </script>

@@ -75,6 +75,7 @@
             nam2=data.nickname
             slug_2.innerHTML="@"+data.username
             image_2.src=data.pfp
+            if (type=="followers" && data.followers<1000){gap02=data.followers}
             if(type=="followers" && data.followers>1000){gap02=data.followers+5}
             if(type=="followers" && data.followers>10000){gap02=data.followers+50}
             if(type=="followers" && data.followers>100000){gap02=data.followers+500}
