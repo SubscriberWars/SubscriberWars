@@ -1,0 +1,266 @@
+<head>
+    <title id="page_title"></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/compare.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+</head>
+
+<body>
+    <div class="head" id="head">
+        <div class="head_text" id="head_text"></div>
+    </div>
+    <div id="container">
+        <div class="main_count">
+            <img class="channel_banner" id="banner_1" src="/images/banner_placeholder.png">
+            <img class="channel_image" id="image_1" src="/images/pfp_placeholder.png">
+            <div class="channel_name" id="name_1">User 1</div>
+            <div class="channel_slug" id="slug_1">@user1</div>
+            <div class="odometer_parent">
+                <div class="channel_count odometer" id="count_1"></div>
+            </div>
+            <div class="channel_type" id="type_1"></div>
+        </div>
+        <div class="main_count">
+            <img class="channel_banner" id="banner_2" src="/images/banner_placeholder.png">
+            <img class="channel_image" id="image_2" src="/images/pfp_placeholder.png">
+            <div class="channel_name" id="name_2">User 2</div>
+            <div class="channel_slug" id="slug_2">@user2</div>
+            <div class="odometer_parent">
+                <div class="channel_count odometer" id="count_2"></div>
+            </div>
+            <div class="channel_type" id="type_2"></div>
+        </div>
+    </div>
+    <div class="gap_box">
+        <div class="gap_name" id="gapname">User1 Vs User2</div>
+        <div class="odometer_parent" style="top: 0px;">
+            <div class="gap_count odometer" id="gapcount"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var user1=params.get("u1");
+    var user2=params.get("u2");
+    var type=params.get("t");
+    const banner_1 = document.getElementById("banner_1")
+    const banner_2 = document.getElementById("banner_2")
+    var nam1="";
+    var nam2="";
+    var gap01="";
+    var gap02=""
+
+    if (type=="subscribers"||type=="views"||type=="videos"||type=="axesubs"||type=="axeviews"||type=="lolsubs"||type=="lolviews"||type=="mixsubs"||type=="mixviews"||type=="xyzsubs"||type=="xyzviews"||type=="socsubs"||type=="socviews") {
+        head_text.innerHTML="YouTube Comparison";
+        document.getElementById("head").style.backgroundImage="linear-gradient(to right, #ff0000, #830101)"
+    }
+
+//api endpoints
+    function user1_api(id) {
+        banner_1.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://api.subscriberwars.space/youtube/channel/v2/"+id).then(res=>res.json()).then(data=>{
+            name_1.innerHTML=data.items[0].snippet.title
+            nam1=data.items[0].snippet.title
+            slug_1.innerHTML=data.items[0].snippet.customUrl
+            image_1.src=data.items[0].snippet.thumbnails.medium.url
+            if(type=="subscribers"){gap01=data.items[0].statistics.subscriberCount, head_text.innerHTML="YouTube Subscriber Comparison", type_1.innerHTML="Subscribers", type_2.innerHTML="Subscribers"}
+            if(type=="views"){gap01=data.items[0].statistics.viewCount, head_text.innerHTML="YouTube Views Comparison", type_1.innerHTML="Views", type_2.innerHTML="Views"}
+            if(type=="videos"){gap01=data.items[0].statistics.videoCount, head_text.innerHTML="YouTube Videos Comparison", type_1.innerHTML="Videos", type_2.innerHTML="Videos"}
+            count_1.innerHTML=gap01
+        })
+    }
+    function user2_api(id) {
+        banner_2.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://api.subscriberwars.space/youtube/channel/v2/"+id).then(res=>res.json()).then(data=>{
+            name_2.innerHTML=data.items[0].snippet.title
+            nam2=data.items[0].snippet.title
+            slug_2.innerHTML=data.items[0].snippet.customUrl
+            image_2.src=data.items[0].snippet.thumbnails.medium.url
+            if (type=="subscribers"){gap02=data.items[0].statistics.subscriberCount}
+            if(type=="views"){gap02=data.items[0].statistics.viewCount}
+            if(type=="videos"){gap02=data.items[0].statistics.videoCount}
+            count_2.innerHTML=gap02
+            gapcount.innerHTML=gap01-gap02
+        })
+    }
+
+//axern endpoints
+    function user1_axern(id) {
+        banner_1.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://axern.space/api/get?platform=youtube&type=channel&id="+id).then(res=>res.json()).then(data=>{
+            name_1.innerHTML=data.snippet.title
+            nam1=data.snippet.title
+            slug_1.innerHTML=data.snippet.customUrl
+            image_1.src=data.snippet.thumbnails.medium.url
+            if(type=="axesubs"){gap01=data.estSubCount, head_text.innerHTML="YouTube Subscriber Comparison", type_1.innerHTML="Subscribers", type_2.innerHTML="Subscribers"}
+            if(type=="axeviews"){gap01=data.estViewCount, head_text.innerHTML="YouTube Views Comparison", type_1.innerHTML="Views", type_2.innerHTML="Views"}
+            count_1.innerHTML=gap01
+        })
+    }
+    function user2_axern(id) {
+        banner_2.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://axern.space/api/get?platform=youtube&type=channel&id="+id).then(res=>res.json()).then(data=>{
+            name_2.innerHTML=data.snippet.title
+            nam2=data.snippet.title
+            slug_2.innerHTML=data.snippet.customUrl
+            image_2.src=data.snippet.thumbnails.medium.url
+            if(type=="axesubs"){gap02=data.estSubCount}
+            if(type=="axeviews"){gap02=data.estViewCount}
+            count_2.innerHTML=gap02
+            gapcount.innerHTML=gap01-gap02
+        })
+        gapname.innerHTML=nam1+" Vs "+nam2
+        page_title.innerHTML=nam1 +" Vs "+nam2
+    }
+
+//lol endpoints
+function user1_lol(id) {
+        banner_1.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://api.subscriberwars.space/est/lolraw/"+id).then(res=>res.json()).then(data=>{
+            name_1.innerHTML=data.DataContents[1].value
+            nam1=data.DataContents[1].value
+            slug_1.innerHTML="Clearly The Best"
+            image_1.src=data.DataContents[3].value
+            if(type=="lolsubs"){gap01=data.DataContents[5].value.followerCount, head_text.innerHTML="YouTube Subscriber Comparison", type_1.innerHTML="Subscribers", type_2.innerHTML="Subscribers"}
+            if(type=="lolviews"){gap01=data.DataContents[5].value.viewCountEst, head_text.innerHTML="YouTube Views Comparison", type_1.innerHTML="Views", type_2.innerHTML="Views"}
+            count_1.innerHTML=gap01
+        })
+    }
+    function user2_lol(id) {
+        banner_2.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://api.subscriberwars.space/est/lolraw/"+id).then(res=>res.json()).then(data=>{
+            name_2.innerHTML=data.DataContents[1].value
+            nam2=data.DataContents[1].value
+            slug_2.innerHTML="Clearly Not"
+            image_2.src=data.DataContents[3].value
+            if(type=="lolsubs"){gap02=data.DataContents[5].value.followerCount}
+            if(type=="lolviews"){gap02=data.DataContents[5].value.viewCountEst}
+            count_2.innerHTML=gap02
+            gapcount.innerHTML=gap01-gap02
+        })
+        gapname.innerHTML=nam1+" Vs "+nam2
+        page_title.innerHTML=nam1 +" Vs "+nam2
+    }
+
+    //mixerno endpoints
+    function user1_mix(id) {
+        banner_1.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://mixerno.space/api/youtube-channel-counter/user/"+id).then(res=>res.json()).then(data=>{
+            name_1.innerHTML=data.user[0].count
+            nam1=data.user[0].count
+            slug_1.innerHTML="Clearly The Best"
+            image_1.src=data.user[1].count
+            if(type=="mixsubs"){gap01=data.counts[0].count, head_text.innerHTML="YouTube Subscriber Comparison", type_1.innerHTML="Subscribers", type_2.innerHTML="Subscribers"}
+            if(type=="mixviews"){gap01=data.counts[3].count, head_text.innerHTML="YouTube Views Comparison", type_1.innerHTML="Views", type_2.innerHTML="Views"}
+            count_1.innerHTML=gap01
+        })
+    }
+    function user2_mix(id) {
+        banner_2.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://mixerno.space/api/youtube-channel-counter/user/"+id).then(res=>res.json()).then(data=>{
+            name_2.innerHTML=data.user[0].count
+            nam2=data.user[0].count
+            slug_2.innerHTML="Clearly Not"
+            image_2.src=data.user[1].count
+            if(type=="mixsubs"){gap02=data.counts[0].count}
+            if(type=="mixviews"){gap02=data.counts[3].count}
+            count_2.innerHTML=gap02
+            gapcount.innerHTML=gap01-gap02
+        })
+        gapname.innerHTML=nam1+" Vs "+nam2
+        page_title.innerHTML=nam1 +" Vs "+nam2
+    }
+
+    //xyz endpoints
+    function user1_xyz(id) {
+        banner_1.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://livecounts.xyz/api/youtube-live-subscriber-count/live/"+id).then(res=>res.json()).then(data=>{
+            name_1.innerHTML=data.user.name
+            nam1=data.user.name
+            slug_1.innerHTML="Clearly The Best"
+            image_1.src=data.user.pfp
+            if(type=="xyzsubs"){gap01=data.counts[0], head_text.innerHTML="YouTube Subscriber Comparison", type_1.innerHTML="Subscribers", type_2.innerHTML="Subscribers"}
+            if(type=="xyzviews"){gap01=data.counts[1], head_text.innerHTML="YouTube Views Comparison", type_1.innerHTML="Views", type_2.innerHTML="Views"}
+            count_1.innerHTML=gap01
+        })
+    }
+    function user2_xyz(id) {
+        banner_2.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://livecounts.xyz/api/youtube-live-subscriber-count/live/"+id).then(res=>res.json()).then(data=>{
+            name_2.innerHTML=data.user.name
+            nam2=data.user.name
+            slug_2.innerHTML="Clearly Not"
+            image_2.src=data.user.pfp
+            if(type=="xyzsubs"){gap02=data.counts[0]}
+            if(type=="xyzviews"){gap02=data.counts[1]}
+            count_2.innerHTML=gap02
+            gapcount.innerHTML=gap01-gap02
+        })
+        gapname.innerHTML=nam1+" Vs "+nam2
+        page_title.innerHTML=nam1 +" Vs "+nam2
+    }
+
+    //soc endpoints
+    function user1_soc(id) {
+        banner_1.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://api.socialcounts.org/youtube-live-subscriber-count/"+id).then(res=>res.json()).then(data=>{
+            if(type=="socsubs"){gap01=data.est_sub, head_text.innerHTML="YouTube Subscriber Comparison", type_1.innerHTML="Subscribers", type_2.innerHTML="Subscribers"}
+            if(type=="socviews"){gap01=data.table[0].count, head_text.innerHTML="YouTube Views Comparison", type_1.innerHTML="Views", type_2.innerHTML="Views"}
+            count_1.innerHTML=gap01
+        })
+    }
+    function user2_soc(id) {
+        banner_2.src="https://www.banner.yt/"+id+"?width=1260"
+        fetch("https://api.socialcounts.org/youtube-live-subscriber-count/"+id).then(res=>res.json()).then(data=>{
+            if(type=="socsubs"){gap02=data.est_sub}
+            if(type=="socviews"){gap02=data.table[0].count}
+            count_2.innerHTML=gap02
+            gapcount.innerHTML=gap01-gap02
+        })
+        gapname.innerHTML=nam1+" Vs "+nam2
+        page_title.innerHTML=nam1 +" Vs "+nam2
+    }
+    
+    //type control
+    if (type=="subscribers"||type=="views"||type=="videos") {
+        setInterval(() => {
+            user1_api(user1)
+            user2_api(user2)
+        }, 10000);
+    }
+    if (type=="axesubs"||type=="axeviews") {
+        setInterval(() => {
+            user1_axern(user1)
+            user2_axern(user2)
+        }, 2000);
+    }
+    if (type=="lolsubs"||type=="lolviews") {
+        setInterval(() => {
+            user1_lol(user1)
+            user2_lol(user2)
+        }, 2000);
+    }
+    if (type=="mixsubs"||type=="mixviews") {
+        setInterval(() => {
+            user1_mix(user1)
+            user2_mix(user2)
+        }, 2000);
+    }
+    if (type=="xyzsubs"||type=="xyzviews") {
+        setInterval(() => {
+            user1_xyz(user1)
+            user2_xyz(user2)
+        }, 2000);
+    }
+    if (type=="socsubs"||type=="socviews") {
+        user1_api(user1)
+        user2_api(user2)
+        setInterval(() => {
+            user1_soc(user1)
+            user2_soc(user2)
+        }, 2000);
+    }
+</script>
