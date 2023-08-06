@@ -27,7 +27,6 @@
             <i class="fa fa-badge-check"  style="display: none;" id="verified_gold" title=""></i>
             <i class="fa fa-badge-check"  style="display: none;" id="verified_gray" title=""></i>
             <i class="fa fa-badge-check"  style="display: none;" id="verified_red" title=""></i>
-            <i class="fa-solid fa-hexagon-vertical-nft" style="display: none;" id="nft"  title=""></i>
         </div>
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
@@ -222,8 +221,6 @@
             if (data.verification.reason.description.text.split(' ')[7]=="affiliate") {document.getElementById("verified_red").style.color="#ff0000"}
             if (data.verification.reason.description.text.split(' ')[7]=="affiliate") {document.getElementById("verified_red").style.display="inline"} else {document.getElementById("verified_red").style.width="0px"}
             if (data.verification.reason.description.text.split(' ')[7]=="affiliate") {document.getElementById("verified_red").title=data.verification.reason.description.text.split(" Learn more")}
-            if (data.shape="Hexagon"){document.getElementById("nft").style.display="inline"} else {document.getElementById("nft").style.width="0px"}
-            if (data.shape="Hexagon"){document.getElementById("nft").title="This user has an NFT profile picture"}
         })
     }
     stats(channel)
