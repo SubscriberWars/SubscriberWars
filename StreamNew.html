@@ -188,15 +188,15 @@
             <img class="banner"id="banner3">
             <img class="pfp" id="pfp3">
                 <h1 id="title3">User3</h1>
-            <h2 id="subs3" class="odometer"></h2>
+                <div style="text-align: center;"><h2 id="subs3" class="odometer"></h2></div>
             <div class="container_extra">
                 <div class="box_extra">
                     <h3 class="odometer" id="x9"></h3>
-                    <h4><i class="fa-solid fa-thumbs-up"></i> Likes</h4>
+                    <h4><i class="fa-solid fa-eye"></i> Channel Views</h4>
                 </div>
                 <div class="box_extra">
                     <h3 class="odometer" id="x10"></h3>
-                    <h4><i class="fa-solid fa-users"></i>  Following</h4>
+                    <h4><i class="fa-solid fa-video"></i>  Videos</h4>
                 </div>
             </div>
             <div class="container_extra">
@@ -235,15 +235,15 @@
             <img class="banner"id="banner4">
             <img class="pfp" id="pfp4">
             <h1 id="title4">User4</h1>
-            <h2 id="subs4" class="odometer"></h2>
+            <div style="text-align: center;"><h2 id="subs4" class="odometer"></h2></div>
             <div class="container_extra">
                 <div class="box_extra">
                     <h3 class="odometer" id="x13"></h3>
-                    <h4><i class="fa-solid fa-thumbs-up"></i> Likes</h4>
+                    <h4><i class="fa-solid fa-eye"></i> Channel Views</h4>
                 </div>
                 <div class="box_extra">
                     <h3 class="odometer" id="x14"></h3>
-                    <h4><i class="fa-solid fa-users"></i>  Following</h4>
+                    <h4><i class="fa-solid fa-video"></i>  Videos</h4>
                 </div>
             </div>
             <div class="container_extra">
@@ -264,8 +264,8 @@
 <script>
     var id1="UCq-Fj5jknLsUf-MWSy4_brA"
     var id2="UCX6OQ3DkcsbYNE6H8uQQuVA"
-    var id3="6703550784929793030"
-    var id4="6614519312189947909"
+    var id3="UC5tuYcCdiKuF5Y2ZonuarwA"
+    var id4="UCIPPMRA040LQr5QPyJEbmXA"
 
     var socialblade1="";
     var socialblade2="";
@@ -283,8 +283,8 @@
     function load() {
         banner1.src='https://www.banner.yt/'+id1+'?width=1240';
         banner2.src='https://www.banner.yt/'+id2+'?width=1240';
-        banner3.src='/images/banner_tiktok.png';
-        banner4.src='/images/banner_tiktok.png';
+        banner3.src='https://www.banner.yt/'+id3+'?width=1240';
+        banner4.src='https://www.banner.yt/'+id4+'?width=1240';
         fetch('https://api.subscriberwars.space/youtube/channel/v2/'+id1).then(res => res.json()).then(data => {
         title1.innerHTML = data.items[0].snippet.title
         pfp1.src = data.items[0].snippet.thumbnails.medium.url
@@ -293,13 +293,13 @@
         title2.innerHTML = data.items[0].snippet.title
         pfp2.src = data.items[0].snippet.thumbnails.medium.url
         });
-        fetch('https://api.subscriberwars.space/tiktok/v2/'+id3).then(res => res.json()).then(data => {
-        title3.innerHTML = data.nickname
-        pfp3.src = data.pfp
+        fetch('https://api.subscriberwars.space/youtube/channel/v2/'+id3).then(res => res.json()).then(data => {
+        title3.innerHTML = data.items[0].snippet.title
+        pfp3.src = data.items[0].snippet.thumbnails.medium.url
         });
-        fetch('https://api.subscriberwars.space/tiktok/v2/'+id4).then(res => res.json()).then(data => {
-        title4.innerHTML = data.nickname
-        pfp4.src = data.pfp
+        fetch('https://api.subscriberwars.space/youtube/channel/v2/'+id4).then(res => res.json()).then(data => {
+        title4.innerHTML = data.items[0].snippet.title
+        pfp4.src = data.items[0].snippet.thumbnails.medium.url
         });
     }
 
@@ -326,25 +326,25 @@
         if(gap01>gap02){injection3=gap01-gap02} else{injection3=gap02-gap01}
         diff.innerHTML=injection3
         });
-        fetch('https://api.subscriberwars.space/tiktok/v2/'+id3).then(res => res.json()).then(data => {
-        x9.innerHTML = data.likes
-        x10.innerHTML = data.following
-        subs3.innerHTML=data.followers
-        gap03=data.followers
-        list2.unshift(data.followers)//unshift: adds to start. push: adds to end
+        fetch('https://api.subscriberwars.space/stream/'+id3).then(res => res.json()).then(data => {
+        x9.innerHTML = data.estCounts[1]
+        x10.innerHTML = data.apiCounts[2]
+        subs3.innerHTML=data.estCounts[0]
+        gap03=data.estCounts[0]
+        list2.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
         if (list2.length>43200){list2.pop()}//shift: removes start. //pop: removes end
-        if (list2.length>=1800) {x11.innerHTML= data.followers-list2[1799]}
-        if (list2.length>=43199) {x12.innerHTML=data.followers-list2[43199]}
+        if (list2.length>=1800) {x11.innerHTML= data.estCounts[0]-list2[1799]}
+        if (list2.length>=43199) {x12.innerHTML=data.estCounts[0]-list2[43199]}
         });
-        fetch('https://api.subscriberwars.space/tiktok/v2/'+id4).then(res => res.json()).then(data => {
-        x13.innerHTML = data.likes
-        x14.innerHTML = data.following
-        subs4.innerHTML=data.followers
-        gap04=data.followers
-        list3.unshift(data.followers)//unshift: adds to start. push: adds to end
+        fetch('https://api.subscriberwars.space/stream/'+id4).then(res => res.json()).then(data => {
+        x13.innerHTML = data.estCounts[1]
+        x14.innerHTML = data.apiCounts[2]
+        subs4.innerHTML=data.estCounts[0]
+        gap04=data.estCounts[0]
+        list3.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
         if (list3.length>43200){list3.pop()}//shift: removes start. //pop: removes end
-        if (list3.length>=1800) {x15.innerHTML= data.followers-list3[1799]}
-        if (list3.length>=43199) {x16.innerHTML=data.followers-list3[43199]}
+        if (list3.length>=1800) {x15.innerHTML= data.estCounts[0]-list3[1799]}
+        if (list3.length>=43199) {x16.innerHTML=data.estCounts[0]-list3[43199]}
         if(gap03>gap04){injection4=gap03-gap04} else{injection4=gap04-gap03}
         diff2.innerHTML=injection4
         });
