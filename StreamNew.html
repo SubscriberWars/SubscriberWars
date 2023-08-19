@@ -312,6 +312,9 @@
         if (list.length>43200){list.pop()}//shift: removes start. //pop: removes end
         if (list.length>=1800) {x5.innerHTML= data.estCounts[0]-list[1799]}
         if (list.length>=43199) {x6.innerHTML=data.estCounts[0]-list[43199]}
+        if (list.length<1800) {x5.innerHTML= (data.estCounts[0]-list[30])*60}
+        if (list.length<43199) {x6.innerHTML=(data.estCounts[0]-list[30])*1440}
+
         });
         fetch('https://api.subscriberwars.space/stream/'+id2).then(res => res.json()).then(data => {
         x3.innerHTML = data.estCounts[1]
@@ -322,6 +325,8 @@
         if (list1.length>43200){list1.pop()}//shift: removes start. //pop: removes end
         if (list1.length>=1800) {x7.innerHTML= data.estCounts[0]-list1[1799]}
         if (list1.length>=43199) {x8.innerHTML=data.estCounts[0]-list1[43199]}
+        if (list1.length<1800) {x7.innerHTML= (data.estCounts[0]-list1[30])*60}
+        if (list1.length<43199) {x8.innerHTML=(data.estCounts[0]-list1[30])*1440}
         if(gap01>gap02){injection3=gap01-gap02} else{injection3=gap02-gap01}
         diff.innerHTML=injection3
         });
@@ -334,6 +339,8 @@
         if (list2.length>43200){list2.pop()}//shift: removes start. //pop: removes end
         if (list2.length>=1800) {x11.innerHTML= data.estCounts[0]-list2[1799]}
         if (list2.length>=43199) {x12.innerHTML=data.estCounts[0]-list2[43199]}
+        if (list2.length<1800) {x11.innerHTML= (data.estCounts[0]-list2[30])*60}
+        if (list2.length<43199) {x12.innerHTML=(data.estCounts[0]-list2[30])*1440}
         });
         fetch('https://api.subscriberwars.space/stream/'+id4).then(res => res.json()).then(data => {
         x13.innerHTML = data.estCounts[1]
@@ -344,6 +351,8 @@
         if (list3.length>43200){list3.pop()}//shift: removes start. //pop: removes end
         if (list3.length>=1800) {x15.innerHTML= data.estCounts[0]-list3[1799]}
         if (list3.length>=43199) {x16.innerHTML=data.estCounts[0]-list3[43199]}
+        if (list3.length<1800) {x15.innerHTML= (data.estCounts[0]-list3[30])*60}
+        if (list3.length<43199) {x16.innerHTML=(data.estCounts[0]-list3[30])*1440}
         if(gap03>gap04){injection4=gap03-gap04} else{injection4=gap04-gap03}
         diff2.innerHTML=injection4
         });
@@ -355,9 +364,6 @@
         });
         fetch('https://api.subscriberwars.space/twitch/750736092').then(res => res.json()).then(data => {
             swtwitch.innerHTML = data.followerCount
-        });
-        fetch('https://kick.com/api/v1/channels/jaymburtonsw').then(res => res.json()).then(data => {
-            swkick.innerHTML = data.followersCount
         });
         fetch('https://api.subscriberwars.space/x/subscriberwars1').then(res => res.json()).then(data => {
             swx.innerHTML = data.followers
