@@ -187,6 +187,9 @@
     var string='';
     string +='';
     var veri="";
+    var average="";
+    const list=[];
+    var followers=[]
 
     function stats(chanid) {
         fetch("https://api.subscriberwars.space/x/"+chanid).then(res=>res.json()).then(data=>{
@@ -223,10 +226,12 @@
             if (data.verification.reason.description.text.split(' ')[7]=="affiliate") {document.getElementById("verified_red").title=data.verification.reason.description.text.split(" Learn more")}
         })
     }
+
     stats(channel)
     setTimeout(() => {
         setInterval(() => {
             stats(channel)
         }, 10000);
     }, 5000);
+
 </script>
