@@ -44,18 +44,23 @@
     var channel = window.location.href.split('?u=')[1] || '';
     var followerCount=""
     var average=""
+    const list=[];
 
     function instagram(chanid) {
         fetch('https://api.subscriberwars.space/instagram/'+chanid)
         .then(res=>res.json())
         .then(data=>{
             followerCount=data.items.followers_count
+            list.unshift(data.items.followers_count)
+            if(list.length>2){list.pop()}
+            if(list.length>1){average=(list[1]-list[0])}
             channel_videos.innerHTML=data.items.media_count
             channel_views.innerHTML=data.items.follows_count
             channel_title.innerHTML=data.items.name
             channel_image.src=data.items.profile_picture_url
             channel_banner.src=data.items.profile_picture_url
         })
+        console.log(list,average)
     }
     function socialblade(chanid) {
         fetch('https://api.subscriberwars.space/sb/instagram/'+chanid)
