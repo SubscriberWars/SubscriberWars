@@ -42,19 +42,18 @@
             </div>
         </div>
         <div class="button_box">
-            <a id="channel_sb" target="_blank" style="margin: auto; width: 1260px;">
+            <a id="channel_sb" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative;">
                 <button class="bott_button">
                     <i class="fa-kit fa-socialblade"></i> Go To Social Blade Profile
                 </button>
             </a>
-            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px;">
+            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative;">
                 <button class="bott_button">
                     <i class="fa fa-brand fa-youtube"></i> Go To Channel
                 </button>
             </a>
         </div>
     </div>
-</body>
 
 <script>
     var channel = window.location.href.split('?u=')[1] || '';
@@ -94,4 +93,5 @@
     setInterval(() => {
         stats(channel)
     }, 10000);
+
 </script>
