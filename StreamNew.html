@@ -359,7 +359,7 @@
     }
 
     function subwars() {
-        fetch('https://api.subscriberwars.space/sw/30day').then(res => res.json()).then(data => {
+        fetch('https://api.subscriberwars.space/sw').then(res => res.json()).then(data => {
             sw.innerHTML = data.totals.subscribers
         });
         fetch('https://api.subscriberwars.space/twitch/750736092').then(res => res.json()).then(data => {
@@ -377,7 +377,7 @@
 
     setInterval(() => {
         subwars()
-    }, 10000);
+    }, 60000);
 
     setTimeout(() => {
         setInterval(() => {
