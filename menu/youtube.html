@@ -1,0 +1,115 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="title" content="Subscriberwars.space | YouTube">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="navbar">
+        <a class="nav_button" href="/"><img src="/favicon.ico" height="30px"></a>
+        <a class="nav_button" href="/about"> Socials </a>
+        <a class="nav_button" href="/top"> Top Lists </a>
+        <a class="nav_button" href="/compare"> Compare </a>
+    </div>
+    <div class="grid_container">
+        <button class="grid_item" onclick="location.href='/search/youtube/subscribers_.html'">
+            <i class="fa fa-users"></i>
+            <h1>Subscribers</h1>
+        </button>
+        <button class="grid_item_2">
+            <i class="fa fa-video"></i>
+            <h1>Videos</h1>
+            <h2>Coming Soon!</h2>
+        </button>
+    </div>
+</body>
+
+<style>
+    body {
+        background: #181818;
+        padding: 0;
+        margin: 0;
+        font-family: roboto;
+        color: #fff;
+    }
+    h1 {
+        color: #fff;
+        font-size: 3rem;
+    }
+    h2 {
+        color: #fff;
+    }
+    .navbar {
+        background: #000;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+    .nav_button {
+        height: 30px;
+        padding: 10px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: #fff;
+    }
+    .nav_button:hover {
+        background: #fff;
+        color: #000;
+    }
+    .grid_container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(600px,1fr));
+        width: 80%;
+        margin: auto;
+        grid-gap: 20px;
+    }
+    .grid_item {
+        background: #0f0f0f;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 400px;
+        text-align: center;
+        min-width: 600px;
+    }
+    .grid_item_2 {
+        background: #333333;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 400px;
+        text-align: center;
+        min-width: 600px;
+    }
+    .grid_item:hover{
+        background: #000;
+        border: 1px solid #fff;
+        cursor: pointer;
+    }
+    .grid_button{
+        width: 100%;
+        height: 100%;
+    }
+    i{
+        font-size: 8rem;
+        color: #fff;
+    }
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #ff0000;
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #830101;
+        border-radius: 2.5px;
+    }
+</style>
