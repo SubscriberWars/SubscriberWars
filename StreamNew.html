@@ -263,7 +263,7 @@
 <script>
     var id1="UCq-Fj5jknLsUf-MWSy4_brA"
     var id2="UCX6OQ3DkcsbYNE6H8uQQuVA"
-    var id3="UCb2HGwORFBo94DmRx4oLzow"
+    var id3="UCcOMTVILq-yIqtFmOqt-QOg"
     var id4="UCvh1at6xpV1ytYOAzxmqUsA"
 
     var socialblade1="";
@@ -327,8 +327,7 @@
         if (list1.length>=43199) {x8.innerHTML=data.estCounts[0]-list1[43199]}
         if (list1.length<1800) {x7.innerHTML= (data.estCounts[0]-list1[30])*60}
         if (list1.length<43199) {x8.innerHTML=(data.estCounts[0]-list1[30])*1440}
-        if(gap01>gap02){injection3=gap01-gap02} else{injection3=gap02-gap01}
-        diff.innerHTML=injection3
+        diff.innerHTML=gap01-gap02
         });
         fetch('https://api.subscriberwars.space/stream/'+id3).then(res => res.json()).then(data => {
         x9.innerHTML = data.estCounts[1]
@@ -353,8 +352,7 @@
         if (list3.length>=43199) {x16.innerHTML=data.estCounts[0]-list3[43199]}
         if (list3.length<1800) {x15.innerHTML= (data.estCounts[0]-list3[30])*60}
         if (list3.length<43199) {x16.innerHTML=(data.estCounts[0]-list3[30])*1440}
-        if(gap03>gap04){injection4=gap03-gap04} else{injection4=gap04-gap03}
-        diff2.innerHTML=injection4
+        diff2.innerHTML=gap03-gap04
         });
     }
 
