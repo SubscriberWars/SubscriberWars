@@ -2,32 +2,43 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Minecraft Java Search</title>
+    <title>Minecraft Search</title>
 </head>
 <div class="container">
     <div class="head">
-        <div class="head_text">Minecraft Java Server Search</div>
+        <div class="head_text">Minecraft Search</div>
+    </div>
+    <div style="text-align: center;">
+        <div class="dropdown">
+            <label for="dropdown" style="font-size: 40px;">What Statistic do you want to lookup?:</label>
+            <select id="dropdown">
+                <option value="java">Java Server</option>
+                <option value="bedrock">Bedrock Server</option>
+            </select>
+        </div>
     </div>
     <form>
         <div style="display: flex; width: 80%; margin: auto;">
-            <input class="form-control mr-sm-2" id="search" placeholder="Server IP">
+            <input class="form-control mr-sm-2" id="search" placeholder="Query">
             <button type="submit" class="searchbtn" value="Search"><i class="fa fa-fw fa-search" style="width: 100%;"></i></button>
         </div>
     </form>
     <br>
     <div class="row">
-        <div id="chan1" class="chan-card">
-            <a href="" id="link1">
-                <img src="" id="img1" class="pfp">
-                <div id="nam1" class="chan-name"></div>
-            </a>
-        </div>
+        <a href="" id="link1">
+           <div id="chan1" class="chan-card">
+               <img src="" id="img1" class="pfp">
+               <div id="nam1" class="chan-name"></div>
+               <div id="id1" class="chan-id"></div>
+           </div>
+        </a>
     </div>
 </div>
 </body>
 </html>
 
 <script>
+const dropdown = document.getElementById('dropdown');
 $(document).ready(function(){
 
 $('form').submit(function(event){
@@ -35,17 +46,25 @@ event.preventDefault()
 
 var search = $("#search").val()
 
-channelSearch(search)
+if(dropdown.value=="java"){javaSearch(search)}
+if(dropdown.value=="bedrock"){bedrockSearch(search)}
 })
 
 function javaSearch(search) {
-fetch("https://api.subscriberwars.space/minecraft/java/" + search).then(res => res.json()).then(data => {
-console.log(data)
-
-img1.src = data.logo
-nam1.innerHTML = data.name
-link1.href = "/minecraft/java?u="+data.name
-})
+    fetch("https://api.subscriberwars.space/minecraft/java/" + search).then(res => res.json()).then(data => {
+        console.log(data)
+        img1.src = data.logo
+        nam1.innerHTML = data.name
+        link1.href = "/minecraft/java?u="+data.name
+    })
+}
+function bedrockSearch(search) {
+    fetch("https://api.subscriberwars.space/minecraft/bedrock/" + search).then(res => res.json()).then(data => {
+        console.log(data)
+        img1.src = data.logo
+        nam1.innerHTML = data.name
+        link1.href = "/minecraft/bedrock?u="+data.name
+    })
 }
 })
 </script>
@@ -60,7 +79,7 @@ link1.href = "/minecraft/java?u="+data.name
     .head {
         width: 100%;
         height: 60px;
-        background-image: linear-gradient(to right, #33ff00, #1d8702);
+        background-image: linear-gradient(to right, #006b00, #492905);
         overflow: hidden;
         border-bottom: 1px solid #000;
         margin-bottom: 20px;
@@ -70,10 +89,6 @@ link1.href = "/minecraft/java?u="+data.name
         vertical-align: middle;
         font-weight: 500;
         font-size: 3rem;
-    }
-
-    a {
-        width: 80%;
     }
 
 ::placeholder {
@@ -114,12 +129,14 @@ link1.href = "/minecraft/java?u="+data.name
     border: solid #111;
     background: #111;
     margin-left: -10px;
+    font-size: 30px;
 }
 
 .searchbtn:hover{
     background: #000;
     border: #000;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .chan-card {
@@ -168,5 +185,18 @@ a {
     position: relative;
     left: 120px;
     top: -80px;
+}
+#dropdown {
+    height: 60px;
+    font-size: 2rem;
+    width: 20%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background: #0f0f0f;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: 500;
 }
 </style>

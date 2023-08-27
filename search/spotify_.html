@@ -2,28 +2,24 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>YouTube Search</title>
+    <title>Spotify Search</title>
 </head>
 <div class="container">
     <div class="head">
-        <div class="head_text">YouTube Search</div>
+        <div class="head_text">Spotify Search</div>
     </div>
     <div style="text-align: center;">
         <div class="dropdown">
-            <label for="dropdown">What Statistic do you want to compare?:</label>
+            <label for="dropdown" style="font-size: 40px;">What Statistic do you want to lookup?:</label>
             <select id="dropdown">
-                <option value="official">Subs | Official</option>
-                <option value="axern">Subs | Axern.space</option>
-                <option value="lol">Subs | Livecounts.lol</option>
-                <option value="mixerno">Subs | Mixerno.space</option>
-                <option value="sc">Subs | Socialcounts.org</option>
-                <option value="xyz">Subs | Livecounts.xyz</option>
+                <option value="artist">Artist</option>
+                <option value="playlist">Playlist</option>
             </select>
         </div>
     </div>
     <form>
         <div style="display: flex; width: 80%; margin: auto;">
-            <input class="form-control mr-sm-2" id="search" placeholder="User To Search For">
+            <input class="form-control mr-sm-2" id="search" placeholder="Query">
             <button type="submit" class="searchbtn" value="Search"><i class="fa fa-fw fa-search" style="width: 100%;"></i></button>
         </div>
     </form>
@@ -70,6 +66,7 @@
 </html>
 
 <script>
+const dropdown = document.getElementById('dropdown');
 $(document).ready(function(){
 
 $('form').submit(function(event){
@@ -77,65 +74,69 @@ event.preventDefault()
 
 var search = $("#search").val()
 
-channelSearch(search)
+if(dropdown.value=="artist"){artistSearch(search)}
+if(dropdown.value=="playlist"){playlistSearch(search)}
 })
 
-const dropdown = document.getElementById('dropdown');
+function artistSearch(search) {
+    fetch("https://api.subscriberwars.space/spotify/search/artist/" + search).then(res => res.json()).then(data => {
+       console.log(data)
 
-function channelSearch(search) {
-fetch("https://api.subscriberwars.space/search/youtube/channel/" + search).then(res => res.json()).then(data => {
-console.log(data)
+       img1.src = data.artists.items[0].images[0].url
+       nam1.innerHTML = data.artists.items[0].name
+       id1.innerHTML = data.artists.items[0].id
+       link1.href = "/spotify/artist?u="+data.artists.items[0].id
 
-img1.src = data.item[0].pfp
-nam1.innerHTML = data.item[0].title
-id1.innerHTML = data.item[0].id
-if(dropdown.value=="official"){link1.href="/youtube/subscribers/api?u="+data.item[0].id}
-if(dropdown.value=="mixerno"){link1.href="/youtube/subscribers/next?u="+data.item[0].id}
-if(dropdown.value=="axern"){link1.href="/youtube/subscribers/axern?u="+data.item[0].id}
-if(dropdown.value=="xyz"){link1.href="/youtube/subscribers/xyz?u="+data.item[0].id}
-if(dropdown.value=="lol"){link1.href="/youtube/subscribers/lol?u="+data.item[0].id}
-if(dropdown.value=="sc"){link1.href="/youtube/subscribers/sc?u="+data.item[0].id}
+       img2.src = data.artists.items[1].images[0].url
+       nam2.innerHTML = data.artists.items[1].name
+       id2.innerHTML = data.artists.items[1].id
+       link2.href = "/spotify/artist?u="+data.artists.items[1].id
 
-img2.src = data.item[1].pfp
-nam2.innerHTML = data.item[1].title
-id2.innerHTML = data.item[1].id
-if(dropdown.value=="official"){link2.href="/youtube/subscribers/api?u="+data.item[1].id}
-if(dropdown.value=="mixerno"){link2.href="/youtube/subscribers/next?u="+data.item[1].id}
-if(dropdown.value=="axern"){link2.href="/youtube/subscribers/axern?u="+data.item[1].id}
-if(dropdown.value=="xyz"){link2.href="/youtube/subscribers/xyz?u="+data.item[1].id}
-if(dropdown.value=="lol"){link2.href="/youtube/subscribers/lol?u="+data.item[1].id}
-if(dropdown.value=="sc"){link2.href="/youtube/subscribers/sc?u="+data.item[1].id}
+       img3.src = data.artists.items[2].images[0].url
+       nam3.innerHTML = data.artists.items[2].name
+       id3.innerHTML = data.artists.items[2].id
+       link3.href = "/spotify/artist?u="+data.artists.items[2].id
 
-img3.src = data.item[2].pfp
-nam3.innerHTML = data.item[2].title
-id3.innerHTML = data.item[2].id
-if(dropdown.value=="official"){link3.href="/youtube/subscribers/api?u="+data.item[2].id}
-if(dropdown.value=="mixerno"){link3.href="/youtube/subscribers/next?u="+data.item[2].id}
-if(dropdown.value=="axern"){link3.href="/youtube/subscribers/axern?u="+data.item[2].id}
-if(dropdown.value=="xyz"){link3.href="/youtube/subscribers/xyz?u="+data.item[2].id}
-if(dropdown.value=="lol"){link3.href="/youtube/subscribers/lol?u="+data.item[2].id}
-if(dropdown.value=="sc"){link3.href="/youtube/subscribers/sc?u="+data.item[2].id}
+       img4.src = data.artists.items[3].images[0].url
+       nam4.innerHTML = data.artists.items[3].name
+       id4.innerHTML = data.artists.items[3].id
+       link4.href = "/spotify/artist?u="+data.artists.items[3].id
 
-img4.src = data.item[3].pfp
-nam4.innerHTML = data.item[3].title
-id4.innerHTML = data.item[3].id
-if(dropdown.value=="official"){link4.href="/youtube/subscribers/api?u="+data.item[3].id}
-if(dropdown.value=="mixerno"){link4.href="/youtube/subscribers/next?u="+data.item[3].id}
-if(dropdown.value=="axern"){link4.href="/youtube/subscribers/axern?u="+data.item[3].id}
-if(dropdown.value=="xyz"){link4.href="/youtube/subscribers/xyz?u="+data.item[3].id}
-if(dropdown.value=="lol"){link4.href="/youtube/subscribers/lol?u="+data.item[3].id}
-if(dropdown.value=="sc"){link4.href="/youtube/subscribers/sc?u="+data.item[3].id}
+       img5.src = data.artists.items[4].images[0].url
+       nam5.innerHTML = data.artists.items[4].name
+       id5.innerHTML = data.artists.items[4].id
+       link5.href = "/spotify/artist?u="+data.artists.items[4].id
+    })
+}
+function playlistSearch(search) {
+    fetch("https://api.subscriberwars.space/spotify/search/playlist/" + search).then(res => res.json()).then(data => {
+       console.log(data)
 
-img5.src = data.item[4].pfp
-nam5.innerHTML = data.item[4].title
-id5.innerHTML = data.item[4].id
-if(dropdown.value=="official"){link5.href="/youtube/subscribers/api?u="+data.item[4].id}
-if(dropdown.value=="mixerno"){link5.href="/youtube/subscribers/next?u="+data.item[4].id}
-if(dropdown.value=="axern"){link5.href="/youtube/subscribers/axern?u="+data.item[4].id}
-if(dropdown.value=="xyz"){link5.href="/youtube/subscribers/xyz?u="+data.item[4].id}
-if(dropdown.value=="lol"){link5.href="/youtube/subscribers/lol?u="+data.item[4].id}
-if(dropdown.value=="sc"){link5.href="/youtube/subscribers/sc?u="+data.item[4].id}
-})
+       img1.src = data.playlists.items[0].images[0].url
+       nam1.innerHTML = data.playlists.items[0].name
+       id1.innerHTML = data.playlists.items[0].id
+       link1.href = "/spotify/playlist?u="+data.playlists.items[0].id
+
+       img2.src = data.playlists.items[1].images[0].url
+       nam2.innerHTML = data.playlists.items[1].name
+       id2.innerHTML = data.playlists.items[1].id
+       link2.href = "/spotify/playlist?u="+data.playlists.items[1].id
+
+       img3.src = data.playlists.items[2].images[0].url
+       nam3.innerHTML = data.playlists.items[2].name
+       id3.innerHTML = data.playlists.items[2].id
+       link3.href = "/spotify/playlist?u="+data.playlists.items[2].id
+
+       img4.src = data.playlists.items[3].images[0].url
+       nam4.innerHTML = data.playlists.items[3].name
+       id4.innerHTML = data.playlists.items[3].id
+       link4.href = "/spotify/playlist?u="+data.playlists.items[3].id
+
+       img5.src = data.playlists.items[4].images[0].url
+       nam5.innerHTML = data.playlists.items[4].name
+       id5.innerHTML = data.playlists.items[4].id
+       link5.href = "/spotify/playlist?u="+data.playlists.items[4].id
+    })
 }
 })
 </script>
@@ -150,7 +151,7 @@ if(dropdown.value=="sc"){link5.href="/youtube/subscribers/sc?u="+data.item[4].id
     .head {
         width: 100%;
         height: 60px;
-        background-image: linear-gradient(to right, #ff0000, #830101);
+        background-image: linear-gradient(to right, #00ff73, #03571f);
         overflow: hidden;
         border-bottom: 1px solid #000;
         margin-bottom: 20px;
@@ -183,15 +184,16 @@ if(dropdown.value=="sc"){link5.href="/youtube/subscribers/sc?u="+data.item[4].id
 #search {
     width: 100%;
     background-color: #333;
-    height: 37px;
+    height: 50px;
     color: #fff;
     border: solid #111;
     border-radius: 10px 0px 0px 10px;
+    font-size: 30px;
 }
 
 .searchbtn {
     color: #FFF;
-    height: 37px;
+    height: 50px;
     width: 10%;
     box-sizing: border-box;
     display: inline-block;
@@ -199,12 +201,14 @@ if(dropdown.value=="sc"){link5.href="/youtube/subscribers/sc?u="+data.item[4].id
     border: solid #111;
     background: #111;
     margin-left: -10px;
+    font-size: 30px;
 }
 
 .searchbtn:hover{
     background: #000;
     border: #000;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .chan-card {
