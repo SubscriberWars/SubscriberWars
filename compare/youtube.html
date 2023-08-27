@@ -181,7 +181,7 @@ function user1_lol(id) {
             name_1.innerHTML=data.user.name
             nam1=data.user.name
             slug_1.innerHTML="Clearly The Best"
-            image_1.src=data.user.pfp
+            image_1.src=data.user.pfp.replace("s88","s240")
             if(type=="xyzsubs"){gap01=data.counts[0], head_text.innerHTML="YouTube Subscriber Comparison", type_1.innerHTML="Subscribers", type_2.innerHTML="Subscribers"}
             if(type=="xyzviews"){gap01=data.counts[1], head_text.innerHTML="YouTube Views Comparison", type_1.innerHTML="Views", type_2.innerHTML="Views"}
             count_1.innerHTML=gap01
@@ -193,7 +193,7 @@ function user1_lol(id) {
             name_2.innerHTML=data.user.name
             nam2=data.user.name
             slug_2.innerHTML="Clearly Not"
-            image_2.src=data.user.pfp
+            image_2.src=data.user.pfp.replace("s88","s240")
             if(type=="xyzsubs"){gap02=data.counts[0]}
             if(type=="xyzviews"){gap02=data.counts[1]}
             count_2.innerHTML=gap02
