@@ -54,108 +54,22 @@
             </a>
         </div>
     </div>
-    <div class="main_box" style="top: 150px; position: relative; height: 1100px;">
+    <div class="main_box" style="top: 150px; position: relative; height: 1100px; margin-bottom: 10px;">
         <h1>Last 10 Videos</h1>
         <table id="video_table">
-            <tr>
-                <th>Released</th>
-                <th>Thumbnail</th>
-                <th>Title</th>
-                <th>Views</th>
-                <th>Likes</th>
-                <th>Dislikes</th>
-                <th>Comments</th>
-            </tr>
-            <tr>
-                <td class="p" id="p0"></td>
-                <td class="i" ><img class="i" id="i0"></td>
-                <td class="t" id="t0"></td>
-                <td class="v" id="v0"></td>
-                <td class="l" id="l0"></td>
-                <td class="d" id="d0"></td>
-                <td class="c" id="c0"></td>
-            </tr>
-            <tr>
-                <td class="p" id="p1"></td>
-                <td class="i"><img class="i" id="i1"></td>
-                <td class="t" id="t1"></td>
-                <td class="v" id="v1"></td>
-                <td class="l" id="l1"></td>
-                <td class="d" id="d1"></td>
-                <td class="c" id="c1"></td>
-            </tr>
-            <tr>
-                <td class="p" id="p2"></td>
-                <td class="i"><img class="i" id="i2"></td>
-                <td class="t" id="t2"></td>
-                <td class="v" id="v2"></td>
-                <td class="l" id="l2"></td>
-                <td class="d" id="d2"></td>
-                <td class="c" id="c2"></td>
-            </tr>
-            <tr>
-                <td class="p" id="p3"></td>
-                <td class="i"><img class="i" id="i3"></td>
-                <td class="t" id="t3"></td>
-                <td class="v" id="v3"></td>
-                <td class="l" id="l3"></td>
-                <td class="d" id="d3"></td>
-                <td class="c" id="c3"></td>
-            </tr>
-            <tr>
-                <td class="p" id="p4"></td>
-                <td class="i"><img class="i" id="i4"></td>
-                <td class="t" id="t4"></td>
-                <td class="v" id="v4"></td>
-                <td class="l" id="l4"></td>
-                <td class="d" id="d4"></td>
-                <td class="c" id="c4"></td>
-            </tr>
-            <tr>
-                <td class="p" id="p5"></td>
-                <td class="i"><img class="i" id="i5"></td>
-                <td class="t" id="t5"></td>
-                <td class="v" id="v5"></td>
-                <td class="l" id="l5"></td>
-                <td class="d" id="d5"></td>
-                <td class="c" id="c5"></td>
-            </tr>
-            <tr>
-                <td class="p" id="p6"></td>
-                <td class="i"><img class="i" id="i6"></td>
-                <td class="t" id="t6"></td>
-                <td class="v" id="v6"></td>
-                <td class="l" id="l6"></td>
-                <td class="d" id="d6"></td>
-                <td class="c" id="c6"></td>
-            </tr>
-            <tr>
-                <td class="p" id="p7"></td>
-                <td class="i"><img class="i" id="i7"></td>
-                <td class="t" id="t7"></td>
-                <td class="v" id="v7"></td>
-                <td class="l" id="l7"></td>
-                <td class="d" id="d7"></td>
-                <td class="c" id="c7"></td>
-            </tr>
-            <tr>
-                <td class="p" id="p8"></td>
-                <td class="i"><img class="i" id="i8"></td>
-                <td class="t" id="t8"></td>
-                <td class="v" id="v8"></td>
-                <td class="l" id="l8"></td>
-                <td class="d" id="d8"></td>
-                <td class="c" id="c8"></td>
-            </tr>
-            <tr>
-                <td class="p" id="p9"></td>
-                <td class="i"><img class="i" id="i9"></td>
-                <td class="t" id="t9"></td>
-                <td class="v" id="v9"></td>
-                <td class="l" id="l9"></td>
-                <td class="d" id="d9"></td>
-                <td class="c" id="c9"></td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Released</th>
+                    <th>Thumbnail</th>
+                    <th>Title</th>
+                    <th>Views</th>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
+                    <th>Comments</th>
+                    <th>Est. Earnings <i class="fa fa-circle-question" title="Based on a $2 - $15 CPM. This is assuming the channel is monetized."></i></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
     </div>
     <p id="goal01" style="display: none;"></p>
@@ -314,6 +228,7 @@
 <script>
     var channel = window.location.href.split('?u=')[1] || '';
     var id="";
+    const videoarray = [];
 
     function load(chanid) {
         fetch("https://api.subscriberwars.space/rumble/"+chanid).then(res=>res.json()).then(data=>{
@@ -329,78 +244,82 @@
             channel_link.href="https://rumble.com/c/"+id
             channel_sb.href="https://www.rumblestats.com/"+data.data.name
         })
+
         fetch("https://api.subscriberwars.space/rumble/latest/10/"+chanid).then(res=>res.json()).then(data=>{
-            p0.innerHTML=data.data.items[0].upload_date.split("T")[0]
-            p1.innerHTML=data.data.items[1].upload_date.split("T")[0]
-            p2.innerHTML=data.data.items[2].upload_date.split("T")[0]
-            p3.innerHTML=data.data.items[3].upload_date.split("T")[0]
-            p4.innerHTML=data.data.items[4].upload_date.split("T")[0]
-            p5.innerHTML=data.data.items[5].upload_date.split("T")[0]
-            p6.innerHTML=data.data.items[6].upload_date.split("T")[0]
-            p7.innerHTML=data.data.items[7].upload_date.split("T")[0]
-            p8.innerHTML=data.data.items[8].upload_date.split("T")[0]
-            p9.innerHTML=data.data.items[9].upload_date.split("T")[0]
-            i0.src=data.data.items[0].thumb
-            i1.src=data.data.items[1].thumb
-            i2.src=data.data.items[2].thumb
-            i3.src=data.data.items[3].thumb
-            i4.src=data.data.items[4].thumb
-            i5.src=data.data.items[5].thumb
-            i6.src=data.data.items[6].thumb
-            i7.src=data.data.items[7].thumb
-            i8.src=data.data.items[8].thumb
-            i9.src=data.data.items[9].thumb
-            t0.innerHTML=data.data.items[0].title
-            t1.innerHTML=data.data.items[1].title
-            t2.innerHTML=data.data.items[2].title
-            t3.innerHTML=data.data.items[3].title
-            t4.innerHTML=data.data.items[4].title
-            t5.innerHTML=data.data.items[5].title
-            t6.innerHTML=data.data.items[6].title
-            t7.innerHTML=data.data.items[7].title
-            t8.innerHTML=data.data.items[8].title
-            t9.innerHTML=data.data.items[9].title
-            v0.innerHTML=data.data.items[0].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            v1.innerHTML=data.data.items[1].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            v2.innerHTML=data.data.items[2].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            v3.innerHTML=data.data.items[3].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            v4.innerHTML=data.data.items[4].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            v5.innerHTML=data.data.items[5].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            v6.innerHTML=data.data.items[6].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            v7.innerHTML=data.data.items[7].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            v8.innerHTML=data.data.items[8].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            v9.innerHTML=data.data.items[9].views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l0.innerHTML=data.data.items[0].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l1.innerHTML=data.data.items[1].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l2.innerHTML=data.data.items[2].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l3.innerHTML=data.data.items[3].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l4.innerHTML=data.data.items[4].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l5.innerHTML=data.data.items[5].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l6.innerHTML=data.data.items[6].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l7.innerHTML=data.data.items[7].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l8.innerHTML=data.data.items[8].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            l9.innerHTML=data.data.items[9].rumble_votes.num_votes_up.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d0.innerHTML=data.data.items[0].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d1.innerHTML=data.data.items[1].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d2.innerHTML=data.data.items[2].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d3.innerHTML=data.data.items[3].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d4.innerHTML=data.data.items[4].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d5.innerHTML=data.data.items[5].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d6.innerHTML=data.data.items[6].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d7.innerHTML=data.data.items[7].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d8.innerHTML=data.data.items[8].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            d9.innerHTML=data.data.items[9].rumble_votes.num_votes_down.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c0.innerHTML=data.data.items[0].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c1.innerHTML=data.data.items[1].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c2.innerHTML=data.data.items[2].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c3.innerHTML=data.data.items[3].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c4.innerHTML=data.data.items[4].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c5.innerHTML=data.data.items[5].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c6.innerHTML=data.data.items[6].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c7.innerHTML=data.data.items[7].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c8.innerHTML=data.data.items[8].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            c9.innerHTML=data.data.items[9].comments.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            videoarray[0] = data.data.items[0]
+            videoarray[1] = data.data.items[1]
+            videoarray[2] = data.data.items[2]
+            videoarray[3] = data.data.items[3]
+            videoarray[4] = data.data.items[4]
+            videoarray[5] = data.data.items[5]
+            videoarray[6] = data.data.items[6]
+            videoarray[7] = data.data.items[7]
+            videoarray[8] = data.data.items[8]
+            videoarray[9] = data.data.items[9]
+            console.log(videoarray)
         })
+    }
+
+    function inject() {
+        const tableBody = document.querySelector('#video_table tbody');
+        videoarray.forEach(dataRow => {
+            const newRow = document.createElement('tr');
+            //properties to extract
+            const properties = [
+                'upload_date',
+                'thumb',
+                'title',
+                'views',
+                'rumble_votes.num_votes_up',
+                'rumble_votes.num_votes_down',
+                'comments.count',
+                'estimated_revenue'
+            ];
+            properties.forEach(property => {
+                const newCell = document.createElement('td');
+                const propertyPath = property.split('.');
+                let value = dataRow;
+                propertyPath.forEach(path => {
+                    value = value[path];
+                });
+                if (property === 'upload_date') {
+                    value = value.split("T") [0]
+                }
+                if (property === 'views' || property === 'rumble_votes.num_votes_up' || property === 'rumble_votes.num_votes_down' || property === 'comments.count') {
+                    value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                } else if (property === 'estimated_revenue') {
+                    const views = dataRow.views;
+                    const revenueLow = (views / 1000) * 2;
+                    const revenueHigh = (views / 1000) * 15;
+                    value = `$${abbreviateNumber(revenueLow)} - $${abbreviateNumber(revenueHigh)}`;
+                    newCell.style.color = 'green';
+                }
+                if (property === 'thumb') {
+                    const image = document.createElement('img');
+                    image.src = value;
+                    image.alt = 'Thumbnail';
+                    image.style.height = '90px';
+                    newCell.appendChild(image);
+                } else {
+                    newCell.textContent = value;
+                    newCell.style.maxWidth = '300px';
+                    newCell.style.overflow = 'hidden';
+                    newCell.style.whiteSpace = 'noWrap';
+                    newCell.style.textOverflow = 'ellipsis';
+                    newCell.style.paddingRight = '10px';
+                }
+                newRow.appendChild(newCell);
+            });
+            tableBody.appendChild(newRow);
+        });
+    }
+
+    function abbreviateNumber(number) {
+        const SI_SYMBOLS = ["", "K", "M", "B", "T"];
+        const tier = Math.log10(Math.abs(number)) / 3 | 0;
+        const suffix = SI_SYMBOLS[tier];
+        const abbreviatedNumber = (number / Math.pow(10, tier * 3)).toPrecision(3) + suffix;
+        return abbreviatedNumber;
     }
 
     function stats(chanid) {
@@ -423,4 +342,7 @@
     setInterval(() => {
         stats(channel)
     }, 2000);
+    setTimeout(() => {
+        inject()
+    }, 1000);
 </script>
