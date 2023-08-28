@@ -7,32 +7,24 @@
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <img id="head_image" src="https://www.banner.yt/UCdKLd9f_8ZyDSKxMm16oRww?width=1280">
-        <div class="menu_bar">
-            <a class="menu_button" href="/"><i class="fa-sharp fa-house"></i></a>
-            <a class="menu_button" href="/top">Top Lists</a>
-            <a class="menu_button" href="/about">Socials</a>
-        </div>
-        <div class="platform">
-            <img class="platform_image" src="/images/youtube_full.png" style="height: 110px;">
-        </div>
-        <div class="platform_button">
-            <button class="platform_button_a" onclick="location.href='/youtube_search'"><i class="fa-sharp fa-users"></i> Compare YouTube Channels</button>
-        </div>
-       
-        <div class="platform">
-            <img class="platform_image" src="/images/tiktok_full.png" style="height: 150px; margin-top: -20px;">
-        </div>
-        <div class="platform_button">
-            <button class="platform_button_a" onclick="location.href='/tiktok_search'"><i class="fa-sharp fa-users"></i> Compare TikTok Users</button>
-        </div>
-
-        <div class="platform">
-            <img class="platform_image" src="/images/twitch_full.svg" style="height: 110px; margin-top: 0px;">
-        </div>
-        <div class="platform_button">
-            <button class="platform_button_a" onclick="location.href='twitch_search'"><i class="fa-sharp fa-users"></i> Compare Twitch Users</button>
-        </div>
+    <div class="navbar">
+        <a class="nav_button" href="/"><img src="/favicon.ico" height="30px"></a>
+        <a class="nav_button" href="/about"> Socials </a>
+        <a class="nav_button" href="/compare"> Compare </a>
+        <a class="nav_button" href="/analytics"> YouTube Analytics </a>
+    </div>
+    <div class="grid_container">
+        <button class="grid_item" onclick="location.href='/compare/youtube_search'">
+            <img height="150px" src="/images/youtube.svg">
+            <h1>YouTube</h1>
+        </button>
+        <button class="grid_item" onclick="location.href='/compare/twitch_search'">
+            <img height="150px" src="/images/twitch.svg">
+            <h1>Twitch</h1>
+        </button>
+        <button class="grid_item" onclick="location.href='/compare/tiktok_search'">
+            <img height="150px" src="/images/tiktok.svg">
+            <h1>TikTok</h1>
+        </button>
     </div>
 </body>
