@@ -209,6 +209,11 @@
                 newCell.appendChild(image);
             }  else {
                 newCell.textContent = value;
+                newCell.style.maxWidth = '300px';
+                newCell.style.overflow = 'hidden';
+                newCell.style.whiteSpace = 'noWrap';
+                newCell.style.textOverflow = 'ellipsis';
+                newCell.style.paddingRight = '10px';
             }
             newRow.appendChild(newCell);
         });
