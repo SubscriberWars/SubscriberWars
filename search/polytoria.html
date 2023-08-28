@@ -2,61 +2,44 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Rumble Search</title>
+    <title>Polytoria Search</title>
 </head>
 <div class="container">
     <div class="head">
-        <div class="head_text">Rumble Search</div>
+        <div class="head_text">Polytoria Search</div>
+    </div>
+    <div style="text-align: center;">
+        <div class="dropdown">
+            <label for="dropdown" style="font-size: 40px;">What Statistic do you want to lookup?:</label>
+            <select id="dropdown">
+                <option value="place">Place</option>
+                <option value="guild">Guild</option>
+                <option value="user">Users</option>
+            </select>
+        </div>
     </div>
     <form>
         <div style="display: flex; width: 80%; margin: auto;">
-            <input class="form-control mr-sm-2" id="search" placeholder="User To Search For">
+            <input class="form-control mr-sm-2" id="search" placeholder="Guild/Place ID">
             <button type="submit" class="searchbtn" value="Search"><i class="fa fa-fw fa-search" style="width: 100%;"></i></button>
         </div>
     </form>
     <br>
     <div class="row">
-        <div id="chan1" class="chan-card">
-            <a href="" id="link1">
-                <img src="" id="img1" class="pfp">
-                <div id="nam1" class="chan-name"></div>
-                <div id="id1" class="chan-id"></div>
-            </a>
-        </div>
-        <div id="chan2" class="chan-card">
-            <a href="" id="link2">
-                <img src="" id="img2" class="pfp">
-                <div id="nam2" class="chan-name"></div>
-                <div id="id2" class="chan-id"></div>
-            </a>
-        </div>
-        <div id="chan3" class="chan-card">
-            <a href="" id="link3">
-                <img src="" id="img3" class="pfp">
-                <div id="nam3" class="chan-name"></div>
-                <div id="id3" class="chan-id"></div>
-            </a>
-        </div>
-        <div id="chan4" class="chan-card">
-            <a href="" id="link4">
-                <img src="" id="img4" class="pfp">
-                <div id="nam4" class="chan-name"></div>
-                <div id="id4" class="chan-id"></div>
-            </a>
-         </div>
-         <div id="chan5" class="chan-card">
-            <a href="" id="link5">
-                <img src="" id="img5" class="pfp">
-                <div id="nam5" class="chan-name"></div>
-                <div id="id5" class="chan-id"></div>
-            </a>
-        </div>
+        <a href="" id="link1">
+           <div id="chan1" class="chan-card">
+               <img src="" id="img1" class="pfp">
+               <div id="nam1" class="chan-name"></div>
+               <div id="id1" class="chan-id"></div>
+           </div>
+        </a>
     </div>
 </div>
 </body>
 </html>
 
 <script>
+const dropdown = document.getElementById('dropdown');
 $(document).ready(function(){
 
 $('form').submit(function(event){
@@ -64,39 +47,37 @@ event.preventDefault()
 
 var search = $("#search").val()
 
-channelSearch(search)
+if(dropdown.value=="place"){placeSearch(search)}
+if(dropdown.value=="guild"){guildSearch(search)}
+if(dropdown.value=="user"){users()}
 })
 
-function channelSearch(search) {
-fetch("https://api.subscriberwars.space/search/rumble/channel/" + search).then(res => res.json()).then(data => {
-console.log(data)
-
-img1.src = data.item[0].pfp
-nam1.innerHTML = data.item[0].title
-id1.innerHTML = data.item[0].id
-link1.href = "/rumble/followers?u="+data.item[0].id
-
-img2.src = data.item[1].pfp
-nam2.innerHTML = data.item[1].title
-id2.innerHTML = data.item[1].id
-link2.href = "/rumble/followers?u="+data.item[1].id
-
-img3.src = data.item[2].pfp
-nam3.innerHTML = data.item[2].title
-id3.innerHTML = data.item[2].id
-link3.href = "/rumble/followers?u="+data.item[2].id
-
-img4.src = data.item[3].pfp
-nam4.innerHTML = data.item[3].title
-id4.innerHTML = data.item[3].id
-link4.href = "/rumble/followers?u="+data.item[3].id
-
-img5.src = data.item[4].pfp
-nam5.innerHTML = data.item[4].title
-id5.innerHTML = data.item[4].id
-link5.href = "/rumble/followers?u="+data.item[4].id
-})
+function placeSearch(search) {
+    fetch("https://api.subscriberwars.space/polytoria/place/" + search).then(res => res.json()).then(data => {
+        console.log(data)
+        nam1.innerHTML = data.name
+        id1.innerHTML = data.id
+        link1.href = "/polytoria/place?p="+data.id
+        img1.src = data.thumbnail
+    })
 }
+function guildSearch(search) {
+    fetch("https://api.subscriberwars.space/polytoria/guild/" + search).then(res => res.json()).then(data => {
+        console.log(data)
+        nam1.innerHTML = data.name
+        id1.innerHTML = data.id
+        link1.href = "/polytoria/guild?g="+data.id
+        img1.src = data.thumbnail
+    })
+}
+function users() {
+        fetch("https://api.subscriberwars.space/polytoria/users").then(res=>res.json()).then(data=>{
+            nam1.innerHTML= "Total Users"
+            id1.innerHTML=data.total
+            link1.href="/polytoria/users"
+            img1.src= "/images/polytoria.svg"
+        })
+    }
 })
 </script>
 <style>
@@ -110,7 +91,7 @@ link5.href = "/rumble/followers?u="+data.item[4].id
     .head {
         width: 100%;
         height: 60px;
-        background-image: linear-gradient(to right, #69b52b, #396118);
+        background-image: linear-gradient(to right, #ff0000, #ff3535);
         overflow: hidden;
         border-bottom: 1px solid #000;
         margin-bottom: 20px;
@@ -120,10 +101,6 @@ link5.href = "/rumble/followers?u="+data.item[4].id
         vertical-align: middle;
         font-weight: 500;
         font-size: 3rem;
-    }
-
-    a {
-        width: 80%;
     }
 
 ::placeholder {
@@ -147,15 +124,16 @@ link5.href = "/rumble/followers?u="+data.item[4].id
 #search {
     width: 100%;
     background-color: #333;
-    height: 37px;
+    height: 50px;
     color: #fff;
     border: solid #111;
     border-radius: 10px 0px 0px 10px;
+    font-size: 30px;
 }
 
 .searchbtn {
     color: #FFF;
-    height: 37px;
+    height: 50px;
     width: 10%;
     box-sizing: border-box;
     display: inline-block;
@@ -163,12 +141,14 @@ link5.href = "/rumble/followers?u="+data.item[4].id
     border: solid #111;
     background: #111;
     margin-left: -10px;
+    font-size: 30px;
 }
 
 .searchbtn:hover{
     background: #000;
     border: #000;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 .chan-card {
@@ -217,5 +197,18 @@ a {
     position: relative;
     left: 120px;
     top: -80px;
+}
+#dropdown {
+    height: 60px;
+    font-size: 2rem;
+    width: 20%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background: #0f0f0f;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: 500;
 }
 </style>
