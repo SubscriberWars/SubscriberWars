@@ -25,7 +25,7 @@
 }
 
 body {
-    background: transparent;
+    background: #181818;
     font-family: roboto;
     margin: 0;
 }
@@ -44,6 +44,8 @@ margin-left: 2px;
 background: #0f0f0f;
 transition: 0.5s;
 overflow: hidden;
+border: 1px solid #000;
+border-radius: 10px;
 }
 
 .cimg {
@@ -159,7 +161,7 @@ function reset() {
 }
 
 function update(){
-    $.getJSON("https://top50.subscriberwars.repl.co/youtube",(data)=>{
+    $.getJSON("https://top50.subscriberwars.repl.co/",(data)=>{
 
         data.channel.sort(function(a,b){return b.subs - a.subs});
 
