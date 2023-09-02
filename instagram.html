@@ -42,9 +42,9 @@
 
 <script>
     var channel = window.location.href.split('?u=')[1] || '';
-    var followerCount=""
-    var average=""
-    const list=[];
+    var followerCount = "";
+    var average = "";
+    const list=[]
 
     function instagram(chanid) {
         fetch('https://api.subscriberwars.space/instagram/'+chanid)
@@ -70,7 +70,7 @@
         })
     }
     function calculate() {
-        followerCount=Math.round(followerCount+average)
+        followerCount=Math.round(parseInt(followerCount)+parseInt(average))
         channel_subscribers.innerHTML=followerCount
         if(followerCount>=0) {goal01.innerHTML=10}
         if(followerCount>=10) {goal01.innerHTML=100}
