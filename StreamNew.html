@@ -215,19 +215,19 @@
                 <div style="font-size: 30px;">Subscriber Gap</div>
             </div>
             <div class="box_xcenter">
-                <img src="/images/sw.png" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
+                <!-- <img src="/images/sw.png" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
                 <div style="font-size: 30px; position: relative; top: -100px; left: 110px;"><i class="fa fa-youtube"></i> Subscriber Wars</div>
-                <div id="sw" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div>
+                <div id="sw" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div> -->
             </div>
             <div class="box_xcenter">
-                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/b4420795-8da6-4872-bfbb-7f8b9b00acfe-profile_image-300x300.png" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
+                <!-- <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/b4420795-8da6-4872-bfbb-7f8b9b00acfe-profile_image-300x300.png" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
                 <div style="font-size: 30px; position: relative; top: -100px; left: 110px;"><i class="fa fa-twitch"></i> JayMBurtonSW</div>
-                <div id="swtwitch" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div>
+                <div id="swtwitch" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div> -->
             </div>
             <div class="box_xcenter">
-                <img src="" id="ximage" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
+                <!-- <img src="" id="ximage" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
                 <div style="font-size: 30px; position: relative; top: -100px; left: 110px;"><i class="fa-kit fa-x"></i>/<i class="fa-brands fa-twitter"></i> JayMBurtonSW</div>
-                <div id="swx" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div>
+                <div id="swx" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div> -->
             </div>
         </div>
         <div class="box_count">
@@ -356,26 +356,8 @@
         });
     }
 
-    function subwars() {
-        fetch('https://api.subscriberwars.space/sw').then(res => res.json()).then(data => {
-            sw.innerHTML = data.totals.subscribers
-        });
-        fetch('https://api.subscriberwars.space/twitch/750736092').then(res => res.json()).then(data => {
-            swtwitch.innerHTML = data.followerCount
-        });
-        fetch('https://api.subscriberwars.space/x/subscriberwars1').then(res => res.json()).then(data => {
-            swx.innerHTML = data.followers
-            ximage.src = data.pfp.replace("normal","400x400")
-        });
-    }
-
     load()
     main()
-    subwars()
-
-    setInterval(() => {
-        subwars()
-    }, 60000);
 
     setTimeout(() => {
         setInterval(() => {
