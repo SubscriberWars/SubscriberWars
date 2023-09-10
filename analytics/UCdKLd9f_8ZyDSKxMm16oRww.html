@@ -20,7 +20,7 @@ div { display: block; }
 #top-header { height:210px; width: 1260px; margin: 0px auto; background: #e6e6e6; overflow: hidden; position: relative; }
 #top-header-background { background-size: 100%; height: 210px; width: 1280px; }
 #UserTopInfoWrap { width: 1260px; margin: 0px auto; background: rgb(26, 26, 26); height: 90px; position: relative; }
-#UserTopInfoAvatar { background: rgb(26, 26, 26); float: left; height: 110px; width: 110px; border-radius: 50%; border: 0px solid rgb(15, 15, 15); margin-top: -40px; margin-left: 30px; -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); }
+#UserTopInfoAvatar { background: rgb(26, 26, 26); float: left; height: 110px; width: 110px; border-radius: 10px; border: 0px solid rgb(15, 15, 15); margin-top: -40px; margin-left: 30px; -webkit-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); -moz-box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2); }
 #UserTopInfoBlockTop { float: left; margin-top: 2px; margin-left: 10px;  }
 #UserTopInfoBlock { margin-top: 2px; width: 1080px; }
 #UserContainer { width: 1260px; margin: 20px auto; }
@@ -38,12 +38,13 @@ div { display: block; }
 ::-webkit-scrollbar-thumb:hover {background: #ff0000;}
 @media screen and (max-width: 992px) {::-webkit-scrollbar {display: none;}}
 table{border-collapse: collapse; width: 100%;}
-th{font-weight: 500; font-size: 15px;}
+th{font-weight: 500; font-size: 15px; background: #181818;}
 td{font-size: 15px;}
-td,th{border: 1px solid #000; text-align: left; padding: 5px; width: 50px; height: 20px;}
+td,th{border-bottom: 1px solid #000; text-align: left; padding: 5px; width: 50px; height: 20px;}
 tr:nth-child(even){background: rgb(33,33,33);}
 tr:nth-child(odd){background: rgb(38,38,38);}
 .xtra {height: 35px;}
+.UserSidebarHeader{width: 300px; background: #0f0f0f; padding: 14px 20px; color: #fff; font-size: 9pt; text-transform: uppercase; font-weight: 500;}
 </style>
 
 <body>
@@ -73,10 +74,6 @@ tr:nth-child(odd){background: rgb(38,38,38);}
                     <span id='videocount' style="font-weight: 500;">0</span>
                 </div>
                 <div class="UserTopInfo">
-                    <span class="UserTopLight">Estimated Revenue</span><br>
-                    <span id='revcount' style="font-weight: 500;">0</span>
-                </div>
-                <div class="UserTopInfo">
                     <span class="UserTopLight">Watch Time (Hrs)</span><br>
                     <span id='watch' style="font-weight: 500;">0</span>
                 </div>
@@ -97,51 +94,50 @@ tr:nth-child(odd){background: rgb(38,38,38);}
     </div>
     <div id="user-menu">
         <a href="/index.html">Home</a>
-        <a href="/youtube/next?u=UCdKLd9f_8ZyDSKxMm16oRww" target="_blank">Live Sub Count</a>
         <a href="https://youtube.com/channel/UCdKLd9f_8ZyDSKxMm16oRww" target="_blank">View Channel</a>
 
     </div>
     <div style='width: 1260px; margin: 0px auto'>
         <div id='UserContainer'>
             <div id='UserContent'>
-                <div style='width: 1260px; float: left; font-size: 8pt;'>
+                <div style='width: 900px; float: left; font-size: 8pt;'>
                     <div style='clear: both;'></div>
-                    <div style='width: 1220px; background:rgb(15,15,15); padding: 10px 20px; text-transform: uppercase; color: rgb(255, 255, 255);'>
+                    <div style='width: 860px; background:rgb(15,15,15); padding: 10px 20px; text-transform: uppercase; color: rgb(255, 255, 255);'>
                         <h2 style='font-size: 10pt; font-weight: 500;'>Last 30 Days for Subscriber Wars</h2>
                     </div>
                     <!--rgb(33,33,33) rgb(38,38,38)-->
                     <table>
-                        <tr><th>Date</th><th>Subscriber Gain</th><th>Subscribers</th><th>Views Gained</th><th>Views</th><th>Revenue Gain</th><th>Revenue</th></tr>
-                        <tr><td id="date1"></td><td></td><td id="subs1"></td><td></td><td id="views1"></td><td></td><td id="rev1"></td></tr>
-                        <tr><td id="date2"></td><td id="subgain2"></td><td id="subs2"></td><td id="viewgain2"></td><td id="views2"></td><td id="revgain2"></td><td id=rev2></td></tr>
-                        <tr><td id="date3"></td><td id="subgain3"></td><td id="subs3"></td><td id="viewgain3"></td><td id="views3"></td><td id=revgain3></td><td id="rev3"></td></tr>
-                        <tr><td id="date4"></td><td id="subgain4"></td><td id="subs4"></td><td id="viewgain4"></td><td id="views4"></td><td id=revgain4></td><td id="rev4"></td></tr>
-                        <tr><td id="date5"></td><td id="subgain5"></td><td id="subs5"></td><td id="viewgain5"></td><td id="views5"></td><td id=revgain5></td><td id="rev5"></td></tr>
-                        <tr><td id="date6"></td><td id="subgain6"></td><td id="subs6"></td><td id="viewgain6"></td><td id="views6"></td><td id=revgain6></td><td id="rev6"></td></tr>
-                        <tr><td id="date7"></td><td id="subgain7"></td><td id="subs7"></td><td id="viewgain7"></td><td id="views7"></td><td id=revgain7></td><td id="rev7"></td></tr>
-                        <tr><td id="date8"></td><td id="subgain8"></td><td id="subs8"></td><td id="viewgain8"></td><td id="views8"></td><td id=revgain8></td><td id="rev8"></td></tr>
-                        <tr><td id="date9"></td><td id="subgain9"></td><td id="subs9"></td><td id="viewgain9"></td><td id="views9"></td><td id=revgain9></td><td id="rev9"></td></tr>
-                        <tr><td id="date10"></td><td id="subgain10"></td><td id="subs10"></td><td id="viewgain10"></td><td id="views10"></td><td id=revgain10></td><td id="rev10"></td></tr>
-                        <tr><td id="date11"></td><td id="subgain11"></td><td id="subs11"></td><td id="viewgain11"></td><td id="views11"></td><td id=revgain11></td><td id="rev11"></td></tr>
-                        <tr><td id="date12"></td><td id="subgain12"></td><td id="subs12"></td><td id="viewgain12"></td><td id="views12"></td><td id=revgain12></td><td id="rev12"></td></tr>
-                        <tr><td id="date13"></td><td id="subgain13"></td><td id="subs13"></td><td id="viewgain13"></td><td id="views13"></td><td id=revgain13></td><td id="rev13"></td></tr>
-                        <tr><td id="date14"></td><td id="subgain14"></td><td id="subs14"></td><td id="viewgain14"></td><td id="views14"></td><td id=revgain14></td><td id="rev14"></td></tr>
-                        <tr><td id="date15"></td><td id="subgain15"></td><td id="subs15"></td><td id="viewgain15"></td><td id="views15"></td><td id=revgain15></td><td id="rev15"></td></tr>
-                        <tr><td id="date16"></td><td id="subgain16"></td><td id="subs16"></td><td id="viewgain16"></td><td id="views16"></td><td id=revgain16></td><td id="rev16"></td></tr>
-                        <tr><td id="date17"></td><td id="subgain17"></td><td id="subs17"></td><td id="viewgain17"></td><td id="views17"></td><td id=revgain17></td><td id="rev17"></td></tr>
-                        <tr><td id="date18"></td><td id="subgain18"></td><td id="subs18"></td><td id="viewgain18"></td><td id="views18"></td><td id=revgain18></td><td id="rev18"></td></tr>
-                        <tr><td id="date19"></td><td id="subgain19"></td><td id="subs19"></td><td id="viewgain19"></td><td id="views19"></td><td id=revgain19></td><td id="rev19"></td></tr>
-                        <tr><td id="date20"></td><td id="subgain20"></td><td id="subs20"></td><td id="viewgain20"></td><td id="views20"></td><td id=revgain20></td><td id="rev20"></td></tr>
-                        <tr><td id="date21"></td><td id="subgain21"></td><td id="subs21"></td><td id="viewgain21"></td><td id="views21"></td><td id=revgain21></td><td id="rev21"></td></tr>
-                        <tr><td id="date22"></td><td id="subgain22"></td><td id="subs22"></td><td id="viewgain22"></td><td id="views22"></td><td id=revgain22></td><td id="rev22"></td></tr>
-                        <tr><td id="date23"></td><td id="subgain23"></td><td id="subs23"></td><td id="viewgain23"></td><td id="views23"></td><td id=revgain23></td><td id="rev23"></td></tr>
-                        <tr><td id="date24"></td><td id="subgain24"></td><td id="subs24"></td><td id="viewgain24"></td><td id="views24"></td><td id=revgain24></td><td id="rev24"></td></tr>
-                        <tr><td id="date25"></td><td id="subgain25"></td><td id="subs25"></td><td id="viewgain25"></td><td id="views25"></td><td id=revgain25></td><td id="rev25"></td></tr>
-                        <tr><td id="date26"></td><td id="subgain26"></td><td id="subs26"></td><td id="viewgain26"></td><td id="views26"></td><td id=revgain26></td><td id="rev26"></td></tr>
-                        <tr><td id="date27"></td><td id="subgain27"></td><td id="subs27"></td><td id="viewgain27"></td><td id="views27"></td><td id=revgain27></td><td id="rev27"></td></tr>
-                        <tr><td id="date28"></td><td id="subgain28"></td><td id="subs28"></td><td id="viewgain28"></td><td id="views28"></td><td id=revgain28></td><td id="rev28"></td></tr>
-                        <tr><td id="date29"></td><td id="subgain29"></td><td id="subs29"></td><td id="viewgain29"></td><td id="views29"></td><td id=revgain29></td><td id="rev29"></td></tr>
-                        <tr class="xtra"><td>Daily Average<br><br>Last 28 Days</td><td><span id="subavg30"></span><br><br><span id="sub30"></span></td><td></td><td><span id="viewavg30"></span><br><br><span id="view30"></span></td><td></td><td><span id="revavg30"></span><br><br><span id="rev30"></span></td><td></td></tr>
+                        <tr><th>Date</th><th>Subscriber Gain</th><th>Subscribers</th><th>Views Gained</th><th>Views</th></tr>
+                        <tr><td id="date1"></td><td></td><td id="subs1"></td><td></td><td id="views1"></td></tr>
+                        <tr><td id="date2"></td><td id="subgain2"></td><td id="subs2"></td><td id="viewgain2"></td><td id="views2"></td></td></tr>
+                        <tr><td id="date3"></td><td id="subgain3"></td><td id="subs3"></td><td id="viewgain3"></td><td id="views3"></td></tr>
+                        <tr><td id="date4"></td><td id="subgain4"></td><td id="subs4"></td><td id="viewgain4"></td><td id="views4"></td></tr>
+                        <tr><td id="date5"></td><td id="subgain5"></td><td id="subs5"></td><td id="viewgain5"></td><td id="views5"></td></tr>
+                        <tr><td id="date6"></td><td id="subgain6"></td><td id="subs6"></td><td id="viewgain6"></td><td id="views6"></td></tr>
+                        <tr><td id="date7"></td><td id="subgain7"></td><td id="subs7"></td><td id="viewgain7"></td><td id="views7"></td></tr>
+                        <tr><td id="date8"></td><td id="subgain8"></td><td id="subs8"></td><td id="viewgain8"></td><td id="views8"></td></tr>
+                        <tr><td id="date9"></td><td id="subgain9"></td><td id="subs9"></td><td id="viewgain9"></td><td id="views9"></td></tr>
+                        <tr><td id="date10"></td><td id="subgain10"></td><td id="subs10"></td><td id="viewgain10"></td><td id="views10"></td></tr>
+                        <tr><td id="date11"></td><td id="subgain11"></td><td id="subs11"></td><td id="viewgain11"></td><td id="views11"></td></tr>
+                        <tr><td id="date12"></td><td id="subgain12"></td><td id="subs12"></td><td id="viewgain12"></td><td id="views12"></td></tr>
+                        <tr><td id="date13"></td><td id="subgain13"></td><td id="subs13"></td><td id="viewgain13"></td><td id="views13"></td></tr>
+                        <tr><td id="date14"></td><td id="subgain14"></td><td id="subs14"></td><td id="viewgain14"></td><td id="views14"></td></tr>
+                        <tr><td id="date15"></td><td id="subgain15"></td><td id="subs15"></td><td id="viewgain15"></td><td id="views15"></td></tr>
+                        <tr><td id="date16"></td><td id="subgain16"></td><td id="subs16"></td><td id="viewgain16"></td><td id="views16"></td></tr>
+                        <tr><td id="date17"></td><td id="subgain17"></td><td id="subs17"></td><td id="viewgain17"></td><td id="views17"></td></tr>
+                        <tr><td id="date18"></td><td id="subgain18"></td><td id="subs18"></td><td id="viewgain18"></td><td id="views18"></td></tr>
+                        <tr><td id="date19"></td><td id="subgain19"></td><td id="subs19"></td><td id="viewgain19"></td><td id="views19"></td></tr>
+                        <tr><td id="date20"></td><td id="subgain20"></td><td id="subs20"></td><td id="viewgain20"></td><td id="views20"></td></tr>
+                        <tr><td id="date21"></td><td id="subgain21"></td><td id="subs21"></td><td id="viewgain21"></td><td id="views21"></td></tr>
+                        <tr><td id="date22"></td><td id="subgain22"></td><td id="subs22"></td><td id="viewgain22"></td><td id="views22"></td></tr>
+                        <tr><td id="date23"></td><td id="subgain23"></td><td id="subs23"></td><td id="viewgain23"></td><td id="views23"></td></tr>
+                        <tr><td id="date24"></td><td id="subgain24"></td><td id="subs24"></td><td id="viewgain24"></td><td id="views24"></td></tr>
+                        <tr><td id="date25"></td><td id="subgain25"></td><td id="subs25"></td><td id="viewgain25"></td><td id="views25"></td></tr>
+                        <tr><td id="date26"></td><td id="subgain26"></td><td id="subs26"></td><td id="viewgain26"></td><td id="views26"></td></tr>
+                        <tr><td id="date27"></td><td id="subgain27"></td><td id="subs27"></td><td id="viewgain27"></td><td id="views27"></td></tr>
+                        <tr><td id="date28"></td><td id="subgain28"></td><td id="subs28"></td><td id="viewgain28"></td><td id="views28"></td></tr>
+                        <tr><td id="date29"></td><td id="subgain29"></td><td id="subs29"></td><td id="viewgain29"></td><td id="views29"></td></tr>
+                        <tr class="xtra"><td>Daily Average<br><br>Last 28 Days</td><td><span id="subavg30"></span><br><br><span id="sub30"></span></td><td></td><td><span id="viewavg30"></span><br><br><span id="view30"></span></td><td></td></tr>
                     </table>
                     
                     <div style='width: 1220px; background: rgb(15, 15, 15); padding: 14px 20px; color: rgb(255, 255, 255); font-size: 9pt; text-transform: uppercase; font-weight: 500; margin-top: 20px;'>Daily Subscribers</div>
@@ -156,6 +152,21 @@ tr:nth-child(odd){background: rgb(38,38,38);}
                     <div id='life-views-gain' style='width: 1260px; height: 300px; position: relative; background: rgb(26, 26, 26); margin-bottom: 20px;'></div> 
                 </div>
             </div>
+            <div id="UserSidebar">
+                <div style="width: 340px; float: left;">
+                    <div class="UserSidebarHeader">Most Recent Video</div>
+                    <div style="width: 340px; height: 191px; cursor: pointer; margin-bottom: 20px; background: #181818;">
+                        <iframe width="340px" height="191px" frameborder="0" allowfullscreen id="latvid"></iframe>
+                    </div>
+                    <div class="UserSidebarHeader">Live Subscriber Count</div>
+                    <div style="width: 340px; height: 100px; cursor: pointer; margin-bottom: 20px; background: #181818;">
+                        <div style="text-align: center;">
+                            <div class="odometer" id="livesubs" style="font-size: 60pt; font-weight: 500;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>	
@@ -164,10 +175,22 @@ tr:nth-child(odd){background: rgb(38,38,38);}
 
 var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
 
+function live() {
+    fetch('https://api.subscriberwars.space/sw/analytics').then(res =>res.json()).then(data => {
+        livesubs.innerHTML = data.totals.subscribers
+    })
+}
+
+live()
+setInterval(() => {
+    live()
+}, 60000);
+
     function dailydata() {
-        //YTStudio
-        //green: #1bed0c
-        //red: #ed2121
+
+        fetch('https://api.subscriberwars.space/youtube/playlist/UUdKLd9f_8ZyDSKxMm16oRww').then(res =>res.json()).then(data => {
+            latvid.src = "https://www.youtube.com/embed/" + data.items[0].contentDetails.videoId
+        })
         fetch('https://api.subscriberwars.space/youtube/channel/v2/UCdKLd9f_8ZyDSKxMm16oRww').then(res =>res.json()).then(data => {
             videocount.innerHTML=data.items[0].statistics.videoCount;
             UserTopInfoAvatar.src=data.items[0].snippet.thumbnails.medium.url;
@@ -180,7 +203,6 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
         fetch('https://api.subscriberwars.space/sw/analytics').then(res =>res.json()).then(data => {
             viewcount.innerHTML=data.totals.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             subscribercount.innerHTML=data.totals.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            revcount.innerHTML="£"+(data.totals.estrev/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             watch.innerHTML=Math.round((data.totals.watchtime/3600)/1000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
             let dim30=[]
@@ -194,10 +216,6 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             let view_total = []
             for(let q=0;q<data.analytics.day_30.views.length;q++){
                 view_total.push(data.analytics.day_30.views.slice(0, q+1).reduce((partialSum, a) => partialSum + a.y, 0))
-            }
-            let rev_total = []
-            for(let q=0;q<data.analytics.day_30.earnings.length;q++){
-                rev_total.push(data.analytics.day_30.earnings.slice(0, q+1).reduce((partialSum, a) => partialSum + a.y, 0))
             }
             let alldimension = []
             for(let q=0;q<data.analytics.lifetime.dimension.length;q++){
@@ -283,38 +301,6 @@ var options = {year: 'numeric' , month: 'numeric' , day: 'numeric'}
             views29.innerHTML=data.totals.views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('viewgain29').innerHTML=0;
             view30.innerHTML=(view_total[27]-view_total[0]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             viewavg30.innerHTML=Math.round((view_total[27]-view_total[0])/28).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-            rev1.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y-data.analytics.day_30.earnings[9].y-data.analytics.day_30.earnings[8].y-data.analytics.day_30.earnings[7].y-data.analytics.day_30.earnings[6].y-data.analytics.day_30.earnings[5].y-data.analytics.day_30.earnings[4].y-data.analytics.day_30.earnings[3].y-data.analytics.day_30.earnings[2].y-data.analytics.day_30.earnings[1].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            rev2.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y-data.analytics.day_30.earnings[9].y-data.analytics.day_30.earnings[8].y-data.analytics.day_30.earnings[7].y-data.analytics.day_30.earnings[6].y-data.analytics.day_30.earnings[5].y-data.analytics.day_30.earnings[4].y-data.analytics.day_30.earnings[3].y-data.analytics.day_30.earnings[2].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain2').innerHTML="£"+(data.analytics.day_30.earnings[1].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[1].y>0){document.getElementById('revgain2').style.color='#1bed0c'};
-            rev3.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y-data.analytics.day_30.earnings[9].y-data.analytics.day_30.earnings[8].y-data.analytics.day_30.earnings[7].y-data.analytics.day_30.earnings[6].y-data.analytics.day_30.earnings[5].y-data.analytics.day_30.earnings[4].y-data.analytics.day_30.earnings[3].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain3').innerHTML="£"+(data.analytics.day_30.earnings[2].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[2].y>0){document.getElementById('revgain3').style.color='#1bed0c'};
-            rev4.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y-data.analytics.day_30.earnings[9].y-data.analytics.day_30.earnings[8].y-data.analytics.day_30.earnings[7].y-data.analytics.day_30.earnings[6].y-data.analytics.day_30.earnings[5].y-data.analytics.day_30.earnings[4].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain4').innerHTML="£"+(data.analytics.day_30.earnings[3].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[3].y>0){document.getElementById('revgain4').style.color='#1bed0c'};
-            rev5.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y-data.analytics.day_30.earnings[9].y-data.analytics.day_30.earnings[8].y-data.analytics.day_30.earnings[7].y-data.analytics.day_30.earnings[6].y-data.analytics.day_30.earnings[5].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain5').innerHTML="£"+(data.analytics.day_30.earnings[4].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[4].y>0){document.getElementById('revgain5').style.color='#1bed0c'};
-            rev6.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y-data.analytics.day_30.earnings[9].y-data.analytics.day_30.earnings[8].y-data.analytics.day_30.earnings[7].y-data.analytics.day_30.earnings[6].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain6').innerHTML="£"+(data.analytics.day_30.earnings[5].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[5].y>0){document.getElementById('revgain6').style.color='#1bed0c'};
-            rev7.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y-data.analytics.day_30.earnings[9].y-data.analytics.day_30.earnings[8].y-data.analytics.day_30.earnings[7].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain7').innerHTML="£"+(data.analytics.day_30.earnings[6].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[6].y>0){document.getElementById('revgain7').style.color='#1bed0c'};
-            rev8.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y-data.analytics.day_30.earnings[9].y-data.analytics.day_30.earnings[8].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain8').innerHTML="£"+(data.analytics.day_30.earnings[7].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[7].y>0){document.getElementById('revgain8').style.color='#1bed0c'};
-            rev9.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y-data.analytics.day_30.earnings[9].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain9').innerHTML="£"+(data.analytics.day_30.earnings[8].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[8].y>0){document.getElementById('revgain9').style.color='#1bed0c'};
-            rev10.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y-data.analytics.day_30.earnings[10].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain10').innerHTML="£"+(data.analytics.day_30.earnings[9].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[9].y>0){document.getElementById('revgain10').style.color='#1bed0c'};
-            rev11.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y-data.analytics.day_30.earnings[11].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain11').innerHTML="£"+(data.analytics.day_30.earnings[10].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[10].y>0){document.getElementById('revgain11').style.color='#1bed0c'};
-            rev12.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y-data.analytics.day_30.earnings[12].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain12').innerHTML="£"+(data.analytics.day_30.earnings[11].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[11].y>0){document.getElementById('revgain12').style.color='#1bed0c'};
-            rev13.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y-data.analytics.day_30.earnings[13].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain13').innerHTML="£"+(data.analytics.day_30.earnings[12].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[12].y>0){document.getElementById('revgain13').style.color='#1bed0c'};
-            rev14.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y-data.analytics.day_30.earnings[14].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain14').innerHTML="£"+(data.analytics.day_30.earnings[13].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[13].y>0){document.getElementById('revgain14').style.color='#1bed0c'};
-            rev15.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y-data.analytics.day_30.earnings[15].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain15').innerHTML="£"+(data.analytics.day_30.earnings[14].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[14].y>0){document.getElementById('revgain15').style.color='#1bed0c'};
-            rev16.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y-data.analytics.day_30.earnings[16].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain16').innerHTML="£"+(data.analytics.day_30.earnings[15].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[15].y>0){document.getElementById('revgain16').style.color='#1bed0c'};
-            rev17.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y-data.analytics.day_30.earnings[17].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain17').innerHTML="£"+(data.analytics.day_30.earnings[16].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[16].y>0){document.getElementById('revgain17').style.color='#1bed0c'};
-            rev18.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y-data.analytics.day_30.earnings[18].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain18').innerHTML="£"+(data.analytics.day_30.earnings[17].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[17].y>0){document.getElementById('revgain18').style.color='#1bed0c'};
-            rev19.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y-data.analytics.day_30.earnings[19].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain19').innerHTML="£"+(data.analytics.day_30.earnings[18].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[18].y>0){document.getElementById('revgain19').style.color='#1bed0c'};
-            rev20.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y-data.analytics.day_30.earnings[20].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain20').innerHTML="£"+(data.analytics.day_30.earnings[19].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[19].y>0){document.getElementById('revgain20').style.color='#1bed0c'};
-            rev21.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y-data.analytics.day_30.earnings[21].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain21').innerHTML="£"+(data.analytics.day_30.earnings[20].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[20].y>0){document.getElementById('revgain21').style.color='#1bed0c'};
-            rev22.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y-data.analytics.day_30.earnings[22].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain22').innerHTML="£"+(data.analytics.day_30.earnings[21].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[21].y>0){document.getElementById('revgain22').style.color='#1bed0c'};
-            rev23.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y-data.analytics.day_30.earnings[23].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain23').innerHTML="£"+(data.analytics.day_30.earnings[22].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[22].y>0){document.getElementById('revgain23').style.color='#1bed0c'};
-            rev24.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y-data.analytics.day_30.earnings[24].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain24').innerHTML="£"+(data.analytics.day_30.earnings[23].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[23].y>0){document.getElementById('revgain24').style.color='#1bed0c'};
-            rev25.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y-data.analytics.day_30.earnings[25].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain25').innerHTML="£"+(data.analytics.day_30.earnings[24].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[24].y>0){document.getElementById('revgain25').style.color='#1bed0c'};
-            rev26.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y-data.analytics.day_30.earnings[26].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain26').innerHTML="£"+(data.analytics.day_30.earnings[25].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[25].y>0){document.getElementById('revgain26').style.color='#1bed0c'};
-            rev27.innerHTML="£"+((data.totals.estrev-data.analytics.day_30.earnings[27].y)/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain27').innerHTML="£"+(data.analytics.day_30.earnings[26].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[26].y>0){document.getElementById('revgain27').style.color='#1bed0c'};
-            rev28.innerHTML="£"+(data.totals.estrev/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain28').innerHTML="£"+(data.analytics.day_30.earnings[27].y/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); if(data.analytics.day_30.earnings[27].y>0){document.getElementById('revgain28').style.color='#1bed0c'};
-            rev29.innerHTML="£"+(data.totals.estrev/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); document.getElementById('revgain29').innerHTML="£0.00";
-            rev30.innerHTML='£'+((rev_total[27]-rev_total[0])/1000).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            revavg30.innerHTML='£'+(((rev_total[27]-rev_total[0])/1000)/28).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
             //monthsubs
             Highcharts.chart('month-subs', {
