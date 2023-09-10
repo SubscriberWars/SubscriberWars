@@ -4,6 +4,7 @@
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="/js/odometer.js"></script>
     <title id="page_title"></title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-38E6Z6MEMP"></script>
@@ -36,6 +37,10 @@
                 <div class="bottom_odometer" id="channel_goal"></div>
             </div>
         </div>
+    </div>
+    <div class="graph_box">
+        <div id="chart"></div>
+        <p id="gdata" style="display: none;"></p>
     </div>
 </body>
 
@@ -160,23 +165,82 @@
         background: #000;
         border: 1px solid #fff;
     }
+    .graph_box {
+        width: 1260px;
+        height: 400px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 </style>
 
 <script>
     var channel = window.location.href.split('?u=')[1] || '';
+    document.addEventListener("DOMContentLoaded", function () {
+        var chart;
 
-    function stats(chanid) {
-        fetch("https://api.subscriberwars.space/minecraft/java/"+chanid).then(res=>res.json()).then(data=>{
-            page_title.innerHTML= data.name+"'s Live Player Count"
-            channel_title.innerHTML=data.name
-            channel_image.src=data.logo
-            channel_subscribers.innerHTML=data.player_count
-            channel_views.innerHTML=data.max_players
-            channel_goal.innerHTML=data.version
-        })
-    }
-    stats(channel)
-    setInterval(() => {
+        chart = Highcharts.chart({
+            chart: {
+                renderTo: 'chart',
+                type: 'spline',
+                zoomType: 'x',
+                backgroundColor: 'transparent',
+                plotBorderColor: 'transparent'
+            },
+            title: { text: '' },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 100,
+                gridLineColor: '#transparent',
+                labels: { style: { color: 'white' } },
+                minorGridLineColor: '#transparent',
+                tickColor: 'white',
+                lineColor: 'white',
+                title: { style: { color: '#transparent' } }
+            },
+            yAxis: {
+                title: { text: '' },
+                gridLineColor: '#transparent',
+                labels: { style: { color: 'white' } },
+                lineColor: 'white',
+                minorGridLineColor: 'transparent',
+                tickColor: 'white'
+            },
+            credits: { enabled: false, text: "" },
+            plotOptions: { spline: { fillOpacity: 0.5 } },
+            series: [{ showInLegend: false, name: 'Players Online', marker: { enabled: false }, lineColor: '#33ff00', color: '#33ff00', lineWidth: 4 }]
+        });
+
+        function stats(chanid) {
+            fetch("https://api.subscriberwars.space/minecraft/java/" + chanid)
+                .then(res => res.json())
+                .then(data => {
+                    page_title.innerHTML = data.name + "'s Live Player Count"
+                    channel_title.innerHTML = data.name
+                    channel_image.src = data.logo
+                    channel_subscribers.innerHTML = data.player_count
+                    channel_views.innerHTML = data.max_players
+                    channel_goal.innerHTML = data.version
+                    gdata.innerHTML = data.player_count
+
+                    var result = gdata.innerHTML
+                    var inject = parseFloat(result)
+
+                    if (chart.series[0].points.length >= 180) {
+                        chart.series[0].data[0].remove()
+                    }
+                    chart.series[0].addPoint([Date.now(), inject])
+                })
+        }
+
         stats(channel)
-    }, 10000);
+        setInterval(function () {
+            stats(channel)
+        }, 10000)
+    })
 </script>
