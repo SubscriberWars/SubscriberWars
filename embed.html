@@ -1,0 +1,143 @@
+<head>
+    <title id="title"></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+</head>
+
+<body style="font-family: roboto;">
+    <img id="user_image" alt="Profile Image" style="top: 5px; left: 5px; object-fit: cover; height: 100px; width: 100px; border: 1px solid #000; border-radius: 10px; position: relative;">
+    <span style="position: absolute; top: 15px; left: 120px; width: 500px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 25px;">
+        <span style="vertical-align: middle; top: 0px; position: relative;">
+            <img id="platform_image" style="height: 25px;">
+        </span>
+        <span id="user_title" style="vertical-align: middle; position: relative; top: -5px;">&nbsp;User To Display</span>
+    </span>
+    <div class="odometer" id="user_count" style="font-size: 50px; font-weight: 500; position: relative; left: 10px; top: -20px;"></div>
+</body>
+
+<script>
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var query = params.get("q");
+    var type = params.get("t");
+    var uid = "";
+
+    if (type == "yt_subs_api" || type == "yt_subs_axe" || type == "yt_subs_sc" || type == "yt_subs_mix" || type == "yt_subs_xyz" || type == "yt_subs_lol") {
+        platform_image.src = "/images/youtube.svg"
+    }
+
+    if (type == "twitch") {platform_image.src = "/images/twitch.svg"}
+
+    //endpoints
+    function youtube_api(id) {
+        fetch("https://api.subscriberwars.space/youtube/channel/v2/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML=data.items[0].snippet.title
+            user_image.src=data.items[0].snippet.thumbnails.medium.url
+            user_count.innerHTML=data.items[0].statistics.subscriberCount
+        })
+    }
+
+    function youtube_axe(id) {
+        fetch("https://axern.space/api/get?platform=youtube&type=channel&id="+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML=data.snippet.title
+            user_image.src=data.snippet.thumbnails.medium.url
+            user_count.innerHTML=data.estSubCount
+        })
+    }
+
+    function youtube_lol(id) {
+        fetch("https://api.subscriberwars.space/est/lolraw/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML=data.DataContents[1].value
+            user_image.src=data.DataContents[3].value
+            user_count.innerHTML=data.DataContents[5].value.followerCount
+        })
+    }
+
+    function youtube_mix(id) {
+        fetch("https://mixerno.space/api/youtube-channel-counter/user/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML=data.user[0].count
+            user_image.src=data.user[1].count
+            user_count.innerHTML=data.counts[0].count
+        })
+    }
+
+    function youtube_xyz(id) {
+        fetch("https://livecounts.xyz/api/youtube-live-subscriber-count/live/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML=data.user.name
+            user_image.src=data.user.pfp.replace("s88","s100")
+            user_count.innerHTML=data.counts[0]
+        })
+    }
+
+    function youtube_sc(id) {
+        fetch("https://api.socialcounts.org/youtube-live-subscriber-count/"+id).then(res=>res.json()).then(data=>{
+            user_count.innerHTML=data.est_sub
+        })
+    }
+
+    function twitch_user(id) {
+        fetch("https://api.subscriberwars.space/twitch/user/"+id).then(res=>res.json()).then(data=>{
+            uid = data.iD
+            user_title.innerHTML = data.name
+            user_image.src = data.logo
+        })
+    }
+
+    function twitch_count(tid) {
+        fetch("https://api.subscriberwars.space/twitch/"+tid).then(res=>res.json()).then(data=>{
+            user_count.innerHTML = data.followerCount
+        })
+    }
+
+    //type control
+
+    if (type == "yt_subs_api") {
+        youtube_api(query)
+        setInterval(() => {
+            youtube_api(query)
+        }, 10000);
+    }
+
+    if (type == "yt_subs_axe") {
+        youtube_axe(query)
+        setInterval(() => {
+            youtube_axe(query)
+        }, 2000);
+    }
+
+    if (type == "yt_subs_lol") {
+        youtube_lol(query)
+        setInterval(() => {
+            youtube_lol(query)
+        }, 2000);
+    }
+
+    if (type == "yt_subs_mix") {
+        youtube_mix(query)
+        setInterval(() => {
+            youtube_mix(query)
+        }, 2000);
+    }
+
+    if (type == "yt_subs_xyz") {
+        youtube_xyz(query)
+        setInterval(() => {
+            youtube_xyz(query)
+        }, 2000);
+    }
+
+    if (type == "yt_subs_sc") {
+        youtube_api(query)
+        setInterval(() => {
+            youtube_sc(query)
+        }, 2000);
+    }
+
+    if (type == "twitch") {
+        twitch_user(query)
+        setInterval(() => {
+            twitch_count(uid)
+        }, 5000);
+    }
+</script>

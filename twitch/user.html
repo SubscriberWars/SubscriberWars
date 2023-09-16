@@ -29,12 +29,7 @@
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
         <div class="bottom_data">
-            <div class="bottom_counts">
-                <div class="bottom_odometer" id="channel_views"></div>
-                <div class="bottom_text"><i class="fa fa-sharp fa-user"></i> Latest Follower</div>
-            </div>
-            <div class="bottom_counts"></div>
-            <div class="bottom_counts">
+            <div class="bottom_counts" style="width: 100%;">
                 <div class="odometer bottom_odometer" id="channel_goal"></div>
                 <div class="bottom_text"><i class="fa fa-sharp fa-goal-net"></i> Goal</div>
             </div>
@@ -201,7 +196,6 @@
     function stats(id) {
         fetch("https://api.subscriberwars.space/twitch/"+id).then(res=>res.json()).then(data=>{
             channel_subscribers.innerHTML=data.followerCount
-            channel_views.innerHTML=data.latestFollower
             if(data.followerCount>=0) {goal01.innerHTML=10}
             if(data.followerCount>=10) {goal01.innerHTML=100}
             if(data.followerCount>=100) {goal01.innerHTML=1000}
