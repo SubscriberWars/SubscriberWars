@@ -8,9 +8,9 @@
 
 <body style="font-family: roboto;">
     <img id="user_image" alt="Profile Image" style="top: 5px; left: 5px; object-fit: cover; height: 100px; width: 100px; border: 1px solid #000; border-radius: 10px; position: relative;">
-    <span style="position: absolute; top: 15px; left: 120px; width: 500px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 25px;">
+    <span style="position: absolute; top: 15px; left: 120px; width: 500px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 30px;">
         <span style="vertical-align: middle; top: 0px; position: relative;">
-            <img id="platform_image" style="height: 25px;">
+            <img id="platform_image" style="height: 30px;">
         </span>
         <span id="user_title" style="vertical-align: middle; position: relative; top: -5px;">&nbsp;User To Display</span>
     </span>
@@ -22,12 +22,21 @@
     var query = params.get("q");
     var type = params.get("t");
     var uid = "";
+    var follow = "";
 
     if (type == "yt_subs_api" || type == "yt_subs_axe" || type == "yt_subs_sc" || type == "yt_subs_mix" || type == "yt_subs_xyz" || type == "yt_subs_lol") {
         platform_image.src = "/images/youtube.svg"
     }
-
     if (type == "twitch") {platform_image.src = "/images/twitch.svg"}
+    if (type == "x") {platform_image.src = "/images/x_.svg"}
+    if (type == "kick") {platform_image.src = "/images/kick.svg"}
+    if (type == "mc_b" || type == "mc_j") {platform_image.src = "/images/minecraft.jpg"}
+    if (type == "poly_g" || type == "poly_p" || "poly_u") {platform_image.src = "/images/polytoria.svg"}
+    if (type == "rumble") {platform_image.src = "/images/rumble.svg"}
+    if (type == "tree") {platform_image.src = "https://teamtrees.org/img/tree-group.png"}
+    if (type == "sea") {platform_image.src = "https://teamseas.org/assets/images/teamseas-logo.png"}
+    if (type == "tiktok") {platform_image.src = "/images/tiktok.svg"}
+
 
     //endpoints
     function youtube_api(id) {
@@ -90,6 +99,100 @@
         })
     }
 
+    function x(id) {
+        fetch("https://api.subscriberwars.space/x/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.name
+            user_image.src = data.pfp.replace("normal" , "400x400")
+            user_count.innerHTML = data.followers
+        })
+    }
+
+    function kick(id) {
+        fetch("https://kick.com/api/v1/channels/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.user.username
+            user_image.src = data.user.profile_pic
+            user_count.innerHTML = data.followersCount
+        })
+    }
+
+    function mcb(id) {
+        fetch("https://api.subscriberwars.space/minecraft/bedrock/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.name
+            user_image.src = data.logo
+            user_count.innerHTML = data.player_count
+        })
+    }
+
+    function mcj(id) {
+        fetch("https://api.subscriberwars.space/minecraft/java/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.name
+            user_image.src = data.logo
+            user_count.innerHTML = data.player_count
+        })
+    }
+
+    function polyg(id) {
+        fetch("https://api.subscriberwars.space/polytoria/guild/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.name
+            user_image.src = data.thumbnail
+            user_count.innerHTML = data.memberCount
+        })
+    }
+
+    function polyp(id) {
+        fetch("https://api.subscriberwars.space/polytoria/place/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.name
+            user_image.src = data.thumbnail
+            user_count.innerHTML = data.visits
+        })
+    }
+
+    function polyu() {
+        fetch("https://api.subscriberwars.space/polytoria/users/").then(res=>res.json()).then(data=>{
+            user_title.innerHTML = "Polytoria Total Users"
+            user_image.src = "/images/polytoria.svg"
+            user_count.innerHTML = data.total
+        })
+    }
+
+    function rumble(id) {
+        fetch("https://api.subscriberwars.space/rumble/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.data.title
+            user_image.src = data.data.thumb
+            user_count.innerHTML = data.data.followers
+        })
+    }
+
+    function tree() {
+        user_title.innerHTML = "#TeamTrees"
+        user_image.src = "https://teamtrees.org/img/tree-group.png"
+        fetch("https://api.subscriberwars.space/teamtrees").then(res=>res.json()).then(data=>{
+            user_count.innerHTML = data.total
+        })
+    }
+
+    function sea() {
+        user_title.innerHTML = "#TeamSeas"
+        user_image.src = "https://teamseas.org/assets/images/teamseas-logo.png"
+        fetch("https://api.subscriberwars.space/teamseas").then(res=>res.json()).then(data=>{
+            user_count.innerHTML = data.total
+        })
+    }
+
+    function tiktok(id) {
+        fetch("https://api.subscriberwars.space/tiktok/v2/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.nickname
+            user_image.src = data.pfp
+            user_count.innerHTML = follow
+            if (data.followers<1000){follow=data.followers}
+            if(data.followers>1000){follow=data.followers+5}
+            if(data.followers>10000){follow=data.followers+50}
+            if(data.followers>100000){follow=data.followers+500}
+            if(data.followers>1000000){follow=data.followers+5000}
+            if(data.followers>10000000){follow=data.followers+50000}
+        })
+    }
+
     //type control
 
     if (type == "yt_subs_api") {
@@ -138,6 +241,83 @@
         twitch_user(query)
         setInterval(() => {
             twitch_count(uid)
-        }, 5000);
+        }, 10000);
+    }
+
+    if (type == "x") {
+        x(query)
+        setInterval(() => {
+            x(query)
+        }, 10000);
+    }
+
+    if (type == "kick") {
+        kick(query)
+        setInterval(() => {
+            kick(query)
+        }, 10000);
+    }
+
+    if (type == "mc_b") {
+        mcb(query)
+        setInterval(() => {
+            mcb(query)
+        }, 10000);
+    }
+
+    if (type == "mc_j") {
+        mcj(query)
+        setInterval(() => {
+            mcj(query)
+        }, 10000);
+    }
+
+    if (type == "poly_g") {
+        polyg(query)
+        setInterval(() => {
+            polyg(query)
+        }, 10000);
+    }
+
+    if (type == "poly_p") {
+        polyp(query)
+        setInterval(() => {
+            polyp(query)
+        }, 10000);
+    }
+
+    if (type == "poly_u") {
+        polyu()
+        setInterval(() => {
+            polyu()
+        }, 10000);
+    }
+
+    if (type == "rumble") {
+        rumble(query)
+        setInterval(() => {
+            rumble(query)
+        }, 10000);
+    }
+
+    if (type == "tree") {
+        tree()
+        setInterval(() => {
+            tree()
+        }, 10000);
+    }
+
+    if (type == "sea") {
+        sea()
+        setInterval(() => {
+            sea()
+        }, 10000);
+    }
+
+    if (type == "tiktok") {
+        tiktok(query)
+        setInterval(() => {
+            tiktok(query)
+        }, 2000);
     }
 </script>
