@@ -284,74 +284,74 @@
         banner2.src='https://www.banner.yt/'+id2+'?width=1240';
         banner3.src='https://www.banner.yt/'+id3+'?width=1240';
         banner4.src='https://www.banner.yt/'+id4+'?width=1240';
-        fetch('https://api.subscriberwars.space/youtube/channel/v2/'+id1).then(res => res.json()).then(data => {
-        title1.innerHTML = data.items[0].snippet.title
-        pfp1.src = data.items[0].snippet.thumbnails.medium.url
+        fetch('https://axern.space/api/get?platform=youtube&type=channel&id='+id1).then(res => res.json()).then(data => {
+        title1.innerHTML = data.snippet.title
+        pfp1.src = data.snippet.thumbnails.medium.url
         });
-        fetch('https://api.subscriberwars.space/youtube/channel/v2/'+id2).then(res => res.json()).then(data => {
-        title2.innerHTML = data.items[0].snippet.title
-        pfp2.src = data.items[0].snippet.thumbnails.medium.url
+        fetch('https://axern.space/api/get?platform=youtube&type=channel&id='+id2).then(res => res.json()).then(data => {
+        title2.innerHTML = data.snippet.title
+        pfp2.src = data.snippet.thumbnails.medium.url
         });
-        fetch('https://api.subscriberwars.space/youtube/channel/v2/'+id3).then(res => res.json()).then(data => {
-        title3.innerHTML = data.items[0].snippet.title
-        pfp3.src = data.items[0].snippet.thumbnails.medium.url
+        fetch('https://axern.space/api/get?platform=youtube&type=channel&id='+id3).then(res => res.json()).then(data => {
+        title3.innerHTML = data.snippet.title
+        pfp3.src = data.snippet.thumbnails.medium.url
         });
-        fetch('https://api.subscriberwars.space/youtube/channel/v2/'+id4).then(res => res.json()).then(data => {
-        title4.innerHTML = data.items[0].snippet.title
-        pfp4.src = data.items[0].snippet.thumbnails.medium.url
+        fetch('https://axern.space/api/get?platform=youtube&type=channel&id='+id4).then(res => res.json()).then(data => {
+        title4.innerHTML = data.snippet.title
+        pfp4.src = data.snippet.thumbnails.medium.url
         });
     }
 
     function main() {
-        fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
-        x1.innerHTML = data.estCounts[1]
-        x2.innerHTML = data.apiCounts[2]
-        subs1.innerHTML = data.estCounts[0]
-        gap01=data.estCounts[0]
-        list.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
+        fetch('https://axern.space/api/get?platform=youtube&type=channel&id='+id1).then(res => res.json()).then(data => {
+        x1.innerHTML = data.estViewCount
+        x2.innerHTML = data.apiVideoCount
+        subs1.innerHTML = data.estSubCount
+        gap01=data.estSubCount
+        list.unshift(data.estSubCount)//unshift: adds to start. push: adds to end
         if (list.length>43200){list.pop()}//shift: removes start. //pop: removes end
-        if (list.length>=1800) {x5.innerHTML= data.estCounts[0]-list[1799]}
-        if (list.length>=43199) {x6.innerHTML=data.estCounts[0]-list[43199]}
-        if (list.length<1800) {x5.innerHTML= (data.estCounts[0]-list[30])*60}
-        if (list.length<43199) {x6.innerHTML=(data.estCounts[0]-list[30])*1440}
+        if (list.length>=1800) {x5.innerHTML= data.estSubCount-list[1799]}
+        if (list.length>=43199) {x6.innerHTML=data.estSubCount-list[43199]}
+        if (list.length<1800) {x5.innerHTML= (data.estSubCount-list[30])*60}
+        if (list.length<43199) {x6.innerHTML=(data.estSubCount-list[30])*1440}
 
         });
-        fetch('https://api.subscriberwars.space/stream/'+id2).then(res => res.json()).then(data => {
-        x3.innerHTML = data.estCounts[1]
-        x4.innerHTML = data.apiCounts[2]
-        subs2.innerHTML=data.estCounts[0]
-        gap02=data.estCounts[0]
-        list1.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
+        fetch('https://axern.space/api/get?platform=youtube&type=channel&id='+id2).then(res => res.json()).then(data => {
+        x3.innerHTML = data.estViewCount
+        x4.innerHTML = data.apiVideoCount
+        subs2.innerHTML=data.estSubCount
+        gap02=data.estSubCount
+        list1.unshift(data.estSubCount)//unshift: adds to start. push: adds to end
         if (list1.length>43200){list1.pop()}//shift: removes start. //pop: removes end
-        if (list1.length>=1800) {x7.innerHTML= data.estCounts[0]-list1[1799]}
-        if (list1.length>=43199) {x8.innerHTML=data.estCounts[0]-list1[43199]}
-        if (list1.length<1800) {x7.innerHTML= (data.estCounts[0]-list1[30])*60}
-        if (list1.length<43199) {x8.innerHTML=(data.estCounts[0]-list1[30])*1440}
+        if (list1.length>=1800) {x7.innerHTML= data.estSubCount-list1[1799]}
+        if (list1.length>=43199) {x8.innerHTML=data.estSubCount-list1[43199]}
+        if (list1.length<1800) {x7.innerHTML= (data.estSubCount-list1[30])*60}
+        if (list1.length<43199) {x8.innerHTML=(data.estSubCount-list1[30])*1440}
         diff.innerHTML=gap01-gap02
         });
-        fetch('https://api.subscriberwars.space/stream/'+id3).then(res => res.json()).then(data => {
-        x9.innerHTML = data.estCounts[1]
-        x10.innerHTML = data.apiCounts[2]
-        subs3.innerHTML=data.estCounts[0]
-        gap03=data.estCounts[0]
-        list2.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
+        fetch('https://axern.space/api/get?platform=youtube&type=channel&id='+id3).then(res => res.json()).then(data => {
+        x9.innerHTML = data.estViewCount
+        x10.innerHTML = data.apiVideoCount
+        subs3.innerHTML=data.estSubCount
+        gap03=data.estSubCount
+        list2.unshift(data.estSubCount)//unshift: adds to start. push: adds to end
         if (list2.length>43200){list2.pop()}//shift: removes start. //pop: removes end
-        if (list2.length>=1800) {x11.innerHTML= data.estCounts[0]-list2[1799]}
-        if (list2.length>=43199) {x12.innerHTML=data.estCounts[0]-list2[43199]}
-        if (list2.length<1800) {x11.innerHTML= (data.estCounts[0]-list2[30])*60}
-        if (list2.length<43199) {x12.innerHTML=(data.estCounts[0]-list2[30])*1440}
+        if (list2.length>=1800) {x11.innerHTML= data.estSubCount-list2[1799]}
+        if (list2.length>=43199) {x12.innerHTML=data.estSubCount-list2[43199]}
+        if (list2.length<1800) {x11.innerHTML= (data.estSubCount-list2[30])*60}
+        if (list2.length<43199) {x12.innerHTML=(data.estSubCount-list2[30])*1440}
         });
-        fetch('https://api.subscriberwars.space/stream/'+id4).then(res => res.json()).then(data => {
-        x13.innerHTML = data.estCounts[1]
-        x14.innerHTML = data.apiCounts[2]
-        subs4.innerHTML=data.estCounts[0]
-        gap04=data.estCounts[0]
-        list3.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
+        fetch('https://axern.space/api/get?platform=youtube&type=channel&id='+id4).then(res => res.json()).then(data => {
+        x13.innerHTML = data.estViewCount
+        x14.innerHTML = data.apiVideoCount
+        subs4.innerHTML=data.estSubCount
+        gap04=data.estSubCount
+        list3.unshift(data.estSubCount)//unshift: adds to start. push: adds to end
         if (list3.length>43200){list3.pop()}//shift: removes start. //pop: removes end
-        if (list3.length>=1800) {x15.innerHTML= data.estCounts[0]-list3[1799]}
-        if (list3.length>=43199) {x16.innerHTML=data.estCounts[0]-list3[43199]}
-        if (list3.length<1800) {x15.innerHTML= (data.estCounts[0]-list3[30])*60}
-        if (list3.length<43199) {x16.innerHTML=(data.estCounts[0]-list3[30])*1440}
+        if (list3.length>=1800) {x15.innerHTML= data.estSubCount-list3[1799]}
+        if (list3.length>=43199) {x16.innerHTML=data.estSubCount-list3[43199]}
+        if (list3.length<1800) {x15.innerHTML= (data.estSubCount-list3[30])*60}
+        if (list3.length<43199) {x16.innerHTML=(data.estSubCount-list3[30])*1440}
         diff2.innerHTML=gap03-gap04
         });
     }
