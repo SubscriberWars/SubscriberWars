@@ -32,6 +32,16 @@ h3 {
     background: #fff;
     color: #000;
 }
+.notice {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    background: #830101;
+    border-radius: 10px;
+    border: 1px solid #ff0000;
+}
 .grid_container {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(600px,1fr));
