@@ -72,32 +72,32 @@
 
     function stats(chanid) {
         channel_banner.src="https://www.banner.yt/"+chanid+"?width=1260"
-        fetch("https://api.subscriberwars.space/est/axern/"+chanid).then(res=>res.json()).then(data=>{
-            page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
-            channel_image.src=data.info.pfp
-            channel_title.innerHTML=data.info.name
-            channel_title.href="https://youtube.com/channel/"+data.info.id
-            channel_subscribers.innerHTML=data.estCounts.subCount
-            channel_views.innerHTML=data.estCounts.viewCount
-            channel_videos.innerHTML=data.apiCounts.videoCount
-            site.href="https://axern.space/youtube/channel/"+data.info.id
-            channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
-            channel_link.href="https://youtube.com/channel/"+data.info.id
-            if(data.info.studio==true){document.getElementById("verified").style.display="inline"}
-            if(data.info.studio==true){document.getElementById("verified").title="This channel is sharing its true subscriber count"}
-            if (data.apiCounts.subCount<1000) {string=parseFloat(data.apiCounts.subCount)}
-            if (data.apiCounts.subCount>1000) {string=parseFloat(data.apiCounts.subCount/1000)}
-            if (data.apiCounts.subCount>1000) {string +='K'}
-            if (data.apiCounts.subCount>10000) {string=parseFloat(data.apiCounts.subCount/1000)}
-            if (data.apiCounts.subCount>10000) {string +='K'}
-            if (data.apiCounts.subCount>100000) {string=parseFloat(data.apiCounts.subCount/1000)}
-            if (data.apiCounts.subCount>100000) {string +='K'}
-            if (data.apiCounts.subCount>1000000) {string=parseFloat(data.apiCounts.subCount/1000000)}
-            if (data.apiCounts.subCount>1000000) {string +='M'}
-            if (data.apiCounts.subCount>10000000) {string=parseFloat(data.apiCounts.subCount/1000000)}
-            if (data.apiCounts.subCount>10000000) {string +='M'}
-            if (data.apiCounts.subCount>100000000) {string=parseFloat(data.apiCounts.subCount/1000000)}
-            if (data.apiCounts.subCount>100000000) {string +='M'}
+        fetch("https://axern.space/api/get?platform=youtube&type=channel&id="+chanid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.snippet.title+"'s Live Subscriber Count"
+            channel_image.src=data.snippet.thumbnails.medium.url
+            channel_title.innerHTML=data.snippet.title
+            channel_title.href="https://youtube.com/"+data.snippet.customUrl
+            channel_subscribers.innerHTML=data.estSubCount
+            channel_views.innerHTML=data.estViewCount
+            channel_videos.innerHTML=data.apiVideoCount
+            site.href="https://axern.space"
+            channel_sb.href="https://socialblade.com/youtube/c/"+data.snippet.customUrl
+            channel_link.href="https://youtube.com/"+data.snippet.customUrl
+            if(data.isStudio==true){document.getElementById("verified").style.display="inline"}
+            if(data.isStudio==true){document.getElementById("verified").title="This channel is sharing its true subscriber count"}
+            if (data.apiSubCount<1000) {string=parseFloat(data.apiSubCount)}
+            if (data.apiSubCount>1000) {string=parseFloat(data.apiSubCount/1000)}
+            if (data.apiSubCount>1000) {string +='K'}
+            if (data.apiSubCount>10000) {string=parseFloat(data.apiSubCount/1000)}
+            if (data.apiSubCount>10000) {string +='K'}
+            if (data.apiSubCount>100000) {string=parseFloat(data.apiSubCount/1000)}
+            if (data.apiSubCount>100000) {string +='K'}
+            if (data.apiSubCount>1000000) {string=parseFloat(data.apiSubCount/1000000)}
+            if (data.apiSubCount>1000000) {string +='M'}
+            if (data.apiSubCount>10000000) {string=parseFloat(data.apiSubCount/1000000)}
+            if (data.apiSubCount>10000000) {string +='M'}
+            if (data.apiSubCount>100000000) {string=parseFloat(data.apiSubCount/1000000)}
+            if (data.apiSubCount>100000000) {string +='M'}
             channel_abreviation.innerHTML=string
         })
     }
