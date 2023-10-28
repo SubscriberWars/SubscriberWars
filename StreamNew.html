@@ -184,7 +184,7 @@
     </div>
     <div class="container_av">
         <div class="box_count">
-            <img class="banner"id="banner3">
+            <!-- <img class="banner"id="banner3">
             <img class="pfp" id="pfp3">
                 <h1 id="title3">User3</h1>
                 <div style="text-align: center;"><h2 id="subs3" class="odometer"></h2></div>
@@ -207,12 +207,12 @@
                     <h3 class="odometer" id="x12"></h3>
                     <h4><i class="fa fa-chart-line"></i>  1 day Gain</h4>
                 </div>
-            </div>
+            </div>-->
         </div>
         <div class="bottom_center">
             <div class="box_center">
-                <div id="diff2" class="odometer" style="font-size: 60px; font-weight: 500;"></div>
-                <div style="font-size: 30px;">Subscriber Gap</div>
+                <!-- <div id="diff2" class="odometer" style="font-size: 60px; font-weight: 500;"></div>
+                <div style="font-size: 30px;">Subscriber Gap</div> -->
             </div>
             <div class="box_xcenter" style="height: 385px;">
                 <!-- <img src="/images/sw.png" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
@@ -231,7 +231,7 @@
             </div> -->
         </div>
         <div class="box_count">
-            <img class="banner"id="banner4">
+            <!-- <img class="banner"id="banner4">
             <img class="pfp" id="pfp4">
             <h1 id="title4">User4</h1>
             <div style="text-align: center;"><h2 id="subs4" class="odometer"></h2></div>
@@ -254,7 +254,7 @@
                     <h3 class="odometer" id="x16"></h3>
                     <h4><i class="fa-solid fa-chart-line"></i>  1 day Gain</h4>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -263,27 +263,27 @@
 <script>
     var id1="UCq-Fj5jknLsUf-MWSy4_brA"
     var id2="UCX6OQ3DkcsbYNE6H8uQQuVA"
-    var id3="UCH2VZQBLFTOp6I_qgnBJCuQ"
-    var id4="UC1a2ZCw7tugRZYRMnecNj3A"
+    // var id3="UCH2VZQBLFTOp6I_qgnBJCuQ"
+    // var id4="UC1a2ZCw7tugRZYRMnecNj3A"
 
     var socialblade1="";
     var socialblade2="";
 
     const banner1 = document.getElementById("banner1")
     const banner2 = document.getElementById("banner2")
-    const banner3 = document.getElementById("banner3")
-    const banner4 = document.getElementById("banner4")
-    var gap01=""; gap02=""; injection3=""; gap03=""; gap04=""; injection4="";
+    // const banner3 = document.getElementById("banner3")
+    // const banner4 = document.getElementById("banner4")
+     var gap01="";gap02=""; injection3=""; //gap03=""; gap04=""; injection4="";
     const list = [];
     const list1 = [];
-    const list2 = [];
-    const list3 = [];
+    // const list2 = [];
+    // const list3 = [];
 
     function load() {
         banner1.src='https://www.banner.yt/'+id1+'?width=1240';
         banner2.src='https://www.banner.yt/'+id2+'?width=1240';
-        banner3.src='https://www.banner.yt/'+id3+'?width=1240';
-        banner4.src='https://www.banner.yt/'+id4+'?width=1240';
+        // banner3.src='https://www.banner.yt/'+id3+'?width=1240';
+        // banner4.src='https://www.banner.yt/'+id4+'?width=1240';
         fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
         title1.innerHTML = data.name
         pfp1.src = data.pfp
@@ -292,14 +292,14 @@
         title2.innerHTML = data.name
         pfp2.src = data.pfp
         });
-        fetch('https://api.subscriberwars.space/stream/'+id3).then(res => res.json()).then(data => {
-        title3.innerHTML = data.name
-        pfp3.src = data.pfp
-        });
-        fetch('https://api.subscriberwars.space/stream/'+id4).then(res => res.json()).then(data => {
-        title4.innerHTML = data.name
-        pfp4.src = data.pfp
-        });
+        // fetch('https://api.subscriberwars.space/stream/'+id3).then(res => res.json()).then(data => {
+        // title3.innerHTML = data.name
+        // pfp3.src = data.pfp
+        // });
+        // fetch('https://api.subscriberwars.space/stream/'+id4).then(res => res.json()).then(data => {
+        // title4.innerHTML = data.name
+        // pfp4.src = data.pfp
+        // });
     }
 
     function main() {
@@ -329,31 +329,31 @@
         if (list1.length<43199) {x8.innerHTML=(data.estCounts[0]-list1[30])*1440}
         diff.innerHTML=gap01-gap02
         });
-        fetch('https://api.subscriberwars.space/stream/'+id3).then(res => res.json()).then(data => {
-        x9.innerHTML = data.estCounts[1]
-        x10.innerHTML = data.apiCounts[2]
-        subs3.innerHTML=data.estCounts[0]
-        gap03=data.estCounts[0]
-        list2.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
-        if (list2.length>43200){list2.pop()}//shift: removes start. //pop: removes end
-        if (list2.length>=1800) {x11.innerHTML= data.estCounts[0]-list2[1799]}
-        if (list2.length>=43199) {x12.innerHTML=data.estCounts[0]-list2[43199]}
-        if (list2.length<1800) {x11.innerHTML= (data.estCounts[0]-list2[30])*60}
-        if (list2.length<43199) {x12.innerHTML=(data.estCounts[0]-list2[30])*1440}
-        });
-        fetch('https://api.subscriberwars.space/stream/'+id4).then(res => res.json()).then(data => {
-        x13.innerHTML = data.estCounts[1]
-        x14.innerHTML = data.apiCounts[2]
-        subs4.innerHTML=data.estCounts[0]
-        gap04=data.estCounts[0]
-        list3.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
-        if (list3.length>43200){list3.pop()}//shift: removes start. //pop: removes end
-        if (list3.length>=1800) {x15.innerHTML= data.estCounts[0]-list3[1799]}
-        if (list3.length>=43199) {x16.innerHTML=data.estCounts[0]-list3[43199]}
-        if (list3.length<1800) {x15.innerHTML= (data.estCounts[0]-list3[30])*60}
-        if (list3.length<43199) {x16.innerHTML=(data.estCounts[0]-list3[30])*1440}
-        diff2.innerHTML=gap03-gap04
-        });
+        // fetch('https://api.subscriberwars.space/stream/'+id3).then(res => res.json()).then(data => {
+        // x9.innerHTML = data.estCounts[1]
+        // x10.innerHTML = data.apiCounts[2]
+        // subs3.innerHTML=data.estCounts[0]
+        // gap03=data.estCounts[0]
+        // list2.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
+        // if (list2.length>43200){list2.pop()}//shift: removes start. //pop: removes end
+        // if (list2.length>=1800) {x11.innerHTML= data.estCounts[0]-list2[1799]}
+        // if (list2.length>=43199) {x12.innerHTML=data.estCounts[0]-list2[43199]}
+        // if (list2.length<1800) {x11.innerHTML= (data.estCounts[0]-list2[30])*60}
+        // if (list2.length<43199) {x12.innerHTML=(data.estCounts[0]-list2[30])*1440}
+        // });
+        // fetch('https://api.subscriberwars.space/stream/'+id4).then(res => res.json()).then(data => {
+        // x13.innerHTML = data.estCounts[1]
+        // x14.innerHTML = data.apiCounts[2]
+        // subs4.innerHTML=data.estCounts[0]
+        // gap04=data.estCounts[0]
+        // list3.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
+        // if (list3.length>43200){list3.pop()}//shift: removes start. //pop: removes end
+        // if (list3.length>=1800) {x15.innerHTML= data.estCounts[0]-list3[1799]}
+        // if (list3.length>=43199) {x16.innerHTML=data.estCounts[0]-list3[43199]}
+        // if (list3.length<1800) {x15.innerHTML= (data.estCounts[0]-list3[30])*60}
+        // if (list3.length<43199) {x16.innerHTML=(data.estCounts[0]-list3[30])*1440}
+        // diff2.innerHTML=gap03-gap04
+        // });
     }
 
     load()
