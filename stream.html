@@ -22,7 +22,7 @@
     h2 {
         font-size: 120px;
         position: relative;
-        top: -280px;
+        top: -550px;
         font-weight: 500;
     }
     h3 {
@@ -63,7 +63,7 @@
         width: 743px;
         height: 112px;
         position: relative;
-        top: -370px;
+        top: -650px;
     }
     .container_av {
         display: flex;
@@ -79,6 +79,7 @@
         margin-top: 10px;
         border: solid 1px #000;
         border-radius: 10px;
+        overflow: hidden;
     }
     .box_center {
         background: #0f0f0f;
@@ -118,6 +119,13 @@
         border: solid 1px #000;
         border-radius: 10px;
     }
+    .chart {
+        position: relative;
+        top: -250px;
+        left: -90px;
+        width: 112%;
+        height: 275px;
+    }
 </style>
 
 <body>
@@ -126,6 +134,7 @@
             <img class="banner"id="banner1">
             <img class="pfp" id="pfp1">
             <h1 id="title1">User1</h1>
+            <div id="chart1" class="chart"></div>
             <div style="text-align: center;"><h2 id="subs1" class="odometer"></h2></div>
             <div class="container_extra">
                 <div class="box_extra">
@@ -147,6 +156,7 @@
                     <h4><i class="fa-solid fa-chart-line"></i>  1 day Gain</h4>
                 </div>
             </div>
+            <p id="gdata1" style="display: none;"></p>
         </div>
         <div>
             <div class="box_center">
@@ -159,6 +169,7 @@
             <img class="banner" id="banner2">
             <img class="pfp" id="pfp2">
             <h1 id="title2">User2</h1>
+            <div id="chart2" class="chart"></div>
             <div style="text-align: center;"><h2 id="subs2" class="odometer"></h2></div>
             <div class="container_extra">
                 <div class="box_extra">
@@ -181,109 +192,102 @@
                 </div>
             </div>
         </div>
+        <p id="gdata2" style="display: none;"></p>
     </div>
     <div class="container_av">
-        <div class="box_count">
-            <!-- <img class="banner"id="banner3">
-            <img class="pfp" id="pfp3">
-                <h1 id="title3">User3</h1>
-                <div style="text-align: center;"><h2 id="subs3" class="odometer"></h2></div>
-            <div class="container_extra">
-                <div class="box_extra">
-                    <h3 class="odometer" id="x9"></h3>
-                    <h4><i class="fa-solid fa-eye"></i> Channel Views</h4>
-                </div>
-                <div class="box_extra">
-                    <h3 class="odometer" id="x10"></h3>
-                    <h4><i class="fa-solid fa-video"></i>  Videos</h4>
-                </div>
-            </div>
-            <div class="container_extra">
-                <div class="box_extra">
-                    <h3 class="odometer" id="x11"></h3>
-                    <h4><i class="fa fa-fire"></i>  1 hour Gain</h4>
-                </div>
-                <div class="box_extra">
-                    <h3 class="odometer" id="x12"></h3>
-                    <h4><i class="fa fa-chart-line"></i>  1 day Gain</h4>
-                </div>
-            </div>-->
-        </div>
+        <div class="box_count"></div>
         <div class="bottom_center">
-            <div class="box_center">
-                <!-- <div id="diff2" class="odometer" style="font-size: 60px; font-weight: 500;"></div>
-                <div style="font-size: 30px;">Subscriber Gap</div> -->
-            </div>
-            <div class="box_xcenter" style="height: 385px;">
-                <!-- <img src="/images/sw.png" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
-                <div style="font-size: 30px; position: relative; top: -100px; left: 110px;"><i class="fa fa-youtube"></i> Subscriber Wars</div>
-                <div id="sw" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div> -->
-            </div>
-            <!-- <div class="box_xcenter">
-                <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/b4420795-8da6-4872-bfbb-7f8b9b00acfe-profile_image-300x300.png" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
-                <div style="font-size: 30px; position: relative; top: -100px; left: 110px;"><i class="fa fa-twitch"></i> JayMBurtonSW</div>
-                <div id="swtwitch" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div>
-            </div>
-            <div class="box_xcenter">
-                <img src="" id="ximage" style="width: 100px; height: 100px; border: solid 1px #000; border-radius: 10px; margin-right: 10px;">
-                <div style="font-size: 30px; position: relative; top: -100px; left: 110px;"><i class="fa-kit fa-x"></i>/<i class="fa-brands fa-twitter"></i> JayMBurtonSW</div>
-                <div id="swx" class="odometer" style="font-size: 45px; font-weight: 500; position: relative; left: 110px; top: -100px;"></div>
-            </div> -->
+            <div class="box_center"></div>
+            <div class="box_xcenter" style="height: 385px;"></div>
         </div>
-        <div class="box_count">
-            <!-- <img class="banner"id="banner4">
-            <img class="pfp" id="pfp4">
-            <h1 id="title4">User4</h1>
-            <div style="text-align: center;"><h2 id="subs4" class="odometer"></h2></div>
-            <div class="container_extra">
-                <div class="box_extra">
-                    <h3 class="odometer" id="x13"></h3>
-                    <h4><i class="fa-solid fa-eye"></i> Channel Views</h4>
-                </div>
-                <div class="box_extra">
-                    <h3 class="odometer" id="x14"></h3>
-                    <h4><i class="fa-solid fa-video"></i>  Videos</h4>
-                </div>
-            </div>
-            <div class="container_extra">
-                <div class="box_extra">
-                    <h3 class="odometer" id="x15"></h3>
-                    <h4><i class="fa fa-fire"></i>  1 hour Gain</h4>
-                </div>
-                <div class="box_extra">
-                    <h3 class="odometer" id="x16"></h3>
-                    <h4><i class="fa-solid fa-chart-line"></i>  1 day Gain</h4>
-                </div>
-            </div> -->
-        </div>
+        <div class="box_count"></div>
     </div>
 
 </body>
 
 <script>
+    var channel = window.location.href.split('?u=')[1] || '';
+    document.addEventListener("DOMContentLoaded", function () {
+        var chart1;
+        var chart2;
+        chart1 = Highcharts.chart({
+            chart: {
+                renderTo: 'chart1',
+                type: 'spline',
+                zoomType: 'x',
+                backgroundColor: 'transparent',
+                plotBorderColor: 'transparent'
+            },
+            title: { text: '' },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 100,
+                gridLineColor: '#fff',
+                labels: { style: { color: '#0f0f0f' } },
+                minorGridLineColor: '#transparent',
+                tickColor: '#transparent',
+                lineColor: '#transparent',
+                title: { style: { color: '#transparent' } }
+            },
+            yAxis: {
+                title: { text: '' },
+                gridLineColor: '#transparent',
+                labels: { style: { color: 'white' } },
+                lineColor: 'white',
+                minorGridLineColor: 'transparent',
+                tickColor: 'white'
+            },
+            credits: { enabled: false, text: "" },
+            plotOptions: { spline: { fillOpacity: 0.5 } },
+            series: [{ showInLegend: false, name: 'Subscribers', marker: { enabled: false }, lineColor: '#ff0000', color: '#ff0000', lineWidth: 4 }]
+        });
+        chart2 = Highcharts.chart({
+            chart: {
+                renderTo: 'chart2',
+                type: 'spline',
+                zoomType: 'x',
+                backgroundColor: 'transparent',
+                plotBorderColor: 'transparent'
+            },
+            title: { text: '' },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 100,
+                gridLineColor: '#fff',
+                labels: { style: { color: '#0f0f0f' } },
+                minorGridLineColor: '#transparent',
+                tickColor: '#transparent',
+                lineColor: '#transparent',
+                title: { style: { color: '#transparent' } }
+            },
+            yAxis: {
+                title: { text: '' },
+                gridLineColor: '#transparent',
+                labels: { style: { color: 'white' } },
+                lineColor: 'white',
+                minorGridLineColor: 'transparent',
+                tickColor: 'white'
+            },
+            credits: { enabled: false, text: "" },
+            plotOptions: { spline: { fillOpacity: 0.5 } },
+            series: [{ showInLegend: false, name: 'Subscribers', marker: { enabled: false }, lineColor: '#ff0000', color: '#ff0000', lineWidth: 4 }]
+        });
+
     var id1="UCq-Fj5jknLsUf-MWSy4_brA"
     var id2="UCX6OQ3DkcsbYNE6H8uQQuVA"
-    // var id3="UCH2VZQBLFTOp6I_qgnBJCuQ"
-    // var id4="UC1a2ZCw7tugRZYRMnecNj3A"
 
     var socialblade1="";
     var socialblade2="";
 
     const banner1 = document.getElementById("banner1")
     const banner2 = document.getElementById("banner2")
-    // const banner3 = document.getElementById("banner3")
-    // const banner4 = document.getElementById("banner4")
-     var gap01="";gap02=""; injection3=""; //gap03=""; gap04=""; injection4="";
+     var gap01="";gap02=""; injection3="";
     const list = [];
     const list1 = [];
-    // const list2 = [];
-    // const list3 = [];
 
     function load() {
         banner1.src='https://www.banner.yt/'+id1+'?width=1240';
         banner2.src='https://www.banner.yt/'+id2+'?width=1240';
-        // banner3.src='https://www.banner.yt/'+id3+'?width=1240';
-        // banner4.src='https://www.banner.yt/'+id4+'?width=1240';
         fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
         title1.innerHTML = data.name
         pfp1.src = data.pfp
@@ -292,14 +296,6 @@
         title2.innerHTML = data.name
         pfp2.src = data.pfp
         });
-        // fetch('https://api.subscriberwars.space/stream/'+id3).then(res => res.json()).then(data => {
-        // title3.innerHTML = data.name
-        // pfp3.src = data.pfp
-        // });
-        // fetch('https://api.subscriberwars.space/stream/'+id4).then(res => res.json()).then(data => {
-        // title4.innerHTML = data.name
-        // pfp4.src = data.pfp
-        // });
     }
 
     function main() {
@@ -307,6 +303,7 @@
         x1.innerHTML = data.estCounts[1]
         x2.innerHTML = data.apiCounts[2]
         subs1.innerHTML = data.estCounts[0]
+        gdata1.innerHTML = data.estCounts[0]
         gap01=data.estCounts[0]
         list.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
         if (list.length>43200){list.pop()}//shift: removes start. //pop: removes end
@@ -314,12 +311,20 @@
         if (list.length>=43199) {x6.innerHTML=data.estCounts[0]-list[43199]}
         if (list.length<1800) {x5.innerHTML= (data.estCounts[0]-list[30])*60}
         if (list.length<43199) {x6.innerHTML=(data.estCounts[0]-list[30])*1440}
+        var result1 = gdata1.innerHTML
+                    var inject1 = parseFloat(result1)
+
+                    if (chart1.series[0].points.length >= 1800) {
+                        chart1.series[0].data[0].remove()
+                    }
+                    chart1.series[0].addPoint([Date.now(), inject1])
 
         });
         fetch('https://api.subscriberwars.space/stream/'+id2).then(res => res.json()).then(data => {
         x3.innerHTML = data.estCounts[1]
         x4.innerHTML = data.apiCounts[2]
         subs2.innerHTML=data.estCounts[0]
+        gdata2.innerHTML = data.estCounts[0]
         gap02=data.estCounts[0]
         list1.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
         if (list1.length>43200){list1.pop()}//shift: removes start. //pop: removes end
@@ -328,37 +333,17 @@
         if (list1.length<1800) {x7.innerHTML= (data.estCounts[0]-list1[30])*60}
         if (list1.length<43199) {x8.innerHTML=(data.estCounts[0]-list1[30])*1440}
         diff.innerHTML=gap01-gap02
-        });
-        // fetch('https://api.subscriberwars.space/stream/'+id3).then(res => res.json()).then(data => {
-        // x9.innerHTML = data.estCounts[1]
-        // x10.innerHTML = data.apiCounts[2]
-        // subs3.innerHTML=data.estCounts[0]
-        // gap03=data.estCounts[0]
-        // list2.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
-        // if (list2.length>43200){list2.pop()}//shift: removes start. //pop: removes end
-        // if (list2.length>=1800) {x11.innerHTML= data.estCounts[0]-list2[1799]}
-        // if (list2.length>=43199) {x12.innerHTML=data.estCounts[0]-list2[43199]}
-        // if (list2.length<1800) {x11.innerHTML= (data.estCounts[0]-list2[30])*60}
-        // if (list2.length<43199) {x12.innerHTML=(data.estCounts[0]-list2[30])*1440}
-        // });
-        // fetch('https://api.subscriberwars.space/stream/'+id4).then(res => res.json()).then(data => {
-        // x13.innerHTML = data.estCounts[1]
-        // x14.innerHTML = data.apiCounts[2]
-        // subs4.innerHTML=data.estCounts[0]
-        // gap04=data.estCounts[0]
-        // list3.unshift(data.estCounts[0])//unshift: adds to start. push: adds to end
-        // if (list3.length>43200){list3.pop()}//shift: removes start. //pop: removes end
-        // if (list3.length>=1800) {x15.innerHTML= data.estCounts[0]-list3[1799]}
-        // if (list3.length>=43199) {x16.innerHTML=data.estCounts[0]-list3[43199]}
-        // if (list3.length<1800) {x15.innerHTML= (data.estCounts[0]-list3[30])*60}
-        // if (list3.length<43199) {x16.innerHTML=(data.estCounts[0]-list3[30])*1440}
-        // diff2.innerHTML=gap03-gap04
-        // });
-    }
+        var result2 = gdata2.innerHTML
+                    var inject2 = parseFloat(result2)
 
+                    if (chart2.series[0].points.length >= 1800) {
+                        chart2.series[0].data[0].remove()
+                    }
+                    chart2.series[0].addPoint([Date.now(), inject2])
+        });
+    }
     load()
     main()
-
     setTimeout(() => {
         setInterval(() => {
            main() 
@@ -368,7 +353,8 @@
     setInterval(() => {
            load() 
         }, 1800000);
-
     
+    })
 
 </script>
+

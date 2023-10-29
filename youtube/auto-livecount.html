@@ -18,7 +18,7 @@
       height: 400px;
       width: 743px;
       border: 1px dashed red;
-      background: transparent;
+      background: #0f0f0f;
       padding: 5px;
     }
     h1 {
@@ -101,7 +101,6 @@ function updateStats(id) {
         lapi = data.items[0].statistics.likeCount
 
     var ratio = parseFloat(capi) / parseFloat(lapi)
-                console.log(ratio)
                     views = (Math.floor(parseFloat(views) + ratio * (parseFloat(lapi) - likes)))
                         if (viewsC == capi) { } else {
                             views = (Math.floor(parseFloat(capi)))
