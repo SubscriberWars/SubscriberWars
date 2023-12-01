@@ -57,6 +57,12 @@
         overflow: hidden;
         display: flex;
     }
+    .container_info {
+        width: 1920px;
+        height: 70px;
+        overflow: hidden;
+        display: flex;
+    }
     .container_extra {
         display: flex;
         overflow: hidden;
@@ -69,7 +75,7 @@
         display: flex;
         overflow: hidden;
         width: 1920px;
-        height: 540px;
+        height: 500px;
     }
     .box_count {
         background: #0f0f0f;
@@ -91,6 +97,26 @@
         border-radius: 10px;
         text-align: center;
     }
+    .box_info {
+        background: #0f0f0f;
+        width: 743px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 5px;
+        border: solid 1px #000;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .box_info_center {
+        background: #0f0f0f;
+        width: 385px;
+        height: 50px;
+        margin-left: 10px;
+        margin-top: 5px;
+        border: solid 1px #000;
+        border-radius: 10px;
+        overflow: hidden;
+    }
     .box_extra {
         background: #000000;
         width: 355px;
@@ -104,7 +130,7 @@
     .box_xcenter {
         background: #0f0f0f;
         width: 385px;
-        height: 100px;
+        height: 80px;
         margin-left: 10px;
         margin-top: 10px;
         border: solid 1px #000;
@@ -113,9 +139,9 @@
     .box_bottom {
         background: #0f0f0f;
         width: 743px;
-        height: 400px;
+        height: 453px;
         margin-left: 10px;
-        margin-top: 10px;
+        margin-top: 5px;
         border: solid 1px #000;
         border-radius: 10px;
     }
@@ -194,13 +220,18 @@
         </div>
         <p id="gdata2" style="display: none;"></p>
     </div>
+    <div class="container_info">
+        <div class="box_info"></div>
+        <div class="box_info_center"></div>
+        <div class="box_info"></div>
+    </div>
     <div class="container_av">
-        <div class="box_count"></div>
-        <div class="bottom_center">
+        <div class="box_bottom"></div>
+        <div class="bottom_center" style="position: relative; top: -5px;">
             <div class="box_center"></div>
-            <div class="box_xcenter" style="height: 385px;"></div>
+            <div class="box_xcenter" style="height: 320px;"></div>
         </div>
-        <div class="box_count"></div>
+        <div class="box_bottom"></div>
     </div>
 
 </body>
