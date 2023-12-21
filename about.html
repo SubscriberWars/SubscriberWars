@@ -26,7 +26,6 @@
         <a class="menu_button" href="/compare/">Compare</a>
     </div>
     <div class="container2">
-        <h1>Profile Links</h1>
         <button class="links_button" style="margin-top: 10px;" onclick="window.open('https://youtube.com/@subscriberwars1','_blank')">
             <img class="button_logo" src="/images/youtube.svg">
             <div class="button_text">Subscriber Wars</div>
@@ -62,14 +61,9 @@
             <div class="button_text">Subscriber Wars</div>
             <div class="button_followers" id="rumble_1">Loading...</div>
         </button>
-        <button class="links_button" onclick="window.open('https://rumble.com/c/c-1911797','_blank')">
-            <img class="button_logo" src="/images/rumble.svg">
-            <div class="button_text">JayMBurtonSW</div>
-            <div class="button_followers" id="rumble_2">Loading...</div>
-        </button>
         <button class="links_button" onclick="window.open('https://instagram.com/jayburton135','_blank')">
             <img class="button_logo" src="/images/instagram.svg">
-            <div class="button_text">JayMBurton</div>
+            <div class="button_text">Jay Burton</div>
             <div class="button_followers" id="instagram">Loading...</div>
         </button>
         <button class="links_button" onclick="window.open('https://tiktok.com/@subscriberwars','_blank')">
@@ -87,18 +81,105 @@
             <div class="button_text">Subscriber Wars</div>
             <div class="button_followers" id="odysee">Loading...</div>
         </button>
-        <button class="links_button" onclick="window.open('https://odysee.com/@JayMBurtonSW:8','_blank')">
-            <img class="button_logo" src="/images/odysee.png">
-            <div class="button_text">JayMBurtonSW</div>
-        </button>
         <button class="links_button" onclick="window.open('https://www.facebook.com/SubscriberWars','_blank')">
             <img class="button_logo" src="/images/facebook.png">
             <div class="button_text">Subscriber Wars</div>
             <div class="button_followers" id="facebook">Loading...</div>
         </button>
+        <button class="links_button" onclick="window.open('https://bsky.app/profile/subscriberwars.bsky.social','_blank')">
+            <img class="button_logo" src="https://bsky.app/static/favicon-32x32.png">
+            <div class="button_text">Subscriber Wars</div>
+            <div class="button_followers" id="bluesky">Loading...</div>
+        </button>
+        <button class="links_button" onclick="window.open('https://www.threads.net/@jayburton135','_blank')">
+            <img class="button_logo" src="/images/threads.svg">
+            <div class="button_text">Jay Burton</div>
+            <div class="button_followers" id="threads">@jayburton135</div>
+        </button>
+        <button class="links_button" onclick="window.open('https://truthsocial.com/@subscriberwars','_blank')">
+            <img class="button_logo" src="/images/truth.png">
+            <div class="button_text">Subscriber Wars</div>
+            <div class="button_followers" id="truth">Loading...</div>
+        </button>
     </div>
     <br>
 </body>
+
+<script>
+    function followers() {
+        fetch('https://api.subscriberwars.space/youtube/channel/v2/UCdKLd9f_8ZyDSKxMm16oRww')
+        .then(res=>res.json())
+        .then(data=>{
+            youtube_1.innerHTML=data.items[0].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
+        })
+        fetch('https://api.subscriberwars.space/youtube/channel/v2/UClx-t76jqvFTcBxQsQBYJWA')
+        .then(res=>res.json())
+        .then(data=>{
+            youtube_2.innerHTML=data.items[0].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
+        })
+        fetch('https://api.subscriberwars.space/twitch/750736092')
+        .then(res=>res.json())
+        .then(data=>{
+            twitch.innerHTML=data.followerCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+        fetch('https://api.subscriberwars.space/x/subscriberwars1')
+        .then(res=>res.json())
+        .then(data=>{
+            x.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+         fetch('https://discord.com/api/v10/invites/zDvtM5SENG?with_counts=true&with_expiration=true')
+        .then(res=>res.json())
+        .then(data=>{
+            discord.innerHTML=data.approximate_member_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
+        })
+        fetch('https://kick.com/api/v1/channels/jaymburtonsw')
+        .then(res=>res.json())
+        .then(data=>{
+            kick.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+        fetch('https://api.subscriberwars.space/rumble/_c1848595')
+        .then(res=>res.json())
+        .then(data=>{
+            rumble_1.innerHTML=data.data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+        fetch('https://api.subscriberwars.space/instagram/jayburton135')
+        .then(res=>res.json())
+        .then(data=>{
+            instagram.innerHTML=data.items.followers_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+        fetch('https://api.subscriberwars.space/tiktok/v2/6744795986549408774')
+        .then(res=>res.json())
+        .then(data=>{
+            tiktok.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+        fetch('https://api.subscriberwars.space/trovo/channel/106210667')
+        .then(res=>res.json())
+        .then(data=>{
+            trovo.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
+        })
+        fetch('https://api.subscriberwars.space/sb/odysee/d9daa17752de527bd688217dac92d5fadd331f49')
+        .then(res=>res.json())
+        .then(data=>{
+            odysee.innerHTML=data.data.statistics.total.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
+        })
+        fetch('https://api.subscriberwars.space/facebook/subscriberwars')
+        .then(res=>res.json())
+        .then(data=>{
+            facebook.innerHTML=data.followers_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+        fetch("https://api.subscriberwars.space/bluesky/subscriberwars")
+        .then(res=>res.json())
+        .then(data=>{
+            bluesky.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+        fetch("https://truthsocial.com/api/v1/accounts/lookup?acct=subscriberwars")
+        .then(res=>res.json())
+        .then(data=>{
+            truth.innerHTML=data.followers_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+        })
+    }
+    followers()
+</script>
 
 <style>
     * {
@@ -133,7 +214,7 @@
         font-size: 2rem;
     }
     .container2 {
-        height: 1050px;
+        height: 900px;
         width: 1260px;
         margin: 0px auto;
         background: #0f0f0f;
@@ -206,74 +287,3 @@
     color: #000;
 }
 </style>
-
-<script>
-    function followers() {
-        fetch('https://api.subscriberwars.space/youtube/channel/UCdKLd9f_8ZyDSKxMm16oRww')
-        .then(res=>res.json())
-        .then(data=>{
-            youtube_1.innerHTML=data.items[0].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-        fetch('https://api.subscriberwars.space/youtube/channel/UClx-t76jqvFTcBxQsQBYJWA')
-        .then(res=>res.json())
-        .then(data=>{
-            youtube_2.innerHTML=data.items[0].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-        fetch('https://api.subscriberwars.space/twitch/750736092')
-        .then(res=>res.json())
-        .then(data=>{
-            twitch.innerHTML=data.followerCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-        fetch('https://api.subscriberwars.space/x/subscriberwars1')
-        .then(res=>res.json())
-        .then(data=>{
-            x.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-         fetch('https://discord.com/api/v10/invites/zDvtM5SENG?with_counts=true&with_expiration=true')
-        .then(res=>res.json())
-        .then(data=>{
-            discord.innerHTML=data.approximate_member_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
-        })
-        fetch('https://kick.com/api/v1/channels/jaymburtonsw')
-        .then(res=>res.json())
-        .then(data=>{
-            kick.innerHTML=data.followersCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-        fetch('https://api.subscriberwars.space/rumble/_c1848595')
-        .then(res=>res.json())
-        .then(data=>{
-            rumble_1.innerHTML=data.data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-        fetch('https://api.subscriberwars.space/rumble/_c1911797')
-        .then(res=>res.json())
-        .then(data=>{
-            rumble_2.innerHTML=data.data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-        fetch('https://api.subscriberwars.space/instagram/jayburton135')
-        .then(res=>res.json())
-        .then(data=>{
-            instagram.innerHTML=data.items.followers_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-        fetch('https://api.subscriberwars.space/tiktok/v2/6744795986549408774')
-        .then(res=>res.json())
-        .then(data=>{
-            tiktok.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-        fetch('https://api.subscriberwars.space/trovo/channel/106210667')
-        .then(res=>res.json())
-        .then(data=>{
-            trovo.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Members"
-        })
-        fetch('https://api.subscriberwars.space/sb/odysee/d9daa17752de527bd688217dac92d5fadd331f49')
-        .then(res=>res.json())
-        .then(data=>{
-            odysee.innerHTML=data.data.statistics.total.subscribers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
-        })
-        fetch('https://api.subscriberwars.space/facebook/subscriberwars')
-        .then(res=>res.json())
-        .then(data=>{
-            facebook.innerHTML=data.followers_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
-        })
-    }
-    followers()
-</script>
