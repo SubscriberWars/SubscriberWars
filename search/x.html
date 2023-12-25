@@ -6,11 +6,20 @@
 </head>
 <div class="container">
     <div class="head">
-        <div class="head_text"><i class="fa-kit fa-x"></i> User Search</div>
+        <div class="head_text"><i class="fa-kit fa-x"></i>Search</div>
+    </div>
+    <div style="text-align: center;">
+        <div class="dropdown">
+            <label for="dropdown" style="font-size: 40px;">What do you want to lookup?:</label>
+            <select id="dropdown">
+                <option value="user">User</option>
+                <option value="post">Post (Use Status ID)</option>
+            </select>
+        </div>
     </div>
     <form>
         <div style="display: flex; width: 80%; margin: auto;">
-            <input class="form-control mr-sm-2" id="search" placeholder="User To Search For">
+            <input class="form-control mr-sm-2" id="search" placeholder="Search">
             <button type="submit" class="searchbtn" value="Search"><i class="fa fa-fw fa-search" style="width: 100%;"></i></button>
         </div>
     </form>
@@ -63,8 +72,9 @@ $('form').submit(function(event){
 event.preventDefault()
 
 var search = $("#search").val()
+if (dropdown.value="post") {postSearch(search)}
+else {userSearch(search)}
 
-channelSearch(search)
 })
 
 function channelSearch(search) {
@@ -97,6 +107,38 @@ id5.innerHTML = "@"+data.item[4].id
 link5.href = "/x/user?u="+data.item[4].id
 })
 }
+
+function postSearch(search) {
+fetch("https://api.subscriberwars.space/x/posts/" + search).then(res => res.json()).then(data => {
+console.log(data)
+
+img1.src = data.user.profile_image.replace("normal","400x400")
+nam1.innerHTML = data.id
+id1.innerHTML = "@"+data.user.screen_name
+link1.href = "/x/post?p="+data.id
+
+img2.src = data.user.profile_image.replace("normal","400x400")
+nam2.innerHTML = data.id
+id2.innerHTML = "@"+data.user.screen_name
+link2.href = "/x/post?p="+data.id
+
+img3.src = data.user.profile_image.replace("normal","400x400")
+nam3.innerHTML = data.id
+id3.innerHTML = "@"+data.user.screen_name
+link3.href = "/x/post?p="+data.id
+
+img4.src = data.user.profile_image.replace("normal","400x400")
+nam4.innerHTML = data.id
+id4.innerHTML = "@"+data.user.screen_name
+link4.href = "/x/post?p="+data.id
+
+img5.src = data.user.profile_image.replace("normal","400x400")
+nam5.innerHTML = data.id
+id5.innerHTML = "@"+data.user.screen_name
+link5.href = "/x/post?p="+data.id
+})
+}
+
 })
 </script>
 <style>
@@ -110,7 +152,7 @@ link5.href = "/x/user?u="+data.item[4].id
     .head {
         width: 100%;
         height: 60px;
-        background-image: linear-gradient(to right, #1da1f2, #115b89);
+        background:#000;
         overflow: hidden;
         border-bottom: 1px solid #000;
         margin-bottom: 20px;
@@ -213,5 +255,18 @@ a {
     position: relative;
     left: 120px;
     top: -80px;
+}
+#dropdown {
+    height: 60px;
+    font-size: 2rem;
+    width: 20%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background: #0f0f0f;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: 500;
 }
 </style>
