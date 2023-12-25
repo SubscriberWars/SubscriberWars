@@ -8,9 +8,19 @@
     <div class="head">
         <div class="head_text">TikTok Search</div>
     </div>
+    <div style="text-align: center;">
+        <div class="dropdown">
+            <label for="dropdown" style="font-size: 40px;">What do you want to lookup?:</label>
+            <select id="dropdown">
+                <option value="user">User</option>
+                <option value="video">Video</option>
+
+            </select>
+        </div>
+    </div>
     <form>
         <div style="display: flex; width: 80%; margin: auto;">
-            <input class="form-control mr-sm-2" id="search" placeholder="User To Search For">
+            <input class="form-control mr-sm-2" id="search" placeholder="Query To Search For">
             <button type="submit" class="searchbtn" value="Search"><i class="fa fa-fw fa-search" style="width: 100%;"></i></button>
         </div>
     </form>
@@ -64,7 +74,9 @@ event.preventDefault()
 
 var search = $("#search").val()
 
-channelSearch(search)
+if (dropdown.value="video") {videoSearch(search)}
+else {channelSearch(search)}
+
 })
 
 function channelSearch(search) {
@@ -97,6 +109,38 @@ id5.innerHTML = "@"+data.item[4].uid
 link5.href = "/tiktok/followers?u="+data.item[4].id
 })
 }
+
+function videoSearch(search) {
+fetch("https://api.subscriberwars.space/search/tiktok/video/" + search).then(res => res.json()).then(data => {
+console.log(data)
+
+img1.src = data.item[0].pfp
+nam1.innerHTML = data.item[0].title
+id1.innerHTML = "@"+data.item[0].user
+link1.href = "/tiktok/video?v="+data.item[0].id
+
+img2.src = data.item[1].pfp
+nam2.innerHTML = data.item[1].title
+id2.innerHTML = "@"+data.item[1].user
+link2.href = "/tiktok/video?v="+data.item[1].id
+
+img3.src = data.item[2].pfp
+nam3.innerHTML = data.item[2].title
+id3.innerHTML = "@"+data.item[2].user
+link3.href = "/tiktok/video?v="+data.item[2].id
+
+img4.src = data.item[3].pfp
+nam4.innerHTML = data.item[3].title
+id4.innerHTML = "@"+data.item[3].user
+link4.href = "/tiktok/video?v="+data.item[3].id
+
+img5.src = data.item[4].pfp
+nam5.innerHTML = data.item[4].title
+id5.innerHTML = "@"+data.item[4].user
+link5.href = "/tiktok/video?v="+data.item[4].id
+})
+}
+
 })
 </script>
 <style>
@@ -204,7 +248,9 @@ a {
     font-weight: 900;
     position: relative;
     left: 120px;
-    top: -90px
+    top: -90px;
+    max-width:100%;
+    overflow:hidden;
 }
 
 .chan-id {
@@ -213,5 +259,18 @@ a {
     position: relative;
     left: 120px;
     top: -80px;
+}
+#dropdown {
+    height: 60px;
+    font-size: 2rem;
+    width: 20%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background: #0f0f0f;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: 500;
 }
 </style>

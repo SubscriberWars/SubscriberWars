@@ -1,0 +1,204 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <title id="page_title"></title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-38E6Z6MEMP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-38E6Z6MEMP');
+</script>
+
+<body>
+    <div class="head">
+        <div class="head_text">Live TikTok Video Statistics</div>
+    </div>
+    <div class="main_box">
+        <img id="channel_banner" src="/images/banner_placeholder.png">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="" target="_blank" ></a>
+        </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers"><i class="fa-sharp fa-eye"></i> Views</div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_views"></div>
+                <div class="bottom_text"><i class="fa-sharp fa-thumbs-up"></i> Likes</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_videos"></div>
+                <div class="bottom_text"><i class="fa-sharp fa-comment"></i> Comments</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_goal"></div>
+                <div class="bottom_text"><i class="fa-sharp fa-share"></i> Shares</div>
+            </div>
+        </div>
+        <div class="button_box">
+            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <i class="fa-sharp fa-video"></i> Go To Video
+                </button>
+            </a>
+        </div>
+    </div>
+    <p id="goal01" style="display: none;"></p>
+</body>
+
+<style>
+    body {
+        background: #181818;
+        color: #fff;
+        margin: 0;
+        font-family: roboto;
+    }
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #ff0050, #00f2ea);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+    }
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 2.5rem;
+    }
+    .main_box {
+        width: 1260px;
+        height: 900px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+    #channel_banner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+        filter: blur(3px);
+    }
+    #channel_image {
+        height: 355.56px;
+        width: 200px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        top: -200px;
+        position: relative;
+    }
+    #channel_title_container {
+        position: relative;
+        top: -200px;
+        font-size: 3rem;
+        max-height: 4.8rem;
+        overflow: hidden;
+    }
+    #channel_subscribers {
+        position: relative;
+        top: -200px;
+        font-size: 10rem;
+        font-weight: 500;
+    }
+    #subscribers {
+        position: relative;
+        top: -200px;
+        font-size: 1.5rem;
+    }
+    .bottom_data {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        display: flex;
+        top: -70px;
+    }
+    .bottom_counts {
+        margin: 5px;
+        padding: 10px;
+        width: 400px;
+        height: 130px;
+        background: #000;
+        border-radius: 10px;
+        position: relative;
+        top: -100px;
+    }
+    .bottom_odometer {
+        font-weight: 500;
+        font-size: 2.5rem;
+    }
+    .bottom_text {
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #ff0050;
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #00f2ea;
+        border-radius: 2.5px;
+    }
+    .button_box {
+        width: 1260px;
+        margin: auto;
+        display: flex;
+        position: relative;
+        top: -130px;
+    }
+    .bott_button {
+        width: 620px;
+        margin: auto;
+        background: #0f0f0f;
+        color: #fff;
+        height: 100px;
+        font-size: 30px;
+        border-radius: 10px;
+        border: 1px solid #000;
+    }
+    .bott_button:hover {
+        cursor: pointer;
+        background: #000;
+        border: 1px solid #fff;
+    }
+</style>
+
+<script>
+    var channel = window.location.href.split('?v=')[1] || '';
+    
+    function stats(chanid) {
+    fetch('https://api.subscriberwars.space/tiktok/video/'+chanid).then(res => res.json()).then(data => {
+        page_title.innerHTML= data.video.title
+        channel_title.innerHTML=data.video.title
+        channel_title.href="https://tiktok.com/"+data.user+"/video/"+data.video.id
+        channel_link.href="https://tiktok.com/"+data.user+"/video/"+data.video.id
+        channel_image.src=data.video.dynamic_cover
+        channel_banner.src=data.video.cover
+        channel_views.innerHTML = data.stats.diggCount,
+        channel_subscribers.innerHTML = data.stats.playCount,
+        channel_videos.innerHTML=data.stats.commentCount
+        channel_goal.innerHTML=data.stats.shareCount
+    });
+    
+}
+    stats(channel)
+    setInterval(() => {
+        stats(channel)
+    }, 60000);
+</script>

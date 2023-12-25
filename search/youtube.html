@@ -13,6 +13,7 @@
             <label for="dropdown" style="font-size: 40px;">What Statistic do you want to lookup?:</label>
             <select id="dropdown">
                 <option value="official">Channel | Official</option>
+                <option value="video">Video</option>
                 <option value="axern">Channel | Axern.space</option>
                 <option value="lol">Channel | Livecounts.lol</option>
                 <option value="mixerno">Channel | Mixerno.space</option>
@@ -77,7 +78,8 @@ event.preventDefault()
 
 var search = $("#search").val()
 
-channelSearch(search)
+if(dropdown.value=="video"){videosearch(search)}
+else{channelSearch(search)}
 })
 
 const dropdown = document.getElementById('dropdown');
@@ -137,6 +139,38 @@ if(dropdown.value=="lol"){link5.href="/youtube/subscribers/lol?u="+data.item[4].
 if(dropdown.value=="sc"){link5.href="/youtube/subscribers/sc?u="+data.item[4].id}
 })
 }
+
+function videosearch(search) {
+fetch("https://api.subscriberwars.space/search/youtube/video/" + search).then(res => res.json()).then(data => {
+console.log(data)
+
+img1.src = data.item[0].pfp
+nam1.innerHTML = data.item[0].title
+id1.innerHTML = data.item[0].id
+link1.href="/youtube/video?v="+data.item[0].id
+
+img2.src = data.item[1].pfp
+nam2.innerHTML = data.item[1].title
+id2.innerHTML = data.item[1].id
+link2.href="/youtube/video?v="+data.item[1].id
+
+img3.src = data.item[2].pfp
+nam3.innerHTML = data.item[2].title
+id3.innerHTML = data.item[2].id
+link3.href="/youtube/video?v="+data.item[2].id
+
+img4.src = data.item[3].pfp
+nam4.innerHTML = data.item[3].title
+id4.innerHTML = data.item[3].id
+link4.href="/youtube/video?v="+data.item[3].id
+
+img5.src = data.item[4].pfp
+nam5.innerHTML = data.item[4].title
+id5.innerHTML = data.item[4].id
+link5.href="/youtube/video?v="+data.item[4].id
+})
+}
+
 })
 </script>
 <style>
