@@ -1,0 +1,191 @@
+<head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body style="background: #000;">
+    <div id='life-subs' style='width: 600px; height: 400px; position: relative; background: #0f0f0f; margin-bottom: 0px;'></div>
+    <div id='subs-gain' style='width: 600px; height: 400px; position: relative; background: #0f0f0f; margin-bottom: 0px;'></div>
+</body>
+
+<script>
+  async function getstats() {
+    try {
+        const [u1, u2] = await Promise.all([
+            fetch("https://api.subscriberwars.space/sb/yt/history/UCq-Fj5jknLsUf-MWSy4_brA"),
+            fetch("https://api.subscriberwars.space/sb/yt/history/UCX6OQ3DkcsbYNE6H8uQQuVA")
+        ]);
+        const r = [await u1.json(), await u2.json()];
+        const rev_data_0 = r[0].data.daily.reverse();
+        const rev_data_1 = r[1].data.daily.reverse();
+        let dim = rev_data_0.map((entry)=>entry.date);
+        let subs_0 = rev_data_0.map((entry)=>entry.subs);
+        let subs_1 = rev_data_1.map((entry)=>entry.subs);
+        const gain_0 = rev_data_0.map((entry,index)=>{
+          if(index===0){return 0;}else{return entry.subs - rev_data_0[index-1].subs;}
+        });
+        const gain_1 = rev_data_1.map((entry,index)=>{
+          if(index===0){return 0;}else{return entry.subs - rev_data_1[index-1].subs;}
+        });
+
+        //charts
+        Highcharts.chart('life-subs', {
+          chart: {
+            type: 'spline',
+            backgroundColor: '#0f0f0f',
+            zoomType: 'xy',
+            style: {
+              fontFamily: 'roboto',
+              fontWeight: 'bold',
+              color: "#fff",
+            }
+          },
+          title: {
+            text: 'Daily Subscribers',
+            style: {
+              color: '#fff',
+              fontWeight: '500'
+            }
+          },
+          xAxis: {
+            tickInterval: 200,
+            labels: {
+              style: {
+                color: '#fff',
+                fontWeight: '500'
+              }
+            },
+            categories: dim
+          },
+          yAxis: {
+            labels: {
+              style: {
+                color: '#fff',
+                fontWeight: '500'
+              }
+            },
+            title: {
+              text: '',
+              style: {
+                color: '#fff',
+                fontWeight: '500'
+              }
+            }
+          },
+          tooltip: {
+            shared: true,
+            valueSuffix: ''
+          },
+          credits: {
+            enabled: false
+          },
+          plotOptions: {
+            spline: {
+              color: '#ff0000',
+              lineWidth: '3',
+              marker: {
+                enabled: false
+              }
+            }
+          },
+          series: [
+            {
+            name: 'T-Series',
+            showInLegend: false,
+            color:'red',
+            data: subs_0
+          },
+          {
+            name: 'MrBeast',
+            showInLegend: false,
+            color:'blue',
+            data: subs_1
+          }
+        ]
+        });
+        Highcharts.chart('subs-gain', {
+          chart: {
+            type: 'column',
+            backgroundColor: '#0f0f0f',
+            zoomType: 'xy',
+            style: {
+              fontFamily: 'roboto',
+              fontWeight: 'bold',
+              color: "#fff",
+            }
+          },
+          title: {
+            text: 'Daily Gain',
+            style: {
+              color: '#fff',
+              fontWeight: '500'
+            }
+          },
+          xAxis: {
+            tickInterval: 200,
+            labels: {
+              style: {
+                color: '#fff',
+                fontWeight: '500'
+              }
+            },
+            categories: dim
+          },
+          yAxis: {
+            labels: {
+              style: {
+                color: '#fff',
+                fontWeight: '500'
+              }
+            },
+            title: {
+              text: '',
+              style: {
+                color: '#fff',
+                fontWeight: '500'
+              }
+            }
+          },
+          tooltip: {
+            shared: true,
+            valueSuffix: ''
+          },
+          credits: {
+            enabled: false
+          },
+          plotOptions: {
+            column: {
+              color: '#ff0000',
+              pointWidth: '2',
+              marker: {
+                enabled: false
+              }
+            }
+          },
+          series: [
+            {
+            name: 'T-Series',
+            showInLegend: false,
+            color:'rgb(255,0,0,1)',
+            data: gain_0
+          },
+          {
+            name: 'MrBeast',
+            showInLegend: false,
+            color:'rgb(0,0,255,0.7)',
+            data: gain_1
+          }
+        ]
+        });
+        
+    } catch (e) {
+        console.log(e);
+    }
+}
+  getstats()
+  setInterval(() => {
+    getstats()
+  }, 60*(60*1000));
+</script>
