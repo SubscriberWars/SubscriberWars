@@ -24,7 +24,7 @@
     var uid = "";
     var follow = "";
 
-    if (type == "yt_subs_api" || type == "yt_subs_axe" || type == "yt_subs_sc" || type == "yt_subs_mix" || type == "yt_subs_xyz" || type == "yt_subs_lol") {
+    if (type == "yt_subs_api" || type == "yt_subs_axe" || type == "yt_subs_sc" || type == "yt_subs_mix" || type == "yt_subs_xyz" || type == "yt_subs_lol" || type=="yt_subs_next") {
         platform_image.src = "/images/youtube.svg"
     }
     if (type == "twitch") {platform_image.src = "/images/twitch.svg"}
@@ -76,6 +76,14 @@
             user_title.innerHTML=data.user.name
             user_image.src=data.user.pfp.replace("s88","s100")
             user_count.innerHTML=data.counts[0]
+        })
+    }
+
+    function youtube_next(id) {
+        fetch("https://api-v2.nextcounts.com/api/youtube/channel/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML=data.username
+            user_image.src=data.userImg.replace("s88","s100")
+            user_count.innerHTML=data.subcount
         })
     }
 
@@ -220,6 +228,13 @@
         youtube_mix(query)
         setInterval(() => {
             youtube_mix(query)
+        }, 2000);
+    }
+    
+    if (type == "yt_subs_next") {
+        youtube_next(query)
+        setInterval(() => {
+            youtube_next(query)
         }, 2000);
     }
 
