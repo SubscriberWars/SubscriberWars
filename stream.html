@@ -152,6 +152,13 @@
         width: 112%;
         height: 275px;
     }
+    .chart0 {
+        position: relative;
+        top: 0px;
+        left: -90px;
+        width: 120%;
+        height: 400px;
+    }
 </style>
 
 <body>
@@ -189,7 +196,9 @@
                 <div id="diff" class="odometer" style="font-size: 60px; font-weight: 500;"></div>
                 <div style="font-size: 30px;">Subscriber Gap</div>
             </div>
-            <div class="box_center" style="height: 390px;"></div>
+            <div class="box_center" style="height: 390px;">
+                <div id="chart3" class="chart0"></div>
+            </div>
         </div>
         <div class="box_count">
             <img class="banner" id="banner2">
@@ -254,7 +263,7 @@
                 type: 'datetime',
                 tickPixelInterval: 100,
                 gridLineColor: '#fff',
-                labels: { style: { color: '#0f0f0f' } },
+                labels: { style: { color: '#transparent' } },
                 minorGridLineColor: '#transparent',
                 tickColor: '#transparent',
                 lineColor: '#transparent',
@@ -263,7 +272,7 @@
             yAxis: {
                 title: { text: '' },
                 gridLineColor: '#transparent',
-                labels: { style: { color: 'white' } },
+                labels: { style: { color: 'transparent' } },
                 lineColor: 'white',
                 minorGridLineColor: 'transparent',
                 tickColor: 'white'
@@ -294,14 +303,45 @@
             yAxis: {
                 title: { text: '' },
                 gridLineColor: '#transparent',
-                labels: { style: { color: 'white' } },
+                labels: { style: { color: 'transparent' } },
                 lineColor: 'white',
                 minorGridLineColor: 'transparent',
                 tickColor: 'white'
             },
             credits: { enabled: false, text: "" },
             plotOptions: { spline: { fillOpacity: 0.5 } },
-            series: [{ showInLegend: false, name: 'Subscribers', marker: { enabled: false }, lineColor: '#ff0000', color: '#ff0000', lineWidth: 4 }]
+            series: [{ showInLegend: false, name: 'Subscribers', marker: { enabled: false }, lineColor: 'blue', color: 'blue', lineWidth: 4 }]
+        });
+        chart3 = Highcharts.chart({
+            chart: {
+                renderTo: 'chart3',
+                type: 'spline',
+                zoomType: 'x',
+                backgroundColor: 'transparent',
+                plotBorderColor: 'transparent'
+            },
+            title: { text: '' },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 100,
+                gridLineColor: '#fff',
+                labels: { style: { color: '#0f0f0f' } },
+                minorGridLineColor: '#transparent',
+                tickColor: '#transparent',
+                lineColor: '#transparent',
+                title: { style: { color: '#transparent' } }
+            },
+            yAxis: {
+                title: { text: '' },
+                gridLineColor: '#transparent',
+                labels: { style: { color: 'transparent' } },
+                lineColor: 'white',
+                minorGridLineColor: 'transparent',
+                tickColor: 'white'
+            },
+            credits: { enabled: false, text: "" },
+            plotOptions: { spline: { fillOpacity: 0.5 } },
+            series: [{ showInLegend: false, name: 'Subscribers', marker: { enabled: false }, lineColor: 'white', color: 'white', lineWidth: 4 }]
         });
 
     var id1="UCq-Fj5jknLsUf-MWSy4_brA"
@@ -365,13 +405,24 @@
         if (list1.length<43199) {x8.innerHTML=(data.estCounts[0]-list1[30])*1440}
         diff.innerHTML=gap01-gap02
         var result2 = gdata2.innerHTML
-                    var inject2 = parseFloat(result2)
+        var inject2 = parseFloat(result2)
 
-                    if (chart2.series[0].points.length >= 1800) {
-                        chart2.series[0].data[0].remove()
-                    }
-                    chart2.series[0].addPoint([Date.now(), inject2])
+        if (chart2.series[0].points.length >= 1800) {
+        chart2.series[0].data[0].remove()
+        }
+        chart2.series[0].addPoint([Date.now(), inject2])
+                    
         });
+    }
+
+    function difff() {
+        var result3 = gap01-gap02
+                    var inject3 = parseFloat(result3)
+
+                    if (chart3.series[0].points.length >= 1800) {
+                        chart3.series[0].data[0].remove()
+                    }
+                    chart3.series[0].addPoint([Date.now(), inject3])
     }
     load()
     main()
@@ -380,6 +431,12 @@
            main() 
         }, 2000);
     }, 5000);
+
+    setTimeout(() => {
+        setInterval(() => {
+           difff() 
+        }, 2000);
+    }, 3000);
 
     setInterval(() => {
            load() 
