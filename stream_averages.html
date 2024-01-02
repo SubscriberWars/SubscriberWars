@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>averages data</title>
+</head>
+
+<style>
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: #0f0f0f;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+table {
+  border-collapse: collapse;
+  width: 500px;
+}
+tr {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+tr:nth-child(even) {
+  background: #181818;
+}
+tr:nth-child(odd) {
+  background: #202020;
+}
+td {
+  border-left: 1px solid #000;
+}
+#t {
+  background: red;
+}
+#m {
+  background: blue;
+}
+</style>
+
+<body>
+  <table>
+    <tr>
+      <th>Subs/Min</th>
+      <th id="t">T-Series</th>
+      <th id="m">MrBeast</th>
+    </tr>
+    <tr>
+      <th>1 Min</th>
+      <td id="t1">Calculating...</td>
+      <td id="m1">Calculating...</td>
+    </tr>
+    <tr>
+      <th>5 Min</th>
+      <td id="t2">Calculating...</td>
+      <td id="m2">Calculating...</td>
+    </tr>
+    <tr>
+      <th>10 Min</th>
+      <td id="t3">Calculating...</td>
+      <td id="m3">Calculating...</td>
+    </tr>
+    <tr>
+      <th>30 Min</th>
+      <td id="t4">Calculating...</td>
+      <td id="m4">Calculating...</td>
+    </tr>
+    <tr>
+      <th>1 Hrs</th>
+      <td id="t5">Calculating...</td>
+      <td id="m5">Calculating...</td>
+    </tr>
+    <tr>
+      <th>6 Hrs</th>
+      <td id="t6">Calculating...</td>
+      <td id="m6">Calculating...</td>
+    </tr>
+    <tr>
+      <th>12 Hrs</th>
+      <td id="t7">Calculating...</td>
+      <td id="m7">Calculating...</td>
+    </tr>
+    <tr>
+      <th>1 Day</th>
+      <td id="t8">Calculating...</td>
+      <td id="m8">Calculating...</td>
+    </tr>
+    <tr>
+      <th>2 Day</th>
+      <td id="t9">Calculating...</td>
+      <td id="m9">Calculating...</td>
+    </tr> 
+    <tr>
+      <th>7 Day</th>
+      <td id="t10">Calculating...</td>
+      <td id="m10">Calculating...</td>
+    </tr>  
+    <tr>
+      <th>14 Day</th>
+      <td id="t11">Calculating...</td>
+      <td id="m11">Calculating...</td>
+    </tr> 
+    <tr>
+      <th>30 Day</th>
+      <td id="t12">Calculating...</td>
+      <td id="m12">Calculating...</td>
+    </tr> 
+  </table>
+</body>
+
+<script>
+list0 = [];
+list1 = [];
+function collect(){
+  fetch('https://api.yabcounts.com/public/youtube/channel/UCq-Fj5jknLsUf-MWSy4_brA?key=G3lp8G9Mm3XpE1q5bjr4d8QBDYyoVU&fields=statistics.subscriberCount').then(response => response.json()).then(data => {
+    list0.unshift(data.statistics.subscriberCount);
+    if (list0.length>43202){list0.pop()}
+    if (list0.length>=2) {
+      t1.innerHTML = Math.round(list0[0]-list0[1]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t1.innerHTML = "Calculating..."
+    }
+    if (list0.length>=6) {
+      t2.innerHTML = Math.round(list0[4]-list0[5]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t2.innerHTML = "Calculating..."
+    }
+    if (list0.length>=11) {
+      t3.innerHTML = Math.round(list0[9]-list0[10]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t3.innerHTML = "Calculating..."
+    }
+    if (list0.length>=31) {
+      t4.innerHTML = Math.round(list0[29]-list0[30]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t4.innerHTML = "Calculating..."
+    }
+    if (list0.length>=61) {
+      t5.innerHTML = Math.round(list0[59]-list0[60]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t5.innerHTML = "Calculating..."
+    }
+    if (list0.length>=361) {
+      t6.innerHTML = Math.round(list0[359]-list0[360]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t6.innerHTML = "Calculating..."
+    }
+    if (list0.length>=721) {
+      t7.innerHTML = Math.round(list0[719]-list0[720]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t7.innerHTML = "Calculating..."
+    }
+    if (list0.length>=1441) {
+      t8.innerHTML = Math.round(list0[1439]-list0[1440]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t8.innerHTML = "Calculating..."
+    }
+    if (list0.length>=2881) {
+      t9.innerHTML = Math.round(list0[2879]-list0[2880]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t9.innerHTML = "Calculating..."
+    }
+    if (list0.length>=10081) {
+      t10.innerHTML = Math.round(list0[10079]-list0[10080]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t10.innerHTML = "Calculating..."
+    }
+    if (list0.length>=21161) {
+      t11.innerHTML = Math.round(list0[21159]-list0[21160]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t11.innerHTML = "Calculating..."
+    }
+    if (list0.length>=43201) {
+      t12.innerHTML = Math.round(list0[43199]-list0[43200]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      t12.innerHTML = "Calculating..."
+    }
+    
+    })
+  fetch('https://api.yabcounts.com/public/youtube/channel/UCX6OQ3DkcsbYNE6H8uQQuVA?key=G3lp8G9Mm3XpE1q5bjr4d8QBDYyoVU&fields=statistics.subscriberCount').then(response => response.json()).then(data => {
+    list1.unshift(data.statistics.subscriberCount);
+    if (list1.length>43202){list1.pop()}
+    if (list1.length>=2) {
+      m1.innerHTML = Math.round(list1[0]-list1[1]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m1.innerHTML = "Calculating..."
+    }
+    if (list1.length>=6) {
+      m2.innerHTML = Math.round(list1[4]-list1[5]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m2.innerHTML = "Calculating..."
+    }
+    if (list1.length>=11) {
+      m3.innerHTML = Math.round(list1[9]-list1[10]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m3.innerHTML = "Calculating..."
+    }
+    if (list1.length>=31) {
+      m4.innerHTML = Math.round(list1[29]-list1[30]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m4.innerHTML = "Calculating..."
+    }
+    if (list1.length>=61) {
+      m5.innerHTML = Math.round(list1[59]-list1[60]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m5.innerHTML = "Calculating..."
+    }
+    if (list1.length>=361) {
+      m6.innerHTML = Math.round(list1[359]-list1[360]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m6.innerHTML = "Calculating..."
+    }
+    if (list1.length>=721) {
+      m7.innerHTML = Math.round(list1[719]-list1[720]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m7.innerHTML = "Calculating..."
+    }
+    if (list1.length>=1441) {
+      m8.innerHTML = Math.round(list1[1439]-list1[1440]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m8.innerHTML = "Calculating..."
+    }
+    if (list1.length>=2881) {
+      m9.innerHTML = Math.round(list1[2879]-list1[2880]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m9.innerHTML = "Calculating..."
+    }
+    if (list1.length>=10081) {
+      m10.innerHTML = Math.round(list1[10079]-list1[10080]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m10.innerHTML = "Calculating..."
+    }
+    if (list1.length>=21161) {
+      m11.innerHTML = Math.round(list1[21159]-list1[21160]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m11.innerHTML = "Calculating..."
+    }
+    if (list1.length>=43201) {
+      m12.innerHTML = Math.round(list1[43199]-list1[43200]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    } else {
+      m12.innerHTML = "Calculating..."
+    }
+
+    })
+}
+collect();
+setInterval(collect, 60000);
+</script>
+
+</html>
