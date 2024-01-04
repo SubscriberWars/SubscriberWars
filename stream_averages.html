@@ -19,7 +19,7 @@ body {
 }
 table {
   border-collapse: collapse;
-  width: 350px;
+  width: 800px;
 }
 tr {
   width: 100%;
@@ -49,66 +49,79 @@ td {
       <th>Subs/Min</th>
       <th id="t">T-Series</th>
       <th id="m">MrBeast</th>
+      <th>Est. Pass (UTC/GMT)</th>
     </tr>
     <tr>
       <th>1 Min</th>
-      <td id="t1">Calculating...</td>
-      <td id="m1">Calculating...</td>
+      <td id="t1"></td>
+      <td id="m1"></td>
+      <td id="p1"></td>
     </tr>
     <tr>
       <th>5 Min</th>
-      <td id="t2">Calculating...</td>
-      <td id="m2">Calculating...</td>
+      <td id="t2"></td>
+      <td id="m2"></td>
+      <td id="p2"></td>
     </tr>
     <tr>
       <th>10 Min</th>
-      <td id="t3">Calculating...</td>
-      <td id="m3">Calculating...</td>
+      <td id="t3"></td>
+      <td id="m3"></td>
+      <td id="p3"></td>
     </tr>
     <tr>
       <th>30 Min</th>
-      <td id="t4">Calculating...</td>
-      <td id="m4">Calculating...</td>
+      <td id="t4"></td>
+      <td id="m4"></td>
+      <td id="p4"></td>
     </tr>
     <tr>
       <th>1 Hrs</th>
-      <td id="t5">Calculating...</td>
-      <td id="m5">Calculating...</td>
+      <td id="t5"></td>
+      <td id="m5"></td>
+      <td id="p5"></td>
     </tr>
     <tr>
       <th>6 Hrs</th>
-      <td id="t6">Calculating...</td>
-      <td id="m6">Calculating...</td>
+      <td id="t6"></td>
+      <td id="m6"></td>
+      <td id="p6"></td>
     </tr>
     <tr>
       <th>12 Hrs</th>
-      <td id="t7">Calculating...</td>
-      <td id="m7">Calculating...</td>
+      <td id="t7"></td>
+      <td id="m7"></td>
+      <td id="p7"></td>
     </tr>
     <tr>
       <th>1 Day</th>
-      <td id="t8">Calculating...</td>
-      <td id="m8">Calculating...</td>
+      <td id="t8"></td>
+      <td id="m8"></td>
+      <td id="p8"></td>
     </tr>
     <tr>
       <th>2 Day</th>
-      <td id="t9">Calculating...</td>
-      <td id="m9">Calculating...</td>
+      <td id="t9"></td>
+      <td id="m9"></td>
+      <td id="p9"></td>
     </tr> 
     <tr>
       <th>7 Day</th>
-      <td id="t10">Calculating...</td>
-      <td id="m10">Calculating...</td>
+      <td id="t10"></td>
+      <td id="m10"></td>
+      <td id="p10"></td>
     </tr>  
     <tr>
       <th>14 Day</th>
-      <td id="t11">Calculating...</td>
-      <td id="m11">Calculating...</td>
+      <td id="t11"></td>
+      <td id="m11"></td>
+      <td id="p11"></td>
     </tr> 
     <tr>
       <th>30 Day</th>
-      <td id="t12">Calculating...</td>
-      <td id="m12">Calculating...</td>
+      <td id="t12"></td>
+      <td id="m12"></td>
+      <td id="p12"></td>
     </tr> 
   </table>
 </body>
@@ -123,62 +136,62 @@ function collect(){
     if (list0.length>=2) {
       t1.innerHTML = Math.round(list0[0]-list0[1]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t1.innerHTML = "Calculating..."
+      t1.innerHTML = ""
     }
     if (list0.length>=6) {
       t2.innerHTML = Math.round(list0[4]-list0[5]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t2.innerHTML = "Calculating..."
+      t2.innerHTML = ""
     }
     if (list0.length>=11) {
       t3.innerHTML = Math.round(list0[9]-list0[10]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t3.innerHTML = "Calculating..."
+      t3.innerHTML = ""
     }
     if (list0.length>=31) {
       t4.innerHTML = Math.round(list0[29]-list0[30]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t4.innerHTML = "Calculating..."
+      t4.innerHTML = ""
     }
     if (list0.length>=61) {
       t5.innerHTML = Math.round(list0[59]-list0[60]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t5.innerHTML = "Calculating..."
+      t5.innerHTML = ""
     }
     if (list0.length>=361) {
       t6.innerHTML = Math.round(list0[359]-list0[360]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t6.innerHTML = "Calculating..."
+      t6.innerHTML = ""
     }
     if (list0.length>=721) {
       t7.innerHTML = Math.round(list0[719]-list0[720]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t7.innerHTML = "Calculating..."
+      t7.innerHTML = ""
     }
     if (list0.length>=1441) {
       t8.innerHTML = Math.round(list0[1439]-list0[1440]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t8.innerHTML = "Calculating..."
+      t8.innerHTML = ""
     }
     if (list0.length>=2881) {
       t9.innerHTML = Math.round(list0[2879]-list0[2880]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t9.innerHTML = "Calculating..."
+      t9.innerHTML = ""
     }
     if (list0.length>=10081) {
       t10.innerHTML = Math.round(list0[10079]-list0[10080]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t10.innerHTML = "Calculating..."
+      t10.innerHTML = ""
     }
     if (list0.length>=21161) {
       t11.innerHTML = Math.round(list0[21159]-list0[21160]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t11.innerHTML = "Calculating..."
+      t11.innerHTML = ""
     }
     if (list0.length>=43201) {
       t12.innerHTML = Math.round(list0[43199]-list0[43200]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      t12.innerHTML = "Calculating..."
+      t12.innerHTML = ""
     }
     
     })
@@ -188,65 +201,205 @@ function collect(){
     if (list1.length>=2) {
       m1.innerHTML = Math.round(list1[0]-list1[1]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m1.innerHTML = "Calculating..."
+      m1.innerHTML = ""
     }
     if (list1.length>=6) {
       m2.innerHTML = Math.round(list1[4]-list1[5]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m2.innerHTML = "Calculating..."
+      m2.innerHTML = ""
     }
     if (list1.length>=11) {
       m3.innerHTML = Math.round(list1[9]-list1[10]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m3.innerHTML = "Calculating..."
+      m3.innerHTML = ""
     }
     if (list1.length>=31) {
       m4.innerHTML = Math.round(list1[29]-list1[30]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m4.innerHTML = "Calculating..."
+      m4.innerHTML = ""
     }
     if (list1.length>=61) {
       m5.innerHTML = Math.round(list1[59]-list1[60]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m5.innerHTML = "Calculating..."
+      m5.innerHTML = ""
     }
     if (list1.length>=361) {
       m6.innerHTML = Math.round(list1[359]-list1[360]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m6.innerHTML = "Calculating..."
+      m6.innerHTML = ""
     }
     if (list1.length>=721) {
       m7.innerHTML = Math.round(list1[719]-list1[720]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m7.innerHTML = "Calculating..."
+      m7.innerHTML = ""
     }
     if (list1.length>=1441) {
       m8.innerHTML = Math.round(list1[1439]-list1[1440]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m8.innerHTML = "Calculating..."
+      m8.innerHTML = ""
     }
     if (list1.length>=2881) {
       m9.innerHTML = Math.round(list1[2879]-list1[2880]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m9.innerHTML = "Calculating..."
+      m9.innerHTML = ""
     }
     if (list1.length>=10081) {
       m10.innerHTML = Math.round(list1[10079]-list1[10080]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m10.innerHTML = "Calculating..."
+      m10.innerHTML = ""
     }
     if (list1.length>=21161) {
       m11.innerHTML = Math.round(list1[21159]-list1[21160]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m11.innerHTML = "Calculating..."
+      m11.innerHTML = ""
     }
     if (list1.length>=43201) {
       m12.innerHTML = Math.round(list1[43199]-list1[43200]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     } else {
-      m12.innerHTML = "Calculating..."
+      m12.innerHTML = ""
     }
 
     })
+
+    //time
+    let d = new Date(); //gets current date and time
+    const now = Date.parse(d) //converts date and time to milliseconds since 00:00 1/1/1970
+    const diff = list0[0]-list1[0]
+    const days = ["Sun ","Mon ","Tue ","Wed ","Thu ","Fri ","Sat "]
+    const months = [" Jan "," Feb "," Mar "," Apr "," May "," Jun "," Jul "," Aug "," Sep "," Oct "," Nov "," Dec "]
+
+    //1min
+    if (list0.length>=2) {
+      const pass_1 = Math.round(diff/(((list1[0]-list1[1])-(list0[0]-list0[1]))/60000))
+      const d_1 = now+pass_1
+      const d1 = new Date(d_1)
+      if (pass_1<=0){
+        p1.innerHTML="Never"
+      } else {
+        p1.innerHTML= days[d1.getUTCDay()]+d1.getUTCDate()+months[d1.getUTCMonth()]+d1.getUTCFullYear()+" @ "+d1.getUTCHours()+":"+d1.getUTCMinutes()
+      }
+    }
+    //5min
+    if (list0.length>=6) {
+      const pass_2 = Math.round(diff/(((list1[4]-list1[5])-(list0[4]-list0[5]))/60000))
+      const d_2 = now+pass_2
+      const d2 = new Date(d_2)
+      if (pass_2<=0){
+        p2.innerHTML="Never"
+      } else {
+        p2.innerHTML= days[d2.getUTCDay()]+d2.getUTCDate()+months[d2.getUTCMonth()]+d2.getUTCFullYear()+" @ "+d2.getUTCHours()+":"+d2.getUTCMinutes()
+      }
+    }
+    //10min
+    if (list0.length>=11) {
+      const pass_3 = Math.round(diff/(((list1[9]-list1[10])-(list0[9]-list0[10]))/60000))
+      const d_3 = now+pass_3
+      const d3 = new Date(d_3)
+      if (pass_3<=0){
+        p3.innerHTML="Never"
+      } else {
+        p3.innerHTML= days[d3.getUTCDay()]+d3.getUTCDate()+months[d3.getUTCMonth()]+d3.getUTCFullYear()+" @ "+d3.getUTCHours()+":"+d3.getUTCMinutes()
+      }
+    }
+    //30min
+    if (list0.length>=31) {
+      const pass_4 = Math.round(diff/(((list1[29]-list1[30])-(list0[29]-list0[30]))/60000))
+      const d_4 = now+pass_4
+      const d4 = new Date(d_4)
+      if (pass_4<=0){
+        p4.innerHTML="Never"
+      } else {
+        p4.innerHTML= days[d4.getUTCDay()]+d4.getUTCDate()+months[d4.getUTCMonth()]+d4.getUTCFullYear()+" @ "+d4.getUTCHours()+":"+d4.getUTCMinutes()
+      }
+    }
+    //1hrs
+    if (list0.length>=61) {
+      const pass_5 = Math.round(diff/(((list1[59]-list1[60])-(list0[59]-list0[60]))/60000))
+      const d_5 = now+pass_5
+      const d5 = new Date(d_5)
+      if (pass_5<=0){
+        p5.innerHTML="Never"
+      } else {
+        p5.innerHTML= days[d5.getUTCDay()]+d5.getUTCDate()+months[d5.getUTCMonth()]+d5.getUTCFullYear()+" @ "+d5.getUTCHours()+":"+d5.getUTCMinutes()
+      }
+    }
+    //6hrs
+    if (list0.length>=361) {
+      const pass_6 = Math.round(diff/(((list1[359]-list1[360])-(list0[359]-list0[360]))/60000))
+      const d_6 = now+pass_6
+      const d6 = new Date(d_6)
+      if (pass_6<=0){
+        p6.innerHTML="Never"
+      } else {
+        p6.innerHTML= days[d6.getUTCDay()]+d6.getUTCDate()+months[d6.getUTCMonth()]+d6.getUTCFullYear()+" @ "+d6.getUTCHours()+":"+d6.getUTCMinutes()
+      }
+    }
+    //12hrs
+    if (list0.length>=721) {
+      const pass_7 = Math.round(diff/(((list1[719]-list1[720])-(list0[719]-list0[720]))/60000))
+      const d_7 = now+pass_7
+      const d7 = new Date(d_7)
+      if (pass_7<=0){
+        p7.innerHTML="Never"
+      } else {
+        p7.innerHTML= days[d7.getUTCDay()]+d7.getUTCDate()+months[d7.getUTCMonth()]+d7.getUTCFullYear()+" @ "+d7.getUTCHours()+":"+d7.getUTCMinutes()
+      }
+    }
+    //1day
+    if (list0.length>=1441) {
+      const pass_8 = Math.round(diff/(((list1[1439]-list1[1440])-(list0[1439]-list0[1440]))/60000))
+      const d_8 = now+pass_8
+      const d8 = new Date(d_8)
+      if (pass_8<=0){
+        p8.innerHTML="Never"
+      } else {
+        p8.innerHTML= days[d8.getUTCDay()]+d8.getUTCDate()+months[d8.getUTCMonth()]+d8.getUTCFullYear()+" @ "+d8.getUTCHours()+":"+d8.getUTCMinutes()
+      }
+    }
+    //2day
+    if (list0.length>=2881) {
+      const pass_9 = Math.round(diff/(((list1[2879]-list1[2880])-(list0[2879]-list0[2880]))/60000))
+      const d_9 = now+pass_9
+      const d9 = new Date(d_9)
+      if (pass_9<=0){
+        p9.innerHTML="Never"
+      } else {
+        p9.innerHTML= days[d9.getUTCDay()]+d9.getUTCDate()+months[d9.getUTCMonth()]+d9.getUTCFullYear()+" @ "+d9.getUTCHours()+":"+d9.getUTCMinutes()
+      }
+    }
+    //7day
+    if (list0.length>=10081) {
+      const pass_10 = Math.round(diff/(((list1[10079]-list1[10080])-(list0[10079]-list0[10080]))/60000))
+      const d_10 = now+pass_10
+      const d10 = new Date(d_10)
+      if (pass_10<=0){
+        p10.innerHTML="Never"
+      } else {
+        p10.innerHTML= days[d10.getUTCDay()]+d10.getUTCDate()+months[d10.getUTCMonth()]+d10.getUTCFullYear()+" @ "+d10.getUTCHours()+":"+d10.getUTCMinutes()
+      }
+    }
+    //14day
+    if (list0.length>=21161) {
+      const pass_11 = Math.round(diff/(((list1[21059]-list1[21060])-(list0[21059]-list0[21160]))/60000))
+      const d_11 = now+pass_11
+      const d11 = new Date(d_11)
+      if (pass_11<=0){
+        p11.innerHTML="Never"
+      } else {
+        p11.innerHTML= days[d11.getUTCDay()]+d11.getUTCDate()+months[d11.getUTCMonth()]+d11.getUTCFullYear()+" @ "+d11.getUTCHours()+":"+d11.getUTCMinutes()
+      }
+    }
+    //30day
+    if (list0.length>=43201) {
+      const pass_12 = Math.round(diff/(((list1[43199]-list1[43200])-(list0[43199]-list0[43200]))/60000))
+      const d_12 = now+pass_12
+      const d12 = new Date(d_12)
+      if (pass_12<=0){
+        p12.innerHTML="Never"
+      } else {
+        p12.innerHTML= days[d12.getUTCDay()]+d12.getUTCDate()+months[d12.getUTCMonth()]+d12.getUTCFullYear()+" @ "+d12.getUTCHours()+":"+d12.getUTCMinutes()
+      }
+    }
 }
 collect();
 setInterval(collect, 60000);
