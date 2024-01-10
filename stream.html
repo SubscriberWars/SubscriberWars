@@ -415,16 +415,6 @@
                     
         });
     }
-
-    function difff() {
-        var result3 = gap01-gap02
-                    var inject3 = parseFloat(result3)
-
-                    if (chart3.series[0].points.length >= 1800) {
-                        chart3.series[0].data[0].remove()
-                    }
-                    chart3.series[0].addPoint([Date.now(), inject3])
-    }
     load()
     main()
     setTimeout(() => {
@@ -432,12 +422,6 @@
            main() 
         }, 2000);
     }, 5000);
-
-    setTimeout(() => {
-        setInterval(() => {
-           difff() 
-        }, 2000);
-    }, 3000);
 
     setInterval(() => {
            load() 

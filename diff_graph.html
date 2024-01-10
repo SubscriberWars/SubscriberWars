@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<div id="chart" style="width:1300px; height:420px"></div>	
+
+<script type="text/javascript">
+
+var chart = Highcharts.chart({
+chart: {renderTo: 'chart',type: 'line',zoomType: 'x',backgroundColor: '#0f0f0f',plotBorderColor: 'transparent'},
+title: {text: ''},
+xAxis: {type: 'datetime', tickPixelInterval: 100, gridLineColor: '#transparent', labels: {style: {color: 'white'}}, minorGridLineColor: '#transparent', tickColor: 'white', title: {style: {color: '#transparent'}}},
+yAxis: {title: {text: ''}, gridLineColor: '#212121', labels: {style: {color: 'white'}}, lineColor: 'white', minorGridLineColor: 'transparent', tickColor: 'white'},
+credits: {enabled: false, text: ""},
+plotOptions:{line:{fillOpacity: 1}},
+series: [{showInLegend: false, name: '', marker: { enabled: false }, lineColor: 'rgb(255,0,255)', color: 'rgb(255,0,255)'}]
+});
+
+    var url0="https://api.yabcounts.com/public/youtube/channel/UCq-Fj5jknLsUf-MWSy4_brA?key=G3lp8G9Mm3XpE1q5bjr4d8QBDYyoVU&fields=statistics.subscriberCount"
+    var url1="https://api.yabcounts.com/public/youtube/channel/UCX6OQ3DkcsbYNE6H8uQQuVA?key=G3lp8G9Mm3XpE1q5bjr4d8QBDYyoVU&fields=statistics.subscriberCount"
+
+    var u0=[]
+    var u1=[]
+    var diff=[]
+ 
+function getdata() {
+    fetch(url0).then(res => res.json()).then(data => {
+        u0=data.statistics.subscriberCount
+    })
+    fetch(url1).then(res => res.json()).then(data => {
+        u1=data.statistics.subscriberCount
+    })
+}
+
+function inject() {
+    diff = u0-u1
+    if (chart.series[0].points.length >= 543434543) chart.series[0].data[0].remove();
+        chart.series[0].addPoint([Date.now(),parseFloat(diff)])
+}
+
+getdata()
+setTimeout(() => {
+    inject()
+}, 1000);
+setInterval(() => {
+    getdata()
+    setTimeout(() => {
+        inject()
+    }, 1000);
+}, 60000);
+ 
+</script>
