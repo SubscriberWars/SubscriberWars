@@ -33,8 +33,7 @@ function getdata() {
 
 function inject() {
     diff = u0-u1
-    if (chart.series[0].points.length >= 543434543) chart.series[0].data[0].remove();
-        chart.series[0].addPoint([Date.now(),parseFloat(diff)])
+    chart.series[0].addPoint([Date.now(),parseFloat(diff)])
 }
 
 getdata()
