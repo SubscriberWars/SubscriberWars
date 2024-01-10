@@ -292,9 +292,10 @@ function collect(){
     }
 
     })
-
-    //time
-    let d = new Date(); //gets current date and time
+}
+function time() {
+  //time
+  let d = new Date(); //gets current date and time
     const now = Date.parse(d) //converts date and time to milliseconds since 00:00 1/1/1970
     const diff = list0[0]-list1[0]
     const days = ["Sun ","Mon ","Tue ","Wed ","Thu ","Fri ","Sat "]
@@ -514,6 +515,7 @@ function collect(){
 }
 collect();
 setInterval(collect, 60000);
+setTimeout(setInterval(time,60000),2000);
 </script>
 
 </html>

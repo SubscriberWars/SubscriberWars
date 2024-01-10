@@ -1,0 +1,366 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet"href="/css/youtube_subs.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <title id="page_title"></title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-38E6Z6MEMP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-38E6Z6MEMP');
+</script>
+<body>
+    <div class="head">
+        <div class="head_text">YouTube Live Subscriber Count</div>
+    </div>
+    <div class="main_box">
+        <img id="channel_banner" src="/images/banner_placeholder.png">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank" ></a>
+            <i class="fa fa-badge-check"  style="display: none; color: #fff;" id="verified" title=""></i>
+        </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Subscribers</div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_views"></div>
+                <div class="bottom_text"><i class="fa fa-solid fa-eye"></i> Views</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_videos"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-video"></i> Videos</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="bottom_odometer" id="channel_abreviation"></div>
+                <div class="bottom_text"><i class="fa fa-brand fa-youtube"></i> YouTube Displays</div>
+            </div>
+        </div>
+        <div class="button_box">
+            <a id="channel_sb" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative;">
+                <button class="bott_button">
+                    <i class="fa-kit fa-socialblade"></i> Go To Social Blade Profile
+                </button>
+            </a>
+            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative;">
+                <button class="bott_button">
+                    <i class="fa fa-brand fa-youtube"></i> Go To Channel
+                </button>
+            </a>
+        </div>
+    </div>
+    <div class="main_box" style="top: 150px; position: relative; height: 1100px;">
+        <h1>Last 10 Videos</h1>
+        <table id="video_table">
+            <thead>
+                <tr>
+                    <th>Released</th>
+                    <th>Thumbnail</th>
+                    <th>Title</th>
+                    <th>Views</th>
+                    <th>Likes</th>
+                    <th>Comments</th>
+                    <th>Est. Earnings <i class="fa fa-circle-question" title="Based on a $0.25 - $4 CPM. This is assuming the channel is monetized."></i></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</body>
+
+<style>
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    th{
+        background: #000;
+    }
+    td{
+        border-bottom: 1px solid #000;
+    }
+    tr:nth-child(even){background: rgb(33,33,33);};
+    tr:nth-child(odd){background: rgb(38,38,38);}
+    tr{
+        height: 92px;
+    }
+    .t{
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .e{
+        color: #6cb700;
+    }
+    
+</style>
+
+<script>
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var channel=params.get("channel");
+    var type=params.get("type");
+    var string='';
+    string +='';
+    const channel_banner = document.getElementById("channel_banner")
+    var uid ='';
+
+    if (type=="api") {
+        api(channel)
+        setInterval(() => {
+            api(channel)
+        }, 10000);
+    }
+    if (type=="yab") {
+        yab(channel)
+        setInterval(() => {
+            yab(channel)
+        }, 4000);
+    }
+    if (type=="sc") {
+        sc(channel)
+        setInterval(() => {
+            sc(channel)
+        }, 4000);
+    }
+    if (type=="lol") {
+        lol(channel)
+        setInterval(() => {
+            lol(channel)
+        }, 4000);
+    }
+    if (type=="next") {
+        next(channel)
+        setInterval(() => {
+            next(channel)
+        }, 4000);
+    }
+    if (type=="axern") {
+        axern(channel)
+        setInterval(() => {
+            axern(channel)
+        }, 4000);
+    }
+
+    function api(chanid) {
+        channel_banner.src="https://www.banner.yt/"+chanid+"?width=1260"
+        fetch("https://api.subscriberwars.space/youtube/channel/v2/"+chanid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.items[0].snippet.title+"'s Live Subscriber Count"
+            uid=data.items[0].id.replace("UC","UU")
+            channel_image.src=data.items[0].snippet.thumbnails.medium.url
+            channel_title.innerHTML=data.items[0].snippet.title
+            channel_subscribers.innerHTML=data.items[0].statistics.subscriberCount
+            channel_views.innerHTML=data.items[0].statistics.viewCount
+            channel_videos.innerHTML=data.items[0].statistics.videoCount
+            channel_title.href="https://youtube.com/channel/"+data.items[0].id
+            channel_link.href="https://youtube.com/channel/"+data.items[0].id
+            channel_sb.href="https://socialblade.com/youtube/c/"+data.items[0].snippet.customUrl
+            channel_abreviation.innerHTML=abbreviateNumber(data.items[0].statistics.subscriberCount)
+        })
+    }
+
+    function yab(cid) {
+        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
+        fetch("https://api.subscriberwars.space/est/yab/"+cid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
+            uid=data.info.id.replace("UC","UU")
+            channel_image.src=data.info.pfp
+            channel_title.innerHTML=data.info.name
+            channel_subscribers.innerHTML=data.estCounts.subCount
+            channel_views.innerHTML=data.estCounts.viewCount
+            channel_videos.innerHTML=data.apiCounts.videoCount
+            channel_title.href="https://youtube.com/channel/"+data.info.id
+            channel_link.href="https://youtube.com/channel/"+data.info.id
+            channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
+            channel_abreviation.innerHTML=abbreviateNumber(data.apiCounts.subCount)
+        })
+    }
+
+    function sc(cid) {
+        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
+        fetch("https://api.subscriberwars.space/est/sc/"+cid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
+            uid=data.info.id.replace("UC","UU")
+            channel_image.src=data.info.pfp
+            channel_title.innerHTML=data.info.name
+            channel_subscribers.innerHTML=data.estCounts.subCount
+            channel_views.innerHTML=data.estCounts.viewCount
+            channel_videos.innerHTML=data.apiCounts.videoCount
+            channel_title.href="https://youtube.com/channel/"+data.info.id
+            channel_link.href="https://youtube.com/channel/"+data.info.id
+            channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
+            channel_abreviation.innerHTML=abbreviateNumber(data.apiCounts.subCount)
+        })
+    }
+
+    function lol(cid) {
+        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
+        fetch("https://api.subscriberwars.space/est/lol/"+cid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
+            uid=data.info.id.replace("UC","UU")
+            channel_image.src=data.info.pfp
+            channel_title.innerHTML=data.info.name
+            channel_subscribers.innerHTML=data.estCounts.subCount
+            channel_views.innerHTML=data.estCounts.viewCount
+            channel_videos.innerHTML=data.apiCounts.videoCount
+            channel_title.href="https://youtube.com/channel/"+data.info.id
+            channel_link.href="https://youtube.com/channel/"+data.info.id
+            channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
+            channel_abreviation.innerHTML=abbreviateNumber(data.apiCounts.subCount)
+        })
+    }
+
+    function next(cid) {
+        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
+        fetch("https://api.subscriberwars.space/est/next/"+cid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
+            uid=data.info.id.replace("UC","UU")
+            channel_image.src=data.info.pfp
+            channel_title.innerHTML=data.info.name
+            channel_subscribers.innerHTML=data.estCounts.subCount
+            channel_views.innerHTML=data.estCounts.viewCount
+            channel_videos.innerHTML=data.apiCounts.videoCount
+            channel_title.href="https://youtube.com/channel/"+data.info.id
+            channel_link.href="https://youtube.com/channel/"+data.info.id
+            channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
+            channel_abreviation.innerHTML=abbreviateNumber(data.apiCounts.subCount)
+        })
+    }
+    function axern(cid) {
+        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
+        fetch("https://axern.space/api/get?platform=youtube&type=channel&id="+cid).then(res=>res.json()).then(data=>{
+            if(data.isStudio==true){document.getElementById("verified").style.display="inline"}
+            if(data.isStudio==true){document.getElementById("verified").title="This channel is sharing its true subscriber & view count"}
+            page_title.innerHTML=data.snippet.title+"'s Live Subscriber Count"
+            uid=cid.replace("UC","UU")
+            channel_image.src=data.snippet.thumbnails.medium.url
+            channel_title.innerHTML=data.snippet.title
+            channel_subscribers.innerHTML=data.estSubCount
+            channel_views.innerHTML=data.estViewCount
+            channel_videos.innerHTML=data.apiVideoCount
+            channel_title.href="https://youtube.com/"+data.snippet.customUrl
+            channel_link.href="https://youtube.com/"+data.snippet.customUrl
+            channel_sb.href="https://socialblade.com/youtube/c/"+data.snippet.customUrl
+            channel_abreviation.innerHTML=abbreviateNumber(data.apiSubCount)
+        })
+    }
+
+    const vid=[]
+    const videoarray = [];
+    var urllink="https://youtu.be/"
+
+    function video() {
+        fetch("https://api.subscriberwars.space/youtube/playlist/"+uid).then(res=>res.json()).then(data=>{
+            vid[0]=data.items[0].contentDetails.videoId
+            vid[1]=data.items[1].contentDetails.videoId
+            vid[2]=data.items[2].contentDetails.videoId
+            vid[3]=data.items[3].contentDetails.videoId
+            vid[4]=data.items[4].contentDetails.videoId
+            vid[5]=data.items[5].contentDetails.videoId
+            vid[6]=data.items[6].contentDetails.videoId
+            vid[7]=data.items[7].contentDetails.videoId
+            vid[8]=data.items[8].contentDetails.videoId
+            vid[9]=data.items[9].contentDetails.videoId
+        })
+        console.log(vid)
+    }
+
+    function videosearch() {
+        fetch("https://api.subscriberwars.space/youtube/video/raw/"+vid[0]+","+vid[1]+","+vid[2]+","+vid[3]+","+vid[4]+","+vid[5]+","+vid[6]+","+vid[7]+","+vid[8]+","+vid[9]+",").then(res=>res.json()).then(data=>{
+            videoarray[0]=data.items[0]
+            videoarray[1]=data.items[1]
+            videoarray[2]=data.items[2]
+            videoarray[3]=data.items[3]
+            videoarray[4]=data.items[4]
+            videoarray[5]=data.items[5]
+            videoarray[6]=data.items[6]
+            videoarray[7]=data.items[7]
+            videoarray[8]=data.items[8]
+            videoarray[9]=data.items[9]
+        })
+        console.log(videoarray)
+    }
+
+    function inject() {
+    const tableBody = document.querySelector('#video_table tbody');
+    videoarray.forEach(dataRow => {
+        const newRow = document.createElement('tr');
+        // Properties to extract from dataRow
+        const properties = [
+            'snippet.publishedAt',
+            'snippet.thumbnails.medium.url',
+            'snippet.title',
+            'statistics.viewCount',
+            'statistics.likeCount',
+            'statistics.commentCount',
+            'statistics.estimatedRevenue'
+        ];
+        properties.forEach(property => {
+            const newCell = document.createElement('td');
+            const propertyPath = property.split('.');
+            let value = dataRow;
+            propertyPath.forEach(path => {
+                value = value[path];
+            });
+            if (property === 'snippet.publishedAt') {
+                value = value.split("T")[0]
+            }
+            // Modify the number format
+            if (property === 'statistics.viewCount' || property === 'statistics.likeCount' || property === 'statistics.commentCount') {
+                value = parseInt(value); // Convert to integer
+                value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            } else if (property === 'statistics.estimatedRevenue') {
+                // Calculate estimated revenue based on the formula
+                const viewCount = dataRow.statistics.viewCount;
+                const numericViewCount = parseInt(viewCount);
+                const revenueLow = (viewCount / 1000) * 0.25;
+                const revenueHigh = (viewCount / 1000) * 4;
+                value = `$${abbreviateNumber(revenueLow)} - $${abbreviateNumber(revenueHigh)}`;
+                newCell.style.color='green';
+            }
+            if (property === 'snippet.thumbnails.medium.url') {
+                const image = document.createElement('img');
+                image.src = value;
+                image.alt = 'Thumbnail';
+                image.style.height = '90px';
+                newCell.appendChild(image);
+            }  else {
+                newCell.textContent = value;
+                newCell.style.maxWidth = '300px';
+                newCell.style.overflow = 'hidden';
+                newCell.style.whiteSpace = 'noWrap';
+                newCell.style.textOverflow = 'ellipsis';
+                newCell.style.paddingRight = '10px';
+            }
+            newRow.appendChild(newCell);
+        });
+        tableBody.appendChild(newRow);
+    });
+}
+//abbreviator
+function abbreviateNumber(number) {
+    const SI_SYMBOLS = ["", "K", "M", "B", "T"];
+    const tier = Math.log10(Math.abs(number)) / 3 | 0;
+    const suffix = SI_SYMBOLS[tier];
+    const abbreviatedNumber = (number / Math.pow(10, tier * 3)).toPrecision(3) + suffix;
+    return abbreviatedNumber;
+}
+    
+    setTimeout(() => {
+        video(uid)
+    }, 1000);
+    setTimeout(() => {
+        videosearch(vid)
+    }, 2000);
+    setTimeout(() => {
+        inject()
+    }, 3000);
+</script>
