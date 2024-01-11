@@ -350,14 +350,13 @@
 
     var socialblade1="";
     var socialblade2="";
-
-    const banner1 = document.getElementById("banner1")
-    const banner2 = document.getElementById("banner2")
-     var gap01="";gap02=""; injection3="";
+    var gap01="";gap02=""; injection3="";
     const list = [];
     const list1 = [];
 
     function load() {
+        const banner1 = document.getElementById("banner1")
+        const banner2 = document.getElementById("banner2")
         banner1.src='https://www.banner.yt/'+id1+'?width=1240';
         banner2.src='https://www.banner.yt/'+id2+'?width=1240';
         fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
@@ -381,8 +380,8 @@
         if (list.length>43200){list.pop()}//shift: removes start. //pop: removes end
         if (list.length>=1800) {x5.innerHTML= data.estCounts[0]-list[1799]}
         if (list.length>=43199) {x6.innerHTML=data.estCounts[0]-list[43199]}
-        if (list.length<1800) {x5.innerHTML= "6666"}
-        if (list.length<43199) {x6.innerHTML="69420"}
+        if (list.length<1800 && list.length>30) {x5.innerHTML= (data.estCounts[0]-list[29])*60} else {x5.innerHTML="0"}
+        if (list.length<43199 && list.length>1800) {x6.innerHTML=(data.estCounts[0]-list[1799])*24} else {x6.innerHTML="0"}
         var result1 = gdata1.innerHTML
                     var inject1 = parseFloat(result1)
 
@@ -402,8 +401,8 @@
         if (list1.length>43200){list1.pop()}//shift: removes start. //pop: removes end
         if (list1.length>=1800) {x7.innerHTML= data.estCounts[0]-list1[1799]}
         if (list1.length>=43199) {x8.innerHTML=data.estCounts[0]-list1[43199]}
-        if (list1.length<1800) {x7.innerHTML="6666"}
-        if (list1.length<43199) {x8.innerHTML="69420"}
+        if (list1.length<1800 && list1.length>30) {x7.innerHTML= (data.estCounts[0]-list1[29])*60} else {x7.innerHTML="0"}
+        if (list1.length<43199 && list1.length>1800) {x8.innerHTML=(data.estCounts[0]-list1[1799])*24} else {x8.innerHTML="0"}
         diff.innerHTML=gap01-gap02
         var result2 = gdata2.innerHTML
         var inject2 = parseFloat(result2)
