@@ -1,0 +1,71 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+
+<body>
+    <div class="name">Subscriber Wars HQ</div>
+    <span class="head">
+        <img height="50px" src="https://flagpedia.net/data/flags/w580/gb.webp">
+        <div class="title">Penrith, CU, United Kingdom</div>
+    </span>
+    <div class="date_time" id="sw_date"></div>
+    <div class="date_time" id="sw_time"></div>
+    <div class="name">T-Series HQ</div>
+    <span class="head">
+        <img height="50px" src="https://flagpedia.net/data/flags/w580/in.webp">
+        <div class="title">New Delhi, NCT, India</div>
+    </span>
+    <div class="date_time" id="ts_date"></div>
+    <div class="date_time" id="ts_time"></div>
+    <div class="name">MrBeast HQ</div>
+    <span class="head">
+        <img height="50px" src="https://flagpedia.net/data/flags/w580/us.webp">
+        <div class="title">Greenville, NC, United States</div>
+    </span>
+    <div class="date_time" id="mb_date"></div>
+    <div class="date_time" id="mb_time"></div>
+</body>
+
+<script>
+    function time() {
+        const time = new Date()
+        sw_time.innerHTML= time.toLocaleString('en-GB', {timeZone: 'Europe/London', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+        sw_date.innerHTML= time.toLocaleString('en-GB', {timeZone: 'Europe/London', weekday: 'short', day: '2-digit', month: 'short', year:'numeric'})
+        ts_time.innerHTML= time.toLocaleString('en-GB', {timeZone: 'Asia/Kolkata', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+        ts_date.innerHTML= time.toLocaleString('en-GB', {timeZone: 'Asia/Kolkata', weekday: 'short', day: '2-digit', month: 'short', year:'numeric'})
+        mb_time.innerHTML= time.toLocaleString('en-GB', {timeZone: 'America/New_York', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+        mb_date.innerHTML= time.toLocaleString('en-GB', {timeZone: 'America/New_York', weekday: 'short', day: '2-digit', month: 'short', year:'numeric'})
+    }
+    time()
+    setInterval(() => {
+        time()
+    }, 1000);
+</script>
+
+<style>
+    *{
+        font-family: roboto;
+        color: white;
+        background: transparent;
+    }
+    .name{
+        font-size: 2rem;
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        font-style: italic;
+        margin-top: 30px;
+        color: #818181;
+    }
+    .head{
+        width: 800px;
+        display:flex;
+        font-weight: 400;
+    }
+    .title{
+        margin-left: 5px;
+        font-size: 2rem;
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+    .date_time{
+        font-size: 2rem;
+        font-weight: 500;
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    }
+</style>
