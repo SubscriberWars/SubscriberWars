@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="/js/odometer.js"></script>
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="flex">
+        <div class="count_box">
+            <img class="banner" id="banner_0">
+            <div class="flex">
+                <img class="pfp" id="pfp_0">
+                <div class="title" id="title_0"></div>
+                <div class="flex_1">
+                    <div class="second">
+                        <i class="fa fa-sharp fa-eye"></i>
+                        <div class="odometer" id="views_0"></div>
+                        <i class="fa fa-sharp fa-video"></i>
+                        <div class="odometer" id="videos_0"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="graph_0" style="width: 112%; height: 200px; position: relative; left: -12%;"></div>
+            <div class="subs_container">
+                <div class="subs odometer" id="subs_0"></div>
+            </div>
+            <div class="flex_2">
+                <div id="ts_time"></div>
+            </div>
+        </div>
+        <div>
+            <div class="video_box"></div>
+            <div class="video_box"></div>
+        </div>
+        <div class="extra_box"></div>
+    </div>
+    <div class="flex">
+        <div class="count_box">
+            <img class="banner" id="banner_1">
+            <div class="flex">
+                <img class="pfp" id="pfp_1">
+                <div class="title" id="title_1"></div>
+                <div class="flex_1">
+                    <div class="second">
+                        <i class="fa fa-sharp fa-eye"></i>
+                        <div class="odometer" id="views_1"></div>
+                        <i class="fa fa-sharp fa-video"></i>
+                        <div class="odometer" id="videos_1"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="graph_1" style="width: 112%; height: 200px; position: relative; left: -12%;"></div>
+            <div class="subs_container">
+                <div class="subs odometer" id="subs_1"></div>
+            </div>
+            <div class="flex_2">
+                <div id="mb_time"></div>
+            </div>
+        </div>
+        <div class="gap_box">
+            <div class="sub_gap_">Subscriber Gap</div>
+            <div class="sub_gap odometer" id="sub_gap"></div>
+        </div>
+        <div class="extra_box"></div>
+    </div>
+</body>
+
+<script>
+        var graph_0;
+        var graph_1;
+        graph_0 = Highcharts.chart({
+            chart: {
+                renderTo: 'graph_0',
+                type: 'spline',
+                zoomType: 'x',
+                backgroundColor: 'transparent',
+                plotBorderColor: 'transparent'
+            },
+            title: { text: '' },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 100,
+                gridLineColor: '#fff',
+                labels: { style: { color: '#transparent' } },
+                minorGridLineColor: '#transparent',
+                tickColor: '#transparent',
+                lineColor: '#transparent',
+                title: { style: { color: '#transparent' } }
+            },
+            yAxis: {
+                title: { text: '' },
+                gridLineColor: '#transparent',
+                labels: { style: { color: 'transparent' } },
+                lineColor: 'white',
+                minorGridLineColor: 'transparent',
+                tickColor: 'white'
+            },
+            credits: { enabled: false, text: "" },
+            plotOptions: { spline: { fillOpacity: 0.5 } },
+            series: [{ showInLegend: false, name: 'Subscribers', marker: { enabled: false }, lineColor: '#ff0000', color: '#ff0000', lineWidth: 4 }]
+        });
+        graph_1 = Highcharts.chart({
+            chart: {
+                renderTo: 'graph_1',
+                type: 'spline',
+                zoomType: 'x',
+                backgroundColor: 'transparent',
+                plotBorderColor: 'transparent'
+            },
+            title: { text: '' },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 100,
+                gridLineColor: '#fff',
+                labels: { style: { color: '#transparent' } },
+                minorGridLineColor: '#transparent',
+                tickColor: '#transparent',
+                lineColor: '#transparent',
+                title: { style: { color: '#transparent' } }
+            },
+            yAxis: {
+                title: { text: '' },
+                gridLineColor: '#transparent',
+                labels: { style: { color: 'transparent' } },
+                lineColor: 'white',
+                minorGridLineColor: 'transparent',
+                tickColor: 'white'
+            },
+            credits: { enabled: false, text: "" },
+            plotOptions: { spline: { fillOpacity: 0.5 } },
+            series: [{ showInLegend: false, name: 'Subscribers', marker: { enabled: false }, lineColor: 'blue', color: 'blue', lineWidth: 4 }]
+        });
+
+var id0="UCq-Fj5jknLsUf-MWSy4_brA"
+var id1="UCX6OQ3DkcsbYNE6H8uQQuVA"
+var s0=[]; var s1=[];
+    
+    function load() {
+        const banner_0 = document.getElementById("banner_0")
+        const banner_1 = document.getElementById("banner_1")
+        banner_0.src='https://www.banner.yt/'+id0+'?width=1240';
+        banner_1.src='https://www.banner.yt/'+id1+'?width=1240';
+        fetch('https://api.subscriberwars.space/stream/'+id0).then(res => res.json()).then(data => {
+        title_0.innerHTML = data.name
+        pfp_0.src = data.pfp
+        views_0.innerHTML = data.estCounts[1]
+        videos_0.innerHTML = data.apiCounts[2]
+        subs_0.innerHTML = data.estCounts[0]
+        });
+        fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
+        title_1.innerHTML = data.name
+        pfp_1.src = data.pfp
+        views_1.innerHTML = data.estCounts[1]
+        videos_1.innerHTML = data.apiCounts[2]
+        subs_1.innerHTML = data.estCounts[0]
+        });
+    }
+    load()
+
+    function update() {
+        fetch('https://api.subscriberwars.space/stream/'+id0).then(res => res.json()).then(data => {
+        views_0.innerHTML = data.estCounts[1]
+        videos_0.innerHTML = data.apiCounts[2]
+        subs_0.innerHTML = data.estCounts[0]
+        s0 = data.estCounts[0]
+        if (graph_0.series[0].points.length >= 1800) {
+            graph_0.series[0].data[0].remove()
+        }
+        graph_0.series[0].addPoint([Date.now(), data.estCounts[0]])
+        });
+        fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
+        views_1.innerHTML = data.estCounts[1]
+        videos_1.innerHTML = data.apiCounts[2]
+        subs_1.innerHTML = data.estCounts[0]
+        s1 = data.estCounts[0]
+        if (graph_1.series[0].points.length >= 1800) {
+            graph_1.series[0].data[0].remove()
+        }
+        graph_1.series[0].addPoint([Date.now(), data.estCounts[0]])
+        });
+        sub_gap.innerHTML = s0-s1
+    }
+
+    function time() {
+        const time = new Date()
+        //sw_time.innerHTML= time.toLocaleString('en-GB', {timeZone: 'Europe/London', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+        //sw_date.innerHTML= time.toLocaleString('en-GB', {timeZone: 'Europe/London', weekday: 'short', day: '2-digit', month: 'short', year:'numeric'})
+        ts_time.innerHTML= "New Delhi, NCT, India, "+time.toLocaleString('en-GB', {timeZone: 'Asia/Kolkata', weekday: 'short', day: '2-digit', month: 'short', year:'numeric' ,hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+        mb_time.innerHTML= "Greenville, NC, United States, "+time.toLocaleString('en-GB', {timeZone: 'America/New_York', weekday: 'short', day: '2-digit', month: 'short', year:'numeric', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+    }
+
+    setInterval(update,2000)
+    setInterval(load,60000)
+    setInterval(time,1000)
+</script>
+
+<style>
+    body {
+        width: 1920px;
+        height: 1080px;
+        border: 1px dashed red;
+        background: #0f0f0f;
+        font-family: roboto;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex_1 {
+        position: relative;
+        top: 50px;
+        left: -110px;
+        display: flex;
+    }
+    .count_box {
+        width: 800px;
+        height: 520px;
+        background: #000;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .gap_box {
+        width: 600px;
+        height: 520px;
+        background: #000;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .video_box {
+        width: 600px;
+        height: 255px;
+        background: #000;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .extra_box {
+        width: 480px;
+        height: 520px;
+        background: #000;
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .banner {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .pfp {
+        width: 150px;
+        position: relative;
+        left: 20px;
+        top: -50px;
+        border: 1px solid #000;
+        border-radius: 10px;
+    }
+    .title {
+        font-size: 2rem;
+        font-weight: 500;
+        color: #fff;
+        position: relative;
+        left: 30px;
+    }
+    .second {
+        color: #fff;
+        font-size: 1.75rem;
+        position: relative;
+    }
+    .subs {
+        font-size: 7rem;
+        color: #fff;
+        font-weight: 500;
+
+    }
+    .subs_container {
+        width: 100%;
+        text-align: center;
+        position: relative;
+        top: -200px;
+    }
+    .flex_2 {
+        position: relative;
+        top: -180px;
+        left: 10px;
+        color: #fff;
+        font-size: 1.5rem;
+        display: flex;
+    }
+    .sub_gap_ {
+        font-size: 2rem;
+        color: #fff;
+    }
+    .sub_gap {
+        font-size: 4rem;
+        color: #fff;
+        font-weight: 500;
+    }
+    
+</style>

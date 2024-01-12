@@ -15,69 +15,53 @@
       margin: 0;
     }
     body {
-      height: 400px;
-      width: 743px;
+      height: 255px;
+      width: 600px;
       border: 1px dashed red;
       background: transparent;
       padding: 5px;
     }
     h1 {
       position: absolute;
-      left: 210px;
+      left: 160px;
       top: 5px;
       height: 100px;
-      width: 500px;
-      font-size: 40px;
+      width: 400px;
+      font-size: 1.5rem;
       color: #fff;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     #thumbnail {
-      width: 200px;
-      height:100px;
+      width: 150px;
       border: 1px #000 solid;
       border-radius: 10px;
     }
-    #viewsOdometer {
-      width: 743px;
-      font-size: 6rem;
-      color: #fff;
-      display: block;
+    .likes-comments {
+      width: 100%;
       text-align: center;
-      height: 140px;
+      font-size: 2.5rem;
     }
-    #viewtext {
-      width: 743px;
-      font-size: 30px;
+    #views_ {
+      font-size: 2rem;
       color: #fff;
-      display: block;
+      font-weight: 500;
       text-align: center;
-    }
-    #likes-comments {
-      width: 743px;
-      height: 120px;
-      display: flex;
-    }
-    #like-span, #comment-span {
-      width: 371.5px;
+      width: 100%;
     }
 </style>
 
 <body>
   <img id=thumbnail>
   <h1 id=vidtitle>Loading Latest Video...</h1>
-  <h2 id="viewsOdometer" class=odometer>0</h2>
-  <div id="viewtext"><i class="fa fa-sharp fa-eye"></i> Views</div>
-  <div id="likes-comments">
-    <div id="like-span">
-      <div id="likesOdometer" class=odometer style="font-size: 60; color: #00ff0d; display: block; text-align: center;">0</div>
-      <div style="font-size: 30px; color: #00ff0d; display: block; text-align: center;"><i class="fa fa-sharp fa-thumbs-up"></i> Likes</div>
-    </div>
-    <div id="comment-span">
-      <div id="commentsOdometer" class=odometer style="font-size: 60; color: #00c8ff; display: block; text-align: center;">0</div>
-      <div style="font-size: 30px; color: #00c8ff; display: block; text-align: center;"><i class="fa fa-sharp fa-comment"></i> Comments</div>
-    </div>
+  <div id="views_">
+    <i class="fa fa-sharp fa-eye"></i><h2 id="viewsOdometer" class=odometer>0</h2>
   </div>
+  <br>
+    <div class="likes-comments">
+      <i class="fa fa-sharp fa-thumbs-up" style="color: #00ff0d;"></i><div id="likesOdometer" class=odometer style="color: #00ff0d;">0</div>
+      <i class="fa fa-sharp fa-comment" style="color: #00c8ff;"></i><div id="commentsOdometer" class=odometer style="color: #00c8ff;">0</div>
+    </div>
 </body>
 
 <script>
