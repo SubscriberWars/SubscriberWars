@@ -142,8 +142,8 @@ td {
 list0 = [];
 list1 = [];
 function collect(){
-  fetch('https://api.yabcounts.com/public/youtube/channel/UCq-Fj5jknLsUf-MWSy4_brA?key=G3lp8G9Mm3XpE1q5bjr4d8QBDYyoVU&fields=statistics.subscriberCount').then(response => response.json()).then(data => {
-    list0.unshift(data.statistics.subscriberCount);
+  fetch('https://api.subscriberwars.space/stream/UCq-Fj5jknLsUf-MWSy4_brA').then(response => response.json()).then(data => {
+    list0.unshift(data.estCounts[0]);
     if (list0.length>43202){list0.pop()}
     if (list0.length>=2) {
       t1.innerHTML = Math.round(list0[0]-list0[1]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -217,8 +217,8 @@ function collect(){
     }
     
     })
-  fetch('https://api.yabcounts.com/public/youtube/channel/UCX6OQ3DkcsbYNE6H8uQQuVA?key=G3lp8G9Mm3XpE1q5bjr4d8QBDYyoVU&fields=statistics.subscriberCount').then(response => response.json()).then(data => {
-    list1.unshift(data.statistics.subscriberCount);
+  fetch('https://api.subscriberwars.space/stream/UCX6OQ3DkcsbYNE6H8uQQuVA').then(response => response.json()).then(data => {
+    list1.unshift(data.estCounts[0]);
     if (list1.length>43202){list1.pop()}
     if (list1.length>=2) {
       m1.innerHTML = Math.round(list1[0]-list1[1]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
