@@ -76,7 +76,7 @@
         text-align: center;
         vertical-align: middle;
         font-weight: 500;
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     .main_box {
         width: 1260px;
@@ -186,22 +186,22 @@
     var follow=[];
 
     function stats(chanid) {
-        fetch("https://api.subscriberwars.space/tiktok/v2/"+chanid).then(res=>res.json()).then(data=>{
-            page_title.innerHTML= data.nickname+"'s Live TikTok Follower Count"
-            channel_title.innerHTML=data.nickname
-            username=data.username
-            channel_link.href="https://tiktok.com/@"+data.username
-            channel_sb.href="https://socialblade.com/tiktok/user/"+data.username
-            channel_image.src=data.pfp
+        fetch("https://api.subscriberwars.space/tiktok/raw/"+chanid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML= data.data.nickname+"'s Live TikTok Follower Count"
+            channel_title.innerHTML=data.data.nickname
+            username=data.data.display_id
+            channel_link.href="https://tiktok.com/@"+data.data.display_id
+            channel_sb.href="https://socialblade.com/tiktok/user/"+data.data.display_id
+            channel_image.src=data.data.avatar_medium.url_list[0]
             channel_subscribers.innerHTML=follow
-            channel_videos.innerHTML=data.following
-            channel_views.innerHTML=data.likes
-            if (data.followers<1000){follow=data.followers}
-            if(data.followers>1000){follow=data.followers+5}
-            if(data.followers>10000){follow=data.followers+50}
-            if(data.followers>100000){follow=data.followers+500}
-            if(data.followers>1000000){follow=data.followers+5000}
-            if(data.followers>10000000){follow=data.followers+50000}
+            channel_videos.innerHTML=data.data.follow_info.following_count
+            channel_views.innerHTML=data.data.author_stats.video_total_favorite_count
+            if (data.data.follow_info.follower_count<1000){follow=data.data.follow_info.follower_count}
+            if(data.data.follow_info.follower_count>1000){follow=data.data.follow_info.follower_count+5}
+            if(data.data.follow_info.follower_count>10000){follow=data.data.follow_info.follower_count+50}
+            if(data.data.follow_info.follower_count>100000){follow=data.data.follow_info.follower_count+500}
+            if(data.data.follow_info.follower_count>1000000){follow=data.data.follow_info.follower_count+5000}
+            if(data.data.follow_info.follower_count>10000000){follow=data.data.follow_info.follower_count+50000}
             if(follow>=0) {goal01.innerHTML=10}
             if(follow>=10) {goal01.innerHTML=100}
             if(follow>=100) {goal01.innerHTML=1000}
@@ -212,22 +212,15 @@
             if(follow>=10000000) {goal01.innerHTML=(Math.floor(follow/10000000)*10000000)+10000000}
             if(follow>=100000000) {goal01.innerHTML=(Math.floor(follow/100000000)*100000000)+100000000}
             channel_goal.innerHTML=goal01.innerHTML-follow
+            if(data.data.authentication_info.custom_verify=="verified account"||data.data.authentication_info.enterprise_verify_reason=="institution account"||data.data.authentication_info.enterprise_verify_reason=="verified account"){document.getElementById("verified_").style.display="inline"} else {document.getElementById("verified_").style.width="0px"}
+            if(data.data.authentication_info.custom_verify=="verified account"){document.getElementById("verified_").title=data.data.authentication_info.custom_verify}
+            if(data.data.authentication_info.enterprise_verify_reason=="institution account"){document.getElementById("verified_").title=data.data.authentication_info.enterprise_verify_reason}
+            if(data.data.authentication_info.enterprise_verify_reason=="verified account"){document.getElementById("verified_").title=data.data.authentication_info.enterprise_verify_reason}
         })
     }
     stats()
-    
-    function verify(channam) {
-        fetch("https://api.tokcount.com/?type=node&username="+channam).then(res=>res.json()).then(data=>{
-            if(data.verified==true){document.getElementById("verified_").style.display="inline"} else {document.getElementById("verified_").style.width="0px"}
-            if(data.verified==true){document.getElementById("verified_").title="This user is Verified"}
-        })
-    }
 
     setInterval(() => {
         stats(channel)
     }, 2000);
-
-    setTimeout(() => {
-        verify(username)
-    }, 3000);
 </script>
