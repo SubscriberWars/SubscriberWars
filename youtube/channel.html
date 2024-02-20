@@ -55,7 +55,7 @@
             </a>
         </div>
     </div>
-    <div class="main_box" style="top: 150px; position: relative; height: 1100px;">
+    <div class="main_box" style="top: 150px; position: relative; height: 1150px;">
         <h1>Last 10 Videos</h1>
         <table id="video_table">
             <thead>
@@ -72,6 +72,7 @@
             <tbody></tbody>
         </table>
     </div>
+    <br>
 </body>
 
 <style>
@@ -152,7 +153,7 @@
 
     function api(chanid) {
         channel_banner.src="https://www.banner.yt/"+chanid+"?width=1260"
-        fetch("https://api.subscriberwars.space/youtube/channel/v2/"+chanid).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/youtube/channel/"+chanid).then(res=>res.json()).then(data=>{
             page_title.innerHTML=data.items[0].snippet.title+"'s Live Subscriber Count"
             uid=data.items[0].id.replace("UC","UU")
             channel_image.src=data.items[0].snippet.thumbnails.medium.url
@@ -220,7 +221,7 @@
 
     function next(cid) {
         channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
-        fetch("https://api.subscriberwars.space/est/next/"+cid).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/est/nexerno/"+cid).then(res=>res.json()).then(data=>{
             page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
             uid=data.info.id.replace("UC","UU")
             channel_image.src=data.info.pfp

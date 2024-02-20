@@ -122,7 +122,7 @@
     .bottom_counts {
         margin: 5px;
         padding: 10px;
-        width: 400px;
+        width: 600px;
         height: 130px;
         background: #000;
         border-radius: 10px;
@@ -183,9 +183,9 @@
     var lol = 0;
 
     function stats(chanid) {
-    fetch('https://api.subscriberwars.space/youtube/video/'+chanid).then(res => res.json()).then(data => {
-        views_api = data.statistics.viewCount
-        likes_api = data.statistics.likeCount
+    fetch('https://api.subscriberwars.space/youtube/video/raw/'+chanid).then(res => res.json()).then(data => {
+        views_api = data.items[0].statistics.viewCount
+        likes_api = data.items[0].statistics.likeCount
 
         var ratio = parseFloat(views_api) / parseFloat(likes_api)
             console.log(ratio)
@@ -197,17 +197,16 @@
                 likes = (Math.floor(likes_api))
                 lol = views
 
-        page_title.innerHTML= data.title
-        channel_title.innerHTML=data.title
+        page_title.innerHTML= data.items[0].snippet.title
+        channel_title.innerHTML=data.items[0].snippet.title
         channel_title.title="Visit Video"
-        channel_title.href="https://youtube.com/watch?v="+data.id
-        channel_link.href="https://youtube.com/watch?v="+data.id
-        channel_image.src=data.thumbnails.medium.url
-        channel_banner.src=data.thumbnails.medium.url
-        channel_views.innerHTML = data.statistics.likeCount,
+        channel_title.href="https://youtube.com/watch?v="+data.items[0].id
+        channel_link.href="https://youtube.com/watch?v="+data.items[0].id
+        channel_image.src=data.items[0].snippet.thumbnails.medium.url
+        channel_banner.src=data.items[0].snippet.thumbnails.medium.url
+        channel_views.innerHTML = data.items[0].statistics.likeCount,
         channel_subscribers.innerHTML = lol,
-        channel_videos.innerHTML=data.statistics.commentCount
-        channel_goal.innerHTML=data.statistics.dislikeCount
+        channel_videos.innerHTML=data.items[0].statistics.commentCount
     });
     
 }
