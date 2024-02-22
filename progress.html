@@ -1,22 +1,29 @@
+<head>
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+</head>
+
 <style>
     body{background: #000;}
     * {font-family: roboto;font-size: 40px;color: #FFF;font-weight: 500;}
     .border{border:1px solid rgb(255, 255, 255)!important; position: relative; left: 120px; top: 5px; border-radius: 10px;}
-    .fill{color:#fff!important; height: 20px; border-radius: 10px;}
-    </style>
+    .fill{color:#fff!important; height: 60px; border-radius: 10px;}
+</style>
     <div style="width: 800px;">
         <div class="border">
             <div class="fill" id="c" style="background-color: red;"></div>
         </div>
-        <h1 id="first" style="color: #FFF; font-family: roboto; top: -55px; position: relative;"></h1>
-        <h1 id="second" style="color: #FFF; font-family: roboto; top: -130px; left: 940px; position: relative;"></h1>
+        <h1 id="first" style="color: #FFF; font-family: roboto; top: -75px; position: relative;"></h1>
+        <h1 id="second" style="color: #FFF; font-family: roboto; top: -150px; left: 940px; position: relative;"></h1>
+        <h1 id="goal_0" class="odometer" style="color: #FFF; font-family: roboto; top: -250px; left: 450px; position: relative;"></h1>
     </div>
     <div style="width: 800px;">
         <div class="border">
             <div class="fill" id="d" style="background-color: blue;"></div>
         </div>
-        <h1 id="first2" style="color: #FFF; font-family: roboto; top: -55px; position: relative;"></h1>
-        <h1 id="second2" style="color: #FFF; font-family: roboto; top: -130px; left: 940px; position: relative;"></h1>
+        <h1 id="first2" style="color: #FFF; font-family: roboto; top: -75px; position: relative;"></h1>
+        <h1 id="second2" style="color: #FFF; font-family: roboto; top: -150px; left: 940px; position: relative;"></h1>
+        <h1 id="goal_1" class="odometer" style="color: #FFF; font-family: roboto; top: -250px; left: 450px; position: relative;"></h1>
     </div>
     
     <script>
@@ -32,6 +39,7 @@
         goal=start+1000000;
     })
     .then(()=>{
+        goal_0.innerHTML=goal-now
     var progress = (((((goal - start) / (1000 * 60)) - ((goal - now) / (1000 * 60))) / ((goal - start) / (1000 * 60))) * 100).toFixed(6);
     if (progress < goal) {
         document.getElementById('first').innerHTML = abbreviateNumber(start);
@@ -54,6 +62,7 @@
         start1=parseInt(data.apiCounts[0])
         goal1=start1+1000000})
     .then(()=>{
+        goal_1.innerHTML=goal1-now1
     var progress1 = (((((goal1 - start1) / (1000 * 60)) - ((goal1 - now1) / (1000 * 60))) / ((goal1 - start1) / (1000 * 60))) * 100).toFixed(6);
     if (progress1 < goal1) {
         document.getElementById('first2').innerHTML = abbreviateNumber(start1);
@@ -73,8 +82,8 @@
     return abbreviatedNumber;
     }  
 
-        setInterval(bar, 5000)
-        setInterval(bar2, 5000)
+        setInterval(bar, 10000)
+        setInterval(bar2, 10000)
         bar()
         bar2()
     </script>
