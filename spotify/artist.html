@@ -3,12 +3,12 @@
     <title id="tab_header">Spotify Artist</title>
     <meta name="description" content="Live Spotify Stats">
     <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
-    <link rel="stylesheet" href="https://subscriberwars.space/css/main.css">
+    <link rel="stylesheet" href="/css/spotify.css">
     <script src="https://subscriberwars.space/js/odometer.js"></script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-38E6Z6MEMP"></script>
@@ -20,30 +20,77 @@
   gtag('config', 'G-38E6Z6MEMP');
 </script>
 <body>
-    <div id="count-block">
-        <img id="logo" style="top: 0px;" src="https://subscriberwars.space/images/sw.png" alt="">
-        <h1 id="title">Loading...</h1>
-        <div id='followercount' class="odometer odometer-auto-theme" style="font-size: 120pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 1260px;">0</div>
-        <h2>Followers</h2>
+    <div class="head">
+        <div class="head_text">Spotify Live Follower Count</div>
     </div>
-    <div id="mini-counts">
-        <div id="like-box">
-            <div id='videocount' class="odometer odometer-auto-theme" style="font-size: 30pt; font-weight: 500; text-align: center; margin: 0px auto; margin-top: 10px; margin-bottom: 10px; position: relative; width: 411px;">0</div>
-            <h2>Popularity</h2>
+    <div class="main_box">
+        <img id="channel_banner">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank"></a>
         </div>
-        <div id="comment-box">
-            <a id="profilelink" style="text-decoration: none; top: -30px; position: relative;" target="_blank">
-                <div style="text-align: center; width: 411px; font-size: 30px; height: 120px;">
-                    <p id="profile" style="top: 35%; position:relative;"></p>
-                </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
+        <div class="bottom_data">
+            <div class="bottom_counts" style="width: 100%;">
+                <div class="odometer bottom_odometer" id="channel_goal"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-fire"></i> Popularity</div>
+            </div>
+        </div>
+        <div class="button_box">
+            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <i class="fa fa-brand fa-spotify"></i> Go To Profile
+                </button>
             </a>
         </div>
     </div>
-    <div id="graph-block">
-        <div id="graph" style="width: 1260px; height: 400px;"></div>
-        <p id="graphstat" style="visibility: hidden;"></p>
+    <div class="main_box" style="top: 150px; position: relative; height: 1300px;">
+        <h1>Top Tracks</h1>
+        <table id="video_table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Track</th>
+                    <th>Album</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
 </body>
+
+<style>
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    th{
+        background: #000;
+    }
+    td{
+        border-bottom: 1px solid #000;
+    }
+    tr:nth-child(even){background: rgb(33,33,33);};
+    tr:nth-child(odd){background: rgb(38,38,38);}
+    tr{
+        height: 92px;
+    }
+    .t{
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .e{
+        color: #6cb700;
+    }
+    
+</style>
 
 <script>
 var channel = window.location.href.split('?u=')[1] || '';
@@ -51,13 +98,13 @@ var channel = window.location.href.split('?u=')[1] || '';
 function load(chanid) {
     fetch('https://api.subscriberwars.space/spotify/artist/'+chanid+'').then(res => res.json()).then(data => {
         tab_header.innerHTML = data.name +"'s Live Spotify Stats"
-        title.innerHTML = data.name
-        followercount.innerHTML= data.followers.total
-        videocount.innerHTML= data.popularity
-        graphstat.innerHTML = data.followers.total
-        logo.src = data.images[0].url
+        channel_title.innerHTML = data.name
+        channel_subscribers.innerHTML= data.followers.total
+        channel_goal.innerHTML= data.popularity
+        channel_image.src = data.images[0].url
+        channel_banner.src = data.images[0].url
         profilelink.href=data.external_urls.spotify
-        profile.innerHTML="Visit "+data.name+"'s Profile"
+        channel_link.innerHTML="Visit "+data.name+"'s Profile"
     });
 }
 
@@ -65,13 +112,91 @@ function update(chanid) {
     fetch('https://api.subscriberwars.space/spotify/artist/'+chanid+'').then(res => res.json()).then(data => {
         followercount.innerHTML= data.followers.total
         videocount.innerHTML= data.popularity
-        graphstat.innerHTML = data.followers.total
-        var yep=(graphstat.innerHTML)
-        console.log(yep)
-        var injection=yep
-        if(graph.series[0].points.length>=180)graph.series[0].data[0].remove();
-        graph.series[0].addPoint([Date.now(),parseFloat(injection)])
     });
+}
+
+
+function test(chanid) {
+    fetch('https://api.subscriberwars.space/spotify/mostpopular/' + chanid)
+        .then(res => res.json())
+        .then(data => {
+            data.tracks.forEach(dataRow => {
+            console.log('Data row:', dataRow);
+            console.log('Image URL:', dataRow.album.images[1].url);
+            // Create image element and append to DOM
+            const image = document.createElement('img');
+            image.src = dataRow.album.images[1].url;
+            document.body.appendChild(image); // Append to body for testing
+        });
+    })
+}
+
+function table(query) {
+    const tableBody = document.querySelector('#video_table tbody');
+    fetch('https://api.subscriberwars.space/spotify/mostpopular/' + query)
+        .then(res => res.json())
+        .then(data => {
+            // Clear existing table content
+            tableBody.innerHTML = '';
+
+            data.tracks.forEach(track => {
+                const newRow = document.createElement('tr');
+
+                // Image cell
+                const imageCell = document.createElement('td');
+                const img = document.createElement('img');
+                img.src = track.album.images[1].url;
+                img.alt = 'album art';
+                img.style.height = '100px';
+                imageCell.appendChild(img);
+                newRow.appendChild(imageCell);
+
+                // Name cell
+                const nameCell = document.createElement('td');
+                nameCell.textContent = track.name;
+                newRow.appendChild(nameCell);
+
+                // Album cell
+                const albumCell = document.createElement('td');
+                albumCell.textContent = track.album.name;
+                newRow.appendChild(albumCell);
+
+                // Link cell
+                const linkCell = document.createElement('td');
+                const button = document.createElement('button');
+                button.classList.add('spotify-button'); // Add a class for styling
+                button.addEventListener('click', function() {
+                    window.open(track.external_urls.spotify, '_blank');
+                });
+                const icon = document.createElement('i');
+                icon.classList.add('fa', 'fa-spotify'); // Add Font Awesome classes
+                icon.setAttribute('aria-hidden', 'true'); // Accessibility attribute
+                button.appendChild(icon); // Append the icon
+                button.appendChild(document.createTextNode(' Listen on Spotify'));
+                linkCell.appendChild(button);
+                newRow.appendChild(linkCell);
+
+                // Preview cell
+                const previewCell = document.createElement('td');
+                if (track.preview_url) {
+                    const audio = document.createElement('audio');
+                    audio.controls = true;
+                    const source = document.createElement('source');
+                    source.src = track.preview_url;
+                    audio.appendChild(source);
+                    previewCell.appendChild(audio);
+                } else {
+                    previewCell.textContent = 'N/A';
+                }
+                newRow.appendChild(previewCell);
+
+                // Append the row to the table body
+                tableBody.appendChild(newRow);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 }
 
 // Intervals
@@ -80,62 +205,5 @@ setInterval(() => {
 }, 10000);
 
 load(channel)
-
-</script>
-
-<script>//graph styling
-    var graph = new Highcharts.chart({
-chart: {
-renderTo: 'graph',
-type: 'spline',
-zoomType: 'x',
-backgroundColor: 'transparent',
-plotBorderColor: 'transparent'
-},
-title: {
-text: ''
-},
-xAxis: {
-type: 'datetime',
-tickPixelInterval: 100,
-gridLineColor: '#transparent',
-labels: {
-    style: {
-        color: 'white'
-    }
-},
-minorGridLineColor: '#transparent',
-tickColor: 'white',
-title: {
-    style: {
-        color: '#transparent'
-    }
-}
-},
-yAxis: {
-title: {
-  text: ''
-},
-gridLineColor: '#transparent',
-labels: {
-    style: {
-        color: 'white'
-    }
-},
-lineColor: 'white',
-minorGridLineColor: 'transparent',
-tickColor: 'white'
-},
-credits: {
-enabled: false,
-text: "Subscriberwars.space"
-},
-series: [{
-showInLegend: false,
-name: 'Followers',
-marker: { enabled: false },
-color: '#1DB954',
-lineColor: '#1DB954'
-}]
-});
+table(channel)
 </script>
