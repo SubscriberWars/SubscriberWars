@@ -257,12 +257,6 @@
         if (graph_1.series[0].points.length >= 1800) {
             graph_1.series[0].data[0].remove()
         }
-        if (graph_2.series[0].points.length >= 900) {
-            graph_2.series[0].data[0].remove()
-        }
-        if (graph_3.series[0].points.length >= 43200) {
-            graph_3.series[0].data[0].remove()
-        }
         graph_1.series[0].addPoint([Date.now(), data.estCounts[0]])
         });
         sub_gap.innerHTML = s0-s1;
@@ -276,6 +270,12 @@
     } 
 
     function diff() {
+        if (graph_2.series[0].points.length >= 1800) {
+            graph_2.series[0].data[0].remove()
+        }
+        if (graph_3.series[0].points.length >= 43200) {
+            graph_3.series[0].data[0].remove()
+        }
         graph_2.series[0].addPoint([Date.now(), s0-s1])
         graph_3.series[0].addPoint([Date.now(), s0-s1])
     }
