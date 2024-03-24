@@ -203,14 +203,14 @@
             img_0.src = data.pfp
             title_0.innerHTML = data.name
             views_0.innerHTML = data.estCounts[1]
-            videos_0.innerHTML = data.apiCounts[2]
+            videos_0.innerHTML = data.apiCounts[1]
             subs_0.innerHTML = data.estCounts[0]
         });
         fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
             img_1.src = data.pfp
             title_1.innerHTML = data.name
             views_1.innerHTML = data.estCounts[1]
-            videos_1.innerHTML = data.apiCounts[2]
+            videos_1.innerHTML = data.apiCounts[1]
             subs_1.innerHTML = data.estCounts[0]
         });
     }
@@ -219,7 +219,7 @@
     function update() {
         fetch('https://api.subscriberwars.space/stream/'+id0).then(res => res.json()).then(data => {
         views_0.innerHTML = data.estCounts[1]
-        videos_0.innerHTML = data.apiCounts[2]
+        videos_0.innerHTML = data.apiCounts[1]
         subs_0.innerHTML = data.estCounts[0]
         s0 = data.estCounts[0]
         start=parseInt(data.apiCounts[0])
@@ -243,7 +243,7 @@
         });
         fetch('https://api.subscriberwars.space/stream/'+id1).then(res => res.json()).then(data => {
         views_1.innerHTML = data.estCounts[1]
-        videos_1.innerHTML = data.apiCounts[2]
+        videos_1.innerHTML = data.apiCounts[1]
         subs_1.innerHTML = data.estCounts[0]
         s1 = data.estCounts[0]
         start1=parseInt(data.apiCounts[0])
@@ -270,10 +270,10 @@
     } 
 
     function diff() {
-        if (graph_2.series[0].points.length >= 1800) {
+        if (graph_2.series[0].points.length >= 120) {
             graph_2.series[0].data[0].remove()
         }
-        if (graph_3.series[0].points.length >= 43200) {
+        if (graph_3.series[0].points.length >= 2880) {
             graph_3.series[0].data[0].remove()
         }
         graph_2.series[0].addPoint([Date.now(), s0-s1])
@@ -290,7 +290,7 @@
     setInterval(update,2000)
     setInterval(time,1000)
     setTimeout(() => {
-        setInterval(diff,2000)
+        setInterval(diff,30000)
     }, 2000);
 
     var graph_0; graph_1; graph_2; graph_3;
