@@ -150,6 +150,12 @@
             axern(channel)
         }, 4000);
     }
+    if (type=="nia") {
+        nia(channel)
+        setInterval(() => {
+            nia(channel)
+        }, 4000);
+    }
 
     function api(chanid) {
         channel_banner.src="https://www.banner.yt/"+chanid+"?width=1260"
@@ -250,6 +256,22 @@
             channel_title.href="https://youtube.com/"+data.snippet.customUrl
             channel_link.href="https://youtube.com/"+data.snippet.customUrl
             channel_sb.href="https://socialblade.com/youtube/c/"+data.snippet.customUrl
+            channel_abreviation.innerHTML=abbreviateNumber(data.apiSubCount)
+        })
+    }
+    function nia(cid) {
+        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
+        fetch("https://nia-statistics.com/api/get?platform=youtube&type=channel&id="+cid).then(res=>res.json()).then(data=>{
+            page_title.innerHTML=data.snippet.title+"'s Live Subscriber Count"
+            uid=cid.replace("UC","UU")
+            channel_image.src=data.snippet.thumbnails[2].url
+            channel_title.innerHTML=data.snippet.title
+            channel_subscribers.innerHTML=data.estSubCount
+            channel_views.innerHTML=data.estViewCount
+            channel_videos.innerHTML=data.apiVideoCount
+            channel_title.href="https://youtube.com/"+data.snippet.handle
+            channel_link.href="https://youtube.com/"+data.snippet.handle
+            channel_sb.href="https://socialblade.com/youtube/c/"+data.snippet.handle
             channel_abreviation.innerHTML=abbreviateNumber(data.apiSubCount)
         })
     }
