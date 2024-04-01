@@ -49,7 +49,7 @@ td {
       <th>Subs/Min</th>
       <th id="t">T-Series</th>
       <th id="m">MrBeast</th>
-      <th>Est. Pass (UTC/GMT)</th>
+      <th>Est. Pass (UTC+-0)</th>
       <th>Est. Subs</th>
     </tr>
     <tr>
@@ -149,7 +149,11 @@ td {
       <td id="m13"></td>
       <td id="p13"></td>
       <td id="s13"></td>
-    </tr> 
+    </tr>
+    <tr>
+      <td colspan="2">Current Time</td>
+      <td colspan="3" id="time_now"></td>
+    </tr>
   </table>
 </body>
 
@@ -174,6 +178,15 @@ function collect(){
   })
   updateSubGains()
 }
+
+function timenow() {
+  const time = new Date()
+  time_now.innerHTML= time.toLocaleString('en-GB', {timeZone: 'UTC', weekday: 'short', day: '2-digit', month: 'short', year:'numeric', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+}
+
+setInterval(() => {
+  timenow()
+}, 1000);
 
 function updateSubGains() {
   //T-Series
@@ -339,13 +352,12 @@ function time() {
       var am_pm = hours>=12?'pm':'am';
       hours = (hours %12) || 12;
       if (d1.getUTCMinutes()<10) {minutes="0"+d1.getUTCMinutes()} else {minutes=d1.getUTCMinutes()}
-
       if (pass_1<=0){
         p0.innerHTML="Never";
         s0.innerHTML="";
       } else {
         p0.innerHTML= d1.getUTCDate()+months[d1.getUTCMonth()]+" @ "+hours+am_pm+" "+d1.getUTCFullYear();
-        s0.innerHTML= Math.round((pass_1/60000)*(list1[0]-list1[1])+list1[0]).toLocaleString()
+        s0.innerHTML= abbreviateNumber(Math.round((pass_1/60000)*(list1[0]-list1[1])+list1[0]))
       }
     }
     //5min
@@ -362,7 +374,7 @@ function time() {
         s1.innerHTML="";
       } else {
         p1.innerHTML= d2.getUTCDate()+months[d2.getUTCMonth()]+" @ "+hours+am_pm+" "+d2.getUTCFullYear()
-        s1.innerHTML= Math.round((pass_2/60000)*((list1[0]-list1[4])/5)+list1[0]).toLocaleString()
+        s1.innerHTML= abbreviateNumber(Math.round((pass_2/60000)*((list1[0]-list1[4])/5)+list1[0]))
       }
     }
     //10min
@@ -379,7 +391,7 @@ function time() {
         s2.innerHTML="";
       } else {
         p2.innerHTML= d3.getUTCDate()+months[d3.getUTCMonth()]+" @ "+hours+am_pm+" "+d3.getUTCFullYear()
-        s2.innerHTML= Math.round((pass_3/60000)*((list1[0]-list1[9])/10)+list1[0]).toLocaleString()
+        s2.innerHTML= abbreviateNumber(Math.round((pass_3/60000)*((list1[0]-list1[9])/10)+list1[0]))
       }
     }
     //30min
@@ -396,7 +408,7 @@ function time() {
         s3.innerHTML="";
       } else {
         p3.innerHTML= d4.getUTCDate()+months[d4.getUTCMonth()]+" @ "+hours+am_pm+" "+d4.getUTCFullYear()
-        s3.innerHTML= Math.round((pass_4/60000)*((list1[0]-list1[29])/30)+list1[0]).toLocaleString()
+        s3.innerHTML= abbreviateNumber(Math.round((pass_4/60000)*((list1[0]-list1[29])/30)+list1[0]))
       }
     }
     //1hrs
@@ -413,7 +425,7 @@ function time() {
         s4.innerHTML="";
       } else {
         p4.innerHTML= d5.getUTCDate()+months[d5.getUTCMonth()]+" @ "+hours+am_pm+" "+d5.getUTCFullYear()
-        s4.innerHTML= Math.round((pass_5/60000)*((list1[0]-list1[59])/60)+list1[0]).toLocaleString()
+        s4.innerHTML= abbreviateNumber(Math.round((pass_5/60000)*((list1[0]-list1[59])/60)+list1[0]))
       }
     }
     //6hrs
@@ -430,7 +442,7 @@ function time() {
         s5.innerHTML="";
       } else {
         p5.innerHTML= d6.getUTCDate()+months[d6.getUTCMonth()]+" @ "+hours+am_pm+" "+d6.getUTCFullYear()
-        s5.innerHTML= Math.round((pass_6/60000)*((list1[0]-list1[359])/360)+list1[0]).toLocaleString()
+        s5.innerHTML= abbreviateNumber(Math.round((pass_6/60000)*((list1[0]-list1[359])/360)+list1[0]))
       }
     }
     //12hrs
@@ -447,7 +459,7 @@ function time() {
         s6.innerHTML="";
       } else {
         p6.innerHTML= d7.getUTCDate()+months[d7.getUTCMonth()]+" @ "+hours+am_pm+" "+d7.getUTCFullYear()
-        s6.innerHTML= Math.round((pass_7/60000)*((list1[0]-list1[719])/720)+list1[0]).toLocaleString()
+        s6.innerHTML= abbreviateNumber(Math.round((pass_7/60000)*((list1[0]-list1[719])/720)+list1[0]))
       }
     }
     //1day
@@ -464,7 +476,7 @@ function time() {
         s7.innerHTML="";
       } else {
         p7.innerHTML= d8.getUTCDate()+months[d8.getUTCMonth()]+" @ "+hours+am_pm+" "+d8.getUTCFullYear()
-        s7.innerHTML= Math.round((pass_8/60000)*((list1[0]-list1[1439])/1440)+list1[0]).toLocaleString()
+        s7.innerHTML= abbreviateNumber(Math.round((pass_8/60000)*((list1[0]-list1[1439])/1440)+list1[0]))
       }
     }
     //2day
@@ -481,7 +493,7 @@ function time() {
         s8.innerHTML="";
       } else {
         p8.innerHTML= d9.getUTCDate()+months[d9.getUTCMonth()]+" @ "+hours+am_pm+" "+d9.getUTCFullYear()
-        s8.innerHTML= Math.round((pass_9/60000)*((list1[0]-list1[2879])/2880)+list1[0]).toLocaleString()
+        s8.innerHTML= abbreviateNumber(Math.round((pass_9/60000)*((list1[0]-list1[2879])/2880)+list1[0]))
       }
     }
     //3day
@@ -498,7 +510,7 @@ function time() {
         s9.innerHTML="";
       } else {
         p9.innerHTML= d9a.getUTCDate()+months[d9a.getUTCMonth()]+" @ "+hours+am_pm+" "+d9a.getUTCFullYear()
-        s9.innerHTML= Math.round((pass_9a/60000)*((list1[0]-list1[4319])/4320)+list1[0]).toLocaleString()
+        s9.innerHTML= abbreviateNumber(Math.round((pass_9a/60000)*((list1[0]-list1[4319])/4320)+list1[0]))
       }
     }
     //5day
@@ -515,7 +527,7 @@ function time() {
         s10.innerHTML="";
       } else {
         p10.innerHTML= d9b.getUTCDate()+months[d9b.getUTCMonth()]+" @ "+hours+am_pm+" "+d9b.getUTCFullYear()
-        s10.innerHTML= Math.round((pass_9b/60000)*((list1[0]-list1[7199])/7200)+list1[0]).toLocaleString()
+        s10.innerHTML= abbreviateNumber(Math.round((pass_9b/60000)*((list1[0]-list1[7199])/7200)+list1[0]))
       }
     }
     //7day
@@ -532,7 +544,7 @@ function time() {
         s11.innerHTML="";
       } else {
         p11.innerHTML= d10.getUTCDate()+months[d10.getUTCMonth()]+" @ "+hours+am_pm+" "+d10.getUTCFullYear()
-        s11.innerHTML= Math.round((pass_10/60000)*((list1[0]-list1[10079])/10080)+list1[0]).toLocaleString()
+        s11.innerHTML= abbreviateNumber(Math.round((pass_10/60000)*((list1[0]-list1[10079])/10080)+list1[0]))
       }
     }
     //14day
@@ -549,7 +561,7 @@ function time() {
         s12.innerHTML="";
       } else {
         p12.innerHTML= d11.getUTCDate()+months[d11.getUTCMonth()]+" @ "+hours+am_pm+" "+d11.getUTCFullYear()
-        s12.innerHTML= Math.round((pass_11/60000)*((list1[0]-list1[21059])/21060)+list1[0]).toLocaleString()
+        s12.innerHTML= abbreviateNumber(Math.round((pass_11/60000)*((list1[0]-list1[21059])/21060)+list1[0]))
       }
     }
     //30day
@@ -566,9 +578,18 @@ function time() {
         s13.innerHTML="";
       } else {
         p13.innerHTML= d12.getUTCDate()+months[d12.getUTCMonth()]+" @ "+hours+am_pm+" "+d12.getUTCFullYear()
-        s13.innerHTML= Math.round((pass_12/60000)*((list1[0]-list1[43199])/43200)+list1[0]).toLocaleString()
+        s13.innerHTML= abbreviateNumber(Math.round((pass_12/60000)*((list1[0]-list1[43199])/43200)+list1[0]))
       }
     }
+}
+
+//abbreviator
+function abbreviateNumber(number) {
+    const SI_SYMBOLS = ["", "K", "M", "B", "T"];
+    const tier = Math.log10(Math.abs(number)) / 3 | 0;
+    const suffix = SI_SYMBOLS[tier];
+    const abbreviatedNumber = (number / Math.pow(10, tier * 3)).toPrecision(3) + suffix;
+    return abbreviatedNumber;
 }
 
 collect();

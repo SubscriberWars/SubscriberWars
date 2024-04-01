@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
-<div id="chart" style="width:733px; height:443px"></div>	
+<div id="chart" style="width:400px; height:350px"></div>	
 
 <script type="text/javascript">
 
 var chart = Highcharts.chart({
-chart: {renderTo: 'chart',type: 'line',zoomType: 'x',backgroundColor: '#0f0f0f',plotBorderColor: 'transparent'},
+chart: {renderTo: 'chart',type: 'line',zoomType: 'x',backgroundColor: '#000',plotBorderColor: 'transparent'},
 title: {text: ''},
 xAxis: {type: 'datetime', tickPixelInterval: 100, gridLineColor: '#transparent', labels: {style: {color: 'white'}}, minorGridLineColor: '#transparent', tickColor: 'white', title: {style: {color: '#transparent'}}},
 yAxis: {title: {text: ''}, gridLineColor: '#212121', labels: {style: {color: 'white'}}, lineColor: 'white', minorGridLineColor: 'transparent', tickColor: 'white'},
 credits: {enabled: false, text: ""},
 plotOptions:{line:{fillOpacity: 1}},
-series: [{showInLegend: false, name: '', marker: { enabled: false }, lineColor: 'rgb(255,0,255)', color: 'rgb(255,0,255)'}]
+series: [{showInLegend: false, name: '', marker: { enabled: false }, lineColor: '#8f00ff', color: '#8f00ff'}]
 });
 
     var url0="https://api.subscriberwars.space/stream/UCq-Fj5jknLsUf-MWSy4_brA"
