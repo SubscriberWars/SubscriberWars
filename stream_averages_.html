@@ -19,7 +19,7 @@ body {
 }
 table {
   border-collapse: collapse;
-  width: 550px;
+  width: 365px;
 }
 tr {
   width: 100%;
@@ -46,113 +46,113 @@ td {
 <body>
   <table>
     <tr>
-      <th>Subs/Min</th>
-      <th id="t">T-Series</th>
-      <th id="m">MrBeast</th>
-      <th>Est. Pass (UTC+-0)</th>
-      <th>Est. Subs</th>
+      <th>/Min</th>
+      <th id="t">TS</th>
+      <th id="m">MB</th>
+      <th>Est Pass</th>
+      <th>Est Subs</th>
     </tr>
     <tr>
-      <th>1 Min</th>
+      <th>1M</th>
       <td id="t0"></td>
       <td id="m0"></td>
       <td id="p0"></td>
       <td id="s0"></td>
     </tr>
     <tr>
-      <th>5 Min</th>
+      <th>5M</th>
       <td id="t1"></td>
       <td id="m1"></td>
       <td id="p1"></td>
       <td id="s1"></td>
     </tr>
     <tr>
-      <th>10 Min</th>
+      <th>10M</th>
       <td id="t2"></td>
       <td id="m2"></td>
       <td id="p2"></td>
       <td id="s2"></td>
     </tr>
     <tr>
-      <th>30 Min</th>
+      <th>30M</th>
       <td id="t3"></td>
       <td id="m3"></td>
       <td id="p3"></td>
       <td id="s3"></td>
     </tr>
     <tr>
-      <th>1 Hrs</th>
+      <th>1H</th>
       <td id="t4"></td>
       <td id="m4"></td>
       <td id="p4"></td>
       <td id="s4"></td>
     </tr>
     <tr>
-      <th>6 Hrs</th>
+      <th>6H</th>
       <td id="t5"></td>
       <td id="m5"></td>
       <td id="p5"></td>
       <td id="s5"></td>
     </tr>
     <tr>
-      <th>12 Hrs</th>
+      <th>12H</th>
       <td id="t6"></td>
       <td id="m6"></td>
       <td id="p6"></td>
       <td id="s6"></td>
     </tr>
     <tr>
-      <th>1 Day</th>
+      <th>1D</th>
       <td id="t7"></td>
       <td id="m7"></td>
       <td id="p7"></td>
       <td id="s7"></td>
     </tr>
     <tr>
-      <th>2 Day</th>
+      <th>2D</th>
       <td id="t8"></td>
       <td id="m8"></td>
       <td id="p8"></td>
       <td id="s8"></td>
     </tr>
     <tr>
-      <th>3 Day</th>
+      <th>3D</th>
       <td id="t9"></td>
       <td id="m9"></td>
       <td id="p9"></td>
       <td id="s9"></td>
     </tr>
     <tr>
-      <th>5 Day</th>
+      <th>5D</th>
       <td id="t10"></td>
       <td id="m10"></td>
       <td id="p10"></td>
       <td id="s10"></td>
     </tr>
     <tr>
-      <th>7 Day</th>
+      <th>7D</th>
       <td id="t11"></td>
       <td id="m11"></td>
       <td id="p11"></td>
       <td id="s11"></td>
     </tr>  
     <tr>
-      <th>14 Day</th>
+      <th>14D</th>
       <td id="t12"></td>
       <td id="m12"></td>
       <td id="p12"></td>
       <td id="s12"></td>
     </tr> 
     <tr>
-      <th>30 Day</th>
+      <th>30D</th>
       <td id="t13"></td>
       <td id="m13"></td>
       <td id="p13"></td>
       <td id="s13"></td>
     </tr>
     <tr>
-      <td colspan="2">Current Time</td>
-      <td colspan="3" id="time_now"></td>
+      <th colspan="1">Time</th>
+      <td colspan="4" id="time_now"></td>
     </tr>
   </table>
 </body>
@@ -181,7 +181,7 @@ function collect(){
 
 function timenow() {
   const time = new Date()
-  time_now.innerHTML= time.toLocaleString('en-GB', {timeZone: 'UTC', weekday: 'short', day: '2-digit', month: 'short', year:'numeric', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+  time_now.innerHTML= time.toLocaleString('en-GB', {timeZone: 'UTC', day: '2-digit', month: 'short', year:'numeric', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
 }
 
 setInterval(() => {
@@ -348,15 +348,11 @@ function time() {
       const pass_1 = Math.round(diff/(((list1[0]-list1[1])-(list0[0]-list0[1]))/60000))
       const d_1 = now+pass_1
       const d1 = new Date(d_1)
-      var hours = d1.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d1.getUTCMinutes()<10) {minutes="0"+d1.getUTCMinutes()} else {minutes=d1.getUTCMinutes()}
       if (pass_1<=0){
         p0.innerHTML="Never";
         s0.innerHTML="";
       } else {
-        p0.innerHTML= d1.getUTCDate()+months[d1.getUTCMonth()]+" @ "+hours+am_pm+" "+d1.getUTCFullYear();
+        p0.innerHTML= d1.getUTCDate()+months[d1.getUTCMonth()]+d1.getUTCFullYear();
         s0.innerHTML= abbreviateNumber(Math.round((pass_1/60000)*(list1[0]-list1[1])+list1[0]))
       }
     }
