@@ -532,7 +532,7 @@ function abbreviateNumber(number) {
     const SI_SYMBOLS = ["", "K", "M", "B", "T"];
     const tier = Math.log10(Math.abs(number)) / 3 | 0;
     const suffix = SI_SYMBOLS[tier];
-    const abbreviatedNumber = (number / Math.pow(10, tier * 3)).toPrecision(3) + suffix;
+    const abbreviatedNumber = (number / Math.pow(10, tier * 3)).toPrecision(5) + suffix;
     return abbreviatedNumber;
 }
 
