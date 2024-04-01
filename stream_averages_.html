@@ -361,15 +361,11 @@ function time() {
       const pass_2 = Math.round(diff/((((list1[0]-list1[4])/5)-((list0[0]-list0[4])/5))/60000))
       const d_2 = now+pass_2
       const d2 = new Date(d_2)
-      var hours = d2.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d2.getUTCMinutes()<10) {minutes="0"+d2.getUTCMinutes()} else {minutes=d2.getUTCMinutes()}
       if (pass_2<=0){
         p1.innerHTML="Never";
         s1.innerHTML="";
       } else {
-        p1.innerHTML= d2.getUTCDate()+months[d2.getUTCMonth()]+" @ "+hours+am_pm+" "+d2.getUTCFullYear()
+        p1.innerHTML= d2.getUTCDate()+months[d2.getUTCMonth()]+d2.getUTCFullYear()
         s1.innerHTML= abbreviateNumber(Math.round((pass_2/60000)*((list1[0]-list1[4])/5)+list1[0]))
       }
     }
@@ -378,15 +374,11 @@ function time() {
       const pass_3 = Math.round(diff/((((list1[0]-list1[9])/10)-((list0[0]-list0[9])/10))/60000))
       const d_3 = now+pass_3
       const d3 = new Date(d_3)
-      var hours = d3.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d3.getUTCMinutes()<10) {minutes="0"+d3.getUTCMinutes()} else {minutes=d3.getUTCMinutes()}
       if (pass_3<=0){
         p2.innerHTML="Never";
         s2.innerHTML="";
       } else {
-        p2.innerHTML= d3.getUTCDate()+months[d3.getUTCMonth()]+" @ "+hours+am_pm+" "+d3.getUTCFullYear()
+        p2.innerHTML= d3.getUTCDate()+months[d3.getUTCMonth()]+d3.getUTCFullYear()
         s2.innerHTML= abbreviateNumber(Math.round((pass_3/60000)*((list1[0]-list1[9])/10)+list1[0]))
       }
     }
@@ -395,15 +387,11 @@ function time() {
       const pass_4 = Math.round(diff/((((list1[0]-list1[29])/30)-((list0[0]-list0[29])/30))/60000))
       const d_4 = now+pass_4
       const d4 = new Date(d_4)
-      var hours = d4.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d4.getUTCMinutes()<10) {minutes="0"+d4.getUTCMinutes()} else {minutes=d4.getUTCMinutes()}
       if (pass_4<=0){
         p3.innerHTML="Never";
         s3.innerHTML="";
       } else {
-        p3.innerHTML= d4.getUTCDate()+months[d4.getUTCMonth()]+" @ "+hours+am_pm+" "+d4.getUTCFullYear()
+        p3.innerHTML= d4.getUTCDate()+months[d4.getUTCMonth()]+d4.getUTCFullYear()
         s3.innerHTML= abbreviateNumber(Math.round((pass_4/60000)*((list1[0]-list1[29])/30)+list1[0]))
       }
     }
@@ -412,15 +400,11 @@ function time() {
       const pass_5 = Math.round(diff/((((list1[0]-list1[59])/60)-((list0[0]-list0[59])/60))/60000))
       const d_5 = now+pass_5
       const d5 = new Date(d_5)
-      var hours = d5.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d5.getUTCMinutes()<10) {minutes="0"+d5.getUTCMinutes()} else {minutes=d5.getUTCMinutes()}
       if (pass_5<=0){
         p4.innerHTML="Never";
         s4.innerHTML="";
       } else {
-        p4.innerHTML= d5.getUTCDate()+months[d5.getUTCMonth()]+" @ "+hours+am_pm+" "+d5.getUTCFullYear()
+        p4.innerHTML= d5.getUTCDate()+months[d5.getUTCMonth()]+d5.getUTCFullYear()
         s4.innerHTML= abbreviateNumber(Math.round((pass_5/60000)*((list1[0]-list1[59])/60)+list1[0]))
       }
     }
@@ -429,15 +413,11 @@ function time() {
       const pass_6 = Math.round(diff/((((list1[0]-list1[359])/360)-((list0[0]-list0[359])/360))/60000))
       const d_6 = now+pass_6
       const d6 = new Date(d_6)
-      var hours = d6.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d6.getUTCMinutes()<10) {minutes="0"+d6.getUTCMinutes()} else {minutes=d6.getUTCMinutes()}
       if (pass_6<=0){
         p5.innerHTML="Never";
         s5.innerHTML="";
       } else {
-        p5.innerHTML= d6.getUTCDate()+months[d6.getUTCMonth()]+" @ "+hours+am_pm+" "+d6.getUTCFullYear()
+        p5.innerHTML= d6.getUTCDate()+months[d6.getUTCMonth()]+d6.getUTCFullYear()
         s5.innerHTML= abbreviateNumber(Math.round((pass_6/60000)*((list1[0]-list1[359])/360)+list1[0]))
       }
     }
@@ -446,15 +426,11 @@ function time() {
       const pass_7 = Math.round(diff/((((list1[0]-list1[719])/720)-((list0[0]-list0[719])/720))/60000))
       const d_7 = now+pass_7
       const d7 = new Date(d_7)
-      var hours = d7.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d7.getUTCMinutes()<10) {minutes="0"+d7.getUTCMinutes()} else {minutes=d7.getUTCMinutes()}
       if (pass_7<=0){
         p6.innerHTML="Never";
         s6.innerHTML="";
       } else {
-        p6.innerHTML= d7.getUTCDate()+months[d7.getUTCMonth()]+" @ "+hours+am_pm+" "+d7.getUTCFullYear()
+        p6.innerHTML= d7.getUTCDate()+months[d7.getUTCMonth()]+d7.getUTCFullYear()
         s6.innerHTML= abbreviateNumber(Math.round((pass_7/60000)*((list1[0]-list1[719])/720)+list1[0]))
       }
     }
@@ -463,15 +439,11 @@ function time() {
       const pass_8 = Math.round(diff/((((list1[0]-list1[1439])/1440)-((list0[0]-list0[1439])/1440))/60000))
       const d_8 = now+pass_8
       const d8 = new Date(d_8)
-      var hours = d8.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d8.getUTCMinutes()<10) {minutes="0"+d8.getUTCMinutes()} else {minutes=d8.getUTCMinutes()}
       if (pass_8<=0){
         p7.innerHTML="Never";
         s7.innerHTML="";
       } else {
-        p7.innerHTML= d8.getUTCDate()+months[d8.getUTCMonth()]+" @ "+hours+am_pm+" "+d8.getUTCFullYear()
+        p7.innerHTML= d8.getUTCDate()+months[d8.getUTCMonth()]+d8.getUTCFullYear()
         s7.innerHTML= abbreviateNumber(Math.round((pass_8/60000)*((list1[0]-list1[1439])/1440)+list1[0]))
       }
     }
@@ -480,15 +452,11 @@ function time() {
       const pass_9 = Math.round(diff/((((list1[0]-list1[2879])/2880)-((list0[0]-list0[2879])/2880))/60000))
       const d_9 = now+pass_9
       const d9 = new Date(d_9)
-      var hours = d9.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d9.getUTCMinutes()<10) {minutes="0"+d9.getUTCMinutes()} else {minutes=d9.getUTCMinutes()}
       if (pass_9<=0){
         p8.innerHTML="Never";
         s8.innerHTML="";
       } else {
-        p8.innerHTML= d9.getUTCDate()+months[d9.getUTCMonth()]+" @ "+hours+am_pm+" "+d9.getUTCFullYear()
+        p8.innerHTML= d9.getUTCDate()+months[d9.getUTCMonth()]+d9.getUTCFullYear()
         s8.innerHTML= abbreviateNumber(Math.round((pass_9/60000)*((list1[0]-list1[2879])/2880)+list1[0]))
       }
     }
@@ -497,15 +465,11 @@ function time() {
       const pass_9a = Math.round(diff/((((list1[0]-list1[4319])/4320)-((list0[0]-list0[4319])/4320))/60000))
       const d_9a = now+pass_9a
       const d9a = new Date(d_9a)
-      var hours = d9a.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d9a.getUTCMinutes()<10) {minutes="0"+d9a.getUTCMinutes()} else {minutes=d9a.getUTCMinutes()}
       if (pass_9a<=0){
         p9.innerHTML="Never";
         s9.innerHTML="";
       } else {
-        p9.innerHTML= d9a.getUTCDate()+months[d9a.getUTCMonth()]+" @ "+hours+am_pm+" "+d9a.getUTCFullYear()
+        p9.innerHTML= d9a.getUTCDate()+months[d9a.getUTCMonth()]+d9a.getUTCFullYear()
         s9.innerHTML= abbreviateNumber(Math.round((pass_9a/60000)*((list1[0]-list1[4319])/4320)+list1[0]))
       }
     }
@@ -514,15 +478,11 @@ function time() {
       const pass_9b = Math.round(diff/((((list1[0]-list1[7199])/7200)-((list0[0]-list0[7199])/7200))/60000))
       const d_9b = now+pass_9b
       const d9b = new Date(d_9b)
-      var hours = d9b.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d9b.getUTCMinutes()<10) {minutes="0"+d9b.getUTCMinutes()} else {minutes=d9b.getUTCMinutes()}
       if (pass_9b<=0){
         p10.innerHTML="Never";
         s10.innerHTML="";
       } else {
-        p10.innerHTML= d9b.getUTCDate()+months[d9b.getUTCMonth()]+" @ "+hours+am_pm+" "+d9b.getUTCFullYear()
+        p10.innerHTML= d9b.getUTCDate()+months[d9b.getUTCMonth()]+d9b.getUTCFullYear()
         s10.innerHTML= abbreviateNumber(Math.round((pass_9b/60000)*((list1[0]-list1[7199])/7200)+list1[0]))
       }
     }
@@ -531,15 +491,11 @@ function time() {
       const pass_10 = Math.round(diff/((((list1[0]-list1[10079])/10080)-((list0[0]-list0[10079])/10080))/60000))
       const d_10 = now+pass_10
       const d10 = new Date(d_10)
-      var hours = d10.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d10.getUTCMinutes()<10) {minutes="0"+d10.getUTCMinutes()} else {minutes=d10.getUTCMinutes()}
       if (pass_10<=0){
         p11.innerHTML="Never";
         s11.innerHTML="";
       } else {
-        p11.innerHTML= d10.getUTCDate()+months[d10.getUTCMonth()]+" @ "+hours+am_pm+" "+d10.getUTCFullYear()
+        p11.innerHTML= d10.getUTCDate()+months[d10.getUTCMonth()]+d10.getUTCFullYear()
         s11.innerHTML= abbreviateNumber(Math.round((pass_10/60000)*((list1[0]-list1[10079])/10080)+list1[0]))
       }
     }
@@ -548,15 +504,11 @@ function time() {
       const pass_11 = Math.round(diff/((((list1[0]-list1[21059])/21060)-((list0[0]-list0[21159])/21060))/60000))
       const d_11 = now+pass_11
       const d11 = new Date(d_11)
-      var hours = d11.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d11.getUTCMinutes()<10) {minutes="0"+d11.getUTCMinutes()} else {minutes=d11.getUTCMinutes()}
       if (pass_11<=0){
         p12.innerHTML="Never";
         s12.innerHTML="";
       } else {
-        p12.innerHTML= d11.getUTCDate()+months[d11.getUTCMonth()]+" @ "+hours+am_pm+" "+d11.getUTCFullYear()
+        p12.innerHTML= d11.getUTCDate()+months[d11.getUTCMonth()]+d11.getUTCFullYear()
         s12.innerHTML= abbreviateNumber(Math.round((pass_11/60000)*((list1[0]-list1[21059])/21060)+list1[0]))
       }
     }
@@ -565,15 +517,11 @@ function time() {
       const pass_12 = Math.round(diff/((((list1[0]-list1[43199])/43200)-((list0[0]-list0[43199])/43200))/60000))
       const d_12 = now+pass_12
       const d12 = new Date(d_12)
-      var hours = d12.getUTCHours()
-      var am_pm = hours>=12?'pm':'am';
-      hours = (hours %12) || 12;
-      if (d12.getUTCMinutes()<10) {minutes="0"+d12.getUTCMinutes()} else {minutes=d12.getUTCMinutes()}
       if (pass_12<=0){
         p13.innerHTML="Never";
         s13.innerHTML="";
       } else {
-        p13.innerHTML= d12.getUTCDate()+months[d12.getUTCMonth()]+" @ "+hours+am_pm+" "+d12.getUTCFullYear()
+        p13.innerHTML= d12.getUTCDate()+months[d12.getUTCMonth()]+d12.getUTCFullYear()
         s13.innerHTML= abbreviateNumber(Math.round((pass_12/60000)*((list1[0]-list1[43199])/43200)+list1[0]))
       }
     }
