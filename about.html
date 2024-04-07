@@ -111,12 +111,12 @@
 
 <script>
     function followers() {
-        fetch('https://api.subscriberwars.space/youtube/channel/v2/UCdKLd9f_8ZyDSKxMm16oRww')
+        fetch('https://api.subscriberwars.space/youtube/channel/UCdKLd9f_8ZyDSKxMm16oRww')
         .then(res=>res.json())
         .then(data=>{
             youtube_1.innerHTML=data.items[0].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
         })
-        fetch('https://api.subscriberwars.space/youtube/channel/v2/UClx-t76jqvFTcBxQsQBYJWA')
+        fetch('https://api.subscriberwars.space/youtube/channel/UClx-t76jqvFTcBxQsQBYJWA')
         .then(res=>res.json())
         .then(data=>{
             youtube_2.innerHTML=data.items[0].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Subscribers"
@@ -156,10 +156,10 @@
         .then(data=>{
             instagram.innerHTML=data.items.followers_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
         })
-        fetch('https://api.subscriberwars.space/tiktok/v2/6744795986549408774')
+        fetch('https://api.subscriberwars.space/tiktok/raw/6744795986549408774')
         .then(res=>res.json())
         .then(data=>{
-            tiktok.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            tiktok.innerHTML=data.data.follow_info.follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
         })
         fetch('https://api.subscriberwars.space/trovo/channel/106210667')
         .then(res=>res.json())
