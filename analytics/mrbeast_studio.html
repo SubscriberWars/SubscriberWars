@@ -8,12 +8,16 @@
           fetch('https://nia-statistics.com/mrbeastsubcount')
       .then((res)=>res.json())
       .then(data=> {
-          const dimension = data.map((entry)=>entry[0].split("T")[0])
-          const subs = data.map((entry)=>entry[1])
-          const gain = data.map((entry,index)=>{
-              if(index===0) {return null}
-              else{return entry[1]-data[index -1][1]}
-          })
+        const slicedData = data.slice(3);
+    const dimension = slicedData.map((entry) => entry[0].split("T")[0]);
+    const subs = slicedData.map((entry) => entry[1]);
+    const gain = slicedData.map((entry, index) => {
+      if (index === 0) {
+        return null;
+      } else {
+        return entry[1] - slicedData[index - 1][1];
+      }
+    });
           
   
           Highcharts.chart('mrbeast', {

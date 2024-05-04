@@ -282,9 +282,9 @@
 
     function time() {
         const time = new Date()
-        //sw_time.innerHTML= "Penrith, CU, United Kingdom, "+time.toLocaleString('en-GB', {timeZone: 'Europe/London', weekday: 'short', day: '2-digit', month: 'short', year:'numeric', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
-        ts_time.innerHTML= "New Delhi, NCT, India, "+time.toLocaleString('en-GB', {timeZone: 'Asia/Kolkata', weekday: 'short', day: '2-digit', month: 'short', year:'numeric' ,hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
-        mb_time.innerHTML= "Greenville, NC, United States, "+time.toLocaleString('en-GB', {timeZone: 'America/New_York', weekday: 'short', day: '2-digit', month: 'short', year:'numeric', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+        //sw_time.innerHTML= "Penrith, United Kingdom, "+time.toLocaleString('en-GB', {timeZone: 'Europe/London', weekday: 'short', day: '2-digit', month: 'short', year:'numeric', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+        ts_time.innerHTML= "New Delhi, India, "+time.toLocaleString('en-GB', {timeZone: 'Asia/Kolkata', weekday: 'short', day: '2-digit', month: 'short', year:'numeric' ,hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
+        mb_time.innerHTML= "Greenville, United States, "+time.toLocaleString('en-GB', {timeZone: 'America/New_York', weekday: 'short', day: '2-digit', month: 'short', year:'numeric', hour: '2-digit', hour12: true, minute: '2-digit', second: '2-digit'})
     }
 
     setInterval(update,2000)

@@ -116,41 +116,45 @@
           fetch('https://nia-statistics.com/mrbeastsubcount')
       .then((res)=>res.json())
       .then(data=> {
-          const dimension = data.map((entry)=>entry[0].split("T")[0])
-          const subs = data.map((entry)=>entry[1])
-          const gain = data.map((entry,index)=>{
-              if(index===0) {return 0}
-              else{return entry[1]-data[index -1][1]}
-          })
+        const slicedData = data.slice(3);
+    const dimension = slicedData.map((entry) => entry[0].split("T")[0]);
+    const subs = slicedData.map((entry) => entry[1]);
+    const gain = slicedData.map((entry, index) => {
+      if (index === 0) {
+        return null;
+      } else {
+        return entry[1] - slicedData[index - 1][1];
+      }
+    });
           
-          const dataTable = document.getElementById('table').getElementsByTagName('tbody')[0];
-          let previousSubscribers = null;
-  
-          data.forEach((entry,index)=>{
-            const row = dataTable.insertRow();
-            const dateCell = row.insertCell(0);
-            const subscriberGainCell = row.insertCell(1);
-            const subscribersCell = row.insertCell(2);
-            dateCell.textContent= entry[0].split("T")[0];
-            subscribersCell.textContent= entry[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            
-            let subscriberGain = 0;
-  
-            if (previousSubscribers !== null) {
-              subscriberGain = entry[1] - previousSubscribers;
-              if (subscriberGain > 0) {
-                subscriberGainCell.textContent = `+${subscriberGain}`.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                subscriberGainCell.style.color = 'green';
-              } else if (subscriberGain < 0) {
-                subscriberGainCell.textContent = subscriberGain.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                subscriberGainCell.style.color = 'red';
-              } else {
-                subscriberGainCell.textContent = '--';
-                subscriberGainCell.style.color = 'grey';
-              }
-            }
-            previousSubscribers = entry[1];
-          })
+    const dataTable = document.getElementById('table').getElementsByTagName('tbody')[0];
+let previousSubscribers = null;
+
+slicedData.forEach((entry, index) => {
+  const row = dataTable.insertRow();
+  const dateCell = row.insertCell(0);
+  const subscriberGainCell = row.insertCell(1);
+  const subscribersCell = row.insertCell(2);
+  dateCell.textContent = entry[0].split("T")[0];
+  subscribersCell.textContent = entry[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  let subscriberGain = 0;
+
+  if (previousSubscribers !== null) {
+    subscriberGain = entry[1] - previousSubscribers;
+    if (subscriberGain > 0) {
+      subscriberGainCell.textContent = `+${subscriberGain}`.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      subscriberGainCell.style.color = 'green';
+    } else if (subscriberGain < 0) {
+      subscriberGainCell.textContent = subscriberGain.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      subscriberGainCell.style.color = 'red';
+    } else {
+      subscriberGainCell.textContent = '--';
+      subscriberGainCell.style.color = 'grey';
+    }
+  }
+  previousSubscribers = entry[1];
+});
   
           Highcharts.chart('mrbeast', {
             chart: {
