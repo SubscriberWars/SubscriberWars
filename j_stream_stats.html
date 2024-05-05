@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div style="font-family: montserrat; font-size: 30px; font-weight: 800;">Followers/Subscribers/Members</div>
+    <span><img src="/images/twitch.svg" class="image"></span>&nbsp;
+    <span id="twitch" class="num"></span>&nbsp;&nbsp;&nbsp;
+    <span><img src="/images/youtube.svg" class="image"></span>&nbsp;
+    <span id="youtube" class="num"></span>&nbsp;&nbsp;&nbsp;
+    <span><img src="/images/trovo.svg" class="image"></span>&nbsp;
+    <span id="trovo" class="num"></span>&nbsp;&nbsp;&nbsp;
+</body>
+
+<script>
+    function get() {
+        fetch('https://api.subscriberwars.space/twitch/750736092').then(res => res.json()).then(data => {
+            twitch.innerHTML=data.followerCount
+        });
+        fetch('https://api.subscriberwars.space/youtube/channel/UCAnHEkwm6liAdr1-yRS4V9g').then(res => res.json()).then(data => {
+            youtube.innerHTML=data.items[0].statistics.subscriberCount
+        });
+        fetch('https://api.subscriberwars.space/trovo/channel/106210667').then(res => res.json()).then(data => {
+            trovo.innerHTML=data.followers
+        });
+    }
+    get()
+</script>
+
+<style>
+    *{
+        color: #fff;
+    }
+    .image{
+        height: 50px;
+    }
+    .num{
+        font-size: 50px;
+        font-weight: 800;
+        font-family: montserrat;
+        position: relative;
+        top: -5px;
+    }
+</style>
