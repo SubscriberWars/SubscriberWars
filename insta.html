@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+        <script src="https://kit.fontawesome.com/229e496f46.js" crossorigin="anonymous"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://subscriberwars.space/js/odometer.js"></script>
+        <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+</head>
+
+
+<body style="background: #000;">
+    <div style="text-align: center;">
+        <div class="odometer" id="odo" style="color: #fff; font-family: roboto; font-size: 10rem; font-weight: 500;"></div>
+        <div id="chart1" style="width:950px;height:300px"></div>
+        <p id="a1" style="color: #fff;"></p>
+    </div>
+</body>
+
+
+
+
+<script type="text/javascript">
+
+var url0='https://backend.mixerno.space/instagram/test/mrbeast'
+setInterval(() => {
+
+    fetch(url0).then(res => res.json()).then(data => {
+        a1.innerHTML=data.user.followerCount
+        odo.innerHTML=data.user.followerCount
+    })
+
+
+    var result = (a1.innerHTML)
+    var inject = result
+    if (chart1.series[0].points.length >= 1800) chart1.series[0].data[0].remove();
+        chart1.series[0].addPoint([Date.now(),parseFloat(inject)])
+}, 2*1000);
+
+var chart1 = Highcharts.chart({
+chart: {renderTo: 'chart1',type: 'spline',zoomType: 'x',backgroundColor: 'transparent',plotBorderColor: 'transparent'},
+title: {text: ''},
+xAxis: {type: 'datetime', tickPixelInterval: 100, gridLineColor: '#transparent', labels: {style: {color: 'white'}}, minorGridLineColor: '#transparent', tickColor: 'white', title: {style: {color: '#transparent'}}},
+yAxis: {title: {text: ''}, gridLineColor: '#transparent', labels: {style: {color: 'white'}}, lineColor: 'white', minorGridLineColor: 'transparent', tickColor: 'white'},
+credits: {enabled: false, text: ""},
+plotOptions:{spline:{fillOpacity: 0.5}},
+series: [{showInLegend: false, name: '', marker: { enabled: false }, lineColor: '#fc7703', color: '#fc7703'}]
+});
+</script>
