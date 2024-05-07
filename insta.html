@@ -20,12 +20,15 @@
 
 <script type="text/javascript">
 
-var url0='https://backend.mixerno.space/instagram/test/mrbeast'
+//var url0='https://backend.mixerno.space/instagram/test/mrbeast'
+var url0='https://livecounts.xyz/api/instagram-live-follower-count/live/2278169415'
 setInterval(() => {
 
     fetch(url0).then(res => res.json()).then(data => {
-        a1.innerHTML=data.user.followerCount
-        odo.innerHTML=data.user.followerCount
+        //a1.innerHTML=data.user.followerCount
+        //odo.innerHTML=data.user.followerCount
+        a1.innerHTML=data.counts[0]
+        odo.innerHTML=data.counts[0]
     })
 
 
