@@ -1,0 +1,91 @@
+<head>
+    <script src="/js/odometer.js"></script>
+    <link rel=stylesheet href="/css/odometer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>  
+</head>
+
+<style>
+    *{
+      font-family: 'Roboto';
+      font-weight: 500;
+      margin: 0;
+    }
+    body {
+      height: 400px;
+      width: 400px;
+      border: 1px dashed red;
+      background: #000;
+      padding: 5px;
+      text-align: center;
+    }
+    h1 {
+      height: 80px;
+      width: 400px;
+      font-size: 40px;
+      color: #fff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    #views_ {
+      font-size: 60px;
+      color: #fff;
+      font-weight: 500;
+      text-align: center;
+      width: 100%;
+    }
+</style>
+
+<body>
+  <h1 id=vidtitle>Stream Stats</h1>
+  <div id="views_">
+    <i class="fa fa-regular fa-eyes" style="color: #fff;"></i>&nbsp;<div id="conOdometer" class="odometer" style="color: #fff; margin-top: 10px; position: relative; top: -10px;">0</div>
+    <br>
+    <i class="fa fa-sharp fa-thumbs-up" style="color: #00ff0d;"></i>&nbsp;<div id="likesOdometer" class="odometer" style="color: #00ff0d; margin-top: 10px; position: relative; top: -10px;">0</div>
+    <br>
+    <i class="fa fa-sharp fa-eye"></i>&nbsp;<div id="viewsOdometer" class= "odometer" style="margin-top: 10px; position: relative; top: -10px;">0</div>
+  </div>
+</body>
+
+<script>
+var channel = window.location.href.split('?')[1] || '';
+var capi = 0;
+var lapi = 0;
+var likes = 0;
+var views = 0;
+var viewsC = 0;
+var lol = 0;
+
+
+function updateStats(id) {
+    fetch('https://api.subscriberwars.space/youtube/livestream/'+id).then(res => res.json()).then(data => {
+        capi = data.items[0].statistics.viewCount
+        lapi = data.items[0].statistics.likeCount
+
+    var ratio = parseFloat(capi) / parseFloat(lapi)
+                console.log(ratio)
+                    views = (Math.floor(parseFloat(views) + ratio * (parseFloat(lapi) - likes)))
+                        if (viewsC == capi) { } else {
+                            views = (Math.floor(parseFloat(capi)))
+                        }
+                viewsC = (Math.floor(capi))
+                likes = (Math.floor(lapi))
+                lol = views
+        likesOdometer.innerHTML = data.items[0].statistics.likeCount,
+        viewsOdometer.innerHTML = lol,
+        conOdometer.innerHTML = data.items[0].liveStreamingDetails.concurrentViewers
+    });
+    
+}
+
+setInterval(() => {
+    updateStats(channel);
+}, 10000);
+
+updateStats(channel)
+
+</script>
