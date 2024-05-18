@@ -1,0 +1,208 @@
+<head>
+    <title>YouTube Channel Members</title>
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="header">
+        <div>Subscriber Wars Channel Members</div>
+    </div>
+    <div class="grid_container">
+        <a id="l0" target="_blank">
+            <div class="grid_item">
+                <img class="pfp" id="pfp_0">
+                <div class="name" id="nam_0"></div>
+                <div class="subscribers">
+                    <span id="subs_0"></span>
+                    <span> Subscribers</span>
+                </div>
+            </div>
+        </a>
+        <a id="l1" target="_blank">
+            <div class="grid_item">
+                <img class="pfp" id="pfp_1">
+                <div class="name" id="nam_1"></div>
+                <div class="subscribers">
+                    <span id="subs_1"></span>
+                    <span> Subscribers</span>
+                </div>
+            </div>
+        </a>
+        <a id="l2" target="_blank">
+            <div class="grid_item">
+                <img class="pfp" id="pfp_2">
+                <div class="name" id="nam_2"></div>
+                <div class="subscribers">
+                    <span id="subs_2"></span>
+                    <span> Subscribers</span>
+                </div>
+            </div>
+        </a>
+        <a id="l3" target="_blank">
+            <div class="grid_item">
+                <img class="pfp" id="pfp_3">
+                <div class="name" id="nam_3"></div>
+                <div class="subscribers">
+                    <span id="subs_3"></span>
+                    <span> Subscribers</span>
+                </div>
+            </div>
+        </a>
+        <a id="l4" target="_blank">
+            <div class="grid_item">
+                <img class="pfp" id="pfp_4">
+                <div class="name" id="nam_4"></div>
+                <div class="subscribers">
+                    <span id="subs_4"></span>
+                    <span> Subscribers</span>
+                </div>
+            </div>
+        </a>
+        <a id="l5" target="_blank">
+            <div class="grid_item">
+                <img class="pfp" id="pfp_5">
+                <div class="name" id="nam_5"></div>
+                <div class="subscribers">
+                    <span id="subs_5"></span>
+                    <span> Subscribers</span>
+                </div>
+            </div>
+        </a>
+        <a id="l6" target="_blank">
+            <div class="grid_item">
+                <img class="pfp" id="pfp_6">
+                <div class="name" id="nam_6"></div>
+                <div class="subscribers">
+                    <span id="subs_6"></span>
+                    <span> Subscribers</span>
+                </div>
+            </div>
+        </a>
+        <a id="l7" target="_blank">
+            <div class="grid_item">
+                <img class="pfp" id="pfp_7">
+                <div class="name" id="nam_7"></div>
+                <div class="subscribers">
+                    <span id="subs_7"></span>
+                    <span> Subscribers</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</body>
+
+<script>
+    function get() {
+        fetch("https://api.subscriberwars.space/youtube/channel/UCmLFQS2IA_dGqmQ2rjAmBAA,UCauwIe4guzRjLSwA3VmjBFg,UCtzdVLNIwPK_dfpfZxe3h9A,UCeGCG8SYUIgFO13NyOe6reQ,UC7Nx44j8UGk1ZCrwPmgAGZA,UCbgPCeU8YoP3D1z5GS6NLlA,UC7aHSJHSutdUMxe1dfRMgYw,UCyHI_Z6gDCHcDlvciooQB1Q").then(res=>res.json()).then(data=>{
+            pfp_0.src= data.items[0].snippet.thumbnails.medium.url
+            pfp_1.src= data.items[1].snippet.thumbnails.medium.url
+            pfp_2.src= data.items[2].snippet.thumbnails.medium.url
+            pfp_3.src= data.items[3].snippet.thumbnails.medium.url
+            pfp_4.src= data.items[4].snippet.thumbnails.medium.url
+            pfp_5.src= data.items[5].snippet.thumbnails.medium.url
+            pfp_6.src= data.items[6].snippet.thumbnails.medium.url
+            pfp_7.src= data.items[7].snippet.thumbnails.medium.url
+            nam_0.innerHTML= data.items[0].snippet.title
+            nam_1.innerHTML= data.items[1].snippet.title
+            nam_2.innerHTML= data.items[2].snippet.title
+            nam_3.innerHTML= data.items[3].snippet.title
+            nam_4.innerHTML= data.items[4].snippet.title
+            nam_5.innerHTML= data.items[5].snippet.title
+            nam_6.innerHTML= data.items[6].snippet.title
+            nam_7.innerHTML= data.items[7].snippet.title
+            subs_0.innerHTML=data.items[0].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            subs_1.innerHTML=data.items[1].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            subs_2.innerHTML=data.items[2].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            subs_3.innerHTML=data.items[3].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            subs_4.innerHTML=data.items[4].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            subs_5.innerHTML=data.items[5].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            subs_6.innerHTML=data.items[6].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            subs_7.innerHTML=data.items[7].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            l0.href="https://youtube.com/channel/"+data.items[0].id+"?sub_confirmation=1"
+            l1.href="https://youtube.com/channel/"+data.items[1].id+"?sub_confirmation=1"
+            l2.href="https://youtube.com/channel/"+data.items[2].id+"?sub_confirmation=1"
+            l3.href="https://youtube.com/channel/"+data.items[3].id+"?sub_confirmation=1"
+            l4.href="https://youtube.com/channel/"+data.items[4].id+"?sub_confirmation=1"
+            l5.href="https://youtube.com/channel/"+data.items[5].id+"?sub_confirmation=1"
+            l6.href="https://youtube.com/channel/"+data.items[6].id+"?sub_confirmation=1"
+            l7.href="https://youtube.com/channel/"+data.items[7].id+"?sub_confirmation=1"
+        })
+    }
+get()
+</script>
+
+<style>
+    body {
+        background: #181818;
+        font-family: roboto;
+        color: #fff;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+    a {
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+    }
+    #header {
+        width: 100%;
+        height: clamp(40px,3.5vw,60px);
+        background-image: linear-gradient(to right, #ff0000, #830101);
+        overflow: hidden;
+        font-weight: 500;
+        font-size: clamp(30px,3.5vw,50px);
+        text-align: center;
+    }
+    .grid_container {
+        display: grid;
+        gap: 50px;
+        padding: 10px;
+        text-align: center;
+        width: 94%;
+    }
+    .grid_item {
+        background: #0f0f0f;
+        border: 1px solid #000;
+        border-radius: 10px;
+        font-size: 30px;
+        text-align: center;
+        height: 400px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .grid_item:hover {
+        background: #000;
+        cursor: pointer;
+        border: 1px solid #fff;
+    }
+    .pfp {
+        height: 150px;
+        margin: 20px;
+        border-radius: 50%;
+        border: 1px solid #000;
+    }
+    .name {
+        font-size: clamp(30px,3.5vw,50px);
+        font-weight: 500;
+    }
+    .subscribers {
+        font-size: clamp(30px,3.5vw,50px);
+        margin-top: 20px;
+    }
+
+    @media only screen and (min-width: 640px) {
+        .grid_container {
+            grid-template-columns: 47.5% 47.5%;
+        }
+    }
+    @media only screen and (min-width: 1100px) {
+        .grid_container {
+            grid-template-columns: 32% 32% 32%;
+        }
+    }
+</style>
