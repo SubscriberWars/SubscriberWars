@@ -49,6 +49,11 @@
             </button>
         </a>
     </div>
+    <div class="button_box">
+        <a href="https://mixerno.space/instagram-user-counter" style="margin: auto; width: 1260px;">
+            <button class="credit_box">Powered by: Mixerno</button>
+        </a>
+    </div>
     <p id="goal01" style="visibility: hidden;"></p>
 </body>
 
@@ -57,7 +62,7 @@
     var goal01=[];
 
     function instagram(chanid) {
-        fetch('https://api.subscriberwars.space/instagram/v2/'+chanid)
+        fetch('https://api.subscriberwars.space/instagram2/'+chanid)
         .then(res=>res.json())
         .then(data=>{
             channel_subscribers.innerHTML=data.stats.followers
@@ -115,7 +120,7 @@
         text-align: center;
         vertical-align: middle;
         font-weight: 500;
-        font-size: 3rem;
+        font-size: 50px;
     }
     .main_box {
         width: 1260px;
@@ -127,6 +132,23 @@
         border: 1px solid #000;
         border-radius: 10px;
         text-align: center;
+    }
+    .credit_box {
+        width: 1260px;
+        height: 55px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 30px;
+        color: #fff;
+    }
+    .credit_box:hover {
+        background: #000;
+        border: 1px solid #fff;
+        cursor: pointer;
     }
     #channel_banner {
         width: 100%;
@@ -179,7 +201,7 @@
         font-size: 3rem;
     }
     .bottom_text {
-        font-size: 2rem;
+        font-size: 30px;
         margin-top: 20px;
     }
     ::-webkit-scrollbar {
@@ -189,11 +211,11 @@
         border-radius: 2.5px;
     }
     ::-webkit-scrollbar-thumb {
-        background: #ff0000;
+        background-image: linear-gradient(to bottom, #feda77, #f58529, #dd2a7b, #8134af, #515bd4);
         border-radius: 2.5px;
     }
     ::-webkit-scrollbar-thumb:hover {
-        background: #ff3434;
+        background-image: linear-gradient(to bottom, #feda77, #f58529, #dd2a7b, #8134af, #515bd4);
         border-radius: 2.5px;
     }
     .button_box {
