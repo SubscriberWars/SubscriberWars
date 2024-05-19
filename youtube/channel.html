@@ -158,7 +158,6 @@
     }
 
     function api(chanid) {
-        channel_banner.src="https://www.banner.yt/"+chanid+"?width=1260"
         fetch("https://api.subscriberwars.space/youtube/channel/"+chanid).then(res=>res.json()).then(data=>{
             page_title.innerHTML=data.items[0].snippet.title+"'s Live Subscriber Count"
             uid=data.items[0].id.replace("UC","UU")
@@ -171,6 +170,7 @@
             channel_link.href="https://youtube.com/channel/"+data.items[0].id
             channel_sb.href="https://socialblade.com/youtube/c/"+data.items[0].snippet.customUrl
             channel_abreviation.innerHTML=abbreviateNumber(data.items[0].statistics.subscriberCount)
+            channel_banner.src= data.items[0].brandingSettings.image.bannerExternalUrl+"=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
         })
     }
 
