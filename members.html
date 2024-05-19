@@ -91,12 +91,22 @@
                 </div>
             </div>
         </a>
+        <a id="l8" target="_blank">
+            <div class="grid_item">
+                <img class="pfp" id="pfp_8">
+                <div class="name" id="nam_8"></div>
+                <div class="subscribers">
+                    <span id="subs_8"></span>
+                    <span> Subscribers</span>
+                </div>
+            </div>
+        </a>
     </div>
 </body>
 
 <script>
     function get() {
-        fetch("https://api.subscriberwars.space/youtube/channel/UCmLFQS2IA_dGqmQ2rjAmBAA,UCauwIe4guzRjLSwA3VmjBFg,UCtzdVLNIwPK_dfpfZxe3h9A,UCeGCG8SYUIgFO13NyOe6reQ,UC7Nx44j8UGk1ZCrwPmgAGZA,UCbgPCeU8YoP3D1z5GS6NLlA,UC7aHSJHSutdUMxe1dfRMgYw,UCyHI_Z6gDCHcDlvciooQB1Q").then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/youtube/channel/UCmLFQS2IA_dGqmQ2rjAmBAA,UCauwIe4guzRjLSwA3VmjBFg,UCtzdVLNIwPK_dfpfZxe3h9A,UCeGCG8SYUIgFO13NyOe6reQ,UC7Nx44j8UGk1ZCrwPmgAGZA,UCbgPCeU8YoP3D1z5GS6NLlA,UC7aHSJHSutdUMxe1dfRMgYw,UCyHI_Z6gDCHcDlvciooQB1Q,UCgKqYt80UmypU-Cf_pI43Og").then(res=>res.json()).then(data=>{
             pfp_0.src= data.items[0].snippet.thumbnails.medium.url
             pfp_1.src= data.items[1].snippet.thumbnails.medium.url
             pfp_2.src= data.items[2].snippet.thumbnails.medium.url
@@ -105,6 +115,7 @@
             pfp_5.src= data.items[5].snippet.thumbnails.medium.url
             pfp_6.src= data.items[6].snippet.thumbnails.medium.url
             pfp_7.src= data.items[7].snippet.thumbnails.medium.url
+            pfp_8.src= data.items[8].snippet.thumbnails.medium.url
             nam_0.innerHTML= data.items[0].snippet.title
             nam_1.innerHTML= data.items[1].snippet.title
             nam_2.innerHTML= data.items[2].snippet.title
@@ -113,6 +124,7 @@
             nam_5.innerHTML= data.items[5].snippet.title
             nam_6.innerHTML= data.items[6].snippet.title
             nam_7.innerHTML= data.items[7].snippet.title
+            nam_8.innerHTML= data.items[8].snippet.title
             subs_0.innerHTML=data.items[0].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             subs_1.innerHTML=data.items[1].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             subs_2.innerHTML=data.items[2].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -121,6 +133,7 @@
             subs_5.innerHTML=data.items[5].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             subs_6.innerHTML=data.items[6].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             subs_7.innerHTML=data.items[7].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            subs_8.innerHTML=data.items[8].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             l0.href="https://youtube.com/channel/"+data.items[0].id+"?sub_confirmation=1"
             l1.href="https://youtube.com/channel/"+data.items[1].id+"?sub_confirmation=1"
             l2.href="https://youtube.com/channel/"+data.items[2].id+"?sub_confirmation=1"
@@ -129,6 +142,7 @@
             l5.href="https://youtube.com/channel/"+data.items[5].id+"?sub_confirmation=1"
             l6.href="https://youtube.com/channel/"+data.items[6].id+"?sub_confirmation=1"
             l7.href="https://youtube.com/channel/"+data.items[7].id+"?sub_confirmation=1"
+            l8.href="https://youtube.com/channel/"+data.items[8].id+"?sub_confirmation=1"
         })
     }
 get()
