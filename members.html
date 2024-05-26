@@ -1,222 +1,202 @@
+<!DOCTYPE html>
 <head>
-    <title>YouTube Channel Members</title>
-    <script src="https://subscriberwars.space/js/odometer.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <div id="header">
-        <div>Subscriber Wars Channel Members</div>
-    </div>
-    <div class="grid_container">
-        <a id="l0" target="_blank">
-            <div class="grid_item">
-                <img class="pfp" id="pfp_0">
-                <div class="name" id="nam_0"></div>
-                <div class="subscribers">
-                    <span id="subs_0"></span>
-                    <span> Subscribers</span>
-                </div>
-            </div>
-        </a>
-        <a id="l1" target="_blank">
-            <div class="grid_item">
-                <img class="pfp" id="pfp_1">
-                <div class="name" id="nam_1"></div>
-                <div class="subscribers">
-                    <span id="subs_1"></span>
-                    <span> Subscribers</span>
-                </div>
-            </div>
-        </a>
-        <a id="l2" target="_blank">
-            <div class="grid_item">
-                <img class="pfp" id="pfp_2">
-                <div class="name" id="nam_2"></div>
-                <div class="subscribers">
-                    <span id="subs_2"></span>
-                    <span> Subscribers</span>
-                </div>
-            </div>
-        </a>
-        <a id="l3" target="_blank">
-            <div class="grid_item">
-                <img class="pfp" id="pfp_3">
-                <div class="name" id="nam_3"></div>
-                <div class="subscribers">
-                    <span id="subs_3"></span>
-                    <span> Subscribers</span>
-                </div>
-            </div>
-        </a>
-        <a id="l4" target="_blank">
-            <div class="grid_item">
-                <img class="pfp" id="pfp_4">
-                <div class="name" id="nam_4"></div>
-                <div class="subscribers">
-                    <span id="subs_4"></span>
-                    <span> Subscribers</span>
-                </div>
-            </div>
-        </a>
-        <a id="l5" target="_blank">
-            <div class="grid_item">
-                <img class="pfp" id="pfp_5">
-                <div class="name" id="nam_5"></div>
-                <div class="subscribers">
-                    <span id="subs_5"></span>
-                    <span> Subscribers</span>
-                </div>
-            </div>
-        </a>
-        <a id="l6" target="_blank">
-            <div class="grid_item">
-                <img class="pfp" id="pfp_6">
-                <div class="name" id="nam_6"></div>
-                <div class="subscribers">
-                    <span id="subs_6"></span>
-                    <span> Subscribers</span>
-                </div>
-            </div>
-        </a>
-        <a id="l7" target="_blank">
-            <div class="grid_item">
-                <img class="pfp" id="pfp_7">
-                <div class="name" id="nam_7"></div>
-                <div class="subscribers">
-                    <span id="subs_7"></span>
-                    <span> Subscribers</span>
-                </div>
-            </div>
-        </a>
-        <a id="l8" target="_blank">
-            <div class="grid_item">
-                <img class="pfp" id="pfp_8">
-                <div class="name" id="nam_8"></div>
-                <div class="subscribers">
-                    <span id="subs_8"></span>
-                    <span> Subscribers</span>
-                </div>
-            </div>
-        </a>
-    </div>
-</body>
-
-<script>
-    function get() {
-        fetch("https://api.subscriberwars.space/youtube/channel/UCmLFQS2IA_dGqmQ2rjAmBAA,UCauwIe4guzRjLSwA3VmjBFg,UCtzdVLNIwPK_dfpfZxe3h9A,UCeGCG8SYUIgFO13NyOe6reQ,UC7Nx44j8UGk1ZCrwPmgAGZA,UCbgPCeU8YoP3D1z5GS6NLlA,UC7aHSJHSutdUMxe1dfRMgYw,UCyHI_Z6gDCHcDlvciooQB1Q,UCgKqYt80UmypU-Cf_pI43Og").then(res=>res.json()).then(data=>{
-            pfp_0.src= data.items[0].snippet.thumbnails.medium.url
-            pfp_1.src= data.items[1].snippet.thumbnails.medium.url
-            pfp_2.src= data.items[2].snippet.thumbnails.medium.url
-            pfp_3.src= data.items[3].snippet.thumbnails.medium.url
-            pfp_4.src= data.items[4].snippet.thumbnails.medium.url
-            pfp_5.src= data.items[5].snippet.thumbnails.medium.url
-            pfp_6.src= data.items[6].snippet.thumbnails.medium.url
-            pfp_7.src= data.items[7].snippet.thumbnails.medium.url
-            pfp_8.src= data.items[8].snippet.thumbnails.medium.url
-            nam_0.innerHTML= data.items[0].snippet.title
-            nam_1.innerHTML= data.items[1].snippet.title
-            nam_2.innerHTML= data.items[2].snippet.title
-            nam_3.innerHTML= data.items[3].snippet.title
-            nam_4.innerHTML= data.items[4].snippet.title
-            nam_5.innerHTML= data.items[5].snippet.title
-            nam_6.innerHTML= data.items[6].snippet.title
-            nam_7.innerHTML= data.items[7].snippet.title
-            nam_8.innerHTML= data.items[8].snippet.title
-            subs_0.innerHTML=data.items[0].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            subs_1.innerHTML=data.items[1].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            subs_2.innerHTML=data.items[2].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            subs_3.innerHTML=data.items[3].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            subs_4.innerHTML=data.items[4].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            subs_5.innerHTML=data.items[5].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            subs_6.innerHTML=data.items[6].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            subs_7.innerHTML=data.items[7].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            subs_8.innerHTML=data.items[8].statistics.subscriberCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            l0.href="https://youtube.com/channel/"+data.items[0].id+"?sub_confirmation=1"
-            l1.href="https://youtube.com/channel/"+data.items[1].id+"?sub_confirmation=1"
-            l2.href="https://youtube.com/channel/"+data.items[2].id+"?sub_confirmation=1"
-            l3.href="https://youtube.com/channel/"+data.items[3].id+"?sub_confirmation=1"
-            l4.href="https://youtube.com/channel/"+data.items[4].id+"?sub_confirmation=1"
-            l5.href="https://youtube.com/channel/"+data.items[5].id+"?sub_confirmation=1"
-            l6.href="https://youtube.com/channel/"+data.items[6].id+"?sub_confirmation=1"
-            l7.href="https://youtube.com/channel/"+data.items[7].id+"?sub_confirmation=1"
-            l8.href="https://youtube.com/channel/"+data.items[8].id+"?sub_confirmation=1"
-        })
-    }
-get()
-</script>
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" sizes="250x250" href="https://subscriberwars.space/logo/SW%20pfpChannel%20PFP.png">
+<link rel=stylesheet href="odometer.css">
+<script src="odometer.js"></script>
+<title>Embed Switcher - Channel Members</title>
 <style>
     body {
-        background: #181818;
+        background-color:#181818;
         font-family: roboto;
-        color: #fff;
-        padding: 0;
-        margin: 0;
-        border: 0;
-    }
-    a {
-        text-align: center;
-        text-decoration: none;
-        color: #fff;
-    }
-    #header {
-        width: 100%;
-        height: clamp(40px,3.5vw,60px);
-        background-image: linear-gradient(to right, #ff0000, #830101);
-        overflow: hidden;
         font-weight: 500;
-        font-size: clamp(30px,3.5vw,50px);
-        text-align: center;
+    }    
+    h1 {
+        color: #fff;
     }
-    .grid_container {
-        display: grid;
-        gap: 50px;
-        padding: 10px;
-        text-align: center;
-        width: 94%;
-    }
-    .grid_item {
-        background: #0f0f0f;
+    #image {
+        width: 100px;
         border: 1px solid #000;
         border-radius: 10px;
-        font-size: 30px;
-        text-align: center;
-        height: 400px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
     }
-    .grid_item:hover {
-        background: #000;
-        cursor: pointer;
-        border: 1px solid #fff;
+    #text {
+        position: relative;
+        top: -111px;
+        left: 111px;
+        width: 300px;
     }
-    .pfp {
-        height: 150px;
-        margin: 20px;
-        border-radius: 50%;
-        border: 1px solid #000;
-    }
-    .name {
-        font-size: clamp(30px,3.5vw,50px);
-        font-weight: 500;
-    }
-    .subscribers {
-        font-size: clamp(30px,3.5vw,50px);
-        margin-top: 20px;
-    }
-
-    @media only screen and (min-width: 640px) {
-        .grid_container {
-            grid-template-columns: 47.5% 47.5%;
-        }
-    }
-    @media only screen and (min-width: 1100px) {
-        .grid_container {
-            grid-template-columns: 32% 32% 32%;
-        }
+    #count {
+        font-size: 50px;
     }
 </style>
+    </head>
+
+    <body>
+        <h1>Channel Members<h1>
+        <div>
+            <span>
+                <img id="image">
+            </span>
+            <span id="text">
+                <div id="title"></div>
+                <div class="odometer" id="count"></div>
+            </span>
+        </div>
+    </body>
+    <script>
+        
+var ids = [
+    'UCtzdVLNIwPK_dfpfZxe3h9A',
+    'UCeGCG8SYUIgFO13NyOe6reQ',
+    'UCmLFQS2IA_dGqmQ2rjAmBAA',
+    'UCauwIe4guzRjLSwA3VmjBFg',
+    'UC7aHSJHSutdUMxe1dfRMgYw',
+    'UC7Nx44j8UGk1ZCrwPmgAGZA',
+    'UCbgPCeU8YoP3D1z5GS6NLlA',
+    'UCyHI_Z6gDCHcDlvciooQB1Q',
+    'UCgKqYt80UmypU-Cf_pI43Og',
+    'UCDyXaGxZb6ob1_F5d92LcqA',
+    'UC19-va3M3ee9vghEB4JkwAA',
+    'UCTNO18chqjnGbkvI-eXQE-g',
+    'UCOzZ9eGVOEeYqvz-bkFMyjg',
+    'UCHVNXbWpJPq7x6eohEa0Y8Q',
+    'UCtoX-8qqVz0lerMLoQcU6Ow',
+    'UCDWKq4ynAJHb2sSeiRMkFaQ',
+    'UChLVe5Be-frhyEjuPaPRoMA',
+    'UCDlrk8iT456SVJWs0gr036w',
+    'UC6NYfmYfKfavQRcv1tY5Mzg',
+    'UCk82otlmJVKn-ile-bq7o3g',
+    'UCnxlYhU3szbWjdk8S56hd0Q',
+    'UCJAN5ID77pM62cuOFTeY78Q',
+    'UC0NGQS5EJq6bAJ2DGvRwfRg',
+    'UCHrFzhY-nTdkv_AdUrZiodg',
+    'UCowGJ-dhpFmh223E0iQSOSA',
+    'UCety-er19foDHC2MEE2MUFA',
+    'UCPpjPTZHj85qekjyqM5liPA',
+    'UCAX2XiCe-lW446nSBjICs8w',
+    'UCpnD4XPRAya9jLBsDM8orSw',
+    'UCKR5EDFB7qn50Ze5nNd9bnA',
+    'UCbStx2E5UUbjXyMWb1HXXKA',
+    'UCdMlpZ994JAPOn6FjVOBCRg',
+    'UCFQocNDG71oSgL0NKAjNZgw',
+    'UCixFmhTbvAzyhp8_WX4Yl1A',
+    'UCr7k8Mis86qqfS4fEss7EWw',
+    'UCNtv9CIczfJDxIWg0lxq-AA',
+    'UCf62Ox2Jk107oazR1nJbAVw',
+    'UC0xuTR0327wvez44WW3kbtw',
+    'UCD5vaR1xfr7aOvPY_zDWBLw',
+    'UCcWn8Io_2W6dc6kCLOvCGwA',
+    'UC6WUgFxcCxT9qn2Q_LAv6Gw',
+    'UCgBK5TxMN-1dra3G1NaIHog',
+    'UCLWZ6k1Amevo2IFywYfGX5g',
+    'UC3HvJlHDlbGhyj7GePDDnlA',
+    'UCHPUvSJA4bi2wGqAcPY7ZGQ',
+    'UCufEmpxM0fHgMcHKYYsrwMQ',
+    'UCmZEoBYXFhc8cNef71BIiiA',
+    'UCD45hDXkR9DdXFsG7j3hGEw',
+    'UCsRGjM4oNfUj-OiHKNjoGEw',
+    'UCv98VxtJ8It6crb2S8cJbyg',
+    'UCY6rqISOGqguDBw55CguBJg',
+    'UC3Ar21ou-Uz3OEBz7gRzgSg',
+    'UCoCXgMeXFzEeiLnzQ6bTUow',
+    'UCDcP5cVwuU7Swk1FiZnJ-ZQ',
+    'UC6XgUSgAgv2EA3YgdHYVqDg',
+    'UCEjU23TbnHrlj0OjtbcqGzw',
+    'UCARjwgIGMxdM6geJYcg7OPg',
+    'UC-RWVDo17JCZ5fNUxvmX6wA',
+    'UCpX5_cCdVMWrOCDdgkpTa0w',
+    'UCXl2R8q2J-SwS4yXkDwolmA',
+    'UCs7XrnE6F5TgLLxrlykKyEg',
+    'UCzUgkVVJjEm8MoOlWk1CO-Q',
+    'UCppq7IKC4M7T_JIj2LHLuRg',
+    'UCVuLVZ0aJ_wGwZTsdXeWfXg',
+    'UC7zsUAgvtZBrv_5hrYg7ixg',
+    'UCby7KhOXWK9SZwgn4akm5HA',
+    'UCwZhyQle8LOE-87qQIg5OWg',
+    'UCQwCm3iUpSQB2zkH51xrVTg',
+    'UCURjL4Akz_hStSMOypqjuTQ',
+    'UC7YVMadeUtQbF0M-Fw_t8TQ',
+    'UCpZHghP8wzk-O4tS-oKFGcA',
+    'UCxa4HD9oCdvVpFMColrKC9g',
+    'UCGQm_bSUoJLjoYy3CHW26Ag',
+    'UClncp7Rkz-Nxfge5rZaFQ8Q',
+    'UCrVRoGmWexP_FgG4Zr5q4JQ',
+    'UClZnbiKnLvCDFw43CR3NAqQ',
+    'UCSCdQ2jZeJF-u8187T7ibYA',
+    'UCaBVgwg-zLA8GZSAtICoP0w',
+    'UCj6GeSPuflmijiC0ASuO-7Q',
+    'UCBq0ES6fGcLzEVGCBibRg-w',
+    'UCUZwxFl9IIah3xn48ITYmdA',
+    'UCFuawT894T_3NihfrAIfapA',
+    'UC3LE0C32zA9t9O6f0nD2y1A',
+    'UCjo05vwgXYHpeu6tcH-hvJg',
+    'UCLFag7Hiut_072dA3W3rEow',
+    'UCcm1YUoaabnVrBVRNlfmWew',
+    'UCScWg__2L46wp7x-gjpbKvw',
+    'UCKfdj5f38jbUV2LfuBfoeVg',
+    'UCnEauGK1OLkb_1uOSpmiK0Q',
+    'UCgUF7B3lnr-LZ9vwf1GfAbQ',
+    'UC2sE1eGyr7xoe4FWdNcXB3g',
+    'UCBugapXxqlne5AYoegaWX0g',
+    'UCXLwXT8LX21dLeiIXjcFbOg',
+    'UCl-Bg7IJIJ0NlIFlh3cmCPA',
+    'UCzBAHuzNr8lOOyC0YVyy3Ow',
+    'UCCfn5Ko6ClYw7BxgH58JAAQ',
+    'UCYpKTqGP6LsrkoxfpaIpg_g',
+    'UCVr0bf49kVW6h-pF62tItkw',
+    'UCyfTnNDB2zoRH66px7vpOzA',
+    'UCSpzsdAVtg4pyhTlXPjbDbw',
+    'UCXRodcJuNviIUnrqeJeG16w',
+    'UCRua76bDQUQlCvkdlk1u4fA',
+    'UCoTi7BRkamIrQ0_Wj7FhgxA',
+    'UCUFjsb-DoRv3RwPRHXFdEvQ',
+    'UCoZ0ZJr9wrZxToOvvUoOxKQ',
+    'UC7-9MYch0v2ahEQ0nPGMq8Q',
+    'UCefZPSInwIs_42bR3C40bVQ',
+    'UCGRK1Cr17aq95kXFRZWrP9A',
+    'UC0ymypzrdOJWmySg6zD4UCQ',
+    'UCzbgsawapKRuXKv9gmCzIYA',
+    'UCRU8He8QKziwr_ZcIKZ-h7w',
+    'UCVOx884mJlyy1fDo2Hnb47g',
+    'UCogc73T2Rt5aoAK_ZW5QqvA',
+    'UC78E9qpQXKRqMKstK1gvl-Q',
+    'UC8U6FVB7t2Zb0d4xE6SFQew',
+    'UCOyvvRpeCN6hT_QJYRJiQ7w',
+    'UCWiXJh3_KpqxtYfUlL7NYlw',
+    'UC_kNcgSBO_4d21hmz8nPnDQ',
+    'UCVko3dSMucnFzjFcYLtqBrA',
+    'UC6ZT8SpKZapildI3E2q1lxA',
+    'UCQ5sa3SOon4maWBSLer-j5Q',
+    'UC0mBoz3kcCQMRb45fhT6-ig',
+    'UC9kOaixqslVeMn-_5ch1kKg',
+    'UCkczLeEJCxFfx2sYDL2-hpQ',
+    'UCvqM8BG15Q0o2C5XmNn2Eaw',
+    'UCbmNoYjAekU4dNAS9sZATcw',
+    'UC9zOyFwaiAHZCqYShQZQFXw',
+    'UC26qKgzg_aN7HZ-x0lFCwBg',
+    'UC_krvUG0SpeJTIPYVbkdn2A',
+]
+//list of channel ids
+ async function getStats() {
+        let request = await fetch('https://mixerno.space/api/youtube-channel-counter/user/'+ids[0], { mode: "cors" })
+        let data = await request.json().catch(() => {})
+        if (!data) return;
+        count.innerHTML = data.counts[0].count
+        title.innerHTML = data.user[0].count
+        updateimage(data.user[1].count);
+   }
+
+//how long till switch of channel id
+
+getStats()
+setInterval(switchh, 5000)
+setInterval(getStats, 5000)
+
+function switchh() {
+ids.push(ids.shift());
+}
+function updateimage(image) {
+document.querySelector("#image").src = image;
+}
+
+    </script>
