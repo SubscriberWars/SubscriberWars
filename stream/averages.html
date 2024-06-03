@@ -47,7 +47,7 @@ td {
   <table>
     <tr>
       <th>/Min</th>
-      <th id="t">VK</th>
+      <th id="t">NG</th>
       <th id="m">MB</th>
       <th>Est Pass</th>
       <th>Est Subs</th>
@@ -150,7 +150,7 @@ let startTime;
 
 function collect(){
   startTime = new Date(); // Set the start time when collecting data
-  fetch('https://api.subscriberwars.space/instagram2/virat.kohli').then(response => response.json()).then(data => {
+  fetch('https://api.subscriberwars.space/instagram2/natgeo').then(response => response.json()).then(data => {
     list0.unshift(data.stats.followers);
     if (list0.length>10082){
       list0.pop()
