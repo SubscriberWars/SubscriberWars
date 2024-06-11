@@ -305,7 +305,7 @@
     const monthlyData = {};
 
     data.items.forEach(item => {
-        const yearMonth = `${item.date.getFullYear()}-${item.date.getMonth() + 1}`;
+        const yearMonth = `${item.date.getFullYear()}-${item.date.getMonth()+1}`;
         if (!monthlyData[yearMonth]) {
             monthlyData[yearMonth] = { mrbeast: 0, tseries: 0, date: item.date };
         }
