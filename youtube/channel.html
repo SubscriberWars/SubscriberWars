@@ -1,7 +1,6 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/odometer.css">
-    <link rel="stylesheet"href="/css/youtube_subs.css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="/js/odometer.js"></script>
     <title id="page_title"></title>
@@ -23,7 +22,7 @@
         <img id="channel_banner" src="/images/banner_placeholder.png">
         <img id="channel_image" src="/images/pfp_placeholder.png">
         <div id="channel_title_container">
-            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank" ></a>
+            <span id="channel_title"></span>
             <i class="fa fa-badge-check"  style="display: none; color: #fff;" id="verified" title=""></i>
         </div>
         <div id="channel_subscribers" class="odometer"></div>
@@ -55,7 +54,7 @@
             </a>
         </div>
     </div>
-    <div class="main_box" style="top: 150px; position: relative; height: 1150px;">
+    <div class="main_box" style="top: 140px; position: relative; height: 1150px;">
         <h1>Last 10 Videos</h1>
         <table id="video_table">
             <thead>
@@ -102,6 +101,141 @@
     .e{
         color: #6cb700;
     }
+    body {
+    background: #181818;
+    color: #fff;
+    margin: 0;
+    font-family: roboto;
+}
+.head {
+    width: 100%;
+    height: 60px;
+    background-image: linear-gradient(to right, #ff0000, #830101);
+    overflow: hidden;
+    border-bottom: 1px solid #000;
+}
+.head_text {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 50px;
+}
+.main_box {
+    width: 1260px;
+    height: 800px;
+    background: #0f0f0f;
+    margin: auto;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    text-align: center;
+}
+.credit_box {
+        width: 1260px;
+        height: 55px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 30px;
+        color: #fff;
+    }
+    .credit_box:hover {
+        background: #000;
+        border: 1px solid #fff;
+        cursor: pointer;
+    }
+#channel_banner {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    height: 208px;
+}
+#channel_image {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    top: -100px;
+    position: relative;
+}
+#channel_title_container {
+    position: relative;
+    top: -100px;
+    font-size: 4rem;
+}
+#channel_subscribers {
+    position: relative;
+    top: -90px;
+    font-size: 10rem;
+    font-weight: 500;
+}
+#subscribers {
+    position: relative;
+    top: -80px;
+    font-size: 2rem;
+}
+.bottom_data {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    display: flex;
+    top: -70px;
+}
+.bottom_counts {
+    margin: 5px;
+    padding: 10px;
+    width: 400px;
+    height: 130px;
+    background: #000;
+    border-radius: 10px;
+}
+.bottom_odometer {
+    font-weight: 500;
+    font-size: 3rem;
+}
+.bottom_text {
+    font-size: 30px;
+    margin-top: 20px;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 2.5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 2.5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #830101;
+    border-radius: 2.5px;
+}
+.button_box {
+    width: 1260px;
+    margin: auto;
+    display: flex;
+    position: relative;
+}
+.bott_button {
+    width: 620px;
+    margin: auto;
+    background: #0f0f0f;
+    color: #fff;
+    height: 100px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+.bott_button:hover {
+    cursor: pointer;
+    background: #000;
+    border: 1px solid #fff;
+}
     
 </style>
 
@@ -120,28 +254,10 @@
             api(channel)
         }, 10000);
     }
-    if (type=="lol") {
-        lol(channel)
+    if (type=="estimate") {
+        est(channel)
         setInterval(() => {
-            lol(channel)
-        }, 4000);
-    }
-    if (type=="next") {
-        next(channel)
-        setInterval(() => {
-            next(channel)
-        }, 4000);
-    }
-    if (type=="axern") {
-        axern(channel)
-        setInterval(() => {
-            axern(channel)
-        }, 4000);
-    }
-    if (type=="nia") {
-        nia(channel)
-        setInterval(() => {
-            nia(channel)
+            est(channel)
         }, 4000);
     }
 
@@ -162,42 +278,8 @@
         })
     }
 
-    function lol(cid) {
-        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
-        fetch("https://api.subscriberwars.space/est/lol/"+cid).then(res=>res.json()).then(data=>{
-            page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
-            uid=data.info.id.replace("UC","UU")
-            channel_image.src=data.info.pfp
-            channel_title.innerHTML=data.info.name
-            channel_subscribers.innerHTML=data.estCounts.subCount
-            channel_views.innerHTML=data.estCounts.viewCount
-            channel_videos.innerHTML=data.apiCounts.videoCount
-            channel_title.href="https://youtube.com/channel/"+data.info.id
-            channel_link.href="https://youtube.com/channel/"+data.info.id
-            channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
-            channel_abreviation.innerHTML=abbreviateNumber(data.apiCounts.subCount)
-        })
-    }
-
-    function next(cid) {
-        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
-        fetch("https://api.subscriberwars.space/est/nexerno/"+cid).then(res=>res.json()).then(data=>{
-            page_title.innerHTML=data.info.name+"'s Live Subscriber Count"
-            uid=data.info.id.replace("UC","UU")
-            channel_image.src=data.info.pfp
-            channel_title.innerHTML=data.info.name
-            channel_subscribers.innerHTML=data.estCounts.subCount
-            channel_views.innerHTML=data.estCounts.viewCount
-            channel_videos.innerHTML=data.apiCounts.videoCount
-            channel_title.href="https://youtube.com/channel/"+data.info.id
-            channel_link.href="https://youtube.com/channel/"+data.info.id
-            channel_sb.href="https://socialblade.com/youtube/c/"+data.info.handle
-            channel_abreviation.innerHTML=abbreviateNumber(data.apiCounts.subCount)
-        })
-    }
-    function axern(cid) {
-        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
-        fetch("https://axern.space/api/get?platform=youtube&type=channel&id="+cid).then(res=>res.json()).then(data=>{
+    function est(cid) {
+        fetch("https://api.subscriberwars.space/youtube/estimate/"+cid).then(res=>res.json()).then(data=>{
             if(data.isStudio==true){document.getElementById("verified").style.display="inline"}
             if(data.isStudio==true){document.getElementById("verified").title="This channel is sharing its true subscriber & view count"}
             page_title.innerHTML=data.snippet.title+"'s Live Subscriber Count"
@@ -211,22 +293,7 @@
             channel_link.href="https://youtube.com/"+data.snippet.customUrl
             channel_sb.href="https://socialblade.com/youtube/c/"+data.snippet.customUrl
             channel_abreviation.innerHTML=abbreviateNumber(data.apiSubCount)
-        })
-    }
-    function nia(cid) {
-        channel_banner.src="https://www.banner.yt/"+cid+"?width=1260"
-        fetch("https://nia-statistics.com/api/get?platform=youtube&type=channel&id="+cid).then(res=>res.json()).then(data=>{
-            page_title.innerHTML=data.snippet.title+"'s Live Subscriber Count"
-            uid=cid.replace("UC","UU")
-            channel_image.src=data.snippet.thumbnails[2].url
-            channel_title.innerHTML=data.snippet.title
-            channel_subscribers.innerHTML=data.estSubCount
-            channel_views.innerHTML=data.estViewCount
-            channel_videos.innerHTML=data.apiVideoCount
-            channel_title.href="https://youtube.com/"+data.snippet.handle
-            channel_link.href="https://youtube.com/"+data.snippet.handle
-            channel_sb.href="https://socialblade.com/youtube/c/"+data.snippet.handle
-            channel_abreviation.innerHTML=abbreviateNumber(data.apiSubCount)
+            channel_banner.src= data.brandingSettings.image.bannerExternalUrl+"=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
         })
     }
 
@@ -251,7 +318,7 @@
     }
 
     function videosearch() {
-        fetch("https://api.subscriberwars.space/youtube/video/raw/"+vid[0]+","+vid[1]+","+vid[2]+","+vid[3]+","+vid[4]+","+vid[5]+","+vid[6]+","+vid[7]+","+vid[8]+","+vid[9]+",").then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/youtube/video/"+vid[0]+","+vid[1]+","+vid[2]+","+vid[3]+","+vid[4]+","+vid[5]+","+vid[6]+","+vid[7]+","+vid[8]+","+vid[9]+",").then(res=>res.json()).then(data=>{
             videoarray[0]=data.items[0]
             videoarray[1]=data.items[1]
             videoarray[2]=data.items[2]

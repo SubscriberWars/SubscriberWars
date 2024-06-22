@@ -13,11 +13,8 @@
             <label for="dropdown" style="font-size: 40px;">What Statistic do you want to lookup?:</label>
             <select id="dropdown">
                 <option value="official">Channel | Official</option>
+                <option value="estimate">Channel | Estimated</option>
                 <option value="video">Video</option>
-                <option value="axern">Channel | Axern.space</option>
-                <option value="lol">Channel | Livecounts.lol</option>
-                <option value="mixerno">Channel | Mixerno.space</option>
-                <option value="nia">Channel | Nia-Statistics.com</option>
             </select>
         </div>
     </div>
@@ -87,50 +84,35 @@ function channelSearch(search) {
 fetch("https://api.subscriberwars.space/search/youtube/channel/" + search).then(res => res.json()).then(data => {
 console.log(data)
 
-img1.src = data.item[0].pfp
-nam1.innerHTML = data.item[0].title
-id1.innerHTML = data.item[0].id
-if(dropdown.value=="official"){link1.href="/youtube/channel?channel="+data.item[0].id+"&type=api"}
-if(dropdown.value=="mixerno"){link1.href="/youtube/channel?channel="+data.item[0].id+"&type=next"}
-if(dropdown.value=="axern"){link1.href="/youtube/channel?channel="+data.item[0].id+"&type=axern"}
-if(dropdown.value=="lol"){link1.href="/youtube/channel?channel="+data.item[0].id+"&type=lol"}
-if(dropdown.value=="nia"){link1.href="/youtube/channel?channel="+data.item[0].id+"&type=nia"}
+img1.src = data.items[0].pfp
+nam1.innerHTML = data.items[0].title
+id1.innerHTML = data.items[0].id
+if(dropdown.value=="official"){link1.href="/youtube/channel?channel="+data.items[0].id+"&type=api"}
+if(dropdown.value=="estimate"){link1.href="/youtube/channel?channel="+data.items[0].id+"&type=estimate"}
 
-img2.src = data.item[1].pfp
-nam2.innerHTML = data.item[1].title
-id2.innerHTML = data.item[1].id
-if(dropdown.value=="official"){link2.href="/youtube/channel?channel="+data.item[1].id+"&type=api"}
-if(dropdown.value=="mixerno"){link2.href="/youtube/channel?channel="+data.item[1].id+"&type=next"}
-if(dropdown.value=="axern"){link2.href="/youtube/channel?channel="+data.item[1].id+"&type=axern"}
-if(dropdown.value=="lol"){link2.href="/youtube/channel?channel="+data.item[1].id+"&type=lol"}
-if(dropdown.value=="nia"){link2.href="/youtube/channel?channel="+data.item[1].id+"&type=nia"}
+img2.src = data.items[1].pfp
+nam2.innerHTML = data.items[1].title
+id2.innerHTML = data.items[1].id
+if(dropdown.value=="official"){link2.href="/youtube/channel?channel="+data.items[1].id+"&type=api"}
+if(dropdown.value=="estimate"){link2.href="/youtube/channel?channel="+data.items[1].id+"&type=estimate"}
 
-img3.src = data.item[2].pfp
-nam3.innerHTML = data.item[2].title
-id3.innerHTML = data.item[2].id
-if(dropdown.value=="official"){link3.href="/youtube/channel?channel="+data.item[2].id+"&type=api"}
-if(dropdown.value=="mixerno"){link3.href="/youtube/channel?channel="+data.item[2].id+"&type=next"}
-if(dropdown.value=="axern"){link3.href="/youtube/channel?channel="+data.item[2].id+"&type=axern"}
-if(dropdown.value=="lol"){link3.href="/youtube/channel?channel="+data.item[2].id+"&type=lol"}
-if(dropdown.value=="nia"){link3.href="/youtube/channel?channel="+data.item[2].id+"&type=nia"}
+img3.src = data.items[2].pfp
+nam3.innerHTML = data.items[2].title
+id3.innerHTML = data.items[2].id
+if(dropdown.value=="official"){link3.href="/youtube/channel?channel="+data.items[2].id+"&type=api"}
+if(dropdown.value=="estimate"){link3.href="/youtube/channel?channel="+data.items[2].id+"&type=estimate"}
 
-img4.src = data.item[3].pfp
-nam4.innerHTML = data.item[3].title
-id4.innerHTML = data.item[3].id
-if(dropdown.value=="official"){link4.href="/youtube/channel?channel="+data.item[3].id+"&type=api"}
-if(dropdown.value=="mixerno"){link4.href="/youtube/channel?channel="+data.item[3].id+"&type=next"}
-if(dropdown.value=="axern"){link4.href="/youtube/channel?channel="+data.item[3].id+"&type=axern"}
-if(dropdown.value=="lol"){link4.href="/youtube/channel?channel="+data.item[3].id+"&type=lol"}
-if(dropdown.value=="nia"){link4.href="/youtube/channel?channel="+data.item[3].id+"&type=nia"}
+img4.src = data.items[3].pfp
+nam4.innerHTML = data.items[3].title
+id4.innerHTML = data.items[3].id
+if(dropdown.value=="official"){link4.href="/youtube/channel?channel="+data.items[3].id+"&type=api"}
+if(dropdown.value=="estimate"){link4.href="/youtube/channel?channel="+data.items[3].id+"&type=estimate"}
 
-img5.src = data.item[4].pfp
-nam5.innerHTML = data.item[4].title
-id5.innerHTML = data.item[4].id
-if(dropdown.value=="official"){link5.href="/youtube/channel?channel="+data.item[4].id+"&type=api"}
-if(dropdown.value=="mixerno"){link5.href="/youtube/channel?channel="+data.item[4].id+"&type=next"}
-if(dropdown.value=="axern"){link5.href="/youtube/channel?channel="+data.item[4].id+"&type=axern"}
-if(dropdown.value=="lol"){link5.href="/youtube/channel?channel="+data.item[4].id+"&type=lol"}
-if(dropdown.value=="nia"){link5.href="/youtube/channel?channel="+data.item[4].id+"&type=nia"}
+img5.src = data.items[4].pfp
+nam5.innerHTML = data.items[4].title
+id5.innerHTML = data.items[4].id
+if(dropdown.value=="official"){link5.href="/youtube/channel?channel="+data.items[4].id+"&type=api"}
+if(dropdown.value=="estimate"){link5.href="/youtube/channel?channel="+data.items[4].id+"&type=estimate"}
 })
 }
 
@@ -138,30 +120,30 @@ function videosearch(search) {
 fetch("https://api.subscriberwars.space/search/youtube/video/" + search).then(res => res.json()).then(data => {
 console.log(data)
 
-img1.src = data.item[0].pfp
-nam1.innerHTML = data.item[0].title
-id1.innerHTML = data.item[0].id
-link1.href="/youtube/video?v="+data.item[0].id
+img1.src = data.items[0].pfp
+nam1.innerHTML = data.items[0].title
+id1.innerHTML = data.items[0].id
+link1.href="/youtube/video?v="+data.items[0].id
 
-img2.src = data.item[1].pfp
-nam2.innerHTML = data.item[1].title
-id2.innerHTML = data.item[1].id
-link2.href="/youtube/video?v="+data.item[1].id
+img2.src = data.items[1].pfp
+nam2.innerHTML = data.items[1].title
+id2.innerHTML = data.items[1].id
+link2.href="/youtube/video?v="+data.items[1].id
 
-img3.src = data.item[2].pfp
-nam3.innerHTML = data.item[2].title
-id3.innerHTML = data.item[2].id
-link3.href="/youtube/video?v="+data.item[2].id
+img3.src = data.items[2].pfp
+nam3.innerHTML = data.items[2].title
+id3.innerHTML = data.items[2].id
+link3.href="/youtube/video?v="+data.items[2].id
 
-img4.src = data.item[3].pfp
-nam4.innerHTML = data.item[3].title
-id4.innerHTML = data.item[3].id
-link4.href="/youtube/video?v="+data.item[3].id
+img4.src = data.items[3].pfp
+nam4.innerHTML = data.items[3].title
+id4.innerHTML = data.items[3].id
+link4.href="/youtube/video?v="+data.items[3].id
 
-img5.src = data.item[4].pfp
-nam5.innerHTML = data.item[4].title
-id5.innerHTML = data.item[4].id
-link5.href="/youtube/video?v="+data.item[4].id
+img5.src = data.items[4].pfp
+nam5.innerHTML = data.items[4].title
+id5.innerHTML = data.items[4].id
+link5.href="/youtube/video?v="+data.items[4].id
 })
 }
 

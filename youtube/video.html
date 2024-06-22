@@ -23,7 +23,7 @@
         <img id="channel_banner" src="/images/banner_placeholder.png">
         <img id="channel_image" src="/images/pfp_placeholder.png">
         <div id="channel_title_container">
-            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="" target="_blank" ></a>
+            <span id="channel_title"></span>
         </div>
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers"><i class="fa-sharp fa-eye"></i> Views</div>
@@ -66,11 +66,11 @@
         text-align: center;
         vertical-align: middle;
         font-weight: 500;
-        font-size: 2.5rem;
+        font-size: 50px;
     }
     .main_box {
         width: 1260px;
-        height: 825px;
+        height: 780px;
         background: #0f0f0f;
         margin: auto;
         padding: 10px;
@@ -110,7 +110,7 @@
     #subscribers {
         position: relative;
         top: -80px;
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
     .bottom_data {
         width: 100%;
@@ -129,10 +129,10 @@
     }
     .bottom_odometer {
         font-weight: 500;
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     .bottom_text {
-        font-size: 1.5rem;
+        font-size: 2rem;
         margin-top: 20px;
     }
     ::-webkit-scrollbar {
@@ -183,7 +183,7 @@
     var lol = 0;
 
     function stats(chanid) {
-    fetch('https://api.subscriberwars.space/youtube/video/raw/'+chanid).then(res => res.json()).then(data => {
+    fetch('https://api.subscriberwars.space/youtube/video/'+chanid).then(res => res.json()).then(data => {
         views_api = data.items[0].statistics.viewCount
         likes_api = data.items[0].statistics.likeCount
 
@@ -199,8 +199,6 @@
 
         page_title.innerHTML= data.items[0].snippet.title
         channel_title.innerHTML=data.items[0].snippet.title
-        channel_title.title="Visit Video"
-        channel_title.href="https://youtube.com/watch?v="+data.items[0].id
         channel_link.href="https://youtube.com/watch?v="+data.items[0].id
         channel_image.src=data.items[0].snippet.thumbnails.medium.url
         channel_banner.src=data.items[0].snippet.thumbnails.medium.url

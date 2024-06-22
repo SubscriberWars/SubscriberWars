@@ -65,32 +65,32 @@
         fetch('https://api.subscriberwars.space/instagram2/'+chanid)
         .then(res=>res.json())
         .then(data=>{
-            channel_subscribers.innerHTML=data.stats.followers
-            channel_videos.innerHTML=data.stats.posts
-            channel_views.innerHTML=data.stats.following
-            channel_title.innerHTML=data.meta.name
-            channel_title.href="https://instagram.com/"+data.meta.username
-            channel_link.href="https://instagram.com/"+data.meta.username
-            channel_sb.href="https://socialblade.com/instagram/user/"+data.meta.username
-            if(data.meta.verified==true){document.getElementById("verified").style.display="inline"} else {document.getElementById("verified").style.width="0px"}
-            if(data.stats.followers>=0) {goal01.innerHTML=10}
-            if(data.stats.followers>=10) {goal01.innerHTML=100}
-            if(data.stats.followers>=100) {goal01.innerHTML=1000}
-            if(data.stats.followers>=1000) {goal01.innerHTML=(Math.floor(data.stats.followers/1000)*1000)+1000}
-            if(data.stats.followers>=10000) {goal01.innerHTML=(Math.floor(data.stats.followers/10000)*10000)+10000}
-            if(data.stats.followers>=100000) {goal01.innerHTML=(Math.floor(data.stats.followers/100000)*100000)+100000}
-            if(data.stats.followers>=1000000) {goal01.innerHTML=(Math.floor(data.stats.followers/1000000)*1000000)+1000000}
-            if(data.stats.followers>=10000000) {goal01.innerHTML=(Math.floor(data.stats.followers/10000000)*10000000)+10000000}
-            if(data.stats.followers>=100000000) {goal01.innerHTML=(Math.floor(data.stats.followers/100000000)*100000000)+100000000}
-            channel_goal.innerHTML=goal01.innerHTML-data.stats.followers
+            channel_subscribers.innerHTML=data.user.followerCount
+            channel_videos.innerHTML=data.user.posts
+            channel_views.innerHTML=data.user.following
+            channel_title.innerHTML=data.user.name
+            channel_title.href="https://instagram.com/"+data.user.username
+            channel_link.href="https://instagram.com/"+data.user.username
+            channel_sb.href="https://socialblade.com/instagram/user/"+data.user.username
+            if(data.user.isVerified==true){document.getElementById("verified").style.display="inline"} else {document.getElementById("verified").style.width="0px"}
+            if(data.user.followerCount>=0) {goal01.innerHTML=10}
+            if(data.user.followerCount>=10) {goal01.innerHTML=100}
+            if(data.user.followerCount>=100) {goal01.innerHTML=1000}
+            if(data.user.followerCount>=1000) {goal01.innerHTML=(Math.floor(data.user.followerCount/1000)*1000)+1000}
+            if(data.user.followerCount>=10000) {goal01.innerHTML=(Math.floor(data.user.followerCount/10000)*10000)+10000}
+            if(data.user.followerCount>=100000) {goal01.innerHTML=(Math.floor(data.user.followerCount/100000)*100000)+100000}
+            if(data.user.followerCount>=1000000) {goal01.innerHTML=(Math.floor(data.user.followerCount/1000000)*1000000)+1000000}
+            if(data.user.followerCount>=10000000) {goal01.innerHTML=(Math.floor(data.user.followerCount/10000000)*10000000)+10000000}
+            if(data.user.followerCount>=100000000) {goal01.innerHTML=(Math.floor(data.user.followerCount/100000000)*100000000)+100000000}
+            channel_goal.innerHTML=goal01.innerHTML-data.user.followerCount
         })
     }
     function instagrammain(chanid) {
         fetch('https://api.subscriberwars.space/instagram/'+chanid)
         .then(res=>res.json())
         .then(data=>{
-            channel_image.src=data.items.profile_picture_url
-            channel_banner.src=data.items.profile_picture_url
+            channel_image.src=data.business_discovery.profile_picture_url
+            channel_banner.src=data.business_discovery.profile_picture_url
         })
     }
 
