@@ -13,8 +13,7 @@
             <label for="dropdown" style="font-size: 40px;">What do you want to lookup?:</label>
             <select id="dropdown">
                 <option value="user">User</option>
-                <option value="video">Video</option>
-
+                <!--<option value="video">Video</option>-->
             </select>
         </div>
     </div>
@@ -83,30 +82,30 @@ function channelSearch(search) {
 fetch("https://api.subscriberwars.space/search/tiktok/channel/" + search).then(res => res.json()).then(data => {
 console.log(data)
 
-img1.src = data.item[0].pfp
-nam1.innerHTML = data.item[0].title
-id1.innerHTML = "@"+data.item[0].uid
-link1.href = "/tiktok/followers?u="+data.item[0].id
+img1.src = data.items[0].pfp
+nam1.innerHTML = data.items[0].title
+id1.innerHTML = "@"+data.items[0].uid
+link1.href = "/tiktok/followers?u="+data.items[0].id
 
-img2.src = data.item[1].pfp
-nam2.innerHTML = data.item[1].title
-id2.innerHTML = "@"+data.item[1].uid
-link2.href = "/tiktok/followers?u="+data.item[1].id
+img2.src = data.items[1].pfp
+nam2.innerHTML = data.items[1].title
+id2.innerHTML = "@"+data.items[1].uid
+link2.href = "/tiktok/followers?u="+data.items[1].id
 
-img3.src = data.item[2].pfp
-nam3.innerHTML = data.item[2].title
-id3.innerHTML = "@"+data.item[2].uid
-link3.href = "/tiktok/followers?u="+data.item[2].id
+img3.src = data.items[2].pfp
+nam3.innerHTML = data.items[2].title
+id3.innerHTML = "@"+data.items[2].uid
+link3.href = "/tiktok/followers?u="+data.items[2].id
 
-img4.src = data.item[3].pfp
-nam4.innerHTML = data.item[3].title
-id4.innerHTML = "@"+data.item[3].uid
-link4.href = "/tiktok/followers?u="+data.item[3].id
+img4.src = data.items[3].pfp
+nam4.innerHTML = data.items[3].title
+id4.innerHTML = "@"+data.items[3].uid
+link4.href = "/tiktok/followers?u="+data.items[3].id
 
-img5.src = data.item[4].pfp
-nam5.innerHTML = data.item[4].title
-id5.innerHTML = "@"+data.item[4].uid
-link5.href = "/tiktok/followers?u="+data.item[4].id
+img5.src = data.items[4].pfp
+nam5.innerHTML = data.items[4].title
+id5.innerHTML = "@"+data.items[4].uid
+link5.href = "/tiktok/followers?u="+data.items[4].id
 })
 }
 
@@ -114,30 +113,30 @@ function videoSearch(search) {
 fetch("https://api.subscriberwars.space/search/tiktok/video/" + search).then(res => res.json()).then(data => {
 console.log(data)
 
-img1.src = data.item[0].pfp
-nam1.innerHTML = data.item[0].title
-id1.innerHTML = "@"+data.item[0].user
-link1.href = "/tiktok/video?v="+data.item[0].id
+img1.src = data.items[0].pfp
+nam1.innerHTML = data.items[0].title
+id1.innerHTML = "@"+data.items[0].user
+link1.href = "/tiktok/video?v="+data.items[0].id
 
-img2.src = data.item[1].pfp
-nam2.innerHTML = data.item[1].title
-id2.innerHTML = "@"+data.item[1].user
-link2.href = "/tiktok/video?v="+data.item[1].id
+img2.src = data.items[1].pfp
+nam2.innerHTML = data.items[1].title
+id2.innerHTML = "@"+data.items[1].user
+link2.href = "/tiktok/video?v="+data.items[1].id
 
-img3.src = data.item[2].pfp
-nam3.innerHTML = data.item[2].title
-id3.innerHTML = "@"+data.item[2].user
-link3.href = "/tiktok/video?v="+data.item[2].id
+img3.src = data.items[2].pfp
+nam3.innerHTML = data.items[2].title
+id3.innerHTML = "@"+data.items[2].user
+link3.href = "/tiktok/video?v="+data.items[2].id
 
-img4.src = data.item[3].pfp
-nam4.innerHTML = data.item[3].title
-id4.innerHTML = "@"+data.item[3].user
-link4.href = "/tiktok/video?v="+data.item[3].id
+img4.src = data.items[3].pfp
+nam4.innerHTML = data.items[3].title
+id4.innerHTML = "@"+data.items[3].user
+link4.href = "/tiktok/video?v="+data.items[3].id
 
-img5.src = data.item[4].pfp
-nam5.innerHTML = data.item[4].title
-id5.innerHTML = "@"+data.item[4].user
-link5.href = "/tiktok/video?v="+data.item[4].id
+img5.src = data.items[4].pfp
+nam5.innerHTML = data.items[4].title
+id5.innerHTML = "@"+data.items[4].user
+link5.href = "/tiktok/video?v="+data.items[4].id
 })
 }
 

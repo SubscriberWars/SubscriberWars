@@ -72,7 +72,7 @@
     }
     .main_box {
         width: 1260px;
-        height: 870px;
+        height: 800px;
         background: #0f0f0f;
         margin: auto;
         padding: 10px;
@@ -178,7 +178,7 @@
     var twitchid="";
 
     function load(chanid) {
-        fetch("https://api.subscriberwars.space/twitch/user/"+chanid).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/twitch/channel/"+chanid).then(res=>res.json()).then(data=>{
             twitchid=data.iD
             page_title.innerHTML= data.name+"'s Live Twitch Follower Count"
             channel_title.innerHTML=data.name
@@ -194,18 +194,18 @@
     }
 
     function stats(id) {
-        fetch("https://api.subscriberwars.space/twitch/"+id).then(res=>res.json()).then(data=>{
-            channel_subscribers.innerHTML=data.followerCount
-            if(data.followerCount>=0) {goal01.innerHTML=10}
-            if(data.followerCount>=10) {goal01.innerHTML=100}
-            if(data.followerCount>=100) {goal01.innerHTML=1000}
-            if(data.followerCount>=1000) {goal01.innerHTML=(Math.floor(data.followerCount/1000)*1000)+1000}
-            if(data.followerCount>=10000) {goal01.innerHTML=(Math.floor(data.followerCount/10000)*10000)+10000}
-            if(data.followerCount>=100000) {goal01.innerHTML=(Math.floor(data.followerCount/100000)*100000)+100000}
-            if(data.followerCount>=1000000) {goal01.innerHTML=(Math.floor(data.followerCount/1000000)*1000000)+1000000}
-            if(data.followerCount>=10000000) {goal01.innerHTML=(Math.floor(data.followerCount/10000000)*10000000)+10000000}
-            if(data.followerCount>=100000000) {goal01.innerHTML=(Math.floor(data.followerCount/100000000)*100000000)+100000000}
-            channel_goal.innerHTML=goal01.innerHTML-data.followerCount
+        fetch("https://api.subscriberwars.space/twitch/followers/"+id).then(res=>res.json()).then(data=>{
+            channel_subscribers.innerHTML=data.total
+            if(data.total>=0) {goal01.innerHTML=10}
+            if(data.total>=10) {goal01.innerHTML=100}
+            if(data.total>=100) {goal01.innerHTML=1000}
+            if(data.total>=1000) {goal01.innerHTML=(Math.floor(data.total/1000)*1000)+1000}
+            if(data.total>=10000) {goal01.innerHTML=(Math.floor(data.total/10000)*10000)+10000}
+            if(data.total>=100000) {goal01.innerHTML=(Math.floor(data.total/100000)*100000)+100000}
+            if(data.total>=1000000) {goal01.innerHTML=(Math.floor(data.total/1000000)*1000000)+1000000}
+            if(data.total>=10000000) {goal01.innerHTML=(Math.floor(data.total/10000000)*10000000)+10000000}
+            if(data.total>=100000000) {goal01.innerHTML=(Math.floor(data.total/100000000)*100000000)+100000000}
+            channel_goal.innerHTML=goal01.innerHTML-data.total
         })
     }
     load(channel)
