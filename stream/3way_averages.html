@@ -148,8 +148,8 @@ function collect(){
       list1.pop()
     }
   })
-  fetch('https://api.subscriberwars.space/stream/UCX6OQ3DkcsbYNE6H8uQQuVA').then(response => response.json()).then(data => {
-    list0.unshift(data.estCounts[0]);
+  fetch('https://api.subscriberwars.space/youtube/estimate/UCX6OQ3DkcsbYNE6H8uQQuVA').then(response => response.json()).then(data => {
+    list0.unshift(data.estSubCount);
     if (list0.length>10082){
       list0.pop()
     }

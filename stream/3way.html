@@ -213,24 +213,24 @@
         fetch('https://api.subscriberwars.space/instagram/kendalljenner')
         .then(res => res.json())
         .then(data => {
-            pfp1.src = data.items.profile_picture_url;
-            title1.innerHTML = data.items.name;
-            tag1.innerHTML = "@" + data.items.username;
-            userDiff1.innerHTML = data.items.name;
-            media1.innerHTML = data.items.media_count;
-            views1.innerHTML = data.items.follows_count;
-            subs1.innerHTML = data.items.followers_count;
+            pfp1.src = data.business_discovery.profile_picture_url;
+            title1.innerHTML = data.business_discovery.name;
+            tag1.innerHTML = "@" + data.business_discovery.username;
+            userDiff1.innerHTML = data.business_discovery.name;
+            media1.innerHTML = data.business_discovery.media_count;
+            views1.innerHTML = data.business_discovery.follows_count;
+            subs1.innerHTML = data.business_discovery.followers_count;
         });
         fetch('https://api.subscriberwars.space/instagram/justinbieber')
         .then(res => res.json())
         .then(data => {
-            pfp2.src = data.items.profile_picture_url;
-            title2.innerHTML = data.items.name;
-            tag2.innerHTML = "@" + data.items.username;
-            userDiff2.innerHTML = data.items.name;
-            media2.innerHTML = data.items.media_count;
-            views2.innerHTML = data.items.follows_count;
-            subs2.innerHTML = data.items.followers_count;
+            pfp2.src = data.business_discovery.profile_picture_url;
+            title2.innerHTML = data.business_discovery.name;
+            tag2.innerHTML = "@" + data.business_discovery.username;
+            userDiff2.innerHTML = data.business_discovery.name;
+            media2.innerHTML = data.business_discovery.media_count;
+            views2.innerHTML = data.business_discovery.follows_count;
+            subs2.innerHTML = data.business_discovery.followers_count;
         });
     }
 main();
@@ -239,96 +239,97 @@ var su0=[], su1=[], su2=[]
 const list0=[], list1=[], list2=[]
 
 function int() {
-        fetch('https://api.subscriberwars.space/stream/UCX6OQ3DkcsbYNE6H8uQQuVA')
+        fetch('https://api.subscriberwars.space/youtube/estimate/UCX6OQ3DkcsbYNE6H8uQQuVA')
         .then(res => res.json())
         .then(data => {
-            views0.innerHTML = data.estCounts[1];
-            subs0.innerHTML = data.estCounts[0];
-            su0 = data.estCounts[0];
+            media0.innerHTML = data.apiVideoCount;
+            views0.innerHTML = data.estViewCount;
+            subs0.innerHTML = data.estSubCount;
+            su0 = data.estSubCount;
             // Update followers list and handle the 1-hour and 1-day difference calculations
-            list0.unshift(data.estCounts[0]);
+            list0.unshift(data.estSubCount);
             if (list0.length > 43200) {
                 list0.pop();
             }
             if (list0.length >= 1800) {
-                hr0.innerHTML = data.estCounts[0] - list0[1799];
+                hr0.innerHTML = data.estSubCount - list0[1799];
             }
             if (list0.length >= 43200) {
-                day0.innerHTML = data.estCounts[0] - list0[43199];
+                day0.innerHTML = data.estSubCount - list0[43199];
             }
             if (list0.length < 1800) {
-                hr0.innerHTML = data.estCounts[0] - list0[list0.length - 1];
+                hr0.innerHTML = data.estSubCount - list0[list0.length - 1];
             }
             if (list0.length < 43200) {
-                day0.innerHTML = data.estCounts[0] - list0[list0.length - 1];
+                day0.innerHTML = data.estSubCount - list0[list0.length - 1];
             }
             // Update graph
             if (graph_0.series[0].points.length >= 1800) {
                 graph_0.series[0].data[0].remove();
             }
-            graph_0.series[0].addPoint([Date.now(), data.estCounts[0]]);
+            graph_0.series[0].addPoint([Date.now(), data.estSubCount]);
         });
         fetch('https://api.subscriberwars.space/instagram2/kendalljenner')
         .then(res => res.json())
         .then(data => {
-            media1.innerHTML = data.stats.posts;
-            views1.innerHTML = data.stats.following;
-            subs1.innerHTML = data.stats.followers;
-            su1 = data.stats.followers;
+            media1.innerHTML = data.user.posts;
+            views1.innerHTML = data.user.following;
+            subs1.innerHTML = data.user.followerCount;
+            su1 = data.user.followerCount;
             // Update followers list and handle the 1-hour and 1-day difference calculations
-            list1.unshift(data.stats.followers);
+            list1.unshift(data.user.followerCount);
             if (list1.length > 43200) {
                 list1.pop();
             }
             if (list1.length >= 1800) {
-                hr1.innerHTML = data.stats.followers - list1[1799];
+                hr1.innerHTML = data.user.followerCount - list1[1799];
             }
             if (list1.length >= 43200) {
-                day1.innerHTML = data.stats.followers - list1[43199];
+                day1.innerHTML = data.user.followerCount - list1[43199];
             }
             if (list1.length < 1800) {
-                hr1.innerHTML = data.stats.followers - list1[list1.length - 1];
+                hr1.innerHTML = data.user.followerCount - list1[list1.length - 1];
             }
             if (list1.length < 43200) {
-                day1.innerHTML = data.stats.followers - list1[list1.length - 1];
+                day1.innerHTML = data.user.followerCount - list1[list1.length - 1];
             }
             // Update graph
             if (graph_1.series[0].points.length >= 1800) {
                 graph_1.series[0].data[0].remove();
             }
-            graph_1.series[0].addPoint([Date.now(), data.stats.followers]);
+            graph_1.series[0].addPoint([Date.now(), data.user.followerCount]);
         });
         fetch('https://api.subscriberwars.space/instagram2/justinbieber')
         .then(res => res.json())
         .then(data => {
-            media2.innerHTML = data.stats.posts;
-            views2.innerHTML = data.stats.following;
-            subs2.innerHTML = data.stats.followers;
-            su2 = data.stats.followers;
+            media2.innerHTML = data.user.posts;
+            views2.innerHTML = data.user.following;
+            subs2.innerHTML = data.user.followerCount;
+            su2 = data.user.followerCount;
             gap0.innerHTML = su1-su0;
             gap1.innerHTML = su2-su0;
             // Update followers list and handle the 1-hour and 1-day difference calculations
-            list2.unshift(data.stats.followers);
+            list2.unshift(data.user.followerCount);
             if (list2.length > 43200) {
                 list2.pop();
             }
             if (list2.length >= 1800) {
-                hr2.innerHTML = data.stats.followers - list2[1799];
+                hr2.innerHTML = data.user.followerCount - list2[1799];
             }
             if (list2.length >= 43200) {
-                day2.innerHTML = data.stats.followers - list2[43199];
+                day2.innerHTML = data.user.followerCount - list2[43199];
             }
             if (list2.length < 1800) {
-                hr2.innerHTML = data.stats.followers - list2[list2.length - 1];
+                hr2.innerHTML = data.user.followerCount - list2[list2.length - 1];
             }
             if (list2.length < 43200) {
-                day2.innerHTML = data.stats.followers - list2[list2.length - 1];
+                day2.innerHTML = data.user.followerCount - list2[list2.length - 1];
             }
             // Update graph
             if (graph_2.series[0].points.length >= 1800) {
                 graph_2.series[0].data[0].remove();
             }
-            graph_2.series[0].addPoint([Date.now(), data.stats.followers]);
+            graph_2.series[0].addPoint([Date.now(), data.user.followerCount]);
         });
     }
 
