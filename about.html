@@ -22,7 +22,6 @@
 <body>
     <div class="menu_bar">
         <a class="menu_button" href="/"><i class="fa-sharp fa-house"></i></a>
-        <a class="menu_button" href="/compare/">Compare</a>
     </div>
     <div class="container2">
         <button class="links_button" style="margin-top: 10px;" onclick="window.open('https://youtube.com/@subscriberwars1','_blank')">
@@ -144,12 +143,12 @@
         fetch('https://api.subscriberwars.space/instagram/jayburton135')
         .then(res=>res.json())
         .then(data=>{
-            instagram.innerHTML=data.items.followers_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            instagram.innerHTML=data.business_discovery.followers_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
         })
-        fetch('https://api.subscriberwars.space/tiktok/raw/6744795986549408774')
+        fetch('https://api.subscriberwars.space/tiktok/channel/6744795986549408774')
         .then(res=>res.json())
         .then(data=>{
-            tiktok.innerHTML=data.data.follow_info.follower_count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
+            tiktok.innerHTML=data.followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+" Followers"
         })
         fetch('https://api.subscriberwars.space/trovo/channel/106210667')
         .then(res=>res.json())
