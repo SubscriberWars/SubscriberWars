@@ -40,7 +40,7 @@
 
     //endpoints
     function youtube_api(id) {
-        fetch("https://api.subscriberwars.space/youtube/channel/v2/"+id).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/youtube/channel/"+id).then(res=>res.json()).then(data=>{
             user_title.innerHTML=data.items[0].snippet.title
             user_image.src=data.items[0].snippet.thumbnails.medium.url
             user_count.innerHTML=data.items[0].statistics.subscriberCount
@@ -94,7 +94,7 @@
     }
 
     function twitch_user(id) {
-        fetch("https://api.subscriberwars.space/twitch/user/"+id).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/twitch/channel/"+id).then(res=>res.json()).then(data=>{
             uid = data.iD
             user_title.innerHTML = data.name
             user_image.src = data.logo
@@ -102,8 +102,8 @@
     }
 
     function twitch_count(tid) {
-        fetch("https://api.subscriberwars.space/twitch/"+tid).then(res=>res.json()).then(data=>{
-            user_count.innerHTML = data.followerCount
+        fetch("https://api.subscriberwars.space/twitch/followers/"+tid).then(res=>res.json()).then(data=>{
+            user_count.innerHTML = data.total
         })
     }
 
