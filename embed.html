@@ -35,7 +35,7 @@
     if (type == "rumble") {platform_image.src = "/images/rumble.svg"}
     if (type == "tree") {platform_image.src = "https://teamtrees.org/img/tree-group.png"}
     if (type == "sea") {platform_image.src = "https://teamseas.org/assets/images/teamseas-logo.png"}
-    if (type == "tiktok") {platform_image.src = "/images/tiktok.svg"}
+    if (type == "tiktok") {platform_image.src = "/images/tiktok.png"}
 
 
     //endpoints
@@ -188,7 +188,7 @@
     }
 
     function tiktok(id) {
-        fetch("https://api.subscriberwars.space/tiktok/v2/"+id).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/tiktok/channel/"+id).then(res=>res.json()).then(data=>{
             user_title.innerHTML = data.nickname
             user_image.src = data.pfp
             user_count.innerHTML = follow
