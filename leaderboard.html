@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -63,7 +64,7 @@
                 <tr><td>#8</td><td>A46</td><td>639,945</td></tr>
                 <tr><td>#9</td><td>Geo Things</td><td>397,607</td></tr>
                 <tr><td>#10</td><td>precious danso</td><td>219,455</td></tr>
-                <tr><th colspan="2">Top 10 Total</th><th>47,183,571</th></tr>
+                <tr><th colspan="2">Top 10 Total (-72%)</th><th>47,183,571</th></tr>
             </table>
     
             <table>
@@ -78,11 +79,264 @@
                 <tr><td>#8</td><td>JoePlaysGame SW</td><td>25</td></tr>
                 <tr><td>#9</td><td>Aagam</td><td>25</td></tr>
                 <tr><td>#10</td><td>69,420 MEME NUMBER</td><td>22</td></tr>
-                <tr><th colspan="2">Top 10 Total</th><th>143</th></tr>
+                <tr><th colspan="2">Top 10 Total (-71%)</th><th>498</th></tr>
             </table>
         </div>
+        <div class="monthContainer">
+            <div class="monthTitle">October 2024</div>
+            <table>
+                <tr><th>Pos</th><th>Channel</th><th>Points</th></tr>
+                <tr><td>#1</td><td>RealSharkSW</td><td>120,635</td></tr>
+                <tr><td>#2</td><td>TheOfficialCanaryBirdChannel</td><td>85,560</td></tr>
+                <tr><td>#3</td><td>MarcusSW</td><td>54,770</td></tr>
+                <tr><td>#4</td><td>NEWton Jit</td><td>9710</td></tr>
+                <tr><td>#5</td><td>Rohit Gaming Studio</td><td>5395</td></tr>
+                <tr><td>#6</td><td>Geo Things</td><td>2239</td></tr>
+                <tr><td>#7</td><td>Wwe Era</td><td>1988</td></tr>
+                <tr><td>#8</td><td>R Arsh</td><td>1087</td></tr>
+                <tr><td>#9</td><td>PoLLoLoKo</td><td>1015</td></tr>
+                <tr><td>#10</td><td>Rohit Gamer</td><td>965</td></tr>
+                <tr><th colspan="2">Top 10 Total (-99%)</th><th>283,364</th></tr>
+            </table>
+    
+            <table>
+                <tr><th>Pos</th><th>Channel</th><th>Hours</th></tr>
+                <tr><td>#1</td><td>TheOfficialCanaryBirdChannel</td><td>44</td></tr>
+                <tr><td>#2</td><td>RealSharkSW</td><td>31</td></tr>
+                <tr><td>#3</td><td>Mac Jerico Pajares</td><td>29</td></tr>
+                <tr><td>#4</td><td>69,420 MEME NUMBER</td><td>25</td></tr>
+                <tr><td>#5</td><td>Henryrire</td><td>22</td></tr>
+                <tr><td>#6</td><td>NEWton Jit</td><td>19</td></tr>
+                <tr><td>#7</td><td>FL Star</td><td>17</td></tr>
+                <tr><td>#8</td><td>Lets Munch CHIPS SW</td><td>15</td></tr>
+                <tr><td>#9</td><td>Geo Things</td><td>15</td></tr>
+                <tr><td>#10</td><td>Rupam LIVE</td><td>13</td></tr>
+                <tr><th colspan="2">Top 10 Total (-54%)</th><th>230</th></tr>
+            </table>
+        </div>
+        <div class="graph" id="perc"></div>
+        <div class="graph" id="point"></div>
+        <div class="graph" id="hour"></div>
     </div>
 </body>
+<script>
+    Highcharts.chart('perc', {
+        chart: {
+            backgroundColor: '#000',
+            type: 'spline'
+        },
+        title: {
+            text:"Percentage Change",
+            style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+            }
+        },
+
+        yAxis: {
+            title: {
+                text:"% change",
+                style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+                fontSize: '20'
+            }
+            },
+            labels: {
+                formatter: function() {
+                    return this.value + ' %'
+                },
+                style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+                fontSize: '20'
+            }
+            }
+        },
+
+        xAxis: {
+            categories: ['Sep 24', 'Oct 24'],
+            labels: {
+                style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+                fontSize: '20'
+                }
+            }
+        },
+
+        tooltip: {
+            backgroundColor: '#0f0f0f',
+            borderWidth:'3',
+            borderRadius:'10',
+            style:{
+                fontSize:'20',
+                color:'#fff',
+                fontFamily:'roboto'
+            },
+            formatter: function() {
+                return this.series.name+'<br>'+this.x+': <b>'+this.y+'%</b><br>Compared to previous month'
+            }
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        series:[
+            {
+            name:"Points",
+            data:[-72,-99],
+            lineColor: "red",
+            color: "red",
+            lineWidth:'5'
+           },
+           {
+            name:"Hours",
+            data:[-71,-54],
+            lineColor: "blue",
+            color: "blue",
+            lineWidth:'5'
+           }
+        ]
+    });
+
+    Highcharts.chart('point', {
+        chart: {
+            backgroundColor: '#000',
+            type: 'spline'
+        },
+        title: {
+            text:"Points",
+            style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+            }
+        },
+
+        yAxis: {
+            title: {
+                text:"Points",
+                style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+                fontSize: '20'
+            }
+            },
+            labels: {
+                style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+                fontSize: '20'
+            }
+            }
+        },
+
+        xAxis: {
+            categories: ['Aug 24','Sep 24', 'Oct 24'],
+            labels: {
+                style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+                fontSize: '20'
+                }
+            }
+        },
+
+        tooltip: {
+            backgroundColor: '#0f0f0f',
+            borderWidth:'3',
+            borderRadius:'10',
+            style:{
+                fontSize:'20',
+                color:'#fff',
+                fontFamily:'roboto'
+            },
+            pointFormat:'<b>{point.y:,.0f}</b> Points',
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        series:[
+            {
+            data:[169983748, 47183571, 283364],
+            lineColor: "red",
+            color: "red",
+            lineWidth:'5'
+           },
+        ]
+    })
+
+    Highcharts.chart('hour', {
+        chart: {
+            backgroundColor: '#000',
+            type: 'spline'
+        },
+        title: {
+            text:"Hours",
+            style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+            }
+        },
+
+        yAxis: {
+            title: {
+                text:"Points",
+                style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+                fontSize: '20'
+            }
+            },
+            labels: {
+                style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+                fontSize: '20'
+            }
+            }
+        },
+
+        xAxis: {
+            categories: ['Aug 24','Sep 24', 'Oct 24'],
+            labels: {
+                style: {
+                color: '#fff',
+                fontFamily: 'roboto',
+                fontSize: '20'
+                }
+            }
+        },
+
+        tooltip: {
+            backgroundColor: '#0f0f0f',
+            borderWidth:'3',
+            borderRadius:'10',
+            style:{
+                fontSize:'20',
+                color:'#fff',
+                fontFamily:'roboto'
+            },
+            pointFormat:'<b>{point.y:,.0f}</b> Hours',
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        series:[
+            {
+            data:[1723, 498, 230],
+            lineColor: "blue",
+            color: "blue",
+            lineWidth:'5'
+           },
+        ]
+    })
+</script>
 <style>
     body {
         background: #0f0f0f;
@@ -157,5 +411,11 @@
     th {
         background: #5a5a5a;
         height: 80px;
+    }
+    .graph {
+        width: 1280px;
+        height: 400px;
+        margin: auto;
+        margin-top: 10px;
     }
 </style>
