@@ -1,99 +1,595 @@
+<!DOCTYPE html>
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriber Wars / Jay M Burton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta charset="utf-8">
-    <meta name="title" content="Subscriberwars.space | Live Social Media Statistics">
-    <meta name="description" content="Get Live statistics for: YouTube, Twitch, Twitter, Instagram, TikTok and More!">
+    <meta name="title" content="Subscriberwars.space | JayMBurton">
+    <meta name="description" content="Welcome to Subscriber Wars/JayMBurton">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://subscriberwars.space">
-    <meta property="og:title" content="Subscriberwars.space | Live Social Media Statistics">
-    <meta property="og:description" content="Get Live statistics for: YouTube, Twitch, Twitter, Instagram, TikTok and More!">
+    <meta property="og:title" content="Subscriberwars.space | JayMBurton">
+    <meta property="og:description" content="Welcome to Subscriber Wars/JayMBurton">
     <meta property="og:image" content="https://subscriberwars.space/images/sw.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://subscriberwars.space">
-    <meta property="twitter:title" content="Subscriberwars.space | Live Social Media Statistics">
-    <meta property="twitter:description" content="Get Live statistics for: YouTube, Twitch, Twitter, Instagram, TikTok and More!">
+    <meta property="twitter:title" content="Subscriberwars.space | JayMBurton">
+    <meta property="twitter:description" content="Welcome to Subscriber Wars/JayMBurton">
     <meta property="twitter:image" content="https://subscriberwars.space/images/sw.png">
-    <link href="/css/index.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
 </head>
 
+<header>
+    <div class="logo">
+        <img class="logo_ico" src="/images/icon_black.svg">
+        <div class="logo_txt">Subscriber Wars</div>
+    </div>
+</header>
+
 <body>
     <div class="navbar">
-        <a class="nav_button" href="/"><img src="/favicon.ico" height="30px"></a>
-        <a class="nav_button" href="/about"> Socials </a>
-        <a class="nav_button" href="/compare"> Compare </a>
-        <a class="nav_button" href="/leaderboard"> Leaderboards Archive </a>
+        <a class="navbutton" href="/">SW</a>
+        <a class="navbutton" href="/counts">Counts</a>
+        <a class="navbutton" href="/leaderboard">SL Leaderboard</a>
     </div>
-    <div class="notice">
-        <span><i class="fa-sharp fa-regular fa-circle-exclamation"></i></span>
-        <span>Subscriber Wars Live </span>
-        <a href="https://youtube.com/@subscriberwars1/live">Here</a>
+    <div class="main">
+        <div class="main_content">
+            <div class="para"></div>
+            <div id="time"></div>
+        </div>
     </div>
-    <div class="grid_container">
-        <button class="grid_item" onclick="location.href='/search/youtube'">
-            <img height="100px" src="/images/youtube.svg">
-            <h1>YouTube</h1>
-        </button>
-    <!--<button class="grid_item" onclick="location.href='/search/rumble'">
-            <img height="100px" src="/images/rumble.svg">
-            <h1>Rumble</h1>
-        </button>-->
-        <button class="grid_item" onclick="location.href='/search/twitch'">
-            <img height="100px" src="/images/twitch.svg">
-            <h1>Twitch</h1>
-        </button>
-        <button class="grid_item" onclick="location.href='/search/tiktok'">
-            <img height="120px" src="/images/tiktok.svg">
-            <h1>TikTok</h1>
-        </button>
-        <button class="grid_item" onclick="location.href='/kick/channel?u=bbjess'">
-            <img height="100px" src="/images/kick.svg">
-            <h1>Kick</h1>
-        </button>
-        <!--<button class="grid_item" onclick="location.href='/search/spotify'">
-            <img height="100px" src="/images/spotify_icon.png">
-            <h1>Spotify</h1>
-        </button>
-        <button class="grid_item" onclick="location.href='/search/trovo'">
-            <img height="100px" src="/images/trovo.svg">
-            <h1>Trovo</h1>
-        </button>
-        <button class="grid_item" onclick="location.href='/search/minecraft'">
-            <img height="100px" src="/images/minecraft.jpg">
-            <h1>Minecraft</h1>
-        </button>
-        <button class="grid_item" onclick="location.href='/search/polytoria'">
-            <img height="100px" src="/images/polytoria.svg">
-            <h1>Polytoria</h1>
-        </button>
-        <button class="grid_item" onclick="location.href='/team/trees'">
-            <img height="100px" src="https://teamtrees.org/img/tree-group.png">
-            <h1>#TeamTrees</h1>
-        </button>
-        <button class="grid_item" onclick="location.href='/team/seas'">
-            <img height="100px" src="https://teamseas.org/assets/images/teamseas-logo.png">
-            <h1>#TeamSeas</h1>
-        </button>-->
+    <div class="container">
+        <div class="subtitle">
+            <div class="sub_par"></div>
+            <div>About Me</div>
+        </div>
+    </div>
+    <div class="container_about">
+        <div class="grid_container">
+            <div class="grid_item" id="bout" style="font-size: 30px; color: #3f3f3f; font-weight: 500;">
+                Hello, my name is Jay and I'm a stats YouTuber who makes content covering live and past social media
+                stats, sometimes even making future predictions. Some creators we have tracked who you may know:
+                PewDiePie, T-Series, MrBeast, BTS, Cristiano Ronaldo, James Charles, Tati Westbrooke and many more.
+                I also enjoy the outdoors and playing video games(mainly sandbox or simulator games) which I have on
+                both Twitch and my second YouTube channel.
+            </div>
+            <div class="grid_item item_1">
+                <div class="decal_1"></div>
+                <img src="/images/jay.png" class="about_img">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="subtitle">
+            <div class="sub_par"></div>
+            <div>Socials</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="grid_container_socials">
+            <div class="grid_item">
+                <a href="https://youtube.com/@subscriberwars1" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2">@SubscriberWars1</div>
+                    <img src="/images/youtube.png" class="social_img">
+                </a>
+            </div>
+            <div class="grid_item">
+                <a href="https://x.com/subscriberwars1" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2" style="background-color: #5e5d5d;">@SubscriberWars1</div>
+                    <img src="/images/x_black.png" class="social_img">
+                </a>
+            </div>
+            <div class="grid_item">
+                <a href="https://instagram.com/jayburton135" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2" style="background-color: #fac451;">@JayBurton135</div>
+                    <img src="/images/instagram.png" class="social_img">
+                </a>
+            </div>
+            <div class="grid_item">
+                <a href="https://tiktok.com/@subscriberwars" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2" style="background-color: #fa6b9b;">@subscriberwars</div>
+                    <img src="/images/tiktok.png" class="social_img">
+                </a>
+            </div>
+            <div class="grid_item">
+                <a href="https://twitch.tv/jaymburtonsw" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2" style="background-color: #d66fff;">@jaymburtonsw</div>
+                    <img src="/images/twitch.png" class="social_img">
+                </a>
+            </div>
+            <div class="grid_item">
+                <a href="https://discord.com/invite/zDvtM5SENG" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2" style="background-color: #a07eff;">Subscriber Wars</div>
+                    <img src="/images/discord.png" class="social_img">
+                </a>
+            </div>
+            <div class="grid_item">
+                <a href="https://youtube.com/@jaymburton" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2">@JayMBurton</div>
+                    <img src="/images/youtube.png" class="social_img">
+                </a>
+            </div>
+            <div class="grid_item">
+                <a href="https://odysee.com/@SubscriberWars:d" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2" style="background-color: #ffd27e;">@SubscriberWars</div>
+                    <img src="/images/odysee.png" class="social_img">
+                </a>
+            </div>
+            <div class="grid_item">
+                <a href="https://odysee.com/@JayMBurtonSW:8" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2" style="background-color: #ffd27e;">@JayMBurtonSW</div>
+                    <img src="/images/odysee.png" class="social_img">
+                </a>
+            </div>
+            <div class="grid_item">
+                <a href="https://rumble.com/c/SubscriberWars" style="width: 400px; text-decoration: none;">
+                    <div class="decal_2" style="background-color: #b4f36c;">SubscriberWars</div>
+                    <img src="/images/rumble.svg" class="social_img">
+                </a>
+            </div>
+        </div>
     </div>
     <div id="footer">
         <div class="footer_items">
-            <span>v5.23.0</span>
-            <span>&nbsp;|&nbsp;</span>
             <span><a href="/terms">Terms & Conditions</a></span>
             <span>&nbsp;|&nbsp;</span>
             <span><a href="/privacy-policy">Privacy Policy</a></span>
         </div>
     </div>
-    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-<script>
-  kofiWidgetOverlay.draw('jaymburtonsw', {
-    'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Donate',
-    'floating-chat.donateButton.background-color': '#d9534f',
-    'floating-chat.donateButton.text-color': '#fff'
-  });
-</script>
 </body>
+
+<style>
+    /* This css is for page widths over 1600 pixels */
+    * {
+        font-family: roboto;
+        padding: 0;
+        margin: 0;
+    }
+
+    header {
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(#ff0000, #940101);
+        padding-top: 20px;
+    }
+
+    .logo {
+        margin-left: 20px;
+        background-color: #fff;
+        width: 380px;
+        height: 50px;
+        transform: skew(-12deg);
+        padding: 10px;
+        display: flex;
+    }
+
+    .logo_ico {
+        width: 80px;
+    }
+
+    .logo_txt {
+        font-weight: 500;
+        font-size: 35px;
+        color: #000;
+        margin-left: 10px;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 30px;
+        left: 500px;
+        display: flex;
+        max-width: 800px;
+    }
+
+    .navbutton {
+        padding: 10px;
+        font-size: 2rem;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .navbutton:hover {
+        text-decoration: underline;
+    }
+
+    .main {
+        position: absolute;
+        top: 200px;
+        display: flex;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .main_content {
+        width: 80%;
+        display: flex;
+    }
+
+    .para {
+        width: 10px;
+        height: 80px;
+        transform: skew(-12deg);
+        background-color: #fff;
+        animation: spin 2s infinite;
+    }
+
+    #time {
+        margin-left: 50px;
+        font-size: 80px;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(-360deg) skew(-12deg)
+        }
+
+        50% {
+            transform: rotate(-360deg) skew(-12deg)
+        }
+
+        100% {
+            transform: rotate(0deg) skew(-12deg)
+        }
+    }
+
+    .container {
+        width: 80%;
+        display: flex;
+        margin-top: 20px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .container_about {
+        height: 400px;
+        width: 80%;
+        display: flex;
+        margin-top: 20px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .subtitle {
+        display: flex;
+        font-size: 50px;
+        color: #3f3f3f;
+        gap: 10px;
+        font-weight: 500;
+    }
+
+    .sub_par {
+        height: 50px;
+        width: 7px;
+        background-color: #3f3f3f;
+        transform: skew(-12deg);
+    }
+
+    .grid_container {
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 50px;
+        width: 100%;
+    }
+
+    .grid_container_socials {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        column-gap: 50px;
+        width: 100%;
+        row-gap: 150px;
+    }
+
+    .grid_item {
+        position: relative;
+    }
+
+    .decal_1 {
+        width: 20px;
+        height: 500px;
+        background-color: green;
+        position: relative;
+        top: -200px;
+        animation: decal1 2s 1s infinite;
+    }
+
+    .decal_2 {
+        width: 300px;
+        height: 500px;
+        background-color: rgb(255, 77, 77);
+        position: absolute;
+        top: 0px;
+        animation: decal1 2s 1s infinite;
+        color: #fff;
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    @keyframes decal1 {
+        0% {
+            transform: translateX(-10px) skew(-12deg)
+        }
+
+        50% {
+            transform: translateX(0px) skew(-12deg)
+        }
+
+        100% {
+            transform: translateX(-10px) skew(-12deg)
+        }
+    }
+
+    .about_img {
+        width: 400px;
+        border-radius: 50%;
+        animation: aboimg 3s infinite;
+        position: relative;
+        top: -600px;
+    }
+
+    .social_img {
+        width: 400px;
+        animation: aboimg 3s infinite;
+        position: relative;
+        top: 100px;
+    }
+
+    @keyframes aboimg {
+        0% {
+            transform: translateY(-10px);
+        }
+
+        50% {
+            transform: translateY(0px);
+        }
+
+        100% {
+            transform: translateY(-10px);
+        }
+    }
+
+    #footer {
+        background: #000;
+        width: 100%;
+        height: 50px;
+        margin-top: 100px;
+    }
+
+    .footer_items {
+        display: flex;
+        text-align: center;
+        margin: auto;
+        width: 100%;
+        position: relative;
+        top: 10px;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #ff0000;
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #830101;
+        border-radius: 2.5px;
+    }
+
+    /* Medium screens: between 800px and 1600px */
+    @media screen and (max-width: 1600px) and (min-width: 800px) {
+
+        header {
+            height: 350px;
+            padding-top: 10px;
+        }
+
+        .logo {
+            width: 400px;
+            height: 40px;
+            margin: 0 auto;
+            position: relative;
+            top: 80px;
+        }
+
+        .logo_txt {
+            font-size: 30px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw !important;
+            background-color: rgba(0, 0, 0, 0.8);
+            max-width: none;
+            justify-content: space-around;
+            gap: 0;
+            font-size: 1.5rem;
+            z-index: 10;
+            display: flex;
+        }
+
+        .main {
+            top: 170px;
+            width: 100%;
+            margin-left: 5%;
+        }
+
+        .container_about {
+            height: auto;
+        }
+
+        .grid_container {
+            grid-template-columns: 1fr;
+            row-gap: 100px;
+        }
+
+        .grid_container_socials {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 10px;
+        }
+
+        .about_img {
+            width: 400px;
+            position: absolute;
+            top: 0px;
+        }
+
+        .social_img {
+            width: 200px;
+        }
+
+        .decal_1 {
+            top: -100px;
+            height: 600px;
+        }
+
+        .decal_2 {
+            height: 300px;
+        }
+    }
+
+    /* Small screens: 800px and below */
+    @media screen and (max-width: 800px) {
+        header {
+            height: 220px;
+            padding: 10px 0;
+        }
+
+        .logo {
+            width: 300px;
+            height: 30px;
+            margin: 0 auto;
+            position: relative;
+            top: 80px;
+        }
+
+        .logo_txt {
+            font-size: 20px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: space-around;
+            gap: 5px;
+            font-size: 1.5rem;
+            padding: 5px;
+            z-index: 10;
+        }
+
+        .main {
+            margin-top: 60px;
+            top: 80px;
+            width: 90%;
+            margin-left: 5%;
+            font-size: 1.2rem;
+        }
+
+        #time {
+            font-size: 32px;
+            position: relative;
+            top: 25px;
+        }
+
+        .container,
+        .container_about {
+            width: 90%;
+            margin-left: 5%;
+            flex-direction: column;
+        }
+
+        #bout {
+            height: 400px;
+            overflow: scroll;
+        }
+
+        .grid_container_socials,
+        .grid_container {
+            grid-template-columns: 1fr;
+            row-gap: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .about_img {
+            width: 100px;
+            left: 200px;
+            position: absolute;
+            top: -520px;
+        }
+
+        .social_img {
+            width: 300px;
+            position: relative;
+            top: -300px;
+            margin: 0 auto;
+        }
+
+        .decal_1 {
+            width: 10px;
+            height: 100px;
+            transform: none;
+            position: absolute;
+            top: -520px;
+            left: 300px;
+        }
+
+        .decal_2 {
+            width: 100%;
+            height: 400px;
+            transform: none;
+            position: relative;
+            top: auto;
+            margin: 0 auto;
+        }
+
+        .subtitle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 2rem;
+            padding-top: 20px;
+        }
+    }
+</style>
+
+<script>
+    function timed() {
+        var rightNow = new Date();
+        var hour = rightNow.getHours();
+        var time = document.getElementById("time");
+
+        if (hour >= 0 && hour < 12) {
+            time.innerHTML = "Good Morning!";
+        }
+        else if (hour >= 12 && hour < 18) {
+            time.innerHTML = "Good Afternoon!";
+        }
+        else if (hour >= 18 && hour <= 23) {
+            time.innerHTML = "Good Evening!";
+        }
+    }
+
+    timed();
+</script>
