@@ -24,7 +24,7 @@
     var uid = "";
     var follow = "";
 
-    if (type == "yt_subs_api" || type == "yt_subs_axe" || type == "yt_subs_sc" || type == "yt_subs_mix" || type == "yt_subs_xyz" || type == "yt_subs_lol" || type=="yt_subs_next") {
+    if (type == "yt_subs_api" || type == "yt_subs_axe" || type == "yt_subs_mix"|| type=="yt_subs_next" || type=="yt_subs_nia") {
         platform_image.src = "/images/youtube.png"
     }
     if (type == "twitch") {platform_image.src = "/images/twitch.png"}
@@ -55,27 +55,12 @@
         })
     }
 
-    function youtube_lol(id) {
-        fetch("https://api.subscriberwars.space/est/lolraw/"+id).then(res=>res.json()).then(data=>{
-            user_title.innerHTML=data.DataContents[1].value
-            user_image.src=data.DataContents[3].value
-            user_count.innerHTML=data.DataContents[5].value.followerCount
-        })
-    }
 
     function youtube_mix(id) {
         fetch("https://mixerno.space/api/youtube-channel-counter/user/"+id).then(res=>res.json()).then(data=>{
             user_title.innerHTML=data.user[0].count
             user_image.src=data.user[1].count
             user_count.innerHTML=data.counts[0].count
-        })
-    }
-
-    function youtube_xyz(id) {
-        fetch("https://livecounts.xyz/api/youtube-live-subscriber-count/live/"+id).then(res=>res.json()).then(data=>{
-            user_title.innerHTML=data.user.name
-            user_image.src=data.user.pfp.replace("s88","s100")
-            user_count.innerHTML=data.counts[0]
         })
     }
 
@@ -87,9 +72,11 @@
         })
     }
 
-    function youtube_sc(id) {
-        fetch("https://api.socialcounts.org/youtube-live-subscriber-count/"+id).then(res=>res.json()).then(data=>{
-            user_count.innerHTML=data.est_sub
+    function youtube_nia(id) {
+        fetch("https://studio.nia-statistics.com/api/channel/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML=data.currentChannels.name
+            user_image.src=data.currentChannels.image.replace("s88","s100")
+            user_count.innerHTML=data.channels.counts[2].count
         })
     }
 
@@ -217,11 +204,11 @@
         }, 2000);
     }
 
-    if (type == "yt_subs_lol") {
-        youtube_lol(query)
+    if (type == "yt_subs_nia") {
+        youtube_nia(query)
         setInterval(() => {
-            youtube_lol(query)
-        }, 2000);
+            youtube_nia(query)
+        }, 10000);
     }
 
     if (type == "yt_subs_mix") {
@@ -235,20 +222,6 @@
         youtube_next(query)
         setInterval(() => {
             youtube_next(query)
-        }, 2000);
-    }
-
-    if (type == "yt_subs_xyz") {
-        youtube_xyz(query)
-        setInterval(() => {
-            youtube_xyz(query)
-        }, 2000);
-    }
-
-    if (type == "yt_subs_sc") {
-        youtube_api(query)
-        setInterval(() => {
-            youtube_sc(query)
         }, 2000);
     }
 
