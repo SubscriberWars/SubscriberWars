@@ -1,0 +1,254 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Modrinth Search</title>
+</head>
+<div class="container">
+    <div class="head">
+        <div class="head_text">Modrinth Search</div>
+    </div>
+    <div style="text-align: center;">
+        <div class="dropdown">
+            <label for="dropdown" style="font-size: 40px;">What type of content do you want to search?:</label>
+            <select id="dropdown">
+                <option value="mods">Mods</option>
+                <option value="modpacks">Mod Packs</option>
+                <option value="resourcepacks">Resource Packs</option>
+                <option value="datapacks">Data Packs</option>
+                <option value="shaders">Shaders</option>
+                <option value="plugins">Plugins</option>
+            </select>
+        </div>
+    </div>
+    <form>
+        <div style="display: flex; width: 80%; margin: auto;">
+            <input class="form-control mr-sm-2" id="search" placeholder="Query">
+            <button type="submit" class="searchbtn" value="Search"><i class="fa fa-fw fa-search"
+                    style="width: 100%;"></i></button>
+        </div>
+    </form>
+    <br>
+    <div class="row">
+        <div id="chan1" class="chan-card">
+            <a id="link1">
+                <img src="" id="img1" class="pfp">
+                <div id="nam1" class="chan-name"></div>
+                <div id="id1" class="chan-id"></div>
+            </a>
+        </div>
+        <div id="chan2" class="chan-card">
+            <a id="link2">
+                <img src="" id="img2" class="pfp">
+                <div id="nam2" class="chan-name"></div>
+                <div id="id2" class="chan-id"></div>
+            </a>
+        </div>
+        <div id="chan3" class="chan-card">
+            <a id="link3">
+                <img src="" id="img3" class="pfp">
+                <div id="nam3" class="chan-name"></div>
+                <div id="id3" class="chan-id"></div>
+            </a>
+        </div>
+        <div id="chan4" class="chan-card">
+            <a id="link4">
+                <img src="" id="img4" class="pfp">
+                <div id="nam4" class="chan-name"></div>
+                <div id="id4" class="chan-id"></div>
+            </a>
+        </div>
+        <div id="chan5" class="chan-card">
+            <a id="link5">
+                <img src="" id="img5" class="pfp">
+                <div id="nam5" class="chan-name"></div>
+                <div id="id5" class="chan-id"></div>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('form').submit(function (event) {
+            event.preventDefault();
+
+            var search = $("#search").val();
+            var dropdown = document.getElementById('dropdown');
+            var apiURL = "";
+
+            switch (dropdown.value) {
+                case "mods":
+                    apiURL = "https://api.subscriberwars.space/search/modrinth/5/relevance/mod/";
+                    break;
+                case "modpacks":
+                    apiURL = "https://api.subscriberwars.space/search/modrinth/5/relevance/modpack/";
+                    break;
+                case "resourcepacks":
+                    apiURL = "https://api.subscriberwars.space/search/modrinth/5/relevance/resourcepack/";
+                    break;
+                case "datapacks":
+                    apiURL = "https://api.subscriberwars.space/search/modrinth/5/relevance/datapack/";
+                    break;
+                case "plugins":
+                    apiURL = "https://api.subscriberwars.space/search/modrinth/5/relevance/plugin/";
+                    break;
+                case "shaders":
+                    apiURL = "https://api.subscriberwars.space/search/modrinth/5/relevance/shader/";
+                    break;
+                default:
+                    apiURL = "https://api.subscriberwars.space/search/modrinth/5/relevance/mod/";
+            }
+
+            generalSearch(search, apiURL);
+        });
+
+        function generalSearch(search, apiURL) {
+            fetch(apiURL + search).then(res => res.json()).then(data => {
+                for (let i = 1; i <= 5; i++) {
+                    document.getElementById(`img${i}`).src = data.items[i - 1].pfp;
+                    document.getElementById(`nam${i}`).innerHTML = data.items[i - 1].title;
+                    document.getElementById(`id${i}`).innerHTML = data.items[i - 1].id;
+                    document.getElementById(`link${i}`).href = "/modrinth/item?q=" + data.items[i - 1].id;
+                }
+            });
+        }
+    });
+</script>
+<style>
+    body {
+        background-color: #222222;
+        font-family: roboto;
+        width: 100%;
+        color: #fff;
+        margin: 0;
+    }
+
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #1bd96a, #0c5e2e);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+        margin-bottom: 20px;
+    }
+
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 2.5rem;
+    }
+
+    ::placeholder {
+        color: #fff;
+        opacity: 5;
+        background: #333;
+    }
+
+    :-ms-input-placeholder {
+        color: #FFFFFF;
+        background: #333;
+    }
+
+    ::-ms-input-placeholder {
+        color: #FFFFFF;
+        background: #333;
+    }
+
+    #search {
+        width: 100%;
+        background-color: #333;
+        height: 50px;
+        color: #fff;
+        border: solid #111;
+        border-radius: 10px 0px 0px 10px;
+        font-size: 30px;
+    }
+
+    .searchbtn {
+        color: #FFF;
+        height: 50px;
+        width: 10%;
+        box-sizing: border-box;
+        display: inline-block;
+        border-radius: 0.25rem;
+        border: solid #111;
+        background: #111;
+        margin-left: -10px;
+        font-size: 30px;
+    }
+
+    .searchbtn:hover {
+        background: #000;
+        border: #000;
+        transition: 0.5s;
+        cursor: pointer;
+    }
+
+    .chan-card {
+        background: #181818;
+        border-radius: 10px;
+        height: 120px;
+        margin-bottom: 10px;
+        width: 80%;
+        margin: auto;
+        margin-bottom: 10px;
+        border: #000 1px solid;
+    }
+
+    .chan-card:hover {
+        cursor: pointer;
+        text-decoration: none;
+        background: #000;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        width: 100%;
+    }
+
+    .pfp {
+        border-radius: 50%;
+        position: relative;
+        top: 10px;
+        height: 100px;
+        width: 100px;
+        margin-left: 5px;
+    }
+
+    .chan-name {
+        font-size: 20pt;
+        font-weight: 900;
+        position: relative;
+        left: 120px;
+        top: -90px
+    }
+
+    .chan-id {
+        font-size: 20pt;
+        font-weight: 400;
+        position: relative;
+        left: 120px;
+        top: -80px;
+    }
+
+    #dropdown {
+        height: 60px;
+        font-size: 2rem;
+        width: 20%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        background: #0f0f0f;
+        text-align: center;
+        color: #fff;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+</style>
