@@ -1,0 +1,221 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <title id="page_title"></title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="head">
+        <div class="head_text">Parti live Follower Count</div>
+    </div>
+    <div class="main_box">
+        <img id="channel_banner" src="/images/banner_placeholder.png">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <span id="channel_title"></span>
+            <i class="fa fa-badge-check" style="display: none;" id="verified_" title=""></i>
+        </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers">Followers</div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_views"></div>
+                <div class="bottom_text">Following</div>
+            </div>
+        </div>
+        <div class="button_box">
+            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    Go To Profile
+                </button>
+            </a>
+        </div>
+    </div>
+    <p id="goal01" style="display: none;"></p>
+</body>
+
+<style>
+    body {
+        background: #181818;
+        color: #fff;
+        margin: 0;
+        font-family: roboto;
+    }
+
+    #top {
+        margin: 0 auto;
+        width: 1280px;
+        border-collapse: collapse;
+        font-family: roboto;
+        margin-top: 120px;
+    }
+
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #00ffaa, #045da7);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+    }
+
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 50px;
+    }
+
+    .main_box {
+        width: 1260px;
+        height: 800px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    #channel_banner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+    }
+
+    #channel_image {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        top: -100px;
+        position: relative;
+    }
+
+    #channel_title_container {
+        position: relative;
+        top: -100px;
+        font-size: 4rem;
+    }
+
+    #channel_subscribers {
+        position: relative;
+        top: -90px;
+        font-size: 10rem;
+        font-weight: 500;
+    }
+
+    #subscribers {
+        position: relative;
+        top: -80px;
+        font-size: 2rem;
+    }
+
+    .bottom_data {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        display: flex;
+        top: -70px;
+    }
+
+    .bottom_counts {
+        margin: 5px;
+        padding: 10px;
+        width: 100%;
+        height: 130px;
+        background: #000;
+        border-radius: 10px;
+    }
+
+    .bottom_odometer {
+        font-weight: 500;
+        font-size: 2.5rem;
+    }
+
+    .bottom_text {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #00b7ff;
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #046a77;
+        border-radius: 2.5px;
+    }
+
+    .button_box {
+        width: 1260px;
+        margin: auto;
+        display: flex;
+        position: relative;
+        top: -30px;
+    }
+
+    .bott_button {
+        width: 620px;
+        margin: auto;
+        background: #0f0f0f;
+        color: #fff;
+        height: 100px;
+        font-size: 30px;
+        border-radius: 10px;
+        border: 1px solid #000;
+    }
+
+    .bott_button:hover {
+        cursor: pointer;
+        background: #000;
+        border: 1px solid #fff;
+    }
+</style>
+
+<script>
+    var channel = window.location.href.split('?q=')[1] || '';
+
+    function meta(chanid) {
+        fetch("https://api.subscriberwars.space/parti/channel/" + chanid).then(res => res.json()).then(data => {
+            page_title.innerHTML = data.title + "'s Live Follower Count"
+            channel_title.innerHTML = data.title
+            username = data.slug
+            channel_image.src = data.avatar
+            channel_subscribers.innerHTML = data.followers
+            channel_views.innerHTML = data.following
+            if (data.social == "twitter") { channel_link.href = "https://parti.com/creator/twitter/" + username }
+            if (data.social == "discord") { channel_link.href = "https://parti.com/creator/discord/" + username + "/0" }
+            if (data.social == "parti") { channel_link.href = "https://parti.com/creator/parti/" + username }
+            channel_banner.src = data.banner
+        })
+    }
+
+    function stats(chanid) {
+        fetch("https://api.subscriberwars.space/parti/channel/" + chanid).then(res => res.json()).then(data => {
+            channel_subscribers.innerHTML = data.followers
+            channel_views.innerHTML = data.following
+        })
+    }
+
+    meta(channel)
+
+    setInterval(() => {
+        stats(channel)
+    }, 10000);
+
+</script>
