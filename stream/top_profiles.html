@@ -571,14 +571,14 @@
                 const f0_2 = d0_2.followers || 0;
                 document.getElementById('profileCount0_2').innerHTML = f0_2;
 
-                const r0_3 = await fetch(`https://api.subscriberwars.space/tiktok/channel/6881290705605477381`);
+                const r0_3 = await fetch(`https://api-v2.nextcounts.com/api/youtube/channel/estimate/mixerno/UCqECaJ8Gagnn7YCbPEzWH6g`);
                 const d0_3 = await r0_3.json();
-                const f0_3 = d0_3.followers || 0;
+                const f0_3 = d0_3.estimatedSubCount || 0;
                 document.getElementById('profileCount0_3').innerHTML = f0_3;
 
-                const r0_4 = await fetch(`https://api-v2.nextcounts.com/api/youtube/channel/estimate/mixerno/UCqECaJ8Gagnn7YCbPEzWH6g`);
+                const r0_4 = await fetch(`https://api.subscriberwars.space/tiktok/channel/6881290705605477381`);
                 const d0_4 = await r0_4.json();
-                const f0_4 = d0_4.estimatedSubCount || 0;
+                const f0_4 = d0_4.followers || 0;
                 document.getElementById('profileCount0_4').innerHTML = f0_4;
     
                 const total_0 = f0_1 + f0_2 + f0_3 + f0_4 + snap_0;
