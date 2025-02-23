@@ -1,0 +1,289 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <div class="title">
+                    <div>Cristiano Ronaldo</div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="instagram">
+                        <div class="odometer profileCount" id="profileCount1_1"></div>
+                    </div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="x">
+                        <div class="odometer profileCount" id="profileCount1_2"></div>
+                    </div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="youtube">
+                        <div class="odometer profileCount" id="profileCount1_3"></div>
+                    </div>
+                </div>
+                <div class="total">
+                    <div>Total</div>
+                    <div class="odometer" id="total_1"></div>
+                </div>
+            </td>
+            <td>
+                <div class="title">
+                    <div>Instagram</div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="instagram">
+                        <div class="odometer profileCount" id="profileCount2_1"></div>
+                    </div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="x">
+                        <div class="odometer profileCount" id="profileCount2_2"></div>
+                    </div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="youtube">
+                        <div class="odometer profileCount" id="profileCount2_3"></div>
+                    </div>
+                </div>
+                <div class="total">
+                    <div>Total</div>
+                    <div class="odometer" id="total_2"></div>
+                </div>
+            </td>
+            <td>
+                <div class="title">
+                    <div>Selena Gomez</div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="instagram">
+                        <div class="odometer profileCount" id="profileCount3_1"></div>
+                    </div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="x">
+                        <div class="odometer profileCount" id="profileCount3_2"></div>
+                    </div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="tiktok">
+                        <div class="odometer profileCount" id="profileCount3_3"></div>
+                    </div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="youtube">
+                        <div class="odometer profileCount" id="profileCount3_4"></div>
+                    </div>
+                </div>
+                <div class="platformContainer">
+                    <div class="platform">
+                        <img class="platformImage" id="snapchat">
+                        <div class="odometer profileCount" id="profileCount3_5"></div>
+                    </div>
+                </div>
+                <div class="total">
+                    <div class="odometer" id="total_3"></div>
+                </div>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        // Define image URLs
+        const igram = "https://subscriberwars.space/images/instagram.png";
+        const xcom = "https://subscriberwars.space/images/x.png";
+        const ytube = "https://subscriberwars.space/images/youtube.png";
+        const ttok = "https://subscriberwars.space/images/tiktok.png";
+        const schat = "https://subscriberwars.space/images/snapchat.png";
+
+        const snap_3 =[];
+
+        // Function to set platform images
+        function setPlatformImages() {
+            const platformImages = document.getElementsByClassName("platformImage");
+            const imageMap = {
+                instagram: igram,
+                x: xcom,
+                youtube: ytube,
+                tiktok: ttok,
+                snapchat: schat
+            };
+
+            for (let img of platformImages) {
+                const id = img.id;
+                if (imageMap[id]) {
+                    img.src = imageMap[id];
+                }
+            }
+        }
+
+        async function channel() {
+            try {
+                // Cristiano Ronaldo stats
+                const r1_1 = await fetch(`https://api-v2.nextcounts.com/api/instagram/user/stats/cristiano`);
+                const d1_1 = await r1_1.json();
+                const f1_1 = d1_1.followers || 0;
+                document.getElementById('profileCount1_1').innerHTML = f1_1;
+
+                const r1_2 = await fetch(`https://api-v2.nextcounts.com/api/twitter/user/stats/Cristiano`);
+                const d1_2 = await r1_2.json();
+                const f1_2 = d1_2.followers || 0;
+                document.getElementById('profileCount1_2').innerHTML = f1_2;
+
+                const r1_3 = await fetch(`https://api-v2.nextcounts.com/api/youtube/channel/estimate/mixerno/UCtxD0x6AuNNqdXO9Wp5GHew`);
+                const d1_3 = await r1_3.json();
+                const f1_3 = d1_3.estimatedSubCount || 0;
+                document.getElementById('profileCount1_3').innerHTML = f1_3;
+
+                const total_1 = f1_1 + f1_2 + f1_3;
+                document.getElementById('total_1').innerHTML = total_1;
+
+                // Instagram stats
+                const r2_1 = await fetch(`https://api-v2.nextcounts.com/api/instagram/user/stats/instagram`);
+                const d2_1 = await r2_1.json();
+                const f2_1 = d2_1.followers || 0;
+                document.getElementById('profileCount2_1').innerHTML = f2_1;
+
+                const r2_2 = await fetch(`https://api-v2.nextcounts.com/api/twitter/user/stats/instagram`);
+                const d2_2 = await r2_2.json();
+                const f2_2 = d2_2.followers || 0;
+                document.getElementById('profileCount2_2').innerHTML = f2_2;
+
+                const r2_3 = await fetch(`https://api-v2.nextcounts.com/api/youtube/channel/estimate/mixerno/UCHQU99yKRd_BQVSci2MZ08w`);
+                const d2_3 = await r2_3.json();
+                const f2_3 = d2_3.estimatedSubCount || 0;
+                document.getElementById('profileCount2_3').innerHTML = f2_3;
+
+                const total_2 = f2_1 + f2_2 + f2_3;
+                document.getElementById('total_2').innerHTML = total_2;
+
+                // selena Gomez stats
+                const r3_1 = await fetch(`https://api-v2.nextcounts.com/api/instagram/user/stats/selenagomez`);
+                const d3_1 = await r3_1.json();
+                const f3_1 = d3_1.followers || 0;
+                document.getElementById('profileCount3_1').innerHTML = f3_1;
+
+                const r3_2 = await fetch(`https://api-v2.nextcounts.com/api/twitter/user/stats/selenagomez`);
+                const d3_2 = await r3_2.json();
+                const f3_2 = d3_2.followers || 0;
+                document.getElementById('profileCount3_2').innerHTML = f3_2;
+
+                const r3_3 = await fetch(`https://api.subscriberwars.space/tiktok/channel/97614653324771328`);
+                const d3_3 = await r3_3.json();
+                const f3_3 = d3_3.followers || 0;
+                document.getElementById('profileCount3_3').innerHTML = f3_3;
+
+                const r3_4 = await fetch(`https://api-v2.nextcounts.com/api/youtube/channel/estimate/mixerno/UCHQU99yKRd_BQVSci2MZ08w`);
+                const d3_4 = await r3_4.json();
+                const f3_4 = d3_4.estimatedSubCount || 0;
+                document.getElementById('profileCount3_4').innerHTML = f3_4;
+
+                const total_3 = f3_1 + f3_2 + f3_3 + f3_4 +snap_3;
+                document.getElementById('total_3').innerHTML = total_3;
+
+            } catch (error) {
+                console.log('Error loading data:', error);
+            }
+        }
+
+        async function snapchat() {
+            try {
+                const r3_5 = await fetch(`https://ensembledata.com/apis/snapchat/user/info?name=selenagomez&token=fZmqcq6PMNOiKPtB`);
+                const d3_5 = await r3_5.json();
+                const f3_5 = d3_5.data.userProfile.publicProfileInfo.subscriberCount || 0;
+                document.getElementById('profileCount3_5').innerHTML = f3_5;
+                snap_3 = f3_5
+            }  catch (error) {
+                console.log('Error loading data:', error);
+        }
+    }
+
+        setPlatformImages();
+        channel();
+        snapchat()
+        setInterval(snapchat, 600000);
+        setInterval(channel, 4000);
+    </script>
+</body>
+
+<style>
+    body {
+        background: #0f0f0f;
+        margin: auto;
+        width: 1920px;
+        height: 1080px;
+        border: 1px dashed green;
+        font-family: roboto;
+        color: #fff;
+    }
+
+    table {
+        margin: 0 auto;
+    }
+
+    td {
+        width: 370px;
+        height: 530px;
+        background: #000;
+        border: 1px solid #181818;
+        border-radius: 10px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .platform {
+        display: inline;
+        height: 50px;
+        width: 100%;
+    }
+
+    .platformImage {
+        height: 50px;
+        width: 50px;
+        margin: 5px;
+    }
+
+    .profileCount {
+        font-size: 50px;
+        font-weight: 500;
+        position: relative;
+        top: -25px;
+    }
+
+    .total {
+        text-align: center;
+        font-size: 50px;
+        font-weight: 500;
+    }
+</style>
