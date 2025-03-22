@@ -158,6 +158,7 @@
     .middleTitle {
         font-size: 20pt;
     }
+
     .middleCount {
         font-size: 30pt;
         font-weight: 500;
@@ -182,13 +183,14 @@
             <div class="subscriberGraph" id="graph_0"></div>
         </div>
         <div class="centerBox">
-                <div style="display: flex;">
-                    <img src="https://yt3.ggpht.com/xw4QRTJ7NE5-Jnx6bpVCT7CT7p_ItyRZbXFIrCSPUtCgsuAWFM6PRUvXUFYmFfv9uwC0_HjZYA=s88-c-k-c0x00ffffff-no-rj" style="width: 88px;">
-                    <div style="font-weight: 500; font-size: 30pt;">Subscriber Wars</div>
-                </div>
-                <div style="text-align: center;">
-                    <div id="swCount" class="odometer" style="font-size: 50pt; font-weight: 500;"></div>
-                </div>
+            <div style="display: flex;">
+                <img src="https://yt3.ggpht.com/xw4QRTJ7NE5-Jnx6bpVCT7CT7p_ItyRZbXFIrCSPUtCgsuAWFM6PRUvXUFYmFfv9uwC0_HjZYA=s88-c-k-c0x00ffffff-no-rj"
+                    style="width: 88px;">
+                <div style="font-weight: 500; font-size: 30pt;">Subscriber Wars</div>
+            </div>
+            <div style="text-align: center;">
+                <div id="swCount" class="odometer" style="font-size: 50pt; font-weight: 500;"></div>
+            </div>
             <div class="differenceContainer">
                 <div id="differenceTitle">Gap</div>
                 <div class="odometer" id="difference"></div>
@@ -241,7 +243,7 @@
 
 <script>
     function get() {
-        fetch('https://api-v2.nextcounts.com/api/instagram/user/arianagrande').then(res => res.json()).then(data => {
+        fetch('https://api-v2.nextcounts.com/api/instagram/user/kyliejenner').then(res => res.json()).then(data => {
             banner0.src = data.userBanner;
             pfp0.src = data.avatar;
             title0.innerHTML = data.nickname;
@@ -268,7 +270,7 @@
 
         Promise.all([
 
-            fetch('https://api-v2.nextcounts.com/api/instagram/user/stats/arianagrande')
+            fetch('https://api-v2.nextcounts.com/api/instagram/user/stats/kyliejenner')
                 .then(res => res.json())
                 .then(data => {
                     subscriberCount0.innerHTML = data.followers;
@@ -276,26 +278,26 @@
                     posts.innerHTML = data.posts;
                     const subscriberCount = parseInt(data.followers, 10); // Convert to number
                     sub0 = subscriberCount
-                    if(sub0) {
-                    const series = graph_0.series[0];
+                    if (sub0) {
+                        const series = graph_0.series[0];
 
-                    // Remove first point if length exceeds 720
-                    if (series.data.length >= 720) {
-                        series.data[0].remove();
+                        // Remove first point if length exceeds 720
+                        if (series.data.length >= 720) {
+                            series.data[0].remove();
+                        }
+
+                        // Add new point
+                        series.addPoint([Date.now(), subscriberCount], true, false);
+
+                        // Calculate new minimum from all y-values using series.data
+                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                        const minDataPoint = Math.min(...allData);
+
+                        // Update y-axis minimum
+                        graph_0.yAxis[0].update({
+                            min: minDataPoint
+                        });
                     }
-
-                    // Add new point
-                    series.addPoint([Date.now(), subscriberCount], true, false);
-
-                    // Calculate new minimum from all y-values using series.data
-                    const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
-                    const minDataPoint = Math.min(...allData);
-
-                    // Update y-axis minimum
-                    graph_0.yAxis[0].update({
-                        min: minDataPoint
-                    });
-                }
                 })
                 .catch(error => {
                     console.error('Error fetching Instagram data:', error);
@@ -310,33 +312,39 @@
                     const subscriberCount = parseInt(data.items[0].statistics.subscriberCount, 10); // Convert to number
                     sub1 = subscriberCount
                     if (sub1) {
-                    const series = graph_1.series[0];
+                        const series = graph_1.series[0];
 
-                    // Remove first point if length exceeds 720
-                    if (series.data.length >= 720) {
-                        series.data[0].remove();
+                        // Remove first point if length exceeds 720
+                        if (series.data.length >= 720) {
+                            series.data[0].remove();
+                        }
+
+                        // Add new point
+                        series.addPoint([Date.now(), subscriberCount], true, false);
+
+                        // Calculate new minimum from all y-values using series.data
+                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                        const minDataPoint = Math.min(...allData);
+
+                        // Update y-axis minimum
+                        graph_1.yAxis[0].update({
+                            min: minDataPoint
+                        });
                     }
-
-                    // Add new point
-                    series.addPoint([Date.now(), subscriberCount], true, false);
-
-                    // Calculate new minimum from all y-values using series.data
-                    const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
-                    const minDataPoint = Math.min(...allData);
-
-                    // Update y-axis minimum
-                    graph_1.yAxis[0].update({
-                        min: minDataPoint
-                    });
-                }
                 })
                 .catch(error => {
                     console.error('Error fetching YouTube data:', error);
                 })
         ]).then(() => {
             if (sub0 && sub1) {
-                difference.innerHTML = sub0 - sub1
-                const gap = sub0 - sub1
+                var gap = 0;
+                if (sub0 > sub1) {
+                    difference.innerHTML = sub0 - sub1
+                    gap = sub0 - sub1
+                } else {
+                    difference.innerHTML = sub1 - sub0
+                    gap = sub1 - sub0
+                }
                 const series = graph_2.series[0];
                 // Remove first point if length exceeds 720
                 if (series.data.length >= 720) {
