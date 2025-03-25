@@ -1,0 +1,610 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+</head>
+
+<!--UCX6OQ3DkcsbYNE6H8uQQuVA,UCq-Fj5jknLsUf-MWSy4_brA,UCbCmjCuTUZos6Inko4u57UQ-->
+
+<style>
+    * {
+        font-family: roboto;
+        color: #f5f5f5;
+    }
+
+    body {
+        background-color: #171717;
+        width: 1920px;
+        height: 1080px;
+        border: 1px dashed green;
+    }
+
+    .container {
+        width: 1920px;
+        display: flex;
+    }
+
+    .topInnerContainer {
+        display: block;
+    }
+
+    .channelBox {
+        height: 345px;
+        width: 1000px;
+        background-color: #262626;
+        border: 1px solid #000;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .titleContainer {
+        display: flex;
+        margin: 10px;
+    }
+
+    .icon {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+    }
+
+    .titleInnerContainer {
+        height: 102px;
+        display: block;
+        margin-left: 10px;
+        max-width: 450px;
+    }
+
+    .title {
+        font-size: 30pt;
+        font-weight: 500;
+        width: 450px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .slug {
+        font-size: 25pt;
+        font-weight: 400;
+    }
+
+    .viewBox {
+        width: 400px;
+        height: 80px;
+        border: 1px solid #000;
+        background-color: #202020;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .viewFooter {
+        font-size: 20pt;
+        font-weight: 400;
+    }
+
+    .viewCount {
+        font-size: 30pt;
+        font-weight: 500;
+    }
+
+    .graph {
+        height: 225px;
+    }
+    .graphb {
+        height: 170px;
+    }
+
+    .subscriberCount {
+        font-size: 120pt;
+        font-weight: 600;
+        position: relative;
+        top: -220px;
+    }
+
+    .gapBox {
+        height: 255px;
+        width: 880px;
+        background-color: #262626;
+        border: 1px solid #000;
+        margin-top: 10px;
+        margin-left: 10px;
+        text-align: center;
+    }
+
+    .gapTitle {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        font-size: 30pt;
+        font-weight: 500;
+    }
+
+    .gapIcon {
+        width: 80px;
+        height: 80px;
+        border: 1px solid #000;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .gapTitleText {
+        display: flex;
+        max-width: 300px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .gap {
+        font-weight: 600;
+        font-size: 80pt;
+        position: relative;
+        top: -160px;
+    }
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="topInnerContainer">
+            <div class="channelBox">
+                <div class="titleContainer">
+                    <img class="icon" id="icon0">
+                    <div class="titleInnerContainer">
+                        <div class="title" id="title0">User</div>
+                        <div class="slug" id="slug0">@user</div>
+                    </div>
+                    <div class="viewBox">
+                        <div class="viewCount odometer" id="viewCount0"></div>
+                        <div class="viewFooter">Channel Views</div>
+                    </div>
+                </div>
+                <div id="graph_0" class="graph"></div>
+                <div style="text-align: center;">
+                    <div class="subscriberCount odometer" id="subscriberCount0"></div>
+                </div>
+            </div>
+            <div class="channelBox">
+                <div class="titleContainer">
+                    <img class="icon" id="icon1">
+                    <div class="titleInnerContainer">
+                        <div class="title" id="title1">User</div>
+                        <div class="slug" id="slug1">@user</div>
+                    </div>
+                    <div class="viewBox">
+                        <div class="viewCount odometer" id="viewCount1"></div>
+                        <div class="viewFooter">Channel Views</div>
+                    </div>
+                </div>
+                <div id="graph_1" class="graph"></div>
+                <div style="text-align: center;">
+                    <div class="subscriberCount odometer" id="subscriberCount1"></div>
+                </div>
+            </div>
+            <div class="channelBox">
+                <div class="titleContainer">
+                    <img class="icon" id="icon2">
+                    <div class="titleInnerContainer">
+                        <div class="title" id="title2">User</div>
+                        <div class="slug" id="slug2">@user</div>
+                    </div>
+                    <div class="viewBox">
+                        <div class="viewCount odometer" id="viewCount2"></div>
+                        <div class="viewFooter">Channel Views</div>
+                    </div>
+                </div>
+                <div id="graph_2" class="graph"></div>
+                <div style="text-align: center;">
+                    <div class="subscriberCount odometer" id="subscriberCount2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="topInnerContainer">
+            <div class="gapBox"></div>
+            <div class="gapBox">
+                <div class="gapTitle">
+                    <img class="gapIcon" id="gapIcon0">
+                    <div class="gapTitleText" id="gapTitle0">User</div> &nbsp;
+                    <div class="gapTitleText">Vs</div> &nbsp;
+                    <img class="gapIcon" id="gapIcon1">
+                    <div class="gapTitleText" id="gapTitle1">User</div>
+                </div>
+                <div id="graph_3" class="graphb"></div>
+                <div class="gap odometer" id="difference0"></div>
+            </div>
+            <div class="gapBox">
+                <div class="gapTitle">
+                    <img class="gapIcon" id="gapIcon1_">
+                    <div class="gapTitleText" id="gapTitle1_">User</div> &nbsp;
+                    <div class="gapTitleText">Vs</div> &nbsp;
+                    <img class="gapIcon" id="gapIcon2">
+                    <div class="gapTitleText" id="gapTitle2">User</div>
+                </div>
+                <div id="graph_4" class="graphb"></div>
+                <div class="gap odometer" id="difference1"></div>
+            </div>
+            <div class="gapBox"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function get() {
+        fetch('https://api.subscriberwars.space/youtube/channel/UCX6OQ3DkcsbYNE6H8uQQuVA').then(res => res.json()).then(data => {
+            icon0.src = data.icon.replace('s88', 's100');
+            gapIcon0.src = data.icon;
+            title0.innerHTML = data.title;
+            gapTitle0.innerHTML = data.title;
+            slug0.innerHTML = data.slug;
+            viewCount0.innerHTML = data.viewCount;
+        });
+        fetch('https://api.subscriberwars.space/youtube/channel/UCq-Fj5jknLsUf-MWSy4_brA').then(res => res.json()).then(data => {
+            icon1.src = data.icon.replace('s88', 's100');
+            gapIcon1.src = data.icon;
+            gapIcon1_.src = data.icon;
+            title1.innerHTML = data.title;
+            gapTitle1.innerHTML = data.title;
+            gapTitle1_.innerHTML = data.title;
+            slug1.innerHTML = data.slug;
+            viewCount1.innerHTML = data.viewCount;
+        });
+        fetch('https://api.subscriberwars.space/youtube/channel/UCbCmjCuTUZos6Inko4u57UQ').then(res => res.json()).then(data => {
+            icon2.src = data.icon.replace('s88', 's100');
+            gapIcon2.src = data.icon;
+            title2.innerHTML = data.title;
+            gapTitle2.innerHTML = data.title;
+            slug2.innerHTML = data.slug;
+            viewCount2.innerHTML = data.viewCount;
+        });
+    }
+    get()
+
+    function update() {
+        var sub0 = 0, sub1 = 0, sub2 = 0;
+        Promise.all([
+            fetch('https://backend.mixerno.space/api/youtube/estv3/UCX6OQ3DkcsbYNE6H8uQQuVA')
+                .then(res => res.json())
+                .then(data => {
+                    subscriberCount0.innerHTML = data.items[0].statistics.subscriberCount;
+                    viewCount0.innerHTML = data.items[0].statistics.viewCount;
+                    const subscriberCount = parseInt(data.items[0].statistics.subscriberCount, 10); // Convert to number
+                    sub0 = subscriberCount
+                    if (sub0) {
+                        const series = graph_0.series[0];
+
+                        // Remove first point if length exceeds 720
+                        if (series.data.length >= 720) {
+                            series.data[0].remove();
+                        }
+
+                        // Add new point
+                        series.addPoint([Date.now(), subscriberCount], true, false);
+
+                        // Calculate new minimum from all y-values using series.data
+                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                        const minDataPoint = Math.min(...allData);
+
+                        // Update y-axis minimum
+                        graph_0.yAxis[0].update({
+                            min: minDataPoint
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching YouTube data:', error);
+                }),
+            fetch('https://backend.mixerno.space/api/youtube/estv3/UCq-Fj5jknLsUf-MWSy4_brA')
+                .then(res => res.json())
+                .then(data => {
+                    subscriberCount1.innerHTML = data.items[0].statistics.subscriberCount;
+                    viewCount1.innerHTML = data.items[0].statistics.viewCount;
+                    const subscriberCount = parseInt(data.items[0].statistics.subscriberCount, 10); // Convert to number
+                    sub1 = subscriberCount
+                    if (sub1) {
+                        const series = graph_1.series[0];
+
+                        // Remove first point if length exceeds 720
+                        if (series.data.length >= 720) {
+                            series.data[0].remove();
+                        }
+
+                        // Add new point
+                        series.addPoint([Date.now(), subscriberCount], true, false);
+
+                        // Calculate new minimum from all y-values using series.data
+                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                        const minDataPoint = Math.min(...allData);
+
+                        // Update y-axis minimum
+                        graph_1.yAxis[0].update({
+                            min: minDataPoint
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching YouTube data:', error);
+                }),
+            fetch('https://backend.mixerno.space/api/youtube/estv3/UCbCmjCuTUZos6Inko4u57UQ')
+                .then(res => res.json())
+                .then(data => {
+                    subscriberCount2.innerHTML = data.items[0].statistics.subscriberCount;
+                    viewCount2.innerHTML = data.items[0].statistics.viewCount;
+                    const subscriberCount = parseInt(data.items[0].statistics.subscriberCount, 10); // Convert to number
+                    sub2 = subscriberCount
+                    if (sub2) {
+                        const series = graph_2.series[0];
+
+                        // Remove first point if length exceeds 720
+                        if (series.data.length >= 720) {
+                            series.data[0].remove();
+                        }
+
+                        // Add new point
+                        series.addPoint([Date.now(), subscriberCount], true, false);
+
+                        // Calculate new minimum from all y-values using series.data
+                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                        const minDataPoint = Math.min(...allData);
+
+                        // Update y-axis minimum
+                        graph_2.yAxis[0].update({
+                            min: minDataPoint
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching YouTube data:', error);
+                })
+        ]).then(() => {
+            if (sub0 && sub1 && sub2) {
+                var gap0 = 0; gap1 = 0;
+                if (sub0 > sub1) {
+                    difference0.innerHTML = sub0 - sub1
+                    gap0 = sub0 - sub1
+                } else {
+                    difference0.innerHTML = sub1 - sub0
+                    gap0 = sub1 - sub0
+                }
+                if (sub1 > sub2) {
+                    difference1.innerHTML = sub1 - sub2
+                    gap1 = sub1 - sub2
+                } else {
+                    difference1.innerHTML = sub2 - sub1
+                    gap1 = sub2 - sub1
+                }
+                const series = graph_3.series[0];
+                // Remove first point if length exceeds 720
+                if (series.data.length >= 720) {
+                    series.data[0].remove();
+                }
+
+                // Add new point
+                series.addPoint([Date.now(), gap0], true, false);
+
+                // Calculate new minimum from all y-values using series.data
+                const allData = series.data.length > 0 ? series.data.map(point => point.y) : [gap0];
+                const minDataPoint = Math.min(...allData);
+
+                // Update y-axis minimum
+                graph_3.yAxis[0].update({
+                    min: minDataPoint
+                });
+
+                const series1 = graph_4.series[0];
+                // Remove first point if length exceeds 720
+                if (series1.data.length >= 720) {
+                    series1.data[0].remove();
+                }
+
+                // Add new point
+                series1.addPoint([Date.now(), gap1], true, false);
+
+                // Calculate new minimum from all y-values using series.data
+                const allData1 = series1.data.length > 0 ? series1.data.map(point => point.y) : [gap1];
+                const minDataPoint1 = Math.min(...allData1);
+
+                // Update y-axis minimum
+                graph_4.yAxis[0].update({
+                    min: minDataPoint1
+                });
+            }
+        })
+    }
+
+    setInterval(update, 5000)
+
+    var graph_0; graph_1; graph_2; graph_3; graph_4;
+
+    graph_0 = Highcharts.chart({
+        chart: {
+            renderTo: 'graph_0',
+            type: 'areaspline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: { enabled: false },
+            lineColor: '#03c6fc',
+            color: '#03c6fc',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
+    graph_1 = Highcharts.chart({
+        chart: {
+            renderTo: 'graph_1',
+            type: 'areaspline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: { enabled: false },
+            lineColor: '#ff0000',
+            color: '#ff0000',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
+    graph_2 = Highcharts.chart({
+        chart: {
+            renderTo: 'graph_2',
+            type: 'areaspline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: { enabled: false },
+            lineColor: '#1db000',
+            color: '#1db000',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
+    graph_3 = Highcharts.chart({
+        chart: {
+            renderTo: 'graph_3',
+            type: 'areaspline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: { enabled: false },
+            lineColor: '#805a80',
+            color: '#805a80',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
+    graph_4 = Highcharts.chart({
+        chart: {
+            renderTo: 'graph_4',
+            type: 'areaspline',
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: { enabled: false },
+            lineColor: '#804000',
+            color: '#804000',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
+</script>
