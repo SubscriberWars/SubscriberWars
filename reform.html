@@ -1,0 +1,214 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <title>Reform UK Live Members Count</title>
+</head>
+<body>
+    <div class="head">
+        <div class="head_text">Reform UK Live Member Count</div>
+    </div>
+    <div class="main_box">
+        <div id="channel_banner">
+        <img src="https://pro-worker.reformparty.uk/build/assets/bg-9pBQ-RJn.jpeg" width="100%" style="margin: -120px 0px ;">
+    </div>
+        <img id="channel_image" src="https://pro-worker.reformparty.uk/build/assets/logo-BUQqSIkd.png">
+        <div id="channel_title_container">
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel" target="_blank"></a>
+            <i class="fa fa-badge-check"  style="display: none; color: #9146ff;" id="partner" title=""></i>
+            <i class="fa fa-circle-A"  style="display: none; color: #9146ff;" id="affiliate" title=""></i>
+        </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Members</div>
+        <div id="graph" style="position: relative; top: -100px;"></div>
+        <div class="button_box">
+            <a id="channel_link" target="_blank" href="https://www.reformparty.uk/" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <div style="display: flex; margin: auto;">
+                    <img src="https://pro-worker.reformparty.uk/build/assets/logo-BUQqSIkd.png" style="width: 50pt; height: 50pt;">
+                    <div style="margin: auto; margin-left: 10px;">Visit Reform UK</div>
+                </div>
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+
+<style>
+    body {
+        background: #171717;
+        color: #f5f5f5;
+        margin: 0;
+        font-family: roboto;
+    }
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #56b6ce, #28535e);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+    }
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+    .main_box {
+        width: 1260px;
+        height: 920px;
+        background: #262626;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+    #channel_banner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+        overflow: hidden;
+    }
+    #channel_image {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        border-radius: 50%;
+        top: -100px;
+        position: relative;
+    }
+    #channel_title_container {
+        position: relative;
+        top: -100px;
+        font-size: 4rem;
+    }
+    #channel_subscribers {
+        position: relative;
+        top: -90px;
+        font-size: 10rem;
+        font-weight: 500;
+    }
+    #subscribers {
+        position: relative;
+        top: -80px;
+        font-size: 2rem;
+    }
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #56b6ce;
+        border-radius: 2.5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #28535e;
+        border-radius: 2.5px;
+    }
+    .button_box {
+        width: 1260px;
+        margin: auto;
+        display: flex;
+    }
+    .bott_button {
+        width: 620px;
+        margin: auto;
+        background: #0f0f0f;
+        color: #fff;
+        height: 100px;
+        font-size: 30px;
+        border-radius: 10px;
+        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        }
+    .bott_button:hover {
+        cursor: pointer;
+        background: #000;
+        border: 1px solid #fff;
+    }
+</style>
+
+<script>
+
+    function stats() {
+        fetch("https://api.subscriberwars.space/reform").then(res=>res.json()).then(data=>{
+            channel_subscribers.innerHTML=data.current_total
+            const subscriberCount = parseInt(data.current_total, 10);
+                const sub0 = subscriberCount;
+
+                if (sub0) {
+                    const series = graph.series[0];
+                    if (series.data.length >= 360) {
+                        series.data[0].remove();
+                    }
+                    series.addPoint([Date.now(), subscriberCount], true, false);
+                    const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                    const minDataPoint = Math.min(...allData);
+                    graph.yAxis[0].update({ min: minDataPoint });
+                }
+        })
+    }
+    stats()
+    setInterval(() => {
+        stats()
+    }, 10000);
+
+    var graph = Highcharts.chart({
+        chart: {
+            renderTo: 'graph',
+            type: 'areaspline',
+            accessibilityEnabled: {enabled: false},
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        tooltip: {
+            shared: true,
+            valueSuffix: '',
+            backgroundColor: '#000',
+            borderColor: '#56b6ce',
+            borderWidth: '3px',
+            style: {
+                color: '#f5f5f5',
+                fontSize: '1.5em'
+            }
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Members',
+            marker: { enabled: false },
+            lineColor: '#56b6ce',
+            color: '#56b6ce',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
+</script>
