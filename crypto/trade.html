@@ -1,0 +1,275 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <title id="page_title"></title>
+</head>
+<body>
+    <div class="head">
+        <div class="head_text">Crypto to Fiat Conversions</div>
+    </div>
+    <div class="main_box">
+        <div id="channel_title_container">
+            <span id="channel_title"></span>
+        </div>
+        <div id="channel_subscribers"></div>
+        <div id="subscribers">Price</div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="bottom_odometer" id="channel_views"></div>
+                <div class="bottom_text">High</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="bottom_odometer" id="channel_videos"></div>
+                <div class="bottom_text">Low</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="bottom_odometer" id="channel_abreviation"></div>
+                <div class="bottom_text">Since Open</div>
+            </div>
+        </div>
+        <div id="graph" style="position: relative; top: -50px;"></div>
+    </div>
+    
+    <br>
+</body>
+
+<style>
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    th{
+        background: #000;
+    }
+    td{
+        border-bottom: 1px solid #000;
+    }
+    tr:nth-child(even){background: rgb(33,33,33);};
+    tr:nth-child(odd){background: rgb(38,38,38);}
+    tr{
+        height: 92px;
+    }
+    .t{
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .e{
+        color: #6cb700;
+    }
+    body {
+    background: #181818;
+    color: #fff;
+    margin: 0;
+    font-family: roboto;
+}
+.head {
+    width: 100%;
+    height: 60px;
+    background-image: linear-gradient(to right, #0400ff, #0e0183);
+    overflow: hidden;
+    border-bottom: 1px solid #000;
+}
+.head_text {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 50px;
+}
+.main_box {
+    width: 1260px;
+    height: 800px;
+    background: #0f0f0f;
+    margin: auto;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    text-align: center;
+}
+.credit_box {
+        width: 1260px;
+        height: 55px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 30px;
+        color: #fff;
+    }
+    .credit_box:hover {
+        background: #000;
+        border: 1px solid #fff;
+        cursor: pointer;
+    }
+#channel_title_container {
+    font-size: 4rem;
+}
+#channel_subscribers {
+    font-size: 10rem;
+    font-weight: 500;
+}
+#subscribers {
+    font-size: 2rem;
+}
+.bottom_data {
+    width: 100%;
+    height: 150px;
+    display: flex;
+}
+.bottom_counts {
+    margin: 5px;
+    padding: 10px;
+    width: 400px;
+    height: 130px;
+    background: #000;
+    border-radius: 10px;
+}
+.bottom_odometer {
+    font-weight: 500;
+    font-size: 3rem;
+}
+.bottom_text {
+    font-size: 30px;
+    margin-top: 20px;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 2.5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 2.5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #830101;
+    border-radius: 2.5px;
+}
+.button_box {
+    width: 1260px;
+    margin: auto;
+    display: flex;
+    position: relative;
+}
+.bott_button {
+    width: 620px;
+    margin: auto;
+    background: #0f0f0f;
+    color: #fff;
+    height: 100px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+.bott_button:hover {
+    cursor: pointer;
+    background: #000;
+    border: 1px solid #fff;
+}
+    
+</style>
+
+<script>
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var cry=params.get("cryp");
+    var fia=params.get("fiat");
+
+    function api() {
+        fetch("https://api.subscriberwars.space/trade/"+cry+"/"+fia).then(res=>res.json()).then(data=>{
+            page_title.innerHTML = data.id+" Exchange"
+            channel_title.innerHTML = data.id
+            if(data.currencies.quote === "USD") {channel_subscribers.innerHTML = "$"+parseFloat(data.stats.last).toLocaleString()}
+            if(data.currencies.quote === "USD") {channel_views.innerHTML = "$"+ parseFloat(data.stats.high).toLocaleString()}
+            if(data.currencies.quote === "USD") {channel_videos.innerHTML = "$"+ parseFloat(data.stats.low).toLocaleString()}
+            if(data.currencies.quote === "GBP") {channel_subscribers.innerHTML = "£"+parseFloat(data.stats.last).toLocaleString()}
+            if(data.currencies.quote === "GBP") {channel_views.innerHTML = "£"+ parseFloat(data.stats.high).toLocaleString()}
+            if(data.currencies.quote === "GBP") {channel_videos.innerHTML = "£"+ parseFloat(data.stats.low).toLocaleString()}
+            if(data.currencies.quote === "EUR") {channel_subscribers.innerHTML = "€"+parseFloat(data.stats.last).toLocaleString()}
+            if(data.currencies.quote === "EUR") {channel_views.innerHTML = "€"+ parseFloat(data.stats.high).toLocaleString()}
+            if(data.currencies.quote === "EUR") {channel_videos.innerHTML = "€"+ parseFloat(data.stats.low).toLocaleString()}
+            if(parseFloat(data.stats.last-data.stats.open)>0) {channel_abreviation.innerHTML = ("+"+parseFloat((data.stats.last-data.stats.open)/100).toFixed(2)+"%")}
+            else {channel_abreviation.innerHTML = (parseFloat((data.stats.last-data.stats.open)/100).toFixed(2)+"%")}
+            const subscriberCount = parseInt(data.stats.last, 10);
+            const sub0 = subscriberCount;
+
+            if (sub0) {
+                const series = graph.series[0];
+                if (series.data.length >= 360) {
+                    series.data[0].remove();
+                }
+                series.addPoint([Date.now(), subscriberCount], true, false);
+                const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                const minDataPoint = Math.min(...allData);
+                graph.yAxis[0].update({ min: minDataPoint });
+            }
+        })
+    }
+
+    api(cry,fia)
+
+    setInterval(() => {
+        api(cry,fia)
+    }, 10000);
+
+    var graph = Highcharts.chart({
+        chart: {
+            renderTo: 'graph',
+            type: 'areaspline',
+            accessibilityEnabled: { enabled: false },
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        tooltip: {
+            shared: true,
+            valueSuffix: '',
+            backgroundColor: '#000',
+            borderColor: '#0400ff',
+            borderWidth: '3px',
+            style: {
+                color: '#f5f5f5',
+                fontSize: '1.5em'
+            }
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Price',
+            marker: { enabled: false },
+            lineColor: '#0400ff',
+            color: '#0400ff',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
+
+</script>

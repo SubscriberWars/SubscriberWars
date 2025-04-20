@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currency Trading</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+  <style>
+    body {
+      font-family: Roboto, sans-serif;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      text-align: center;
+      background-color: #171717;
+      color: #f5f5f5;
+    }
+    select, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 20px;
+      background-color: #0f0f0f;
+      color: #f5f5f5;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Select Currencies to Trade</h1>
+  <div>
+    <label for="crypto-select">Cryptocurrency:</label>
+    <select id="crypto-select" name="cryp">
+      <option value="">Select a cryptocurrency</option>
+    </select>
+  </div>
+  <div>
+    <label for="fiat-select">Fiat Currency:</label>
+    <select id="fiat-select" name="fiat">
+      <option value="">Select a fiat currency</option>
+    </select>
+  </div>
+  <button id="trade-button">Trade</button>
+  <p id="error-message" class="error"></p>
+
+  <script>
+    // Base URL for the Express server (update if hosted elsewhere)
+    const API_BASE_URL = 'https://api.subscriberwars.space';
+    // Third-party trading site URL
+    const TRADE_BASE_URL = 'https://subscriberwars.space/crypto';
+
+    // Fetch and populate dropdowns
+    async function populateDropdowns() {
+      try {
+        // Fetch cryptocurrencies
+        const cryptoResponse = await fetch(`${API_BASE_URL}/currencies?type=crypto`);
+        if (!cryptoResponse.ok) throw new Error('Failed to fetch cryptocurrencies');
+        const cryptos = await cryptoResponse.json();
+
+        // Fetch fiat currencies
+        const fiatResponse = await fetch(`${API_BASE_URL}/currencies?type=fiat`);
+        if (!fiatResponse.ok) throw new Error('Failed to fetch fiat currencies');
+        const fiats = await fiatResponse.json();
+
+        // Populate crypto dropdown
+        const cryptoSelect = document.getElementById('crypto-select');
+        cryptos.forEach(crypto => {
+          const option = document.createElement('option');
+          option.value = crypto.id;
+          option.textContent = `${crypto.name} (${crypto.id})`;
+          cryptoSelect.appendChild(option);
+        });
+
+        // Populate fiat dropdown
+        const fiatSelect = document.getElementById('fiat-select');
+        fiats.forEach(fiat => {
+          const option = document.createElement('option');
+          option.value = fiat.id;
+          option.textContent = `${fiat.name} (${fiat.id})`;
+          fiatSelect.appendChild(option);
+        });
+      } catch (error) {
+        document.getElementById('error-message').textContent = `Error: ${error.message}`;
+      }
+    }
+
+    // Construct and redirect to trade URL
+    function goToTrade() {
+      const cryptoSelect = document.getElementById('crypto-select');
+      const fiatSelect = document.getElementById('fiat-select');
+      const errorMessage = document.getElementById('error-message');
+
+      const cryp = cryptoSelect.value;
+      const fiat = fiatSelect.value;
+
+      if (!cryp || !fiat) {
+        errorMessage.textContent = 'Please select both a cryptocurrency and a fiat currency.';
+        return;
+      }
+
+      errorMessage.textContent = ''; // Clear any previous error
+      const tradeUrl = `${TRADE_BASE_URL}/trade?cryp=${encodeURIComponent(cryp)}&fiat=${encodeURIComponent(fiat)}`;
+      window.location.href = tradeUrl;
+    }
+
+    // Initialize dropdowns on page load
+    populateDropdowns();
+
+    // Handle button click
+    document.getElementById('trade-button').addEventListener('click', goToTrade);
+
+    // Handle Enter key press on dropdowns
+    document.getElementById('crypto-select').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') goToTrade();
+    });
+    document.getElementById('fiat-select').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') goToTrade();
+    });
+  </script>
+</body>
+</html>
