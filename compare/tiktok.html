@@ -52,7 +52,7 @@
     var gap02=""
 
     function user_1(id) {
-        fetch("https://api.subscriberwars.space/tiktok/v2/"+id).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/tiktok/channel/"+id).then(res=>res.json()).then(data=>{
             name_1.innerHTML=data.nickname
             nam1=data.nickname
             slug_1.innerHTML="@"+data.username
@@ -70,7 +70,7 @@
         })
     }
     function user_2(id) {
-        fetch("https://api.subscriberwars.space/tiktok/v2/"+id).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/tiktok/channel/"+id).then(res=>res.json()).then(data=>{
             name_2.innerHTML=data.nickname
             nam2=data.nickname
             slug_2.innerHTML="@"+data.username

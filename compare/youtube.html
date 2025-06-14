@@ -62,26 +62,26 @@
     function user1_api(id) {
         banner_1.src="https://www.banner.yt/"+id+"?width=1260"
         fetch("https://api.subscriberwars.space/youtube/channel/"+id).then(res=>res.json()).then(data=>{
-            name_1.innerHTML=data.items[0].snippet.title
-            nam1=data.items[0].snippet.title
-            slug_1.innerHTML=data.items[0].snippet.customUrl
-            image_1.src=data.items[0].snippet.thumbnails.medium.url
-            if(type=="subscribers"){gap01=data.items[0].statistics.subscriberCount, head_text.innerHTML="YouTube Subscriber Comparison", type_1.innerHTML="Subscribers", type_2.innerHTML="Subscribers"}
-            if(type=="views"){gap01=data.items[0].statistics.viewCount, head_text.innerHTML="YouTube Views Comparison", type_1.innerHTML="Views", type_2.innerHTML="Views"}
-            if(type=="videos"){gap01=data.items[0].statistics.videoCount, head_text.innerHTML="YouTube Videos Comparison", type_1.innerHTML="Videos", type_2.innerHTML="Videos"}
+            name_1.innerHTML=data.title
+            nam1=data.title
+            slug_1.innerHTML=data.slug
+            image_1.src=data.icon.replace("s88","s200")
+            if(type=="subscribers"){gap01=data.subscriberCount, head_text.innerHTML="YouTube Subscriber Comparison", type_1.innerHTML="Subscribers", type_2.innerHTML="Subscribers"}
+            if(type=="views"){gap01=data.viewCount, head_text.innerHTML="YouTube Views Comparison", type_1.innerHTML="Views", type_2.innerHTML="Views"}
+            if(type=="videos"){gap01=data.videoCount, head_text.innerHTML="YouTube Videos Comparison", type_1.innerHTML="Videos", type_2.innerHTML="Videos"}
             count_1.innerHTML=gap01
         })
     }
     function user2_api(id) {
         banner_2.src="https://www.banner.yt/"+id+"?width=1260"
         fetch("https://api.subscriberwars.space/youtube/channel/"+id).then(res=>res.json()).then(data=>{
-            name_2.innerHTML=data.items[0].snippet.title
-            nam2=data.items[0].snippet.title
-            slug_2.innerHTML=data.items[0].snippet.customUrl
-            image_2.src=data.items[0].snippet.thumbnails.medium.url
-            if (type=="subscribers"){gap02=data.items[0].statistics.subscriberCount}
-            if(type=="views"){gap02=data.items[0].statistics.viewCount}
-            if(type=="videos"){gap02=data.items[0].statistics.videoCount}
+            name_2.innerHTML=data.title
+            nam2=data.title
+            slug_2.innerHTML=data.slug
+            image_2.src=data.icon.replace("s88","s200")
+            if (type=="subscribers"){gap02=data.subscriberCount}
+            if(type=="views"){gap02=data.viewCount}
+            if(type=="videos"){gap02=data.videoCount}
             count_2.innerHTML=gap02
             gapcount.innerHTML=gap01-gap02
         })

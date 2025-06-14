@@ -1,8 +1,9 @@
 body {
     background: #181818;
     color: #fff;
-    margin: 0;
+    margin: 0 auto;
     font-family: roboto;
+    max-width: 1920px;
 }
 .head {
     width: 100%;
@@ -27,7 +28,8 @@ body {
     width: 50%;
     margin: 10px;
     min-width: 500px;
-    height: 700px;
+    height: 666px;
+    max-width: 940px;
 }
 .channel_banner {
     width: 100%;
@@ -67,7 +69,7 @@ body {
     margin-top: 10px;
 }
 .channel_count {
-    font-size: 6.5vw;
+    font-size: clamp(65px, 6vw, 120px);
     font-weight: 500;
 }
 .channel_type {
@@ -89,6 +91,6 @@ body {
     text-align: center;
 }
 .gap_count {
-    font-size: 4.5vw;
+    font-size: clamp(65px, 5vw, 100px);
     font-weight: 500;
 }

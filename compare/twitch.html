@@ -53,7 +53,7 @@
 
     //fetch user meta
     function user_1_load(id) {
-        fetch("https://api.subscriberwars.space/twitch/user/"+id).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/twitch/channel/"+id).then(res=>res.json()).then(data=>{
             name_1.innerHTML=data.name
             nam1=data.name
             slug_1.innerHTML=data.iD
@@ -62,7 +62,7 @@
         })
     }
     function user_2_load(id) {
-        fetch("https://api.subscriberwars.space/twitch/user/"+id).then(res=>res.json()).then(data=>{
+        fetch("https://api.subscriberwars.space/twitch/channel/"+id).then(res=>res.json()).then(data=>{
             name_2.innerHTML=data.name
             nam2=data.name
             slug_2.innerHTML=data.iD
@@ -78,12 +78,12 @@
 
     //fetch user statistics
     function users(id_1, id_2) {
-        fetch("https://api.subscriberwars.space/twitch/"+id_1).then(res=>res.json()).then(data=>{
-            gap01=data.followerCount
+        fetch("https://api.subscriberwars.space/twitch/followers/"+id_1).then(res=>res.json()).then(data=>{
+            gap01=data.total
             count_1.innerHTML=gap01
         })
-        fetch("https://api.subscriberwars.space/twitch/"+id_2).then(res=>res.json()).then(data=>{
-            gap02=data.followerCount
+        fetch("https://api.subscriberwars.space/twitch/followers/"+id_2).then(res=>res.json()).then(data=>{
+            gap02=data.total
             count_2.innerHTML=gap02
         })
         gapcount.innerHTML=gap01-gap02

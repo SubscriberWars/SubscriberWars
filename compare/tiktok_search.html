@@ -76,7 +76,7 @@ function performSearch1(query) {
   return fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      return data.item.map(item => item);
+      return data.items.map(item => item);
     })
     .catch(error => {
       console.error('Error fetching search results 1:', error);
@@ -90,7 +90,7 @@ function performSearch2(query) {
   return fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      return data.item.map(item => item);
+      return data.items.map(item => item);
     })
     .catch(error => {
       console.error('Error fetching search results 2:', error);
@@ -193,7 +193,7 @@ function navigateToDifferentPage() {
 
 function buildLink(selectedOption, selectedItem1, selectedItem2) {
   // Build the link using the extracted information
-  const link = `https://subscriberwars.space/compare/tiktok?t=${encodeURIComponent(selectedOption)}&u1=${encodeURIComponent(selectedItem1)}&u2=${encodeURIComponent(selectedItem2)}`;
+  const link = `/compare/tiktok?t=${encodeURIComponent(selectedOption)}&u1=${encodeURIComponent(selectedItem1)}&u2=${encodeURIComponent(selectedItem2)}`;
   return link;
 }
 
