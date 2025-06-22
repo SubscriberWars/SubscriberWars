@@ -24,11 +24,11 @@
     var uid = "";
     var follow = "";
 
-    if (type == "yt_subs_api" || type == "yt_subs_axe" || type == "yt_subs_mix"|| type=="yt_subs_next" || type=="yt_subs_nia") {
+    if (type == "yt_subs_api" || type == "yt_subs_est") {
         platform_image.src = "/images/youtube.png"
     }
     if (type == "twitch") {platform_image.src = "/images/twitch.png"}
-    if (type == "x") {platform_image.src = "/images/x_.svg"}
+    if (type == "x") {platform_image.src = "/images/x.png"}
     if (type == "kick") {platform_image.src = "/images/kick.svg"}
     if (type == "mc_b" || type == "mc_j") {platform_image.src = "/images/minecraft.jpg"}
     if (type == "poly_g" || type == "poly_p" || type == "poly_u") {platform_image.src = "/images/polytoria.svg"}
@@ -47,36 +47,11 @@
         })
     }
 
-    function youtube_axe(id) {
-        fetch("https://axern.space/api/get?platform=youtube&type=channel&id="+id).then(res=>res.json()).then(data=>{
-            user_title.innerHTML=data.snippet.title
-            user_image.src=data.snippet.thumbnails.medium.url
-            user_count.innerHTML=data.estSubCount
-        })
-    }
-
-
-    function youtube_mix(id) {
+    function youtube_est(id) {
         fetch("https://mixerno.space/api/youtube-channel-counter/user/"+id).then(res=>res.json()).then(data=>{
             user_title.innerHTML=data.user[0].count
             user_image.src=data.user[1].count
             user_count.innerHTML=data.counts[0].count
-        })
-    }
-
-    function youtube_next(id) {
-        fetch("https://api-v2.nextcounts.com/api/youtube/channel/"+id).then(res=>res.json()).then(data=>{
-            user_title.innerHTML=data.username
-            user_image.src=data.userImg.replace("s88","s100")
-            user_count.innerHTML=data.subcount
-        })
-    }
-
-    function youtube_nia(id) {
-        fetch("https://studio.nia-statistics.com/api/channel/"+id).then(res=>res.json()).then(data=>{
-            user_title.innerHTML=data.currentChannels.name
-            user_image.src=data.currentChannels.image.replace("s88","s100")
-            user_count.innerHTML=data.channels.counts[2].count
         })
     }
 
@@ -95,10 +70,10 @@
     }
 
     function x(id) {
-        fetch("https://api.subscriberwars.space/x/"+id).then(res=>res.json()).then(data=>{
-            user_title.innerHTML = data.name
-            user_image.src = data.pfp.replace("normal" , "400x400")
-            user_count.innerHTML = data.followers
+        fetch("https://mixerno.space/api/twitter-user-counter/user/"+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.user[0].count
+            user_image.src = data.user[1].count
+            user_count.innerHTML = data.counts[0].count
         })
     }
 
@@ -197,34 +172,13 @@
         }, 10000);
     }
 
-    if (type == "yt_subs_axe") {
-        youtube_axe(query)
-        setInterval(() => {
-            youtube_axe(query)
-        }, 2000);
-    }
-
-    if (type == "yt_subs_nia") {
-        youtube_nia(query)
-        setInterval(() => {
-            youtube_nia(query)
-        }, 10000);
-    }
-
-    if (type == "yt_subs_mix") {
+    if (type == "yt_subs_est") {
         youtube_mix(query)
         setInterval(() => {
             youtube_mix(query)
         }, 2000);
     }
     
-    if (type == "yt_subs_next") {
-        youtube_next(query)
-        setInterval(() => {
-            youtube_next(query)
-        }, 2000);
-    }
-
     if (type == "twitch") {
         twitch_user(query)
         setInterval(() => {
