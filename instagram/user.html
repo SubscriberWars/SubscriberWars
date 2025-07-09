@@ -1,0 +1,241 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <title id="page_title"></title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="head">
+        <div class="head_text">Instagram Live Follower Count</div>
+    </div>
+    <div class="main_box">
+        <img id="channel_banner" src="https://mastodon.social/headers/original/missing.png">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <span id="channel_title"></span>
+            <i class="fa fa-badge-check" style="display: none;" id="verified" title=""></i>
+        </div>
+        <div id="username">@unknown</div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_views"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-upload"></i> Posts</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_videos"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-user"></i> Following</div>
+            </div>
+        </div>
+        <div class="button_box">
+            <button class="bott_button">
+                <a id="channel_link" target="_blank" style="margin: auto; width: 1260px; text-decoration: none; color: #fff;">
+                    <i class="fa fa-brand fa-instagram"></i> Go To Profile
+                </a>
+            </button>
+        </div>
+    </div>
+    <div class="info">Powered by: <a href="https://nextcounts.com" target="_blank">NextCounts</a></div>
+</body>
+
+<style>
+    body {
+        background: #181818;
+        color: #fff;
+        margin: 0;
+        font-family: roboto;
+    }
+    
+    p {
+        font-size: 20pt;
+    }
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #ff0000, #ffbb00, #fffb00, #ff00c8, #9900ff);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+    }
+
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 50px;
+    }
+
+    .main_box {
+        width: 1260px;
+        height: 800px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .info {
+        width: 1260px;
+        height: 50px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        top: 120px;
+        font-size: 30pt;
+    }
+
+    #channel_banner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+    }
+
+    #channel_image {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        top: -100px;
+        position: relative;
+    }
+
+    #channel_title_container {
+        position: relative;
+        top: -100px;
+        font-size: 4rem;
+    }
+
+    #username {
+        position: relative;
+        top: -100px;
+    }
+
+    #channel_subscribers {
+        position: relative;
+        top: -90px;
+        font-size: 10rem;
+        font-weight: 500;
+    }
+
+    #subscribers {
+        position: relative;
+        top: -80px;
+        font-size: 2rem;
+    }
+
+    .bottom_data {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        display: flex;
+        top: -70px;
+    }
+
+    .bottom_counts {
+        margin: 5px;
+        padding: 10px;
+        width: 620px;
+        height: 130px;
+        background: #000;
+        border-radius: 10px;
+    }
+
+    .bottom_odometer {
+        font-weight: 500;
+        font-size: 2.5rem;
+    }
+
+    .bottom_text {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: rgb(11, 1, 41);
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(11, 0, 43);
+        border-radius: 2.5px;
+    }
+
+    .button_box {
+        width: 1260px;
+        margin: auto;
+        display: flex;
+        position: relative;
+        top: -40px;
+    }
+
+    .bott_button {
+        width: 620px;
+        margin: auto;
+        background: #0f0f0f;
+        color: #fff;
+        height: 100px;
+        font-size: 30px;
+        border-radius: 10px;
+        border: 1px solid #000;
+    }
+
+    .bott_button:hover {
+        cursor: pointer;
+        background: #000;
+        border: 1px solid #fff;
+    }
+</style>
+
+<script>
+    var channel = window.location.href.split('?u=')[1] || '';
+
+    function load(chanid) {
+        fetch("https://api-v2.nextcounts.com/api/instagram/user/" + chanid).then(res => res.json()).then(data => {
+            page_title.innerHTML = data.nickname + "'s Live Follower Count"
+            channel_title.innerHTML = data.nickname
+            if (data.verified==false) {document.getElementById("verified").style.display="none"} else {document.getElementById("verified").style.display="inline"}
+            channel_link.href = "https://instagram.com/" + data.username
+            username.innerHTML = "@" + data.username
+            channel_image.src = data.avatar
+            channel_subscribers.innerHTML = data.followers
+            channel_videos.innerHTML = data.following
+            channel_views.innerHTML = data.posts
+            channel_banner.src = data.userBanner
+        })
+    }
+
+    function stats(chanid) {
+        fetch("https://api-v2.nextcounts.com/api/instagram/user/stats/" + chanid).then(res => res.json()).then(data => {
+            channel_subscribers.innerHTML = data.followers
+            channel_videos.innerHTML = data.following
+            channel_views.innerHTML = data.posts
+        })
+    }
+
+    load(channel)
+
+    setInterval(() => {
+        stats(channel)
+    }, 10000);
+</script>
