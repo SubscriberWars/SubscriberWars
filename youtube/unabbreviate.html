@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextCounts Unabbriviate Project - Channel List</title>
+    <link rel="stylesheet" href="/css/font.css">
+    <style>
+        * {
+            font-family: montserrat;
+            color: #eee
+        }
+
+        body {
+            background-color: #181818;
+        }
+
+        h1 {
+            text-align: center;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin: auto;
+            font-weight: 400;
+        }
+
+        h3 {
+            text-align: center;
+            margin: auto;
+            font-weight: 500;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+            background-color: #0f0f0f;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            background-color: #000;
+            border: 1px solid #fff;
+        }
+
+        .grid-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .grid-item p {
+            margin: 5px 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Channels Sharing their Unabbreviated Subscriber Count Via the NextCounts Unabbreviate Project</h1>
+    <h2 id="totalSubscribers"></h2><br>
+    <h3>Add your channel to the project: <a href="https://nextcounts.com/unabbreviate/" target="_blank" title="Unabbreviate Project">Here</a></h3>
+    <div id="gridContainer" class="grid-container"></div>
+    <div id="errorMessage" class="error"></div>
+
+    <script>
+        async function fetchAndDisplayChannels() {
+            const apiUrl = 'https://api-v2.nextcounts.com/api/youtube/channels/unabbreviated/list';
+            const gridContainer = document.getElementById('gridContainer');
+            const errorMessage = document.getElementById('errorMessage');
+            const totalSubscribersElement = document.getElementById('totalSubscribers');
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                // Log the raw response to inspect its structure
+                console.log('API Response:', data);
+
+                // Clear any existing content
+                gridContainer.innerHTML = '';
+                totalSubscribersElement.innerHTML = '';
+
+                // Handle different response structures
+                let channels = [];
+                if (Array.isArray(data.items)) {
+                    channels = data.items;
+                } else if (data.items && Array.isArray(data.items)) {
+                    channels = data.items;
+                } else {
+                    throw new Error('Unexpected data format: No valid array found');
+                }
+
+                // Calculate total subscribers
+                const totalSubscribers = channels.reduce((sum, channel) => sum + (channel.subscribers || 0), 0);
+
+                //total channels
+                const totalChannels = data.count;
+
+                // Display total subscribers and channels
+                totalSubscribersElement.innerHTML = `Total Subscribers: ${totalSubscribers.toLocaleString()} - Total Channels: ${totalChannels.toLocaleString()}`;
+
+                // Sort channels by subscribers (highest to lowest)
+                channels.sort((a, b) => (b.subscribers || 0) - (a.subscribers || 0));
+
+                // Populate the grid
+                channels.forEach(channel => {
+                    const item = document.createElement('div');
+                    item.className = 'grid-item';
+                    item.onclick = () => window.location.href = `channel.html?channel=${channel.key}&type=estimate`;
+                    item.innerHTML = `
+                <img src="${channel.channelImg || '/images/pfp_placeholder.png'}" alt="${channel.channelName || 'Channel Image'}" onerror="this.src='/images/pfp_placeholder.png';">
+                <p><strong>${channel.channelName || 'N/A'}</strong></p>
+                <p>Subscribers: ${channel.subscribers?.toLocaleString() || 'N/A'}</p>
+            `;
+                    gridContainer.appendChild(item);
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                errorMessage.textContent = `Failed to load data: ${error.message}`;
+            }
+        }
+
+        window.onload = fetchAndDisplayChannels;
+    </script>
+</body>
+
+</html>
