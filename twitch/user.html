@@ -1,19 +1,11 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/font.css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="/js/odometer.js"></script>
     <title id="page_title"></title>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-38E6Z6MEMP"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-38E6Z6MEMP');
-</script>
 <body>
     <div class="head">
         <div class="head_text">Twitch Live Follower Count</div>
@@ -104,7 +96,9 @@
         position: relative;
         top: -90px;
         font-size: 10rem;
-        font-weight: 500;
+        font-weight: 600;
+        font-family: Montserrat;
+        font-feature-settings: "tnum";
     }
     #subscribers {
         position: relative;
@@ -130,6 +124,8 @@
     .bottom_odometer {
         font-weight: 500;
         font-size: 3rem;
+        font-family: Montserrat;
+        font-feature-settings: "tnum";
     }
     .bottom_text {
         font-size: 2rem;

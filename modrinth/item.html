@@ -95,7 +95,9 @@
         position: relative;
         top: -90px;
         font-size: 10rem;
-        font-weight: 500;
+        font-weight: 600;
+        font-family: Montserrat;
+        font-feature-settings: "tnum";
     }
     #subscribers {
         position: relative;
@@ -120,6 +122,8 @@
     .bottom_odometer {
         font-weight: 500;
         font-size: 2.5rem;
+        font-family: Montserrat;
+        font-feature-settings: "tnum";
     }
     .bottom_text {
         font-size: 2rem;
@@ -173,15 +177,14 @@
             username=data.slug
             channel_image.src=data.icon
             channel_subscribers.innerHTML=data.downloads
-            channel_videos.innerHTML=data.type
             channel_views.innerHTML=data.followers
             channel_banner.src=data.icon
-            if (data.type=="mod") {channel_link.href="https://modrinth.com/mod/"+username}
-            if (data.type=="modpack") {channel_link.href="https://modrinth.com/modpack/"+username}
-            if (data.type=="plugin") {channel_link.href="https://modrinth.com/plugin/"+username}
-            if (data.type=="shader") {channel_link.href="https://modrinth.com/shader/"+username}
-            if (data.type=="datapack") {channel_link.href="https://modrinth.com/datapack/"+username}
-            if (data.type=="resourcepack") {channel_link.href="https://modrinth.com/resourcepack/"+username}
+            if (data.type=="mod") {channel_link.href="https://modrinth.com/mod/"+username; channel_videos.innerHTML= "Mod"}
+            if (data.type=="modpack") {channel_link.href="https://modrinth.com/modpack/"+username; channel_videos.innerHTML= "Mod Pack"}
+            if (data.type=="plugin") {channel_link.href="https://modrinth.com/plugin/"+username; channel_videos.innerHTML= "Plugin"}
+            if (data.type=="shader") {channel_link.href="https://modrinth.com/shader/"+username; channel_videos.innerHTML= "Shader"}
+            if (data.type=="datapack") {channel_link.href="https://modrinth.com/datapack/"+username; channel_videos.innerHTML= "Data Pack"}
+            if (data.type=="resourcepack") {channel_link.href="https://modrinth.com/resourcepack/"+username; channel_videos.innerHTML= "Resource Pack"}
             
         })
     }
