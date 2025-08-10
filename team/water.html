@@ -190,16 +190,16 @@
     }
 </style>
 
-<!--
+
 <script>
 
     function stats() {
-        fetch("https://api.subscriberwars.space/teamseas").then(res => res.json()).then(data => {
+        fetch("https://subscriberwars.replit.app/teamwater").then(res => res.json()).then(data => {
             channel_subscribers.innerHTML = data.total
             latest_donation.innerHTML = data.latest_count
-            top_donation.innerHTML = data.top_count
+            top_donation.innerHTML = data.highest_count
             latest_donator.innerHTML = data.latest_name
-            top_donator.innerHTML = data.top_name
+            top_donator.innerHTML = data.highest_name
         })
     }
     stats()
@@ -207,4 +207,4 @@
         stats()
     }, 10000);
 </script>
--->
+
