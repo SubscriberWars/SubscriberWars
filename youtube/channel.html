@@ -392,7 +392,7 @@
                 .then(data => {
                     channel_subscribers.innerHTML = data.estSubCount || 0;
                     channel_views.innerHTML = data.estViewCount || 0;
-                    channel_abreviation.innerHTML = abbreviateNumber(data.estSubCount || 0);
+                    channel_abreviation.innerHTML = abbreviateNumber(data.apiSubCount || 0);
                     const subscriberCount = parseInt(data.estSubCount, 10);
                     const sub0 = subscriberCount;
                     if (sub0) {
