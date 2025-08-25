@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="/css/font.css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <title id="page_title"></title>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -25,11 +27,12 @@
         <img id="channel_banner" src="/images/banner_placeholder.png">
         <img id="channel_image" src="/images/pfp_placeholder.png">
         <div id="channel_title_container">
-            <span id="channel_title"></span>
+            <span id="channel_title">Loading..</span>
             <i class="fa fa-badge-check" style="display: none; color: #fff;" id="verified" title=""></i>
         </div>
         <div id="channel_subscribers" class="odometer"></div>
         <div id="subscribers">Subscribers</div>
+        <div id="graph" style="position: relative; top: -100px;"></div>
         <div class="bottom_data">
             <div class="bottom_counts">
                 <div class="odometer bottom_odometer" id="channel_views"></div>
@@ -141,7 +144,7 @@
 
     .main_box {
         width: 1260px;
-        height: 760px;
+        height: 1160px;
         background: #0f0f0f;
         margin: auto;
         padding: 10px;
@@ -310,7 +313,7 @@
     }
     if (type == "estimate") {
         setTimeout(() => {
-           est_api(channel); 
+            est_api(channel);
         }, 2000);
         setInterval(() => {
             est(channel);
@@ -357,7 +360,7 @@
             } else {
                 document.getElementById("verified").style.display = "none";
             };
-            if (data.id == 'UCX6OQ3DkcsbYNE6H8uQQuVA') { document.getElementById("verified").style.display = "inline"; document.getElementById("verified").title = "This channel shares their live subscriber count Via ViewStats"}
+            if (data.id == 'UCX6OQ3DkcsbYNE6H8uQQuVA') { document.getElementById("verified").style.display = "inline"; document.getElementById("verified").title = "This channel shares their live subscriber count Via ViewStats" }
         }).catch(error => {
             console.error("Error fetching SubscriberWars channel API:", error);
         });
@@ -389,8 +392,19 @@
                 .then(data => {
                     channel_subscribers.innerHTML = data.estSubCount || 0;
                     channel_views.innerHTML = data.estViewCount || 0;
-                    channel_videos.innerHTML = data.apiVideoCount || 0;
                     channel_abreviation.innerHTML = abbreviateNumber(data.estSubCount || 0);
+                    const subscriberCount = parseInt(data.estSubCount, 10);
+                    const sub0 = subscriberCount;
+                    if (sub0) {
+                        const series = graph.series[0];
+                        if (series.data.length >= 900) {
+                            series.data[0].remove();
+                        }
+                        series.addPoint([Date.now(), subscriberCount], true, false);
+                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                        const minDataPoint = Math.min(...allData);
+                        graph.yAxis[0].update({ min: minDataPoint });
+                    }
                 })
                 .catch(error => {
                     console.error("Error fetching SubscriberWars estimate API:", error);
@@ -402,6 +416,55 @@
                 });
         }
     }
+    var graph = Highcharts.chart({
+        chart: {
+            renderTo: 'graph',
+            type: 'areaspline',
+            accessibilityEnabled: { enabled: false },
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        tooltip: {
+            shared: true,
+            valueSuffix: '',
+            backgroundColor: '#000',
+            borderColor: '#ff0000',
+            borderWidth: '3px',
+            style: {
+                color: '#f5f5f5',
+                fontSize: '1.5em'
+            }
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: { enabled: false },
+            lineColor: '#ff0000',
+            color: '#ff0000',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
 
     const vid = [];
     const videoarray = [];
