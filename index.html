@@ -15,7 +15,6 @@
     <meta property="twitter:description"
         content="Get Live statistics for: YouTube, Twitch, Twitter, Instagram, TikTok and More!">
     <meta property="twitter:image" content="https://subscriberwars.space/images/sw.png">
-    <link href="/css/index.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
@@ -24,12 +23,131 @@
     <title>Subscriber Wars</title>
 </head>
 
+<style>
+    body {
+    background: #181818;
+    padding: 0;
+    margin: 0;
+    font-family: roboto;
+    color: #fff;
+}
+h1 {
+    color: #fff;
+    font-size: 3rem;
+}
+h2 {
+    color: #fff;
+}
+h3 {
+    color: #fff;
+    font-size: 2rem;
+}
+.navbar {
+    background: #000;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    margin-bottom: 20px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.nav_button {
+    height: 60px;
+    padding: 10px;
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: #fff;
+}
+.nav_button:hover {
+    background: #fff;
+    color: #000;
+}
+.notice {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    background: #830101;
+    border-radius: 10px;
+    border: 1px solid #ff0000;
+    margin-top: 15px;
+}
+.grid_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    width: 80%;
+    margin: auto;
+    grid-gap: 20px;
+}
+.grid_item {
+    background: #0f0f0f;
+    border: 1px solid #000;
+    border-radius: 10px;
+    height: 300px;
+    text-align: center;
+    min-width: 400px;
+}
+.grid_item:hover{
+    background: #000;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+.grid_button{
+    width: 100%;
+    height: 100%;
+}
+#footer {
+    background: #000;
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+}
+.footer_bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ff0000;
+}
+.footer_items {
+    display: flex;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    position: relative;
+    top: 10px;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.social_icons {
+    font-size: 60px;
+    color: #fff;
+    text-decoration: none;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 2.5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 2.5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #830101;
+    border-radius: 2.5px;
+}
+</style>
+
 <body>
     <div class="navbar">
-        <a class="nav_button" href="/"><img src="/favicon.ico" height="30px"></a>
+        <a class="nav_button" href="/"><img src="/favicon.ico" height="60px"></a>
         <a class="nav_button" href="/about"> About </a>
         <a class="nav_button" href="/compare"> Compare </a>
     </div>
+    <div class="footer_bar"></div>
     <div class="notice">
         <span><i class="fa-sharp fa-regular fa-circle-exclamation"></i></span>
         <span>Subscriber Wars Live </span>
@@ -114,10 +232,21 @@
         </button>
     </div>
     <div id="footer">
+        <div class="footer_bar"></div>
         <div class="footer_items">
             <span><a href="/terms">Terms & Conditions</a></span>
             <span>&nbsp;|&nbsp;</span>
             <span><a href="/privacy-policy">Privacy Policy</a></span>
+        </div>
+        <div class="footer_items">
+            <div class="social_icons">
+                <a href="https://youtube.com/@subscriberwars1" target="_blank" title="Subscriber Wars" style="color: #fff;"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://youtube.com/@jaymburton" target="_blank" title="JayMBurton" style="color: #fff;"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://x.com/JayMBurton" target="_blank" title="JayMBurton" style="color: #fff;"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://x.com/subwars_space" target="_blank" title="SubscriberWars.space" style="color: #fff;"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://instagram.com/jaymburtonsw" target="_blank" title="jaymburtonsw" style="color: #fff;"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://instagram.com/subscriberwars1" target="_blank" title="subscriberwars1" style="color: #fff;"><i class="fa-brands fa-instagram"></i></a>
+            </div>
         </div>
     </div>
     <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
