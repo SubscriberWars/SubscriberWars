@@ -260,8 +260,8 @@
     snippet(channel)
 
     async function fetchData() {
-    const apiUrl = 'https://youtubeanalytics.googleapis.com/v2/reports?ids=channel==UCdKLd9f_8ZyDSKxMm16oRww&startDate=2019-01-15&endDate=2025-08-24&metrics=views,subscribersGained,subscribersLost&dimensions=day'
-    const response = await fetch(apiUrl,{headers: {Authorization: "Bearer ya29.A0AS3H6NyGq-FASwryX7REBpbYHoQDlfiqFLdPSaz-kzfBzR_VAJ0Kj9kugcudDdhiNIKHFtn7k_pzCD8Q5HhkuVRBPWT6PbnKfNRaKsYlAAU5n_wkPP1Im8ahHE1-wYQ36WxbhOr-j1KmXe8Q0dOZsJ-2ccb6tdbkQVXe6ySWMqYyT2H-ZrZI4efb1YlMPgVuazLlFDAaCgYKAbYSARASFQHGX2MiXJmCX1MBdYQPxC_7N8Dp_g0206"}});
+    const apiUrl = `https://api2.subscriberwars.space/studio/${id}`
+    const response = await fetch(apiUrl);
     const data = await response.json(); 
 
     let cumulativeSubscribers = 0;
