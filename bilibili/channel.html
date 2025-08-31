@@ -1,0 +1,199 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <title id="page_title"></title>
+</head>
+
+<body>
+    <div class="header">Live bilibili Counter</div>
+    <div class="mainBox">
+        <img id="channelBanner" src="/images/banner_placeholder.png">
+        <img id="channelImage" src="/images/pfp_placeholder.png">
+        <div class="container">
+            <div id="channelTitle">Loading...</div>
+            <div class="odometer" id="mainCount"></div>
+            <div id="mainSub">Followers</div>
+            <div class="sContainer">
+                <div class="box">
+                    <div class="odometer sCount" id="sCount0"></div>
+                    <div class="sSub">Following</div>
+                </div>
+                <div class="box">
+                    <div class="odometer sCount" id="sCount1"></div>
+                    <div class="sSub">Views</div>
+                </div>
+                <div class="box">
+                    <div class="odometer sCount" id="sCount2"></div>
+                    <div class="sSub">Likes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="button">
+        <a id="link" target="_blank" style="width: 100%; height: 100%; text-decoration: none; display: block">Go to profile</a>
+    </button>
+</body>
+
+<style>
+    body {
+        margin: 0 auto;
+        color: #fff;
+        background-color: #181818;
+        text-align: center;
+    }
+
+    .header {
+        width: 100%;
+        height: 80px;
+        background-image: linear-gradient(to right, #34D0F4, #FA7299);
+        display: flex;
+        justify-content: center;
+        vertical-align: middle;
+        font-family: roboto;
+        font-weight: 600;
+        font-size: 65px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 1300px;
+    }
+
+    .mainBox {
+        width: 1260px;
+        height: 755px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    #channelBanner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+    }
+
+    #channelImage {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        position: relative;
+        top: -100px;
+    }
+
+    .container {
+        position: relative;
+        top: -100px;
+    }
+
+    #channelTitle {
+        font-family: roboto;
+        font-weight: 500;
+        font-size: 50px;
+        width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    #mainCount {
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 10rem;
+        font-feature-settings: "tnum";
+    }
+
+    #mainSub {
+        font-family: roboto;
+        font-weight: 400;
+        font-size: 40px;
+    }
+
+    .sContainer {
+        display: inline;
+        width: 100%;
+    }
+
+    .box {
+        display: inline-block;
+        width: 380px;
+        height: 130px;
+        background: #000;
+        margin: 5px;
+        border-radius: 10px;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .sCount {
+        font-family: Montserrat;
+        font-weight: 500;
+        font-size: 50px;
+    }
+
+    .sSub {
+        font-family: roboto;
+        font-weight: 400;
+        font-size: 40px;
+        margin-top: 5px;
+    }
+
+    #button {
+        background-color: #0f0f0f;
+        width: 1260px;
+        height: 80px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-top: 10px;
+        text-align: center;
+        padding: 10px;
+        color: #fff;
+        font-family: roboto;
+        font-weight: 400;
+        font-size: 40px;
+    }
+
+    #button:hover {
+        background-color: #000;
+        border: 1px solid #fff;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    a {
+        color: #fff;
+    }
+</style>
+
+<script>
+    var channel = window.location.href.split('?q=')[1] || '';
+
+    function api(id) {
+        fetch(`https://api.subscriberwars.space/bilibili/channel/${id}`).then(res => res.json()).then(data => {
+            const subscriberCount = parseInt(data.item.followerCount, 10);
+            page_title.innerHTML = data.item.title + "'s Live Follower Count"
+            channelBanner.src = 'https://mixerno.space/cors/'+encodeURIComponent(data.item.banner)
+            channelImage.src = 'https://mixerno.space/cors/'+encodeURIComponent(data.item.pfp)
+            channelTitle.innerHTML = data.item.title
+            mainCount.innerHTML = subscriberCount
+            sCount0.innerHTML = data.item.followingCount
+            sCount1.innerHTML = data.item.viewCount
+            sCount2.innerHTML = data.item.likeCount
+            link.href = 'https://space.bilibili.com/'+data.item.id
+        })
+    }
+    api(channel)
+</script>
