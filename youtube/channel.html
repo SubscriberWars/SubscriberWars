@@ -331,7 +331,7 @@
             channel_videos.innerHTML = data.videoCount;
             channel_title.href = "https://youtube.com/channel/" + data.id;
             channel_link.href = "https://youtube.com/channel/" + data.id;
-            channel_sb.href = "https://socialblade.com/youtube/c/" + data.slug;
+            channel_sb.href = "https://socialblade.com/youtube/handle/" + data.slug;
             channel_abreviation.innerHTML = abbreviateNumber(data.subscriberCount);
             channel_banner.src = data.banner + "=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj";
         }).catch(error => {
@@ -350,7 +350,7 @@
             channel_videos.innerHTML = data.videoCount;
             channel_title.href = "https://youtube.com/channel/" + data.id;
             channel_link.href = "https://youtube.com/channel/" + data.id;
-            channel_sb.href = "https://socialblade.com/youtube/c/" + data.slug;
+            channel_sb.href = "https://socialblade.com/youtube/handle/" + data.slug;
             channel_abreviation.innerHTML = abbreviateNumber(data.subscriberCount);
             channel_banner.src = data.banner + "=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj";
             // Display verified mark for channels in verifiedChannels
