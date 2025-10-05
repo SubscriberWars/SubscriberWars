@@ -181,6 +181,7 @@
             channel_title.href= "https://twitch.tv/"+data.name
             channel_link.href="https://twitch.tv/"+data.name
             channel_image.src=data.logo
+            channel_banner.src = data.offlineImage
             channel_sb.href="https://socialblade.com/twitch/user/"+data.name
             if (data.type=="partner") {document.getElementById("partner").style.display="inline"} else {document.getElementById("partner").style.width="0px"}
             if (data.type=="partner") {document.getElementById("partner").title="This channel is a Twitch Partner"}
