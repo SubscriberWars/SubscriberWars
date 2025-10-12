@@ -208,10 +208,7 @@
             if(follow>=10000000) {goal01.innerHTML=(Math.floor(follow/10000000)*10000000)+10000000}
             if(follow>=100000000) {goal01.innerHTML=(Math.floor(follow/100000000)*100000000)+100000000}
             channel_goal.innerHTML=goal01.innerHTML-follow
-            //if(data.data.authentication_info.custom_verify=="verified account"||data.data.authentication_info.enterprise_verify_reason=="institution account"||data.data.authentication_info.enterprise_verify_reason=="verified account"){document.getElementById("verified_").style.display="inline"} else {document.getElementById("verified_").style.width="0px"}
-            //(data.data.authentication_info.custom_verify=="verified account"){document.getElementById("verified_").title=data.data.authentication_info.custom_verify}
-            //if(data.data.authentication_info.enterprise_verify_reason=="institution account"){document.getElementById("verified_").title=data.data.authentication_info.enterprise_verify_reason}
-            //if(data.data.authentication_info.enterprise_verify_reason=="verified account"){document.getElementById("verified_").title=data.data.authentication_info.enterprise_verify_reason}
+            if (data.verified==true) {document.getElementById("verified_").style.display="inline"} else {document.getElementById("verified_").style.width="0px"}
         })
     }
 
