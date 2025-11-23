@@ -1,0 +1,303 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <title id="page_title"></title>
+</head>
+
+<body>
+    <div class="head">
+        <div class="head_text">Roblox Live Member Count</div>
+    </div>
+    <div class="main_box">
+        <img id="channel_banner" src="/images/roblox_full.png">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <span id="channel_title"></span>
+        </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers">Members</div>
+        <div id="graph" style="position: relative; top: -100px;"></div>
+    </div>
+    <div class="button_box">
+        <a id="channel_link" target="_blank" style="margin: auto">
+            <button class="bott_button">
+                <i class="fa-kit fa-roblox"></i> Go To Community
+            </button>
+        </a>
+    </div>
+    <br>
+</body>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    th {
+        background: #000;
+    }
+
+    td {
+        border-bottom: 1px solid #000;
+    }
+
+    tr:nth-child(even) {
+        background: rgb(33, 33, 33);
+    }
+
+    ;
+
+    tr:nth-child(odd) {
+        background: rgb(38, 38, 38);
+    }
+
+    tr {
+        height: 92px;
+    }
+
+    .t {
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .e {
+        color: #6cb700;
+    }
+
+    body {
+        background: #171717;
+        color: #f5f5f5;
+        margin: 0;
+        font-family: roboto;
+    }
+
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #ff0000, #800000);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+    }
+
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 50px;
+    }
+
+    .main_box {
+        width: 1260px;
+        height: 1150px;
+        background: #262626;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    #channel_banner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+    }
+
+    #channel_image {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        top: -100px;
+        position: relative;
+    }
+
+    #channel_title_container {
+        position: relative;
+        top: -100px;
+        font-size: 4rem;
+    }
+
+    #channel_subscribers {
+        position: relative;
+        top: -90px;
+        font-size: 10rem;
+        font-weight: 600;
+        font-family: Montserrat;
+        font-feature-settings: "tnum";
+    }
+
+    #subscribers {
+        position: relative;
+        top: -80px;
+        font-size: 2rem;
+    }
+
+    .bottom_data {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        display: flex;
+        top: -70px;
+    }
+
+    .bottom_counts {
+        margin: auto;
+        padding: 10px;
+        width: 100%;
+        height: 130px;
+        background: #000;
+        border-radius: 10px;
+        margin-right: 5px;
+    }
+
+    .bottom_odometer {
+        font-weight: 500;
+        font-size: 3rem;
+        font-family: Montserrat;
+        font-feature-settings: "tnum";
+    }
+
+    .bottom_text {
+        font-size: 30px;
+        margin-top: 20px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #ff0000;
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #800000;
+        border-radius: 2.5px;
+    }
+
+    .button_box {
+        width: 1260px;
+        margin: auto;
+        display: flex;
+        position: relative;
+        margin-top: 10px;
+    }
+
+    .bott_button {
+        width: 620px;
+        margin: auto;
+        background: #262626;
+        color: #fff;
+        height: 100px;
+        font-size: 30px;
+        border-radius: 10px;
+        border: 1px solid #000;
+    }
+
+    .bott_button:hover {
+        cursor: pointer;
+        background: #000;
+        border: 1px solid #fff;
+    }
+</style>
+
+<script>
+    var channel = window.location.href.split('?q=')[1] || '';
+
+    function api(id) {
+        fetch("https://api.subscriberwars.space/roblox/group/" + id).then(res => res.json()).then(data => {
+            page_title.innerHTML = data.title + "'s Live Member Count"
+            channel_image.src = data.thumbnail
+            channel_title.innerHTML = data.title
+            channel_subscribers.innerHTML = data.members
+            channel_link.href = "https://roblox.com/communities/" + data.id
+            const subscriberCount = parseInt(data.members, 10);
+            const sub0 = subscriberCount;
+
+            if (sub0) {
+                const series = graph.series[0];
+                if (series.data.length >= 360) {
+                    series.data[0].remove();
+                }
+                series.addPoint([Date.now(), subscriberCount], true, false);
+                const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                const minDataPoint = Math.min(...allData);
+                graph.yAxis[0].update({ min: minDataPoint });
+            }
+        })
+    }
+    api(channel)
+    setInterval(() => {
+        api(channel)
+    }, 10000);
+
+    var graph = Highcharts.chart({
+        chart: {
+            renderTo: 'graph',
+            type: 'areaspline',
+            accessibilityEnabled: { enabled: false },
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        tooltip: {
+            shared: true,
+            valueSuffix: '',
+            backgroundColor: '#000',
+            borderColor: '#ff0000',
+            borderWidth: '3px',
+            style: {
+                color: '#f5f5f5',
+                fontSize: '1.5em'
+            }
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Followers',
+            marker: { enabled: false },
+            lineColor: '#ff0000',
+            color: '#ff0000',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
+
+</script>
