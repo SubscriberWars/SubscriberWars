@@ -1,0 +1,90 @@
+<head>
+    <title id="page_title"></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/compare.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+</head>
+
+<body>
+    <div class="head" style="background-image: linear-gradient(to right, #ff0000, #800000);">
+        <div class="head_text" id="head_text">Roblox Comparison</div>
+    </div>
+    <div id="container">
+        <div class="main_count">
+            <img class="channel_banner" id="banner_1" src="/images/banner_placeholder.png">
+            <img class="channel_image" id="image_1" src="/images/pfp_placeholder.png">
+            <div class="channel_name" id="name_1">item 1</div>
+            <div class="channel_slug" id="slug_1">id1</div>
+            <div class="odometer_parent">
+                <div class="channel_count odometer" id="count_1"></div>
+            </div>
+            <div class="channel_type" id="type_1"></div>
+        </div>
+        <div class="main_count">
+            <img class="channel_banner" id="banner_2" src="/images/banner_placeholder.png">
+            <img class="channel_image" id="image_2" src="/images/pfp_placeholder.png">
+            <div class="channel_name" id="name_2">item 2</div>
+            <div class="channel_slug" id="slug_2">id2</div>
+            <div class="odometer_parent">
+                <div class="channel_count odometer" id="count_2"></div>
+            </div>
+            <div class="channel_type" id="type_2"></div>
+        </div>
+    </div>
+    <div class="gap_box">
+        <div class="gap_name" id="gapname">item1 Vs item2</div>
+        <div class="odometer_parent" style="top: 0px;">
+            <div class="gap_count odometer" id="gapcount"></div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var user1=params.get("u1");
+    var user2=params.get("u2");
+    var type=params.get("t");
+    var nam1="";
+    var nam2="";
+    var gap01="";
+    var gap02=""
+
+    function user_1(id) {
+        fetch("https://api.subscriberwars.space/roblox/group/"+id).then(res=>res.json()).then(data=>{
+            name_1.innerHTML=data.title
+            nam1=data.title
+            slug_1.innerHTML= data.id
+            image_1.src=data.pfp
+            head_text.innerHTML="Roblox Group Comparison", type_1.innerHTML="Members", type_2.innerHTML="Members",
+            gap01=data.members,
+            gap01=data.members, 
+            head_text.innerHTML="Roblox Group Comparison", 
+            type_1.innerHTML="Members", 
+            type_2.innerHTML="Members",
+            count_1.innerHTML=gap01
+        })
+    }
+    function user_2(id) {
+        fetch("https://api.subscriberwars.space/roblox/group/"+id).then(res=>res.json()).then(data=>{
+            name_2.innerHTML=data.title
+            nam2=data.title
+            slug_2.innerHTML=data.id
+            image_2.src=data.pfp
+            gap02=data.members
+            gap02=data.members
+            count_2.innerHTML=gap02
+            gapcount.innerHTML=gap01-gap02
+        })
+        gapname.innerHTML=nam1+" Vs "+nam2
+        page_title.innerHTML=nam1 +" Vs "+nam2
+    }
+    user_1(user1)
+    user_2(user2)
+    
+    setInterval(() => {
+        user_1(user1)
+        user_2(user2)
+    }, 10000);
+</script>

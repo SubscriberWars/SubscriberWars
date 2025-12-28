@@ -53,6 +53,9 @@ body {
     position: relative;
     top: -100px;
     margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .channel_slug {
     color: #808080;
@@ -89,6 +92,9 @@ body {
 .gap_name {
     font-size: 3em;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .gap_count {
     font-size: clamp(65px, 5vw, 100px);

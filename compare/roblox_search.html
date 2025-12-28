@@ -1,0 +1,198 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet" type="text/css">
+    <link href="/css/search_compare.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <title>Roblox Search</title>
+</head>
+
+<body>
+    <div class="head" style="background-image: linear-gradient(to right, #ff0000, #800000);">
+        <div class="head_text" id="head_text">Roblox Comparison</div>
+    </div>
+    <div class="dropdown">
+        <label for="dropdown">What Statistic do you want to compare?:</label>
+        <select id="dropdown">
+           <option value="groups">Groups</option>
+        </select>
+    </div>
+    <div class="container">
+        <div class="search_box">
+            <input type="text" id="search1" placeholder="User 1" class="search">
+            <div id="searchResults1"></div>
+        </div>
+        <div class="search_box">
+            <input type="text" id="search2" placeholder="User 2" class="search">
+            <div id="searchResults2"></div>
+        </div>
+    </div>
+    <div class="button_pack">
+        <button class="inner_button" id="searchBtn">Search</button>
+        <button class="inner_button" id="navigateBtn" disabled>Compare</button>
+    </div>
+</body>
+
+<script>
+const search1Input = document.getElementById('search1');
+const searchResults1 = document.getElementById('searchResults1');
+
+const search2Input = document.getElementById('search2');
+const searchResults2 = document.getElementById('searchResults2');
+
+const searchBtn = document.getElementById('searchBtn');
+searchBtn.addEventListener('click', performSearch);
+
+let selected1 = null;
+let selected2 = null;
+
+function performSearch() {
+  const query1 = search1Input.value;
+  const query2 = search2Input.value;
+
+  // Perform search operation based on the queries
+  performSearch1(query1)
+    .then(results1 => {
+      displaySearchResults1(results1);
+    })
+    .catch(error => {
+      console.error('Error performing search 1:', error);
+      displaySearchResults1([]);
+    });
+
+  performSearch2(query2)
+    .then(results2 => {
+      displaySearchResults2(results2);
+    })
+    .catch(error => {
+      console.error('Error performing search 2:', error);
+      displaySearchResults2([]);
+    });
+}
+
+function performSearch1(query) {
+  const apiUrl = `https://api.subscriberwars.space/search/roblox/group/${query}`;
+
+  return fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      return data.item.map(item => item);
+    })
+    .catch(error => {
+      console.error('Error fetching search results 1:', error);
+      throw error;
+    });
+}
+
+function performSearch2(query) {
+  const apiUrl = `https://api.subscriberwars.space/search/roblox/group/${query}`;
+
+  return fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      return data.item.map(item => item);
+    })
+    .catch(error => {
+      console.error('Error fetching search results 2:', error);
+      throw error;
+    });
+}
+
+function displaySearchResults1(results) {
+  // Clear previous results
+  searchResults1.innerHTML = '';
+
+  // Display new results
+  results.forEach(result => {
+    const item = document.createElement('div');
+    item.classList.add('search_result');
+    const meta = document.createElement('div');
+    meta.classList.add('search_meta');
+    item.appendChild(meta)
+    const image = document.createElement('img');
+    image.src = result.pfp;
+    image.classList.add('res_img');
+    meta.appendChild(image);
+    const title = document.createElement('div');
+    title.textContent = result.title;
+    title.classList.add('res_title');
+    meta.appendChild(title);
+    const slug = document.createElement('div');
+    slug.textContent = result.id;
+    slug.classList.add('res_slug');
+    meta.appendChild(slug);
+    item.addEventListener('click', () => handleResultClick(result, 1));
+    searchResults1.appendChild(item);
+  });
+}
+
+function displaySearchResults2(results) {
+  // Clear previous results
+  searchResults2.innerHTML = '';
+
+  // Display new results
+  results.forEach(result => {
+    const item = document.createElement('div');
+    item.classList.add('search_result');
+    const meta = document.createElement('div');
+    meta.classList.add('search_meta');
+    item.appendChild(meta)
+    const image = document.createElement('img');
+    image.src = result.pfp;
+    image.classList.add('res_img');
+    meta.appendChild(image);
+    const title = document.createElement('div');
+    title.textContent = result.title;
+    title.classList.add('res_title');
+    meta.appendChild(title);
+    const slug = document.createElement('div');
+    slug.textContent = result.uid;
+    slug.classList.add('res_slug');
+    meta.appendChild(slug);
+    item.addEventListener('click', () => handleResultClick(result, 2));
+    searchResults2.appendChild(item);
+  });
+}
+
+function handleResultClick(result, searchNumber) {
+  if (searchNumber === 1) {
+    selected1 = result;
+    searchResults1.querySelectorAll('.search_result').forEach(item => {
+      item.classList.remove('selected');
+    });
+    event.currentTarget.classList.add('selected');
+  } else if (searchNumber === 2) {
+    selected2 = result;
+    searchResults2.querySelectorAll('.search_result').forEach(item => {
+      item.classList.remove('selected');
+    });
+    event.currentTarget.classList.add('selected');
+  }
+
+  // Check if both selections are made
+  if (selected1 && selected2) {
+    document.getElementById('navigateBtn').disabled = false;
+  } else {
+    document.getElementById('navigateBtn').disabled = true;
+  }
+}
+
+const navigateBtn = document.getElementById('navigateBtn');
+navigateBtn.addEventListener('click', navigateToDifferentPage);
+const dropdown = document.getElementById('dropdown');
+
+function navigateToDifferentPage() {
+  if (selected1 && selected2) {
+    const selectedOption = dropdown.value;
+    const info1 = selected1.id; 
+    const info2 = selected2.id; 
+    const link = buildLink(selectedOption, info1, info2);
+    window.location.href = link;
+  }
+}
+
+function buildLink(selectedOption, selectedItem1, selectedItem2) {
+  // Build the link using the extracted information
+  const link = `/compare/roblox?t=${encodeURIComponent(selectedOption)}&u1=${encodeURIComponent(selectedItem1)}&u2=${encodeURIComponent(selectedItem2)}`;
+  return link;
+}
+
+</script>
