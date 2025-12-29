@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>New Year 2026 - Multi Timezone Countdown</title>
+    <style>
+        body {
+            font-family: roboto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #0f0f0f;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            overflow: hidden;
+        }
+
+        .title {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .progress-container {
+            width: 80%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            width: 0%;
+            transition: width 0.8s ease;
+        }
+
+        .progress-text {
+            font-size: 2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+
+        .countdown {
+            margin-bottom: 3rem;
+        }
+
+        .location {
+            font-size: 4rem;
+            margin-bottom: 0.8rem;
+            opacity: 0.9;
+            max-width: 90vw;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            text-align: center;
+        }
+
+        .location span {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .location.long span {
+            padding-left: 100%;
+            animation: scroll-left 60s linear infinite;
+        }
+
+        .location:hover span {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .next .location {
+            font-size: 3rem;
+        }
+
+        .timer {
+            font-weight: bold;
+            font-variant-numeric: tabular-nums;
+            display: flex;
+            justify-content: center;
+            gap: 0.3em;
+            --number-flow-char-height: 0.9em;
+        }
+
+        .current .timer {
+            font-size: 10rem;
+        }
+
+        .next .timer {
+            font-size: 5rem;
+            opacity: 0.9;
+        }
+
+        .timezone {
+            font-size: 2rem;
+            opacity: 0.8;
+            margin-top: 0.3rem;
+            color: #ff0000;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+
+<body>
+    <div id="particles-js"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none;"></div>
+    <h1 class="title">New Year 2026 Countdown</h1>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="progress-text" id="progress-text">0 / 0 zones celebrated</div>
+
+    <!-- Current -->
+    <div class="countdown current">
+        <div class="location" id="loc-current"><span></span></div>
+        <number-flow-group class="timer" id="timer-current">
+            <number-flow id="h0"></number-flow>
+            <number-flow numberPrefix=":" id="m0"></number-flow>
+            <number-flow numberPrefix=":" id="s0"></number-flow>
+        </number-flow-group>
+        <div class="timezone" id="tz-current"></div>
+    </div>
+
+    <!-- Next -->
+    <div class="countdown next">
+        <div class="location" id="loc-next"><span>Next:</span></div>
+        <number-flow-group class="timer" id="timer-next">
+            <number-flow id="h1"></number-flow>
+            <number-flow numberPrefix=":" id="m1"></number-flow>
+            <number-flow numberPrefix=":" id="s1"></number-flow>
+        </number-flow-group>
+        <div class="timezone" id="tz-next"></div>
+    </div>
+
+    <script type="module">
+        import 'https://esm.sh/number-flow';
+        import 'https://esm.sh/number-flow/group';
+
+        const confettiScript = document.createElement('script');
+        confettiScript.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js';
+        document.head.appendChild(confettiScript);
+
+        const data = [
+            { "Area": "Christmas Island/Kiribati ", "Timezone": "LINT", "date": "Dec 31, 2025 10:00:00" },
+            { "Area": "Chatham Islands/New Zealand", "Timezone": "CHADT", "date": "Dec 31, 2025 10:15:00" },
+            { "Area": "New Zealand(Auckland & Wellington), Samoa, Tokelau, Tongo, Phoenix Islands/Kiribati, some regions of Antarctica", "Timezone": "NZDT", "date": "Dec 31, 2025 11:00:00" },
+            { "Area": "Fiji, Kiribati, Marshall Islands, Nauru, Norfolk Island, Russia(Petropavlovsk-Kamchatsky), Tuvalu, Some U.S Outlying Islands, Wallis and Futuna", "Timezone": "ANAT/Mike", "date": "Dec 31, 2025 12:00:00" },
+            { "Area": "Australia(Capital Territory, New South Wales, Victoria & Tasmania), Micronesia, New Calidonia, Russia(Yuzhno-Sakhalinsk), Solomon Islands & Vanuatu", "Timezone": "AEDT/Lima", "date": "Dec 31, 2025 13:00:00" },
+            { "Area": "Australia(South)", "Timezone": "ACDT", "date": "Dec 31, 2025 13:30:00" },
+            { "Area": "Australia(Queensland), Guam, Micronesia, Northern Mariana Islands, Papua New Guinea, Russia(Khabarovsk & Vladivostok)", "Timezone": "AEST/Kilo", "date": "Dec 31, 2025 14:00:00" },
+            { "Area": "Australia(North)", "Timezone": "ACST", "date": "Dec 31, 2025 14:30:00" },
+            { "Area": "Japan, Indonesia(Ambon City & Jayapura), North Korea, South Korea, Palau, Russia(Chita & Yakutsk), Timor-Leste", "Timezone": "JST/India", "date": "Dec 31, 2025 15:00:00" },
+            { "Area": "Australia(Eucla)", "Timezone": "ACWST", "date": "Dec 31, 2025 15:15:00" },
+            { "Area": "China, Australia(West), Brunei, Hong Kong, Indonesia(Banjarmasin, Makassar, Manado), Macau, Malaysia, Mongolia, Philippines, Russia(Irkutsk), Singapore & Taiwan", "Timezone": "CST/Hotel", "date": "Dec 31, 2025 16:00:00" },
+            { "Area": "Cambodia, Christmas Island, Indonesia(Bangdung, Bekasi, Depok, Jakarta, Medan, Palembang, Semarang, South Tangerang, Surabaya & Tangerang), Laos, Mongolia, Russia(Krasnoyarsk, Novosibirsk), Thailand & Vietnam", "Timezone": "WIB/Golf", "date": "Dec 31, 2025 17:00:00" },
+            { "Area": "Myanmar & Cocos Islands", "Timezone": "MMT", "date": "Dec 31, 2025 17:30:00" },
+            { "Area": "Bangladesh, Bhutan, British IOT, Kazakhstan(Almaty & Astana), Kyrgyzstan & Russia(Barnaul & Omsk)", "Timezone": "BST/Foxtrot", "date": "Dec 31, 2025 18:00:00" },
+            { "Area": "Nepal", "Timezone": "NPT", "date": "Dec 31, 2025 18:15:00" },
+            { "Area": "India and Sri Lanka", "Timezone": "IST", "date": "Dec 31, 2025 18:30:00" },
+            { "Area": "Pakistan, Kazakhstan(Kyzylorda), Maldives, Russia(Chelyabinsk & Yekaterinburg), Tajikistan, Turkmenistan & Uzbekistan", "Timezone": "UZT/Echo", "date": "Dec 31, 2025 19:00:00" },
+            { "Area": "Afghanistan", "Timezone": "AFT", "date": "Dec 31, 2025 19:30:00" },
+            { "Area": "Azerbaijan, Armenia, Georgia, Mauritius, Oman, Russia(Samara & Tolyatti), Réunion, Seychelles & United Arab Emirates", "Timezone": "GST/Delta", "date": "Dec 31, 2025 20:00:00" },
+            { "Area": "Iran", "Timezone": "IRST", "date": "Dec 31, 2025 20:30:00" },
+            { "Area": "Russia(Moscow, Kazan, Nizhny Novgorod, Rostov-on-Don & Saint Petersburg), Bahrain, Belarus, Comoros, Djibouti, Eritea, Ethiopia, Iraq, Jordan, Kenja, Kuwait, Madagascar, Mayotte, Qatar, Saudi Arabia, Somalia, Syria, Tanzania, Turkey, Uganda, Ukraine(Donetsk) & Yemen", "Timezone": "MSK/Charlie", "date": "Dec 31, 2025 21:00:00" },
+            { "Area": "Botswana, Bulgaria, Burundi, Congo-Kinshasa, Cyprus, Egypt, Estonia, Eswatini, Finland, Greece, Israel, Latvia, Lebanon, Lesotho, Libya, Lithuania, Malawi, Moldova, Mozambique, Namibia, Palestine, Romania, Russia(Kaliningrad), Rwanda, South Africa, South Sudan, Sudan, Ukraine(Dnipro, Kharkiv & Kyiv), Zambia, Zimbabwe & Åland Island", "Timezone": "EET/Bravo", "date": "Dec 31, 2025 22:00:00" },
+            { "Area": "Albania, Algeria, Andorra, Angolia, Austria, Belgium, Benin, Bosnia and Herzegovina, Cameroon, CAR, Chad, Congo-Brazzaville, Congo-Kinshasa, Croatia, Czechia, Denmark, Equatorial Guinea, France, Gabon, Germany, Gibraltar, Hungary, Italy, Kosovo, Liechenstein, Luxembourg, Malta, Monaco, Montenegro, Morroco, Netherlands, Niger, Nigeria, North Macedonia, Norway, Poland, San Marino, Serbia, Slovakia, Slovenia, Spain, Sweden, Switzerland, Tunisia, Vatican City & Western Sahara", "Timezone": "CET/Alfa", "date": "Dec 31, 2025 23:00:00" },
+            { "Area": "United Kingdom, Bukina Faso, Canary Islands, Faroe Islands, Ghana, Greenland, Guernsey, Guinea, Guinea-Bissau, Iceland, Ireland, Isle of Man, Ivory Coast, Jersey, Kiribati, Liberia, Mali, Mauritania, Portugal, Saint Helena, Senegal, Sierra Leone, São Tomé and Príncipe, The Gambia & Togo", "Timezone": "GMT/Zulu", "date": "Jan 1, 2026 00:00:00" },
+            { "Area": "Cabo Verde, Azores & Greenland(Ittoqqortoormiit)", "Timezone": "CVT/November", "date": "Jan 1, 2026 1:00:00" },
+            { "Area": "Greenland(Nuuk), South Georgia and the South Sandwich Islands & Small part of Brazil", "Timezone": "GST/Oscar", "date": "Jan 1, 2026 2:00:00" },
+            { "Area": "Argentina, Most of Brazil, Chile, British Falkland Islands, French Guiana, Paraguay, Region Magallanes, Saint Pierre and Miquelon, Suriname & Uraguay", "Timezone": "ART/Papa", "date": "Jan 1, 2026 3:00:00" },
+            { "Area": "Canada(Newfoundland and Labrador & St. John's)", "Timezone": "NST", "date": "Jan 1, 2026 3:30:00" },
+            { "Area": "Anguilla, Antigua and Barbuda, Aruba, Barbados, Bermuda, Bolivia, Brazil(Amazonas, Campo Grande, Manaus, Mato Grosso, Mato Grosso do Sul, Rondônia & Roraima), British Virgin Islands, Canada(Halifax, New Brunswick, Nova Scotia, Prince Edward Island & Sydney), Caribbean Netherlands, Curaçao, Dominica, Dominican Republic, Greenland(Pituffik), Grenada, Guadeloupe, Guyana, Martinique, Montserrat, Puerto Rico, Saint Barthélemy, Saint Lucia, Saint Martin, St.Kitts & Nevis, St. Vincent & Grenadines, Trinidad and Tobogo, U.S. Virgin Islands & Venezuela", "Timezone": "VET/Quebec", "date": "Jan 1, 2026 4:00:00" },
+            { "Area": "United States(Connecticut, Delaware, Georgia, Maine, Maryland, Massachusetts, New Hampshire, New Jersey, New York, North Carolina, Ohio, Pensylvania, Rhode Island, South Carolina, Vermont, Virginia, West Virginia & Parts of:(Florida, Indiana, Kentuky, Michigan, Tennessee)), Brazil(Acre & Rio Branco), Canada(Montreal, Ontario, Ottawa, Quebec & Toronto), Cayman Islands, Chile, Colombia, Cuba, Ecuador, Haiti, Jamaica, Mexico(Cancún), Panama, Peru, The Bahamas & Turks and Caicos Islands", "Timezone": "EST/Romeo", "date": "Jan 1, 2026 5:00:00" },
+            { "Area": "United States(Alabama, Arkansas, Illinois, Iowa, Louisiana, Minnesota, Missouri, Mississippi, Oklahoma, and Wisconsin & Parts of:(Florida, Indiana, Kansas, Kentucky, Michigan, Nebraska, North Dakota, South Dakota, Tennessee, and Texas)), Belize, Canada(Manitoba, Regina, Saskatchewan, Saskatoon & Winnipeg), Costa Rica, El Salvador, Guatemala, Honduras, Mexico(Ciudad Juárez, Ciudad Neza, Ecatepec de Morelos, Guadalajara, Mexico City, Monterrey & Puebla City) & Nicaragua", "Timezone": "CST/Sierra", "date": "Jan 1, 2026 6:00:00" },
+            { "Area": "United States(New Mexico, Wyoming, Utah, Colorado, and Montana & Parts of:(Idaho, Oregon, North Dakota, South Dakota, Nebraska, Texas, Kansas, and Nevada)), Canada(Alberta, Calgary, Edmonton, Northwest Territories, Nunavut & Yukon)& Mexico(Hermosillo & Culiacán)", "Timezone": "MST/Tango", "date": "Jan 1, 2026 7:00:00" },
+            { "Area": "United States(California, Nevada, Oregon, Washington and parts of Idaho), Canada(British Columbia, Surrey & Vancouver), Mexico(Mexicali & Tijuana)& Pitcairn Islands", "Timezone": "PST/Uniform", "date": "Jan 1, 2026 8:00:00" },
+            { "Area": "United States(Alaska)& French Polynesia(Rikitea)", "Timezone": "AKST/Victor", "date": "Jan 1, 2026 9:00:00" },
+            { "Area": "French Polynesia(Atuona)", "Timezone": "MART", "date": "Jan 1, 2026 9:30:00" },
+            { "Area": "United States(Hawaii), French Polynesia(Papeete), Cook Island & Millersville", "Timezone": "HAST/Whiskey", "date": "Jan 1, 2026 10:00:00" },
+            { "Area": "American Samoa, Niue & Itascatown", "Timezone": "NUT/X-Ray", "date": "Jan 1, 2026 11:00:00" },
+            { "Area": "Baker Island & Howland Island", "Timezone": "AoE/Yankee", "date": "Jan 1, 2026 12:00:00" }
+        ];
+
+        let currentIndex = 0;
+        let celebratedCount = 0;
+        let previousSeconds = -1;
+
+        const totalZones = data.length;
+
+        const elements = [
+            { h: document.getElementById('h0'), m: document.getElementById('m0'), s: document.getElementById('s0') },
+            { h: document.getElementById('h1'), m: document.getElementById('m1'), s: document.getElementById('s1') },
+        ];
+
+        const locEls = [document.getElementById('loc-current'), document.getElementById('loc-next')];
+        const tzEls = [document.getElementById('tz-current'), document.getElementById('tz-next')];
+
+        elements.forEach(el => {
+            el.h.format = { minimumIntegerDigits: 2 };
+            el.h.trend = -1;
+
+            el.m.format = { minimumIntegerDigits: 2 };
+            el.m.trend = -1;
+            el.m.digits = { 1: { max: 5 } };
+            el.m.numberPrefix = ':';
+
+            el.s.format = { minimumIntegerDigits: 2 };
+            el.s.trend = -1;
+            el.s.digits = { 1: { max: 5 } };
+            el.s.numberPrefix = ':';
+        });
+        function getRemainingSeconds(index) {
+            if (index >= data.length) return 0;
+
+            const target = Date.parse(data[index].date + " UTC");
+            const nowUTC = Date.now() - (new Date().getTimezoneOffset() * 60000);
+
+            return Math.max(0, (target - nowUTC) / 1000);
+        }
+
+
+        function triggerConfetti() {
+            if (typeof confetti !== 'undefined') {
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }
+        }
+
+        function updateProgress() {
+            const percent = (celebratedCount / totalZones) * 100;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+            document.getElementById('progress-text').textContent =
+                `${celebratedCount} / ${totalZones} zones celebrated ${celebratedCount === totalZones ? '🎉' : ''}`;
+        }
+
+        function updateDisplay() {
+            const seconds = getRemainingSeconds(currentIndex);
+            if (previousSeconds > 0 && seconds <= 0 && currentIndex < data.length) {
+                celebratedCount++;
+                triggerConfetti();
+                currentIndex++;
+                updateProgress();
+            }
+            previousSeconds = seconds;
+
+            for (let i = 0; i < 2; i++) {
+                const idx = currentIndex + i;
+                const sec = getRemainingSeconds(idx);
+
+                const hh = Math.floor(sec / 3600);
+                const mm = Math.floor((sec % 3600) / 60);
+                const ss = Math.floor(sec % 60);
+
+                elements[i].h.update(hh);
+                elements[i].m.update(mm);
+                elements[i].s.update(ss);
+
+                const locationDiv = locEls[i];
+                const span = locationDiv.querySelector('span');
+
+                if (idx < data.length) {
+                    const item = data[idx];
+
+                    if (i === 0) {
+                        span.textContent = item.Area;
+                    } else {
+                        span.textContent = "Next:";
+                    }
+
+                    tzEls[i].textContent = item.Timezone;
+
+                    requestAnimationFrame(() => {
+                        if (span.scrollWidth > locationDiv.clientWidth + 20) {
+                            locationDiv.classList.add('long');
+                        } else {
+                            locationDiv.classList.remove('long');
+                        }
+                    });
+
+                } else {
+                    span.textContent = i === 0 ? "Happy New Year Everywhere! 🎉" : "";
+                    tzEls[i].textContent = "";
+                    locationDiv.classList.remove('long');
+                }
+            }
+
+            if (currentIndex >= data.length) {
+                document.querySelector('.title').textContent = "Happy New Year 2026! 🎆";
+            }
+        }
+
+        updateProgress();
+        updateDisplay();
+        setInterval(updateDisplay, 1000);
+    </script>
+
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": ["#ffd700", "#ffffff", "#ff69b4", "#429bf5"] },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.7, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1 } },
+                "size": { "value": 4, "random": true },
+                "line_linked": { "enable": false },
+                "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "repulse" }, "resize": true },
+                "modes": { "repulse": { "distance": 100, "duration": 0.4 } }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+
+</html>
