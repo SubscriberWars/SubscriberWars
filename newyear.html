@@ -232,12 +232,12 @@
             el.s.digits = { 1: { max: 5 } };
             el.s.numberPrefix = ':';
         });
+
         function getRemainingSeconds(index) {
             if (index >= data.length) return 0;
 
             const target = Date.parse(data[index].date + " UTC");
-            const nowUTC = Date.now() - (new Date().getTimezoneOffset() * 60000);
-
+            const nowUTC = Date.now();
             return Math.max(0, (target - nowUTC) / 1000);
         }
 
