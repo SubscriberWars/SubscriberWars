@@ -1,0 +1,31 @@
+<head>
+    <link href="/css/universal.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800"rel="stylesheet"type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js"crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <script src="/js/graphs.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <title id="page_title"></title>
+</head>
+
+<body>
+    <div class="head" style="background-image: linear-gradient(to right, #9146ff, #4c2588);">
+        <div class="head_text">Twitch Live Follower Count</div>
+    </div>
+    <div class="channel_mainBox">
+        <img id="channel_banner">
+        <div class="channel_offset">
+            <img id="channel_image">
+            <div id="channel_title">Test User :)</div>
+            <div id="channel_slug">@TestUser</div>
+            <div id="channel_mainCount" class="odometer">1234567890</div>
+            <div id="channel_mainSub">
+                <i class="fa fa-kit fa-youtube-subscribers"></i>
+                <span>Followers</span>
+            </div>
+            <div class="channel_graph" id="twitch_channel_graph"></div>
+        </div>
+    </div>
+</body>

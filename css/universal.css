@@ -1,0 +1,87 @@
+body {
+    color: #fff;
+    font-family: roboto;
+    background: #181818;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.head {
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    border-bottom: 1px solid #000;
+}
+
+.head_text {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+.channel_mainBox {
+    width: 1260px;
+    height: 1160px;
+    background: #0f0f0f;
+    margin: auto;
+    padding: 10px;
+    margin-top: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#channel_banner {
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    height: 208px;
+}
+
+.channel_offset {
+    display: block;
+    position: relative;
+    top: -100px;
+}
+
+#channel_image {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+#channel_title {
+    font-size: 4rem ;
+    font-weight: 400;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#channel_slug {
+    font-size: 3rem;
+    font-weight: 400;
+    color: #707070;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#channel_mainCount {
+    font-weight: 500;
+    font-size: 10rem;
+    padding: 10px;
+}
+
+#channel_mainSub {
+    font-size: 3rem;
+}
+
+.channel_graph {
+    width: 100%;
+    height: 300px;
+}

@@ -1,0 +1,232 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/font.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <title id="page_title"></title>
+</head>
+
+<body>
+    <div class="head">
+        <div class="head_text">Live Twitch Video Statistics</div>
+    </div>
+    <div class="main_box">
+        <img id="channel_banner" src="/images/banner_placeholder.png">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <span id="channel_title"></span>
+        </div>
+        <div id="video_views" class="odometer"></div>
+        <div id="subscribers">Views</div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="video_goal"></div>
+                <div class="bottom_text">Goal</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="bottom_odometer" id="video_published"></div>
+                <div class="bottom_text">Published</div>
+            </div>
+        </div>
+    </div>
+    <div class="button_box">
+        <a id="video_link" target="_blank" rel="noopener noreferrer">Watch</a>
+        <a id="channel_link" target="_blank" rel="noopener noreferrer">Channel Stats</a>
+    </div>
+    <p id="goal01" style="display: none;"></p>
+</body>
+
+<style>
+    body {
+        background: #181818;
+        color: #f5f5f5;
+        margin: 0;
+        font-family: roboto;
+    }
+
+    #video_link {
+        padding: 10px 14px;
+        background: #9146FF;
+        color: #fff;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 30px;
+        margin: 5px
+    }
+
+    #video_link:hover {
+        background: #772CE8;
+    }
+
+    #channel_link {
+        padding: 10px 14px;
+        background: #2a2a2a;
+        color: #fff;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 30px;
+        margin: 5px;
+    }
+
+    #channel_link:hover {
+        background: #3a3a3a;
+    }
+
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #9146ff, #4c2588);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+    }
+
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 50px;
+    }
+
+    .main_box {
+        width: 1260px;
+        height: 780px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    #channel_banner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+        filter: blur(3px);
+    }
+
+    #channel_image {
+        width: 355.56px;
+        height: 200px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        top: -100px;
+        position: relative;
+    }
+
+    #channel_title_container {
+        position: relative;
+        top: -100px;
+        font-size: 3rem;
+        max-height: 4.8rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    #video_views {
+        position: relative;
+        top: -90px;
+        font-size: 10rem;
+        font-weight: 600;
+    }
+
+    #subscribers {
+        position: relative;
+        top: -80px;
+        font-size: 2rem;
+    }
+
+    .bottom_data {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        display: flex;
+        top: -70px;
+    }
+
+    .bottom_counts {
+        margin: 5px;
+        padding: 10px;
+        width: 600px;
+        height: 130px;
+        background: #000;
+        border-radius: 10px;
+    }
+
+    .bottom_odometer {
+        font-weight: 500;
+        font-size: 3rem;
+    }
+
+    .bottom_text {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #9146ff;
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #4c2588;
+        border-radius: 2.5px;
+    }
+
+    .button_box {
+        width: 1260px;
+        margin: 0 auto;
+        display: flex;
+        margin-top: 10px;
+        justify-content: center;
+    }
+</style>
+
+<script>
+    var channel = window.location.href.split('?id=')[1] || '';
+
+    function stats(chanid) {
+        fetch('https://api.subscriberwars.space/twitch/videos/id=' + chanid).then(res => res.json()).then(data => {
+            page_title.innerHTML = "Twitch - " + data[0].title + "Live Statistics"
+            channel_title.innerHTML = data[0].title
+            channel_image.src = data[0].thumbnail_url.replace("%{width}", "1920").replace("%{height}", "1080")
+            channel_banner.src = data[0].thumbnail_url.replace("%{width}", "1920").replace("%{height}", "1080")
+            video_link.href = data[0].url
+            channel_link.href = "/twitch/channel?q="+data[0].user_login
+            video_views.innerHTML = data[0].view_count
+            video_published.innerHTML = data[0].published_at.split("T")[0]
+            const goal = data[0].view_count
+            if (goal >= 0) { goal01.innerHTML = 10 }
+            if (goal >= 10) { goal01.innerHTML = 100 }
+            if (goal >= 100) { goal01.innerHTML = 1000 }
+            if (goal >= 1000) { goal01.innerHTML = (Math.floor(goal / 1000) * 1000) + 1000 }
+            if (goal >= 10000) { goal01.innerHTML = (Math.floor(goal / 10000) * 10000) + 10000 }
+            if (goal >= 100000) { goal01.innerHTML = (Math.floor(goal / 100000) * 100000) + 100000 }
+            if (goal >= 1000000) { goal01.innerHTML = (Math.floor(goal / 1000000) * 1000000) + 1000000 }
+            if (goal >= 10000000) { goal01.innerHTML = (Math.floor(goal / 10000000) * 10000000) + 10000000 }
+            if (goal >= 100000000) { goal01.innerHTML = (Math.floor(goal / 100000000) * 100000000) + 100000000 }
+            video_goal.innerHTML = goal01.innerHTML - goal
+
+        });
+
+    }
+    stats(channel)
+    setInterval(() => {
+        stats(channel)
+    }, 30000);
+</script>

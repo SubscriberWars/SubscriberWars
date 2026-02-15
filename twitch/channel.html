@@ -1,0 +1,434 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <title id="page_title"></title>
+</head>
+
+<body>
+    <div class="head">
+        <div class="head_text">Twitch Live Follower Count</div>
+    </div>
+    <div class="main_box">
+        <img id="channel_banner" src="/images/banner_twitch.png">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <a id="channel_title" href="" style="text-decoration: none; color: #fff;" title="Visit Channel"
+                target="_blank"></a>
+            <i class="fa fa-badge-check" style="display: none; color: #9146ff;" id="partner" title=""></i>
+            <i class="fa fa-circle-A" style="display: none; color: #9146ff;" id="affiliate" title=""></i>
+        </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers"><i class="fa fa-sharp fa-users"></i> Followers</div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_goal"></div>
+                <div class="bottom_text"><i class="fa fa-sharp fa-goal-net"></i> Goal</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="bottom_odometer" id="channel_since"></div>
+                <div class="bottom_text"><i class="fa-solid fa-timer"></i>Created</div>
+            </div>
+        </div>
+        <div class="button_box">
+            <a id="channel_sb" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <i class="fa-kit fa-socialblade"></i> Go To Social Blade Profile
+                </button>
+            </a>
+            <a id="channel_link" target="_blank" style="margin: auto; width: 1260px;">
+                <button class="bott_button">
+                    <i class="fa fa-brand fa-twitch"></i> Go To Profile
+                </button>
+            </a>
+        </div>
+    </div>
+        <table id="video_table">
+            <thead>
+                <tr>
+                    <th>Released</th>
+                    <th>Thumbnail</th>
+                    <th>Title</th>
+                    <th>Views</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    <br>
+    <p id="goal01" style="display: none;"></p>
+</body>
+
+<style>
+    body {
+        background: #181818;
+        color: #fff;
+        margin: 0;
+        font-family: roboto;
+    }
+
+    .head {
+        width: 100%;
+        height: 60px;
+        background-image: linear-gradient(to right, #9146ff, #4c2588);
+        overflow: hidden;
+        border-bottom: 1px solid #000;
+    }
+
+    .head_text {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+
+    .main_box {
+        width: 1260px;
+        height: 800px;
+        background: #0f0f0f;
+        margin: auto;
+        padding: 10px;
+        margin-top: 20px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    #channel_banner {
+        width: 100%;
+        border: 1px solid #000;
+        border-radius: 10px;
+        height: 208px;
+    }
+
+    #channel_image {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        top: -100px;
+        position: relative;
+    }
+
+    #channel_title_container {
+        position: relative;
+        top: -100px;
+        font-size: 4rem;
+    }
+
+    #channel_subscribers {
+        position: relative;
+        top: -90px;
+        font-size: 10rem;
+        font-weight: 600;
+    }
+
+    #subscribers {
+        position: relative;
+        top: -80px;
+        font-size: 2rem;
+    }
+
+    .bottom_data {
+        width: 100%;
+        height: 150px;
+        position: relative;
+        display: flex;
+        top: -70px;
+    }
+
+    .bottom_counts {
+        margin: 5px;
+        padding: 10px;
+        width: 600px;
+        height: 130px;
+        background: #000;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .bottom_odometer {
+        font-weight: 500;
+        font-size: 3rem;
+    }
+
+    .bottom_text {
+        font-size: 2rem;
+        margin-top: 20px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #9146ff;
+        border-radius: 2.5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #4c2588;
+        border-radius: 2.5px;
+    }
+
+    .button_box {
+        width: 1260px;
+        margin: auto;
+        display: flex;
+        position: relative;
+        top: -30px;
+    }
+
+    .bott_button {
+        width: 620px;
+        margin: auto;
+        background: #0f0f0f;
+        color: #fff;
+        height: 100px;
+        font-size: 30px;
+        border-radius: 10px;
+        border: 1px solid #000;
+    }
+
+    .bott_button:hover {
+        cursor: pointer;
+        background: #000;
+        border: 1px solid #fff;
+    }
+
+    #video_table {
+        table-layout: fixed;
+        width: 1260px;
+        border-collapse: collapse;
+        margin: auto;
+        position: relative;
+        top: 120px;
+    }
+
+    #video_table th,
+    #video_table td {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    th {
+        background: #000;
+        padding: 5px;
+    }
+
+    td {
+        border-bottom: 1px solid #000;
+        padding: 5px;
+    }
+
+    tr:nth-child(even) {
+        background: rgb(25, 25, 25);
+    }
+
+    tr:nth-child(odd) {
+        background: rgb(28, 28, 28);
+    }
+
+    tr {
+        height: 92px;
+    }
+
+    /* Released */
+    #video_table th:nth-child(1),
+    #video_table td:nth-child(1) {
+        width: 100px;
+    }
+
+    /* Thumbnail */
+    #video_table th:nth-child(2),
+    #video_table td:nth-child(2) {
+        width: 140px;
+    }
+
+    /* Title */
+    #video_table th:nth-child(3),
+    #video_table td:nth-child(3) {
+        width: 460px;
+    }
+
+    /* Views */
+    #video_table th:nth-child(4),
+    #video_table td:nth-child(4) {
+        max-width: 100px;
+        text-align: right;
+    }
+
+    /* URL / Button */
+    #video_table th:nth-child(5),
+    #video_table td:nth-child(5) {
+        max-width: 120px;
+        text-align: center;
+    }
+</style>
+
+<script>
+    var channel = window.location.href.split('?q=')[1] || '';
+    var twitchid = "";
+
+    function load(chanid) {
+        fetch("https://api.subscriberwars.space/twitch/channel/" + chanid).then(res => res.json()).then(data => {
+            twitchid = data.iD
+            page_title.innerHTML = data.name + "'s Live Twitch Follower Count"
+            channel_title.innerHTML = data.name
+            channel_title.href = "https://twitch.tv/" + data.name
+            channel_link.href = "https://twitch.tv/" + data.name
+            channel_image.src = data.logo
+            channel_banner.src = data.offlineImage
+            channel_since.innerHTML = data.since
+            channel_sb.href = "https://socialblade.com/twitch/user/" + data.name
+            if (data.type == "partner") { document.getElementById("partner").style.display = "inline" } else { document.getElementById("partner").style.width = "0px" }
+            if (data.type == "partner") { document.getElementById("partner").title = "This channel is a Twitch Partner" }
+            if (data.type == "affiliate") { document.getElementById("affiliate").style.display = "inline" } else { document.getElementById("affiliate").style.width = "0px" }
+            if (data.type == "affiliate") { document.getElementById("affiliate").title = "This channel is a Twitch Affiliate" }
+        })
+    }
+
+    function stats(id) {
+        fetch("https://api.subscriberwars.space/twitch/followers/" + id).then(res => res.json()).then(data => {
+            channel_subscribers.innerHTML = data.total
+            if (data.total >= 0) { goal01.innerHTML = 10 }
+            if (data.total >= 10) { goal01.innerHTML = 100 }
+            if (data.total >= 100) { goal01.innerHTML = 1000 }
+            if (data.total >= 1000) { goal01.innerHTML = (Math.floor(data.total / 1000) * 1000) + 1000 }
+            if (data.total >= 10000) { goal01.innerHTML = (Math.floor(data.total / 10000) * 10000) + 10000 }
+            if (data.total >= 100000) { goal01.innerHTML = (Math.floor(data.total / 100000) * 100000) + 100000 }
+            if (data.total >= 1000000) { goal01.innerHTML = (Math.floor(data.total / 1000000) * 1000000) + 1000000 }
+            if (data.total >= 10000000) { goal01.innerHTML = (Math.floor(data.total / 10000000) * 10000000) + 10000000 }
+            if (data.total >= 100000000) { goal01.innerHTML = (Math.floor(data.total / 100000000) * 100000000) + 100000000 }
+            channel_goal.innerHTML = goal01.innerHTML - data.total
+        })
+    }
+    load(channel)
+    setInterval(() => {
+        stats(twitchid)
+    }, 5000);
+    setTimeout(() => {
+        stats(twitchid)
+        video(twitchid)
+    }, 1000);
+
+    function video(id) {
+        fetch(`https://api.subscriberwars.space/twitch/videos/first=10&user_id=${id}`)
+            .then(res => res.json())
+            .then(data => {
+                const tableBody = document.querySelector('#video_table tbody');
+                // Clear existing rows first
+                tableBody.innerHTML = '';
+
+                data.forEach(dataRow => {
+                    const newRow = document.createElement('tr');
+                    const properties = [
+                        'published_at',
+                        'thumbnail_url',
+                        'title',
+                        'view_count',
+                        'url'
+                    ];
+                    const videoId = dataRow.id;
+
+                    properties.forEach(property => {
+                        const newCell = document.createElement('td');
+                        let value = dataRow[property];
+
+                        if (value === undefined || value === null) {
+                            value = property.includes('Count') ? '0' : 'N/A';
+                        }
+
+                        // Format date
+                        if (property === 'published_at') {
+                            value = value.split("T")[0];
+                        }
+
+                        // Format numbers with commas
+                        if (['view_count'].includes(property)) {
+                            value = parseInt(value).toLocaleString();
+                        }
+
+                        /* === THUMBNAIL === */
+                        if (property === 'thumbnail_url') {
+                            const img = document.createElement('img');
+                            img.src = value
+                                .replace('%{width}', '320')
+                                .replace('%{height}', '180');
+                            img.alt = 'Thumbnail';
+                            img.style.height = '90px';
+                            img.loading = 'lazy';
+
+                            newCell.appendChild(img);
+                        }
+                        else if (property === 'url') {
+                            const wrapper = document.createElement('div');
+                            wrapper.style.display = 'flex';
+                            wrapper.style.gap = '6px';
+                            wrapper.style.justifyContent = 'center';
+
+                            /* === WATCH (TWITCH) === */
+                            const watchBtn = document.createElement('a');
+                            watchBtn.href = value;
+                            watchBtn.target = '_blank';
+                            watchBtn.rel = 'noopener noreferrer';
+                            watchBtn.textContent = 'Watch';
+
+                            watchBtn.style.padding = '6px 10px';
+                            watchBtn.style.background = '#9146FF';
+                            watchBtn.style.color = '#fff';
+                            watchBtn.style.borderRadius = '4px';
+                            watchBtn.style.textDecoration = 'none';
+                            watchBtn.style.fontWeight = '600';
+                            watchBtn.style.fontSize = '13px';
+
+                            watchBtn.onmouseenter = () => watchBtn.style.background = '#772CE8';
+                            watchBtn.onmouseleave = () => watchBtn.style.background = '#9146FF';
+
+                            /* === DETAILS (YOUR SITE) === */
+                            const detailsBtn = document.createElement('a');
+                            detailsBtn.href = `/twitch/videos?id=${dataRow.id}`;
+                            detailsBtn.target = '_blank';
+                            detailsBtn.textContent = 'Details';
+
+                            detailsBtn.style.padding = '6px 10px';
+                            detailsBtn.style.background = '#2A2A2A';
+                            detailsBtn.style.color = '#fff';
+                            detailsBtn.style.borderRadius = '4px';
+                            detailsBtn.style.textDecoration = 'none';
+                            detailsBtn.style.fontWeight = '600';
+                            detailsBtn.style.fontSize = '13px';
+
+                            detailsBtn.onmouseenter = () => detailsBtn.style.background = '#3A3A3A';
+                            detailsBtn.onmouseleave = () => detailsBtn.style.background = '#2A2A2A';
+
+                            wrapper.appendChild(watchBtn);
+                            wrapper.appendChild(detailsBtn);
+                            newCell.appendChild(wrapper);
+                        }
+
+                        /* === DEFAULT TEXT === */
+                        else {
+                            newCell.textContent = value ?? 'N/A';
+                            newCell.style.maxWidth = '300px';
+                            newCell.style.whiteSpace = 'nowrap';
+                            newCell.style.overflow = 'hidden';
+                            newCell.style.textOverflow = 'ellipsis';
+                        }
+
+                        newRow.appendChild(newCell);
+                    });
+
+                    tableBody.appendChild(newRow);
+                });
+            })
+            .catch(error => console.error('Error fetching video data:', error));
+    }
+</script>
