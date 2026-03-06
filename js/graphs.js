@@ -1,4 +1,4 @@
-var twitch_channel_graph = Highcharts.chart({
+const twitch_channel_graph = Highcharts.chart({
     chart: {
         renderTo: 'twitch_channel_graph',
         type: 'areaspline',

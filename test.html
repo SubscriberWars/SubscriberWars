@@ -1,8 +1,10 @@
 <head>
     <link href="/css/universal.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800"rel="stylesheet"type="text/css">
+    <script src="/js/universal.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
     <link rel="stylesheet" href="/css/odometer.css">
-    <script src="https://kit.fontawesome.com/93168af8d4.js"crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="/js/odometer.js"></script>
     <script src="/js/graphs.js"></script>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
@@ -18,14 +20,37 @@
         <img id="channel_banner">
         <div class="channel_offset">
             <img id="channel_image">
-            <div id="channel_title">Test User :)</div>
+            <div class="flex">
+                <div id="channel_title">Test User :)</div>
+                <i class="fa fa-badge-check" style="display: none; color: #9146ff;" id="partner" title=""></i>
+                <i class="fa fa-circle-A" style="display: none; color: #9146ff;" id="affiliate" title=""></i>
+            </div>
             <div id="channel_slug">@TestUser</div>
-            <div id="channel_mainCount" class="odometer">1234567890</div>
+            <div id="channel_mainCount" class="odometer"></div>
             <div id="channel_mainSub">
                 <i class="fa fa-kit fa-youtube-subscribers"></i>
                 <span>Followers</span>
             </div>
             <div class="channel_graph" id="twitch_channel_graph"></div>
+            <div class="flex">
+                <div class="channel_bottomCounts">
+                    <div class="odometer bottom_odometer" id="channel_goal"></div>
+                    <div class="bottom_text"><i class="fa fa-sharp fa-goal-net"></i> Goal</div>
+                </div>
+                <div class="channel_bottomCounts">
+                    <div class="bottom_odometer" id="channel_since"></div>
+                    <div class="bottom_text"><i class="fa-solid fa-timer"></i>Created</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+<p id="goal01" display="hidden"></p>
+
+<script>
+    var twitchid = "";
+    twitch_channel_load(channel)
+    setTimeout(() => {
+        twitch_channel_stats(twitchid)
+    }, 1000);
+</script>
