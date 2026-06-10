@@ -1,0 +1,387 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://subscriberwars.space/css/odometer.css">
+    <script src="https://subscriberwars.space/js/odometer.js"></script>
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+<style>
+    body {
+        padding: 10px;
+        margin: 0;
+        background-color: #0f0f0f;
+        width: 1900px;
+        height: 1060px;
+        border: 1px dashed green;
+        color: #eee;
+        font-family: "Noto Sans", sans-serif;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main {
+        width: 1200px;
+        height: 900px;
+        background: linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    #banner {
+        height: 200px;
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    #icon {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+    }
+
+    .smallBox {
+        width: 650px;
+        height: 212px;
+        background: linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        border-radius: 10px;
+    }
+
+    .headContainer {
+        display: flex;
+    }
+
+    .smallIcon {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+    }
+
+    .smallFav {
+        font-size: 80px;
+    }
+
+    .smallTitle {
+        font-size: 30pt;
+        font-weight: 500;
+    }
+
+    .smallSlug {
+        font-size: 20pt;
+        font-weight: 400;
+        color: #a5a5a5;
+    }
+
+    .smallGraph {
+        width: 100%;
+        height: 140px;
+    }
+
+    .smallCount {
+        font-size: 80pt;
+        font-weight: 500;
+        text-shadow: 0 2px 3px rgba(0, 0, 0, 0.55);
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -120px;
+    }
+
+    .bigCount {
+        font-size: 150pt;
+        font-weight: 800;
+        text-shadow: 0 2px 3px rgba(0, 0, 0, 0.55);
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -120px;
+    }
+
+    .avgBox {
+        width: 580px;
+        height: 120px;
+        background: linear-gradient(180deg, #1f1f1f 0%, #1b1b1b 100%);
+        padding: 5px;
+        border-radius: 10px;
+        margin: 10px;
+        text-align: center;
+        border: 1px solid #000;
+        
+    }
+
+    .tinyTitle {
+        font-size: 20pt;
+    }
+
+    .tiny {
+        font-size: 50pt;
+    }
+
+    #chat_box {
+        width: 600px;
+        height: 900px;
+        background: linear-gradient(180deg, #0b0b0b 0%, #050505 100%);
+        padding: 10px;
+        border-radius: 10px;
+        margin-left: 10px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <img id="banner">
+            <div class="headContainer" style="height: 150px; align-items: center;">
+                <img id="icon">
+                <i class="fa-brands fa-youtube" style="font-size: 150px;"></i>
+                <div>
+                    <div id="title" style="font-size: 50pt; font-weight: 500;">Title</div>
+                    <div id="slug" style="font-size: 30pt; font-weight: 400; color: #a5a5a5;">@Slug</div>
+                </div>
+            </div>
+            <div id="graph_0" style="width: 100%; height: 400px;"></div>
+            <div style="position: relative; top: -220px;">
+                <div class="bigCount">
+                    <div class="odometer" id="count"></div>
+                </div>
+                <div class="container">
+                    <div class="avgBox">
+                        <div class="tinyTitle" id="m1_title">Last 1 Minute</div>
+                        <div class="tiny odometer" id="last1m"></div>
+                    </div>
+                    <div class="avgBox">
+                        <div class="tinyTitle" id="h1_title">Last 1 hour</div>
+                        <div class="tiny odometer" id="last1h"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="chat_box"></div>
+    </div>
+</body>
+
+<script>
+
+    const ONE_MIN = 60_000;
+    const ONE_HOUR = 3_600_000;
+
+    // history per metric (make one per platform if you want)
+    const ytHistory = [];
+
+    let firstUpdate = true;
+
+    function pushSample(history, value) {
+        const now = Date.now();
+        history.push({ t: now, v: value });
+
+        const cutoff = now - ONE_HOUR - 10_000;
+        while (history.length && history[0].t < cutoff) history.shift();
+    }
+
+    function isWindowReady(history, windowMs) {
+        if (history.length < 2) return false;
+        const span = history[history.length - 1].t - history[0].t;
+        return span >= windowMs;
+    }
+
+    function getDelta(history, windowMs) {
+        if (history.length < 2) return null;
+
+        const now = history[history.length - 1].t;
+        const targetTime = now - windowMs;
+
+        let i = 0;
+        while (i < history.length && history[i].t < targetTime) i++;
+
+        const base = history[Math.max(0, i - 1)]?.v ?? history[0].v;
+        const current = history[history.length - 1].v;
+
+        return current - base;
+    }
+
+    function formatRemaining(ms) {
+        if (ms <= 0) return "0s";
+        const s = Math.ceil(ms / 1000);
+        if (s < 60) return `${s}s`;
+        const m = Math.ceil(s / 60);
+        return `${m}m`;
+    }
+
+    function windowRemaining(history, windowMs) {
+        if (history.length < 2) return windowMs; // no span yet
+        const span = history[history.length - 1].t - history[0].t;
+        return windowMs - span;
+    }
+
+    async function safeFetch(url) {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(res.status);
+        return res.json();
+    }
+
+
+    async function update() {
+
+        const m1Title = document.getElementById("m1_title");
+        const h1Title = document.getElementById("h1_title");
+        const last1mEl = document.getElementById("last1m");
+        const last1hEl = document.getElementById("last1h");
+        const results = await Promise.allSettled([
+            safeFetch('https://backend.mixerno.space/api/youtube/estv3/UCX6OQ3DkcsbYNE6H8uQQuVA'),
+        ]);
+        const [
+            yt
+        ] = results;
+
+        if (yt.status === "fulfilled") {
+            count.innerHTML = yt.value.items[0].statistics.subscriberCount;
+            const series = graph_0.series[0];
+            if (series.data.length >= 1800) {
+                series.data[0].remove();
+            }
+            series.addPoint([Date.now(), yt.value.items[0].statistics.subscriberCount], true, false);
+            const allData = series.data.length > 0 ? series.data.map(point => point.y) : [yt.value.items[0].statistics.subscriberCount];
+            const minDataPoint = Math.min(...allData);
+            graph_0.yAxis[0].update({ min: minDataPoint });
+        }
+
+        pushSample(ytHistory, yt.value.items[0].statistics.subscriberCount);
+
+        const rem1m = windowRemaining(ytHistory, ONE_MIN);
+        const rem1h = windowRemaining(ytHistory, ONE_HOUR);
+
+        const ready1m = rem1m <= 0;
+        const ready1h = rem1h <= 0;
+
+        if (!ready1m) {
+            m1Title.textContent = `Last 1 Minute (ready in ${formatRemaining(rem1m)})`;
+            last1mEl.textContent = "—";
+        } else {
+            m1Title.textContent = "Last 1 Minute";
+            const gain1m = getDelta(ytHistory, ONE_MIN);
+            last1mEl.textContent = gain1m == null ? "—" : (gain1m >= 0 ? `+${gain1m}` : `${gain1m}`);
+        }
+
+        if (!ready1h) {
+            h1Title.textContent = `Last 1 Hour (ready in ${formatRemaining(rem1h)})`;
+            last1hEl.textContent = "—";
+        } else {
+            h1Title.textContent = "Last 1 Hour";
+            const gain1h = getDelta(ytHistory, ONE_HOUR);
+            last1hEl.textContent = gain1h == null ? "—" : (gain1h >= 0 ? `+${gain1h}` : `${gain1h}`);
+        }
+
+        // --- gains ---
+        // on the first fetch only, show 0 (or "—") and bail out
+        if (firstUpdate) {
+            firstUpdate = false;
+
+            last1m.innerHTML = 0;
+            last1h.innerHTML = 0;
+            return;
+        }
+
+        // after first fetch, show deltas only when the window is ready
+        const gain1m = isWindowReady(ytHistory, ONE_MIN) ? getDelta(ytHistory, ONE_MIN) : null;
+        const gain1h = isWindowReady(ytHistory, ONE_HOUR) ? getDelta(ytHistory, ONE_HOUR) : null;
+
+        last1m.innerHTML = gain1m == null ? 0 : (gain1m >= 0 ? `+${gain1m}` : `${gain1m}`);
+        last1h.innerHTML = gain1h == null ? 0 : (gain1h >= 0 ? `+${gain1h}` : `${gain1h}`);
+    }
+
+    update();
+    setInterval(update, 2000);
+
+
+    async function meta() {
+        const results = await Promise.allSettled([
+            safeFetch('https://api.subscriberwars.space/youtube/handle/mrbeast')
+        ]);
+
+        const [
+            yt
+        ] = results;
+
+        if (yt.status === "fulfilled") {
+            banner.src = yt.value.items[0].brandingSettings.image.bannerExternalUrl + '=w920-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj';
+            icon.src = yt.value.items[0].snippet.thumbnails.default.url.replace("s88", "s200");
+            title.innerHTML = yt.value.items[0].snippet.title;
+            slug.innerHTML = yt.value.items[0].snippet.customUrl;
+        } else {
+            title.innerHTML = yt.status
+            slug.innerHTML = yt.reason
+        }
+    }
+
+    meta()
+
+    var graph_0 = Highcharts.chart({
+        chart: {
+            renderTo: 'graph_0',
+            type: 'areaspline',
+            accessibilityEnabled: { enabled: false },
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: 'transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent',
+            tickColor: 'transparent',
+            lineColor: 'transparent',
+            title: { style: { color: 'transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 1 } },
+        tooltip: {
+            shared: true,
+            valueSuffix: '',
+            backgroundColor: '#000',
+            borderColor: '#c62828',
+            borderWidth: '3px',
+            style: {
+                color: '#f5f5f5',
+                fontSize: '1.5em'
+            }
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: { enabled: false },
+            lineColor: 'transparent',
+            color: {
+                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+
+                
+                stops: [
+                    [0, '#fc3819'],
+                    [1, '#4f150c']
+                ]
+            },
+            lineWidth: 0,
+            data: [] // Starts empty
+        }]
+    });
+
+</script>
