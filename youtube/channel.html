@@ -52,6 +52,11 @@
                     <i class="fa-kit fa-socialblade"></i> Go To Social Blade Profile
                 </button>
             </a>
+            <a id="channel_anal" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative;">
+                <button class="bott_button">
+                    <i class="fa-sharp fa-regular fa-chart-area"></i> View Analytics !NEW!
+                </button>
+            </a>
             <a id="channel_link" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative;">
                 <button class="bott_button">
                     <i class="fa fa-brand fa-youtube"></i> Go To Channel
@@ -328,6 +333,7 @@
             channel_link.href = "https://youtube.com/channel/" + data.id;
             channel_sb.href = "https://socialblade.com/youtube/handle/" + data.slug;
             channel_abreviation.innerHTML = abbreviateNumber(data.subscriberCount);
+            document.getElementById("channel_anal").style.display = "none";
             channel_banner.src = data.banner + "=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj";
         }).catch(error => {
             console.error("Error fetching SubscriberWars channel API:", error);
@@ -345,8 +351,9 @@
             channel_videos.innerHTML = data.videoCount;
             channel_title.href = "https://youtube.com/channel/" + data.id;
             channel_link.href = "https://youtube.com/channel/" + data.id;
-            channel_sb.href = "https://socialblade.com/youtube/handle/" + data.slug;
+            channel_anal.href = "/analytics/youtube?q=" + data.slug;
             channel_abreviation.innerHTML = abbreviateNumber(data.subscriberCount);
+            document.getElementById("channel_sb").style.display = "none";
             channel_banner.src = data.banner + "=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj";
             // Display verified mark for channels in verifiedChannels
             if (verifiedChannels.includes(data.id)) {
