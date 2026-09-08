@@ -35,7 +35,7 @@
     if (type == "rumble") {platform_image.src = "/images/rumble.svg"}
     if (type == "tree") {platform_image.src = "https://teamtrees.org/img/tree-group.png"}
     if (type == "sea") {platform_image.src = "https://teamseas.org/assets/images/teamseas-logo.png"}
-    if (type == "tiktok") {platform_image.src = "/images/tiktok.png"}
+    if (type == "tiktok" || type == "tiktok_est") {platform_image.src = "/images/tiktok.png"}
 
 
     //endpoints
@@ -163,6 +163,14 @@
         })
     }
 
+    function tiktok_est(id) {
+        fetch("https://tiktok.subscriberwars.space/?username="+id).then(res=>res.json()).then(data=>{
+            user_title.innerHTML = data.nickname
+            user_image.src = data.avatar
+            user_count.innerHTML = data.estimation.followers.rawEstimate
+        })
+    }
+
     //type control
 
     if (type == "yt_subs_api") {
@@ -260,6 +268,13 @@
         tiktok(query)
         setInterval(() => {
             tiktok(query)
+        }, 5000);
+    }
+
+    if (type == "tiktok_est") {
+        tiktok_est(query)
+        setInterval(() => {
+            tiktok_est(query)
         }, 5000);
     }
 </script>
