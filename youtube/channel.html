@@ -369,7 +369,37 @@
     }
 
     function est(cid) {
-        if (verifiedChannels.includes(cid)) {
+        if (channel == "UCdKLd9f_8ZyDSKxMm16oRww") {
+            fetch("https://sw.subscriberwars.space/")
+                .then(res => res.json())
+                .then(data => {
+                    channel_subscribers.innerHTML = data.subscriberCount || 0;
+                    channel_views.innerHTML = data.viewCount || 0;
+                    channel_abreviation.innerHTML = abbreviateNumber(data.subcount || 0);
+                    const subscriberCount = parseInt(data.subscriberCount, 10);
+                    const sub0 = subscriberCount;
+                    if (sub0) {
+                        const series = graph.series[0];
+                        if (series.data.length >= 900) {
+                            series.data[0].remove();
+                        }
+                        series.addPoint([Date.now(), subscriberCount], true, false);
+                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                        const minDataPoint = Math.min(...allData);
+                        graph.yAxis[0].update({ min: minDataPoint });
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching SW API:", error);
+                    // Fallback to last known values or 0
+                    channel_subscribers.innerHTML = channel_subscribers.innerHTML || 0;
+                    channel_views.innerHTML = channel_views.innerHTML || 0;
+                    channel_videos.innerHTML = channel_videos.innerHTML || 0;
+                    channel_abreviation.innerHTML = channel_abreviation.innerHTML || "0";
+                });
+        } else if
+
+            (verifiedChannels.includes(cid)) {
             // Use NextCounts API for verified channels
             fetch("https://api-v2.nextcounts.com/api/youtube/channel/" + cid)
                 .then(res => res.json())
