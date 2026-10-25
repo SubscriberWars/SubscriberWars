@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NextCounts Unabbriviate Project - Channel List</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
-        type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/odometer.css">
     <style>
         * {
-            font-family: roboto;
+            font-family: plus jakarta Sans, sans-serif;
             color: #eee
         }
 
         body {
-            background-color: #181818;
+            background-color: rgb(12, 17, 24);
         }
 
         h1 {
@@ -43,10 +44,10 @@
         }
 
         .grid-item {
-            border: 1px solid #000;
+            border: 1px solid #293744;
             padding: 10px;
             text-align: center;
-            background-color: #0f0f0f;
+            background-color: #151e28;
             border-radius: 5px;
             cursor: pointer;
             transition: transform 0.2s;
@@ -54,8 +55,7 @@
 
         .grid-item:hover {
             transform: scale(1.05);
-            background-color: #000;
-            border: 1px solid #fff;
+            background-color: #1b2834;
         }
 
         .grid-item img {
@@ -82,7 +82,7 @@
 </head>
 
 <body>
-    <h1>Channels Sharing their Unabbreviated Subscriber Count Via the NextCounts Unabbreviate Project</h1>
+    <h1>Channels Sharing their Unabbreviated Subscriber Count Via the NextCounts Studio Project</h1>
     <h2 id="totalSubscribers"></h2><br>
     <h3>Add your channel to the project: <a href="https://nextcounts.com/unabbreviate/" target="_blank" title="Unabbreviate Project">Here</a></h3>
     <div id="gridContainer" class="grid-container"></div>
@@ -90,7 +90,7 @@
 
     <script>
         async function fetchAndDisplayChannels() {
-            const apiUrl = 'https://api-v2.nextcounts.com/api/youtube/channels/unabbreviated/list';
+            const apiUrl = 'https://api.nextcounts.com/api/youtube/studio/channels';
             const gridContainer = document.getElementById('gridContainer');
             const errorMessage = document.getElementById('errorMessage');
             const totalSubscribersElement = document.getElementById('totalSubscribers');
@@ -111,19 +111,16 @@
 
                 // Handle different response structures
                 let channels = [];
-                if (Array.isArray(data.items)) {
-                    channels = data.items;
-                } else if (data.items && Array.isArray(data.items)) {
-                    channels = data.items;
+                if (Array.isArray(data)) {
+                    channels = data.data;
+                } else if (data && Array.isArray(data.data)) {
+                    channels = data.data;
                 } else {
                     throw new Error('Unexpected data format: No valid array found');
                 }
 
-                // Calculate total subscribers
-                const totalSubscribers = channels.reduce((sum, channel) => sum + (channel.subscribers || 0), 0);
-
-                //total channels
-                const totalChannels = data.count;
+                const totalSubscribers = data.totals.subscribers
+                const totalChannels = data.meta.total;
 
                 // Display total subscribers and channels
                 totalSubscribersElement.innerHTML = `Total Subscribers: ${totalSubscribers.toLocaleString()} - Total Channels: ${totalChannels.toLocaleString()}`;
@@ -135,10 +132,10 @@
                 channels.forEach(channel => {
                     const item = document.createElement('div');
                     item.className = 'grid-item';
-                    item.onclick = () => window.location.href = `channel.html?channel=${channel.key}&type=estimate`;
+                    item.onclick = () => window.location.href = `channel.html?channel=${channel.id}&type=estimate`;
                     item.innerHTML = `
-                <img src="${channel.channelImg || '/images/pfp_placeholder.png'}" alt="${channel.channelName || 'Channel Image'}" onerror="this.src='/images/pfp_placeholder.png';">
-                <p><strong>${channel.channelName || 'N/A'}</strong></p>
+                <img src="${channel.avatar || '/images/pfp_placeholder.png'}" alt="${channel.channelName || 'Channel Image'}" onerror="this.src='/images/pfp_placeholder.png';">
+                <p><strong>${channel.title || 'N/A'}</strong></p>
                 <p>Subscribers: ${channel.subscribers?.toLocaleString() || 'N/A'}</p>
             `;
                     gridContainer.appendChild(item);

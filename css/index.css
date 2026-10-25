@@ -8,9 +8,12 @@
 h1 {
     color: #fff;
     font-size: 3rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 h2 {
     color: #fff;
+    font-size: 2rem;
 }
 h3 {
     color: #fff;

@@ -1,6 +1,9 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
         type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/odometer.css">
     <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
     <script src="/js/odometer.js"></script>
@@ -46,15 +49,22 @@
                 <div class="bottom_text">YouTube Displays</div>
             </div>
         </div>
+        <div id="powered" style="display: none; position: relative; top: -70px; font-size: 30pt; font-weight: 800;">
+            <span>Counts Provided by:</span>
+            <a href="https://nextcounts.com" target="_blank" style="text-decoration: none;">
+            <span style="font-family: plus jakarta Sans, sans-serif; color: #fff;">Next</span>
+            <span style="color: #19c59b; font-family: plus jakarta Sans, sans-serif; margin-left: -10px;">Counts</span>
+            </a>
+        </div>
         <div class="button_box">
-            <a id="channel_sb" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative;">
+            <a id="channel_sb" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative; display: none;">
                 <button class="bott_button">
                     <i class="fa-kit fa-socialblade"></i> Go To Social Blade Profile
                 </button>
             </a>
-            <a id="channel_anal" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative;">
+            <a id="channel_anal" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative; display: none;">
                 <button class="bott_button">
-                    <i class="fa-sharp fa-regular fa-chart-area"></i> View Analytics !NEW!
+                    <i class="fa-sharp fa-regular fa-chart-area"></i> View Analytics
                 </button>
             </a>
             <a id="channel_link" target="_blank" style="margin: auto; width: 1260px; top: -20px; position: relative;">
@@ -64,7 +74,7 @@
             </a>
         </div>
     </div>
-    <div class="main_box" style="top: 140px; position: relative; height: 1150px;">
+    <div class="main_box" style="top: 200px; position: relative; height: 1150px;">
         <h1>Last 10 Videos</h1>
         <table id="video_table">
             <thead>
@@ -295,10 +305,10 @@
     var verifiedChannels = [];
 
     // Fetch the list of NextCounts channel IDs on page load
-    fetch("https://api-v2.nextcounts.com/api/youtube/channels/unabbreviated/list")
+    fetch("https://api.nextcounts.com/api/youtube/studio/channels")
         .then(res => res.json())
         .then(data => {
-            verifiedChannels = [...verifiedChannels, ...data.items.map(item => item.key)]; // Add NextCounts channels
+            verifiedChannels = [...verifiedChannels, ...data.data.map(item => item.id)]; // Add NextCounts channels
             console.log("Verified Channels:", verifiedChannels);
         })
         .catch(error => {
@@ -333,7 +343,7 @@
             channel_link.href = "https://youtube.com/channel/" + data.id;
             channel_sb.href = "https://socialblade.com/youtube/handle/" + data.slug;
             channel_abreviation.innerHTML = abbreviateNumber(data.subscriberCount);
-            document.getElementById("channel_anal").style.display = "none";
+            document.getElementById("channel_sb").style.display = "inline";
             channel_banner.src = data.banner + "=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj";
         }).catch(error => {
             console.error("Error fetching SubscriberWars channel API:", error);
@@ -353,62 +363,33 @@
             channel_link.href = "https://youtube.com/channel/" + data.id;
             channel_anal.href = "/analytics/youtube?q=" + data.slug;
             channel_abreviation.innerHTML = abbreviateNumber(data.subscriberCount);
-            document.getElementById("channel_sb").style.display = "none";
+            document.getElementById("channel_anal").style.display = "inline";
             channel_banner.src = data.banner + "=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj";
             // Display verified mark for channels in verifiedChannels
             if (verifiedChannels.includes(data.id)) {
                 document.getElementById("verified").style.display = "inline";
                 document.getElementById("verified").title = "This channel shares their live subscriber count Via NextCounts";
+                document.getElementById("powered").style.display = "block";
             } else {
                 document.getElementById("verified").style.display = "none";
             };
-            if (data.id == 'UCX6OQ3DkcsbYNE6H8uQQuVA') { document.getElementById("verified").style.display = "inline"; document.getElementById("verified").title = "This channel shares their live subscriber count Via ViewStats" }
         }).catch(error => {
             console.error("Error fetching SubscriberWars channel API:", error);
         });
     }
 
     function est(cid) {
-        if (channel == "UCdKLd9f_8ZyDSKxMm16oRww") {
-            fetch("https://sw.subscriberwars.space/")
-                .then(res => res.json())
-                .then(data => {
-                    channel_subscribers.innerHTML = data.subscriberCount || 0;
-                    channel_views.innerHTML = data.viewCount || 0;
-                    channel_abreviation.innerHTML = abbreviateNumber(data.subcount || 0);
-                    const subscriberCount = parseInt(data.subscriberCount, 10);
-                    const sub0 = subscriberCount;
-                    if (sub0) {
-                        const series = graph.series[0];
-                        if (series.data.length >= 900) {
-                            series.data[0].remove();
-                        }
-                        series.addPoint([Date.now(), subscriberCount], true, false);
-                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
-                        const minDataPoint = Math.min(...allData);
-                        graph.yAxis[0].update({ min: minDataPoint });
-                    }
-                })
-                .catch(error => {
-                    console.error("Error fetching SW API:", error);
-                    // Fallback to last known values or 0
-                    channel_subscribers.innerHTML = channel_subscribers.innerHTML || 0;
-                    channel_views.innerHTML = channel_views.innerHTML || 0;
-                    channel_videos.innerHTML = channel_videos.innerHTML || 0;
-                    channel_abreviation.innerHTML = channel_abreviation.innerHTML || "0";
-                });
-        } else if
-
+         if
             (verifiedChannels.includes(cid)) {
             // Use NextCounts API for verified channels
-            fetch("https://api-v2.nextcounts.com/api/youtube/channel/" + cid)
+            fetch("https://api.subscriberwars.space/next/youtube/channel/" + cid)
                 .then(res => res.json())
                 .then(data => {
-                    channel_subscribers.innerHTML = data.subcount || 0;
-                    channel_views.innerHTML = data.viewcount || 0;
-                    channel_videos.innerHTML = data.videos || 0;
-                    channel_abreviation.innerHTML = abbreviateNumber(data.subcount || 0);
-                    const subscriberCount = parseInt(data.subcount, 10);
+                    channel_subscribers.innerHTML = data.subscribersCount || 0;
+                    channel_views.innerHTML = data.totalViews || 0;
+                    channel_videos.innerHTML = data.videosCount || 0;
+                    channel_abreviation.innerHTML = abbreviateNumber(data.subscribersCount || 0);
+                    const subscriberCount = parseInt(data.subscribersCount, 10);
                     const sub0 = subscriberCount;
                     if (sub0) {
                         const series = graph.series[0];
