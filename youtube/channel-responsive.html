@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800" rel="stylesheet"
+        type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/odometer.css">
+    <script src="https://kit.fontawesome.com/93168af8d4.js" crossorigin="anonymous"></script>
+    <script src="/js/odometer.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <title id="page_title"></title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-38E6Z6MEMP"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-38E6Z6MEMP');
+</script>
+
+<body>
+    <div class="head">
+        <div class="head_text">YouTube Live Subscriber Count</div>
+    </div>
+    <main class="main_box">
+        <img id="channel_banner" src="/images/banner_placeholder.png">
+        <img id="channel_image" src="/images/pfp_placeholder.png">
+        <div id="channel_title_container">
+            <span id="channel_title">Loading..</span>
+            <i class="fa fa-badge-check" style="display: none; color: #fff;" id="verified" title=""></i>
+        </div>
+        <div id="channel_subscribers" class="odometer"></div>
+        <div id="subscribers"><i class="fa-kit fa-youtube-subscribers"></i> Subscribers</div>
+        <div id="graph" aria-label="Live subscriber history chart"></div>
+        <div class="bottom_data">
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_views"></div>
+                <div class="bottom_text"><i class="fa-kit fa-youtube-views"></i> Views</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="odometer bottom_odometer" id="channel_videos"></div>
+                <div class="bottom_text"><i class="fa-kit fa-youtube-video"></i> Videos</div>
+            </div>
+            <div class="bottom_counts">
+                <div class="bottom_odometer" id="channel_abreviation"></div>
+                <div class="bottom_text">YouTube Displays</div>
+            </div>
+        </div>
+        <div id="powered" style="display: none;">
+            <span>Counts Provided by:</span>
+            <a href="https://nextcounts.com" target="_blank" style="text-decoration: none;">
+            <span style="font-family: plus jakarta Sans, sans-serif; color: #fff;">Next</span>
+            <span style="color: #19c59b; font-family: plus jakarta Sans, sans-serif; margin-left: -10px;">Counts</span>
+            </a>
+        </div>
+        <div class="button_box">
+            <a id="channel_sb" target="_blank" style="display: none;">
+                <button class="bott_button">
+                    <i class="fa-kit fa-socialblade"></i> Go To Social Blade Profile
+                </button>
+            </a>
+            <a id="channel_anal" target="_blank" style="display: none;">
+                <button class="bott_button">
+                    <i class="fa-sharp fa-regular fa-chart-area"></i> View Analytics
+                </button>
+            </a>
+            <a id="channel_link" target="_blank" >
+                <button class="bott_button">
+                    <i class="fa fa-brand fa-youtube"></i> Go To Channel
+                </button>
+            </a>
+        </div>
+    </main>
+    <section class="main_box video-section">
+        <h1>Last 10 Videos</h1>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Latest videos, scroll horizontally if necessary">
+        <table id="video_table">
+            <thead>
+                <tr>
+                    <th>Released</th>
+                    <th>Thumbnail</th>
+                    <th>Title</th>
+                    <th>Views</th>
+                    <th>Likes</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        </div>
+    </section>
+</body>
+
+<style>
+    :root { color-scheme: dark; --bg: #181818; --panel: #0f0f0f; --card: #191919; --red: #f00000; --muted: #b9b9b9; }
+    * { box-sizing: border-box; }
+    html { min-width: 320px; }
+    body { margin: 0; background: var(--bg); color: #fff; font-family: Roboto, Arial, sans-serif; }
+    .head { min-height: 68px; display: grid; place-items: center; padding: 12px 16px; background: linear-gradient(100deg,#f00,#830101); border-bottom: 1px solid #000; }
+    .head_text { font-weight: 600; font-size: clamp(1.4rem, 3.2vw, 2.7rem); text-align: center; }
+    .main_box { width: min(100% - 32px, 1260px); margin: 24px auto; padding: clamp(12px, 2vw, 24px); background: var(--panel); border: 1px solid #292929; border-radius: 16px; text-align: center; min-width: 0; }
+    #channel_banner { display: block; width: 100%; height: clamp(110px, 17vw, 220px); object-fit: cover; border-radius: 12px; background: #222; }
+    #channel_image { display: block; width: clamp(104px, 14vw, 180px); height: clamp(104px, 14vw, 180px); object-fit: cover; margin: calc(clamp(104px, 14vw, 180px) / -2) auto 12px; position: relative; border: 5px solid var(--panel); border-radius: 22px; background: var(--panel); }
+    #channel_title_container { font-size: clamp(1.5rem, 3.6vw, 3.4rem); font-weight: 600; overflow-wrap: anywhere; line-height: 1.2; margin: 4px 0 12px; }
+    #channel_subscribers { font-size: clamp(2rem, 8vw, 8.5rem); font-weight: 700; line-height: 1.25; max-width: 100%; white-space: nowrap; font-variant-numeric: tabular-nums; }
+    #subscribers { font-size: clamp(1rem, 2.3vw, 1.8rem); color: var(--muted); margin-bottom: 18px; }
+    #graph { width: 100%; min-width: 0; height: clamp(220px, 32vw, 390px); margin: 0 auto 20px; }
+    .bottom_data { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin: 8px 0 22px; }
+    .bottom_counts { min-width: 0; padding: 20px 10px; border: 1px solid #2a2a2a; background: var(--card); border-radius: 12px; }
+    .bottom_odometer { font-size: clamp(1.15rem, 2.6vw, 2.1rem); font-weight: 700; overflow-wrap: anywhere; }
+    .bottom_text { margin-top: 8px; font-size: clamp(.9rem, 1.65vw, 1.25rem); color: var(--muted); }
+    #powered { font-size: clamp(1rem, 2.4vw, 1.7rem); font-weight: 800; margin: 18px 0; }
+    .button_box { display: flex; flex-wrap: wrap; gap: 12px; width: 100%; }
+    .button_box > a { flex: 1 1 240px; min-width: 0; text-decoration: none; }
+    .bott_button { display: block; width: 100%; min-height: 64px; padding: 12px; color: #fff; background: #202020; border: 1px solid #373737; border-radius: 12px; font: 600 clamp(1rem, 1.65vw, 1.3rem) Roboto,Arial,sans-serif; cursor: pointer; }
+    .bott_button:hover, .bott_button:focus-visible { background: #303030; border-color: #f00; }
+    .video-section { margin-top: 24px; }
+    .video-section h1 { font-size: clamp(1.5rem, 3vw, 2rem); }
+    .table-scroll { overflow-x: auto; max-width: 100%; border-radius: 10px; }
+    #video_table { width: 100%; min-width: 800px; border-collapse: collapse; text-align: left; }
+    #video_table th { background: #242424; padding: 14px 12px; }
+    #video_table td { border-bottom: 1px solid #303030; padding: 12px; }
+    #video_table tr:nth-child(even) { background: #191919; }
+    #video_table tr:nth-child(odd) { background: #222; }
+    #video_table td img { height: 72px !important; width: auto; max-width: none; border-radius: 6px; }
+    #video_table td:nth-child(3) { max-width: 280px; }
+    .e { color: #6cb700; }
+    @media (max-width: 700px) {
+        .main_box { width: calc(100% - 20px); margin: 12px auto; padding: 12px; }
+        #channel_banner { height: 125px; }
+        #channel_image { border-radius: 18px; }
+        .bottom_data { grid-template-columns: 1fr; gap: 8px; }
+        .bottom_counts { padding: 14px; }
+        .button_box { flex-direction: column; }
+        .button_box > a { flex: auto; width: 100%; }
+        #graph { height: 250px; }
+    }
+    @media (max-width: 380px) { #channel_subscribers { font-size: 1.9rem; } }
+</style>
+
+<script>
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var channel = params.get("channel");
+    var type = params.get("type");
+    var string = '';
+    string += '';
+    const channel_banner = document.getElementById("channel_banner");
+    var uid = '';
+    var verifiedChannels = [];
+
+    // Fetch the list of NextCounts channel IDs on page load
+    fetch("https://api.nextcounts.com/api/youtube/studio/channels")
+        .then(res => res.json())
+        .then(data => {
+            verifiedChannels = [...verifiedChannels, ...data.data.map(item => item.id)]; // Add NextCounts channels
+            console.log("Verified Channels:", verifiedChannels);
+        })
+        .catch(error => {
+            console.error("Error fetching NextCounts channel list:", error);
+        });
+
+    if (type == "api") {
+        api(channel);
+        setInterval(() => {
+            api(channel);
+        }, 10000);
+    }
+    if (type == "estimate") {
+        setTimeout(() => {
+            est_api(channel);
+        }, 2000);
+        setInterval(() => {
+            est(channel);
+        }, 4000);
+    }
+
+    function api(chanid) {
+        fetch("https://api.subscriberwars.space/youtube/channel/" + chanid).then(res => res.json()).then(data => {
+            page_title.innerHTML = data.title + "'s Live Subscriber Count";
+            uid = data.uploads;
+            channel_image.src = data.icon.replace("s88", "s200");
+            channel_title.innerHTML = data.title;
+            channel_subscribers.innerHTML = data.subscriberCount;
+            channel_views.innerHTML = data.viewCount;
+            channel_videos.innerHTML = data.videoCount;
+            channel_title.href = "https://youtube.com/channel/" + data.id;
+            channel_link.href = "https://youtube.com/channel/" + data.id;
+            channel_sb.href = "https://socialblade.com/youtube/handle/" + data.slug;
+            channel_abreviation.innerHTML = abbreviateNumber(data.subscriberCount);
+            document.getElementById("channel_sb").style.display = "inline";
+            channel_banner.src = data.banner + "=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj";
+        }).catch(error => {
+            console.error("Error fetching SubscriberWars channel API:", error);
+        });
+    }
+
+    function est_api(cid) {
+        fetch("https://api.subscriberwars.space/youtube/channel/" + cid).then(res => res.json()).then(data => {
+            page_title.innerHTML = data.title + "'s Live Subscriber Count";
+            uid = data.uploads;
+            channel_image.src = data.icon.replace("s88", "s200");
+            channel_title.innerHTML = data.title;
+            channel_subscribers.innerHTML = data.subscriberCount;
+            channel_views.innerHTML = data.viewCount;
+            channel_videos.innerHTML = data.videoCount;
+            channel_title.href = "https://youtube.com/channel/" + data.id;
+            channel_link.href = "https://youtube.com/channel/" + data.id;
+            channel_anal.href = "/analytics/youtube?q=" + data.slug;
+            channel_abreviation.innerHTML = abbreviateNumber(data.subscriberCount);
+            document.getElementById("channel_anal").style.display = "inline";
+            channel_banner.src = data.banner + "=w2560-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj";
+            // Display verified mark for channels in verifiedChannels
+            if (verifiedChannels.includes(data.id)) {
+                document.getElementById("verified").style.display = "inline";
+                document.getElementById("verified").title = "This channel shares their live subscriber count Via NextCounts";
+                document.getElementById("powered").style.display = "block";
+            } else {
+                document.getElementById("verified").style.display = "none";
+            };
+        }).catch(error => {
+            console.error("Error fetching SubscriberWars channel API:", error);
+        });
+    }
+
+    function est(cid) {
+         if
+            (verifiedChannels.includes(cid)) {
+            // Use NextCounts API for verified channels
+            fetch("https://api.subscriberwars.space/next/youtube/channel/" + cid)
+                .then(res => res.json())
+                .then(data => {
+                    channel_subscribers.innerHTML = data.subscribersCount || 0;
+                    channel_views.innerHTML = data.totalViews || 0;
+                    channel_videos.innerHTML = data.videosCount || 0;
+                    channel_abreviation.innerHTML = abbreviateNumber(data.subscribersCount || 0);
+                    const subscriberCount = parseInt(data.subscribersCount, 10);
+                    const sub0 = subscriberCount;
+                    if (sub0) {
+                        const series = graph.series[0];
+                        if (series.data.length >= 900) {
+                            series.data[0].remove();
+                        }
+                        series.addPoint([Date.now(), subscriberCount], true, false);
+                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                        const minDataPoint = Math.min(...allData);
+                        graph.yAxis[0].update({ min: minDataPoint });
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching NextCounts API:", error);
+                    // Fallback to last known values or 0
+                    channel_subscribers.innerHTML = channel_subscribers.innerHTML || 0;
+                    channel_views.innerHTML = channel_views.innerHTML || 0;
+                    channel_videos.innerHTML = channel_videos.innerHTML || 0;
+                    channel_abreviation.innerHTML = channel_abreviation.innerHTML || "0";
+                });
+        } else {
+            // Use SubscriberWars estimate API for other channels
+            fetch("https://api.subscriberwars.space/youtube/estimate/" + cid)
+                .then(res => res.json())
+                .then(data => {
+                    channel_subscribers.innerHTML = data.estSubCount || 0;
+                    channel_views.innerHTML = data.estViewCount || 0;
+                    channel_abreviation.innerHTML = abbreviateNumber(data.apiSubCount || 0);
+                    const subscriberCount = parseInt(data.estSubCount, 10);
+                    const sub0 = subscriberCount;
+                    if (sub0) {
+                        const series = graph.series[0];
+                        if (series.data.length >= 900) {
+                            series.data[0].remove();
+                        }
+                        series.addPoint([Date.now(), subscriberCount], true, false);
+                        const allData = series.data.length > 0 ? series.data.map(point => point.y) : [subscriberCount];
+                        const minDataPoint = Math.min(...allData);
+                        graph.yAxis[0].update({ min: minDataPoint });
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching SubscriberWars estimate API:", error);
+                    // Fallback to last known values or 0
+                    channel_subscribers.innerHTML = channel_subscribers.innerHTML || 0;
+                    channel_views.innerHTML = channel_views.innerHTML || 0;
+                    channel_videos.innerHTML = channel_videos.innerHTML || 0;
+                    channel_abreviation.innerHTML = channel_abreviation.innerHTML || "0";
+                });
+        }
+    }
+    var graph = Highcharts.chart({
+        chart: {
+            renderTo: 'graph',
+            type: 'areaspline',
+            accessibilityEnabled: { enabled: false },
+            zoomType: 'x',
+            backgroundColor: 'transparent',
+            plotBorderColor: 'transparent'
+        },
+        title: { text: '' },
+        xAxis: {
+            type: 'datetime',
+            tickPixelInterval: 300,
+            gridLineColor: '#f5f5f5',
+            labels: { style: { color: '#f5f5f5' } },
+            minorGridLineColor: '#transparent',
+            tickColor: '#f5f5f5',
+            lineColor: '#f5f5f5',
+            title: { style: { color: '#transparent' } }
+        },
+        yAxis: {
+            title: { text: '' },
+            gridLineColor: '#transparent',
+            labels: { enabled: false },
+            minorGridLineColor: 'transparent'
+        },
+        credits: { enabled: false, text: "" },
+        plotOptions: { areaspline: { fillOpacity: 0.5 } },
+        tooltip: {
+            shared: true,
+            valueSuffix: '',
+            backgroundColor: '#000',
+            borderColor: '#ff0000',
+            borderWidth: '3px',
+            style: {
+                color: '#f5f5f5',
+                fontSize: '1.5em'
+            }
+        },
+        series: [{
+            showInLegend: false,
+            name: 'Subscribers',
+            marker: { enabled: false },
+            lineColor: '#ff0000',
+            color: '#ff0000',
+            lineWidth: 4,
+            data: [] // Starts empty
+        }]
+    });
+
+    const vid = [];
+    const videoarray = [];
+    var urllink = "https://youtu.be/";
+
+    function video() {
+        fetch("https://api.subscriberwars.space/youtube/playlist/" + uid).then(res => res.json()).then(data => {
+            vid[0] = data.items[0].contentDetails.videoId;
+            vid[1] = data.items[1].contentDetails.videoId;
+            vid[2] = data.items[2].contentDetails.videoId;
+            vid[3] = data.items[3].contentDetails.videoId;
+            vid[4] = data.items[4].contentDetails.videoId;
+            vid[5] = data.items[5].contentDetails.videoId;
+            vid[6] = data.items[6].contentDetails.videoId;
+            vid[7] = data.items[7].contentDetails.videoId;
+            vid[8] = data.items[8].contentDetails.videoId;
+            vid[9] = data.items[9].contentDetails.videoId;
+        });
+        console.log(vid);
+    }
+
+    function videosearch() {
+        fetch("https://api.subscriberwars.space/youtube/video/" + vid[0] + "," + vid[1] + "," + vid[2] + "," + vid[3] + "," + vid[4] + "," + vid[5] + "," + vid[6] + "," + vid[7] + "," + vid[8] + "," + vid[9] + ",").then(res => res.json()).then(data => {
+            videoarray[0] = data.items[0];
+            videoarray[1] = data.items[1];
+            videoarray[2] = data.items[2];
+            videoarray[3] = data.items[3];
+            videoarray[4] = data.items[4];
+            videoarray[5] = data.items[5];
+            videoarray[6] = data.items[6];
+            videoarray[7] = data.items[7];
+            videoarray[8] = data.items[8];
+            videoarray[9] = data.items[9];
+        });
+        console.log(videoarray);
+    }
+
+    function inject() {
+        const tableBody = document.querySelector('#video_table tbody');
+        videoarray.forEach(dataRow => {
+            const newRow = document.createElement('tr');
+            const properties = [
+                'snippet.publishedAt',
+                'snippet.thumbnails.medium.url',
+                'snippet.title',
+                'statistics.viewCount',
+                'statistics.likeCount',
+                'statistics.commentCount',
+            ];
+            properties.forEach(property => {
+                const newCell = document.createElement('td');
+                const propertyPath = property.split('.');
+                let value = dataRow;
+                propertyPath.forEach(path => {
+                    value = value[path];
+                });
+                if (property === 'snippet.publishedAt') {
+                    value = value.split("T")[0];
+                }
+                if (property === 'statistics.viewCount' || property === 'statistics.likeCount' || property === 'statistics.commentCount') {
+                    value = parseInt(value);
+                    value = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                }
+                if (property === 'snippet.thumbnails.medium.url') {
+                    const image = document.createElement('img');
+                    image.src = value;
+                    image.alt = 'Thumbnail';
+                    image.style.height = '90px';
+                    newCell.appendChild(image);
+                } else {
+                    newCell.textContent = value;
+                    newCell.style.maxWidth = '300px';
+                    newCell.style.overflow = 'hidden';
+                    newCell.style.whiteSpace = 'noWrap';
+                    newCell.style.textOverflow = 'ellipsis';
+                    newCell.style.paddingRight = '10px';
+                }
+                newRow.appendChild(newCell);
+            });
+            tableBody.appendChild(newRow);
+        });
+    }
+
+    function abbreviateNumber(number) {
+        const SI_SYMBOLS = ["", "K", "M", "B", "T"];
+        const tier = Math.log10(Math.abs(number)) / 3 | 0;
+        const suffix = SI_SYMBOLS[tier];
+        const abbreviatedNumber = (number / Math.pow(10, tier * 3)).toPrecision(3) + suffix;
+        return abbreviatedNumber;
+    }
+
+    setTimeout(() => {
+        video(uid);
+    }, 4000);
+    setTimeout(() => {
+        videosearch(vid);
+    }, 6000);
+    setTimeout(() => {
+        inject();
+    }, 7000);
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Subscriber Wars — Live Counter</title>
+    <link rel="stylesheet" href="/css/odometer.css">
+    <link rel="stylesheet" href="/css/counter.css">
+    <script defer src="/js/odometer.js"></script>
+    <script defer src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script type="module" src="/js/counter/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="topbar"><a href="/" class="brand">SUBSCRIBER WARS</a><span id="page-heading">Live Counter</span>
+    </header>
+    <main class="shell">
+        <section class="panel profile">
+            <div class="banner-wrap"><img id="banner" src="/images/banner_placeholder.png" alt=""
+                    onerror="this.style.visibility='hidden'"></div><img id="avatar" class="avatar"
+                src="/images/pfp_placeholder.png" alt="Channel avatar">
+            <h1 id="title">Loading channel…</h1>
+            <p id="handle" class="muted"></p>
+            <div id="count" class="odometer primary-count">0</div>
+            <div id="count-label" class="count-label">Followers</div>
+            <div id="error" class="error" role="status" hidden></div>
+            <div id="graph" class="graph" aria-label="Live count history"></div>
+            <div id="stats" class="stats"></div>
+            <div id="links" class="links"></div>
+        </section>
+        <section id="videos-section" class="panel" hidden>
+            <h2>Latest videos</h2>
+            <div class="table-scroll">
+                <table>
+                    <thead id="videos-head"></thead>
+                    <tbody id="videos-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
