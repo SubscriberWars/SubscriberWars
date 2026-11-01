@@ -92,7 +92,7 @@
                     document.getElementById(`img${i}`).src = data.items[i - 1].pfp;
                     document.getElementById(`nam${i}`).innerHTML = data.items[i - 1].title;
                     document.getElementById(`id${i}`).innerHTML = "@" + data.items[i - 1].id;
-                    document.getElementById(`link${i}`).href = "/truemaple/users?q=" + data.items[i - 1].id;
+                    document.getElementById(`link${i}`).href = "/counter?platform=truemaple&channel=" + data.items[i - 1].id;
                 }
             });
         }

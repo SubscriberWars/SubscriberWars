@@ -28,9 +28,28 @@ export const config = {
         accent: '#53fc18',
         unit: 'Followers',
         interval: 10000
-    }, x: {
+    },
+    x: {
         label: 'X',
         accent: '#777777',
+        unit: 'Followers',
+        interval: 10000
+    },
+    truemaple: {
+        label: 'True Maple',
+        accent: '#5548ef',
+        unit: 'Followers',
+        interval: 10000
+    },
+    bluesky: {
+        label: 'BlueSky',
+        accent: '#007bff',
+        unit: 'Followers',
+        interval: 10000
+    },
+    club: {
+        label: 'Club',
+        accent: '#6366F1',
         unit: 'Followers',
         interval: 10000
     }

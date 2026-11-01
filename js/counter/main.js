@@ -9,12 +9,72 @@ let chart, adapter, profile, lastCount = null, busy = false;
 function error(message) { $('error').textContent = message; $('error').hidden = !message }
 function setImage(el, url) { if (url) { el.src = url; el.hidden = false } else { el.hidden = true } }
 function renderStats(items) {
-    if (!items) return; $('stats').replaceChildren(); for (const item of items) {
-        if (item?.value === null || item?.value === undefined) continue;
-        const card = document.createElement('div'); card.className = 'stat';
-        const value = document.createElement('div'); value.className = 'stat-value'; value.textContent = Number(item.value).toLocaleString('en-GB');
-        const label = document.createElement('div'); label.className = 'stat-label'; label.textContent = item.label; card.append(value, label); $('stats').append(card)
+    if (!items) return;
+
+    const container = $('stats');
+
+    const validItems = items.filter(item =>
+        item?.value !== null &&
+        item?.value !== undefined &&
+        Number.isFinite(Number(item.value))
+    );
+
+    // Keep track of existing statistic cards
+    const existingCards = new Map();
+
+    container.querySelectorAll('.stat').forEach(card => {
+        existingCards.set(card.dataset.label, card);
+    });
+
+    const activeLabels = new Set();
+
+    for (const item of validItems) {
+        const label = String(item.label);
+        const count = Number(item.value);
+
+        activeLabels.add(label);
+
+        let card = existingCards.get(label);
+        let value;
+
+        // Create the card if it doesn't already exist
+        if (!card) {
+            card = document.createElement('div');
+            card.className = 'stat';
+            card.dataset.label = label;
+
+            value = document.createElement('div');
+            value.className = 'stat-value odometer';
+            value.textContent = '0';
+
+            const labelElement = document.createElement('div');
+            labelElement.className = 'stat-label';
+            labelElement.textContent = label;
+
+            card.append(value, labelElement);
+            container.append(card);
+
+            // Initialise Odometer
+            const odometer = new Odometer({
+                el: value,
+                value: 0,
+                format: '(,ddd)',
+                duration: 1000
+            });
+
+            card.odometer = odometer;
+        }
+
+        // Update the existing Odometer
+        card.odometer?.update(count);
     }
+
+    // Remove statistics that are no longer available
+    container.querySelectorAll('.stat').forEach(card => {
+        if (!activeLabels.has(card.dataset.label)) {
+            card.remove();
+        }
+    });
 }
 function renderLinks(items) {
     $('links').replaceChildren(); for (const item of items || []) {

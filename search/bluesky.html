@@ -101,7 +101,7 @@
                     if (type === "posts") {
                         document.getElementById(`link${i}`).href = "/bluesky/post?q=" + data.items[i - 1].id;
                     } else {
-                        document.getElementById(`link${i}`).href = "/bluesky/user?q=" + data.items[i - 1].id;
+                        document.getElementById(`link${i}`).href = "/counter?platform=bluesky&channel=" + data.items[i - 1].id;
                     }
                 }
             });

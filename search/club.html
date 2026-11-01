@@ -92,7 +92,7 @@
                     document.getElementById(`img${i}`).src = "https://media.club.com/users/" + data.users[i - 1].id + "/profile-picture";
                     document.getElementById(`nam${i}`).innerHTML = data.users[i - 1].name;
                     document.getElementById(`id${i}`).innerHTML = "@" + data.users[i - 1].username;
-                    document.getElementById(`link${i}`).href = "/club/users?q=" + data.users[i - 1].id;
+                    document.getElementById(`link${i}`).href = "/counter?platform=club&channel=" + data.users[i - 1].id;
                 }
             });
         }

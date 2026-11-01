@@ -137,9 +137,14 @@ h2 {
 }
 
 .stat-value {
-    font-size: clamp(1.3rem, 2.7vw, 2.5rem);
+    font-size: clamp(24px, 3vw, 48px);
     font-weight: 700;
-    overflow-wrap: anywhere
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.stat-value .odometer-digit {
+    display: inline-block;
 }
 
 .stat-label {
