@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#0f1016">
+    <title>Search | Subscriber Wars</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/search.css">
+    <script type="module" src="/js/search/main.js"></script>
+</head>
+
+<body>
+    <header class="topbar"><a class="brand" href="/">SUBSCRIBER WARS</a><a class="toplink" href="/">Home ↗</a></header>
+    <main class="shell">
+        <div class="intro">
+            <div class="eyebrow">DISCOVER CREATORS</div>
+            <h1>Find a live counter<span>.</span></h1>
+            <p>Choose a platform and search for your favourite creator.</p>
+        </div>
+        <form id="search-form" class="search-panel"><label for="platform">Platform</label>
+            <div class="controls"><select id="platform" name="platform">
+                    <option value="youtube">YouTube</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="twitch">Twitch</option>
+                    <option value="kick">Kick</option>
+                    <option value="bluesky">BlueSky</option>
+                    <option value="truemaple">TrueMaple</option>
+                    <option value="club">Club</option>
+                    <option value="vidstur">Vidstur</option>
+                </select>
+                <div id="youtube-mode-wrap" class="youtube-mode"><select id="youtube-mode">
+                        <option value="estimate">Estimate</option>
+                        <option value="api">Official API</option>
+                    </select></div><input id="query" name="q" type="search"
+                    placeholder="Search creators, handles or channel IDs…" minlength="1" required autocomplete="off"
+                    spellcheck="false"><button type="submit" id="search-button">Search <span
+                        aria-hidden="true">→</span></button>
+            </div>
+            <p class="hint">Select a platform to search.</p>
+        </form>
+        <div class="results-top">
+            <h2 id="results-heading">Search results</h2><span id="status" role="status" aria-live="polite">Enter a
+                search to begin</span>
+        </div>
+        <div id="results" class="grid"></div>
+        <div id="empty" class="empty">
+            <div class="empty-icon">⌕</div>
+            <h3>Find your next creator</h3>
+            <p>Results will appear here after you search.</p>
+        </div>
+    </main>
+    <footer>Subscriber Wars · Universal Platform Search</footer>
+</body>
+
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+        kofiWidgetOverlay.draw('jaymburtonsw', {
+            'type': 'floating-chat',
+            'floating-chat.donateButton.text': 'Donate',
+            'floating-chat.donateButton.background-color': '#d9534f',
+            'floating-chat.donateButton.text-color': '#fff'
+        });
+    </script>
+
+</html>

@@ -1,0 +1,372 @@
+:root {
+    color-scheme: dark;
+    --bg: #0e1017;
+    --panel: #191c27;
+    --line: #303443;
+    --text: #f7f8ff;
+    --muted: #a4a9bb;
+    --accent: #ff8383;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 65% -10%, #3d2222 0, transparent 48%), var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', sans-serif
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 21px max(24px, calc((100vw - 1220px)/2));
+    border-bottom: 1px solid #ffffff12
+}
+
+.brand {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: .09em;
+    color: #fff;
+    text-decoration: none
+}
+
+.toplink {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px
+}
+
+.shell {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 70px 24px 90px
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px
+}
+
+.eyebrow {
+    color: #ffadad;
+    font-size: 12px;
+    letter-spacing: .22em;
+    font-weight: 800
+}
+
+.intro h1 {
+    font-size: clamp(36px, 5vw, 68px);
+    letter-spacing: -.055em;
+    line-height: 1.12;
+    margin: 15px 0
+}
+
+.intro h1 span {
+    color: var(--accent)
+}
+
+.intro p,
+.hint {
+    color: var(--muted)
+}
+
+.intro p {
+    font-size: 16px
+}
+
+.search-panel {
+    padding: 25px;
+    background: #2a1b1b;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: 0 15px 45px #0003
+}
+
+.search-panel label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: 185px minmax(0, 1fr) 145px;
+    gap: 12px
+}
+
+.controls>* {
+    min-width: 0;
+    height: 52px;
+    border-radius: 11px;
+    font: inherit;
+    font-size: 14px
+}
+
+.controls select,
+.controls input {
+    color: var(--text);
+    background: #11131d;
+    border: 1px solid #503b3b;
+    padding: 0 15px;
+    outline: none
+}
+
+.controls select:focus,
+.controls input:focus {
+    border-color: #ff9b9b;
+    box-shadow: 0 0 0 3px #ff838328
+}
+
+.controls button {
+    background: #fa7777;
+    color: white;
+    font-weight: 800;
+    border: 0;
+    cursor: pointer
+}
+
+.controls button:hover {
+    background: #ff8d8d
+}
+
+.controls button:disabled {
+    opacity: .55;
+    cursor: wait
+}
+
+.hint {
+    font-size: 12px;
+    margin: 14px 0 0
+}
+
+.results-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 40px 0 20px
+}
+
+.results-top h2 {
+    font-size: 20px;
+    margin: 0
+}
+
+.results-top span {
+    color: var(--muted);
+    font-size: 13px
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 18px;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color .15s, transform .15s
+}
+
+.card:hover {
+    border-color: #ff8989;
+    transform: translateY(-2px)
+}
+
+.avatar {
+    width: 62px;
+    height: 62px;
+    flex: none;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #483030
+}
+
+.avatar.fallback {
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 24px
+}
+
+.card-body {
+    min-width: 0;
+    flex: 1
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.card-handle {
+    color: var(--muted);
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 3px
+}
+
+.card-count {
+    font-size: 12px;
+    margin-top: 9px;
+    color: #d9d4ff
+}
+
+.card-arrow {
+    font-size: 22px;
+    color: #ff9494
+}
+
+.empty {
+    border: 1px dashed #503d3d;
+    border-radius: 20px;
+    text-align: center;
+    padding: 55px 20px;
+    color: var(--muted)
+}
+
+.empty h3 {
+    color: #f2f3ff;
+    margin: 8px 0
+}
+
+.empty p {
+    font-size: 13px
+}
+
+.empty-icon {
+    font-size: 44px;
+    color: #ff9494
+}
+
+footer {
+    text-align: center;
+    color: #907777;
+    font-size: 12px;
+    padding: 20px
+}
+
+@media(max-width:950px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+}
+
+@media(max-width:650px) {
+    .shell {
+        padding: 48px 16px 70px
+    }
+
+    .topbar {
+        padding: 18px 16px
+    }
+
+    .controls {
+        grid-template-columns: 1fr
+    }
+
+    .controls>* {
+        height: 50px
+    }
+
+    .search-panel {
+        padding: 18px
+    }
+
+    .grid {
+        grid-template-columns: 1fr
+    }
+
+    .results-top {
+        align-items: flex-start;
+        flex-direction: column
+    }
+
+    .intro {
+        margin-bottom: 30px
+    }
+
+    .brand {
+        font-size: 13px
+    }
+}
+
+/* The mode selector appears only for YouTube. */
+.youtube-mode[hidden] {
+    display: none !important
+}
+
+.youtube-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+
+.youtube-mode label {
+    margin: 0;
+    font-size: 11px;
+    color: var(--muted)
+}
+
+.youtube-mode select {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 12px;
+    border-radius: 11px;
+    border: 1px solid #503b3b;
+    background: #1d1111;
+    color: var(--text);
+    font: inherit
+}
+
+.controls:has(.youtube-mode:not([hidden])) {
+    grid-template-columns: 155px 150px minmax(0, 1fr) 125px;
+    align-items: end
+}
+
+@media(max-width:800px) {
+    .controls:has(.youtube-mode:not([hidden])) {
+        grid-template-columns: 1fr 1fr
+    }
+
+    .controls:has(.youtube-mode:not([hidden])) input {
+        grid-column: 1/-1
+    }
+
+    .controls:has(.youtube-mode:not([hidden])) button {
+        grid-column: 1/-1
+    }
+}
+
+@media(max-width:650px) {
+    .controls:has(.youtube-mode:not([hidden])) {
+        grid-template-columns: 1fr
+    }
+
+    .controls:has(.youtube-mode:not([hidden])) input,
+    .controls:has(.youtube-mode:not([hidden])) button {
+        grid-column: auto
+    }
+}
