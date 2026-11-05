@@ -52,5 +52,11 @@ export const config = {
         accent: '#6366F1',
         unit: 'Followers',
         interval: 10000
+    },
+    vidstur: {
+        label: 'Vidstur',
+        accent: '#0380e0',
+        unit: 'Subscribers',
+        interval: 10000
     }
 };
