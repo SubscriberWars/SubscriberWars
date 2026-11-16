@@ -33,7 +33,7 @@ function normalise(item, platform) {
   const id = rawId == null ? '' : String(rawId);
   const username = rawUsername == null ? '' : String(rawUsername).replace(/^@/, '');
   const handle = username;
-  const name = pick(d?.nickname, d?.displayName, d?.display_name, d?.title, d?.name, d?.channelName, d?.channel_name, handle, id);
+  const name = pick(d?.nickname, d?.fullname, d?.displayName, d?.display_name, d?.title, d?.name, d?.channelName, d?.channel_name, handle, id);
   const avatar = pick(d?.avatar?.url, d?.avatar?.url_list?.[0], d?.avatar_medium?.url_list?.[0], d?.avatarMedium, d?.pfp, d?.avatar_url, d?.profile_image_url, d?.profileImageUrl, d?.thumbnail?.url, d?.thumbnails?.default?.url, d?.thumbnails?.medium?.url, d?.profile_image, d?.avatar, d?.channelProfile);
   const count = pick(d?.subscriberCount, d?.subscribers, d?.followerCount, d?.followers, d?.followers_count, d?.statistics?.subscriberCount, d?.stats?.followers);
   return { id, username, name: String(name || 'Unknown'), handle, avatar: typeof avatar === 'string' ? avatar : '', count, platform };

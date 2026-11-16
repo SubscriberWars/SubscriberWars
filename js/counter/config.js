@@ -58,5 +58,11 @@ export const config = {
         accent: '#0380e0',
         unit: 'Subscribers',
         interval: 10000
+    },
+    pickax: {
+        label: 'Pickax',
+        accent: '#00fffb',
+        unit: 'Followers',
+        interval: 10000
     }
 };
