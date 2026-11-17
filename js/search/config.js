@@ -9,6 +9,6 @@ export const platforms = {
   bluesky:   { label: 'Bluesky', endpoint: 'https://api.subscriberwars.space/search/bluesky/channel/{query}', identifier: 'id', counterParam: 'channel' },
   truemaple: { label: 'TrueMaple', endpoint: 'https://api.subscriberwars.space/search/truemaple/user/{query}', identifier: 'id', counterParam: 'channel' },
   club:      { label: 'Club', endpoint: 'https://api.subscriberwars.space/search/club/{query}', identifier: 'id', counterParam: 'channel' },
-  pickax:    { label: 'pickax', endpoint: 'https://api.subscriberwars.space/search/pickax/user/{query}', identifier: 'username', counterParam: 'channel' },
+  pickax:    { label: 'Pickax', endpoint: 'https://api.subscriberwars.space/search/pickax/user/{query}', identifier: 'username', counterParam: 'channel' },
   vidstur:   { label: 'Vidstur', endpoint: null, identifier: 'username', counterParam: 'channel', directLookup: true},
 }

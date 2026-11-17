@@ -35,8 +35,12 @@ function normalise(item, platform) {
   const handle = username;
   const name = pick(d?.nickname, d?.fullname, d?.displayName, d?.display_name, d?.title, d?.name, d?.channelName, d?.channel_name, handle, id);
   const avatar = pick(d?.avatar?.url, d?.avatar?.url_list?.[0], d?.avatar_medium?.url_list?.[0], d?.avatarMedium, d?.pfp, d?.avatar_url, d?.profile_image_url, d?.profileImageUrl, d?.thumbnail?.url, d?.thumbnails?.default?.url, d?.thumbnails?.medium?.url, d?.profile_image, d?.avatar, d?.channelProfile);
+  const avatarURL = platform === 'pickax' && typeof avatar === 'string'
+    ? avatar.replace(/^https?:\/\/(?:www\.)?/, 'https://')
+            .replace(/^img\.pickax\.com\//, 'https://img.pickax.com/')
+    : avatar;
   const count = pick(d?.subscriberCount, d?.subscribers, d?.followerCount, d?.followers, d?.followers_count, d?.statistics?.subscriberCount, d?.stats?.followers);
-  return { id, username, name: String(name || 'Unknown'), handle, avatar: typeof avatar === 'string' ? avatar : '', count, platform };
+  return { id, username, name: String(name || 'Unknown'), handle, avatar: typeof avatarURL === 'string' ? avatarURL : '', count, platform};
 }
 
 function accountIdentifier(user) {
@@ -164,6 +168,16 @@ function directUsernameLookup(platform, query) {
     count: null,
     platform
   }];
+}
+
+function fixImageURL(url) {
+    if (!url || typeof url !== 'string') return '';
+
+    if (url.startsWith('img.pickax.com/')) {
+        return `https://${url}`;
+    }
+
+    return url;
 }
 
 function updateURL(platform, q) { const url = new URL(location.href); url.searchParams.set('platform', platform); if (platform === 'youtube') url.searchParams.set('type', youtubeMode.value); else url.searchParams.delete('type'); if (q) url.searchParams.set('q', q); else url.searchParams.delete('q'); history.replaceState(null, '', url); }
